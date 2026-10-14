@@ -1,0 +1,96 @@
+{
+  "mode": "on",
+  "synthetic_owner": "auth0|qa-330-a",
+  "cases": [
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.chat",
+          "trusted_owner": true
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.chat",
+          "identified": true,
+          "identity_matches": true
+        }
+      ],
+      "observations": 2
+    },
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.chat",
+          "trusted_owner": true
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.chat",
+          "identified": true,
+          "identity_matches": true
+        }
+      ],
+      "observations": 2
+    },
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.chat",
+          "trusted_owner": false
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.chat",
+          "identified": false,
+          "identity_matches": false
+        }
+      ],
+      "observations": 5
+    },
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.chat",
+          "trusted_owner": true
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.chat",
+          "identified": true,
+          "identity_matches": true
+        }
+      ],
+      "observations": 0
+    },
+    {
+      "recorded_roots": [],
+      "wire_roots": [],
+      "observations": 0
+    },
+    {
+      "recorded_roots": [],
+      "wire_roots": [],
+      "observations": 0
+    },
+    {
+      "recorded_roots": [],
+      "wire_roots": [],
+      "observations": 0
+    },
+    {
+      "recorded_roots": [],
+      "wire_roots": [],
+      "observations": 0
+    },
+    {
+      "recorded_roots": [],
+      "wire_roots": [],
+      "observations": 0
+    }
+  ],
+  "passed": true
+}

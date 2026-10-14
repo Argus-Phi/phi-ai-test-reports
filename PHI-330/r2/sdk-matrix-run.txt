@@ -1,0 +1,149 @@
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 unhandledRejection listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[posthog] analytics configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+[sentry] reporting configured; identity association is permission gated
+[posthog] POSTHOG_KEY unset; analytics disabled
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] POSTHOG_KEY unset; analytics disabled
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] POSTHOG_KEY unset; analytics disabled
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[sentry] reporting configured; identity association is permission gated
+[posthog] POSTHOG_KEY unset; analytics disabled
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+[posthog] POSTHOG_KEY unset; analytics disabled
+[posthog] POSTHOG_KEY unset; analytics disabled
+[posthog] POSTHOG_KEY unset; analytics disabled
+[posthog] POSTHOG_KEY unset; analytics disabled
+[posthog] telemetry disabled for this release channel
+[posthog] telemetry disabled for this release channel
+[posthog] telemetry disabled for this release channel
+[posthog] telemetry disabled for this release channel
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:28834) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+{"config":44,"states":8,"ambient":2,"paths":2,"failures":[],"passed":true}

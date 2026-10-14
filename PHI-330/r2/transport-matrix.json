@@ -1,0 +1,648 @@
+{
+  "utc": "2026-10-14T19:02:30.871Z",
+  "cases": [
+    {
+      "transport": "tcp",
+      "fault": "none",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "missing",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 0,
+        "posthog": 0
+      },
+      "network_packets": [],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "sentry-throws",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "posthog-throws",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "sentry-network",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "posthog-network",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry",
+        "posthog",
+        "posthog",
+        "posthog",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "network",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog",
+        "sentry",
+        "posthog",
+        "posthog",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "tcp",
+      "fault": "reader-timeout",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "none",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog",
+        "sentry"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "missing",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 0,
+        "posthog": 0
+      },
+      "network_packets": [],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "sentry-throws",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "posthog-throws",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "sentry-network",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog",
+        "sentry"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "posthog-network",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog",
+        "sentry",
+        "posthog",
+        "posthog",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "network",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "posthog",
+        "sentry",
+        "posthog",
+        "posthog",
+        "posthog"
+      ],
+      "passed": true
+    },
+    {
+      "transport": "uds",
+      "fault": "reader-timeout",
+      "responses": [
+        {
+          "path": "/throw",
+          "status": 500,
+          "body": "{\"error\":\"internal_server_error\"}"
+        },
+        {
+          "path": "/ok",
+          "status": 200,
+          "body": "ok"
+        },
+        {
+          "path": "/ordinary",
+          "status": 422,
+          "body": "ordinary error"
+        },
+        {
+          "path": "/auth",
+          "status": 401,
+          "body": "denied"
+        },
+        {
+          "path": "/stream",
+          "status": 200,
+          "body": "prefix"
+        }
+      ],
+      "calls": {
+        "sentry": 1,
+        "posthog": 1
+      },
+      "network_packets": [
+        "sentry",
+        "posthog"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

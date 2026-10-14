@@ -1,0 +1,19 @@
+{
+ "PHI-330": [
+  {
+   "round": 2,
+   "kind": "regression",
+   "verdict": "pass",
+   "title": "埋点数据梳理和规范化",
+   "sha": "5dcf8b796757094f20c1fae78b84aa249694c27e",
+   "generated_at": "2026-10-14T19:11:04.453239+00:00",
+   "counts": {
+    "pass": 30,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 30
+   }
+  }
+ ]
+}

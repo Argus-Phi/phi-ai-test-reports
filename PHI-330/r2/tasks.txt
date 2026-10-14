@@ -1,0 +1,760 @@
+UTC: 2026-10-14T18:49:22.467037+00:00
+Command: npx --yes pnpm@10.17.1 --filter @phi-ai/dsh-plugin-tasks test
+Exit: 0
+# Subtest: answering 'run' starts the task now and records the run that answered
+ok 1 - answering 'run' starts the task now and records the run that answered
+# Subtest: answering 'ignore' starts nothing
+ok 2 - answering 'ignore' starts nothing
+# Subtest: an answered offer, or no offer, is refused
+ok 3 - an answered offer, or no offer, is refused
+# Subtest: 'run now' twice at once starts exactly one run
+ok 4 - 'run now' twice at once starts exactly one run
+# Subtest: another run of the task settles its offer: a scheduled one expires it, a chat one answers it
+ok 5 - another run of the task settles its offer: a scheduled one expires it, a chat one answers it
+# Subtest: a catch-up run leaves the offer to the answer that started it
+ok 6 - a catch-up run leaves the offer to the answer that started it
+# Subtest: a newer offer replaces the open ones
+ok 7 - a newer offer replaces the open ones
+# Subtest: the sweep expires offers past their time and offers of a task that is not ready
+ok 8 - the sweep expires offers past their time and offers of a task that is not ready
+# Subtest: an Ignore that lands while Run now is starting the task never leaves a run behind an ignored offer
+ok 9 - an Ignore that lands while Run now is starting the task never leaves a run behind an ignored offer
+# Subtest: a second Run now read before the first finished, started after it, starts nothing
+ok 10 - a second Run now read before the first finished, started after it, starts nothing
+# Subtest: a start the task refuses gives the offer back, so it can be answered again
+ok 11 - a start the task refuses gives the offer back, so it can be answered again
+# Subtest: an answer that loses a concurrent change of the offer is refused, not recorded
+ok 12 - an answer that loses a concurrent change of the offer is refused, not recorded
+# Subtest: a task that stops being ready has its open offers expired at once
+ok 13 - a task that stops being ready has its open offers expired at once
+# Subtest: the open questions of a conversation: each with its task, kind and time; answered, unposted and other conversations' left out
+ok 14 - the open questions of a conversation: each with its task, kind and time; answered, unposted and other conversations' left out
+# Subtest: the open questions are read as each task's open offers, never its whole history: every message asks
+ok 15 - the open questions are read as each task's open offers, never its whole history: every message asks
+# Subtest: the sweep reads only open offers, a bounded batch, never every run
+ok 16 - the sweep reads only open offers, a bounded batch, never every run
+# Subtest: an answer from the conversation is recorded as coming from the chat
+ok 17 - an answer from the conversation is recorded as coming from the chat
+# Subtest: the open questions are found by the user as the conversation knows them, though the store keeps the id sanitized
+ok 18 - the open questions are found by the user as the conversation knows them, though the store keeps the id sanitized
+# Subtest: starts the run as a child of its own anchor, on the default model
+ok 19 - starts the run as a child of its own anchor, on the default model
+# Subtest: a start that throws still releases the run and disposes the anchor
+ok 20 - a start that throws still releases the run and disposes the anchor
+# Subtest: a run with no agent plane names what is missing
+ok 21 - a run with no agent plane names what is missing
+# Subtest: scheduledTasks.createTask records the conversation and origin beside the profile and Space
+ok 22 - scheduledTasks.createTask records the conversation and origin beside the profile and Space
+# Subtest: scheduledTasks.createTask outside a conversation leaves the task unlinked
+ok 23 - scheduledTasks.createTask outside a conversation leaves the task unlinked
+# Subtest: scheduledTasks.listTasks answers the user's tasks, for what a schedule list shows
+ok 24 - scheduledTasks.listTasks answers the user's tasks, for what a schedule list shows
+# Subtest: scheduledTasks.updateSchedule gives a schedule a new time and recomputes its next run
+ok 25 - scheduledTasks.updateSchedule gives a schedule a new time and recomputes its next run
+# Subtest: scheduledTasks.archiveTask archives the task and pauses its schedules, once
+ok 26 - scheduledTasks.archiveTask archives the task and pauses its schedules, once
+# Subtest: the first maintenance step audits the outage once, then only beats
+ok 27 - the first maintenance step audits the outage once, then only beats
+# Subtest: a heartbeat that cannot be written never holds up the maintenance jobs
+ok 28 - a heartbeat that cannot be written never holds up the maintenance jobs
+# Subtest: an audit that made offers announces them once; one that made none stays quiet
+ok 29 - an audit that made offers announces them once; one that made none stays quiet
+# Subtest: a sleep between two maintenance ticks is audited as an outage of its own
+ok 30 - a sleep between two maintenance ticks is audited as an outage of its own
+# Subtest: archiving a task expires its open catch-up offer in the same step
+ok 31 - archiving a task expires its open catch-up offer in the same step
+# Subtest: a missed run takes the next number, owes its conversation a report and is never active
+ok 32 - a missed run takes the next number, owes its conversation a report and is never active
+# Subtest: a muted task's missed run skips its report; a task with no conversation owes none
+ok 33 - a muted task's missed run skips its report; a task with no conversation owes none
+# Subtest: a missed run takes its number from the last time the store runs the update
+ok 34 - a missed run takes its number from the last time the store runs the update
+# Subtest: a new run carries the outage note it is given, and tells the run-start hook
+ok 35 - a new run carries the outage note it is given, and tells the run-start hook
+# Subtest: a run-start hook that throws never stops the run from starting
+ok 36 - a run-start hook that throws never stops the run from starting
+# Subtest: row 4: a daily firing missed by three hours becomes a missed run with an offer
+ok 37 - row 4: a daily firing missed by three hours becomes a missed run with an offer
+# Subtest: three missed days are one offer that counts them
+ok 38 - three missed days are one offer that counts them
+# Subtest: row 2: a firing still within its grace is left for the schedule tick
+ok 39 - row 2: a firing still within its grace is left for the schedule tick
+# Subtest: row 3: an hourly task moves on without asking, and its next run says what went unchecked
+ok 40 - row 3: an hourly task moves on without asking, and its next run says what went unchecked
+# Subtest: a missed one-shot completes its schedule and gets an offer that lives a day
+ok 41 - a missed one-shot completes its schedule and gets an offer that lives a day
+# Subtest: a cut-off run and the firings after it are one offer, on the cut-off run
+ok 42 - a cut-off run and the firings after it are one offer, on the cut-off run
+# Subtest: an older open offer of the task is replaced by the new one
+ok 43 - an older open offer of the task is replaced by the new one
+# Subtest: a due schedule whose task is gone is left for the schedule tick
+ok 44 - a due schedule whose task is gone is left for the schedule tick
+# Subtest: one task's audit failing leaves the others audited, and the audit resolves
+ok 45 - one task's audit failing leaves the others audited, and the audit resolves
+# Subtest: two schedules of one task missed in the same outage are one offer counting both
+ok 46 - two schedules of one task missed in the same outage are one offer counting both
+# Subtest: row 2: a run cut off half an hour after it was due is queued again
+ok 47 - row 2: a run cut off half an hour after it was due is queued again
+# Subtest: row 1: a run already queued again once gets an offer instead of a third try
+ok 48 - row 1: a run already queued again once gets an offer instead of a third try
+# Subtest: row 4: a daily task's run cut off hours ago gets an offer that lives until its next run
+ok 49 - row 4: a daily task's run cut off hours ago gets an offer that lives until its next run
+# Subtest: row 4: a run the user started by hand, ten minutes late, gets an offer that lives a day
+ok 50 - row 4: a run the user started by hand, ten minutes late, gets an offer that lives a day
+# Subtest: row 3: a frequent task's cut-off run is settled quietly, and its next run will say so
+ok 51 - row 3: a frequent task's cut-off run is settled quietly, and its next run will say so
+# Subtest: a run executing in this process, or started after the outage, is left alone
+ok 52 - a run executing in this process, or started after the outage, is left alone
+# Subtest: a task that is not ready only has its cut-off run settled
+ok 53 - a task that is not ready only has its cut-off run settled
+# Subtest: a late firing's run carries how late it was, from five minutes on
+ok 54 - a late firing's run carries how late it was, from five minutes on
+# Subtest: a cut-off run settled by someone else while the audit retried is not settled again
+ok 55 - a cut-off run settled by someone else while the audit retried is not settled again
+# Subtest: a cut-off run that finished while the audit retried is not queued again
+ok 56 - a cut-off run that finished while the audit retried is not queued again
+# Subtest: a sleep adds the time asleep to the runs executing here, and settles none of them
+ok 57 - a sleep adds the time asleep to the runs executing here, and settles none of them
+# Subtest: a run started after the tick before a sleep, but before the sleep, is credited too
+ok 58 - a run started after the tick before a sleep, but before the sleep, is credited too
+# Subtest: a run started once the computer woke is not credited
+ok 59 - a run started once the computer woke is not credited
+# Subtest: a sleep keeps the note a run started with
+ok 60 - a sleep keeps the note a run started with
+# Subtest: a sleep cuts off no run: one started 4 min before, not in the registry, is left to its executor
+ok 61 - a sleep cuts off no run: one started 4 min before, not in the registry, is left to its executor
+# Subtest: a sleep cuts off no run: one started 300 min before, not in the registry, is left to its executor
+ok 62 - a sleep cuts off no run: one started 300 min before, not in the registry, is left to its executor
+# Subtest: a firing missed during a sleep is offered, saying the computer was asleep
+ok 63 - a firing missed during a sleep is offered, saying the computer was asleep
+# Subtest: with no heartbeat, the outage has no start and an unknown reason
+ok 64 - with no heartbeat, the outage has no start and an unknown reason
+# Subtest: a clean stop reads as Phi quit, its absence as Phi crashed
+ok 65 - a clean stop reads as Phi quit, its absence as Phi crashed
+# Subtest: a computer booted after the last sign of life was shut down or restarted, even when Phi stopped cleanly
+ok 66 - a computer booted after the last sign of life was shut down or restarted, even when Phi stopped cleanly
+# Subtest: a heartbeat from the future (the clock moved back) gives the outage no start
+ok 67 - a heartbeat from the future (the clock moved back) gives the outage no start
+# Subtest: an audited outage is not pending again; beats and the clean stop are written
+ok 68 - an audited outage is not pending again; beats and the clean stop are written
+# Subtest: covering finds the outage a moment fell in
+ok 69 - covering finds the outage a moment fell in
+# Subtest: a failed first read is tried again, and nothing is written before it succeeds
+ok 70 - a failed first read is tried again, and nothing is written before it succeeds
+# Subtest: the first tick has nothing to compare with, so it is never a sleep
+ok 71 - the first tick has nothing to compare with, so it is never a sleep
+# Subtest: a tick that came long after the previous one follows a sleep, asleep for the gap less one interval
+ok 72 - a tick that came long after the previous one follows a sleep, asleep for the gap less one interval
+# Subtest: a sleep is seen where the monotonic clock runs on through it, as Node's does on macOS
+ok 73 - a sleep is seen where the monotonic clock runs on through it, as Node's does on macOS
+# Subtest: ticks on time, a gap of exactly the threshold, or a clock moved back, are no sleep
+ok 74 - ticks on time, a gap of exactly the threshold, or a clock moved back, are no sleep
+# Subtest: the sleeps since a moment run from when the computer fell asleep to when it woke
+ok 75 - the sleeps since a moment run from when the computer fell asleep to when it woke
+# Subtest: a sleep is seen on asking, before the timer fires again, and only once
+ok 76 - a sleep is seen on asking, before the timer fires again, and only once
+# Subtest: POST /api/schedules creates and returns 201
+ok 77 - POST /api/schedules creates and returns 201
+# Subtest: POST /api/schedules with explicit name uses it
+ok 78 - POST /api/schedules with explicit name uses it
+# Subtest: POST /api/schedules returns 400 on missing task_id
+ok 79 - POST /api/schedules returns 400 on missing task_id
+# Subtest: POST /api/schedules returns 400 on invalid interval with detail code
+ok 80 - POST /api/schedules returns 400 on invalid interval with detail code
+# Subtest: POST /api/schedules returns 404 when task missing
+ok 81 - POST /api/schedules returns 404 when task missing
+# Subtest: POST /api/schedules returns 409 when task not ready
+ok 82 - POST /api/schedules returns 409 when task not ready
+# Subtest: POST /api/schedules returns 401 when unauthorized
+ok 83 - POST /api/schedules returns 401 when unauthorized
+# Subtest: GET /api/schedules lists by user
+ok 84 - GET /api/schedules lists by user
+# Subtest: GET /api/schedules?task_id=t1 filters by task
+ok 85 - GET /api/schedules?task_id=t1 filters by task
+# Subtest: GET /api/schedules/{id} returns 200 then 404
+ok 86 - GET /api/schedules/{id} returns 200 then 404
+# Subtest: PATCH /api/schedules/{id} updates name
+ok 87 - PATCH /api/schedules/{id} updates name
+# Subtest: PATCH /api/schedules/{id} returns 404 when missing
+ok 88 - PATCH /api/schedules/{id} returns 404 when missing
+# Subtest: PATCH /api/schedules/{id} rejects empty body
+ok 89 - PATCH /api/schedules/{id} rejects empty body
+# Subtest: POST /api/schedules/{id}/pause then /resume round-trip
+ok 90 - POST /api/schedules/{id}/pause then /resume round-trip
+# Subtest: POST /api/schedules/{id}/pause without body uses default reason
+ok 91 - POST /api/schedules/{id}/pause without body uses default reason
+# Subtest: POST /api/schedules/{id}/run-now returns 202 and a TaskRun, does NOT advance nextRunAt
+ok 92 - POST /api/schedules/{id}/run-now returns 202 and a TaskRun, does NOT advance nextRunAt
+# Subtest: POST /api/schedules/{id}/run-now returns 404 when schedule missing
+ok 93 - POST /api/schedules/{id}/run-now returns 404 when schedule missing
+# Subtest: POST /api/schedules/{id}/run-now maps active_run_exists to 409
+ok 94 - POST /api/schedules/{id}/run-now maps active_run_exists to 409
+# Subtest: DELETE /api/schedules/{id} returns 200 then 404
+ok 95 - DELETE /api/schedules/{id} returns 200 then 404
+# Subtest: Unknown method returns 405
+ok 96 - Unknown method returns 405
+# Subtest: Unknown sub-path returns 404
+ok 97 - Unknown sub-path returns 404
+# Subtest: Excess path segments return 404
+ok 98 - Excess path segments return 404
+# Subtest: GET on action paths returns 405
+ok 99 - GET on action paths returns 405
+# Subtest: POST and PATCH /api/schedules set, show and clear ends_at
+ok 100 - POST and PATCH /api/schedules set, show and clear ends_at
+# Subtest: an unreadable ends_at is a 400, an end in the past is a schedule_invalid
+ok 101 - an unreadable ends_at is a 400, an end in the past is a schedule_invalid
+# Subtest: POST /api/tasks creates a ready task
+ok 102 - POST /api/tasks creates a ready task
+# Subtest: GET /api/tasks/settings returns default task settings
+ok 103 - GET /api/tasks/settings returns default task settings
+# Subtest: PATCH /api/tasks/settings updates running timeout
+ok 104 - PATCH /api/tasks/settings updates running timeout
+# Subtest: PATCH /api/tasks/settings rejects running timeout outside allowed range
+ok 105 - PATCH /api/tasks/settings rejects running timeout outside allowed range
+# Subtest: POST /api/tasks/:taskId/start creates an active run and GET /api/tasks/:taskId returns it
+ok 106 - POST /api/tasks/:taskId/start creates an active run and GET /api/tasks/:taskId returns it
+# Subtest: POST /api/external/tasks/:taskId/start is idempotent
+ok 107 - POST /api/external/tasks/:taskId/start is idempotent
+# Subtest: POST /api/external/tasks/:taskId/start creates a new run when external_trigger_id is omitted
+ok 108 - POST /api/external/tasks/:taskId/start creates a new run when external_trigger_id is omitted
+# Subtest: GET /api/task-runs/by-sentinel-run-id/:runId returns the same payload as GET /api/task-runs/:runId
+ok 109 - GET /api/task-runs/by-sentinel-run-id/:runId returns the same payload as GET /api/task-runs/:runId
+# Subtest: POST /api/external/tasks/:taskId/start self-heals a stale active run projection
+ok 110 - POST /api/external/tasks/:taskId/start self-heals a stale active run projection
+# Subtest: POST /api/task-runs/:runId/rerun creates a sibling run
+ok 111 - POST /api/task-runs/:runId/rerun creates a sibling run
+# Subtest: POST /api/task-runs/:runId/artifacts stores uploaded video artifacts
+ok 112 - POST /api/task-runs/:runId/artifacts stores uploaded video artifacts
+# Subtest: GET /api/task-runs/:runId/artifacts/:artifactId/content streams artifact bytes
+ok 113 - GET /api/task-runs/:runId/artifacts/:artifactId/content streams artifact bytes
+# Subtest: GET /api/task-runs/:runId/logs supports cursor pagination
+ok 114 - GET /api/task-runs/:runId/logs supports cursor pagination
+# Subtest: POST /api/task-runs/:runId/logs appends Kensington durable logs
+ok 115 - POST /api/task-runs/:runId/logs appends Kensington durable logs
+# Subtest: POST /api/task-runs/:runId/progress records Kensington progress
+ok 116 - POST /api/task-runs/:runId/progress records Kensington progress
+# Subtest: GET /api/tasks exposes not_started as the display status for fresh tasks
+ok 117 - GET /api/tasks exposes not_started as the display status for fresh tasks
+# Subtest: GET /api/task-runs/:runId includes shadow execution metadata
+ok 118 - GET /api/task-runs/:runId includes shadow execution metadata
+# Subtest: GET /api/tasks/:taskId/runs supports created_at sorting and page pagination
+ok 119 - GET /api/tasks/:taskId/runs supports created_at sorting and page pagination
+# Subtest: POST /api/tasks/:taskId/cancel-active-run does not call workerHostBridge abort fallback twice
+ok 120 - POST /api/tasks/:taskId/cancel-active-run does not call workerHostBridge abort fallback twice
+# Subtest: POST /api/tasks records profile_id and omits it when absent
+ok 121 - POST /api/tasks records profile_id and omits it when absent
+# Subtest: GET /api/task-runs/:runId lists the files the worker produced alongside the recordings
+ok 122 - GET /api/task-runs/:runId lists the files the worker produced alongside the recordings
+# Subtest: GET /api/tasks/:taskId exposes the conversation link, origin pages and report mute
+ok 123 - GET /api/tasks/:taskId exposes the conversation link, origin pages and report mute
+# Subtest: POST /api/tasks creates a task with no conversation and unmuted reports
+ok 124 - POST /api/tasks creates a task with no conversation and unmuted reports
+# Subtest: GET /api/task-runs/:runId exposes chat_report, and null for a run without one
+ok 125 - GET /api/task-runs/:runId exposes chat_report, and null for a run without one
+# Subtest: PATCH /api/tasks/:taskId mutes and unmutes reports
+ok 126 - PATCH /api/tasks/:taskId mutes and unmutes reports
+# Subtest: PATCH /api/tasks/:taskId rejects a report_muted that is not a boolean
+ok 127 - PATCH /api/tasks/:taskId rejects a report_muted that is not a boolean
+# Subtest: PATCH /api/tasks/:taskId sets and clears the report policy and the stop condition
+ok 128 - PATCH /api/tasks/:taskId sets and clears the report policy and the stop condition
+# Subtest: PATCH /api/tasks/:taskId rejects an unknown report policy and a stop condition that is not text
+ok 129 - PATCH /api/tasks/:taskId rejects an unknown report policy and a stop condition that is not text
+# Subtest: a task whose conversation is gone answers chat_id null, and keeps its stored link
+ok 130 - a task whose conversation is gone answers chat_id null, and keeps its stored link
+# Subtest: listing tasks that link no conversation does not ask which conversations exist
+ok 131 - listing tasks that link no conversation does not ask which conversations exist
+# Subtest: POST /api/task-runs/:runId/catch-up answers an offer, and refuses a bad, answered or missing one
+ok 132 - POST /api/task-runs/:runId/catch-up answers an offer, and refuses a bad, answered or missing one
+# Subtest: GET /api/task-runs/:runId shows a run's outage, missed firings and offer
+ok 133 - GET /api/task-runs/:runId shows a run's outage, missed firings and offer
+# Subtest: PATCH /api/tasks/:taskId archiving the task expires its open catch-up offers
+ok 134 - PATCH /api/tasks/:taskId archiving the task expires its open catch-up offers
+# Subtest: both questions go in one strict json_schema call with the objective, the condition and both sets of results
+ok 135 - both questions go in one strict json_schema call with the objective, the condition and both sets of results
+# Subtest: only what a run needs is asked
+ok 136 - only what a run needs is asked
+# Subtest: the call is a generation under the task run's observation
+ok 137 - the call is a generation under the task run's observation
+# Subtest: an answer that is not a judgment ends the generation at WARNING and names why
+ok 138 - an answer that is not a judgment ends the generation at WARNING and names why
+# Subtest: a failed request throws, so the executor can fall back
+ok 139 - a failed request throws, so the executor can fall back
+# Subtest: only a completed answer with every asked field is accepted
+ok 140 - only a completed answer with every asked field is accepted
+# Subtest: a worker run becomes readable lines: its notes, each tool call and result, each browser step
+ok 141 - a worker run becomes readable lines: its notes, each tool call and result, each browser step
+# Subtest: the memory agent's calls, a paused browser and an unavailable skill are logged; bookkeeping events are not
+ok 142 - the memory agent's calls, a paused browser and an unavailable skill are logged; bookkeeping events are not
+# Subtest: long text is clipped on the line and kept, up to a bound, in the payload
+ok 143 - long text is clipped on the line and kept, up to a bound, in the payload
+# Subtest: formatting helpers
+ok 144 - formatting helpers
+# Subtest: a completed run is synced, announced, then announced as settled
+ok 145 - a completed run is synced, announced, then announced as settled
+# Subtest: a failed run is synced and announced as settled
+ok 146 - a failed run is synced and announced as settled
+# Subtest: running and cancelled are synced and never announced
+ok 147 - running and cancelled are synced and never announced
+# Subtest: queued is not this notifier's business
+ok 148 - queued is not this notifier's business
+# Subtest: capAtEnd keeps a next run at or before the end and drops one after it
+ok 149 - capAtEnd keeps a next run at or before the end and drops one after it
+# Subtest: validate rejects missing kind
+ok 150 - validate rejects missing kind
+# Subtest: validate rejects unknown kind
+ok 151 - validate rejects unknown kind
+# Subtest: validate at: missing at field
+ok 152 - validate at: missing at field
+# Subtest: validate at: invalid ISO format
+ok 153 - validate at: invalid ISO format
+# Subtest: validate at: in past beyond grace rejected
+ok 154 - validate at: in past beyond grace rejected
+# Subtest: validate at: in past within grace accepted
+ok 155 - validate at: in past within grace accepted
+# Subtest: validate at: in future accepted
+ok 156 - validate at: in future accepted
+# Subtest: validate every: missing everyMs
+ok 157 - validate every: missing everyMs
+# Subtest: validate every: 29_999 ms rejected
+ok 158 - validate every: 29_999 ms rejected
+# Subtest: validate every: 30_000 ms accepted
+ok 159 - validate every: 30_000 ms accepted
+# Subtest: validate every: > 1 year rejected
+ok 160 - validate every: > 1 year rejected
+# Subtest: validate every: non-integer rejected
+ok 161 - validate every: non-integer rejected
+# Subtest: validate cron: missing expr
+ok 162 - validate cron: missing expr
+# Subtest: validate cron: valid 5-field expression
+ok 163 - validate cron: valid 5-field expression
+# Subtest: validate cron: garbage expression rejected
+ok 164 - validate cron: garbage expression rejected
+# Subtest: validate cron: invalid tz rejected
+ok 165 - validate cron: invalid tz rejected
+# Subtest: validate cron: valid tz accepted
+ok 166 - validate cron: valid tz accepted
+# Subtest: validate cron: expression that never fires rejected
+ok 167 - validate cron: expression that never fires rejected
+# Subtest: computeNextRunAt at: future returns at-as-ms
+ok 168 - computeNextRunAt at: future returns at-as-ms
+# Subtest: computeNextRunAt at: within grace past returns the original timestamp
+ok 169 - computeNextRunAt at: within grace past returns the original timestamp
+# Subtest: computeNextRunAt at: past beyond grace returns undefined
+ok 170 - computeNextRunAt at: past beyond grace returns undefined
+# Subtest: computeNextRunAt every: first creation returns now + everyMs
+ok 171 - computeNextRunAt every: first creation returns now + everyMs
+# Subtest: computeNextRunAt every: with lastRunAt aligned returns last + everyMs
+ok 172 - computeNextRunAt every: with lastRunAt aligned returns last + everyMs
+# Subtest: computeNextRunAt every: with lastRunAt drifted multiple intervals
+ok 173 - computeNextRunAt every: with lastRunAt drifted multiple intervals
+# Subtest: computeNextRunAt cron: 0 9 * * * UTC
+ok 174 - computeNextRunAt cron: 0 9 * * * UTC
+# Subtest: decideStalePolicy every 5m missed by 30s -> fire
+ok 175 - decideStalePolicy every 5m missed by 30s -> fire
+# Subtest: decideStalePolicy every 5m missed by 5min -> skip (beyond half-period grace)
+ok 176 - decideStalePolicy every 5m missed by 5min -> skip (beyond half-period grace)
+# Subtest: decideStalePolicy daily missed by 1h -> fire (within 2h clamped grace)
+ok 177 - decideStalePolicy daily missed by 1h -> fire (within 2h clamped grace)
+# Subtest: decideStalePolicy daily missed by 4h -> skip
+ok 178 - decideStalePolicy daily missed by 4h -> skip
+# Subtest: decideStalePolicy at missed by 3min -> fire (within 5min AT_GRACE)
+ok 179 - decideStalePolicy at missed by 3min -> fire (within 5min AT_GRACE)
+# Subtest: decideStalePolicy at missed by 10min -> skip
+ok 180 - decideStalePolicy at missed by 10min -> skip
+# Subtest: validate every: 30_001 ms accepted (just above min boundary)
+ok 181 - validate every: 30_001 ms accepted (just above min boundary)
+# Subtest: decideStalePolicy at: lateness exactly AT_GRACE_MS -> fire (boundary inclusive)
+ok 182 - decideStalePolicy at: lateness exactly AT_GRACE_MS -> fire (boundary inclusive)
+# Subtest: listDueOccurrences counts the firings of an every-schedule up to the end
+ok 183 - listDueOccurrences counts the firings of an every-schedule up to the end
+# Subtest: listDueOccurrences walks a cron expression
+ok 184 - listDueOccurrences walks a cron expression
+# Subtest: listDueOccurrences counts a one-shot once, and stops at the cap
+ok 185 - listDueOccurrences counts a one-shot once, and stops at the cap
+# Subtest: a schedule is high-frequency when it runs every two hours or more often
+ok 186 - a schedule is high-frequency when it runs every two hours or more often
+# Subtest: returns already_done when state is completed
+ok 187 - returns already_done when state is completed
+# Subtest: clientFactory returns null -> sentinel_unreachable + state pending
+ok 188 - clientFactory returns null -> sentinel_unreachable + state pending
+# Subtest: when real runner client is used and socket is unreachable, runIfNeeded marks pending and returns sentinel_unreachable
+ok 189 - when real runner client is used and socket is unreachable, runIfNeeded marks pending and returns sentinel_unreachable
+# Subtest: clientFactory injects a shared fake so jobs.list/update calls are observable
+ok 190 - clientFactory injects a shared fake so jobs.list/update calls are observable
+# Subtest: jobs.list throws -> sentinel_unreachable + state pending
+ok 191 - jobs.list throws -> sentinel_unreachable + state pending
+# Subtest: 0 owned jobs -> completed with migratedCount=0
+ok 192 - 0 owned jobs -> completed with migratedCount=0
+# Subtest: 1 valid owned job + matching local task -> migratedCount=1, schedule created, jobs.update called with enabled:false
+ok 193 - 1 valid owned job + matching local task -> migratedCount=1, schedule created, jobs.update called with enabled:false
+# Subtest: disabled owned job imports as a paused disabled local schedule
+ok 194 - disabled owned job imports as a paused disabled local schedule
+# Subtest: migration emits decision logs for migrated and skipped jobs
+ok 195 - migration emits decision logs for migrated and skipped jobs
+# Subtest: jobs not owned by phi-agent are filtered out
+ok 196 - jobs not owned by phi-agent are filtered out
+# Subtest: owned job whose taskId is not found locally -> skipped with reason
+ok 197 - owned job whose taskId is not found locally -> skipped with reason
+# Subtest: owned job with malformed callback path -> unrecognized_callback_path
+ok 198 - owned job with malformed callback path -> unrecognized_callback_path
+# Subtest: jobs.update fails -> still counted as migrated, error recorded
+ok 199 - jobs.update fails -> still counted as migrated, error recorded
+# Subtest: owned job whose jobId already exists locally as legacy_sentinel_job_id -> skipped (idempotent)
+ok 200 - owned job whose jobId already exists locally as legacy_sentinel_job_id -> skipped (idempotent)
+# Subtest: running runIfNeeded twice -> second is already_done, no jobs.update
+ok 201 - running runIfNeeded twice -> second is already_done, no jobs.update
+# Subtest: create rejects when task missing
+ok 202 - create rejects when task missing
+# Subtest: create rejects when task not ready
+ok 203 - create rejects when task not ready
+# Subtest: create wraps ScheduleExpressionError as schedule_invalid with cause
+ok 204 - create wraps ScheduleExpressionError as schedule_invalid with cause
+# Subtest: create at-schedule defaults repeat to {times:1, completed:0}
+ok 205 - create at-schedule defaults repeat to {times:1, completed:0}
+# Subtest: create at-schedule within grace preserves nextRunAt for immediate firing
+ok 206 - create at-schedule within grace preserves nextRunAt for immediate firing
+# Subtest: create every-schedule defaults repeat to undefined
+ok 207 - create every-schedule defaults repeat to undefined
+# Subtest: create defaults name to task.title when omitted
+ok 208 - create defaults name to task.title when omitted
+# Subtest: create with explicit repeat.times sets completed to 0
+ok 209 - create with explicit repeat.times sets completed to 0
+# Subtest: create and pause/resume emit schedule service logs
+ok 210 - create and pause/resume emit schedule service logs
+# Subtest: update with new schedule recomputes nextRunAt from now (not from lastRunAt)
+ok 211 - update with new schedule recomputes nextRunAt from now (not from lastRunAt)
+# Subtest: update rejects taskId change
+ok 212 - update rejects taskId change
+# Subtest: update rejects when schedule not found
+ok 213 - update rejects when schedule not found
+# Subtest: update name only does not touch schedule or nextRunAt
+ok 214 - update name only does not touch schedule or nextRunAt
+# Subtest: update with repeat: null clears the repeat budget
+ok 215 - update with repeat: null clears the repeat budget
+# Subtest: pause sets state, resume recomputes nextRunAt from now
+ok 216 - pause sets state, resume recomputes nextRunAt from now
+# Subtest: pause defaults reason to 'manual' when omitted
+ok 217 - pause defaults reason to 'manual' when omitted
+# Subtest: pause rejects when schedule not found
+ok 218 - pause rejects when schedule not found
+# Subtest: resume rejects when schedule not found
+ok 219 - resume rejects when schedule not found
+# Subtest: pauseByTask cascades pause across all schedules of a task
+ok 220 - pauseByTask cascades pause across all schedules of a task
+# Subtest: pauseByTask skips schedules already in completed state
+ok 221 - pauseByTask skips schedules already in completed state
+# Subtest: update on completed schedule rejects
+ok 222 - update on completed schedule rejects
+# Subtest: remove returns true for existing, false for missing
+ok 223 - remove returns true for existing, false for missing
+# Subtest: listByUser returns empty for user with no schedules
+ok 224 - listByUser returns empty for user with no schedules
+# Subtest: update from at to every clears repeat (no stale {times:1})
+ok 225 - update from at to every clears repeat (no stale {times:1})
+# Subtest: update with empty name keeps current name
+ok 226 - update with empty name keeps current name
+# Subtest: pause already-paused preserves first pausedAt and pausedReason
+ok 227 - pause already-paused preserves first pausedAt and pausedReason
+# Subtest: create records an end and rejects one in the past or before the first run
+ok 228 - create records an end and rejects one in the past or before the first run
+# Subtest: update sets, moves and removes the end, keeping the schedule's next run
+ok 229 - update sets, moves and removes the end, keeping the schedule's next run
+# Subtest: resuming a schedule whose end has passed completes it instead
+ok 230 - resuming a schedule whose end has passed completes it instead
+# Subtest: stopTask pauses every schedule of the task, and throws when one keeps running
+ok 231 - stopTask pauses every schedule of the task, and throws when one keeps running
+# Subtest: a schedule that ended can be given a later end, or none, and runs again
+ok 232 - a schedule that ended can be given a later end, or none, and runs again
+# Subtest: a one-time schedule that ran stays completed whatever its end
+ok 233 - a one-time schedule that ran stays completed whatever its end
+# Subtest: checkNew refuses what create would, before any task exists
+ok 234 - checkNew refuses what create would, before any task exists
+# Subtest: tick: no due schedules -> firedCount=0, no startTask calls
+ok 235 - tick: no due schedules -> firedCount=0, no startTask calls
+# Subtest: tick: one due schedule fires successfully -> firedCount=1, nextRunAt advanced, lastRunId set
+ok 236 - tick: one due schedule fires successfully -> firedCount=1, nextRunAt advanced, lastRunId set
+# Subtest: tick: stale every-schedule beyond grace -> skip, fast-forward nextRunAt, no startTask
+ok 237 - tick: stale every-schedule beyond grace -> skip, fast-forward nextRunAt, no startTask
+# Subtest: tick: at-schedule missed beyond AT_GRACE -> state=completed, lastTriggerStatus=skipped/missed_window, no fire
+ok 238 - tick: at-schedule missed beyond AT_GRACE -> state=completed, lastTriggerStatus=skipped/missed_window, no fire
+# Subtest: tick: task not ready (archived) -> auto-pause schedule with reason='task_unavailable', no fire
+ok 239 - tick: task not ready (archived) -> auto-pause schedule with reason='task_unavailable', no fire
+# Subtest: tick: task missing entirely -> auto-pause with task_status=missing
+ok 240 - tick: task missing entirely -> auto-pause with task_status=missing
+# Subtest: tick: startTask throws active_run_exists -> skipped/active_run_exists, but nextRunAt already advanced
+ok 241 - tick: startTask throws active_run_exists -> skipped/active_run_exists, but nextRunAt already advanced
+# Subtest: tick: startTask throws unexpected error -> recorded in errors[], NEXT schedule still processed
+ok 242 - tick: startTask throws unexpected error -> recorded in errors[], NEXT schedule still processed
+# Subtest: tick: reentry guard -> second tick during first returns immediately with reentryBlocked=true
+ok 243 - tick: reentry guard -> second tick during first returns immediately with reentryBlocked=true
+# Subtest: tick: at-schedule fires once -> state=completed, enabled=false, nextRunAt=undefined, repeat.completed=1
+ok 244 - tick: at-schedule fires once -> state=completed, enabled=false, nextRunAt=undefined, repeat.completed=1
+# Subtest: tick: repeat.times=3 -> after 3 successful triggers state=completed, completed=3
+ok 245 - tick: repeat.times=3 -> after 3 successful triggers state=completed, completed=3
+# Subtest: tick: maxBatchSize limits per-tick processing
+ok 246 - tick: maxBatchSize limits per-tick processing
+# Subtest: tick: advance-before-fire — assert nextRunAt is updated even when startTask throws
+ok 247 - tick: advance-before-fire — assert nextRunAt is updated even when startTask throws
+# Subtest: tick: schedule disabled/completed mid-tick (race) handled gracefully
+ok 248 - tick: schedule disabled/completed mid-tick (race) handled gracefully
+# Subtest: tick: startTask throws task_not_found mid-fire -> auto-pause, no error
+ok 249 - tick: startTask throws task_not_found mid-fire -> auto-pause, no error
+# Subtest: tick: repeat counter does not re-install concurrently-cleared budget
+ok 250 - tick: repeat counter does not re-install concurrently-cleared budget
+# Subtest: tick: a schedule past its end completes instead of firing
+ok 251 - tick: a schedule past its end completes instead of firing
+# Subtest: tick: the last run before the end fires, then the schedule completes
+ok 252 - tick: the last run before the end fires, then the schedule completes
+# Subtest: tick: a stale skip whose next run falls after the end completes the schedule
+ok 253 - tick: a stale skip whose next run falls after the end completes the schedule
+# Subtest: tick: a run due at the end, found by the next sweep, still fires
+ok 254 - tick: a run due at the end, found by the next sweep, still fires
+# Subtest: e2e smoke: create every-30s schedule via HTTP, tick fires startTask with scheduled trigger
+ok 255 - e2e smoke: create every-30s schedule via HTTP, tick fires startTask with scheduled trigger
+# Subtest: e2e smoke: at-most-once — second tick within same period does not double fire
+ok 256 - e2e smoke: at-most-once — second tick within same period does not double fire
+# Subtest: e2e smoke: pause via HTTP suppresses fires
+ok 257 - e2e smoke: pause via HTTP suppresses fires
+# Subtest: e2e smoke: list endpoint returns the schedule with snake_case fields
+ok 258 - e2e smoke: list endpoint returns the schedule with snake_case fields
+# Subtest: e2e smoke: at-kind schedule completes after firing once
+ok 259 - e2e smoke: at-kind schedule completes after firing once
+# Subtest: createTask creates a ready task with single_active_run policy
+ok 260 - createTask creates a ready task with single_active_run policy
+# Subtest: startTask reserves a queued run for auto_start tasks and launches it
+ok 261 - startTask reserves a queued run for auto_start tasks and launches it
+# Subtest: startTask rejects when another active run already exists
+ok 262 - startTask rejects when another active run already exists
+# Subtest: startTask self-heals a stale activeRunId that points to a completed run
+ok 263 - startTask self-heals a stale activeRunId that points to a completed run
+# Subtest: startTaskFromExternalTrigger is idempotent per task and external trigger id
+ok 264 - startTaskFromExternalTrigger is idempotent per task and external trigger id
+# Subtest: startTaskFromExternalTrigger can retry after a pending lookup failed before binding
+ok 265 - startTaskFromExternalTrigger can retry after a pending lookup failed before binding
+# Subtest: rerunTaskRun creates a sibling run from the historical snapshot
+ok 266 - rerunTaskRun creates a sibling run from the historical snapshot
+# Subtest: startTaskFromWorkerHost reuses a matching ready task without an active run
+ok 267 - startTaskFromWorkerHost reuses a matching ready task without an active run
+# Subtest: createTask persists the task record without an execution profile
+ok 268 - createTask persists the task record without an execution profile
+# Subtest: carries the task profileId into every run snapshot
+ok 269 - carries the task profileId into every run snapshot
+# Subtest: leaves profileId unset when the caller does not supply one
+ok 270 - leaves profileId unset when the caller does not supply one
+# Subtest: startTaskFromWorkerHost records the issuing profile on the task and its run snapshot
+ok 271 - startTaskFromWorkerHost records the issuing profile on the task and its run snapshot
+# Subtest: startTaskFromWorkerHost never reuses a task issued from a DIFFERENT profile
+ok 272 - startTaskFromWorkerHost never reuses a task issued from a DIFFERENT profile
+# Subtest: startTaskFromWorkerHost records the Space on the task and its run snapshot, and never reuses a task from another Space
+ok 273 - startTaskFromWorkerHost records the Space on the task and its run snapshot, and never reuses a task from another Space
+# Subtest: a scheduled task's Space is frozen into every run snapshot
+ok 274 - a scheduled task's Space is frozen into every run snapshot
+# Subtest: createTask starts a task with its reports unmuted
+ok 275 - createTask starts a task with its reports unmuted
+# Subtest: createTask records the conversation and origin, and every run snapshot freezes them
+ok 276 - createTask records the conversation and origin, and every run snapshot freezes them
+# Subtest: a task created by hand has no conversation, and neither do its runs
+ok 277 - a task created by hand has no conversation, and neither do its runs
+# Subtest: startTaskFromWorkerHost links the task and its run snapshot to the conversation
+ok 278 - startTaskFromWorkerHost links the task and its run snapshot to the conversation
+# Subtest: startTaskFromWorkerHost never reuses a task created in a DIFFERENT conversation
+ok 279 - startTaskFromWorkerHost never reuses a task created in a DIFFERENT conversation
+# Subtest: a task reports every run by default and has no stop condition
+ok 280 - a task reports every run by default and has no stop condition
+# Subtest: createTask records the report policy and the stop condition, and every run snapshot freezes them
+ok 281 - createTask records the report policy and the stop condition, and every run snapshot freezes them
+# Subtest: startTaskFromWorkerHost never borrows a task that reports only changes or stops on a condition
+ok 282 - startTaskFromWorkerHost never borrows a task that reports only changes or stops on a condition
+# Subtest: createTask records the task's language, and every run snapshot freezes it
+ok 283 - createTask records the task's language, and every run snapshot freezes it
+# Subtest: a task created without a language has none, and neither do its runs
+ok 284 - a task created without a language has none, and neither do its runs
+# Subtest: startTaskFromWorkerHost never borrows a task written in another language
+ok 285 - startTaskFromWorkerHost never borrows a task written in another language
+# Subtest: TaskApprovalMigrationService cancels legacy waiting_for_user runs and logs why
+ok 286 - TaskApprovalMigrationService cancels legacy waiting_for_user runs and logs why
+# Subtest: TaskApprovalMigrationService is a no-op when nothing is waiting
+ok 287 - TaskApprovalMigrationService is a no-op when nothing is waiting
+# Subtest: TaskArtifactService writes uploaded video artifacts to the local filesystem and records metadata
+ok 288 - TaskArtifactService writes uploaded video artifacts to the local filesystem and records metadata
+# Subtest: TaskArtifactService initializes result payload artifact summaries before run completion
+ok 289 - TaskArtifactService initializes result payload artifact summaries before run completion
+# Subtest: TaskCancellationService aborts the in-process run and lands it cancelled
+ok 290 - TaskCancellationService aborts the in-process run and lands it cancelled
+# Subtest: TaskCancellationService force-finalizes a run with no in-process execution
+ok 291 - TaskCancellationService force-finalizes a run with no in-process execution
+# Subtest: TaskCancellationService is a no-op when the task has no active run
+ok 292 - TaskCancellationService is a no-op when the task has no active run
+# Subtest: TaskConsistencyRepairService repairs task projection and lookup docs
+ok 293 - TaskConsistencyRepairService repairs task projection and lookup docs
+# Subtest: TaskConsistencyRepairService reads the store in bulk, not once per task or run
+ok 294 - TaskConsistencyRepairService reads the store in bulk, not once per task or run
+# Subtest: TaskExternalSyncService enqueues task and external-api run events
+ok 295 - TaskExternalSyncService enqueues task and external-api run events
+# Subtest: TaskExternalSyncService dispatches outbox events and records failures
+ok 296 - TaskExternalSyncService dispatches outbox events and records failures
+# Subtest: TaskExternalSyncService emits distinct task lifecycle outbox records for repeated transitions
+ok 297 - TaskExternalSyncService emits distinct task lifecycle outbox records for repeated transitions
+# Subtest: TaskLogService appends Kensington run logs and ignores terminal runs
+ok 298 - TaskLogService appends Kensington run logs and ignores terminal runs
+# Subtest: a pending self-reflection does not block later maintenance rounds
+ok 299 - a pending self-reflection does not block later maintenance rounds
+# Subtest: a pending maintenance job blocks only itself
+ok 300 - a pending maintenance job blocks only itself
+# Subtest: the jobs wait for the before-jobs step, and skip a tick it fails
+ok 301 - the jobs wait for the before-jobs step, and skip a tick it fails
+# Subtest: every tick is observed first, even one the before-jobs step skips
+ok 302 - every tick is observed first, even one the before-jobs step skips
+# Subtest: a run that finishes gives up the active slot it was holding
+ok 303 - a run that finishes gives up the active slot it was holding
+# Subtest: a run that finishes never evicts a DIFFERENT run from the slot
+ok 304 - a run that finishes never evicts a DIFFERENT run from the slot
+# Subtest: a run that starts claims the slot
+ok 305 - a run that starts claims the slot
+# Subtest: TaskRuntimeDispatchService clears claimed queued runs when the worker disconnects
+ok 306 - TaskRuntimeDispatchService clears claimed queued runs when the worker disconnects
+# Subtest: TaskRuntimeDispatchService requeues running runs and increments restart_count on recovery
+ok 307 - TaskRuntimeDispatchService requeues running runs and increments restart_count on recovery
+# Subtest: TaskRuntimeDispatchService times out zombie running runs
+ok 308 - TaskRuntimeDispatchService times out zombie running runs
+# Subtest: TaskRuntimeDispatchService: a timed-out run of a linked task owes its conversation a report
+ok 309 - TaskRuntimeDispatchService: a timed-out run of a linked task owes its conversation a report
+# Subtest: TaskRuntimeDispatchService does not time out queued runs
+ok 310 - TaskRuntimeDispatchService does not time out queued runs
+# Subtest: TaskRuntimeDispatchService uses configured running timeout per task user
+ok 311 - TaskRuntimeDispatchService uses configured running timeout per task user
+# Subtest: TaskRuntimeDispatchService clears stale queued task projections when the active run is missing
+ok 312 - TaskRuntimeDispatchService clears stale queued task projections when the active run is missing
+# Subtest: TaskRuntimeDispatchService refreshes stale queued task projections when the active run is already terminal
+ok 313 - TaskRuntimeDispatchService refreshes stale queued task projections when the active run is already terminal
+# Subtest: TaskRuntimeDispatchService dispatches queued runs with no worker registered
+ok 314 - TaskRuntimeDispatchService dispatches queued runs with no worker registered
+# Subtest: TaskRuntimeDispatchService does not count time the computer slept toward the running timeout
+ok 315 - TaskRuntimeDispatchService does not count time the computer slept toward the running timeout
+# Subtest: TaskRuntimeReportService records Kensington progress for active runs
+ok 316 - TaskRuntimeReportService records Kensington progress for active runs
+# Subtest: TaskRuntimeReportService ignores stale progress after ownership is cleared
+ok 317 - TaskRuntimeReportService ignores stale progress after ownership is cleared
+# Subtest: completes the run from the worker summary, with no browser connection
+ok 318 - completes the run from the worker summary, with no browser connection
+# Subtest: what the worker does goes into the run's log, in order, before the run's last line
+ok 319 - what the worker does goes into the run's log, in order, before the run's last line
+# Subtest: a log line that cannot be written is dropped, never the run
+ok 320 - a log line that cannot be written is dropped, never the run
+# Subtest: fails the run and records the reason when the worker errors
+ok 321 - fails the run and records the reason when the worker errors
+# Subtest: a failed run leaves its reason in the server log; a completed or cancelled one leaves nothing
+ok 322 - a failed run leaves its reason in the server log; a completed or cancelled one leaves nothing
+# Subtest: marks the run cancelled when the worker aborts
+ok 323 - marks the run cancelled when the worker aborts
+# Subtest: fails the run when the worker throws
+ok 324 - fails the run when the worker throws
+# Subtest: does not overwrite a run that already reached a terminal status
+ok 325 - does not overwrite a run that already reached a terminal status
+# Subtest: threads host-resolved OpenAI headers into the worker context
+ok 326 - threads host-resolved OpenAI headers into the worker context
+# Subtest: authenticates the run as the host-resolved runner, not as whoever ordered it
+ok 327 - authenticates the run as the host-resolved runner, not as whoever ordered it
+# Subtest: falls back to the launching request's bearer when the runner has no token
+ok 328 - falls back to the launching request's bearer when the runner has no token
+# Subtest: leaves the run bearer absent when neither the runner nor the launch has one
+ok 329 - leaves the run bearer absent when neither the runner nor the launch has one
+# Subtest: keeps artifacts written DURING the run — the hidden-window recording must survive settling
+ok 330 - keeps artifacts written DURING the run — the hidden-window recording must survive settling
+# Subtest: links the files the worker produced — a completed run points at every artifact
+ok 331 - links the files the worker produced — a completed run points at every artifact
+# Subtest: a run that produced a file and then FAILED still hands the file back
+ok 332 - a run that produced a file and then FAILED still hands the file back
+# Subtest: a cancelled run still hands back what it had already produced
+ok 333 - a cancelled run still hands back what it had already produced
+# Subtest: a setup failure settles the run instead of stranding it in running
+ok 334 - a setup failure settles the run instead of stranding it in running
+# Subtest: a status-callback failure never derails the run it was reporting on
+ok 335 - a status-callback failure never derails the run it was reporting on
+# Subtest: a cancel landing DURING setup interrupts the run before the worker starts
+ok 336 - a cancel landing DURING setup interrupts the run before the worker starts
+# Subtest: a run force-cancelled in the store during setup never reaches the worker
+ok 337 - a run force-cancelled in the store during setup never reaches the worker
+# Subtest: the page the task was created about reaches the run
+ok 338 - the page the task was created about reaches the run
+# Subtest: the one page a task's objective names is the page its hidden window opens on
+ok 339 - the one page a task's objective names is the page its hidden window opens on
+# Subtest: a task created with no page leaves the field unset rather than empty
+ok 340 - a task created with no page leaves the field unset rather than empty
+# Subtest: the pages of the conversation the task was created in reach the run
+ok 341 - the pages of the conversation the task was created in reach the run
+# Subtest: a task with no origin pages leaves originPages unset
+ok 342 - a task with no origin pages leaves originPages unset
+# Subtest: a run is given its task's latest earlier results, newest first
+ok 343 - a run is given its task's latest earlier results, newest first
+# Subtest: a run of a task none of whose runs completed is told it has no earlier result
+ok 344 - a run of a task none of whose runs completed is told it has no earlier result
+# Subtest: a run whose history cannot be read, or goes back further than was read, is told nothing about it
+ok 345 - a run whose history cannot be read, or goes back further than was read, is told nothing about it
+# Subtest: a long earlier result is shortened, its line breaks kept
+ok 346 - a long earlier result is shortened, its line breaks kept
+# Subtest: a run of a task that reports into its conversation says so on the run context
+ok 347 - a run of a task that reports into its conversation says so on the run context
+# Subtest: the parent task follows the run — running, then completed
+ok 348 - the parent task follows the run — running, then completed
+# Subtest: a failed run is projected as failed, with its reason
+ok 349 - a failed run is projected as failed, with its reason
+# Subtest: a run works in the Space its task was created in, as frozen in its snapshot
+ok 350 - a run works in the Space its task was created in, as frozen in its snapshot
+# Subtest: a task run is one trace: phi-agent.task, task.run, and the worker under it
+ok 351 - a task run is one trace: phi-agent.task, task.run, and the worker under it
+# Subtest: a failed task run ends task.run at ERROR with the reason
+ok 352 - a failed task run ends task.run at ERROR with the reason
+# Subtest: a run that never starts opens no trace
+ok 353 - a run that never starts opens no trace
+# Subtest: a completed or failed run of a task linked to a conversation owes it a report
+ok 354 - a completed or failed run of a task linked to a conversation owes it a report
+# Subtest: a muted task's run records that it skipped the report
+ok 355 - a muted task's run records that it skipped the report
+# Subtest: a cancelled run, and a run of a task with no conversation, owe no report
+ok 356 - a cancelled run, and a run of a task with no conversation, owe no report
+# Subtest: an on_change run is judged against the result last sent to the user, however far back
+ok 357 - an on_change run is judged against the result last sent to the user, however far back
+# Subtest: an on_change run judged not worth sending is not reported, and keeps its observations and the judgment
+ok 358 - an on_change run judged not worth sending is not reported, and keeps its observations and the judgment
+# Subtest: task.run hands on the judgment as part of its output
+ok 359 - task.run hands on the judgment as part of its output
+# Subtest: an on_change run judged worth sending is reported with the judgment
+ok 360 - an on_change run judged worth sending is reported with the judgment
+# Subtest: with nothing to ask there is no call: the baseline of an on_change task, a task that reports every run
+ok 361 - with nothing to ask there is no call: the baseline of an on_change task, a task that reports every run
+# Subtest: when the judgment fails, or cannot be asked, the run is reported and the task keeps checking
+ok 362 - when the judgment fails, or cannot be asked, the run is reported and the task keeps checking
+# Subtest: a run judged to meet the stop condition pauses the schedules BEFORE it settles, and is reported whatever the decision
+ok 363 - a run judged to meet the stop condition pauses the schedules BEFORE it settles, and is reported whatever the decision
+# Subtest: the stop condition is asked on the first run and on a task that reports every run, alone
+ok 364 - the stop condition is asked on the first run and on a task that reports every run, alone
+# Subtest: when pausing fails the run still settles, reports the goal, and does not claim a stop
+ok 365 - when pausing fails the run still settles, reports the goal, and does not claim a stop
+# Subtest: a met condition on a task with nothing scheduled is reported, without claiming a stop
+ok 366 - a met condition on a task with nothing scheduled is reported, without claiming a stop
+# Subtest: the judgment is traced under the run's task.run observation
+ok 367 - the judgment is traced under the run's task.run observation
+# Subtest: the run context carries the task's report policy and stop condition from the snapshot
+ok 368 - the run context carries the task's report policy and stop condition from the snapshot
+# Subtest: a task run's pause clock counts the sleeps the process lives through
+ok 369 - a task run's pause clock counts the sleeps the process lives through
+# Subtest: a task run writes in the language its snapshot froze
+ok 370 - a task run writes in the language its snapshot froze
+# Subtest: a task with no language gets a fixed handle that names none
+ok 371 - a task with no language gets a fixed handle that names none
+# Subtest: phi-tasks row
+ok 372 - phi-tasks row
+# Subtest: phi-tasks and the browser's run events
+ok 373 - phi-tasks and the browser's run events
+# Subtest: phi-tasks startup migrations
+ok 374 - phi-tasks startup migrations
+# Subtest: phi-tasks maintenance
+ok 375 - phi-tasks maintenance
+# tests 384
+# suites 4
+# pass 384
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 3328.604959

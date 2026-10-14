@@ -1,0 +1,50 @@
+UTC: 2026-10-14T18:49:22.466069+00:00
+Command: npx --yes pnpm@10.17.1 --filter @phi-ai/dsh-plugin-transport test
+Exit: 0
+# Subtest: authentication diagnostics classify a bounded cause chain without retaining values
+ok 1 - authentication diagnostics classify a bounded cause chain without retaining values
+# Subtest: the auth adapter preserves its message and safe reason, not the JOSE payload
+ok 2 - the auth adapter preserves its message and safe reason, not the JOSE payload
+# Subtest: authentication operations exclude paths, identifiers, and query values
+ok 3 - authentication operations exclude paths, identifiers, and query values
+# Subtest: a rejected request emits one safe diagnostic while retaining the opaque 401
+ok 4 - a rejected request emits one safe diagnostic while retaining the opaque 401
+# Subtest: only rejected requests report: successful authentication and public files stay silent
+ok 5 - only rejected requests report: successful authentication and public files stay silent
+# Subtest: missing credentials, subjects, and reserved identities are distinguished without changing rejection
+ok 6 - missing credentials, subjects, and reserved identities are distinguished without changing rejection
+# Subtest: diagnostic sink failure does not change the authentication response
+ok 7 - diagnostic sink failure does not change the authentication response
+# Subtest: reserved-tenant collision: authenticated subjects mapping onto a reserved id are flagged (§6.3.2)
+ok 8 - reserved-tenant collision: authenticated subjects mapping onto a reserved id are flagged (§6.3.2)
+# Subtest: broker capability auth accepts only the exact protected header
+ok 9 - broker capability auth accepts only the exact protected header
+# Subtest: broker capability is checked before application authentication
+ok 10 - broker capability is checked before application authentication
+# Subtest: handler failures report only the successfully authenticated local owner and isolate reporter errors
+ok 11 - handler failures report only the successfully authenticated local owner and isolate reporter errors
+# Subtest: node listener
+ok 12 - node listener
+# Subtest: node listener CORS
+ok 13 - node listener CORS
+# Subtest: route table
+ok 14 - route table
+# Subtest: listen-tcp binding
+ok 15 - listen-tcp binding
+# Subtest: TCP resolves optional telemetry per failure and isolates the two diagnostic exits
+ok 16 - TCP resolves optional telemetry per failure and isolates the two diagnostic exits
+# Subtest: UDS handler failure reports both exits after broker and user authentication
+ok 17 - UDS handler failure reports both exits after broker and user authentication
+# Subtest: uds socket path claim
+ok 18 - uds socket path claim
+# Subtest: phi-routes service
+ok 19 - phi-routes service
+# Subtest: the health route
+ok 20 - the health route
+# tests 54
+# suites 7
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 2437.896333

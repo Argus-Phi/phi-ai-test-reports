@@ -1,0 +1,330 @@
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+Error while flushing PostHog: message=HTTP error while fetching PostHog: status=503, reqByteLength=536, response body={} PostHogFetchHttpError: HTTP error while fetching PostHog: status=503, reqByteLength=536
+    at retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:699:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/utils/index.mjs:25:25)
+    at async PostHog.fetchWithRetry (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:683:16)
+    at async PostHog._flush (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:611:34) {
+  response: Response {
+    status: 503,
+    statusText: 'Service Unavailable',
+    headers: Headers {
+      date: 'Wed, 14 Oct 2026 19:02:40 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5',
+      'content-length': '2'
+    },
+    body: ReadableStream { locked: true, state: 'closed', supportsBYOB: true },
+    bodyUsed: true,
+    ok: false,
+    redirected: false,
+    type: 'basic',
+    url: 'http://127.0.0.1:56540/batch/'
+  },
+  reqByteLength: 536
+}
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+Error while flushing PostHog: message=HTTP error while fetching PostHog: status=503, reqByteLength=536, response body={} PostHogFetchHttpError: HTTP error while fetching PostHog: status=503, reqByteLength=536
+    at retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:699:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/utils/index.mjs:25:25)
+    at async PostHog.fetchWithRetry (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:683:16)
+    at async PostHog._flush (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:611:34) {
+  response: Response {
+    status: 503,
+    statusText: 'Service Unavailable',
+    headers: Headers {
+      date: 'Wed, 14 Oct 2026 19:02:49 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5',
+      'content-length': '2'
+    },
+    body: ReadableStream { locked: true, state: 'closed', supportsBYOB: true },
+    bodyUsed: true,
+    ok: false,
+    redirected: false,
+    type: 'basic',
+    url: 'http://127.0.0.1:56540/batch/'
+  },
+  reqByteLength: 536
+}
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on 127.0.0.1:0
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 uncaughtException listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 unhandledRejection listeners added to [process]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+Error while flushing PostHog: message=HTTP error while fetching PostHog: status=503, reqByteLength=536, response body={} PostHogFetchHttpError: HTTP error while fetching PostHog: status=503, reqByteLength=536
+    at retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:699:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/utils/index.mjs:25:25)
+    at async PostHog.fetchWithRetry (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:683:16)
+    at async PostHog._flush (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:611:34) {
+  response: Response {
+    status: 503,
+    statusText: 'Service Unavailable',
+    headers: Headers {
+      date: 'Wed, 14 Oct 2026 19:03:01 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5',
+      'content-length': '2'
+    },
+    body: ReadableStream { locked: true, state: 'closed', supportsBYOB: true },
+    bodyUsed: true,
+    ok: false,
+    redirected: false,
+    type: 'basic',
+    url: 'http://127.0.0.1:56540/batch/'
+  },
+  reqByteLength: 536
+}
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+Error while flushing PostHog: message=HTTP error while fetching PostHog: status=503, reqByteLength=536, response body={} PostHogFetchHttpError: HTTP error while fetching PostHog: status=503, reqByteLength=536
+    at retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:699:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async retriable (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/utils/index.mjs:25:25)
+    at async PostHog.fetchWithRetry (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:683:16)
+    at async PostHog._flush (file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/node_modules/.pnpm/@posthog+core@1.32.3/node_modules/@posthog/core/dist/posthog-core-stateless.mjs:611:34) {
+  response: Response {
+    status: 503,
+    statusText: 'Service Unavailable',
+    headers: Headers {
+      date: 'Wed, 14 Oct 2026 19:03:10 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5',
+      'content-length': '2'
+    },
+    body: ReadableStream { locked: true, state: 'closed', supportsBYOB: true },
+    bodyUsed: true,
+    ok: false,
+    redirected: false,
+    type: 'basic',
+    url: 'http://127.0.0.1:56540/batch/'
+  },
+  reqByteLength: 536
+}
+[sentry] reporting configured; identity association is permission gated
+[posthog] analytics configured; identity association is permission gated
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 spawn listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(node:32950) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 error listeners added to [ChildProcess]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+Starting phi-agent server on UDS /tmp/multica-task-3028658770/phi330-r2-uds-H13aTN/listener.sock
+[node-transport] http request failed {
+  error: 'safe handler fault',
+  stack: 'Error: safe handler fault\n' +
+    '    at Object.handler (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:49)\n' +
+    '    at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/phi-agent-dsh/plugins/transport/src/lib/node-server.ts:361:32)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)'
+}
+Error streaming response body: Error: safe stream error
+    at Timeout._onTimeout (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/artifacts-wt/PHI-330/qa-scripts/r2/transport-matrix.mts:20:450)
+    at listOnTimeout (node:internal/timers:585:17)
+    at process.processTimers (node:internal/timers:521:7)
+{"cases":16,"passed":true}

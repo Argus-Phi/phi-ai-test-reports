@@ -1,0 +1,23 @@
+{
+  "mode": "on",
+  "synthetic_owner": "auth0|qa-330-b",
+  "cases": [
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.browser-eval",
+          "trusted_owner": true
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.browser-eval",
+          "identified": true,
+          "identity_matches": true
+        }
+      ],
+      "observations": 0
+    }
+  ],
+  "passed": true
+}

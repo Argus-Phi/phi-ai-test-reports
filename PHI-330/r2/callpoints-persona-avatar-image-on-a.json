@@ -1,0 +1,28 @@
+{
+  "mode": "on",
+  "synthetic_owner": "auth0|qa-330-a",
+  "cases": [
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.persona-avatar",
+          "trusted_owner": true
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.persona-avatar",
+          "identified": true,
+          "identity_matches": true
+        }
+      ],
+      "observations": 2
+    },
+    {
+      "recorded_roots": [],
+      "wire_roots": [],
+      "observations": 2
+    }
+  ],
+  "passed": true
+}

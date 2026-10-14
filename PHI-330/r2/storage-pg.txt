@@ -1,0 +1,789 @@
+UTC: 2026-10-14T18:50:51.595Z
+Exit: 0
+# Subtest: uploadFile -> getFile round-trips bytes, filename, and mime
+ok 1 - uploadFile -> getFile round-trips bytes, filename, and mime
+# Subtest: getFileDataUrl returns the legacy data: URL format
+ok 2 - getFileDataUrl returns the legacy data: URL format
+# Subtest: uploadFile rejects oversize files
+ok 3 - uploadFile rejects oversize files
+# Subtest: an explicit 100 MiB artifact limit round-trips through storage
+ok 4 - an explicit 100 MiB artifact limit round-trips through storage
+# Subtest: explicit limits are enforced without changing the default upload limit
+ok 5 - explicit limits are enforced without changing the default upload limit
+# Subtest: actual upload bytes cannot evade the ordinary size cap
+ok 6 - actual upload bytes cannot evade the ordinary size cap
+# Subtest: invalid internal size limits are rejected
+ok 7 - invalid internal size limits are rejected
+# Subtest: uploadFile rejects unsupported mime types
+ok 8 - uploadFile rejects unsupported mime types
+# Subtest: getFile is tenant-scoped (another user cannot read it)
+ok 9 - getFile is tenant-scoped (another user cannot read it)
+# Subtest: getFile rejects not_found for missing file / unknown tenant
+ok 10 - getFile rejects not_found for missing file / unknown tenant
+# Subtest: getFileById uses preferredUserId fast path then cross-tenant fallback
+ok 11 - getFileById uses preferredUserId fast path then cross-tenant fallback
+# Subtest: getFileById rejects for empty / unknown id
+ok 12 - getFileById rejects for empty / unknown id
+# Subtest: createSkillFile requires an existing skill
+ok 13 - createSkillFile requires an existing skill
+# Subtest: skill file create -> list -> getContent -> delete tombstone
+ok 14 - skill file create -> list -> getContent -> delete tombstone
+# Subtest: skill files are tenant-isolated
+ok 15 - skill files are tenant-isolated
+# Subtest: blob methods reject when files_root is not configured
+ok 16 - blob methods reject when files_root is not configured
+# Subtest: append then get round-trips every field, snapshots included
+ok 17 - append then get round-trips every field, snapshots included
+# Subtest: list is newest first and filters by resource type
+ok 18 - list is newest first and filters by resource type
+# Subtest: an 11th record of one type drops the oldest; other types keep theirs
+ok 19 - an 11th record of one type drops the oldest; other types keep theirs
+# Subtest: records are tenant-scoped
+ok 20 - records are tenant-scoped
+# Subtest: update patches status, restoredBy and idMap only
+ok 21 - update patches status, restoredBy and idMap only
+# Subtest: getChannelState returns null when unknown tenant
+ok 22 - getChannelState returns null when unknown tenant
+# Subtest: getChannelState returns null when no row for known tenant
+ok 23 - getChannelState returns null when no row for known tenant
+# Subtest: upsertChannelState creates a row with default status unpaired
+ok 24 - upsertChannelState creates a row with default status unpaired
+# Subtest: upsertChannelState stores all provided fields including agentToken
+ok 25 - upsertChannelState stores all provided fields including agentToken
+# Subtest: upsertChannelState merges patch over existing fields
+ok 26 - upsertChannelState merges patch over existing fields
+# Subtest: upsertChannelState clears a field when patch value is undefined
+ok 27 - upsertChannelState clears a field when patch value is undefined
+# Subtest: upsertChannelState defaults status to unpaired when neither patch nor existing has it
+ok 28 - upsertChannelState defaults status to unpaired when neither patch nor existing has it
+# Subtest: upsertChannelState preserves existing status when patch omits it
+ok 29 - upsertChannelState preserves existing status when patch omits it
+# Subtest: upsertChannelState revives a soft-deleted row
+ok 30 - upsertChannelState revives a soft-deleted row
+# Subtest: getChannelState returns null for a soft-deleted row
+ok 31 - getChannelState returns null for a soft-deleted row
+# Subtest: deleteChannelState is a no-op when the row does not exist
+ok 32 - deleteChannelState is a no-op when the row does not exist
+# Subtest: listChannelStates returns empty array when no rows
+ok 33 - listChannelStates returns empty array when no rows
+# Subtest: listChannelStates filters by userId
+ok 34 - listChannelStates filters by userId
+# Subtest: listChannelStates without userId returns all tenants ordered by external id
+ok 35 - listChannelStates without userId returns all tenants ordered by external id
+# Subtest: listChannelStates excludes soft-deleted rows
+ok 36 - listChannelStates excludes soft-deleted rows
+# Subtest: listChannelStates filters by channel
+ok 37 - listChannelStates filters by channel
+# Subtest: upsertChannelState is tenant-scoped (same channel, different users)
+ok 38 - upsertChannelState is tenant-scoped (same channel, different users)
+# Subtest: userId is sanitized consistently across read and write
+ok 39 - userId is sanitized consistently across read and write
+# Subtest: createChatCategory creates a record with auto sortOrder 0
+ok 40 - createChatCategory creates a record with auto sortOrder 0
+# Subtest: createChatCategory auto-increments sortOrder
+ok 41 - createChatCategory auto-increments sortOrder
+# Subtest: createChatCategory respects an explicit sortOrder
+ok 42 - createChatCategory respects an explicit sortOrder
+# Subtest: createChatCategory rejects empty/whitespace name
+ok 43 - createChatCategory rejects empty/whitespace name
+# Subtest: createChatCategory rejects duplicate name case-insensitively (same tenant)
+ok 44 - createChatCategory rejects duplicate name case-insensitively (same tenant)
+# Subtest: different tenants can share a category name
+ok 45 - different tenants can share a category name
+# Subtest: getChatCategory returns the category or null
+ok 46 - getChatCategory returns the category or null
+# Subtest: getChatCategoryByName is case-insensitive
+ok 47 - getChatCategoryByName is case-insensitive
+# Subtest: listChatCategories is sorted by sortOrder ascending
+ok 48 - listChatCategories is sorted by sortOrder ascending
+# Subtest: listChatCategories is tenant-scoped
+ok 49 - listChatCategories is tenant-scoped
+# Subtest: deletes every kickoff row, keeps the other namespaces, and runs once
+ok 50 - deletes every kickoff row, keeps the other namespaces, and runs once
+# Subtest: ChatListStore.listChats
+ok 51 - ChatListStore.listChats
+# Subtest: ChatListStore.batchDeleteChats
+ok 52 - ChatListStore.batchDeleteChats
+# Subtest: ChatListStore.listChats metadata
+ok 53 - ChatListStore.listChats metadata
+# Subtest: ChatListStore.listChats pagination sweep
+ok 54 - ChatListStore.listChats pagination sweep
+# Subtest: ChatListStore.batchDeleteChats scoping
+ok 55 - ChatListStore.batchDeleteChats scoping
+# Subtest: copies each chat's live user category onto an assignment and fills activity from its newest live message, once
+ok 56 - copies each chat's live user category onto an assignment and fills activity from its newest live message, once
+# Subtest: a category the user removes after the migration stays removed at the next boot
+ok 57 - a category the user removes after the migration stays removed at the next boot
+# Subtest: a database without the legacy column only gets its activity
+ok 58 - a database without the legacy column only gets its activity
+# Subtest: a database from before chat.profile_move_id keeps its categories through a real boot
+ok 59 - a database from before chat.profile_move_id keeps its categories through a real boot
+# Subtest: a fresh database records migration 1 without running it
+ok 60 - a fresh database records migration 1 without running it
+# Subtest: deletion archives only its account/Profile and retries preserve manual classification
+ok 61 - deletion archives only its account/Profile and retries preserve manual classification
+# Subtest: Uncategorized merges unfiled and archived chats before owner filtering and pagination
+ok 62 - Uncategorized merges unfiled and archived chats before owner filtering and pagination
+# Subtest: system category cannot be renamed or deleted
+ok 63 - system category cannot be renamed or deleted
+# Subtest: concurrent delivery of one deletion has one effect
+ok 64 - concurrent delivery of one deletion has one effect
+# Subtest: lists filter Profiles before pagination and preserve global rows
+ok 65 - lists filter Profiles before pagination and preserve global rows
+# Subtest: categories are account-wide while assignments still enforce chat access
+ok 66 - categories are account-wide while assignments still enforce chat access
+# Subtest: explicit transfer atomically moves only its chat and scene, preserves its category, and rejects stale captures
+ok 67 - explicit transfer atomically moves only its chat and scene, preserves its category, and rejects stale captures
+# Subtest: a global chat is adopted once by the Profile that restores it and then owned
+ok 68 - a global chat is adopted once by the Profile that restores it and then owned
+# Subtest: boot preserves unassigned ownership regardless of recorded browser scenes
+ok 69 - boot preserves unassigned ownership regardless of recorded browser scenes
+# Subtest: a chat counts the live tasks that link it: archived and deleted ones do not, disabled ones do
+ok 70 - a chat counts the live tasks that link it: archived and deleted ones do not, disabled ones do
+# Subtest: the Tasks view keeps the chats a live task links, and composes with the query and the cursor
+ok 71 - the Tasks view keeps the chats a live task links, and composes with the query and the cursor
+# Subtest: the Tasks view ignores another tenant's task naming the same chat id, and leaves out a deleted chat
+ok 72 - the Tasks view ignores another tenant's task naming the same chat id, and leaves out a deleted chat
+# Subtest: listTasks narrows to the tasks one chat links, whatever their status
+ok 73 - listTasks narrows to the tasks one chat links, whatever their status
+# Subtest: listLiveChatIds keeps the caller's existing, undeleted chats, in the given order, once each
+ok 74 - listLiveChatIds keeps the caller's existing, undeleted chats, in the given order, once each
+# Subtest: the Tasks view count is the chats a live task links, in the caller's Profile scope
+ok 75 - the Tasks view count is the chats a live task links, in the caller's Profile scope
+# Subtest: deletes every tasks row, keeps the other namespaces, and runs once
+ok 76 - deletes every tasks row, keeps the other namespaces, and runs once
+# Subtest: frames come back in run and batch order across batches
+ok 77 - frames come back in run and batch order across batches
+# Subtest: one user never reads another user's or another chat's frames
+ok 78 - one user never reads another user's or another chat's frames
+# Subtest: deleting before a cutoff removes only older batches and counts them
+ok 79 - deleting before a cutoff removes only older batches and counts them
+# Subtest: a frame holding a NUL character round-trips (text, not jsonb)
+ok 80 - a frame holding a NUL character round-trips (text, not jsonb)
+# Subtest: an empty batch writes nothing
+ok 81 - an empty batch writes nothing
+# Subtest: a live chat's batch is written
+ok 82 - a live chat's batch is written
+# Subtest: a batch for a chat that was deleted is not written
+ok 83 - a batch for a chat that was deleted is not written
+# Subtest: a batch racing the chat's delete waits for it, then is not written
+ok 84 - a batch racing the chat's delete waits for it, then is not written
+# Subtest: createChat stores defaults (empty metadata) and returns the record
+ok 85 - createChat stores defaults (empty metadata) and returns the record
+# Subtest: createChat honors explicit createdAt and stores namespaced metadata
+ok 86 - createChat honors explicit createdAt and stores namespaced metadata
+# Subtest: createChat is idempotent: existing chat is returned unchanged
+ok 87 - createChat is idempotent: existing chat is returned unchanged
+# Subtest: createChat starts a chat uncategorized and read, with its creation as last activity
+ok 88 - createChat starts a chat uncategorized and read, with its creation as last activity
+# Subtest: getChat, listChats and moveChatProfile read a chat's categories from its assignment rows, oldest first
+ok 89 - getChat, listChats and moveChatProfile read a chat's categories from its assignment rows, oldest first
+# Subtest: a chat whose last activity was never stored reports its creation
+ok 90 - a chat whose last activity was never stored reports its creation
+# Subtest: getChat returns the chat or null; tenant-scoped
+ok 91 - getChat returns the chat or null; tenant-scoped
+# Subtest: updateChatTitle changes the title
+ok 92 - updateChatTitle changes the title
+# Subtest: updateChatTitle on a missing chat throws not_found
+ok 93 - updateChatTitle on a missing chat throws not_found
+# Subtest: putChatMetadata replaces one namespace; deleteChatMetadata removes it
+ok 94 - putChatMetadata replaces one namespace; deleteChatMetadata removes it
+# Subtest: putChatMetadata on a missing chat throws not_found
+ok 95 - putChatMetadata on a missing chat throws not_found
+# Subtest: deleteChat soft-deletes: getChat then returns null
+ok 96 - deleteChat soft-deletes: getChat then returns null
+# Subtest: createChat files the chat under categoryIds, deduplicated, and refuses any id that is not one of the user's categories
+ok 97 - createChat files the chat under categoryIds, deduplicated, and refuses any id that is not one of the user's categories
+# Subtest: setChatCategories replaces the whole set and answers the updated chat
+ok 98 - setChatCategories replaces the whole set and answers the updated chat
+# Subtest: setChatCategories keeps the old set on a refused id and refuses a missing, deleted or differently owned chat
+ok 99 - setChatCategories keeps the old set on a refused id and refuses a missing, deleted or differently owned chat
+# Subtest: markChatRead clears the unread marker and refuses a chat the user does not have
+ok 100 - markChatRead clears the unread marker and refuses a chat the user does not have
+# Subtest: markChatUnread marks the chat unread and moves its activity forward, never back
+ok 101 - markChatUnread marks the chat unread and moves its activity forward, never back
+# Subtest: batchSetChatCategories adds and removes across every chat, and each chat keeps its other categories
+ok 102 - batchSetChatCategories adds and removes across every chat, and each chat keeps its other categories
+# Subtest: batchSetChatCategories changes every chat or none of them
+ok 103 - batchSetChatCategories changes every chat or none of them
+# Subtest: a chat no longer carries a single categoryId, and the single-category writes are gone
+ok 104 - a chat no longer carries a single categoryId, and the single-category writes are gone
+# Subtest: deleting a chat drops its trace record; deleting in bulk does too
+ok 105 - deleting a chat drops its trace record; deleting in bulk does too
+# Subtest: createPostgresErrorReporter forwards to BOTH the logger and the capture sink
+ok 106 - createPostgresErrorReporter forwards to BOTH the logger and the capture sink
+# Subtest: maintenance telemetry removes raw and sanitized tenant identities while logs preserve the original error
+ok 107 - maintenance telemetry removes raw and sanitized tenant identities while logs preserve the original error
+# Subtest: maps the legacy IM source, defaulting the missing channel to telegram
+ok 108 - maps the legacy IM source, defaulting the missing channel to telegram
+# Subtest: maps the export-chatgpt skill's untyped import source
+ok 109 - maps the export-chatgpt skill's untyped import source
+# Subtest: maps the documented { type: import, platform } contract
+ok 110 - maps the documented { type: import, platform } contract
+# Subtest: returns null for shapes it cannot interpret
+ok 111 - returns null for shapes it cannot interpret
+# Subtest: saveMessages retries concurrent version conflicts (maps to message_conflict)
+ok 112 - saveMessages retries concurrent version conflicts (maps to message_conflict)
+# Subtest: getMessages returns [] for an unknown tenant
+ok 113 - getMessages returns [] for an unknown tenant
+# Subtest: getMessages returns [] for a known tenant with no messages
+ok 114 - getMessages returns [] for a known tenant with no messages
+# Subtest: getMessages returns saved messages ordered by id ascending
+ok 115 - getMessages returns saved messages ordered by id ascending
+# Subtest: getMessages omits soft-deleted messages
+ok 116 - getMessages omits soft-deleted messages
+# Subtest: getMessages is tenant scoped: another user cannot read
+ok 117 - getMessages is tenant scoped: another user cannot read
+# Subtest: saveMessages defaults createdAt and deleted, derives attachments
+ok 118 - saveMessages defaults createdAt and deleted, derives attachments
+# Subtest: saveMessages honors explicit createdAt
+ok 119 - saveMessages honors explicit createdAt
+# Subtest: saveMessages filters out system-role messages
+ok 120 - saveMessages filters out system-role messages
+# Subtest: saveMessages append mode upserts/updates existing messages
+ok 121 - saveMessages append mode upserts/updates existing messages
+# Subtest: saveMessages full mode tombstones messages not present in the new set
+ok 122 - saveMessages full mode tombstones messages not present in the new set
+# Subtest: saveMessages rejects non-uuidv7 ids with invalid_message_id
+ok 123 - saveMessages rejects non-uuidv7 ids with invalid_message_id
+# Subtest: saveMessages rejects non-monotonic ids with message_ids_not_monotonic
+ok 124 - saveMessages rejects non-monotonic ids with message_ids_not_monotonic
+# Subtest: saveMessages append rejects an id below the existing non-deleted tail
+ok 125 - saveMessages append rejects an id below the existing non-deleted tail
+# Subtest: saveMessages is tenant scoped: different users keep separate messages
+ok 126 - saveMessages is tenant scoped: different users keep separate messages
+# Subtest: deleteMessagesFrom by fromMessageId tombstones from that id to the end
+ok 127 - deleteMessagesFrom by fromMessageId tombstones from that id to the end
+# Subtest: deleteMessagesFrom returns 0 when fromMessageId is not found
+ok 128 - deleteMessagesFrom returns 0 when fromMessageId is not found
+# Subtest: deleteMessagesFrom returns 0 for an unknown tenant
+ok 129 - deleteMessagesFrom returns 0 for an unknown tenant
+# Subtest: saveMessages bumps the chat's updatedAt when it appends
+ok 130 - saveMessages bumps the chat's updatedAt when it appends
+# Subtest: saveMessages bumps the chat's updatedAt when full mode tombstones
+ok 131 - saveMessages bumps the chat's updatedAt when full mode tombstones
+# Subtest: saveMessages leaves the chat's updatedAt alone when nothing changes
+ok 132 - saveMessages leaves the chat's updatedAt alone when nothing changes
+# Subtest: saveMessages does not touch another tenant's chat row
+ok 133 - saveMessages does not touch another tenant's chat row
+# Subtest: saveMessages still saves when the chat row does not exist
+ok 134 - saveMessages still saves when the chat row does not exist
+# Subtest: saveMessages moves the chat's last activity to the newest inserted message
+ok 135 - saveMessages moves the chat's last activity to the newest inserted message
+# Subtest: saveMessages fills in the last activity of a chat that never stored one
+ok 136 - saveMessages fills in the last activity of a chat that never stored one
+# Subtest: saveMessages does not count rewriting an existing message row as activity
+ok 137 - saveMessages does not count rewriting an existing message row as activity
+# Subtest: saveMessages never moves last activity backwards and ignores inserted tombstones
+ok 138 - saveMessages never moves last activity backwards and ignores inserted tombstones
+# Subtest: saveMessages never moves a never-stored activity before the chat's creation
+ok 139 - saveMessages never moves a never-stored activity before the chat's creation
+# Subtest: saveMessages bumps the chat's version once: the activity write adds no second bump
+ok 140 - saveMessages bumps the chat's version once: the activity write adds no second bump
+# Subtest: isAllowedFileMimeType accepts generic chat artifact MIME types
+ok 141 - isAllowedFileMimeType accepts generic chat artifact MIME types
+# Subtest: isAllowedFileMimeType rejects executable and unknown types
+ok 142 - isAllowedFileMimeType rejects executable and unknown types
+# Subtest: isAllowedFileMimeType handles charset parameters
+ok 143 - isAllowedFileMimeType handles charset parameters
+# Subtest: isAllowedFileMimeType accepts subtitle exports
+ok 144 - isAllowedFileMimeType accepts subtitle exports
+# Subtest: the page exports the browser tools produce are storable
+ok 145 - the page exports the browser tools produce are storable
+# Subtest: bootstrap failure closes the selected ORM without transport fallback
+ok 146 - bootstrap failure closes the selected ORM without transport fallback
+# Subtest: buildPostgresOrmConfig throws when POSTGRES_URL is missing
+ok 147 - buildPostgresOrmConfig throws when POSTGRES_URL is missing
+# Subtest: buildPostgresOrmConfig reflects clientUrl/schema overrides
+ok 148 - buildPostgresOrmConfig reflects clientUrl/schema overrides
+# Subtest: createPostgresStore yields a configured, usable store
+ok 149 - createPostgresStore yields a configured, usable store
+# Subtest: reserved tenants are seeded after init
+ok 150 - reserved tenants are seeded after init
+# Subtest: re-init is idempotent (no throw, no duplicate tenants)
+ok 151 - re-init is idempotent (no throw, no duplicate tenants)
+# Subtest: re-init preserves unmanaged historical tables
+ok 152 - re-init preserves unmanaged historical tables
+# Subtest: the pool idle timeout outlives the 15s maintenance sweep by default
+ok 153 - the pool idle timeout outlives the 15s maintenance sweep by default
+# Subtest: POSTGRES_POOL_IDLE_TIMEOUT_MS overrides the pool idle timeout
+ok 154 - POSTGRES_POOL_IDLE_TIMEOUT_MS overrides the pool idle timeout
+# Subtest: connections are named for pg_stat_activity attribution
+ok 155 - connections are named for pg_stat_activity attribution
+# Subtest: a unix transport overrides host/port and leaves the DSN intact
+ok 156 - a unix transport overrides host/port and leaves the DSN intact
+# Subtest: a tcp transport leaves host/port to the DSN
+ok 157 - a tcp transport leaves host/port to the DSN
+# Subtest: artifacts root: explicit wins, else <cwd>/.data
+ok 158 - artifacts root: explicit wins, else <cwd>/.data
+# Subtest: files root: explicit FILES_STORAGE_PATH wins
+ok 159 - files root: explicit FILES_STORAGE_PATH wins
+# Subtest: files root: defaults to <artifacts>/uploads
+ok 160 - files root: defaults to <artifacts>/uploads
+# Subtest: files root: defaults to <cwd>/.data/uploads when nothing set
+ok 161 - files root: defaults to <cwd>/.data/uploads when nothing set
+# Subtest: close() disconnects the ORM behind the store
+ok 162 - close() disconnects the ORM behind the store
+# Subtest: isConfigured returns true
+ok 163 - isConfigured returns true
+# Subtest: cross-domain: category + chat (linked) flow via the facade
+ok 164 - cross-domain: category + chat (linked) flow via the facade
+# Subtest: message delegation works through the facade
+ok 165 - message delegation works through the facade
+# Subtest: deleteChatCategory takes the category off its chats, keeps their others, and counts the live ones
+ok 166 - deleteChatCategory takes the category off its chats, keeps their others, and counts the live ones
+# Subtest: blob methods reject when no filesRoot is configured
+ok 167 - blob methods reject when no filesRoot is configured
+# Subtest: createSchedule stores and returns the record
+ok 168 - createSchedule stores and returns the record
+# Subtest: createSchedule preserves all optional fields round-trip
+ok 169 - createSchedule preserves all optional fields round-trip
+# Subtest: createSchedule duplicate scheduleId throws schedule_conflict
+ok 170 - createSchedule duplicate scheduleId throws schedule_conflict
+# Subtest: getSchedule returns null for unknown tenant
+ok 171 - getSchedule returns null for unknown tenant
+# Subtest: getSchedule returns null for unknown scheduleId of known tenant
+ok 172 - getSchedule returns null for unknown scheduleId of known tenant
+# Subtest: getSchedule is tenant-scoped (no cross-tenant leak)
+ok 173 - getSchedule is tenant-scoped (no cross-tenant leak)
+# Subtest: listSchedules returns [] for unknown tenant
+ok 174 - listSchedules returns [] for unknown tenant
+# Subtest: listSchedules returns all schedules for the tenant only
+ok 175 - listSchedules returns all schedules for the tenant only
+# Subtest: listSchedules filters by taskId
+ok 176 - listSchedules filters by taskId
+# Subtest: listSchedules filters by enabledOnly
+ok 177 - listSchedules filters by enabledOnly
+# Subtest: updateSchedule applies patch and returns updated record
+ok 178 - updateSchedule applies patch and returns updated record
+# Subtest: updateSchedule returns null when schedule not found
+ok 179 - updateSchedule returns null when schedule not found
+# Subtest: updateSchedule returns null for unknown tenant
+ok 180 - updateSchedule returns null for unknown tenant
+# Subtest: updateSchedule with null patch returns current unchanged
+ok 181 - updateSchedule with null patch returns current unchanged
+# Subtest: updateSchedule can clear optional fields to undefined
+ok 182 - updateSchedule can clear optional fields to undefined
+# Subtest: updateSchedule sets and clears the end
+ok 183 - updateSchedule sets and clears the end
+# Subtest: removeSchedule deletes and returns true
+ok 184 - removeSchedule deletes and returns true
+# Subtest: removeSchedule returns false when not found
+ok 185 - removeSchedule returns false when not found
+# Subtest: removeSchedule returns false for unknown tenant
+ok 186 - removeSchedule returns false for unknown tenant
+# Subtest: listDueSchedules returns enabled schedules across tenants with nextRunAt <= cutoff
+ok 187 - listDueSchedules returns enabled schedules across tenants with nextRunAt <= cutoff
+# Subtest: listDueSchedules respects limit
+ok 188 - listDueSchedules respects limit
+# Subtest: listDueSchedules returns [] when nothing due
+ok 189 - listDueSchedules returns [] when nothing due
+# Subtest: getScheduleMigrationState returns null when absent
+ok 190 - getScheduleMigrationState returns null when absent
+# Subtest: upsertScheduleMigrationState inserts then getScheduleMigrationState returns it
+ok 191 - upsertScheduleMigrationState inserts then getScheduleMigrationState returns it
+# Subtest: upsertScheduleMigrationState updates existing single row
+ok 192 - upsertScheduleMigrationState updates existing single row
+# Subtest: the task runtime heartbeat round-trips, and a later save clears the clean stop
+ok 193 - the task runtime heartbeat round-trips, and a later save clears the clean stop
+# Subtest: a fresh schema records every migration without running it
+ok 194 - a fresh schema records every migration without running it
+# Subtest: a schema from before the ledger runs its migrations around the sync
+ok 195 - a schema from before the ledger runs its migrations around the sync
+# Subtest: a statement the data rejects is skipped and the rest of the sync still applies
+ok 196 - a statement the data rejects is skipped and the rest of the sync still applies
+# Subtest: a before-sync migration can fix the data so the sync succeeds
+ok 197 - a before-sync migration can fix the data so the sync succeeds
+# Subtest: a migration of several statements runs as written
+ok 198 - a migration of several statements runs as written
+# Subtest: a failing migration fails the boot and leaves the ledger as it was
+ok 199 - a failing migration fails the boot and leaves the ledger as it was
+# Subtest: a DSN naming a missing database gets the database created
+ok 200 - a DSN naming a missing database gets the database created
+# Subtest: statement-level SQLSTATEs may be skipped
+ok 201 - statement-level SQLSTATEs may be skipped
+# Subtest: connection and server failures may not
+ok 202 - connection and server failures may not
+# Subtest: a wrapped driver error is judged by its sqlState
+ok 203 - a wrapped driver error is judged by its sqlState
+# Subtest: the diff splits into one statement per terminated line
+ok 204 - the diff splits into one statement per terminated line
+# Subtest: a statement spanning lines stays whole
+ok 205 - a statement spanning lines stays whole
+# Subtest: a connection failure during the sync fails the boot unchanged
+ok 206 - a connection failure during the sync fails the boot unchanged
+# Subtest: a statement error switches to applying the diff one by one
+ok 207 - a statement error switches to applying the diff one by one
+# Subtest: getTaskSettings returns null for an unknown tenant
+ok 208 - getTaskSettings returns null for an unknown tenant
+# Subtest: updateTaskSettings creates a record when none exists
+ok 209 - updateTaskSettings creates a record when none exists
+# Subtest: updateTaskSettings updates an existing record and exposes current
+ok 210 - updateTaskSettings updates an existing record and exposes current
+# Subtest: updateTaskSettings returns current unchanged when updater returns null
+ok 211 - updateTaskSettings returns current unchanged when updater returns null
+# Subtest: updateTaskSettings returns null when updater returns null and none exists
+ok 212 - updateTaskSettings returns null when updater returns null and none exists
+# Subtest: task settings are tenant-scoped
+ok 213 - task settings are tenant-scoped
+# Subtest: updateTaskSettings throws task_settings_conflict on a stale write
+ok 214 - updateTaskSettings throws task_settings_conflict on a stale write
+# Subtest: getAgentPersona returns null for an unknown tenant
+ok 215 - getAgentPersona returns null for an unknown tenant
+# Subtest: saveAgentPersona creates and returns the persona
+ok 216 - saveAgentPersona creates and returns the persona
+# Subtest: saveAgentPersona persists the avatar
+ok 217 - saveAgentPersona persists the avatar
+# Subtest: saveAgentPersona replaces an existing persona
+ok 218 - saveAgentPersona replaces an existing persona
+# Subtest: agent persona is tenant-scoped
+ok 219 - agent persona is tenant-scoped
+# Subtest: updateAgentPersona creates when none exists and exposes null current
+ok 220 - updateAgentPersona creates when none exists and exposes null current
+# Subtest: updateAgentPersona returns current unchanged when updater returns null
+ok 221 - updateAgentPersona returns current unchanged when updater returns null
+# Subtest: updateAgentPersona returns null when updater returns null and none exists
+ok 222 - updateAgentPersona returns null when updater returns null and none exists
+# Subtest: updateAgentPersona throws agent_persona_conflict on a stale write
+ok 223 - updateAgentPersona throws agent_persona_conflict on a stale write
+# Subtest: getAgentOnboardingState returns null for an unknown tenant
+ok 224 - getAgentOnboardingState returns null for an unknown tenant
+# Subtest: saveAgentOnboardingState creates and returns the state
+ok 225 - saveAgentOnboardingState creates and returns the state
+# Subtest: saveAgentOnboardingState replaces an existing state
+ok 226 - saveAgentOnboardingState replaces an existing state
+# Subtest: agent onboarding is tenant-scoped
+ok 227 - agent onboarding is tenant-scoped
+# Subtest: updateAgentOnboardingState creates when none exists and exposes null current
+ok 228 - updateAgentOnboardingState creates when none exists and exposes null current
+# Subtest: updateAgentOnboardingState returns current unchanged when updater returns null
+ok 229 - updateAgentOnboardingState returns current unchanged when updater returns null
+# Subtest: updateAgentOnboardingState returns null when updater returns null and none exists
+ok 230 - updateAgentOnboardingState returns null when updater returns null and none exists
+# Subtest: updateAgentOnboardingState throws agent_onboarding_conflict on a stale write
+ok 231 - updateAgentOnboardingState throws agent_onboarding_conflict on a stale write
+# Subtest: getAgentSelfModel returns null for an unknown tenant
+ok 232 - getAgentSelfModel returns null for an unknown tenant
+# Subtest: saveAgentSelfModel round-trips the EvolvingSelf blob per-tenant
+ok 233 - saveAgentSelfModel round-trips the EvolvingSelf blob per-tenant
+# Subtest: saveAgentSelfModel replaces an existing self-model
+ok 234 - saveAgentSelfModel replaces an existing self-model
+# Subtest: agent self-model is tenant-scoped
+ok 235 - agent self-model is tenant-scoped
+# Subtest: updateAgentSelfModel creates when none exists and exposes null current
+ok 236 - updateAgentSelfModel creates when none exists and exposes null current
+# Subtest: updateAgentSelfModel reads current, appends a directive, and persists (Track A path)
+ok 237 - updateAgentSelfModel reads current, appends a directive, and persists (Track A path)
+# Subtest: updateAgentSelfModel returns current unchanged when updater returns null
+ok 238 - updateAgentSelfModel returns current unchanged when updater returns null
+# Subtest: updateAgentSelfModel returns null when updater returns null and none exists
+ok 239 - updateAgentSelfModel returns null when updater returns null and none exists
+# Subtest: updateAgentSelfModel throws agent_self_model_conflict on a stale write
+ok 240 - updateAgentSelfModel throws agent_self_model_conflict on a stale write
+# Subtest: updateSkill enforces optimistic CAS at the DB (no lost updates)
+ok 241 - updateSkill enforces optimistic CAS at the DB (no lost updates)
+# Subtest: createSkill persists and returns the record
+ok 242 - createSkill persists and returns the record
+# Subtest: createSkill rejects a record without a userId
+ok 243 - createSkill rejects a record without a userId
+# Subtest: createSkill rejects a built_in source
+ok 244 - createSkill rejects a built_in source
+# Subtest: createSkill throws SkillNameConflictError on duplicate name
+ok 245 - createSkill throws SkillNameConflictError on duplicate name
+# Subtest: getSkill returns null for an unknown tenant
+ok 246 - getSkill returns null for an unknown tenant
+# Subtest: getSkill returns null for an unknown skill in a known tenant
+ok 247 - getSkill returns null for an unknown skill in a known tenant
+# Subtest: listSkillsByUser returns [] for an unknown tenant
+ok 248 - listSkillsByUser returns [] for an unknown tenant
+# Subtest: listSkillsByUser is scoped to the tenant
+ok 249 - listSkillsByUser is scoped to the tenant
+# Subtest: listSkillsByUser sorts by name ascending
+ok 250 - listSkillsByUser sorts by name ascending
+# Subtest: compareSkills tiebreaks same name by updatedAt desc then skillId
+ok 251 - compareSkills tiebreaks same name by updatedAt desc then skillId
+# Subtest: listSkillsByUser excludes soft-deleted skills
+ok 252 - listSkillsByUser excludes soft-deleted skills
+# Subtest: getSkillByName finds an exact name match
+ok 253 - getSkillByName finds an exact name match
+# Subtest: updateSkill applies a patch and bumps the version
+ok 254 - updateSkill applies a patch and bumps the version
+# Subtest: updateSkill honors explicit version in the patch
+ok 255 - updateSkill honors explicit version in the patch
+# Subtest: updateSkill can clear friendlyName
+ok 256 - updateSkill can clear friendlyName
+# Subtest: updateSkill throws SkillNotFoundError for an unknown tenant
+ok 257 - updateSkill throws SkillNotFoundError for an unknown tenant
+# Subtest: updateSkill throws SkillNotFoundError for an unknown skill
+ok 258 - updateSkill throws SkillNotFoundError for an unknown skill
+# Subtest: updateSkill throws SkillNotFoundError for a soft-deleted skill
+ok 259 - updateSkill throws SkillNotFoundError for a soft-deleted skill
+# Subtest: updateSkill throws SkillVersionConflictError on version mismatch
+ok 260 - updateSkill throws SkillVersionConflictError on version mismatch
+# Subtest: updateSkill throws SkillNameConflictError when renaming to a taken name
+ok 261 - updateSkill throws SkillNameConflictError when renaming to a taken name
+# Subtest: updateSkill allows keeping the same name
+ok 262 - updateSkill allows keeping the same name
+# Subtest: deleteSkill soft-deletes the skill
+ok 263 - deleteSkill soft-deletes the skill
+# Subtest: deleteSkill cascade-tombstones the skill's files (§6.3 W4, \#10)
+ok 264 - deleteSkill cascade-tombstones the skill's files (§6.3 W4, \#10)
+# Subtest: deleteSkill is a no-op for an unknown tenant
+ok 265 - deleteSkill is a no-op for an unknown tenant
+# Subtest: deleteSkill is a no-op for an unknown skill
+ok 266 - deleteSkill is a no-op for an unknown skill
+# Subtest: a name freed by deleteSkill can be reused
+ok 267 - a name freed by deleteSkill can be reused
+# Subtest: getSkillPreferences returns [] for an unknown tenant
+ok 268 - getSkillPreferences returns [] for an unknown tenant
+# Subtest: setSkillEnabled creates a preference entry
+ok 269 - setSkillEnabled creates a preference entry
+# Subtest: setSkillEnabled preserves an existing installed flag
+ok 270 - setSkillEnabled preserves an existing installed flag
+# Subtest: setSkillInstalled(true) defaults enabled to true
+ok 271 - setSkillInstalled(true) defaults enabled to true
+# Subtest: setSkillInstalled(true) respects an explicit enabled flag
+ok 272 - setSkillInstalled(true) respects an explicit enabled flag
+# Subtest: setSkillInstalled(false) removes the entry when present
+ok 273 - setSkillInstalled(false) removes the entry when present
+# Subtest: setSkillInstalled(false) is synthetic when no entry exists
+ok 274 - setSkillInstalled(false) is synthetic when no entry exists
+# Subtest: deleteSkillPreference removes a single entry
+ok 275 - deleteSkillPreference removes a single entry
+# Subtest: deleteSkillPreference is a no-op when entry/tenant absent
+ok 276 - deleteSkillPreference is a no-op when entry/tenant absent
+# Subtest: deleteAllSkillPreferencesForUser clears every entry, scoped to tenant
+ok 277 - deleteAllSkillPreferencesForUser clears every entry, scoped to tenant
+# Subtest: deleteAllSkillPreferencesForUser is a no-op for an unknown tenant
+ok 278 - deleteAllSkillPreferencesForUser is a no-op for an unknown tenant
+# Subtest: TaskArtifactStore (postgres)
+ok 279 - TaskArtifactStore (postgres)
+# Subtest: createTaskExternalOutboxRecord persists and round-trips a record
+ok 280 - createTaskExternalOutboxRecord persists and round-trips a record
+# Subtest: createTaskExternalOutboxRecord omits runId/lastError when absent
+ok 281 - createTaskExternalOutboxRecord omits runId/lastError when absent
+# Subtest: getTaskExternalOutboxRecord returns the record or null
+ok 282 - getTaskExternalOutboxRecord returns the record or null
+# Subtest: getTaskExternalOutboxRecord returns null for unknown tenant
+ok 283 - getTaskExternalOutboxRecord returns null for unknown tenant
+# Subtest: outbox records are tenant-scoped by eventId
+ok 284 - outbox records are tenant-scoped by eventId
+# Subtest: createTaskExternalOutboxRecord throws task_external_outbox_conflict on duplicate eventId
+ok 285 - createTaskExternalOutboxRecord throws task_external_outbox_conflict on duplicate eventId
+# Subtest: updateTaskExternalOutboxRecord applies a patch
+ok 286 - updateTaskExternalOutboxRecord applies a patch
+# Subtest: updateTaskExternalOutboxRecord returns current unchanged when updater returns null
+ok 287 - updateTaskExternalOutboxRecord returns current unchanged when updater returns null
+# Subtest: updateTaskExternalOutboxRecord returns null for missing record/tenant
+ok 288 - updateTaskExternalOutboxRecord returns null for missing record/tenant
+# Subtest: listTaskExternalOutboxRecords orders by createdAt asc and filters
+ok 289 - listTaskExternalOutboxRecords orders by createdAt asc and filters
+# Subtest: listTaskExternalOutboxRecords honors limit
+ok 290 - listTaskExternalOutboxRecords honors limit
+# Subtest: listTaskExternalOutboxRecords with no userId spans all tenants
+ok 291 - listTaskExternalOutboxRecords with no userId spans all tenants
+# Subtest: listTaskExternalOutboxRecords returns [] for unknown tenant
+ok 292 - listTaskExternalOutboxRecords returns [] for unknown tenant
+# Subtest: createExternalTriggerLookup persists and round-trips
+ok 293 - createExternalTriggerLookup persists and round-trips
+# Subtest: createExternalTriggerLookup omits runId when absent
+ok 294 - createExternalTriggerLookup omits runId when absent
+# Subtest: createExternalTriggerLookup throws external_trigger_lookup_exists on duplicate
+ok 295 - createExternalTriggerLookup throws external_trigger_lookup_exists on duplicate
+# Subtest: trigger uniqueness is on (tenant, task, externalTriggerId)
+ok 296 - trigger uniqueness is on (tenant, task, externalTriggerId)
+# Subtest: getExternalTriggerLookup returns the record or null
+ok 297 - getExternalTriggerLookup returns the record or null
+# Subtest: getExternalTriggerLookup returns null for unknown tenant
+ok 298 - getExternalTriggerLookup returns null for unknown tenant
+# Subtest: bindExternalTriggerLookup sets runId and status=bound
+ok 299 - bindExternalTriggerLookup sets runId and status=bound
+# Subtest: bindExternalTriggerLookup returns null for missing record/tenant
+ok 300 - bindExternalTriggerLookup returns null for missing record/tenant
+# Subtest: updateExternalTriggerLookup applies a patch
+ok 301 - updateExternalTriggerLookup applies a patch
+# Subtest: updateExternalTriggerLookup returns current unchanged when updater returns null
+ok 302 - updateExternalTriggerLookup returns current unchanged when updater returns null
+# Subtest: updateExternalTriggerLookup returns null for missing record/tenant
+ok 303 - updateExternalTriggerLookup returns null for missing record/tenant
+# Subtest: listAllTaskExternalTriggerLookups spans tenants ordered by updatedAt desc
+ok 304 - listAllTaskExternalTriggerLookups spans tenants ordered by updatedAt desc
+# Subtest: listAllTaskExternalTriggerLookups returns [] when empty
+ok 305 - listAllTaskExternalTriggerLookups returns [] when empty
+# Subtest: appendTaskRunLogEntries / listTaskRunLogEntries
+ok 306 - appendTaskRunLogEntries / listTaskRunLogEntries
+# Subtest: updateTaskRun retries on concurrent version conflicts (no lost updates)
+ok 307 - updateTaskRun retries on concurrent version conflicts (no lost updates)
+# Subtest: createTaskRun persists and returns the record
+ok 308 - createTaskRun persists and returns the record
+# Subtest: getTaskRun returns the record by runId
+ok 309 - getTaskRun returns the record by runId
+# Subtest: getTaskRun returns null for unknown tenant
+ok 310 - getTaskRun returns null for unknown tenant
+# Subtest: getTaskRun returns null for unknown runId
+ok 311 - getTaskRun returns null for unknown runId
+# Subtest: createTaskRun conflicts on duplicate (tenant, task, runIndex)
+ok 312 - createTaskRun conflicts on duplicate (tenant, task, runIndex)
+# Subtest: createTaskRun allows same runIndex across different tasks
+ok 313 - createTaskRun allows same runIndex across different tasks
+# Subtest: createTaskRun allows same (task, runIndex) across different tenants
+ok 314 - createTaskRun allows same (task, runIndex) across different tenants
+# Subtest: getTaskRun is tenant-scoped
+ok 315 - getTaskRun is tenant-scoped
+# Subtest: updateTaskRun applies the patch and bumps updatedAt
+ok 316 - updateTaskRun applies the patch and bumps updatedAt
+# Subtest: updateTaskRun returns null for unknown runId
+ok 317 - updateTaskRun returns null for unknown runId
+# Subtest: updateTaskRun returns current unchanged when updater returns null
+ok 318 - updateTaskRun returns current unchanged when updater returns null
+# Subtest: updateTaskRun honors an explicit numeric updatedAt
+ok 319 - updateTaskRun honors an explicit numeric updatedAt
+# Subtest: updateTaskRun persists so a later getTaskRun reflects it
+ok 320 - updateTaskRun persists so a later getTaskRun reflects it
+# Subtest: updateTaskRun keeps the time a run spent suspended, and replaces it when patched
+ok 321 - updateTaskRun keeps the time a run spent suspended, and replaces it when patched
+# Subtest: updateTaskRun keeps a run's outage, missed firings and catch-up offer through unrelated patches
+ok 322 - updateTaskRun keeps a run's outage, missed firings and catch-up offer through unrelated patches
+# Subtest: updateTaskRun keeps the run's chat report through unrelated patches and replaces it when patched
+ok 323 - updateTaskRun keeps the run's chat report through unrelated patches and replaces it when patched
+# Subtest: listTaskRunsAwaitingChatReport lists pending and posting reports across users, oldest first
+ok 324 - listTaskRunsAwaitingChatReport lists pending and posting reports across users, oldest first
+# Subtest: listOfferedTaskRuns lists open catch-up offers across users, oldest first, or one task's
+ok 325 - listOfferedTaskRuns lists open catch-up offers across users, oldest first, or one task's
+# Subtest: listTaskRuns returns runs for a task, newest runIndex first
+ok 326 - listTaskRuns returns runs for a task, newest runIndex first
+# Subtest: listTaskRuns honors limit
+ok 327 - listTaskRuns honors limit
+# Subtest: listTaskRuns is task-scoped and tenant-scoped
+ok 328 - listTaskRuns is task-scoped and tenant-scoped
+# Subtest: latestSentTaskRun finds the newest completed run before the given one whose result was sent
+ok 329 - latestSentTaskRun finds the newest completed run before the given one whose result was sent
+# Subtest: listTaskRuns returns [] for unknown tenant
+ok 330 - listTaskRuns returns [] for unknown tenant
+# Subtest: listAllTaskRuns spans tenants, grouped by task with the newest runIndex first
+ok 331 - listAllTaskRuns spans tenants, grouped by task with the newest runIndex first
+# Subtest: listAllTaskRuns returns [] when there are no runs
+ok 332 - listAllTaskRuns returns [] when there are no runs
+# Subtest: queryTaskRuns defaults: page 1, pageSize 2, desc by createdAt
+ok 333 - queryTaskRuns defaults: page 1, pageSize 2, desc by createdAt
+# Subtest: queryTaskRuns asc ordering and pagination
+ok 334 - queryTaskRuns asc ordering and pagination
+# Subtest: queryTaskRuns onlyWithResultText filters out runs without result text
+ok 335 - queryTaskRuns onlyWithResultText filters out runs without result text
+# Subtest: queryTaskRuns excludeRunId omits the given run
+ok 336 - queryTaskRuns excludeRunId omits the given run
+# Subtest: queryTaskRuns normalizes invalid pageSize to 2 and page to >= 1
+ok 337 - queryTaskRuns normalizes invalid pageSize to 2 and page to >= 1
+# Subtest: queryTaskRuns returns empty result for unknown tenant
+ok 338 - queryTaskRuns returns empty result for unknown tenant
+# Subtest: getTaskRunIdLookup projects from task_run
+ok 339 - getTaskRunIdLookup projects from task_run
+# Subtest: getTaskRunIdLookup returns null when missing
+ok 340 - getTaskRunIdLookup returns null when missing
+# Subtest: createTaskRunLookup validates the run↔task/index projection (§5.2)
+ok 341 - createTaskRunLookup validates the run↔task/index projection (§5.2)
+# Subtest: createTaskRunLookup throws task_run_lookup_conflict on a divergent mapping (§5.2)
+ok 342 - createTaskRunLookup throws task_run_lookup_conflict on a divergent mapping (§5.2)
+# Subtest: createTaskRunLookup throws not_found when the run does not exist (§5.2)
+ok 343 - createTaskRunLookup throws not_found when the run does not exist (§5.2)
+# Subtest: deleteTaskRunLookup is a no-op returning true
+ok 344 - deleteTaskRunLookup is a no-op returning true
+# Subtest: listAllTaskRunLookups projects all runs across tenants, newest updatedAt first
+ok 345 - listAllTaskRunLookups projects all runs across tenants, newest updatedAt first
+# Subtest: bindTaskRunExternalRunLookup binds external_run_id and is readable
+ok 346 - bindTaskRunExternalRunLookup binds external_run_id and is readable
+# Subtest: getTaskRunExternalRunLookup returns null when unbound
+ok 347 - getTaskRunExternalRunLookup returns null when unbound
+# Subtest: bindTaskRunExternalRunLookup is idempotent for the same run
+ok 348 - bindTaskRunExternalRunLookup is idempotent for the same run
+# Subtest: bindTaskRunExternalRunLookup conflicts when externalRunId already bound to another run
+ok 349 - bindTaskRunExternalRunLookup conflicts when externalRunId already bound to another run
+# Subtest: bindTaskRunExternalRunLookup throws when the run does not exist
+ok 350 - bindTaskRunExternalRunLookup throws when the run does not exist
+# Subtest: updateTask retries on concurrent version conflicts (no lost updates)
+ok 351 - updateTask retries on concurrent version conflicts (no lost updates)
+# Subtest: createTask + getTask round-trips the full record
+ok 352 - createTask + getTask round-trips the full record
+# Subtest: getTask returns null for unknown tenant and unknown task
+ok 353 - getTask returns null for unknown tenant and unknown task
+# Subtest: createTask on a duplicate taskId throws task_conflict
+ok 354 - createTask on a duplicate taskId throws task_conflict
+# Subtest: createTask applies defaults via the record mapper
+ok 355 - createTask applies defaults via the record mapper
+# Subtest: getTask returns null for a soft-deleted task
+ok 356 - getTask returns null for a soft-deleted task
+# Subtest: updateTask applies a patch and bumps updatedAt
+ok 357 - updateTask applies a patch and bumps updatedAt
+# Subtest: updateTask honors explicit updatedAt in the patch
+ok 358 - updateTask honors explicit updatedAt in the patch
+# Subtest: updateTask with a null/undefined patch returns the current record unchanged
+ok 359 - updateTask with a null/undefined patch returns the current record unchanged
+# Subtest: updateTask can clear optional fields and round-trips run summaries
+ok 360 - updateTask can clear optional fields and round-trips run summaries
+# Subtest: updateTask returns null for unknown tenant and unknown task
+ok 361 - updateTask returns null for unknown tenant and unknown task
+# Subtest: listTasks is per-tenant and ordered by updatedAt desc
+ok 362 - listTasks is per-tenant and ordered by updatedAt desc
+# Subtest: listTasks returns [] for an unknown tenant
+ok 363 - listTasks returns [] for an unknown tenant
+# Subtest: listAllTasks is cross-tenant and ordered by updatedAt desc
+ok 364 - listAllTasks is cross-tenant and ordered by updatedAt desc
+# Subtest: listAllTasks returns [] when there are no tasks
+ok 365 - listAllTasks returns [] when there are no tasks
+# Subtest: persists profileId and round-trips it as absent when unset
+ok 366 - persists profileId and round-trips it as absent when unset
+# Subtest: persists spaceId and round-trips it as absent when unset
+ok 367 - persists spaceId and round-trips it as absent when unset
+# Subtest: createTask + getTask round-trips the conversation link, origin and report mute
+ok 368 - createTask + getTask round-trips the conversation link, origin and report mute
+# Subtest: updateTask mutes reports and can clear the conversation link
+ok 369 - updateTask mutes reports and can clear the conversation link
+# Subtest: a row written before the conversation link existed reads as unlinked and unmuted
+ok 370 - a row written before the conversation link existed reads as unlinked and unmuted
+# Subtest: createTask + getTask round-trips the report policy and the stop condition
+ok 371 - createTask + getTask round-trips the report policy and the stop condition
+# Subtest: updateTask changes the report policy and the stop condition independently
+ok 372 - updateTask changes the report policy and the stop condition independently
+# Subtest: a row written before the report policy existed reads as reporting always, with no stop condition
+ok 373 - a row written before the report policy existed reads as reporting always, with no stop condition
+# Subtest: createTask + getTask round-trips the task's language
+ok 374 - createTask + getTask round-trips the task's language
+# Subtest: updateTask changes the language, and a patch that does not name it leaves it
+ok 375 - updateTask changes the language, and a patch that does not name it leaves it
+# Subtest: a row written before the language existed reads as having none
+ok 376 - a row written before the language existed reads as having none
+# Subtest: ensureForWrite creates a tenant and returns its uuid
+ok 377 - ensureForWrite creates a tenant and returns its uuid
+# Subtest: ensureForWrite is idempotent for the same external id
+ok 378 - ensureForWrite is idempotent for the same external id
+# Subtest: concurrent ensureForWrite for the same id yields one tenant
+ok 379 - concurrent ensureForWrite for the same id yields one tenant
+# Subtest: lookupForRead returns null for unknown and the id for known
+ok 380 - lookupForRead returns null for unknown and the id for known
+# Subtest: RENAME: orphan tenant with no canonical is relabeled in place; task becomes visible
+ok 381 - RENAME: orphan tenant with no canonical is relabeled in place; task becomes visible
+# Subtest: MERGE: orphan rows fold onto the existing canonical tenant; orphan deleted
+ok 382 - MERGE: orphan rows fold onto the existing canonical tenant; orphan deleted
+# Subtest: MERGE moves tenant-keyed blob files and rewrites storage_ref
+ok 383 - MERGE moves tenant-keyed blob files and rewrites storage_ref
+# Subtest: idempotent: a second run finds nothing to repair
+ok 384 - idempotent: a second run finds nothing to repair
+# Subtest: leaves reserved and already-sanitized tenants untouched
+ok 385 - leaves reserved and already-sanitized tenants untouched
+# Subtest: blob copy that fails before commit leaves the DB untouched (no partial state)
+ok 386 - blob copy that fails before commit leaves the DB untouched (no partial state)
+# Subtest: a throwing report sink never aborts the loop or double-counts
+ok 387 - a throwing report sink never aborts the loop or double-counts
+# Subtest: without phi-telemetry the row never applies
+ok 388 - without phi-telemetry the row never applies
+# Subtest: after phi-telemetry it provides ctx.phiStorage, backed by Postgres
+ok 389 - after phi-telemetry it provides ctx.phiStorage, backed by Postgres
+# Subtest: disposing the row closes the store
+ok 390 - disposing the row closes the store
+# Subtest: real repair success and failure diagnostics carry no raw or sanitized tenant identity
+ok 391 - real repair success and failure diagnostics carry no raw or sanitized tenant identity
+# tests 439
+# pass 439
+# fail 0
+# cancelled 0
+# skipped 0

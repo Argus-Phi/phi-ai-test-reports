@@ -1,0 +1,55 @@
+{
+  "utc": "2026-10-14T18:56:52.546Z",
+  "privatePath": "/__test__/PRIVATE_PATH_73112f3e-fa25-4100-816e-23d8d1a89ba2",
+  "results": [
+    {
+      "enabled": true,
+      "event_id": "6b31d4aa88084b79809b3731d1647543",
+      "request_present": false,
+      "transaction": "POST /__test__/PRIVATE_PATH_73112f3e-fa25-4100-816e-23d8d1a89ba2",
+      "private_path_leaked": true,
+      "private_query_leaked": false,
+      "private_header_leaked": false,
+      "private_body_leaked": false,
+      "canonical_user": "auth0|qa-330-a",
+      "tags": {
+        "app_version": "PHI-330-S9-privacy-probe",
+        "component": "transport"
+      },
+      "locations": [
+        {
+          "field": "event.transaction",
+          "value": "POST /__test__/PRIVATE_PATH_73112f3e-fa25-4100-816e-23d8d1a89ba2"
+        }
+      ]
+    },
+    {
+      "enabled": false,
+      "event_id": "f57dbdfd92a7400a96cd02ba392cb708",
+      "request_present": false,
+      "transaction": "POST /__test__/PRIVATE_PATH_73112f3e-fa25-4100-816e-23d8d1a89ba2",
+      "private_path_leaked": true,
+      "private_query_leaked": true,
+      "private_header_leaked": false,
+      "private_body_leaked": false,
+      "tags": {
+        "app_version": "PHI-330-S9-privacy-probe",
+        "component": "transport"
+      },
+      "locations": [
+        {
+          "field": "event.transaction",
+          "value": "POST /__test__/PRIVATE_PATH_73112f3e-fa25-4100-816e-23d8d1a89ba2"
+        },
+        {
+          "field": "event.breadcrumbs.3.data.url",
+          "value": "http://127.0.0.1:56218/__test__/PRIVATE_PATH_73112f3e-fa25-4100-816e-23d8d1a89ba2"
+        },
+        {
+          "field": "event.breadcrumbs.3.data.http.query",
+          "value": "?private=PRIVATE_QUERY_2271e723-902e-425c-aa5b-7b02b41e0a14"
+        }
+      ]
+    }
+  ]
+}

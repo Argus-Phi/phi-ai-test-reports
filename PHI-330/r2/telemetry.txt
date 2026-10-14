@@ -1,0 +1,212 @@
+UTC: 2026-10-14T18:49:22.464283+00:00
+Command: npx --yes pnpm@10.17.1 --filter @phi-ai/dsh-plugin-telemetry test
+Exit: 0
+# Subtest: auth Sentry reports safe fields, first/tenth occurrences, and bounded summaries
+ok 1 - auth Sentry reports safe fields, first/tenth occurrences, and bounded summaries
+# Subtest: auth diagnostic incident state is retired on disabled or changed consent
+ok 2 - auth diagnostic incident state is retired on disabled or changed consent
+# Subtest: auth diagnostic consent read failure still reports anonymous diagnostics
+ok 3 - auth diagnostic consent read failure still reports anonymous diagnostics
+# Subtest: auth diagnostic events discard ambient breadcrumbs rather than leaking validation details
+ok 4 - auth diagnostic events discard ambient breadcrumbs rather than leaking validation details
+# Subtest: auth diagnostic summaries wait for the tenth occurrence and reset after quiet time
+ok 5 - auth diagnostic summaries wait for the tenth occurrence and reset after quiet time
+# Subtest: real SDK ingestion filters mixed segments and rereads permission on retry
+ok 6 - real SDK ingestion filters mixed segments and rereads permission on retry
+# Subtest: actual SDK media registration cannot authorize a PUT after identity withdrawal
+ok 7 - actual SDK media registration cannot authorize a PUT after identity withdrawal
+# Subtest: unknown and evicted wire identities never reach the network
+ok 8 - unknown and evicted wire identities never reach the network
+# Subtest: same-revision recovery never restores revoked ingestion or media requests
+ok 9 - same-revision recovery never restores revoked ingestion or media requests
+# Subtest: a child hangs under its parent by id, even after the parent ended
+ok 10 - a child hangs under its parent by id, even after the parent ended
+# Subtest: a generation's reported cost reaches Langfuse beside its usage
+ok 11 - a generation's reported cost reaches Langfuse beside its usage
+# Subtest: a parentless observation lands in phi-agent.untraced and warns once per name
+ok 12 - a parentless observation lands in phi-agent.untraced and warns once per name
+# Subtest: an SDK failure never reaches the caller, and children fall back to the given parent
+ok 13 - an SDK failure never reaches the caller, and children fall back to the given parent
+# Subtest: withSpan ends with the result, or at ERROR and rethrows
+ok 14 - withSpan ends with the result, or at ERROR and rethrows
+# Subtest: a handle ended inside withSpan is not ended twice
+ok 15 - a handle ended inside withSpan is not ended twice
+# Subtest: shutdown ends open observations at WARNING, then shuts the client down
+ok 16 - shutdown ends open observations at WARNING, then shuts the client down
+# Subtest: shutdown never waits past its timeout
+ok 17 - shutdown never waits past its timeout
+# Subtest: the noop tracer runs the work and records nothing
+ok 18 - the noop tracer runs the work and records nothing
+# Subtest: without keys the factory returns the noop tracer
+ok 19 - without keys the factory returns the noop tracer
+# Subtest: the four key combinations control collection independently of permission and deployment telemetry
+ok 20 - the four key combinations control collection independently of permission and deployment telemetry
+# Subtest: metadata is masked by the tracer: the SDK's mask covers input and output only
+ok 21 - metadata is masked by the tracer: the SDK's mask covers input and output only
+# Subtest: a field too big for one event travels as a masked attachment; data URLs do not count
+ok 22 - a field too big for one event travels as a masked attachment; data URLs do not count
+# Subtest: hundreds of queued operations share one collection read and preserve create/update/end order
+ok 23 - hundreds of queued operations share one collection read and preserve create/update/end order
+# Subtest: long traces isolate anonymous and identified segments without restoring old payloads
+ok 24 - long traces isolate anonymous and identified segments without restoring old payloads
+# Subtest: continuations reuse only registered matching owners and never overwrite a remote root
+ok 25 - continuations reuse only registered matching owners and never overwrite a remote root
+# Subtest: queue overflow rejects new handles without retaining work and recovers after draining
+ok 26 - queue overflow rejects new handles without retaining work and recovers after draining
+# Subtest: a transient unavailable read isolates a new segment even when the enabled revision later repeats
+ok 27 - a transient unavailable read isolates a new segment even when the enabled revision later repeats
+# Subtest: 301 operations wait for one 1500ms Runner timeout rather than serial timeouts
+ok 28 - 301 operations wait for one 1500ms Runner timeout rather than serial timeouts
+# Subtest: real SDK keeps oversized trace fields as cleaned media through its mask callback
+ok 29 - real SDK keeps oversized trace fields as cleaned media through its mask callback
+# Subtest: real SDK resumes a fresh segment after a delivery-only failure at the same revision
+ok 30 - real SDK resumes a fresh segment after a delivery-only failure at the same revision
+# Subtest: real SDK continues anonymous observations after the default ledger capacity
+ok 31 - real SDK continues anonymous observations after the default ledger capacity
+# Subtest: real SDK continues identified observations after the default ledger capacity
+ok 32 - real SDK continues identified observations after the default ledger capacity
+# Subtest: AnalyticsClient.capture merges common super-properties into every event
+ok 33 - AnalyticsClient.capture merges common super-properties into every event
+# Subtest: AnalyticsClient.capture substitutes the anonymous distinct_id when userId is missing or blank
+ok 34 - AnalyticsClient.capture substitutes the anonymous distinct_id when userId is missing or blank
+# Subtest: AnalyticsClient.capture passes a real distinct_id through untouched
+ok 35 - AnalyticsClient.capture passes a real distinct_id through untouched
+# Subtest: AnalyticsClient.capture sends anonymous events when identity permission is not granted
+ok 36 - AnalyticsClient.capture sends anonymous events when identity permission is not granted
+# Subtest: AnalyticsClient.capture reads consent freshly for EVERY event
+ok 37 - AnalyticsClient.capture reads consent freshly for EVERY event
+# Subtest: AnalyticsClient.capture binds the granted revision to the event uuid
+ok 38 - AnalyticsClient.capture binds the granted revision to the event uuid
+# Subtest: AnalyticsClient.capture strips hostname-bearing properties
+ok 39 - AnalyticsClient.capture strips hostname-bearing properties
+# Subtest: stripHostnameProperties removes hostname-bearing keys case-insensitively
+ok 40 - stripHostnameProperties removes hostname-bearing keys case-insensitively
+# Subtest: AnalyticsClient.shutdown drains in-flight consent gates before flushing the sink
+ok 41 - AnalyticsClient.shutdown drains in-flight consent gates before flushing the sink
+# Subtest: buildCommonProperties tags every event with the app version (and deploy_env only when set)
+ok 42 - buildCommonProperties tags every event with the app version (and deploy_env only when set)
+# Subtest: createAnalytics returns a no-op when POSTHOG_KEY is unset
+ok 43 - createAnalytics returns a no-op when POSTHOG_KEY is unset
+# Subtest: createAnalytics returns a no-op when release telemetry is disabled
+ok 44 - createAnalytics returns a no-op when release telemetry is disabled
+# Subtest: NoopAnalytics.shutdown resolves without error
+ok 45 - NoopAnalytics.shutdown resolves without error
+# Subtest: delivery sends the batch when consent still holds the capture revision
+ok 46 - delivery sends the batch when consent still holds the capture revision
+# Subtest: delivery drops the whole batch when consent was revoked after capture
+ok 47 - delivery drops the whole batch when consent was revoked after capture
+# Subtest: delivery retires events from an earlier revision after disable → re-enable
+ok 48 - delivery retires events from an earlier revision after disable → re-enable
+# Subtest: delivery keeps only the events matching the current revision in a mixed batch
+ok 49 - delivery keeps only the events matching the current revision in a mixed batch
+# Subtest: delivery drops events with no remembered capture revision
+ok 50 - delivery drops events with no remembered capture revision
+# Subtest: a retry after a failed send still delivers while consent holds
+ok 51 - a retry after a failed send still delivers while consent holds
+# Subtest: a retry is dropped when consent was withdrawn between attempts
+ok 52 - a retry is dropped when consent was withdrawn between attempts
+# Subtest: delivery suppresses any non-batch request (feature flags are forbidden)
+ok 53 - delivery suppresses any non-batch request (feature flags are forbidden)
+# Subtest: delivery fails closed on an unparseable body
+ok 54 - delivery fails closed on an unparseable body
+# Subtest: CaptureRevisionLedger peeks without consuming and bounds its size
+ok 55 - CaptureRevisionLedger peeks without consuming and bounds its size
+# Subtest: legacy distinctId and nested merge properties cannot restore identity
+ok 56 - legacy distinctId and nested merge properties cannot restore identity
+# Subtest: mixed delivery preserves anonymous events when identified events are revoked
+ok 57 - mixed delivery preserves anonymous events when identified events are revoked
+# Subtest: real SDK serializes raw subjects only in canonical distinct_id and keeps opt-out events
+ok 58 - real SDK serializes raw subjects only in canonical distinct_id and keeps opt-out events
+# Subtest: one real SDK queue drops a revoked owner and never upgrades anonymously captured events
+ok 59 - one real SDK queue drops a revoked owner and never upgrades anonymously captured events
+# Subtest: credential headers are masked at any depth, whatever their case
+ok 60 - credential headers are masked at any depth, whatever their case
+# Subtest: bearer tokens and JWTs inside strings are masked
+ok 61 - bearer tokens and JWTs inside strings are masked
+# Subtest: everything else passes through unchanged, including non-plain objects
+ok 62 - everything else passes through unchanged, including non-plain objects
+# Subtest: telemetry removes nested system identities before serialization and preserves diagnostics
+ok 63 - telemetry removes nested system identities before serialization and preserves diagnostics
+# Subtest: telemetry never passes through cycles, excessive depth or unsafe objects
+ok 64 - telemetry never passes through cycles, excessive depth or unsafe objects
+# Subtest: known subjects with a shared prefix are removed in full
+ok 65 - known subjects with a shared prefix are removed in full
+# Subtest: captureStartupFailure forwards the error to Sentry (tagged startup) and flushes before resolving
+ok 66 - captureStartupFailure forwards the error to Sentry (tagged startup) and flushes before resolving
+# Subtest: initSentry returns false (disabled) when SENTRY_DSN is unset
+ok 67 - initSentry returns false (disabled) when SENTRY_DSN is unset
+# Subtest: initSentry returns false when release telemetry is disabled
+ok 68 - initSentry returns false when release telemetry is disabled
+# Subtest: initSentry keeps Sentry's default global crash handlers active (uncaughtException + unhandledRejection)
+ok 69 - initSentry keeps Sentry's default global crash handlers active (uncaughtException + unhandledRejection)
+# Subtest: initSentry keeps events anonymous: sendDefaultPii off and the breadcrumb bound registered
+ok 70 - initSentry keeps events anonymous: sendDefaultPii off and the breadcrumb bound registered
+# Subtest: initSentry tags every event with the package version via release (SENTRY_RELEASE overrides)
+ok 71 - initSentry tags every event with the package version via release (SENTRY_RELEASE overrides)
+# Subtest: initSentry installs configured Sentry when identity permission is disabled or unavailable
+ok 72 - initSentry installs configured Sentry when identity permission is disabled or unavailable
+# Subtest: consentGatedBeforeSend keeps ownerless events anonymous regardless of permission
+ok 73 - consentGatedBeforeSend keeps ownerless events anonymous regardless of permission
+# Subtest: transport sends only when consent is enabled with the exact capture revision
+ok 74 - transport sends only when consent is enabled with the exact capture revision
+# Subtest: a Browser toggle to enabled applies without a component restart
+ok 75 - a Browser toggle to enabled applies without a component restart
+# Subtest: boundBreadcrumb drops retained console arguments and truncates strings
+ok 76 - boundBreadcrumb drops retained console arguments and truncates strings
+# Subtest: boundBreadcrumb leaves small breadcrumbs unchanged
+ok 77 - boundBreadcrumb leaves small breadcrumbs unchanged
+# Subtest: HTTP breadcrumbs retain only method and status diagnostics
+ok 78 - HTTP breadcrumbs retain only method and status diagnostics
+# Subtest: console arguments with system identities cannot retain their formatted values in breadcrumbs
+ok 79 - console arguments with system identities cannot retain their formatted values in breadcrumbs
+# Subtest: an automatic error cannot inherit a previously reported request owner through breadcrumb strings
+ok 80 - an automatic error cannot inherit a previously reported request owner through breadcrumb strings
+# Subtest: boundErrorContext caps strings, flattens objects and redacts identity
+ok 81 - boundErrorContext caps strings, flattens objects and redacts identity
+# Subtest: anonymizeEvent drops user/request and redacts structured identity
+ok 82 - anonymizeEvent drops user/request and redacts structured identity
+# Subtest: anonymizeEvent removes SDK request transactions and previously retained HTTP data
+ok 83 - anonymizeEvent removes SDK request transactions and previously retained HTTP data
+# Subtest: resolveSentryEnvironment prefers SENTRY_ENVIRONMENT, falls back to ENVIRONMENT
+ok 84 - resolveSentryEnvironment prefers SENTRY_ENVIRONMENT, falls back to ENVIRONMENT
+# Subtest: system identity and credentials are removed before context serialization
+ok 85 - system identity and credentials are removed before context serialization
+# Subtest: explicit Sentry captures isolate raw owners and keep automatic errors anonymous
+ok 86 - explicit Sentry captures isolate raw owners and keep automatic errors anonymous
+# Subtest: Sentry always removes hostname and normalizes home paths in every exception and top-level frame
+ok 87 - Sentry always removes hostname and normalizes home paths in every exception and top-level frame
+# Subtest: a queued identified Sentry event is retired before delivery while new opt-out events still send
+ok 88 - a queued identified Sentry event is retired before delivery while new opt-out events still send
+# Subtest: isConsentGranted accepts only an enabled state with a non-empty revision
+ok 89 - isConsentGranted accepts only an enabled state with a non-empty revision
+# Subtest: diagnoseTelemetryConsent separates a failed read from a user opt-out
+ok 90 - diagnoseTelemetryConsent separates a failed read from a user opt-out
+# Subtest: logTelemetryConsentDiagnosis stays quiet unless a reporter is configured
+ok 91 - logTelemetryConsentDiagnosis stays quiet unless a reporter is configured
+# Subtest: startup diagnosis describes anonymous reporting when identity permission is unavailable
+ok 92 - startup diagnosis describes anonymous reporting when identity permission is unavailable
+# Subtest: real HTTP authentication, listener rows and SDK serialization follow identity changes without restarting
+ok 93 - real HTTP authentication, listener rows and SDK serialization follow identity changes without restarting
+# Subtest: online staging diagnostic fixture uses a real login and Runner permission
+ok 94 - online staging diagnostic fixture uses a real login and Runner permission # SKIP
+# Subtest: captures only an explicit raw Auth0 subject with an enabled revision
+ok 95 - captures only an explicit raw Auth0 subject with an enabled revision
+# Subtest: overlapping captures share a read, settled captures and delivery read afresh
+ok 96 - overlapping captures share a read, settled captures and delivery read afresh
+# Subtest: failed and disabled reads capture anonymous data that never upgrades
+ok 97 - failed and disabled reads capture anonymous data that never upgrades
+# Subtest: with no test substitutes the row comes up, and flushes analytics when it goes
+ok 98 - with no test substitutes the row comes up, and flushes analytics when it goes
+# Subtest: the service serves a tracer, the noop one without Langfuse keys
+ok 99 - the service serves a tracer, the noop one without Langfuse keys
+# Subtest: the service carries the version it was built with
+ok 100 - the service carries the version it was built with
+# Subtest: shutdown drains every configured exit even when analytics fails
+ok 101 - shutdown drains every configured exit even when analytics fails
+# tests 101
+# suites 0
+# pass 100
+# fail 0
+# cancelled 0
+# skipped 1
+# duration_ms 5029.501292

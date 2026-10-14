@@ -1,0 +1,134 @@
+TAP version 13
+# [sentry] SENTRY_DSN unset; error reporting disabled
+# [sentry] telemetry disabled for this release channel
+# [sentry] error reporting enabled
+# Subtest: createSentryErrorReporter forwards to the capture sink
+ok 1 - createSentryErrorReporter forwards to the capture sink
+  ---
+  duration_ms: 0.450666
+  type: 'test'
+  ...
+# Subtest: captureStartupFailure captures and flushes before resolving
+ok 2 - captureStartupFailure captures and flushes before resolving
+  ---
+  duration_ms: 0.232375
+  type: 'test'
+  ...
+# Subtest: initSentry returns false when SENTRY_DSN is unset
+ok 3 - initSentry returns false when SENTRY_DSN is unset
+  ---
+  duration_ms: 0.29
+  type: 'test'
+  ...
+# Subtest: initSentry returns false when release telemetry is disabled
+ok 4 - initSentry returns false when release telemetry is disabled
+  ---
+  duration_ms: 0.054791
+  type: 'test'
+  ...
+# [sentry] error reporting enabled
+# Subtest: initSentry keeps Sentry's default global crash handlers active
+ok 5 - initSentry keeps Sentry's default global crash handlers active
+  ---
+  duration_ms: 28.170708
+  type: 'test'
+  ...
+# [sentry] error reporting enabled
+# [sentry] error reporting enabled
+# Subtest: initSentry tags events with the phi-memory version unless SENTRY_RELEASE overrides
+ok 6 - initSentry tags events with the phi-memory version unless SENTRY_RELEASE overrides
+  ---
+  duration_ms: 6.7375
+  type: 'test'
+  ...
+# Subtest: boundBreadcrumb drops retained console arguments and truncates strings
+ok 7 - boundBreadcrumb drops retained console arguments and truncates strings
+  ---
+  duration_ms: 0.133625
+  type: 'test'
+  ...
+# Subtest: boundBreadcrumb leaves small breadcrumbs unchanged
+ok 8 - boundBreadcrumb leaves small breadcrumbs unchanged
+  ---
+  duration_ms: 0.101458
+  type: 'test'
+  ...
+# Subtest: boundErrorContext caps strings and flattens object values
+ok 9 - boundErrorContext caps strings and flattens object values
+  ---
+  duration_ms: 0.234709
+  type: 'test'
+  ...
+# [sentry] telemetry consent disabled or unavailable; error reporting off
+# [sentry] telemetry consent disabled or unavailable; error reporting off
+# [sentry] telemetry consent disabled or unavailable; error reporting off
+# [sentry] telemetry consent disabled or unavailable; error reporting off
+# [sentry] SENTRY_DSN unset; error reporting disabled
+# [sentry] SENTRY_DSN unset; error reporting disabled
+# [sentry] SENTRY_DSN unset; error reporting disabled
+# [sentry] telemetry consent disabled or unavailable; error reporting off
+# Subtest: initSentry registers the breadcrumb bound
+ok 10 - initSentry registers the breadcrumb bound
+  ---
+  duration_ms: 2.543
+  type: 'test'
+  ...
+# Subtest: initSentry does not install Sentry when consent is disabled or unavailable
+ok 11 - initSentry does not install Sentry when consent is disabled or unavailable
+  ---
+  duration_ms: 0.395542
+  type: 'test'
+  ...
+# Subtest: consentGatedBeforeSend rereads consent per event and drops unless enabled
+ok 12 - consentGatedBeforeSend rereads consent per event and drops unless enabled
+  ---
+  duration_ms: 0.120959
+  type: 'test'
+  ...
+# Subtest: transport sends only when consent is enabled with the exact capture revision
+ok 13 - transport sends only when consent is enabled with the exact capture revision
+  ---
+  duration_ms: 0.143917
+  type: 'test'
+  ...
+# [sentry] error reporting enabled
+# [sentry] SENTRY_DSN unset; error reporting disabled
+# Subtest: a Browser toggle to enabled applies without a component restart
+ok 14 - a Browser toggle to enabled applies without a component restart
+  ---
+  duration_ms: 1709.107541
+  type: 'test'
+  ...
+# Subtest: resolveSentryEnvironment prefers SENTRY_ENVIRONMENT, falls back to ENVIRONMENT
+ok 15 - resolveSentryEnvironment prefers SENTRY_ENVIRONMENT, falls back to ENVIRONMENT
+  ---
+  duration_ms: 0.478167
+  type: 'test'
+  ...
+# Subtest: boundErrorContext redacts identifying keys
+ok 16 - boundErrorContext redacts identifying keys
+  ---
+  duration_ms: 0.266583
+  type: 'test'
+  ...
+# Subtest: boundBreadcrumb redacts identifying keys in data
+ok 17 - boundBreadcrumb redacts identifying keys in data
+  ---
+  duration_ms: 0.187834
+  type: 'test'
+  ...
+# Subtest: anonymizeEvent drops user/request and redacts structured identity
+ok 18 - anonymizeEvent drops user/request and redacts structured identity
+  ---
+  duration_ms: 0.169
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2532.704875

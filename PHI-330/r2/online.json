@@ -1,0 +1,1054 @@
+{
+  "sha": "5dcf8b796757094f20c1fae78b84aa249694c27e",
+  "marker": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3",
+  "project_id": "cmo2ekqz8000npf074vfs9nuj",
+  "project": "Phi Agent - staging",
+  "auth0_verified": true,
+  "phases": [
+    {
+      "phase": "on",
+      "utc_start": "2026-10-14T18:50:20.250Z",
+      "state": {
+        "enabled": true,
+        "revision": "D964F425-F26E-4354-BF3B-9EEB5EC8EDD4"
+      },
+      "errors": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "request_status": 200,
+      "utc_end": "2026-10-14T18:50:40.332Z"
+    },
+    {
+      "phase": "off",
+      "utc_start": "2026-10-14T18:51:05.840Z",
+      "state": {
+        "enabled": false,
+        "revision": "6DCEB22D-CAD1-4A41-88B1-B8A388DF84FA"
+      },
+      "errors": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "request_status": 200,
+      "utc_end": "2026-10-14T18:51:25.810Z"
+    },
+    {
+      "phase": "on2",
+      "utc_start": "2026-10-14T18:51:56.799Z",
+      "state": {
+        "enabled": true,
+        "revision": "CB75F547-1EC1-4029-8CEC-F253F24C1F77"
+      },
+      "errors": [
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "request_status": 200,
+      "utc_end": "2026-10-14T18:52:17.450Z"
+    }
+  ],
+  "wire": [
+    {
+      "phase": "on",
+      "id": "79061260-d86e-4ac8-9594-d863ed052d3a",
+      "name": "phi-agent.llm-proxy",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "on",
+      "id": "d9296ec6-91b4-48b2-9292-e6d9e3b387ca",
+      "name": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-long",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": true,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "on",
+      "id": "79061260-d86e-4ac8-9594-d863ed052d3a",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "off",
+      "id": "db4e462a-38d3-4324-b332-c516013a2fa7",
+      "name": "phi-agent.llm-proxy",
+      "identified": false,
+      "identity_matches": false,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "off",
+      "id": "ec0f35c6-de53-4f34-b702-2ff6a4e4ec1d",
+      "name": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-long",
+      "identified": false,
+      "identity_matches": false,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "off",
+      "id": "db4e462a-38d3-4324-b332-c516013a2fa7",
+      "identified": false,
+      "identity_matches": false,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "on2",
+      "id": "9c6c2320-1f27-4331-b840-ead83abf89db",
+      "name": "phi-agent.llm-proxy",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "on2",
+      "id": "6ee8561a-3777-47bb-9bae-aa18b35f5c6b",
+      "name": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-long",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    },
+    {
+      "phase": "on2",
+      "id": "9c6c2320-1f27-4331-b840-ead83abf89db",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "status": 207
+    }
+  ],
+  "platform": [
+    {
+      "phase": "on",
+      "id": "79061260-d86e-4ac8-9594-d863ed052d3a",
+      "status": 200,
+      "name": "phi-agent.llm-proxy",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "5e35065f-4449-4af2-8bbe-f4e7f6d2e151",
+          "name": "llm.proxy",
+          "parent": null,
+          "type": "GENERATION",
+          "level": "DEFAULT",
+          "input": {
+            "endpoint": "/api/llm/responses",
+            "payload": {
+              "model": "phi/chat/response",
+              "input": "Reply OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on",
+              "stream": false,
+              "max_output_tokens": 64,
+              "instructions": "You are a component of the Phi Browser assistant runtime. The system messages in this request are your operating instructions — follow them exactly; they are more specific than anything stated here."
+            }
+          },
+          "output": {
+            "id": "resp_0b6efbcf8ae5d70c006acfceee45c487d2bf866dd12dfdadbd",
+            "object": "response",
+            "created_at": 1792003822,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "billing": {
+              "payer": "developer"
+            },
+            "completed_at": 1792003823,
+            "error": null,
+            "frequency_penalty": 0,
+            "incomplete_details": null,
+            "max_output_tokens": 64,
+            "max_tool_calls": null,
+            "model": "phi/chat/response",
+            "moderation": null,
+            "output": [
+              {
+                "id": "rs_0b6efbcf8ae5d70c006acfceef29cc87d29b6d466f57bb927b",
+                "type": "reasoning",
+                "content": [],
+                "encrypted_content": "gAAAAABqz87vQwvuQL5V1psJJf9kII5M-RuSLbxujq_rFloxMjXCXW5HGiLLD9AkrIxP5044-LaHoHSFoSYGU0P1JjTQLwsILKi2YyCv35H7zlbgKWljCqBv0Hr8IEuyc-iuixGX6d9ktu136RwH6L8sBA_a6pX4UPVtL6q2LR1KBFrS5MD9LbKNvU30Kh6bfJ6NlISHIsJTCA9xu-VmumBSZIrqsSlNH_uKb9z6lHFwCAyhYc6AgBRteQv9HYK5n_tpVylNk7qeXppVjbMpYKcfIJAxx0Fza9ATwmD_kaf9AoxSTC4Gj5m12J74X7IpUBZJ6qhFegIWirmfj2iWtZCs0agyAhhGoglJb0CVXdRVAuTckveQPHR9LLxb2Py4QRXtKhKV97CQ-tsoKtQw_mcn6qA2BZLPeuBnB-daRjlZr6yE9rvXuqqyz235tZhl6i7Te3LItIrbnOSAVmz9vEH0Jpl0I1YhDW6kXDIFekKzhd87eJEguJewOmpK7TH26B7sJqi3y8jATvapbx_Qs-GTiQhRfCPqfcl_FbLeupLvyYzcUzcYp3bdvP-G9OTgWQ0vpRpIyI6XQGSIhjFw-sjIcm6CAQDEHbFJIdjQLmy0eQIZDYt7KJGC-a0RMVwZQABU95HQDGlZg2jcWFAWxjZmDvKYZfZZIYow8MoCUtOwSYgXO2ghZNfyi2WCuvMrjY1jIwcr7R3gumOnEnHhrz4KF2mPXzNOrS-mCs15rKhul5LUEzvr2xHhKvdBrHYNMhN6Ox3XA38aCnWQywAlIPRLqd7-BA7CnQiMxcm3HIgTPdHZpkbYkr15oGLtbh1iUEHbexARuxvuwU1hrJ2ZhVBZUvBnIVm8XBciEg0R5-CRr2JQ7-YnfOUYE9qadJtqZ4D1HrMlUhrd8uiq1Mayz0rELDNJdk_LBKPlYW45ZnP5FCa7dzOk_GZOY_uEZ2iXT4oZTNW4_1EuyocTipVD_B9D0lNes6hBpmWP_SFxqbDlahgsrbKk067lR8NhF_SBB0ZA8_0qyaq5E3oKbRZj3RwFV6nMGlxubasE4-eHTAI32XwiSuOIbb3GoU0cIpyNMNXDNwdpnZWBrCKYQU19MUQ7LTgPh0GPsbbj44RPss1AiDWOLCtb6HqTQhHw1_kCNRHDoTlrD4nJrHDLCzsvilvgFxn06Nlu3hYzYpMzs-eEcbUrtk0tiy66VzQnA6bYLTXmXGDxTneyGJUD10eM4m2rxQcTgqbOirD2YT6i0nOK_aAssYYmqjV34F6FsjPqLSALAGrrDdRr14vsrcFumgn66aEOlBsU6Xtw94LjQlQyjGRdoV7YWdS5fA5BlrWvaD5M37qNfVjwoI9b9I9Y198ZHc1M61h9ZvF7UBMBo6DcC-39WrPXebJslsA_7oLKYJBjNlDYsv9Tw0VmLmrJ8JwzjHDcK0N7fOUDUtLmOUt7gNKvk52CDIN8CRnHcWXuB2YzFLdUfVDHpaU2orVNQZOgtfF0aukWMBUURIqYdA42IwI9lXXJxSZyaawOwvo6U4xQ2PaO2DGu",
+                "summary": []
+              },
+              {
+                "id": "msg_0b6efbcf8ae5d70c006acfceef541887d2a5ee28caaa9d91fc",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on"
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "medium",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 77,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 47,
+              "output_tokens_details": {
+                "reasoning_tokens": 10
+              },
+              "total_tokens": 124
+            },
+            "metadata": {}
+          }
+        }
+      ]
+    },
+    {
+      "phase": "on",
+      "id": "d9296ec6-91b4-48b2-9292-e6d9e3b387ca",
+      "status": 200,
+      "name": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-long",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": true,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "21ea18ab-5e1c-42e6-9bbc-02a0f2feeffd",
+          "name": "s9-parent",
+          "parent": null,
+          "type": "SPAN",
+          "level": "DEFAULT",
+          "input": "first-on-parent",
+          "output": null
+        },
+        {
+          "id": "76e15366-d220-45ee-bd59-70eddc851974",
+          "name": "s9-on",
+          "parent": "21ea18ab-5e1c-42e6-9bbc-02a0f2feeffd",
+          "type": "EVENT",
+          "level": "DEFAULT",
+          "input": "on-fresh",
+          "output": null
+        }
+      ]
+    },
+    {
+      "phase": "on",
+      "id": "79061260-d86e-4ac8-9594-d863ed052d3a",
+      "status": 200,
+      "name": "phi-agent.llm-proxy",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "5e35065f-4449-4af2-8bbe-f4e7f6d2e151",
+          "name": "llm.proxy",
+          "parent": null,
+          "type": "GENERATION",
+          "level": "DEFAULT",
+          "input": {
+            "endpoint": "/api/llm/responses",
+            "payload": {
+              "model": "phi/chat/response",
+              "input": "Reply OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on",
+              "stream": false,
+              "max_output_tokens": 64,
+              "instructions": "You are a component of the Phi Browser assistant runtime. The system messages in this request are your operating instructions — follow them exactly; they are more specific than anything stated here."
+            }
+          },
+          "output": {
+            "id": "resp_0b6efbcf8ae5d70c006acfceee45c487d2bf866dd12dfdadbd",
+            "object": "response",
+            "created_at": 1792003822,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "billing": {
+              "payer": "developer"
+            },
+            "completed_at": 1792003823,
+            "error": null,
+            "frequency_penalty": 0,
+            "incomplete_details": null,
+            "max_output_tokens": 64,
+            "max_tool_calls": null,
+            "model": "phi/chat/response",
+            "moderation": null,
+            "output": [
+              {
+                "id": "rs_0b6efbcf8ae5d70c006acfceef29cc87d29b6d466f57bb927b",
+                "type": "reasoning",
+                "content": [],
+                "encrypted_content": "gAAAAABqz87vQwvuQL5V1psJJf9kII5M-RuSLbxujq_rFloxMjXCXW5HGiLLD9AkrIxP5044-LaHoHSFoSYGU0P1JjTQLwsILKi2YyCv35H7zlbgKWljCqBv0Hr8IEuyc-iuixGX6d9ktu136RwH6L8sBA_a6pX4UPVtL6q2LR1KBFrS5MD9LbKNvU30Kh6bfJ6NlISHIsJTCA9xu-VmumBSZIrqsSlNH_uKb9z6lHFwCAyhYc6AgBRteQv9HYK5n_tpVylNk7qeXppVjbMpYKcfIJAxx0Fza9ATwmD_kaf9AoxSTC4Gj5m12J74X7IpUBZJ6qhFegIWirmfj2iWtZCs0agyAhhGoglJb0CVXdRVAuTckveQPHR9LLxb2Py4QRXtKhKV97CQ-tsoKtQw_mcn6qA2BZLPeuBnB-daRjlZr6yE9rvXuqqyz235tZhl6i7Te3LItIrbnOSAVmz9vEH0Jpl0I1YhDW6kXDIFekKzhd87eJEguJewOmpK7TH26B7sJqi3y8jATvapbx_Qs-GTiQhRfCPqfcl_FbLeupLvyYzcUzcYp3bdvP-G9OTgWQ0vpRpIyI6XQGSIhjFw-sjIcm6CAQDEHbFJIdjQLmy0eQIZDYt7KJGC-a0RMVwZQABU95HQDGlZg2jcWFAWxjZmDvKYZfZZIYow8MoCUtOwSYgXO2ghZNfyi2WCuvMrjY1jIwcr7R3gumOnEnHhrz4KF2mPXzNOrS-mCs15rKhul5LUEzvr2xHhKvdBrHYNMhN6Ox3XA38aCnWQywAlIPRLqd7-BA7CnQiMxcm3HIgTPdHZpkbYkr15oGLtbh1iUEHbexARuxvuwU1hrJ2ZhVBZUvBnIVm8XBciEg0R5-CRr2JQ7-YnfOUYE9qadJtqZ4D1HrMlUhrd8uiq1Mayz0rELDNJdk_LBKPlYW45ZnP5FCa7dzOk_GZOY_uEZ2iXT4oZTNW4_1EuyocTipVD_B9D0lNes6hBpmWP_SFxqbDlahgsrbKk067lR8NhF_SBB0ZA8_0qyaq5E3oKbRZj3RwFV6nMGlxubasE4-eHTAI32XwiSuOIbb3GoU0cIpyNMNXDNwdpnZWBrCKYQU19MUQ7LTgPh0GPsbbj44RPss1AiDWOLCtb6HqTQhHw1_kCNRHDoTlrD4nJrHDLCzsvilvgFxn06Nlu3hYzYpMzs-eEcbUrtk0tiy66VzQnA6bYLTXmXGDxTneyGJUD10eM4m2rxQcTgqbOirD2YT6i0nOK_aAssYYmqjV34F6FsjPqLSALAGrrDdRr14vsrcFumgn66aEOlBsU6Xtw94LjQlQyjGRdoV7YWdS5fA5BlrWvaD5M37qNfVjwoI9b9I9Y198ZHc1M61h9ZvF7UBMBo6DcC-39WrPXebJslsA_7oLKYJBjNlDYsv9Tw0VmLmrJ8JwzjHDcK0N7fOUDUtLmOUt7gNKvk52CDIN8CRnHcWXuB2YzFLdUfVDHpaU2orVNQZOgtfF0aukWMBUURIqYdA42IwI9lXXJxSZyaawOwvo6U4xQ2PaO2DGu",
+                "summary": []
+              },
+              {
+                "id": "msg_0b6efbcf8ae5d70c006acfceef541887d2a5ee28caaa9d91fc",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on"
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "medium",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 77,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 47,
+              "output_tokens_details": {
+                "reasoning_tokens": 10
+              },
+              "total_tokens": 124
+            },
+            "metadata": {}
+          }
+        }
+      ]
+    },
+    {
+      "phase": "off",
+      "id": "db4e462a-38d3-4324-b332-c516013a2fa7",
+      "status": 200,
+      "name": "phi-agent.llm-proxy",
+      "identified": false,
+      "identity_matches": false,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "fa5f124d-a120-4d0b-99c7-874b12871387",
+          "name": "llm.proxy",
+          "parent": null,
+          "type": "GENERATION",
+          "level": "DEFAULT",
+          "input": {
+            "endpoint": "/api/llm/responses",
+            "payload": {
+              "model": "phi/chat/response",
+              "input": "Reply OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-off",
+              "stream": false,
+              "max_output_tokens": 64,
+              "instructions": "You are a component of the Phi Browser assistant runtime. The system messages in this request are your operating instructions — follow them exactly; they are more specific than anything stated here."
+            }
+          },
+          "output": {
+            "id": "resp_00d88d33129aaba9006acfcf1b8b3087d293b1d9569c3b4466",
+            "object": "response",
+            "created_at": 1792003867,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "billing": {
+              "payer": "developer"
+            },
+            "completed_at": 1792003868,
+            "error": null,
+            "frequency_penalty": 0,
+            "incomplete_details": null,
+            "max_output_tokens": 64,
+            "max_tool_calls": null,
+            "model": "phi/chat/response",
+            "moderation": null,
+            "output": [
+              {
+                "id": "rs_00d88d33129aaba9006acfcf1c44a087d2a1d376867edcad39",
+                "type": "reasoning",
+                "content": [],
+                "encrypted_content": "gAAAAABqz88c1r0kIxdmgNtWIanyd4pvIWzGhFaXFjF4v5s_rLgq9KD9jLq82tGjkZbczReaRA58DsUUtWY2KGFoggullHpCxzYBmW7QBfBYfeZpCeQA6w6if6kK9iFO9PCRYL0EJpmEtsJO1PqbzspVMyqmE5VOkmc89DdSZHX-Q_sVtPK1Qev44ExMWdJMQWGl0M_MOWOHyGM1qPIML6OSRn4fi4ySKL0_G3o8CRPFWJj__gFlsSdlhniHOaUFQe71YLVlwc1ypL7mnIj-z-Q9ohl7BYKwgfRswUt84yFnKwEnfj9h8Zv54hGiOjWYQEadvVlIjS-0IXF8yqObIojqQ6t2_CYOcLhyPgA6q1YdCpsjsyd8X0d4CZDWpGHpJ5v4aJP9smU2DSyezZNEQgwAChwV7gxlWeJRr4jFEeukWC2PwMsLfAv5TLqYYFW2dx6Io0D4jMyWUrmt4or6cEOMo68EgGT37fyHInmEa0WStwx8e46aOpLq_RO21NE-OAuglmqkjkHrlery2syslnRtW724J9I7dEwZxYMosyhm9vM6nZ9LvuiyDFeg-nbDYk-jkDEGF5oEtXYmie2j--c328WVOxB6aDSMjuY5qX0PIKdqMUL8GvTZfqXr1mO0YZ7ueeFrKVTyIU-74C_eqHAHrSv7RkGZ2r14QyX383CJQFP151mPaDsoe_NAudco3ghZPG4YOpHHVV3fkQdB22ZU5EPzTPLC1FdbRjDQ9WxSd28tRpNCSq461VSGmN54m-rIVBPkRO18ff8hDnooE2UOQ8Sz8z1EXBJvk0hGf8KkiEFMdGz-n-BGy2RsBqbteJPNAGU9aiLtRngrkbKqVl4HwGSmk-8Zmgx_VfRPY18s7NrAdsiqXY1LcB7q1etWjX8wQJMw_1IvnirZktOQFIDDqoaU73yFK5aWrAzkKW1es2c4Lpi63TPYpnmkvLc_ryNPtj6p7clucmy6eRRMlWQ2jB5XHiLUlwgMo38dACk2ZJ55vwYx_hxjA-iW9UITLNHMotXqmMSxDpwpFs9iYZ3TIYR3Yakh24y2IpzwNuiA2M-XexHZXL6AQoiZGYxOne26Q01-d8m5pvDugGvUbZPoT6yyBaVj8aO-AQ5_Y8DmC4GB989igljQ5IxQT1IgB8kqCw8gbz-sOut282kt9Js-ST-N9I_rZ1pr24dnQtzEojyFjQu6l4IUoguVUNhpZJp1Pm1yuR_gvxWCPypwvAsS5J8LS5Ob6csxlrnnjGQoTPqh0fHj1Xsf9U0LaPQraxXJrowiA89EiDPn0yviG-Wa_pSZqIVc0_pD9aUFYUFH0hErpcM2z-N4YNZvACsyRPWMnbNldCuctJgmb0Jzj9Ax9zLqe9_b8reNxSlwactIeGYVVRlC_I5-hs8Z_4X571kVShsmVqd_OnC4pgwiZemVf3ajK0_ngNtSxUMT9THXhcH3eyplYc3K0R3cn05Q21hXD1jSPWe891qgCyrp4jTg7UD-w4L2nyij44nQ90Xl7mtNxIzDpdgbtUsfsb0of0YRgJkKPPeh",
+                "summary": []
+              },
+              {
+                "id": "msg_00d88d33129aaba9006acfcf1c628487d2a4804e6f89afbee0",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-off"
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "medium",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 77,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 47,
+              "output_tokens_details": {
+                "reasoning_tokens": 10
+              },
+              "total_tokens": 124
+            },
+            "metadata": {}
+          }
+        }
+      ]
+    },
+    {
+      "phase": "off",
+      "id": "ec0f35c6-de53-4f34-b702-2ff6a4e4ec1d",
+      "status": 200,
+      "name": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-long",
+      "identified": false,
+      "identity_matches": false,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "7c4dd9d0-15f2-475e-bf6b-2bf9d64b29d7",
+          "name": "s9-off",
+          "parent": "e07ae863-1d76-4847-bf12-179d5683d78f",
+          "type": "EVENT",
+          "level": "DEFAULT",
+          "input": "off-fresh",
+          "output": null
+        },
+        {
+          "id": "e07ae863-1d76-4847-bf12-179d5683d78f",
+          "name": "s9-parent",
+          "parent": null,
+          "type": "SPAN",
+          "level": "DEFAULT",
+          "input": null,
+          "output": "off-parent-update"
+        }
+      ]
+    },
+    {
+      "phase": "off",
+      "id": "db4e462a-38d3-4324-b332-c516013a2fa7",
+      "status": 200,
+      "name": "phi-agent.llm-proxy",
+      "identified": false,
+      "identity_matches": false,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "fa5f124d-a120-4d0b-99c7-874b12871387",
+          "name": "llm.proxy",
+          "parent": null,
+          "type": "GENERATION",
+          "level": "DEFAULT",
+          "input": {
+            "endpoint": "/api/llm/responses",
+            "payload": {
+              "model": "phi/chat/response",
+              "input": "Reply OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-off",
+              "stream": false,
+              "max_output_tokens": 64,
+              "instructions": "You are a component of the Phi Browser assistant runtime. The system messages in this request are your operating instructions — follow them exactly; they are more specific than anything stated here."
+            }
+          },
+          "output": {
+            "id": "resp_00d88d33129aaba9006acfcf1b8b3087d293b1d9569c3b4466",
+            "object": "response",
+            "created_at": 1792003867,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "billing": {
+              "payer": "developer"
+            },
+            "completed_at": 1792003868,
+            "error": null,
+            "frequency_penalty": 0,
+            "incomplete_details": null,
+            "max_output_tokens": 64,
+            "max_tool_calls": null,
+            "model": "phi/chat/response",
+            "moderation": null,
+            "output": [
+              {
+                "id": "rs_00d88d33129aaba9006acfcf1c44a087d2a1d376867edcad39",
+                "type": "reasoning",
+                "content": [],
+                "encrypted_content": "gAAAAABqz88c1r0kIxdmgNtWIanyd4pvIWzGhFaXFjF4v5s_rLgq9KD9jLq82tGjkZbczReaRA58DsUUtWY2KGFoggullHpCxzYBmW7QBfBYfeZpCeQA6w6if6kK9iFO9PCRYL0EJpmEtsJO1PqbzspVMyqmE5VOkmc89DdSZHX-Q_sVtPK1Qev44ExMWdJMQWGl0M_MOWOHyGM1qPIML6OSRn4fi4ySKL0_G3o8CRPFWJj__gFlsSdlhniHOaUFQe71YLVlwc1ypL7mnIj-z-Q9ohl7BYKwgfRswUt84yFnKwEnfj9h8Zv54hGiOjWYQEadvVlIjS-0IXF8yqObIojqQ6t2_CYOcLhyPgA6q1YdCpsjsyd8X0d4CZDWpGHpJ5v4aJP9smU2DSyezZNEQgwAChwV7gxlWeJRr4jFEeukWC2PwMsLfAv5TLqYYFW2dx6Io0D4jMyWUrmt4or6cEOMo68EgGT37fyHInmEa0WStwx8e46aOpLq_RO21NE-OAuglmqkjkHrlery2syslnRtW724J9I7dEwZxYMosyhm9vM6nZ9LvuiyDFeg-nbDYk-jkDEGF5oEtXYmie2j--c328WVOxB6aDSMjuY5qX0PIKdqMUL8GvTZfqXr1mO0YZ7ueeFrKVTyIU-74C_eqHAHrSv7RkGZ2r14QyX383CJQFP151mPaDsoe_NAudco3ghZPG4YOpHHVV3fkQdB22ZU5EPzTPLC1FdbRjDQ9WxSd28tRpNCSq461VSGmN54m-rIVBPkRO18ff8hDnooE2UOQ8Sz8z1EXBJvk0hGf8KkiEFMdGz-n-BGy2RsBqbteJPNAGU9aiLtRngrkbKqVl4HwGSmk-8Zmgx_VfRPY18s7NrAdsiqXY1LcB7q1etWjX8wQJMw_1IvnirZktOQFIDDqoaU73yFK5aWrAzkKW1es2c4Lpi63TPYpnmkvLc_ryNPtj6p7clucmy6eRRMlWQ2jB5XHiLUlwgMo38dACk2ZJ55vwYx_hxjA-iW9UITLNHMotXqmMSxDpwpFs9iYZ3TIYR3Yakh24y2IpzwNuiA2M-XexHZXL6AQoiZGYxOne26Q01-d8m5pvDugGvUbZPoT6yyBaVj8aO-AQ5_Y8DmC4GB989igljQ5IxQT1IgB8kqCw8gbz-sOut282kt9Js-ST-N9I_rZ1pr24dnQtzEojyFjQu6l4IUoguVUNhpZJp1Pm1yuR_gvxWCPypwvAsS5J8LS5Ob6csxlrnnjGQoTPqh0fHj1Xsf9U0LaPQraxXJrowiA89EiDPn0yviG-Wa_pSZqIVc0_pD9aUFYUFH0hErpcM2z-N4YNZvACsyRPWMnbNldCuctJgmb0Jzj9Ax9zLqe9_b8reNxSlwactIeGYVVRlC_I5-hs8Z_4X571kVShsmVqd_OnC4pgwiZemVf3ajK0_ngNtSxUMT9THXhcH3eyplYc3K0R3cn05Q21hXD1jSPWe891qgCyrp4jTg7UD-w4L2nyij44nQ90Xl7mtNxIzDpdgbtUsfsb0of0YRgJkKPPeh",
+                "summary": []
+              },
+              {
+                "id": "msg_00d88d33129aaba9006acfcf1c628487d2a4804e6f89afbee0",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-off"
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "medium",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 77,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 47,
+              "output_tokens_details": {
+                "reasoning_tokens": 10
+              },
+              "total_tokens": 124
+            },
+            "metadata": {}
+          }
+        }
+      ]
+    },
+    {
+      "phase": "on2",
+      "id": "9c6c2320-1f27-4331-b840-ead83abf89db",
+      "status": 200,
+      "name": "phi-agent.llm-proxy",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "5e6bab4e-e3fb-45b4-a968-6258dd10435d",
+          "name": "llm.proxy",
+          "parent": null,
+          "type": "GENERATION",
+          "level": "DEFAULT",
+          "input": {
+            "endpoint": "/api/llm/responses",
+            "payload": {
+              "model": "phi/chat/response",
+              "input": "Reply OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on2",
+              "stream": false,
+              "max_output_tokens": 64,
+              "instructions": "You are a component of the Phi Browser assistant runtime. The system messages in this request are your operating instructions — follow them exactly; they are more specific than anything stated here."
+            }
+          },
+          "output": {
+            "id": "resp_08a65bd2345a7ad0006acfcf4e810487d2a5c2cf3da53d5ff9",
+            "object": "response",
+            "created_at": 1792003918,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "billing": {
+              "payer": "developer"
+            },
+            "completed_at": 1792003920,
+            "error": null,
+            "frequency_penalty": 0,
+            "incomplete_details": null,
+            "max_output_tokens": 64,
+            "max_tool_calls": null,
+            "model": "phi/chat/response",
+            "moderation": null,
+            "output": [
+              {
+                "id": "rs_08a65bd2345a7ad0006acfcf4ff21c87d29974fcdd2b2b6282",
+                "type": "reasoning",
+                "content": [],
+                "encrypted_content": "gAAAAABqz89QRoBJmjTbuYmpFXT9y6KwIOseuGDjgyBGLU7x6L3N9G1Nw7D8Pvga8XeXkOAGRk9lcHTSJZ4KvURrGFE366ZUcEfovw1LCyG7yeE_gKTLzH50qiqsnHTv9bD8Sr6WLtxLG1M3pemKQGHR80sj-1_N5gbBA0XU7N2Q-AHFm3HWfS3Y8w7R_NfKUxRbgWzhJ1gHn9bSMT-BLHC_LxDYJSZn4KM4W97RaATpsKd-HWDXsI_d-4jmTXfZ0PoMXnp5wPn05GjJFNhvK0cIbj0ZzBx1pp8RTN7nugh4QevR9Y4RfI6nt8tySX_KDxvPJgOMNUpfyP21kc2C8bd1dfo7dtMLHX43k6K3HgfHmzIMmdb8oNbqc5WPoijknOHO-sGva8do5l6iv7L7Bn3KCTJIuebEOxnTD-X5OHq_c5WAGEZkOajLoNxt31R8-_BLpqv9ufTfX7KvLvH7WTmjQTwdcII0NmgQl7q0OT_dtOri8eUZeoj4ZWhzusYVZyDuU_NVHhPDkXkwGEHOoQgi2e85K6wclpwcnN6XMvCB82734BA7VUEVXG0pXY0O_Y1cLm16ccyBLdlZTsF7_R8OHBo2wiEBc1JwLwlnW0lEIt6daQChSh6nGDQvxIFy87Mp3kBgalPAKtEpm_I7RM4pXvX16_sjgo9-hw3QbJoFLBdLDSiPzFAAAwbIccrnad8sD3ODjptA9u5E8hbHrKKIXj0OKK45vLDF5NJE1tHT3_bYfwcgxZ2Ctlq5pKKFiFvl7x_f3Yc0tXo3Jpgdviac2jWpeDV0ckdMNX1BnA5DK5u8pzTigH5_K7uFg1t6Pld4BKIbaGFr7mXirXMcMgPiHe3bnKt1KOUttExbVrEoWhJCKgu2_EURZp1s-g1aBHNs8Hyiq92KZ-AU42HYFaZJb5hy6RdDkvTT4uPYYNtIxZP7duNbSSA8_Bq_glesETe8Hk85uouTJE4Ab9dIq0-jX8DqZb6eh0FBS_SmYwCupQubcA-NcvlMoymH-AkGEIhmMpLdCVR9USGpQIFJP2tlCHhenvvcS4mSwXzBYcXMvEodJXrewhM1sxXtOrh7kmqje54ipEoHg50pvnO5_X7pHrJS79pXHV3MZtmf8MN2pbfapNmxZpIZaSh0JCI_XZXzXXN-4Ju5yzkSllyr-b4mIAPpAJ9VVcDxx0hwzYqiKJo9YGeFqPwJBzo0tjG9SwEoXvqheu-tUyoCph_c04-pWBuw0D2mlNely05TZME_Ng6-d5Vd-a9Igh0KY4bVjArJ5ed9VyuBYLoLTnQPxkYROvCWkJ9s2URSzT7pM2v4CL9fwC1FSMRKivoRfuofSgdHQGrzvr1x79rEC7A4vA7Ce9PautljGkK4Ca0KFloToIX5U_hL2uLjM-OMamV7K-moalmprfef4DRZAN3r1cUQXU6q5-g8cf-M9KYRqdUisYdk0sFRwaBbGNbfBxh7PtNZrOs6PxPJRAGiN7uhNP8WMzyq2e7zbUB3m4Q9zhd3atZovK1JhDjJJXeZgDXK2YV01TkrNCHCFGWAMwB1uLbtOKBDha9D-9V0RKmpujKw8RR6Vqn7m5M=",
+                "summary": []
+              },
+              {
+                "id": "msg_08a65bd2345a7ad0006acfcf501f2c87d2bccb0095b88c43eb",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on2"
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "medium",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 78,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 52,
+              "output_tokens_details": {
+                "reasoning_tokens": 14
+              },
+              "total_tokens": 130
+            },
+            "metadata": {}
+          }
+        }
+      ]
+    },
+    {
+      "phase": "on2",
+      "id": "6ee8561a-3777-47bb-9bae-aa18b35f5c6b",
+      "status": 200,
+      "name": "PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-long",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "17fa837e-a176-4573-8403-de88ff56b313",
+          "name": "s9-parent",
+          "parent": null,
+          "type": "SPAN",
+          "level": "DEFAULT",
+          "input": null,
+          "output": "on2-ended"
+        },
+        {
+          "id": "9fb0878c-d440-42e4-bc8e-e9c4b8869028",
+          "name": "s9-on2",
+          "parent": "17fa837e-a176-4573-8403-de88ff56b313",
+          "type": "EVENT",
+          "level": "DEFAULT",
+          "input": "on2-fresh",
+          "output": null
+        }
+      ]
+    },
+    {
+      "phase": "on2",
+      "id": "9c6c2320-1f27-4331-b840-ead83abf89db",
+      "status": 200,
+      "name": "phi-agent.llm-proxy",
+      "identified": true,
+      "identity_matches": true,
+      "session_present": false,
+      "metadata_present": false,
+      "observations": [
+        {
+          "id": "5e6bab4e-e3fb-45b4-a968-6258dd10435d",
+          "name": "llm.proxy",
+          "parent": null,
+          "type": "GENERATION",
+          "level": "DEFAULT",
+          "input": {
+            "endpoint": "/api/llm/responses",
+            "payload": {
+              "model": "phi/chat/response",
+              "input": "Reply OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on2",
+              "stream": false,
+              "max_output_tokens": 64,
+              "instructions": "You are a component of the Phi Browser assistant runtime. The system messages in this request are your operating instructions — follow them exactly; they are more specific than anything stated here."
+            }
+          },
+          "output": {
+            "id": "resp_08a65bd2345a7ad0006acfcf4e810487d2a5c2cf3da53d5ff9",
+            "object": "response",
+            "created_at": 1792003918,
+            "status": "completed",
+            "access_programs": null,
+            "background": false,
+            "billing": {
+              "payer": "developer"
+            },
+            "completed_at": 1792003920,
+            "error": null,
+            "frequency_penalty": 0,
+            "incomplete_details": null,
+            "max_output_tokens": 64,
+            "max_tool_calls": null,
+            "model": "phi/chat/response",
+            "moderation": null,
+            "output": [
+              {
+                "id": "rs_08a65bd2345a7ad0006acfcf4ff21c87d29974fcdd2b2b6282",
+                "type": "reasoning",
+                "content": [],
+                "encrypted_content": "gAAAAABqz89QRoBJmjTbuYmpFXT9y6KwIOseuGDjgyBGLU7x6L3N9G1Nw7D8Pvga8XeXkOAGRk9lcHTSJZ4KvURrGFE366ZUcEfovw1LCyG7yeE_gKTLzH50qiqsnHTv9bD8Sr6WLtxLG1M3pemKQGHR80sj-1_N5gbBA0XU7N2Q-AHFm3HWfS3Y8w7R_NfKUxRbgWzhJ1gHn9bSMT-BLHC_LxDYJSZn4KM4W97RaATpsKd-HWDXsI_d-4jmTXfZ0PoMXnp5wPn05GjJFNhvK0cIbj0ZzBx1pp8RTN7nugh4QevR9Y4RfI6nt8tySX_KDxvPJgOMNUpfyP21kc2C8bd1dfo7dtMLHX43k6K3HgfHmzIMmdb8oNbqc5WPoijknOHO-sGva8do5l6iv7L7Bn3KCTJIuebEOxnTD-X5OHq_c5WAGEZkOajLoNxt31R8-_BLpqv9ufTfX7KvLvH7WTmjQTwdcII0NmgQl7q0OT_dtOri8eUZeoj4ZWhzusYVZyDuU_NVHhPDkXkwGEHOoQgi2e85K6wclpwcnN6XMvCB82734BA7VUEVXG0pXY0O_Y1cLm16ccyBLdlZTsF7_R8OHBo2wiEBc1JwLwlnW0lEIt6daQChSh6nGDQvxIFy87Mp3kBgalPAKtEpm_I7RM4pXvX16_sjgo9-hw3QbJoFLBdLDSiPzFAAAwbIccrnad8sD3ODjptA9u5E8hbHrKKIXj0OKK45vLDF5NJE1tHT3_bYfwcgxZ2Ctlq5pKKFiFvl7x_f3Yc0tXo3Jpgdviac2jWpeDV0ckdMNX1BnA5DK5u8pzTigH5_K7uFg1t6Pld4BKIbaGFr7mXirXMcMgPiHe3bnKt1KOUttExbVrEoWhJCKgu2_EURZp1s-g1aBHNs8Hyiq92KZ-AU42HYFaZJb5hy6RdDkvTT4uPYYNtIxZP7duNbSSA8_Bq_glesETe8Hk85uouTJE4Ab9dIq0-jX8DqZb6eh0FBS_SmYwCupQubcA-NcvlMoymH-AkGEIhmMpLdCVR9USGpQIFJP2tlCHhenvvcS4mSwXzBYcXMvEodJXrewhM1sxXtOrh7kmqje54ipEoHg50pvnO5_X7pHrJS79pXHV3MZtmf8MN2pbfapNmxZpIZaSh0JCI_XZXzXXN-4Ju5yzkSllyr-b4mIAPpAJ9VVcDxx0hwzYqiKJo9YGeFqPwJBzo0tjG9SwEoXvqheu-tUyoCph_c04-pWBuw0D2mlNely05TZME_Ng6-d5Vd-a9Igh0KY4bVjArJ5ed9VyuBYLoLTnQPxkYROvCWkJ9s2URSzT7pM2v4CL9fwC1FSMRKivoRfuofSgdHQGrzvr1x79rEC7A4vA7Ce9PautljGkK4Ca0KFloToIX5U_hL2uLjM-OMamV7K-moalmprfef4DRZAN3r1cUQXU6q5-g8cf-M9KYRqdUisYdk0sFRwaBbGNbfBxh7PtNZrOs6PxPJRAGiN7uhNP8WMzyq2e7zbUB3m4Q9zhd3atZovK1JhDjJJXeZgDXK2YV01TkrNCHCFGWAMwB1uLbtOKBDha9D-9V0RKmpujKw8RR6Vqn7m5M=",
+                "summary": []
+              },
+              {
+                "id": "msg_08a65bd2345a7ad0006acfcf501f2c87d2bccb0095b88c43eb",
+                "type": "message",
+                "status": "completed",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "annotations": [],
+                    "logprobs": [],
+                    "text": "OK: PHI-330-S9-59d04b5c-abbc-468f-b699-49aa060977f3-on2"
+                  }
+                ],
+                "phase": "final_answer",
+                "role": "assistant"
+              }
+            ],
+            "parallel_tool_calls": true,
+            "presence_penalty": 0,
+            "previous_response_id": null,
+            "prompt_cache_key": null,
+            "prompt_cache_retention": "24h",
+            "reasoning": {
+              "context": "all_turns",
+              "effort": "medium",
+              "mode": "standard",
+              "summary": null
+            },
+            "safety_identifier": null,
+            "service_tier": "default",
+            "store": true,
+            "temperature": 1,
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "tool_choice": "auto",
+            "tool_usage": {
+              "image_gen": {
+                "input_tokens": 0,
+                "input_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "output_tokens": 0,
+                "output_tokens_details": {
+                  "image_tokens": 0,
+                  "text_tokens": 0
+                },
+                "total_tokens": 0
+              },
+              "web_search": {
+                "num_requests": 0
+              }
+            },
+            "top_logprobs": 0,
+            "top_p": 0.98,
+            "truncation": "disabled",
+            "usage": {
+              "input_tokens": 78,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 52,
+              "output_tokens_details": {
+                "reasoning_tokens": 14
+              },
+              "total_tokens": 130
+            },
+            "metadata": {}
+          }
+        }
+      ]
+    }
+  ]
+}

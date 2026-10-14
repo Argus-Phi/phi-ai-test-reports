@@ -1,0 +1,556 @@
+{
+  "utc": "2026-10-14T18:49:45.222Z",
+  "config": [
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "empty",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "present",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "staging",
+      "public": "present",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "empty",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "present",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": true,
+      "environment": "production",
+      "public": "present",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "empty",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "present",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "staging",
+      "public": "present",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "empty",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "present",
+      "secret": "present",
+      "whitespace": false,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "empty",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "present",
+      "secret": "empty",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "enabled": false,
+      "environment": "production",
+      "public": "present",
+      "secret": "present",
+      "whitespace": true,
+      "sentry": 1,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "no-sentry",
+      "enabled": true,
+      "keys": true,
+      "sentry": 0,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "no-sentry",
+      "enabled": true,
+      "keys": false,
+      "sentry": 0,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "no-sentry",
+      "enabled": false,
+      "keys": true,
+      "sentry": 0,
+      "posthog": 1,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "no-sentry",
+      "enabled": false,
+      "keys": false,
+      "sentry": 0,
+      "posthog": 1,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "no-posthog",
+      "enabled": true,
+      "keys": true,
+      "sentry": 1,
+      "posthog": 0,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "no-posthog",
+      "enabled": true,
+      "keys": false,
+      "sentry": 1,
+      "posthog": 0,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "no-posthog",
+      "enabled": false,
+      "keys": true,
+      "sentry": 1,
+      "posthog": 0,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "no-posthog",
+      "enabled": false,
+      "keys": false,
+      "sentry": 1,
+      "posthog": 0,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "neither",
+      "enabled": true,
+      "keys": true,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "neither",
+      "enabled": true,
+      "keys": false,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "neither",
+      "enabled": false,
+      "keys": true,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "neither",
+      "enabled": false,
+      "keys": false,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "disabled",
+      "enabled": true,
+      "keys": true,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "disabled",
+      "enabled": true,
+      "keys": false,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 0,
+      "pass": true
+    },
+    {
+      "name": "disabled",
+      "enabled": false,
+      "keys": true,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "disabled",
+      "enabled": false,
+      "keys": false,
+      "sentry": 0,
+      "posthog": 0,
+      "langfuse": 0,
+      "pass": true
+    }
+  ],
+  "states": [
+    {
+      "name": "initial",
+      "expected_identified": true,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "undefined",
+      "expected_identified": false,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "throws",
+      "expected_identified": false,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "no-revision",
+      "expected_identified": false,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "empty-revision",
+      "expected_identified": false,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "invalid-revision",
+      "expected_identified": false,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "disabled",
+      "expected_identified": false,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    },
+    {
+      "name": "restored",
+      "expected_identified": true,
+      "sentry": 1,
+      "posthog": 20,
+      "langfuse": 1,
+      "pass": true
+    }
+  ],
+  "ambient": [
+    {
+      "enabled": true,
+      "events": 2,
+      "owner_matches": true,
+      "ownerless_anonymous": true,
+      "ambient_absent": true,
+      "locations": []
+    },
+    {
+      "enabled": false,
+      "events": 2,
+      "owner_matches": true,
+      "ownerless_anonymous": true,
+      "ambient_absent": true,
+      "locations": []
+    }
+  ],
+  "paths": [
+    {
+      "enabled": true,
+      "event_count": 1,
+      "home_usernames_absent": true,
+      "hostname_absent": true
+    },
+    {
+      "enabled": false,
+      "event_count": 1,
+      "home_usernames_absent": true,
+      "hostname_absent": true
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,1085 @@
+{
+ "issue": "PHI-330",
+ "based_on": "PHI-330/test-plan.md@6d72cdacad7d86b2ae610892674b036ab280b0fc, PHI-330/fix-notes-r2.md@35266cb348a7165243536bac1f417678d531c49a, PHI-330/reviews/fix-r2-spock.md@349e5cd116af4f238ecf29cb648ca92a33bba02f",
+ "key": "PHI-330",
+ "title": "埋点数据梳理和规范化",
+ "round": 2,
+ "kind": "regression",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮按 high 风险执行30条计划用例并补齐上一轮组合缺项，30条通过，0条失败、阻塞或未执行；B1-1经原步骤修复前复现、修复后两次独立最终envelope验证已关闭。真实Canary开→关→开、已有LLM API和三平台回读通过；未发现新的blocker或major，AI测试和审查允许提交PR。原始chat命令仍为1101 pass/1 fail/5 cancelled，已在修复前独立基线复现，T-28按无新增回归判定，不能表述为全部测试命令绿色。",
+ "sha": "5dcf8b796757094f20c1fae78b84aa249694c27e",
+ "branch": "PHI-330-unified-telemetry-identity",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/577",
+ "generated_at": "2026-10-14T19:11:04.453239+00:00",
+ "environment": {
+  "机器": "本机macOS 26.6.2 / Apple M4",
+  "Phi Canary": "2026.10.14.0209（现有Sidecar）",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "数据库": "隔离临时PG19548/19549/19550，均停止删除",
+  "在线模型": "ai-service.stag.phibrowser.com；正常Canary测试账号鉴权",
+  "Langfuse": "STAGE pair核对Phi Agent - staging",
+  "PostHog": "项目385742；仅本轮marker",
+  "Sentry": "phinomenon/phi-agent；仅本轮release；SDK environment=development",
+  "模式切换": "真实Canary设置点击，true→false→true，恢复初始true",
+  "证据": "约1.05 MB；截图1280宽且账号遮挡；无key/token/真实subject"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含手测方案与r2执行补充）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/6d72cdacad7d86b2ae610892674b036ab280b0fc/PHI-330/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/35266cb348a7165243536bac1f417678d531c49a/PHI-330/runbook.md"
+  },
+  {
+   "title": "上一轮报告",
+   "url": "https://github.com/phibrowser/phi-ai/blob/3688546c7621cb3406f767063e9f3409774f1dc8/PHI-330/test-report-r1.md"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "真实HTTP失败与已有trace",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1",
+   "precondition": "Runner 开/R1，U1 正常鉴权，三 SDK 已接最终记录器；测试路由仅存在于测试 listener。",
+   "steps": [
+    "通过真实 socket 向已鉴权测试 handler 发请求并让其抛含随机标记的异常；另走 U1 的已有 chat/LLM 请求链；flush 后解析三种载荷并核对 HTTP 响应。"
+   ],
+   "expected": "HTTP 保持原 500；对应 Sentry 异常、一个 `phi_agent_request_failed` 和已有 trace 均存在；`user.id`/`distinct_id`/trace `userId` 逐字为 U1（含 `|`）；无 token、清洗键或 email 替代身份，事件名与原 trace 层级保留。",
+   "actual": "真实Canary正常Auth0鉴权，三轮各20次500及已有LLM请求200；telemetry真实HTTP→生产TCP row→三个SDK集成通过，开启的canonical身份在内存逐字比对。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "transport.txt",
+     "caption": "transport.txt"
+    },
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    },
+    {
+     "type": "log",
+     "path": "posthog_final_r2.json",
+     "caption": "posthog_final_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_summary_r2.json",
+     "caption": "sentry_summary_r2.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-2",
+   "title": "关闭仍上报且匿名",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2",
+   "precondition": "同 T-1，但从启动即关/R2；请求上下文含合成系统身份标记。",
+   "steps": [
+    "重复 T-1 两次，flush；检查最终三出口所有字段、PostHog 操作及匿名 distinct id。"
+   ],
+   "expected": "新记录正常出网；Sentry 无 user，Langfuse 无用户关联，PostHog 两事件分别为无 U 映射的匿名 UUID；无 identify/alias、`$set`、`$set_once`、`$anon_distinct_id`，`$process_person_profile=false`；系统附带身份标记不出现在旁路中。",
+   "actual": "真实关闭轮Sentry20条user.id=null、PostHog20个不同UUID且无U/profile=false、Langfuse已有LLM trace无userId；最终载荷请求标记缺失。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    },
+    {
+     "type": "log",
+     "path": "posthog_final_r2.json",
+     "caption": "posthog_final_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_summary_r2.json",
+     "caption": "sentry_summary_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "privacy-repeat.json",
+     "caption": "privacy-repeat.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-3",
+   "title": "缺可信owner与保留身份",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-3",
+   "precondition": "开/R1，先完成一次 U1 请求；可触发已有 startup、auth rejection、自动进程异常及匿名请求诊断。",
+   "steps": [
+    "逐项触发上述已有上报；另以缺省 owner、空值、`anonymous`、`__system__` 输入遥测；flush 后逐条检查实际可用出口。无已有 trace 的路径不人为新增 trace。"
+   ],
+   "expected": "记录匿名且不借用 U1；保留身份字面值不当成 Auth0 id；鉴权失败响应不变。请求失败诊断只由 handler 抛错产生，不能因 auth rejection 额外产生。",
+   "actual": "ownerless/保留身份、startup、认证和默认全局异常集成断言通过；真实SDK ownerless事件不继承ambient用户，持久化任务不继承前一请求用户。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "pg-telemetry.json",
+     "caption": "pg-telemetry.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-4",
+   "title": "Langfuse配置矩阵",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-4、AC-13",
+   "precondition": "每组创建独立服务，Sentry/PostHog 配置有效。",
+   "steps": [
+    "公钥/私钥取缺公钥、缺私钥、皆缺、皆有四组合，分别开/关触发已有请求 trace；补空串、仅空白、有效值带首尾空白；交换 staging/production 环境名但不改变密钥组合；flush。"
+   ],
+   "expected": "trim 后任一为空都无 Langfuse 初始化与流量；完整密钥均可追踪，身份服从开关，环境名不改变结果；其他两出口持续按各自配置工作。",
+   "actual": "真实SDK44配置组：28组key/trim/开关/环境矩阵及16组出口独立配置；仅完整trim后key启用Langfuse，production标签不改变策略。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "sdk-matrix-run.txt",
+     "caption": "sdk-matrix-run.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-5",
+   "title": "Runner不可确认与恢复",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5",
+   "precondition": "先开/R1 完成一轮 T-1，再逐项注入 Runner 超时、无 socket、抛异常、无效响应、无 revision/无效 revision。",
+   "steps": [
+    "每种故障下重复请求错误和已有 trace，记录 HTTP 结果与最终 SDK 流量；结束故障后恢复开/R3再触发一轮。"
+   ],
+   "expected": "故障期间新记录匿名送出，HTTP 仍按原契约；不复用 R1 或全局最近用户；恢复后新记录可关联 U1，不需重启。每个故障、每个出口单列结果。",
+   "actual": "8状态真实SDK矩阵覆盖undefined/抛错/缺revision/空revision/数字revision/关闭/恢复；1500ms和delivery-only同revision恢复在本轮全包通过。故障在受控reader/SDK边界注入，不关闭用户Runner。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "transport-matrix.json",
+     "caption": "transport-matrix.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-6",
+   "title": "同实例开关切换",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-6",
+   "precondition": "同一实例、U1、可更新 Runner 状态，不清空业务会话。",
+   "steps": [
+    "依次设置开/R1、关/R2、开/R3；每次状态生效后重复 T-1并单独 flush。"
+   ],
+   "expected": "三个出口依次 U1→匿名→U1；关闭期间确有新记录送达；实例未重启，旧匿名记录不改写为 U1。",
+   "actual": "同一真实服务三轮revision各不相同；60次500、3次200，三平台U→匿名→U；设置恢复true，没有重启Canary或替换托管agent。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    },
+    {
+     "type": "log",
+     "path": "posthog_final_r2.json",
+     "caption": "posthog_final_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_summary_r2.json",
+     "caption": "sentry_summary_r2.json"
+    },
+    {
+     "type": "image",
+     "path": "T-30-1.png",
+     "caption": "T-30-1.png"
+    },
+    {
+     "type": "image",
+     "path": "T-30-2.png",
+     "caption": "T-30-2.png"
+    },
+    {
+     "type": "image",
+     "path": "T-30-3.png",
+     "caption": "T-30-3.png"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-7",
+   "title": "采集后撤回及重发",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-7",
+   "precondition": "开/R1 已采集含 U1 的三出口记录，最终发送尚未开始；可注入一次网络失败。",
+   "steps": [
+    "分别在初次发送前变关/R2或不可读取；另组先使 R1 初次请求失败，再在重试前撤回；再测关后重新开/R3才发送旧记录；随后捕获并发送新匿名记录。"
+   ],
+   "expected": "撤回后旧事件匿名化或丢弃（设计预期丢弃），不带系统 U 出网；R3 不能恢复 R1 许可；重试重新判定。新匿名记录持续送达；首次在撤回前已发出的请求不算撤回泄漏。",
+   "actual": "Sentry真实SDK在最终发送判定前barrier撤回/不可读取/重新开均阻断旧envelope，新匿名项正常发送；真实503后二次send及PostHog/Langfuse重试断言通过。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sentry-delivery.json",
+     "caption": "sentry-delivery.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-8",
+   "title": "匿名队列不补身份",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-8",
+   "precondition": "关/R2捕获三出口记录，并以 barrier 暂停发送。",
+   "steps": [
+    "开/R3后释放旧记录，再捕获 U1 新记录并 flush；检查匿名 id、trace id、session 与关联操作。"
+   ],
+   "expected": "旧记录保持匿名，新记录可关联 U1；不将旧 PostHog UUID 或匿名 Langfuse 段关联 U1，无 identify/alias 或旧 session 回链。",
+   "actual": "Sentry关闭采集、发送前开启，旧envelope仍匿名且新事件identified；PostHog匿名队列和Langfuse匿名段不升级的真实SDK断言通过。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sentry-delivery.json",
+     "caption": "sentry-delivery.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-9",
+   "title": "交错owner与篡改身份",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1、AC-9",
+   "precondition": "开/R1，U1/U2 两条独立鉴权链与可控制完成顺序的 handler。",
+   "steps": [
+    "交错发送 U1/U2 请求，逆序抛错/结束 trace；在 U1 handler 内把可变 request.userId 改成 U2；期间触发无 owner 进程错误；flush。"
+   ],
+   "expected": "各记录仅带其已鉴权原始 U；篡改后的 U1 请求仍属 U1，进程错误匿名；HTTP 500和正常业务结果不变，多个出口异步完成不会串号。",
+   "actual": "生产HTTP集成两owner、篡改request.userId、ownerless自动事件均经最终SDK验证；认证保存的原owner保持，正常/错误业务响应不变。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "transport.txt",
+     "caption": "transport.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-10",
+   "title": "嵌套身份与危险序列化",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-10",
+   "precondition": "合成上下文含对象/数组内 userId、externalUserId、fromExternalUserId、distinct_id、sub、email、profile/account/IP、旧合并字段，及 Authorization/JWT/API key；含系统 U 的 error/breadcrumb 字符串、循环引用及超深分支。",
+   "steps": [
+    "开/关分别经真实三 SDK 序列化；补边界前后大小的字符串/对象以触发截断和媒体转换；解析最终请求及可解析媒体字节。"
+   ],
+   "expected": "开启仅 canonical 字段允许 U，关闭无系统身份；凭据始终不可还原，危险分支不回退成原对象；错误类别、component、计数等非身份诊断保留，普通无关业务文本不被整体删除。",
+   "actual": "嵌套对象/数组、循环/超深、共享前缀、凭据清洗断言通过；超大JSON在真实媒体字节清洗；真实Sentry/PostHog/Langfuse最终序列化矩阵通过。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "media-matrix.json",
+     "caption": "media-matrix.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-11",
+   "title": "Sentry ambient身份",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-3、AC-9、AC-10",
+   "precondition": "SDK ambient scope 注入 U2；已鉴权 U1异常和无 owner 进程异常。",
+   "steps": [
+    "分别开/关捕获上述异常，检查真实 envelope，而非 beforeSend 中间对象。"
+   ],
+   "expected": "U1事件在开时仅 `user: {id: U1}`，无 owner 异常始终无 user；关时全部无 user；ambient user/request 不成为身份来源。",
+   "actual": "开/关各2个实际envelope：owned仅可信U、ownerless匿名，ambient另一个owner/email未泄漏。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-12",
+   "title": "Sentry主机与路径",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-2、AC-10",
+   "precondition": "`server_name=alice-macbook-pro`；异常顶层栈及嵌套 cause 含 macOS/Linux/Windows 主目录、file URL、相对模块路径、未知绝对路径和函数行列号。",
+   "steps": [
+    "在开/关各触发 handler、startup、自动异常；同时将同类路径放入 breadcrumb/context/error 字符串；读取最终 envelope。"
+   ],
+   "expected": "两状态均无主机名或路径用户名；已识别主目录归一为 `~/`，不安全绝对路径移除；相对路径、函数名、行列号保留，不破坏错误诊断。",
+   "actual": "开/关真实SDK解析macOS/Linux/Windows合成主目录栈均无用户名或server_name；file URL/未知绝对路径/行列号及嵌套cause边界断言通过。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-13",
+   "title": "混合batch与未知记录",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-7、AC-8",
+   "precondition": "同批含匿名项、有效 R3 identified 项、已撤回 R1项及未知/账本淘汰项；真实 PostHog/Langfuse SDK。",
+   "steps": [
+    "开/R3发送混合批并重试；另分别发送只含撤回项的批、未知 Sentry envelope、未知 Langfuse事件类型/id。"
+   ],
+   "expected": "有效/匿名项送达，撤回/不可确认项不裸发；不能因一个撤回项丢整批安全记录。空批隐私丢弃不形成无限重试；未知项不能泄漏身份；诊断不含敏感载荷。",
+   "actual": "真实SDK PostHog/Langfuse混合批、未知/淘汰记录与未知Sentry envelope守卫断言通过；安全匿名项保留，撤回项不裸发。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-14",
+   "title": "失败后撤回保护",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-7",
+   "precondition": "三出口实际发送首次失败、第二次可成功；独立用例清空队列。",
+   "steps": [
+    "一组保持开/R1重试；另一组首次失败后关/R2重试，再捕获新匿名记录；补账本容量淘汰后重试旧 identified 记录。"
+   ],
+   "expected": "许可不变时原记录仍能重试，不能因首次失败提前遗失身份安全信息；撤回或淘汰后旧 identified 不出网；新匿名数据正常发送，无无界队列增长。",
+   "actual": "Sentry503后同revision二次send确实200；关闭/不可读取/重新开启/257条未送达淘汰后旧envelope不出网，新匿名仍出网。PostHog/Langfuse原重试断言通过。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sentry-delivery.json",
+     "caption": "sentry-delivery.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-15",
+   "title": "长trace跨epoch隔离",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-6、AC-8、AC-10",
+   "precondition": "U1长 trace含 root/父子观察，开/R1时 root 已送达并关联 U1，部分观察未结束。",
+   "steps": [
+    "关/R2继续 update/end 和新增子观察；开/R3再次更新；检查三个阶段 ingestion 及模拟远端合并后的树，随后检查 T-30 的实际平台树。"
+   ],
+   "expected": "关时使用新匿名 wire 段，不挂旧 U1 root/session；跨段仅重建名称/父级骨架，不复制旧 input/output或逻辑/旧段 id；开后新段可属原可信 owner，但不把匿名段补挂 U1；稳定状态下保持名称与父子语义。",
+   "actual": "平台真实长trace三段父子均在本段内；关闭段无U/session/metadata、父input为空且不含旧input，恢复段无旧input；三段id及观察id均分离。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-16",
+   "title": "forwarded trace与重启",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-9、AC-11",
+   "precondition": "开/R1，既有 U1 root 的 name/input已记录；另有未知 forwarded id。",
+   "steps": [
+    "同 owner延续既有 root；U2复用 U1 id；分别在未知、重启后及账本淘汰后三种情形携带 forwarded id进入真实 LLM请求链；补无 owner root后到达 U1 update。"
+   ],
+   "expected": "已知同 owner延续不覆盖 name/input；冲突分离；未知/重启/淘汰使用新随机 wire root，只 upsert新 id及允许的 U，不给原 forwarded id写 root或旁路回链；generation保留本次名称/输入；无 owner trace不被 update改挂用户。",
+   "actual": "12组真实HTTP→现有LLM handler→SDK：开/关各同owner延续、冲突、未知、ownerless后owned、重启、4100条容量淘汰。响应均200，旧forwarded id和旧input不被重放。模型响应由本地合成服务提供。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "forwarded-api.json",
+     "caption": "forwarded-api.json"
+    },
+    {
+     "type": "log",
+     "path": "forwarded-api-run.txt",
+     "caption": "forwarded-api-run.txt"
+    },
+    {
+     "type": "log",
+     "path": "llm.txt",
+     "caption": "llm.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-17",
+   "title": "媒体四边界与重发",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-7、AC-8、AC-10",
+   "precondition": "真实锁定 SDK，合成超大 JSON、data URI及音频样本；可分别暂停登记、预签名 PUT、状态 PATCH和 ingestion，并记录重试。",
+   "steps": [
+    "每个边界独立执行开/R1采集→关/R2或读取失败→放行；另测匿名采集后开/R3；补未知媒体 URL与失败重试。"
+   ],
+   "expected": "旧 identified 媒体在撤回后不继续对应出网操作，每次重试重检；匿名结构化附件先清理身份/凭据再转字节且不补身份；未知 URL不放行，日志无预签名 URL/内容；普通二进制不承诺任意个人信息识别。",
+   "actual": "48组通过：3种数据×四边界×撤回/不可读取/匿名后开启共36组，四边界失败后same/off/unavailable重发共12组；使用真实SDK和loopback请求，匿名结构化字节无身份/凭据。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "media-matrix.json",
+     "caption": "media-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "media-matrix-run.txt",
+     "caption": "media-matrix-run.txt"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-18",
+   "title": "超时与批量可用性",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5",
+   "precondition": "可控时钟，Runner有 socket但读取恰好1500ms超时；最终 SDK发送另行可控。",
+   "steps": [
+    "同一时间窗口入队 root和100个 span的 create/update/end，共301项；推进1500ms并排空微任务；再入队一个新操作；随后允许真实 SDK batch发送。"
+   ],
+   "expected": "首窗口所有操作在一次超时后匿名进入 SDK，不产生301轮串行超时；settle后新操作重新读取；最终各批发送仍独立检查，持续匿名出网。分别记录采集等待和发送批次耗时，不把两者相加误判。",
+   "actual": "301操作共用一次1500ms采集读取、settle后重新读取、最终SDK匿名送达断言通过；没有把采集等待与发送时延混作一个数。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-19",
+   "title": "队列边界与容量恢复",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5、AC-7",
+   "precondition": "阻塞采集读取，持续产生 Langfuse操作；合成唯一溢出载荷标记。",
+   "steps": [
+    "分别在1023、1024、1025项边界提交操作；对拒绝创建的 handle再建子观察并 end；解除阻塞、flush后产生新匿名操作；补异常退出分支。"
+   ],
+   "expected": "保留的未完成操作不超过1024，超限不保留载荷或阻塞业务，溢出标记不出网；拒绝 handle的子项无上报，end释放本地观察；完成/失败/关闭后容量可恢复，新记录能送达。",
+   "actual": "1024 pending overflow/拒绝handle/恢复断言通过；真实SDK匿名/identified超过4096容量仍继续送达新观察，forwarded API另经4100条验证淘汰后新root。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "forwarded-api.json",
+     "caption": "forwarded-api.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-20",
+   "title": "生命周期与shutdown",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5、AC-7",
+   "precondition": "待完成采集、未结束 span及网络阻塞；可控时钟。",
+   "steps": [
+    "紧接create调用 update/end、重复 end、父观察 end后结束子观察；立即执行 startup flush或shutdown；分别令待办及时完成和始终阻塞。"
+   ],
+   "expected": "实际树创建在更新前，结束一次，不丢正常子观察；flush先处理待办再发 SDK；正常 shutdown覆盖三出口，阻塞时遵守3000ms总时限且未确认身份不裸发；业务不等待遥测成功。",
+   "actual": "create/update/end、父结束后子项、withSpan、startup/pending drain及shutdown上限断言通过；实际完整assembly启动banner核验并清理自建进程组。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    },
+    {
+     "type": "log",
+     "path": "startup.txt",
+     "caption": "startup.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-21",
+   "title": "遥测故障与响应分类",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1、AC-3",
+   "precondition": "TCP/UDS listener；分别缺遥测服务、reporter抛错、单出口 SDK失败、网络永久失败、Runner挂起。",
+   "steps": [
+    "对每种故障发送 handler抛错、正常200、handler返回普通错误Response、auth拒绝及响应流错误；检查响应与最终诊断次数。"
+   ],
+   "expected": "handler抛错仍按原500及日志处理，任一出口失败不阻止另一个出口或改变业务响应；只有handler抛错产生一次双出口请求失败诊断；启动无需遥测服务依赖；不新增正常请求全量埋点。",
+   "actual": "TCP/UDS各8故障×5请求，共80请求：handler500、正常200、普通422、auth401、流错误已发送200；仅handler调用一次双出口诊断。缺服务、单出口抛错/网络失败、全部网络失败、1500ms reader timeout均不改变业务响应。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "transport-matrix.json",
+     "caption": "transport-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "transport-matrix-run.txt",
+     "caption": "transport-matrix-run.txt"
+    },
+    {
+     "type": "log",
+     "path": "transport.txt",
+     "caption": "transport.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-22",
+   "title": "PG修复与维护异常",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-11",
+   "precondition": "隔离PG，含 raw U与清洗键的可修复数据、可注入的修复失败和维护异常。",
+   "steps": [
+    "在开、关、读取失败三状态分别触发 `pg_tenant_repair_succeeded`、`pg_tenant_repair_failed`和已有Sentry维护错误；比较数据库结果、策略/计数/耗时及最终载荷。"
+   ],
+   "expected": "所有状态均匿名，raw/清洗键不在关联字段或旁路中；原修复策略、成功/失败语义和业务数据一致；非身份诊断保留。数据库不可用单列环境证据，不自动记产品bug。",
+   "actual": "真实临时PG三状态各修复1成功/1失败并核对数据库，2个PostHog事件和2个Sentry事件均匿名，raw/清洗键缺失；保留strategy、duration及错误诊断。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "pg-telemetry.json",
+     "caption": "pg-telemetry.json"
+    },
+    {
+     "type": "log",
+     "path": "storage-pg.txt",
+     "caption": "storage-pg.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-23",
+   "title": "持久化任务与混合offers",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-3、AC-9、AC-11",
+   "precondition": "U1请求后执行从PG读出的清洗userId任务；catch-up-card分别含单用户和U1/U2混合offers。",
+   "steps": [
+    "开/关各执行任务及生成card；保存业务输出并解析trace、input及metadata。"
+   ],
+   "expected": "这两类缺可信原始owner的trace始终匿名，无租户键、首个offer用户、手工拼接Auth0前缀或最近U1；原任务执行/卡片结果不变，不新增持久化身份字段。",
+   "actual": "真实PG重新读取清洗userId任务，三状态run均completed、实际Langfuse task root匿名且无前一可信owner；catch-up-card原夹具和新增两owner offers经真实SDK开/关均匿名。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "pg-telemetry.json",
+     "caption": "pg-telemetry.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-task-catch-up-card-on-a.json",
+     "caption": "callpoints-task-catch-up-card-on-a.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-task-catch-up-card-off-a.json",
+     "caption": "callpoints-task-catch-up-card-off-a.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-checks.json",
+     "caption": "callpoints-checks.json"
+    },
+    {
+     "type": "log",
+     "path": "tasks.txt",
+     "caption": "tasks.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-24",
+   "title": "已有可信trace调用点",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-9、AC-11",
+   "precondition": "按design列出的chat/title、recorder annotate、skill creator、persona avatar、browser eval已有请求/运行夹具，分别具备U1/U2上下文。",
+   "steps": [
+    "逐项触发已有链路，交错执行两用户；开/关分别flush，检查最终trace归属、父子关系和业务输出。"
+   ],
+   "expected": "开时仅各自可信U，关时匿名；不丢原trace名称/业务层级、不串号、不重复创建一套追踪。逐调用点记录，未具备夹具不得整项标pass。",
+   "actual": "chat/title、recorder annotate、skill creator、persona avatar、browser eval、catch-up-card、任务共8入口×2用户×开/关32组业务断言与最终SDK校验通过；合成身份从夹具入口传入，适配器保留精确owner。原夹具的模型/worker/browser依赖不等同真机功能全流程，真实LLM另由T-29/30证明。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "callpoints-checks.json",
+     "caption": "callpoints-checks.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-chat-telemetry-port-on-a.json",
+     "caption": "callpoints-chat-telemetry-port-on-a.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-title-generator-off-b.json",
+     "caption": "callpoints-title-generator-off-b.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-llm-factory-on-b.json",
+     "caption": "callpoints-llm-factory-on-b.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-creator-wizard-off-a.json",
+     "caption": "callpoints-creator-wizard-off-a.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-persona-avatar-image-on-a.json",
+     "caption": "callpoints-persona-avatar-image-on-a.json"
+    },
+    {
+     "type": "log",
+     "path": "callpoints-routes-browser-evals-on-b.json",
+     "caption": "callpoints-routes-browser-evals-on-b.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-25",
+   "title": "请求数据最小化",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1、AC-10、AC-11",
+   "precondition": "调用点清单以design为准；请求URL/query/header/body含各自唯一合成敏感标记。",
+   "steps": [
+    "经真实listener触发失败和普通成功请求，逐条匹配SDK载荷；对照T-22/24补全生产来源清单；对未接线learned-skill旧接口仅运行兼容测试。"
+   ],
+   "expected": "失败诊断为 `phi_agent_request_failed`，method、status=500、component=transport正确，不泄漏原URL/path/query/header/body；Sentry对应transport/http_handler/500；保留安全公共诊断；正常请求不新增事件；不把learned-skill测试事件冒充生产来源或启用该流程。",
+   "actual": "B1-1修复前原复现仍path泄漏、关轮query泄漏；被测SHA两次独立最终envelope开/关均无path/query/header/body，500与canonical身份策略保留，原bug关闭。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "privacy-before.json",
+     "caption": "privacy-before.json"
+    },
+    {
+     "type": "log",
+     "path": "privacy-probe.json",
+     "caption": "privacy-probe.json"
+    },
+    {
+     "type": "log",
+     "path": "privacy-repeat.json",
+     "caption": "privacy-repeat.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-26",
+   "title": "部署禁用与出口独立",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-13",
+   "precondition": "独立实例逐组配置：仅缺Sentry DSN、仅缺PostHog key、两者缺、`TELEMETRY_ENABLED=false`；Langfuse分别完整/缺失密钥。",
+   "steps": [
+    "每组开/关均触发已有错误/trace并flush；记录初始化与最终请求。"
+   ],
+   "expected": "缺配置的对应出口不发送；部署禁用仅阻止Sentry/PostHog；Langfuse仍仅由两密钥控制，完整时身份服从开关；禁用一个出口不影响另一个。",
+   "actual": "16组真实SDK缺DSN/key/两者缺/部署禁用×开关×LF有无key均通过；禁用只影响Sentry/PostHog，LF完整key独立工作。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sdk-matrix.json",
+     "caption": "sdk-matrix.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-27",
+   "title": "认证节流与有效诊断",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-3、AC-10",
+   "precondition": "可控时钟、连续相同认证失败；包含synthetic error/fingerprint及超长breadcrumb的样本。",
+   "steps": [
+    "在开、关、不可读取状态分别触发第1、2、9、10次及六小时边界前后同incident诊断；检查最终错误事件与字符串限制。"
+   ],
+   "expected": "沿用第一/第十/六小时节流语义，关闭/读取失败不全量停报；允许状态/revision变化重置计数；认证错误始终匿名，fingerprint及有用诊断保留，原大小限制和凭据脱敏未退化。",
+   "actual": "三状态均独立验证1..10次及六小时前/边界后最终envelope，送达次数1/2/3，occurrence_count为1/10/12；始终匿名、fingerprint保留、无ambient breadcrumb/stack。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "sentry-delivery.json",
+     "caption": "sentry-delivery.json"
+    },
+    {
+     "type": "log",
+     "path": "telemetry.txt",
+     "caption": "telemetry.txt"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-28",
+   "title": "affected检查与启动兼容",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "FR-5及非功能兼容性",
+   "precondition": "被测精确SHA、已安装依赖、隔离PG；按仓库说明准备本地运行配置。已知基线例外：chat 的 English catalog 断言及 5 个 task-report event-loop 取消项；须在独立修复前 SHA 复跑并逐项一致，新增失败仍视为回归。",
+   "steps": [
+    "逐项执行命令并记录退出码/测试数/跳过项；在phi-agent-dsh目录执行 `PORT=0 pnpm dev:self-hosted`，尝试至多15分钟，记录启动banner、端口、自己创建的PID及退出/错误日志；为API验证保留服务直到用例结束，再仅清理自己创建的进程。"
+   ],
+   "expected": "affected scope不出现超出上述已核实基线的失败；类型检查、bundle测试、构建成功，服务按既有说明可启动。不把既存失败改写成命令通过，不将测试默认skip的在线分支算通过。仅依赖安装/单元测试无法运行才判blocked；服务启动失败要区分产品/环境，相关API项逐条记未执行及证据。",
+   "actual": "telemetry100、transport54、storage-pg439、tasks384、LLM270、bundle139、sentinel-sdk53、memory18 pass；chat1101 pass/1 fail/5 cancelled在修复前独立基线同样复现，未新增失败。56 tasks类型检查0 cache、build/startup均exit0。按T-28已披露基线例外判无新增回归；原chat命令仍exit1，在线默认skip不计pass。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "checks.json",
+     "caption": "checks.json"
+    },
+    {
+     "type": "log",
+     "path": "chat.txt",
+     "caption": "chat.txt"
+    },
+    {
+     "type": "log",
+     "path": "baseline-chat.txt",
+     "caption": "baseline-chat.txt"
+    },
+    {
+     "type": "log",
+     "path": "type-check.txt",
+     "caption": "type-check.txt"
+    },
+    {
+     "type": "log",
+     "path": "build.txt",
+     "caption": "build.txt"
+    },
+    {
+     "type": "log",
+     "path": "startup.txt",
+     "caption": "startup.txt"
+    },
+    {
+     "type": "log",
+     "path": "storage-pg.txt",
+     "caption": "storage-pg.txt"
+    },
+    {
+     "type": "log",
+     "path": "sentinel-sdk.txt",
+     "caption": "sentinel-sdk.txt"
+    },
+    {
+     "type": "log",
+     "path": "memory-consent.txt",
+     "caption": "memory-consent.txt"
+    }
+   ],
+   "notes": "T-28通过表示与已核实基线相比无新增回归，不表示chat原始命令exit0。"
+  },
+  {
+   "id": "T-29",
+   "title": "API与平台查询",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1、AC-2、AC-4、AC-5、AC-12（子集）",
+   "precondition": "T-28服务可用；dev-notes提供在线测试夹具的真实启动/显式在线命令（design未规定flag，不臆造）；已授权staging测试项目、真实测试用户与正常validator。预设开/关状态分别由真实Runner确认；需要现场GUI切换的部分转T-30。",
+   "steps": [
+    "按交付命令启动仅绑定127.0.0.1随机端口的在线夹具，appVersion=`PHI-330-<随机标记>`；经正常鉴权向 `/__test__/telemetry/error` 发送真实HTTP请求，核对500并flush；另经仓库文档/交付说明中的已有chat/LLM API提交同用户随机标记。用已授权平台API/工具按标记和UTC窗口查询Sentry事件、PostHog事件及Langfuse trace；对可提供的开/关状态各重复。另用独立无Langfuse密钥配置触发trace并记录无流量；每轮关闭夹具/SDK。"
+   ],
+   "expected": "实际查到的记录与各状态矩阵一致；不能用人工startTrace替代已有请求链。每个平台/状态独立记结果与项目、UTC、id/链接、字段预期/实际；状态、登录或查询权限缺失逐项未执行，不猜测送达；这一子集不能替代T-30的真实浏览器切换与完整在线验收。",
+   "actual": "真实测试账号/正常validator/真实Runner，诊断HTTP500和已有LLM200；STAGE pair先核对Phi Agent - staging并回读全部trace。PostHog项目385742逐字相等用临时摘要在进程内比较，无真实subject落盘；Sentry代表event实际回读。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    },
+    {
+     "type": "log",
+     "path": "posthog_final_r2.json",
+     "caption": "posthog_final_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_summary_r2.json",
+     "caption": "sentry_summary_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_off_detail_r2.json",
+     "caption": "sentry_off_detail_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_on_detail_r2.json",
+     "caption": "sentry_on_detail_r2.json"
+    }
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-30",
+   "title": "真实Canary三平台验收",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1、AC-2、AC-6、AC-12",
+   "precondition": "有图形化Phi Browser、真实Runner、专用已登录测试用户、staging三项目访问权；T-29在线夹具，已有chat/LLM真实服务配置完整密钥；不使用生产项目。",
+   "steps": [
+    "浏览器真实设置打开上报开关并确认Runner开/revision；运行诊断夹具产生500及双出口记录，同用户通过已有chat/LLM请求输入随机标记；flush后在三个实际项目查询。关闭开关重复，再打开产生第三轮；维持一条长trace跨切换观察分段。分别检查事件详情、Langfuse树/session/metadata及PostHog关联操作；保存脱敏截图或官方查询响应与UTC/项目/记录id/状态/revision/字段比对。"
+   ],
+   "expected": "至少三个平台各有开/关两类可定位真实记录，开时canonical字段逐字等于真实U，关时匿名且不经旧root/session/匿名id合并回U；新开状态恢复身份、历史匿名不升级。PostHog按事件distinct_id验收，不要求创建person profile；SDK返回成功或本地日志不能代替实际平台查询。",
+   "actual": "真实CDP Input点击开→关→开，三轮Runner revision不同；三平台各开/关记录可定位，长trace树分段正确；初始true已恢复，结束截图已留存并complete。Sentry开启[Filtered]沿用Wood已接受的上游例外，关闭user.id为空，不改平台设置。",
+   "status": "pass",
+   "bugs": [],
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-30-1.png",
+     "caption": "T-30-1.png"
+    },
+    {
+     "type": "image",
+     "path": "T-30-2.png",
+     "caption": "T-30-2.png"
+    },
+    {
+     "type": "image",
+     "path": "T-30-3.png",
+     "caption": "T-30-3.png"
+    },
+    {
+     "type": "image",
+     "path": "T-30-4.png",
+     "caption": "T-30-4.png"
+    },
+    {
+     "type": "log",
+     "path": "online.json",
+     "caption": "online.json"
+    },
+    {
+     "type": "log",
+     "path": "posthog_final_r2.json",
+     "caption": "posthog_final_r2.json"
+    },
+    {
+     "type": "log",
+     "path": "sentry_summary_r2.json",
+     "caption": "sentry_summary_r2.json"
+    }
+   ],
+   "notes": ""
+  }
+ ],
+ "bugs": [
+  {
+   "id": "B1-1",
+   "severity": "major",
+   "title": "Sentry最终载荷通过transaction/历史breadcrumb泄漏原path/query（已修复）",
+   "case_ids": [
+    "T-25"
+   ],
+   "repro": "按qa-scripts/r1/privacy-probe.mts原样执行：真实HTTP→生产TCP row→真实SDK→loopback collector；开/关检查最终envelope。修复前复现，修复后两次独立执行均无四类请求标记。",
+   "status": "closed"
+  }
+ ]
+}

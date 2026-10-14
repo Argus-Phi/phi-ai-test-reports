@@ -1,0 +1,39 @@
+{
+  "mode": "on",
+  "synthetic_owner": "auth0|qa-330-b",
+  "cases": [
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.recorder.annotate",
+          "trusted_owner": false
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.recorder.annotate",
+          "identified": false,
+          "identity_matches": false
+        }
+      ],
+      "observations": 4
+    },
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.recorder.annotate",
+          "trusted_owner": true
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.recorder.annotate",
+          "identified": true,
+          "identity_matches": true
+        }
+      ],
+      "observations": 2
+    }
+  ],
+  "passed": true
+}

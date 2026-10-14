@@ -1,0 +1,332 @@
+
+> @phi-ai/sentinel-sdk@0.0.2 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/sentinel-sdk
+> node --test "*.test.ts"
+
+TAP version 13
+# Subtest: UDS env selects the UDS transport even without base_url
+ok 1 - UDS env selects the UDS transport even without base_url
+  ---
+  duration_ms: 0.434
+  type: 'test'
+  ...
+# Subtest: UDS env wins over a loopback base_url
+ok 2 - UDS env wins over a loopback base_url
+  ---
+  duration_ms: 0.051875
+  type: 'test'
+  ...
+# Subtest: loopback base_url is the compatibility fallback
+ok 3 - loopback base_url is the compatibility fallback
+  ---
+  duration_ms: 0.0685
+  type: 'test'
+  ...
+# Subtest: no UDS env and no base_url yields null
+ok 4 - no UDS env and no base_url yields null
+  ---
+  duration_ms: 0.036125
+  type: 'test'
+  ...
+# Subtest: a gateway that is not ready yields null even with UDS env
+ok 5 - a gateway that is not ready yields null even with UDS env
+  ---
+  duration_ms: 0.091833
+  type: 'test'
+  ...
+# Subtest: incomplete UDS env is ignored, not half-used
+ok 6 - incomplete UDS env is ignored, not half-used
+  ---
+  duration_ms: 0.042416
+  type: 'test'
+  ...
+# Subtest: UDS fetch reaches a live inference socket and sends the capability
+ok 7 - UDS fetch reaches a live inference socket and sends the capability
+  ---
+  duration_ms: 13.722875
+  type: 'test'
+  ...
+# Subtest: loopback fetch stays a plain HTTP fetch without the capability header
+ok 8 - loopback fetch stays a plain HTTP fetch without the capability header
+  ---
+  duration_ms: 6.85775
+  type: 'test'
+  ...
+# Subtest: installed global dispatcher routes only the gateway origin over UDS
+ok 9 - installed global dispatcher routes only the gateway origin over UDS
+  ---
+  duration_ms: 6.509042
+  type: 'test'
+  ...
+# Subtest: hasAiGatewayUdsEnv mirrors the transport env validation
+ok 10 - hasAiGatewayUdsEnv mirrors the transport env validation
+  ---
+  duration_ms: 0.336666
+  type: 'test'
+  ...
+# Subtest: UDS fetch honours a Request input with no init
+ok 11 - UDS fetch honours a Request input with no init
+  ---
+  duration_ms: 4.374208
+  type: 'test'
+  ...
+# Subtest: UDS fetch lets init override the Request's method and body
+ok 12 - UDS fetch lets init override the Request's method and body
+  ---
+  duration_ms: 2.434459
+  type: 'test'
+  ...
+# Subtest: a bare URL string normalizes to a bodyless GET
+ok 13 - a bare URL string normalizes to a bodyless GET
+  ---
+  duration_ms: 13.465708
+  type: 'test'
+  ...
+# Subtest: init method, headers and body are preserved
+ok 14 - init method, headers and body are preserved
+  ---
+  duration_ms: 1.064542
+  type: 'test'
+  ...
+# Subtest: a Request with no init keeps its method, headers and body
+ok 15 - a Request with no init keeps its method, headers and body
+  ---
+  duration_ms: 2.537042
+  type: 'test'
+  ...
+# Subtest: init overrides the Request's method and body
+ok 16 - init overrides the Request's method and body
+  ---
+  duration_ms: 0.489709
+  type: 'test'
+  ...
+# Subtest: init headers override the Request's headers
+ok 17 - init headers override the Request's headers
+  ---
+  duration_ms: 0.370209
+  type: 'test'
+  ...
+# Subtest: the normalized signal follows the caller's signal
+ok 18 - the normalized signal follows the caller's signal
+  ---
+  duration_ms: 0.131708
+  type: 'test'
+  ...
+# Subtest: fallback phi permitted=false
+ok 19 - fallback phi permitted=false
+  ---
+  duration_ms: 12.484167
+  type: 'test'
+  ...
+# Subtest: fallback phi permitted=true
+ok 20 - fallback phi permitted=true
+  ---
+  duration_ms: 0.621958
+  type: 'test'
+  ...
+# Subtest: fallback local-llm permitted=false
+ok 21 - fallback local-llm permitted=false
+  ---
+  duration_ms: 0.2385
+  type: 'test'
+  ...
+# Subtest: fallback local-llm permitted=true
+ok 22 - fallback local-llm permitted=true
+  ---
+  duration_ms: 1.164542
+  type: 'test'
+  ...
+# Subtest: fallback codex permitted=false
+ok 23 - fallback codex permitted=false
+  ---
+  duration_ms: 0.304
+  type: 'test'
+  ...
+# Subtest: fallback codex permitted=true
+ok 24 - fallback codex permitted=true
+  ---
+  duration_ms: 0.3595
+  type: 'test'
+  ...
+# Subtest: fallback openrouter permitted=false
+ok 25 - fallback openrouter permitted=false
+  ---
+  duration_ms: 0.111875
+  type: 'test'
+  ...
+# Subtest: fallback openrouter permitted=true
+ok 26 - fallback openrouter permitted=true
+  ---
+  duration_ms: 0.350417
+  type: 'test'
+  ...
+# Subtest: Phi quota is not retried directly
+ok 27 - Phi quota is not retried directly
+  ---
+  duration_ms: 0.479375
+  type: 'test'
+  ...
+# Subtest: a non-fallback 4xx keeps the parameter-negotiation budget available
+ok 28 - a non-fallback 4xx keeps the parameter-negotiation budget available
+  ---
+  duration_ms: 0.488916
+  type: 'test'
+  ...
+# Subtest: a recoverable parameter error does not cool down the next attempt
+ok 29 - a recoverable parameter error does not cool down the next attempt
+  ---
+  duration_ms: 0.504125
+  type: 'test'
+  ...
+# Subtest: policy changed to pause while primary failed
+ok 30 - policy changed to pause while primary failed
+  ---
+  duration_ms: 0.14375
+  type: 'test'
+  ...
+# Subtest: direct failure cannot loop and immediate next call cools down
+ok 31 - direct failure cannot loop and immediate next call cools down
+  ---
+  duration_ms: 0.148167
+  type: 'test'
+  ...
+# Subtest: no fallback after successful stream headers
+ok 32 - no fallback after successful stream headers
+  ---
+  duration_ms: 0.264125
+  type: 'test'
+  ...
+# Subtest: cancellation prevents any primary or fallback call
+ok 33 - cancellation prevents any primary or fallback call
+  ---
+  duration_ms: 0.0895
+  type: 'test'
+  ...
+# Subtest: one total deadline bounds a stuck direct call
+ok 34 - one total deadline bounds a stuck direct call
+  ---
+  duration_ms: 5.713625
+  type: 'test'
+  ...
+# Subtest: direct Phi fallback preserves Phi aliases and rewrites non-Phi models
+ok 35 - direct Phi fallback preserves Phi aliases and rewrites non-Phi models
+  ---
+  duration_ms: 0.902083
+  type: 'test'
+  ...
+# Subtest: complete broker env selects the UDS transport
+ok 36 - complete broker env selects the UDS transport
+  ---
+  duration_ms: 0.385333
+  type: 'test'
+  ...
+# Subtest: the synthetic base yields a /phi-memory first-segment broker route
+ok 37 - the synthetic base yields a /phi-memory first-segment broker route
+  ---
+  duration_ms: 0.108333
+  type: 'test'
+  ...
+# Subtest: no broker socket yields null (invariant A: fall back to loopback chain)
+ok 38 - no broker socket yields null (invariant A: fall back to loopback chain)
+  ---
+  duration_ms: 0.04575
+  type: 'test'
+  ...
+# Subtest: incomplete broker env is ignored, not half-used
+ok 39 - incomplete broker env is ignored, not half-used
+  ---
+  duration_ms: 0.044459
+  type: 'test'
+  ...
+# Subtest: hasBrokerUdsEnv mirrors the transport env validation
+ok 40 - hasBrokerUdsEnv mirrors the transport env validation
+  ---
+  duration_ms: 0.092375
+  type: 'test'
+  ...
+# Subtest: broker fetch reaches the broker socket and sends the service capability
+ok 41 - broker fetch reaches the broker socket and sends the service capability
+  ---
+  duration_ms: 14.298334
+  type: 'test'
+  ...
+# Subtest: broker fetch preserves caller headers alongside the capability
+ok 42 - broker fetch preserves caller headers alongside the capability
+  ---
+  duration_ms: 4.295541
+  type: 'test'
+  ...
+# Subtest: broker fetch honours a Request input with no init
+ok 43 - broker fetch honours a Request input with no init
+  ---
+  duration_ms: 6.178083
+  type: 'test'
+  ...
+# Subtest: broker fetch lets init override the Request's method and body
+ok 44 - broker fetch lets init override the Request's method and body
+  ---
+  duration_ms: 3.018542
+  type: 'test'
+  ...
+# Subtest: no socket path yields a TCP-only list
+ok 45 - no socket path yields a TCP-only list
+  ---
+  duration_ms: 0.667041
+  type: 'test'
+  ...
+# Subtest: a socket DIRECTORY takes the port from the DSN (the runner contract)
+ok 46 - a socket DIRECTORY takes the port from the DSN (the runner contract)
+  ---
+  duration_ms: 0.186666
+  type: 'test'
+  ...
+# Subtest: a trailing slash on a directory path is normalized away
+ok 47 - a trailing slash on a directory path is normalized away
+  ---
+  duration_ms: 0.086834
+  type: 'test'
+  ...
+# Subtest: a socket FILE path wins over the DSN for the port
+ok 48 - a socket FILE path wins over the DSN for the port
+  ---
+  duration_ms: 0.089917
+  type: 'test'
+  ...
+# Subtest: a DSN without an explicit port defaults to 5432
+ok 49 - a DSN without an explicit port defaults to 5432
+  ---
+  duration_ms: 0.057708
+  type: 'test'
+  ...
+# Subtest: a basename that is not .s.PGSQL.<port> is treated as a directory
+ok 50 - a basename that is not .s.PGSQL.<port> is treated as a directory
+  ---
+  duration_ms: 0.09375
+  type: 'test'
+  ...
+# Subtest: blank, whitespace and relative socket paths are ignored
+ok 51 - blank, whitespace and relative socket paths are ignored
+  ---
+  duration_ms: 0.061042
+  type: 'test'
+  ...
+# Subtest: an unparseable DSN still yields a usable unix candidate on the default port
+ok 52 - an unparseable DSN still yields a usable unix candidate on the default port
+  ---
+  duration_ms: 0.051584
+  type: 'test'
+  ...
+# Subtest: the TCP candidate is always last so callers have a fallback
+ok 53 - the TCP candidate is always last so callers have a fallback
+  ---
+  duration_ms: 0.332458
+  type: 'test'
+  ...
+1..53
+# tests 53
+# suites 0
+# pass 53
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 170.66025

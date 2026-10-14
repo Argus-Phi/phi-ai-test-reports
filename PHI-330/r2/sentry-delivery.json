@@ -1,0 +1,235 @@
+{
+  "utc": "2026-10-14T18:53:03.837Z",
+  "sha": "5dcf8b796757094f20c1fae78b84aa249694c27e",
+  "cases": [
+    {
+      "id": "T-7",
+      "change": "off",
+      "old_blocked": true,
+      "new_anonymous_delivered": true
+    },
+    {
+      "id": "T-7",
+      "change": "unavailable",
+      "old_blocked": true,
+      "new_anonymous_delivered": true
+    },
+    {
+      "id": "T-7",
+      "change": "reopened",
+      "old_blocked": true,
+      "new_anonymous_delivered": true
+    },
+    {
+      "id": "T-8",
+      "old_anonymous": true,
+      "new_identified": true
+    },
+    {
+      "id": "T-14",
+      "change": "same",
+      "first_status": 503,
+      "second_status": 200,
+      "retry_delivered": true,
+      "fresh_anonymous": true
+    },
+    {
+      "id": "T-14",
+      "change": "off",
+      "first_status": 503,
+      "second_status": "privacy-drop",
+      "retry_delivered": false,
+      "fresh_anonymous": true
+    },
+    {
+      "id": "T-14",
+      "change": "unavailable",
+      "first_status": 503,
+      "second_status": "privacy-drop",
+      "retry_delivered": false,
+      "fresh_anonymous": true
+    },
+    {
+      "id": "T-14",
+      "change": "reopened",
+      "first_status": 503,
+      "second_status": "privacy-drop",
+      "retry_delivered": false,
+      "fresh_anonymous": true
+    },
+    {
+      "id": "T-14",
+      "change": "evicted",
+      "first_status": 503,
+      "second_status": "privacy-drop",
+      "retry_delivered": false,
+      "fresh_anonymous": true
+    },
+    {
+      "id": "T-27",
+      "mode": "on",
+      "observations": [
+        {
+          "occurrence": 1,
+          "events": 1
+        },
+        {
+          "occurrence": 2,
+          "events": 1
+        },
+        {
+          "occurrence": 3,
+          "events": 1
+        },
+        {
+          "occurrence": 4,
+          "events": 1
+        },
+        {
+          "occurrence": 5,
+          "events": 1
+        },
+        {
+          "occurrence": 6,
+          "events": 1
+        },
+        {
+          "occurrence": 7,
+          "events": 1
+        },
+        {
+          "occurrence": 8,
+          "events": 1
+        },
+        {
+          "occurrence": 9,
+          "events": 1
+        },
+        {
+          "occurrence": 10,
+          "events": 2
+        }
+      ],
+      "before_six_hours": 2,
+      "at_six_hours": 3,
+      "counts": [
+        1,
+        10,
+        12
+      ],
+      "anonymous": true,
+      "fingerprint_preserved": true
+    },
+    {
+      "id": "T-27",
+      "mode": "off",
+      "observations": [
+        {
+          "occurrence": 1,
+          "events": 1
+        },
+        {
+          "occurrence": 2,
+          "events": 1
+        },
+        {
+          "occurrence": 3,
+          "events": 1
+        },
+        {
+          "occurrence": 4,
+          "events": 1
+        },
+        {
+          "occurrence": 5,
+          "events": 1
+        },
+        {
+          "occurrence": 6,
+          "events": 1
+        },
+        {
+          "occurrence": 7,
+          "events": 1
+        },
+        {
+          "occurrence": 8,
+          "events": 1
+        },
+        {
+          "occurrence": 9,
+          "events": 1
+        },
+        {
+          "occurrence": 10,
+          "events": 2
+        }
+      ],
+      "before_six_hours": 2,
+      "at_six_hours": 3,
+      "counts": [
+        1,
+        10,
+        12
+      ],
+      "anonymous": true,
+      "fingerprint_preserved": true
+    },
+    {
+      "id": "T-27",
+      "mode": "unavailable",
+      "observations": [
+        {
+          "occurrence": 1,
+          "events": 1
+        },
+        {
+          "occurrence": 2,
+          "events": 1
+        },
+        {
+          "occurrence": 3,
+          "events": 1
+        },
+        {
+          "occurrence": 4,
+          "events": 1
+        },
+        {
+          "occurrence": 5,
+          "events": 1
+        },
+        {
+          "occurrence": 6,
+          "events": 1
+        },
+        {
+          "occurrence": 7,
+          "events": 1
+        },
+        {
+          "occurrence": 8,
+          "events": 1
+        },
+        {
+          "occurrence": 9,
+          "events": 1
+        },
+        {
+          "occurrence": 10,
+          "events": 2
+        }
+      ],
+      "before_six_hours": 2,
+      "at_six_hours": 3,
+      "counts": [
+        1,
+        10,
+        12
+      ],
+      "anonymous": true,
+      "fingerprint_preserved": true
+    }
+  ],
+  "passed": true
+}

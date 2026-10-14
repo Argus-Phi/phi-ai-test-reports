@@ -1,0 +1,488 @@
+UTC: 2026-10-14T18:49:30.126375+00:00
+Command: npx --yes pnpm@10.17.1 --filter @phi-ai/dsh-plugin-llm test
+Exit: 0
+# Subtest: fixed OpenAI URL and key override the request authorization for LLM calls
+ok 1 - fixed OpenAI URL and key override the request authorization for LLM calls
+# Subtest: an incomplete fixed upstream keeps the legacy request authorization precedence
+ok 2 - an incomplete fixed upstream keeps the legacy request authorization precedence
+# Subtest: external fixed upstream headers omit Phi gateway authorization
+ok 3 - external fixed upstream headers omit Phi gateway authorization
+# Subtest: phibrowser fixed upstream headers retain the Phi gateway authorization
+ok 4 - phibrowser fixed upstream headers retain the Phi gateway authorization
+# Subtest: mixed native decisions retain structured input, typed answers and reported usage
+ok 5 - mixed native decisions retain structured input, typed answers and reported usage
+# Subtest: partial and malformed answers stay unanswered; no probability or cost is fabricated
+ok 6 - partial and malformed answers stay unanswered; no probability or cost is fabricated
+# Subtest: bad distributions and mismatched answer types cannot become actionable answers
+ok 7 - bad distributions and mismatched answer types cannot become actionable answers
+# Subtest: single-question helpers return their native result and reject missing answers
+ok 8 - single-question helpers return their native result and reject missing answers
+# Subtest: invalid requests and missing authorization fail before transport
+ok 9 - invalid requests and missing authorization fail before transport
+# Subtest: authorization is per call and HTTP failures are not automatically retried
+ok 10 - authorization is per call and HTTP failures are not automatically retried
+# Subtest: real HTTP transport cancels both pending requests and stalled response bodies
+ok 11 - real HTTP transport cancels both pending requests and stalled response bodies
+# Subtest: a traced decision is one generation under the caller: the exact body in, the raw response out, the served model, usage and cost
+ok 12 - a traced decision is one generation under the caller: the exact body in, the raw response out, the served model, usage and cost
+# Subtest: a traced decision with unanswered questions ends at WARNING and names them
+ok 13 - a traced decision with unanswered questions ends at WARNING and names them
+# Subtest: a traced HTTP failure ends at ERROR with the upstream's body in the trace, never in the exception
+ok 14 - a traced HTTP failure ends at ERROR with the upstream's body in the trace, never in the exception
+# Subtest: a traced response that is not JSON ends at ERROR with the text it was
+ok 15 - a traced response that is not JSON ends at ERROR with the text it was
+# Subtest: a traced call without a bearer is still recorded: ERROR, with the request it would have sent
+ok 16 - a traced call without a bearer is still recorded: ERROR, with the request it would have sent
+# Subtest: a traced call its caller aborted ends at WARNING, a timed-out one at ERROR
+ok 17 - a traced call its caller aborted ends at WARNING, a timed-out one at ERROR
+# Subtest: without a tracer the client records nothing and reads the same way
+ok 18 - without a tracer the client records nothing and reads the same way
+# Subtest: Node fallback policy phi allow=false
+ok 19 - Node fallback policy phi allow=false
+# Subtest: Node fallback policy phi allow=true
+ok 20 - Node fallback policy phi allow=true
+# Subtest: Node fallback policy codex allow=false
+ok 21 - Node fallback policy codex allow=false
+# Subtest: Node fallback policy codex allow=true
+ok 22 - Node fallback policy codex allow=true
+# Subtest: Node fallback policy local-llm allow=false
+ok 23 - Node fallback policy local-llm allow=false
+# Subtest: Node fallback policy local-llm allow=true
+ok 24 - Node fallback policy local-llm allow=true
+# Subtest: Node fallback policy openrouter allow=false
+ok 25 - Node fallback policy openrouter allow=false
+# Subtest: Node fallback policy openrouter allow=true
+ok 26 - Node fallback policy openrouter allow=true
+# Subtest: Node can directly reach Phi when the Gateway has no usable route
+ok 27 - Node can directly reach Phi when the Gateway has no usable route
+# Subtest: Node direct fallback preserves an explicit Phi request model
+ok 28 - Node direct fallback preserves an explicit Phi request model
+# Subtest: resolveFeatureUpstream
+ok 29 - resolveFeatureUpstream
+# Subtest: WIRE phi chat stream=false: model, selectors, content and headers
+ok 30 - WIRE phi chat stream=false: model, selectors, content and headers
+# Subtest: WIRE phi chat stream=true: model, selectors, content and headers
+ok 31 - WIRE phi chat stream=true: model, selectors, content and headers
+# Subtest: WIRE phi agent stream=false: model, selectors, content and headers
+ok 32 - WIRE phi agent stream=false: model, selectors, content and headers
+# Subtest: WIRE phi agent stream=true: model, selectors, content and headers
+ok 33 - WIRE phi agent stream=true: model, selectors, content and headers
+# Subtest: WIRE phi memory stream=false: model, selectors, content and headers
+ok 34 - WIRE phi memory stream=false: model, selectors, content and headers
+# Subtest: WIRE phi memory stream=true: model, selectors, content and headers
+ok 35 - WIRE phi memory stream=true: model, selectors, content and headers
+# Subtest: WIRE phi embedding stream=false: model, selectors, content and headers
+ok 36 - WIRE phi embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE phi embedding stream=true: model, selectors, content and headers
+ok 37 - WIRE phi embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE codex chat stream=false: model, selectors, content and headers
+ok 38 - WIRE codex chat stream=false: model, selectors, content and headers
+# Subtest: WIRE codex chat stream=true: model, selectors, content and headers
+ok 39 - WIRE codex chat stream=true: model, selectors, content and headers
+# Subtest: WIRE codex agent stream=false: model, selectors, content and headers
+ok 40 - WIRE codex agent stream=false: model, selectors, content and headers
+# Subtest: WIRE codex agent stream=true: model, selectors, content and headers
+ok 41 - WIRE codex agent stream=true: model, selectors, content and headers
+# Subtest: WIRE codex memory stream=false: model, selectors, content and headers
+ok 42 - WIRE codex memory stream=false: model, selectors, content and headers
+# Subtest: WIRE codex memory stream=true: model, selectors, content and headers
+ok 43 - WIRE codex memory stream=true: model, selectors, content and headers
+# Subtest: WIRE codex embedding stream=false: model, selectors, content and headers
+ok 44 - WIRE codex embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE codex embedding stream=true: model, selectors, content and headers
+ok 45 - WIRE codex embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE openrouter chat stream=false: model, selectors, content and headers
+ok 46 - WIRE openrouter chat stream=false: model, selectors, content and headers
+# Subtest: WIRE openrouter chat stream=true: model, selectors, content and headers
+ok 47 - WIRE openrouter chat stream=true: model, selectors, content and headers
+# Subtest: WIRE openrouter agent stream=false: model, selectors, content and headers
+ok 48 - WIRE openrouter agent stream=false: model, selectors, content and headers
+# Subtest: WIRE openrouter agent stream=true: model, selectors, content and headers
+ok 49 - WIRE openrouter agent stream=true: model, selectors, content and headers
+# Subtest: WIRE openrouter memory stream=false: model, selectors, content and headers
+ok 50 - WIRE openrouter memory stream=false: model, selectors, content and headers
+# Subtest: WIRE openrouter memory stream=true: model, selectors, content and headers
+ok 51 - WIRE openrouter memory stream=true: model, selectors, content and headers
+# Subtest: WIRE openrouter embedding stream=false: model, selectors, content and headers
+ok 52 - WIRE openrouter embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE openrouter embedding stream=true: model, selectors, content and headers
+ok 53 - WIRE openrouter embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE local-llm chat stream=false: model, selectors, content and headers
+ok 54 - WIRE local-llm chat stream=false: model, selectors, content and headers
+# Subtest: WIRE local-llm chat stream=true: model, selectors, content and headers
+ok 55 - WIRE local-llm chat stream=true: model, selectors, content and headers
+# Subtest: WIRE local-llm agent stream=false: model, selectors, content and headers
+ok 56 - WIRE local-llm agent stream=false: model, selectors, content and headers
+# Subtest: WIRE local-llm agent stream=true: model, selectors, content and headers
+ok 57 - WIRE local-llm agent stream=true: model, selectors, content and headers
+# Subtest: WIRE local-llm memory stream=false: model, selectors, content and headers
+ok 58 - WIRE local-llm memory stream=false: model, selectors, content and headers
+# Subtest: WIRE local-llm memory stream=true: model, selectors, content and headers
+ok 59 - WIRE local-llm memory stream=true: model, selectors, content and headers
+# Subtest: WIRE local-llm embedding stream=false: model, selectors, content and headers
+ok 60 - WIRE local-llm embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE local-llm embedding stream=true: model, selectors, content and headers
+ok 61 - WIRE local-llm embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE ollama chat stream=false: model, selectors, content and headers
+ok 62 - WIRE ollama chat stream=false: model, selectors, content and headers
+# Subtest: WIRE ollama chat stream=true: model, selectors, content and headers
+ok 63 - WIRE ollama chat stream=true: model, selectors, content and headers
+# Subtest: WIRE ollama agent stream=false: model, selectors, content and headers
+ok 64 - WIRE ollama agent stream=false: model, selectors, content and headers
+# Subtest: WIRE ollama agent stream=true: model, selectors, content and headers
+ok 65 - WIRE ollama agent stream=true: model, selectors, content and headers
+# Subtest: WIRE ollama memory stream=false: model, selectors, content and headers
+ok 66 - WIRE ollama memory stream=false: model, selectors, content and headers
+# Subtest: WIRE ollama memory stream=true: model, selectors, content and headers
+ok 67 - WIRE ollama memory stream=true: model, selectors, content and headers
+# Subtest: WIRE ollama embedding stream=false: model, selectors, content and headers
+ok 68 - WIRE ollama embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE ollama embedding stream=true: model, selectors, content and headers
+ok 69 - WIRE ollama embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE lm-studio chat stream=false: model, selectors, content and headers
+ok 70 - WIRE lm-studio chat stream=false: model, selectors, content and headers
+# Subtest: WIRE lm-studio chat stream=true: model, selectors, content and headers
+ok 71 - WIRE lm-studio chat stream=true: model, selectors, content and headers
+# Subtest: WIRE lm-studio agent stream=false: model, selectors, content and headers
+ok 72 - WIRE lm-studio agent stream=false: model, selectors, content and headers
+# Subtest: WIRE lm-studio agent stream=true: model, selectors, content and headers
+ok 73 - WIRE lm-studio agent stream=true: model, selectors, content and headers
+# Subtest: WIRE lm-studio memory stream=false: model, selectors, content and headers
+ok 74 - WIRE lm-studio memory stream=false: model, selectors, content and headers
+# Subtest: WIRE lm-studio memory stream=true: model, selectors, content and headers
+ok 75 - WIRE lm-studio memory stream=true: model, selectors, content and headers
+# Subtest: WIRE lm-studio embedding stream=false: model, selectors, content and headers
+ok 76 - WIRE lm-studio embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE lm-studio embedding stream=true: model, selectors, content and headers
+ok 77 - WIRE lm-studio embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE openai-compatible chat stream=false: model, selectors, content and headers
+ok 78 - WIRE openai-compatible chat stream=false: model, selectors, content and headers
+# Subtest: WIRE openai-compatible chat stream=true: model, selectors, content and headers
+ok 79 - WIRE openai-compatible chat stream=true: model, selectors, content and headers
+# Subtest: WIRE openai-compatible agent stream=false: model, selectors, content and headers
+ok 80 - WIRE openai-compatible agent stream=false: model, selectors, content and headers
+# Subtest: WIRE openai-compatible agent stream=true: model, selectors, content and headers
+ok 81 - WIRE openai-compatible agent stream=true: model, selectors, content and headers
+# Subtest: WIRE openai-compatible memory stream=false: model, selectors, content and headers
+ok 82 - WIRE openai-compatible memory stream=false: model, selectors, content and headers
+# Subtest: WIRE openai-compatible memory stream=true: model, selectors, content and headers
+ok 83 - WIRE openai-compatible memory stream=true: model, selectors, content and headers
+# Subtest: WIRE openai-compatible embedding stream=false: model, selectors, content and headers
+ok 84 - WIRE openai-compatible embedding stream=false: model, selectors, content and headers
+# Subtest: WIRE openai-compatible embedding stream=true: model, selectors, content and headers
+ok 85 - WIRE openai-compatible embedding stream=true: model, selectors, content and headers
+# Subtest: WIRE Phi registered alias including @ suffix must remain opaque
+ok 86 - WIRE Phi registered alias including @ suffix must remain opaque
+# Subtest: WIRE Phi explicit selection overrides the original model and fallback selectors
+ok 87 - WIRE Phi explicit selection overrides the original model and fallback selectors
+# Subtest: managed OpenAI clients use the host authorization and Phi endpoint, not fixed upstream credentials
+ok 88 - managed OpenAI clients use the host authorization and Phi endpoint, not fixed upstream credentials
+# Subtest: OpenAI SDK clients use the external fixed URL, key, and user agent directly
+ok 89 - OpenAI SDK clients use the external fixed URL, key, and user agent directly
+# Subtest: the first message streams as it arrives
+ok 90 - the first message streams as it arrives
+# Subtest: an exact repeat is held while it matches, then dropped
+ok 91 - an exact repeat is held while it matches, then dropped
+# Subtest: surrounding whitespace does not make a repeat new
+ok 92 - surrounding whitespace does not make a repeat new
+# Subtest: a second message is released the moment it diverges
+ok 93 - a second message is released the moment it diverges
+# Subtest: a shorter message that is only a prefix of the first is still shown
+ok 94 - a shorter message that is only a prefix of the first is still shown
+# Subtest: a completed response keeps each distinct text once, in order
+ok 95 - a completed response keeps each distinct text once, in order
+# Subtest: the request asks for encrypted reasoning and serial tool calls
+ok 96 - the request asks for encrypted reasoning and serial tool calls
+# Subtest: a recorded response becomes blocks plus an envelope
+ok 97 - a recorded response becomes blocks plus an envelope
+# Subtest: usage reaches the harness in ITS counting convention, not the provider's
+ok 98 - usage reaches the harness in ITS counting convention, not the provider's
+# Subtest: the reasoning payload rides the envelope, never a neutral block
+ok 99 - the reasoning payload rides the envelope, never a neutral block
+# Subtest: TWO TURNS: what the envelope returns reaches the wire byte-identical
+ok 100 - TWO TURNS: what the envelope returns reaches the wire byte-identical
+# Subtest: an incomplete response surfaces NO replayable output
+ok 101 - an incomplete response surfaces NO replayable output
+# Subtest: an incomplete for any other reason finishes as a failure that names it
+ok 102 - an incomplete for any other reason finishes as a failure that names it
+# Subtest: a stream that ends with no terminal event THROWS
+ok 103 - a stream that ends with no terminal event THROWS
+# Subtest: an upstream error is reported with its status and body
+ok 104 - an upstream error is reported with its status and body
+# Subtest: a tool call in the output makes the finish reason tool-calls
+ok 105 - a tool call in the output makes the finish reason tool-calls
+# Subtest: a truncated stream is sent ONCE, coded for the retry plugin to repeat
+ok 106 - a truncated stream is sent ONCE, coded for the retry plugin to repeat
+# Subtest: an observer sees the exact body sent and the raw terminal payload
+ok 107 - an observer sees the exact body sent and the raw terminal payload
+# Subtest: an observer hears about a failed call, and a throwing observer changes nothing
+ok 108 - an observer hears about a failed call, and a throwing observer changes nothing
+# Subtest: a 429 is RATE_LIMIT and keeps its status
+ok 109 - a 429 is RATE_LIMIT and keeps its status
+# Subtest: a 5xx is SERVER
+ok 110 - a 5xx is SERVER
+# Subtest: Retry-After rides along, as seconds and as a date
+ok 111 - Retry-After rides along, as seconds and as a date
+# Subtest: an unreadable or past Retry-After is left out, so the policy's own backoff applies
+ok 112 - an unreadable or past Retry-After is left out, so the policy's own backoff applies
+# Subtest: a quota verdict is QUOTA, not RATE_LIMIT — a repeat only spends budget
+ok 113 - a quota verdict is QUOTA, not RATE_LIMIT — a repeat only spends budget
+# Subtest: a 5xx the shared rules refuse is NOT coded SERVER
+ok 114 - a 5xx the shared rules refuse is NOT coded SERVER
+# Subtest: a rejected credential is INVALID_CREDENTIAL
+ok 115 - a rejected credential is INVALID_CREDENTIAL
+# Subtest: a plain 4xx is a verdict: coded, but not one the policy repeats
+ok 116 - a plain 4xx is a verdict: coded, but not one the policy repeats
+# Subtest: a dropped connection is TRANSPORT
+ok 117 - a dropped connection is TRANSPORT
+# Subtest: an abort is not classified at all, so the caller rethrows the original
+ok 118 - an abort is not classified at all, so the caller rethrows the original
+# Subtest: a truncated stream is EMPTY_RESPONSE, which every default policy repeats
+ok 119 - a truncated stream is EMPTY_RESPONSE, which every default policy repeats
+# Subtest: the recorded shapes actually contain what is under test
+ok 120 - the recorded shapes actually contain what is under test
+# Subtest: round trip is byte-identical: aborted \#0 (2 item(s))
+ok 121 - round trip is byte-identical: aborted \#0 (2 item(s))
+# Subtest: round trip is byte-identical: interjection \#1 (3 item(s))
+ok 122 - round trip is byte-identical: interjection \#1 (3 item(s))
+# Subtest: round trip is byte-identical: interjection \#2 (2 item(s))
+ok 123 - round trip is byte-identical: interjection \#2 (2 item(s))
+# Subtest: round trip is byte-identical: multi-round \#3 (3 item(s))
+ok 124 - round trip is byte-identical: multi-round \#3 (3 item(s))
+# Subtest: round trip is byte-identical: multi-round \#4 (1 item(s))
+ok 125 - round trip is byte-identical: multi-round \#4 (1 item(s))
+# Subtest: a reasoning block's neutral text never leaks the encrypted payload
+ok 126 - a reasoning block's neutral text never leaks the encrypted payload
+# Subtest: an item type this adapter does not model survives at its original index
+ok 127 - an item type this adapter does not model survives at its original index
+# Subtest: one entry per emitted block, in first-seen order
+ok 128 - one entry per emitted block, in first-seen order
+# Subtest: a harness-dropped block drops its item too, and nothing else shifts
+ok 129 - a harness-dropped block drops its item too, and nothing else shifts
+# Subtest: a recorded turn reaches the wire unchanged: aborted \#0
+ok 130 - a recorded turn reaches the wire unchanged: aborted \#0
+# Subtest: a recorded turn reaches the wire unchanged: interjection \#1
+ok 131 - a recorded turn reaches the wire unchanged: interjection \#1
+# Subtest: a recorded turn reaches the wire unchanged: interjection \#2
+ok 132 - a recorded turn reaches the wire unchanged: interjection \#2
+# Subtest: a recorded turn reaches the wire unchanged: multi-round \#3
+ok 133 - a recorded turn reaches the wire unchanged: multi-round \#3
+# Subtest: a recorded turn reaches the wire unchanged: multi-round \#4
+ok 134 - a recorded turn reaches the wire unchanged: multi-round \#4
+# Subtest: a user message becomes an input_text message item
+ok 135 - a user message becomes an input_text message item
+# Subtest: a tool result becomes a function_call_output paired by call_id
+ok 136 - a tool result becomes a function_call_output paired by call_id
+# Subtest: an assistant turn with NO envelope falls back — and says so
+ok 137 - an assistant turn with NO envelope falls back — and says so
+# Subtest: an envelope from another adapter is refused, not misread
+ok 138 - an envelope from another adapter is refused, not misread
+# Subtest: a multi-turn conversation keeps ledger order
+ok 139 - a multi-turn conversation keeps ledger order
+# Subtest: events split across reads are reassembled
+ok 140 - events split across reads are reassembled
+# Subtest: the [DONE] sentinel ends the stream
+ok 141 - the [DONE] sentinel ends the stream
+# Subtest: a malformed payload is skipped, not thrown on
+ok 142 - a malformed payload is skipped, not thrown on
+# Subtest: a final event with no trailing blank line is still yielded
+ok 143 - a final event with no trailing blank line is still yielded
+# Subtest: a null body yields nothing
+ok 144 - a null body yields nothing
+# Subtest: ResponsesClient upstream resolution
+ok 145 - ResponsesClient upstream resolution
+# Subtest: streamResponses can stream only final_answer output text
+ok 146 - streamResponses can stream only final_answer output text
+# Subtest: streamResponses filters completed-output fallback by final_answer phase
+ok 147 - streamResponses filters completed-output fallback by final_answer phase
+# Subtest: streamResponses recovers non-final_answer output when no final_answer phase exists
+ok 148 - streamResponses recovers non-final_answer output when no final_answer phase exists
+# Subtest: streamResponses sends maxOutputTokens as max_output_tokens on the wire, and omits it when unset
+ok 149 - streamResponses sends maxOutputTokens as max_output_tokens on the wire, and omits it when unset
+# Subtest: streamResponses retries without max_output_tokens when the model rejects it, keeping temperature
+ok 150 - streamResponses retries without max_output_tokens when the model rejects it, keeping temperature
+# Subtest: streamResponses retries without temperature when the model rejects it, keeping max_output_tokens
+ok 151 - streamResponses retries without temperature when the model rejects it, keeping max_output_tokens
+# Subtest: streamResponses drops each rejected parameter in turn, at most once per parameter
+ok 152 - streamResponses drops each rejected parameter in turn, at most once per parameter
+# Subtest: streamResponses does not retry a 4xx that names no optional parameter
+ok 153 - streamResponses does not retry a 4xx that names no optional parameter
+# Subtest: streamResponses books usage, output, and the cut-off reason from response.incomplete
+ok 154 - streamResponses books usage, output, and the cut-off reason from response.incomplete
+# Subtest: streamResponses drops a function call whose arguments were cut off by the cap
+ok 155 - streamResponses drops a function call whose arguments were cut off by the cap
+# Subtest: streamResponses clamps max_output_tokens up to the Responses API minimum of 16
+ok 156 - streamResponses clamps max_output_tokens up to the Responses API minimum of 16
+# Subtest: streamResponses does not drop temperature when a 4xx complains about its value
+ok 157 - streamResponses does not drop temperature when a 4xx complains about its value
+# Subtest: streamResponses attributes the rejection to error.param when the body names both parameters
+ok 158 - streamResponses attributes the rejection to error.param when the body names both parameters
+# Subtest: streamResponses picks the first-named parameter when a plain-text body names both
+ok 159 - streamResponses picks the first-named parameter when a plain-text body names both
+# Subtest: streamResponses surfaces no function call from a cut-off response, even one that completed
+ok 160 - streamResponses surfaces no function call from a cut-off response, even one that completed
+# Subtest: streamResponses does not retry when error.param names a field that is not one of ours
+ok 161 - streamResponses does not retry when error.param names a field that is not one of ours
+# Subtest: streamResponses drops the cap and retries once on a 400 it cannot attribute, keeping temperature
+ok 162 - streamResponses drops the cap and retries once on a 400 it cannot attribute, keeping temperature
+# Subtest: streamResponses spends no retry once Sentinel reports the retry budget exhausted
+ok 163 - streamResponses spends no retry once Sentinel reports the retry budget exhausted
+# Subtest: streamResponses does not spend the cap retry on a 4xx that is not a bad-request status
+ok 164 - streamResponses does not spend the cap retry on a 4xx that is not a bad-request status
+# Subtest: streamResponses matches a path-qualified error.param such as body.temperature
+ok 165 - streamResponses matches a path-qualified error.param such as body.temperature
+# Subtest: splitModelProviderPin strips the suffix into a provider pin
+ok 166 - splitModelProviderPin strips the suffix into a provider pin
+# Subtest: splitModelProviderPin passes unpinned / degenerate ids through
+ok 167 - splitModelProviderPin passes unpinned / degenerate ids through
+# Subtest: streamResponses sends the stripped model and provider pin on the wire
+ok 168 - streamResponses sends the stripped model and provider pin on the wire
+# Subtest: a message item repeating the one before it is shown once
+ok 169 - a message item repeating the one before it is shown once
+# Subtest: a repeat is dropped even when the gateway never closes the items
+ok 170 - a repeat is dropped even when the gateway never closes the items
+# Subtest: a second message that says something else is still shown
+ok 171 - a second message that says something else is still shown
+# Subtest: first_message shows the line written as a working note, not the claim after it
+ok 172 - first_message shows the line written as a working note, not the claim after it
+# Subtest: first_message passes over a message with no text, and shows a repeat once
+ok 173 - first_message passes over a message with no text, and shows a repeat once
+# Subtest: with a tracer, streamResponses records one generation: wire request in, shaped response out
+ok 174 - with a tracer, streamResponses records one generation: wire request in, shaped response out
+# Subtest: streamResponses takes a function call's arguments from the final output when nothing streamed them
+ok 175 - streamResponses takes a function call's arguments from the final output when nothing streamed them
+# Subtest: an aborted stream says why it was aborted, and its generation ends at ERROR with that reason
+ok 176 - an aborted stream says why it was aborted, and its generation ends at ERROR with that reason
+# Subtest: answered statuses: 429 and 5xx retry, other 4xx do not
+ok 177 - answered statuses: 429 and 5xx retry, other 4xx do not
+# Subtest: stream and connection failures retry despite carrying no status
+ok 178 - stream and connection failures retry despite carrying no status
+# Subtest: an error that classified itself as retryable is taken at its word
+ok 179 - an error that classified itself as retryable is taken at its word
+# Subtest: an abort is never retried, however it is spelled
+ok 180 - an abort is never retried, however it is spelled
+# Subtest: a Sentinel fallback verdict is final, whatever status it carries
+ok 181 - a Sentinel fallback verdict is final, whatever status it carries
+# Subtest: a transport failure is retried up to the limit, then rethrown
+ok 182 - a transport failure is retried up to the limit, then rethrown
+# Subtest: it stops the moment the caller's deadline fires
+ok 183 - it stops the moment the caller's deadline fires
+# Subtest: a recovered call returns its value
+ok 184 - a recovered call returns its value
+# Subtest: the default retry predicate never retries a quota verdict
+ok 185 - the default retry predicate never retries a quota verdict
+# Subtest: a proxied streaming call is its own trace, with the user and the shaped response
+ok 186 - a proxied streaming call is its own trace, with the user and the shaped response
+# Subtest: a proxied call with a forwarded trace id joins that trace and leaves it as it is
+ok 187 - a proxied call with a forwarded trace id joins that trace and leaves it as it is
+# Subtest: the forwarded trace id is this route's envelope: it never reaches the upstream body
+ok 188 - the forwarded trace id is this route's envelope: it never reaches the upstream body
+# Subtest: POST /api/llm/responses asks a managed gateway for the Chat route, whatever the disable flag says
+ok 189 - POST /api/llm/responses asks a managed gateway for the Chat route, whatever the disable flag says
+# Subtest: a purpose override removes task fallback models even for an already-semantic request
+ok 190 - a purpose override removes task fallback models even for an already-semantic request
+# Subtest: default Phi mode retains the task alias, provider pin and fallback list
+ok 191 - default Phi mode retains the task alias, provider pin and fallback list
+# Subtest: Gateway errors reach the caller without a second provider request
+ok 192 - Gateway errors reach the caller without a second provider request
+# Subtest: Request inputs preserve payload and headers while applying the purpose
+ok 193 - Request inputs preserve payload and headers while applying the purpose
+# Subtest: managed clients cannot bypass an override through a fixed external URL
+ok 194 - managed clients cannot bypass an override through a fixed external URL
+# Subtest: managed missing routes fail closed without sending the original cloud request
+ok 195 - managed missing routes fail closed without sending the original cloud request
+# Subtest: transport failure does not escape the selected provider
+ok 196 - transport failure does not escape the selected provider
+# Subtest: unmanaged direct fallback replays streamed request bodies after discovery
+ok 197 - unmanaged direct fallback replays streamed request bodies after discovery
+# Subtest: managed model discovery never forwards Phi credentials to a configured external URL
+ok 198 - managed model discovery never forwards Phi credentials to a configured external URL
+# Subtest: resolveRouteFromAiGatewayExport prefixes concrete model for Phi default
+ok 199 - resolveRouteFromAiGatewayExport prefixes concrete model for Phi default
+# Subtest: resolveRouteFromAiGatewayExport resolves over UDS without a base_url export
+ok 200 - resolveRouteFromAiGatewayExport resolves over UDS without a base_url export
+# Subtest: resolveRouteFromAiGatewayExport yields null without any transport
+ok 201 - resolveRouteFromAiGatewayExport yields null without any transport
+# Subtest: resolveRouteFromAiGatewayExport splits an OpenRouter provider pin into bare id + providerPin
+ok 202 - resolveRouteFromAiGatewayExport splits an OpenRouter provider pin into bare id + providerPin
+# Subtest: resolveRouteFromAiGatewayExport does not double-prefix Phi concrete models
+ok 203 - resolveRouteFromAiGatewayExport does not double-prefix Phi concrete models
+# Subtest: resolveRouteFromAiGatewayExport uses semantic alias for non-Phi routes
+ok 204 - resolveRouteFromAiGatewayExport uses semantic alias for non-Phi routes
+# Subtest: resolveRouteFromAiGatewayExport ignores legacy non-Phi request_model
+ok 205 - resolveRouteFromAiGatewayExport ignores legacy non-Phi request_model
+# Subtest: only Phi may supply a concrete assignment instead of the purpose alias
+ok 206 - only Phi may supply a concrete assignment instead of the purpose alias
+# Subtest: resolveBaseRouteFromAiGatewayExport resolves ai-gateway base URL without a model purpose
+ok 207 - resolveBaseRouteFromAiGatewayExport resolves ai-gateway base URL without a model purpose
+# Subtest: fetchThroughSentinelAiGateway returns the Gateway failure without cloud fallback
+ok 208 - fetchThroughSentinelAiGateway returns the Gateway failure without cloud fallback
+# Subtest: fetchThroughSentinelAiGateway forwards the OpenRouter provider pin in the gateway body
+ok 209 - fetchThroughSentinelAiGateway forwards the OpenRouter provider pin in the gateway body
+# Subtest: fetchThroughSentinelAiGateway drops a stale provider field when the route has no pin
+ok 210 - fetchThroughSentinelAiGateway drops a stale provider field when the route has no pin
+# Subtest: fetchThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+ok 211 - fetchThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+# Subtest: fetchModelsThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+ok 212 - fetchModelsThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+# Subtest: fetchModelsThroughSentinelAiGateway routes models through Sentinel base URL
+ok 213 - fetchModelsThroughSentinelAiGateway routes models through Sentinel base URL
+# Subtest: fetchVerbatimThroughSentinelAiGateway posts a decision with its alias body untouched
+ok 214 - fetchVerbatimThroughSentinelAiGateway posts a decision with its alias body untouched
+# Subtest: fetchModelsThroughSentinelAiGateway falls back to original models request when Sentinel route fails
+ok 215 - fetchModelsThroughSentinelAiGateway falls back to original models request when Sentinel route fails
+# Subtest: fetchThroughSentinelAiGateway only intercepts Phi ai-service URLs
+ok 216 - fetchThroughSentinelAiGateway only intercepts Phi ai-service URLs
+# Subtest: fetchThroughSentinelAiGateway does not intercept lookalike phibrowser hostnames
+ok 217 - fetchThroughSentinelAiGateway does not intercept lookalike phibrowser hostnames
+# Subtest: fetchThroughSentinelAiGateway preserves endpoint suffix and query string
+ok 218 - fetchThroughSentinelAiGateway preserves endpoint suffix and query string
+# Subtest: fetchThroughSentinelAiGateway completes over a live inference UDS
+ok 219 - fetchThroughSentinelAiGateway completes over a live inference UDS
+# Subtest: a Sentinel-managed process with no gateway is not told it falls back
+ok 220 - a Sentinel-managed process with no gateway is not told it falls back
+# Subtest: an unmanaged process with no gateway still reports the ai-service fallback
+ok 221 - an unmanaged process with no gateway still reports the ai-service fallback
+# Subtest: isSentinelUnmanagedByFlag reads only PHI_SENTINEL_UNMANAGED=1
+ok 222 - isSentinelUnmanagedByFlag reads only PHI_SENTINEL_UNMANAGED=1
+# Subtest: PHI_SENTINEL_UNMANAGED=1 turns a RUNNER_SOCKET-only process into an unmanaged direct-fetch client
+ok 223 - PHI_SENTINEL_UNMANAGED=1 turns a RUNNER_SOCKET-only process into an unmanaged direct-fetch client
+# Subtest: resolveFixedOpenAIUpstream requires both URL and key
+ok 224 - resolveFixedOpenAIUpstream requires both URL and key
+# Subtest: isPhibrowserUrl checks hostname boundaries
+ok 225 - isPhibrowserUrl checks hostname boundaries
+# Subtest: Jina uses its dedicated service URL instead of an external OpenAI URL
+ok 226 - Jina uses its dedicated service URL instead of an external OpenAI URL
+# Subtest: Jina does not fall back to a non-phibrowser OpenAI URL
+ok 227 - Jina does not fall back to a non-phibrowser OpenAI URL
+# Subtest: the row declares the services it needs
+ok 228 - the row declares the services it needs
+# Subtest: apply registers the phi provider on ctx.llm
+ok 229 - apply registers the phi provider on ctx.llm
+# Subtest: with no test config the row still registers, on the process config
+ok 230 - with no test config the row still registers, on the process config
+# Subtest: the adapter refuses to send a request it cannot authorize
+ok 231 - the adapter refuses to send a request it cannot authorize
+# Subtest: the tool policy is whoever installed it last, read per request
+ok 232 - the tool policy is whoever installed it last, read per request
+# Subtest: a request goes out on its run's bearer, found by its session
+ok 233 - a request goes out on its run's bearer, found by its session
+# Subtest: a fixed upstream keeps its own key over the run's bearer
+ok 234 - a fixed upstream keeps its own key over the run's bearer
+# Subtest: the request observer is whoever installed it last, and its undo removes it
+ok 235 - the request observer is whoever installed it last, and its undo removes it
+# Subtest: phi-llm routes
+ok 236 - phi-llm routes
+# Subtest: phi-llm service
+ok 237 - phi-llm service
+# Subtest: phi-llm calls other plugins make through it
+ok 238 - phi-llm calls other plugins make through it
+# Subtest: phi-llm outbound auth
+ok 239 - phi-llm outbound auth
+# tests 270
+# suites 6
+# pass 270
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 2599.216584

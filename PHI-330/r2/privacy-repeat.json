@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-14T19:06:07.494Z",
+  "privatePath": "/__test__/PRIVATE_PATH_4d39507f-f376-4af3-bf1e-ff15af2c33c7",
+  "results": [
+    {
+      "enabled": true,
+      "event_id": "37841ca33cf0457b95834baf560de595",
+      "request_present": false,
+      "private_path_leaked": false,
+      "private_query_leaked": false,
+      "private_header_leaked": false,
+      "private_body_leaked": false,
+      "canonical_user": "auth0|qa-330-a",
+      "tags": {
+        "app_version": "PHI-330-S9-privacy-probe",
+        "component": "transport"
+      },
+      "locations": []
+    },
+    {
+      "enabled": false,
+      "event_id": "d3312e4f754947f9bf717be46145fb83",
+      "request_present": false,
+      "private_path_leaked": false,
+      "private_query_leaked": false,
+      "private_header_leaked": false,
+      "private_body_leaked": false,
+      "tags": {
+        "app_version": "PHI-330-S9-privacy-probe",
+        "component": "transport"
+      },
+      "locations": []
+    }
+  ]
+}

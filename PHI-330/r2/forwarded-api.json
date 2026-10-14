@@ -1,0 +1,84 @@
+{
+  "utc": "2026-10-14T19:04:03.518Z",
+  "cases": [
+    {
+      "enabled": true,
+      "scenario": "same-owner",
+      "http": 200,
+      "wire_root_reused": true,
+      "original_name_and_input_preserved": true
+    },
+    {
+      "enabled": true,
+      "scenario": "owner-conflict",
+      "http": 200,
+      "new_wire_root": true
+    },
+    {
+      "enabled": true,
+      "scenario": "unknown",
+      "http": 200,
+      "forwarded_id_absent": true
+    },
+    {
+      "enabled": true,
+      "scenario": "ownerless-then-owned",
+      "http": 200,
+      "separate_root": true
+    },
+    {
+      "enabled": true,
+      "scenario": "restart",
+      "http": 200,
+      "new_wire_root": true,
+      "old_forwarded_id_absent": true
+    },
+    {
+      "enabled": true,
+      "scenario": "ledger-eviction",
+      "http": 200,
+      "new_wire_root": true,
+      "old_input_not_replayed": true
+    },
+    {
+      "enabled": false,
+      "scenario": "same-owner",
+      "http": 200,
+      "wire_root_reused": true,
+      "original_name_and_input_preserved": true
+    },
+    {
+      "enabled": false,
+      "scenario": "owner-conflict",
+      "http": 200,
+      "new_wire_root": true
+    },
+    {
+      "enabled": false,
+      "scenario": "unknown",
+      "http": 200,
+      "forwarded_id_absent": true
+    },
+    {
+      "enabled": false,
+      "scenario": "ownerless-then-owned",
+      "http": 200,
+      "separate_root": true
+    },
+    {
+      "enabled": false,
+      "scenario": "restart",
+      "http": 200,
+      "new_wire_root": true,
+      "old_forwarded_id_absent": true
+    },
+    {
+      "enabled": false,
+      "scenario": "ledger-eviction",
+      "http": 200,
+      "new_wire_root": true,
+      "old_input_not_replayed": true
+    }
+  ],
+  "passed": true
+}

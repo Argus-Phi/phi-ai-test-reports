@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-14T19:04:36.111Z",
+  "cases": [
+    {
+      "mode": "on",
+      "repair_events": [
+        {
+          "event": "pg_tenant_repair_succeeded",
+          "strategy": "rename",
+          "duration_type": "number",
+          "anonymous": true
+        },
+        {
+          "event": "pg_tenant_repair_failed",
+          "strategy": "rename",
+          "duration_type": "number",
+          "anonymous": true
+        }
+      ],
+      "sentry_errors": 2,
+      "identity_absent": true,
+      "database_success_and_failure_verified": true,
+      "persisted_task": {
+        "database_reread": true,
+        "run_status": "completed",
+        "wire_roots": 1,
+        "anonymous": true,
+        "prior_owner_not_inherited": true
+      }
+    },
+    {
+      "mode": "off",
+      "repair_events": [
+        {
+          "event": "pg_tenant_repair_succeeded",
+          "strategy": "rename",
+          "duration_type": "number",
+          "anonymous": true
+        },
+        {
+          "event": "pg_tenant_repair_failed",
+          "strategy": "rename",
+          "duration_type": "number",
+          "anonymous": true
+        }
+      ],
+      "sentry_errors": 2,
+      "identity_absent": true,
+      "database_success_and_failure_verified": true,
+      "persisted_task": {
+        "database_reread": true,
+        "run_status": "completed",
+        "wire_roots": 1,
+        "anonymous": true,
+        "prior_owner_not_inherited": true
+      }
+    },
+    {
+      "mode": "unavailable",
+      "repair_events": [
+        {
+          "event": "pg_tenant_repair_succeeded",
+          "strategy": "rename",
+          "duration_type": "number",
+          "anonymous": true
+        },
+        {
+          "event": "pg_tenant_repair_failed",
+          "strategy": "rename",
+          "duration_type": "number",
+          "anonymous": true
+        }
+      ],
+      "sentry_errors": 2,
+      "identity_absent": true,
+      "database_success_and_failure_verified": true,
+      "persisted_task": {
+        "database_reread": true,
+        "run_status": "completed",
+        "wire_roots": 1,
+        "anonymous": true,
+        "prior_owner_not_inherited": true
+      }
+    }
+  ],
+  "passed": true
+}

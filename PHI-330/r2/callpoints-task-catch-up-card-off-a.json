@@ -1,0 +1,55 @@
+{
+  "mode": "off",
+  "synthetic_owner": "auth0|qa-330-a",
+  "cases": [
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.catch-up-card",
+          "trusted_owner": false
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.catch-up-card",
+          "identified": false,
+          "identity_matches": false
+        }
+      ],
+      "observations": 2
+    },
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.catch-up-card",
+          "trusted_owner": false
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.catch-up-card",
+          "identified": false,
+          "identity_matches": false
+        }
+      ],
+      "observations": 2
+    },
+    {
+      "recorded_roots": [
+        {
+          "name": "phi-agent.catch-up-card",
+          "trusted_owner": false
+        }
+      ],
+      "wire_roots": [
+        {
+          "name": "phi-agent.catch-up-card",
+          "identified": false,
+          "identity_matches": false
+        }
+      ],
+      "observations": 2
+    }
+  ],
+  "passed": true
+}

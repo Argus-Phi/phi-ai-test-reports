@@ -1,0 +1,176 @@
+TAP version 13
+# Subtest: a tab title and a space name are parameters, never baked into the key
+ok 1 - a tab title and a space name are parameters, never baked into the key
+  ---
+  duration_ms: 0.321958
+  type: 'test'
+  ...
+# Subtest: the Sidecar's English catalog is this catalog, key for key
+not ok 2 - the Sidecar's English catalog is this catalog, key for key
+  ---
+  duration_ms: 1.522792
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:1:555'
+  failureType: 'testCodeFailure'
+  error: |-
+    tabInSpace
+    + actual - expected
+
+    + '{{title}} ({{space}})'
+    - '{{title}} — {{space}}'
+                 ^
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '{{title}} — {{space}}'
+  actual: '{{title}} ({{space}})'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:40:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: a report on an idle conversation is saved as its own reply, tagged as a task report
+ok 3 - a report on an idle conversation is saved as its own reply, tagged as a task report
+  ---
+  duration_ms: 26.028917
+  type: 'test'
+  ...
+# Subtest: a Sidecar still on the conversation sees the report stream in
+ok 4 - a Sidecar still on the conversation sees the report stream in
+  ---
+  duration_ms: 63.397084
+  type: 'test'
+  ...
+# Subtest: a report for the stored owner id reaches the conversation its Sidecar signed in to
+ok 5 - a report for the stored owner id reaches the conversation its Sidecar signed in to
+  ---
+  duration_ms: 59.511083
+  type: 'test'
+  ...
+# Subtest: a report no Sidecar watches runs on the Sentinel runner's bearer
+ok 6 - a report no Sidecar watches runs on the Sentinel runner's bearer
+  ---
+  duration_ms: 16.437709
+  type: 'test'
+  ...
+# Subtest: a report streamed to a Sidecar runs on that socket's bearer
+ok 7 - a report streamed to a Sidecar runs on that socket's bearer
+  ---
+  duration_ms: 43.159875
+  type: 'test'
+  ...
+# Subtest: a report waits behind the conversation's running turn
+ok 8 - a report waits behind the conversation's running turn
+  ---
+  duration_ms: 47.448625
+  type: 'test'
+  ...
+# Subtest: a message the user sends during a report runs after it
+ok 9 - a message the user sends during a report runs after it
+  ---
+  duration_ms: 78.453666
+  type: 'test'
+  ...
+# Subtest: a report run never takes a session the engine opens for earlier work
+ok 10 - a report run never takes a session the engine opens for earlier work
+  ---
+  duration_ms: 78.944541
+  type: 'test'
+  ...
+# Subtest: an interjection during a report continues the same report run
+ok 11 - an interjection during a report continues the same report run
+  ---
+  duration_ms: 59.197208
+  type: 'test'
+  ...
+# Subtest: a conversation queues at most eight reports
+ok 12 - a conversation queues at most eight reports
+  ---
+  duration_ms: 16.620083
+  type: 'test'
+  ...
+# Subtest: delivering the same run twice runs one report
+ok 13 - delivering the same run twice runs one report
+  ---
+  duration_ms: 15.8275
+  type: 'test'
+  ...
+# Subtest: a report the engine never finishes ends at the deadline, and its late close ends nothing
+not ok 14 - a report the engine never finishes ends at the deadline, and its late close ends nothing
+  ---
+  duration_ms: 15.863167
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:10828'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: stopping a report that said nothing fails it, and the next queued report still runs
+not ok 15 - stopping a report that said nothing fails it, and the next queued report still runs
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:11693'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a conversation whose engine cannot take a report refuses it
+not ok 16 - a conversation whose engine cannot take a report refuses it
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12561'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a report's live status is written knowing the conversation's latest user message
+not ok 17 - a report's live status is written knowing the conversation's latest user message
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12978'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: with neither a reply language nor any user message, no status is guessed
+not ok 18 - with neither a reply language nor any user message, no status is guessed
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:13759'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 12
+# fail 1
+# cancelled 5
+# skipped 0
+# todo 0
+# duration_ms 1246.880583

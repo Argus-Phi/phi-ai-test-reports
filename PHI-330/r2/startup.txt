@@ -1,0 +1,4 @@
+Exit: 0
+Owned startup process group: 30706; temporary PostgreSQL port: 19548
+Starting phi-agent server on 127.0.0.1:0: verified
+Owned service process group and temporary PostgreSQL stopped

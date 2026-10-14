@@ -1,0 +1,1321 @@
+{
+  "utc": "2026-10-14T19:01:21.642Z",
+  "cases": [
+    {
+      "kind": "large-json",
+      "boundary": "registration",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "ingestion"
+      ],
+      "requests": [],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "registration",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "ingestion"
+      ],
+      "requests": [],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "registration",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 741,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "put",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "put",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "put",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 741,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "patch",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "patch",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "patch",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 741,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "ingestion",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "ingestion",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "large-json",
+      "boundary": "ingestion",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 182,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 810043,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 741,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "registration",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "ingestion"
+      ],
+      "requests": [],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "registration",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "ingestion"
+      ],
+      "requests": [],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "registration",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "put",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "put",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "put",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "patch",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "patch",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "patch",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "ingestion",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "ingestion",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "image-data",
+      "boundary": "ingestion",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 8,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "registration",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "ingestion"
+      ],
+      "requests": [],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "registration",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "ingestion"
+      ],
+      "requests": [],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "registration",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "put",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "put",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "put",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "patch",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "patch",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "patch",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "ingestion",
+      "mode": "off",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "ingestion",
+      "mode": "unavailable",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "audio-data",
+      "boundary": "ingestion",
+      "mode": "anonymous-to-on",
+      "attempts": [
+        "registration",
+        "put",
+        "patch",
+        "ingestion"
+      ],
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 170,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 4,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 104,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 753,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "registration",
+      "mode": "same",
+      "first_status": 500,
+      "retry_delivered": true,
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 25,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 25,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "registration",
+      "mode": "off",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 25,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "registration",
+      "mode": "unavailable",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "registration",
+          "method": "POST",
+          "bytes": 25,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "put",
+      "mode": "same",
+      "first_status": 500,
+      "retry_delivered": true,
+      "requests": [
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 10,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 10,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "put",
+      "mode": "off",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 10,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "put",
+      "mode": "unavailable",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "put",
+          "method": "PUT",
+          "bytes": 10,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "patch",
+      "mode": "same",
+      "first_status": 500,
+      "retry_delivered": true,
+      "requests": [
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 2,
+          "contains_identity": false,
+          "contains_secret": false
+        },
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 2,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "patch",
+      "mode": "off",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 2,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "patch",
+      "mode": "unavailable",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "patch",
+          "method": "PATCH",
+          "bytes": 2,
+          "contains_identity": false,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "ingestion",
+      "mode": "same",
+      "first_status": 500,
+      "retry_delivered": true,
+      "requests": [
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 89,
+          "contains_identity": true,
+          "contains_secret": false
+        },
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 89,
+          "contains_identity": true,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "ingestion",
+      "mode": "off",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 89,
+          "contains_identity": true,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    },
+    {
+      "kind": "guarded-retry",
+      "boundary": "ingestion",
+      "mode": "unavailable",
+      "first_status": 500,
+      "retry_delivered": false,
+      "requests": [
+        {
+          "stage": "ingestion",
+          "method": "POST",
+          "bytes": 89,
+          "contains_identity": true,
+          "contains_secret": false
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "active": {
+    "boundary": "ingestion",
+    "mode": "unavailable",
+    "registration_status": 200,
+    "media": [
+      "http://127.0.0.1:56518/upload",
+      "http://127.0.0.1:56518/api/public/media/qa-media"
+    ]
+  },
+  "passed": true
+}

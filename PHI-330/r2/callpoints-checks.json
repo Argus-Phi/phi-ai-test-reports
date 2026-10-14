@@ -1,0 +1,194 @@
+[
+  {
+    "file": "chat-telemetry-port",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "chat-telemetry-port",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "chat-telemetry-port",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "chat-telemetry-port",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "title-generator",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "title-generator",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "title-generator",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "title-generator",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "task-catch-up-card",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "task-catch-up-card",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "task-catch-up-card",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "task-catch-up-card",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "creator-wizard",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "creator-wizard",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "creator-wizard",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "creator-wizard",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "persona-avatar-image",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "persona-avatar-image",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "persona-avatar-image",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "persona-avatar-image",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "routes-browser-evals",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "routes-browser-evals",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "routes-browser-evals",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "routes-browser-evals",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "task-worker-runtime-executor",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "task-worker-runtime-executor",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "task-worker-runtime-executor",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "task-worker-runtime-executor",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "llm-factory",
+    "mode": "on",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "llm-factory",
+    "mode": "on",
+    "owner": "b",
+    "exit_code": 0
+  },
+  {
+    "file": "llm-factory",
+    "mode": "off",
+    "owner": "a",
+    "exit_code": 0
+  },
+  {
+    "file": "llm-factory",
+    "mode": "off",
+    "owner": "b",
+    "exit_code": 0
+  }
+]
