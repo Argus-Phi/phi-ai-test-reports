@@ -12,12 +12,15 @@
     "18799": true,
     "18956": true,
     "18957": true,
-    "18972": true
+    "18972": true,
+    "18970": true,
+    "18971": true
   },
   "originalSentinelAgentAlive": true,
   "privateRecoveryManifestEqualsOriginal": true,
   "canaryPid": 84413,
   "noLoadExtension": true,
   "ownFinalQaSpaceDeleted": true,
-  "agentSpacesEmpty": true
+  "agentSpacesEmpty": true,
+  "finalPreviewAgentSpaceCompleted": true
 }

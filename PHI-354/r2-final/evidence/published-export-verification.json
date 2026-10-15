@@ -1,0 +1,87 @@
+[
+  {
+    "file": "export-files/T-13-retain-chat-failure.pdf",
+    "sha256": "90ed50d8d6e7d4bb48e44876dc15dc23613b48d5dbd64cd9172cdf265ab690de",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-21-mhtml.mhtml",
+    "sha256": "95953bb4e12f7c6e8ed9c03c1b37afb8f9fa2acda6db596fc8d795b5eeb31a0c",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-13-retain-task-cancel.pdf",
+    "sha256": "ca19a978f02129ac3acbb61878cd378cb53a8d3582785489597daf5d173614f1",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-png-native.png",
+    "sha256": "b706e41ca7660ed1cfb247916716f76a34ded39387b9948b5d345fe63f171f22",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-mhtml.mhtml",
+    "sha256": "686dd062c83846735c1c4f17a785f0aecab35a48f6f7f4b8d4804d2c74b7543c",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-21-mixed-explicit.pdf",
+    "sha256": "f3cbdaafe4a3a3de8406ce7f777f33514366329dac906be7cd24cb1d176c4c30",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-13-retain-task-timeout.pdf",
+    "sha256": "df3ffb32c2822a4fc41e77e85872eae8c239ef33fbdf1827a4744972332af573",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-mixed.pdf",
+    "sha256": "2417b862dfd6760d7854d769eda8538dc741b41aabbd00a5e13f81ef666c0a61",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-13-retain-chat-cancel.pdf",
+    "sha256": "639c74a2203e3d507cc42a1b98c4b074fd767b5e6f931d822d3426dfd6b5cb74",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-pdf-native.pdf",
+    "sha256": "ba7bbd52864d9c52bca423b7f51cffbedcbde8b7262096e189ef930d4858fe7b",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-mixed-native.pdf",
+    "sha256": "2417b862dfd6760d7854d769eda8538dc741b41aabbd00a5e13f81ef666c0a61",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-13-retain-task-failure.pdf",
+    "sha256": "642f5468efa64ea9349cbdc39184f9723265a5e2248e3e4d5fa0e32528fb37ce",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-pdf.pdf",
+    "sha256": "ba7bbd52864d9c52bca423b7f51cffbedcbde8b7262096e189ef930d4858fe7b",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-21-png.png",
+    "sha256": "89e067f00216cb48a530d6341cd7d065e6c942686632273ed82e46e7255942fe",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-13-retain-chat-timeout.pdf",
+    "sha256": "a2ce917b3c0fd59fb432cfd50a9de346a7554d33a1e82191f403c9ffd2005cff",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-21-pdf.pdf",
+    "sha256": "b60c38969a22ed4318e2b118f71a407523952537796415b17eef1d6b6a74a794",
+    "publishedBytesMatch": true
+  },
+  {
+    "file": "export-files/T-22-png.png",
+    "sha256": "b706e41ca7660ed1cfb247916716f76a34ded39387b9948b5d345fe63f171f22",
+    "publishedBytesMatch": true
+  }
+]

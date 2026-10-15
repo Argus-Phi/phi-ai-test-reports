@@ -6,11 +6,11 @@
  "kind": "final",
  "verdict": "fail",
  "pr_allowed": false,
- "summary": "同一回归 SHA 从头执行 25 条用例，22 pass、3 fail、0 blocked、0 skipped，全部必需 GUI 已在匹配本分支的 Canary 执行并补齐真实会话重开。内部 content 读取、有界响应、源码/stage 包、六种终止及文件交付已验证；当前范围仍有 B2-1 最终回复否认真实文件、B2-2 混合任务多交付录屏两项未获豁免的 major，TEST: fail，AI 测试和审查不允许放行 PR。T-13 的 PDF 硬超时丢附件在基线也实跑复现，作为已授权范围外问题保留原始 fail；B1-1/B1-2 既有 declined 未声称修复。",
+ "summary": "同一回归 SHA 从头执行 25 条用例，22 pass、3 fail、0 blocked、0 skipped，全部必需 GUI 已在匹配本分支的 Canary 执行并补齐真实会话重开。内部 content 读取、有界响应、源码/stage 包、六种终止及文件交付已验证；当前范围仍有 B2-1 最终回复否认真实文件、B2-2 混合任务多交付录屏两项未获豁免的 major，TEST: fail，本轮不予测试放行。T-13 的 PDF 硬超时丢附件在基线也实跑复现，作为已授权范围外问题保留原始 fail；B1-1/B1-2 既有 declined 未声称修复。",
  "sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
  "branch": "PHI-354-readable-page-content",
  "pr_url": "https://github.com/phibrowser/phi-ai/pull/578",
- "generated_at": "2026-10-15T06:55:34.805648+00:00",
+ "generated_at": "2026-10-15T06:56:47.519487+00:00",
  "environment": {
   "机器": "独立 macOS QA，Canary 真机",
   "Canary": "2026.10.15.0207 / Chrome154.0.8037.54",
@@ -1385,6 +1385,11 @@
      "type": "log",
      "path": "evidence/report-preview-validation.json",
      "caption": "report-preview-validation.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/published-export-verification.json",
+     "caption": "published-export-verification.json"
     },
     {
      "type": "image",
