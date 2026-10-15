@@ -37,4 +37,3 @@
   1829:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 ✖ 35 problems (0 errors, 35 warnings)
-

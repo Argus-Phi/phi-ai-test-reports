@@ -10,9 +10,9 @@ not ok 1 - T-5 page A succeeds B fails recovery=none
   failureType: 'testCodeFailure'
   error: |-
     FR-6 must not claim full success while page B is missing
-    
+
     'ok' !== 'error'
-    
+
   code: 'ERR_ASSERTION'
   name: 'AssertionError'
   expected: 'error'
@@ -33,9 +33,9 @@ not ok 2 - T-5 page A succeeds B fails recovery=A-only
   failureType: 'testCodeFailure'
   error: |-
     FR-6 must not claim full success while page B is missing
-    
+
     'ok' !== 'error'
-    
+
   code: 'ERR_ASSERTION'
   name: 'AssertionError'
   expected: 'error'
@@ -63,9 +63,9 @@ not ok 4 - T-5 cdp A succeeds B fails recovery=none
   failureType: 'testCodeFailure'
   error: |-
     FR-6 must not claim full success while page B is missing
-    
+
     'ok' !== 'error'
-    
+
   code: 'ERR_ASSERTION'
   name: 'AssertionError'
   expected: 'error'
@@ -86,9 +86,9 @@ not ok 5 - T-5 cdp A succeeds B fails recovery=A-only
   failureType: 'testCodeFailure'
   error: |-
     FR-6 must not claim full success while page B is missing
-    
+
     'ok' !== 'error'
-    
+
   code: 'ERR_ASSERTION'
   name: 'AssertionError'
   expected: 'error'

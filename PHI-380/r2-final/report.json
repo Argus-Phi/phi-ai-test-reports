@@ -630,6 +630,13 @@
      "caption": "本轮实际响应、断言、持久化或文件解码",
      "attempt": 1,
      "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cleanup.json",
+     "caption": "环境恢复实际校验：原注册/保护hash/406文件一致，源码与测试端口均已关闭",
+     "attempt": 1,
+     "outcome": "pass"
     }
    ],
    "notes": "本轮独立执行；矩阵限制、失败与重试分组单列。"
