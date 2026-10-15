@@ -1,0 +1,106 @@
+{
+  "chatId": "01a140bc-7ee5-71b9-8786-8183c70e2d21",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140bc-8db9-77a6-9931-2ba739de7dbc",
+      "role": "user",
+      "parts": [
+        {
+          "text": "先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a140bc-aeca-70ad-adf6-961469279f2a",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我先读取页面 A 的标题并按主题生成图片，完成后再为你截取页面 A 的完整页面。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-c4ddcb6190a9",
+          "type": "file",
+          "filename": "image-generation-1.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 4,
+            "toolCallId": "worker-artifacts-01a140bc-aeca-70ad-adf6-8dbee28f8dea-qa-file-c4ddcb6190a9",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "text": "页面 A 的标题是 **PHI-380 Direct Preview Fixture**，页面可用内容为“PHI-380 Direct Preview A；SECTION B；END 2400”。我已根据标题主题生成图片，并一并提供。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:1",
+            "partSeq": 5,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    },
+    {
+      "id": "01a140bd-bd7f-77b8-a38b-3332e92938e4",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正在为页面 A 执行整页截图，前一步的标题主题图片已经生成并附上。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-e8b93d62bbcd",
+          "type": "file",
+          "filename": "phi-380-direct-preview-fixture.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 4,
+            "toolCallId": "worker-artifacts-01a140bd-bd7e-720c-8475-93b96fdd9af2-qa-file-e8b93d62bbcd",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "text": "页面 A「PHI-380 Direct Preview Fixture」的完整截图已导出为 PNG。下次可以安装整页截图技能，让我一步完成；你愿意的话告诉我一声即可。图片以标题「PHI-380 Direct Preview Fixture」为主题；整页截图也已附上。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:1",
+            "partSeq": 5,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "url": "/api/v1/files/qa-file-c4ddcb6190a9",
+      "type": "image/png",
+      "status": 200,
+      "bytes": 1109370,
+      "sha256": "96e877dff1ae871f72b18deabd15f4cb6d073fdd60d01ed83df93181993449c1"
+    },
+    {
+      "url": "/api/v1/files/qa-file-e8b93d62bbcd",
+      "type": "image/png",
+      "status": 200,
+      "bytes": 189917,
+      "sha256": "8e41f6c40fcd69440f5b204e1270ada506a6a8d359c75d74cb557889f6c52de7"
+    }
+  ]
+}

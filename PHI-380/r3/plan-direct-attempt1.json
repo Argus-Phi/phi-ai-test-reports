@@ -1,0 +1,17 @@
+{
+  "chatId": "01a140bb-9b8c-773a-8b92-12bc2719f49f",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140bb-ab3b-765b-9cdc-c6777e0d7c0d",
+      "role": "user",
+      "parts": [
+        {
+          "text": "先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "files": []
+}

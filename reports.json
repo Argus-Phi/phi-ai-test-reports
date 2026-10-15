@@ -123,6 +123,21 @@
     "skipped": 3,
     "total": 27
    }
+  },
+  {
+   "round": 3,
+   "kind": "regression",
+   "verdict": "pass",
+   "title": "修复图片生成与截图任务产物未返回对话的问题（反馈 #196）",
+   "sha": "d423531174f07850748fb9ea714ffb07ee90622d",
+   "generated_at": "2026-10-15T18:19:02.568676+00:00",
+   "counts": {
+    "pass": 6,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 6
+   }
   }
  ]
 }

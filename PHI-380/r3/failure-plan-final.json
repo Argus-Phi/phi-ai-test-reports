@@ -1,0 +1,78 @@
+{
+  "chatId": "01a140c1-af11-715d-ad76-42c0d814a850",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140c1-bdb4-705f-9e1a-44edc2de3d82",
+      "role": "user",
+      "parts": [
+        {
+          "text": "先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a140c1-dfc9-72ef-bfef-7a3c5d3f2653",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我先读页面A的标题，接着按标题生成图片，再为页面A截取完整页面。页面A的标题是 **“PHI-380 Direct Preview Fixture”**。抱歉，我目前只完成了读取标题；图片生成和页面A的完整截图尚未完成。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    },
+    {
+      "id": "01a140c2-5d66-70bb-ba71-ae0c496a3a22",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正按标题生成图片，完成后会接着为页面A截取完整页面。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-4756486bfbfd",
+          "type": "file",
+          "filename": "phi-380-direct-preview-fixture.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 4,
+            "toolCallId": "worker-artifacts-01a140c2-5d66-70bb-ba71-a7e82c1ef2b7-qa-file-4756486bfbfd",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "text": "本次运行未能完成图片生成：模型 `phi-380-invalid-model` 不存在或无权访问，因此没有生成图片。页面A的完整截图已保存为 `phi-380-direct-preview-fixture.png`。\n\n任务未完成。\n已交付文件：1。\nDelivered 1 file(s); some requested images were not delivered. The model `phi-380-invalid-model` does not exist or you do not have access to it. No generation image delivered.\n{\"ok\":true,\"filename\":\"phi-380-direct-preview-fixture.png\",\"title\":\"PHI-380 Direct Preview Fixture\",\"finalScrollHeight\":2640,\"iterations\":4,\"timedOut\":false,\"cdpParams\":{\"format\":\"png\",\"optimizeForSpeed\":true,\"fromSurface\":true,\"captureBeyondViewport\":true,\"clip\":{\"x\":0,\"y\":0,\"width\":711,\"height\":2640,\"scale\":1}},\"cdpParamsJson\":\"{\\\"format\\\":\\\"png\\\",\\\"optimizeForSpeed\\\":true,\\\"fromSurface\\\":true,\\\"captureBeyondViewport\\\":true,\\\"clip\\\":{\\\"x\\\":0,\\\"y\\\":0,\\\"width\\\":711,\\\"height\\\":2640,\\\"scale\\\":1}}\"}\nDelivered 1 file(s); some requested images were not delivered. The model `phi-380-invalid-model` does not exist or you do not have access to it. No generation image delivered.\n请先处理已报告的原因，或检查配置和权限，再决定是否重试。图片生成失败的原因已确认：调用的模型 `phi-380-invalid-model` 不存在或当前无权访问，且这次失败不可重试。因此我没有再次尝试生成，也没有交付图片。页面A的完整截图已保存为 `phi-380-direct-preview-fixture.png`。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:1",
+            "partSeq": 5,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "url": "/api/v1/files/qa-file-4756486bfbfd",
+      "type": "image/png",
+      "status": 200,
+      "bytes": 189917,
+      "sha256": "8e41f6c40fcd69440f5b204e1270ada506a6a8d359c75d74cb557889f6c52de7"
+    }
+  ]
+}

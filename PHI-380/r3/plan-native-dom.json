@@ -1,0 +1,18 @@
+{
+  "version": "2026.10.16.0136",
+  "text": "页面A标题主题图片与完整截图\nPHI-380 Direct Preview Fixture\nhttp://127.0.0.1:18938/fixture.html\n先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图\nPhi\n\n我先确认页面标题并据此生成主题图片，随后为你截取页面A的完整截图。\n\n下载\n\n页面标题是 PHI-380 Direct Preview Fixture，我已据此生成主题图片。\n\nPhi\n\n我正在为页面A截取完整页面截图，并整理好后发给你。\n\n下载\n\n页面A的完整页面截图已保存为 PNG。若你愿意，我可以安装这项截图技能，让下次能一步完成。\n\n主题图片也已根据页面标题“PHI-380 Direct Preview Fixture”生成并交付。\n\n等待首字…\n·\n耗时 7.0s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+  "imgs": [
+    {
+      "w": 1024,
+      "h": 1024,
+      "bytes": 1739482,
+      "sha256": "c9c24c95b41c1fae64647dc8afba232b29f3a099f5e62a03bd3dd47fdf6a75e2"
+    },
+    {
+      "w": 1422,
+      "h": 5280,
+      "bytes": 189917,
+      "sha256": "8e41f6c40fcd69440f5b204e1270ada506a6a8d359c75d74cb557889f6c52de7"
+    }
+  ]
+}

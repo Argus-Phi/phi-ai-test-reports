@@ -1,0 +1,1 @@
+pnpm exec tsc -b chat/tsconfig.json phi-agent-dsh/plugins/worker/tsconfig.json phi-agent-dsh/plugins/chat/tsconfig.json phi-agent-dsh/tsconfig.json --force --emitDeclarationOnly

@@ -1,0 +1,18 @@
+{
+  "version": "100.0.0",
+  "text": "根据页面A标题生成主题图片并截图\nPHI-380 Direct Preview Fixture\nhttp://127.0.0.1:18938/fixture.html\n先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图\nPhi\n\n我先读取页面 A 的标题并按主题生成图片，完成后再为你截取页面 A 的完整页面。\n\n下载\n\n页面 A 的标题是 PHI-380 Direct Preview Fixture，页面可用内容为“PHI-380 Direct Preview A；SECTION B；END 2400”。我已根据标题主题生成图片，并一并提供。\n\nPhi\n\n我正在为页面 A 执行整页截图，前一步的标题主题图片已经生成并附上。\n\n下载\n\n页面 A「PHI-380 Direct Preview Fixture」的完整截图已导出为 PNG。下次可以安装整页截图技能，让我一步完成；你愿意的话告诉我一声即可。\n\n图片以标题「PHI-380 Direct Preview Fixture」为主题；整页截图也已附上。\n\n等待首字…\n·\n耗时 7.9s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+  "imgs": [
+    {
+      "w": 1024,
+      "h": 1024,
+      "bytes": 1109370,
+      "sha256": "96e877dff1ae871f72b18deabd15f4cb6d073fdd60d01ed83df93181993449c1"
+    },
+    {
+      "w": 1422,
+      "h": 5280,
+      "bytes": 189917,
+      "sha256": "8e41f6c40fcd69440f5b204e1270ada506a6a8d359c75d74cb557889f6c52de7"
+    }
+  ]
+}

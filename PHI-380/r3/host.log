@@ -1,0 +1,899 @@
+pnpm --filter @phi-ai/dsh-plugin-chat exec tsx --test src/lib/worker-task-executor.test.ts src/lib/assistant-parts-accumulator.test.ts src/lib/event-bridge.test.ts src/lib/ws-tests/sidecar-chat-persistence.test.ts src/lib/ws-tests/sidecar-chat-late-session.test.ts src/lib/routes-files.test.ts src/lib/routes-chats.test.ts
+TAP version 13
+# Subtest: persists commentary phase on assistant text parts
+ok 1 - persists commentary phase on assistant text parts
+  ---
+  duration_ms: 0.830417
+  type: 'test'
+  ...
+# Subtest: persists generic file content from tool results as assistant file parts
+ok 2 - persists generic file content from tool results as assistant file parts
+  ---
+  duration_ms: 0.228041
+  type: 'test'
+  ...
+# Subtest: replayed rich files persist once while later text and new runs retain the file
+ok 3 - replayed rich files persist once while later text and new runs retain the file
+  ---
+  duration_ms: 12.3405
+  type: 'test'
+  ...
+# Subtest: createPersistSink stamps the runId into persisted assistant metadata
+ok 4 - createPersistSink stamps the runId into persisted assistant metadata
+  ---
+  duration_ms: 0.976916
+  type: 'test'
+  ...
+# Subtest: toToolCallResult stamps metadata.rawEvent when the result carries a content array
+ok 5 - toToolCallResult stamps metadata.rawEvent when the result carries a content array
+  ---
+  duration_ms: 13.026875
+  type: 'test'
+  ...
+# Subtest: toToolCallResult leaves metadata.rawEvent absent for an ordinary result
+ok 6 - toToolCallResult leaves metadata.rawEvent absent for an ordinary result
+  ---
+  duration_ms: 0.079958
+  type: 'test'
+  ...
+# Subtest: persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+ok 7 - persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+  ---
+  duration_ms: 6.05275
+  type: 'test'
+  ...
+# [chat-metadata] space resolution failed; keeping windowId { windowId: 1, error: 'phi unreachable' }
+# [chats] GET /chats filter by category {"userId":"user-1","categoryId":"work","query":"recipes","limit":5,"returnedCount":0,"hasMore":false,"returnedIds":[]}
+# [chats] POST /chats/batch_categories {"userId":"user-1","chatCount":2,"add":["0190a000-0000-7000-8000-000000000001"],"remove":["0190a000-0000-7000-8000-000000000002"]}
+# [chats] POST /chats/batch_categories {"userId":"user-1","chatCount":1,"add":["0190a000-0000-7000-8000-000000000001"],"remove":[]}
+# [chats] POST /chats/batch_categories {"userId":"user-1","chatCount":1,"add":[],"remove":["0190a000-0000-7000-8000-000000000002"]}
+# [chats] POST /chats/batch_categories {"userId":"user-1","chatCount":1,"add":["0190a000-0000-7000-8000-0000000000ff"],"remove":[]}
+# Subtest: POST /chats stores validated metadata and resolves the window's Space
+ok 8 - POST /chats stores validated metadata and resolves the window's Space
+  ---
+  duration_ms: 19.546833
+  type: 'test'
+  ...
+# Subtest: POST /chats keeps windowId only when Space resolution fails
+ok 9 - POST /chats keeps windowId only when Space resolution fails
+  ---
+  duration_ms: 0.827458
+  type: 'test'
+  ...
+# Subtest: POST /chats rejects unknown namespaces and invalid payloads
+ok 10 - POST /chats rejects unknown namespaces and invalid payloads
+  ---
+  duration_ms: 1.398625
+  type: 'test'
+  ...
+# Subtest: the retired tasks namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+ok 11 - the retired tasks namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+  ---
+  duration_ms: 5.11575
+  type: 'test'
+  ...
+# Subtest: the workerTarget namespace is closed to clients although it is mutable
+ok 12 - the workerTarget namespace is closed to clients although it is mutable
+  ---
+  duration_ms: 2.276084
+  type: 'test'
+  ...
+# Subtest: metadata routes: GET map, PUT/DELETE mutable namespace, origin immutable
+ok 13 - metadata routes: GET map, PUT/DELETE mutable namespace, origin immutable
+  ---
+  duration_ms: 2.215416
+  type: 'test'
+  ...
+# Subtest: the retired kickoff namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+ok 14 - the retired kickoff namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+  ---
+  duration_ms: 0.442292
+  type: 'test'
+  ...
+# Subtest: retired routes are gone: PATCH metadata / visibility / category return 404
+ok 15 - retired routes are gone: PATCH metadata / visibility / category return 404
+  ---
+  duration_ms: 0.29625
+  type: 'test'
+  ...
+# Subtest: GET /chats forwards the paging, search and category filters
+ok 16 - GET /chats forwards the paging, search and category filters
+  ---
+  duration_ms: 1.092416
+  type: 'test'
+  ...
+# Subtest: GET /chats defaults the limit to 20 and leaves absent filters unset
+ok 17 - GET /chats defaults the limit to 20 and leaves absent filters unset
+  ---
+  duration_ms: 0.338458
+  type: 'test'
+  ...
+# Subtest: GET /chats falls back to the default limit for a non-numeric value
+ok 18 - GET /chats falls back to the default limit for a non-numeric value
+  ---
+  duration_ms: 0.09
+  type: 'test'
+  ...
+# Subtest: GET /chats treats an empty category_id as no filter
+ok 19 - GET /chats treats an empty category_id as no filter
+  ---
+  duration_ms: 0.070583
+  type: 'test'
+  ...
+# Subtest: GET /chats forwards has_tasks only when it is exactly true
+ok 20 - GET /chats forwards has_tasks only when it is exactly true
+  ---
+  duration_ms: 0.207875
+  type: 'test'
+  ...
+# Subtest: GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+ok 21 - GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+  ---
+  duration_ms: 0.446125
+  type: 'test'
+  ...
+# Subtest: GET /chats sends each chat as chat JSON, metadata included
+ok 22 - GET /chats sends each chat as chat JSON, metadata included
+  ---
+  duration_ms: 0.267375
+  type: 'test'
+  ...
+# Subtest: POST /chats/batch_delete accepts a bare array and a { chatIds } object
+ok 23 - POST /chats/batch_delete accepts a bare array and a { chatIds } object
+  ---
+  duration_ms: 0.256625
+  type: 'test'
+  ...
+# Subtest: POST /chats/batch_delete treats a missing body as an empty list
+ok 24 - POST /chats/batch_delete treats a missing body as an empty list
+  ---
+  duration_ms: 0.180459
+  type: 'test'
+  ...
+# Subtest: POST /chats/batch_categories forwards the de-duplicated ids and both lists
+ok 25 - POST /chats/batch_categories forwards the de-duplicated ids and both lists
+  ---
+  duration_ms: 0.877
+  type: 'test'
+  ...
+# Subtest: POST /chats/batch_categories rejects a malformed body without touching the store
+ok 26 - POST /chats/batch_categories rejects a malformed body without touching the store
+  ---
+  duration_ms: 1.716042
+  type: 'test'
+  ...
+# Subtest: POST /chats/batch_categories answers 404 for an unknown category
+ok 27 - POST /chats/batch_categories answers 404 for an unknown category
+  ---
+  duration_ms: 0.216084
+  type: 'test'
+  ...
+# Subtest: chat JSON carries categoryIds, lastActivityAt, taskCount and an unread flag, never categoryId or unreadAt
+ok 28 - chat JSON carries categoryIds, lastActivityAt, taskCount and an unread flag, never categoryId or unreadAt
+  ---
+  duration_ms: 0.310792
+  type: 'test'
+  ...
+# Subtest: POST /chats answers 400 for a categoryIds that is not a list of ids and 404 for an unknown category
+ok 29 - POST /chats answers 400 for a categoryIds that is not a list of ids and 404 for an unknown category
+  ---
+  duration_ms: 0.600292
+  type: 'test'
+  ...
+# Subtest: PUT /chats/:id/categories replaces the set under the chat's current owner and answers the chat
+ok 30 - PUT /chats/:id/categories replaces the set under the chat's current owner and answers the chat
+  ---
+  duration_ms: 0.298458
+  type: 'test'
+  ...
+# Subtest: PUT /chats/:id/categories answers 400 for a bad body and 404 for an unknown category or chat
+ok 31 - PUT /chats/:id/categories answers 400 for a bad body and 404 for an unknown category or chat
+  ---
+  duration_ms: 0.399375
+  type: 'test'
+  ...
+# Subtest: POST /chats/:id/read clears unread and answers 204 with no body
+ok 32 - POST /chats/:id/read clears unread and answers 204 with no body
+  ---
+  duration_ms: 0.157041
+  type: 'test'
+  ...
+# Subtest: GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+ok 33 - GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+  ---
+  duration_ms: 2.629792
+  type: 'test'
+  ...
+# Subtest: GET /chats/:id/tasks answers an empty list for a chat without tasks, and 404 for a chat it cannot reach
+ok 34 - GET /chats/:id/tasks answers an empty list for a chat without tasks, and 404 for a chat it cannot reach
+  ---
+  duration_ms: 0.378375
+  type: 'test'
+  ...
+# Subtest: another account cannot obtain an image-bearing chat even by declaring the owner's profile
+ok 35 - another account cannot obtain an image-bearing chat even by declaring the owner's profile
+  ---
+  duration_ms: 0.334125
+  type: 'test'
+  ...
+# Subtest: fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+ok 36 - fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+  ---
+  duration_ms: 26.209416
+  type: 'test'
+  ...
+# [chat-host] could not list the conversation's attached files database down
+# Subtest: maps ok WorkerRunResult to { ok:true, summary }
+ok 37 - maps ok WorkerRunResult to { ok:true, summary }
+  ---
+  duration_ms: 2.120041
+  type: 'test'
+  ...
+# Subtest: maps error WorkerRunResult to { ok:false, error:string } (object->message) and never surfaces skillUsed
+ok 38 - maps error WorkerRunResult to { ok:false, error:string } (object->message) and never surfaces skillUsed
+  ---
+  duration_ms: 0.31675
+  type: 'test'
+  ...
+# Subtest: maps a question WorkerRunResult to { ok:false, question } (never a failure)
+ok 39 - maps a question WorkerRunResult to { ok:false, question } (never a failure)
+  ---
+  duration_ms: 0.097709
+  type: 'test'
+  ...
+# Subtest: threads planSessionId onto the per-dispatch worker ctx
+ok 40 - threads planSessionId onto the per-dispatch worker ctx
+  ---
+  duration_ms: 0.0985
+  type: 'test'
+  ...
+# Subtest: forwards worker onEvent to emitProgress under the owner runId
+ok 41 - forwards worker onEvent to emitProgress under the owner runId
+  ---
+  duration_ms: 0.231667
+  type: 'test'
+  ...
+# Subtest: forwards the skill hint and grants its canonical id without replacing active skills
+ok 42 - forwards the skill hint and grants its canonical id without replacing active skills
+  ---
+  duration_ms: 0.108833
+  type: 'test'
+  ...
+# Subtest: does not duplicate a router-matched skill that is already active
+ok 43 - does not duplicate a router-matched skill that is already active
+  ---
+  duration_ms: 0.129916
+  type: 'test'
+  ...
+# Subtest: does not grant ACL access from a display-name hint without a canonical id
+ok 44 - does not grant ACL access from a display-name hint without a canonical id
+  ---
+  duration_ms: 0.128209
+  type: 'test'
+  ...
+# Subtest: threads chat-provided task context into the worker task
+ok 45 - threads chat-provided task context into the worker task
+  ---
+  duration_ms: 0.631666
+  type: 'test'
+  ...
+# Subtest: the files the user attached in this conversation ride in the worker's context
+ok 46 - the files the user attached in this conversation ride in the worker's context
+  ---
+  duration_ms: 0.795708
+  type: 'test'
+  ...
+# Subtest: a file listing that fails leaves the worker's context as it was
+ok 47 - a file listing that fails leaves the worker's context as it was
+  ---
+  duration_ms: 1.030417
+  type: 'test'
+  ...
+# Subtest: hands the chat's span to the worker, which opens worker.run itself
+ok 48 - hands the chat's span to the worker, which opens worker.run itself
+  ---
+  duration_ms: 0.63775
+  type: 'test'
+  ...
+# Subtest: a direct memory-agent ask is a memory_agent.direct span under the chat's span, with the task in and the result out
+ok 49 - a direct memory-agent ask is a memory_agent.direct span under the chat's span, with the task in and the result out
+  ---
+  duration_ms: 1.29375
+  type: 'test'
+  ...
+# Subtest: a direct memory-agent ask hands its span to the port, so the agent's own calls hang under it
+ok 50 - a direct memory-agent ask hands its span to the port, so the agent's own calls hang under it
+  ---
+  duration_ms: 0.679375
+  type: 'test'
+  ...
+# Subtest: emits a run_started{objective} as the FIRST progress event at dispatch
+ok 51 - emits a run_started{objective} as the FIRST progress event at dispatch
+  ---
+  duration_ms: 0.950125
+  type: 'test'
+  ...
+# Subtest: emits a run_result{ok:true,summary} terminal LAST on success
+ok 52 - emits a run_result{ok:true,summary} terminal LAST on success
+  ---
+  duration_ms: 0.475666
+  type: 'test'
+  ...
+# Subtest: emits a run_result{ok:false,errorCode} terminal on a worker error
+ok 53 - emits a run_result{ok:false,errorCode} terminal on a worker error
+  ---
+  duration_ms: 6.6385
+  type: 'test'
+  ...
+# Subtest: emits no lifecycle progress when no owner run is known (scoped)
+ok 54 - emits no lifecycle progress when no owner run is known (scoped)
+  ---
+  duration_ms: 0.196875
+  type: 'test'
+  ...
+# Subtest: worker artifacts are mapped onto the TaskExecutionResult and emitted once
+ok 55 - worker artifacts are mapped onto the TaskExecutionResult and emitted once
+  ---
+  duration_ms: 0.499416
+  type: 'test'
+  ...
+# Subtest: a run with no artifacts emits nothing and leaves the result field absent
+ok 56 - a run with no artifacts emits nothing and leaves the result field absent
+  ---
+  duration_ms: 0.255041
+  type: 'test'
+  ...
+# Subtest: artifacts from a FAILED run are still emitted and reported
+ok 57 - artifacts from a FAILED run are still emitted and reported
+  ---
+  duration_ms: 0.24075
+  type: 'test'
+  ...
+# Subtest: a failed run hands back the last successful tool result, flagged incomplete
+ok 58 - a failed run hands back the last successful tool result, flagged incomplete
+  ---
+  duration_ms: 0.267167
+  type: 'test'
+  ...
+# Subtest: image delivery diagnostics do not claim that requested work was gathered
+ok 59 - image delivery diagnostics do not claim that requested work was gathered
+  ---
+  duration_ms: 0.260541
+  type: 'test'
+  ...
+# Subtest: image delivery diagnostics accompany saved partial files
+ok 60 - image delivery diagnostics accompany saved partial files
+  ---
+  duration_ms: 0.140708
+  type: 'test'
+  ...
+# Subtest: the worker's OWN last-round text wins over a raw tool result
+ok 61 - the worker's OWN last-round text wins over a raw tool result
+  ---
+  duration_ms: 0.194916
+  type: 'test'
+  ...
+# Subtest: a failed run with nothing gathered reports a plain failure
+ok 62 - a failed run with nothing gathered reports a plain failure
+  ---
+  duration_ms: 0.218916
+  type: 'test'
+  ...
+# Subtest: a USER cancel salvages nothing — a cancel is a decision, not a loss
+ok 63 - a USER cancel salvages nothing — a cancel is a decision, not a loss
+  ---
+  duration_ms: 0.25725
+  type: 'test'
+  ...
+# Subtest: a TIMEOUT salvages too — the other way a finished piece of work is lost
+ok 64 - a TIMEOUT salvages too — the other way a finished piece of work is lost
+  ---
+  duration_ms: 10.107666
+  type: 'test'
+  ...
+# Subtest: only a matched or hand-picked memory-agent skill makes a run memory-writable; availability never does
+ok 65 - only a matched or hand-picked memory-agent skill makes a run memory-writable; availability never does
+  ---
+  duration_ms: 0.075625
+  type: 'test'
+  ...
+# Subtest: only a matched or hand-picked skill-library skill carries a library instruction
+ok 66 - only a matched or hand-picked skill-library skill carries a library instruction
+  ---
+  duration_ms: 0.036875
+  type: 'test'
+  ...
+# Subtest: a run carrying the skill-library skill gets the library-changing tools; any other run does not
+ok 67 - a run carrying the skill-library skill gets the library-changing tools; any other run does not
+  ---
+  duration_ms: 0.189125
+  type: 'test'
+  ...
+# Subtest: a memory-skill dispatch asks the memory agent, writable, never runs the worker, and hands its output back to chat
+ok 68 - a memory-skill dispatch asks the memory agent, writable, never runs the worker, and hands its output back to chat
+  ---
+  duration_ms: 0.312167
+  type: 'test'
+  ...
+# Subtest: every memory-skill dispatch goes to the memory agent: beside another picked skill, and on a plan step
+ok 69 - every memory-skill dispatch goes to the memory agent: beside another picked skill, and on a plan step
+  ---
+  duration_ms: 0.128375
+  type: 'test'
+  ...
+# Subtest: chat's follow-up dispatch carries no memory skill and reaches the worker, even with the memory skill picked for the run
+ok 70 - chat's follow-up dispatch carries no memory skill and reaches the worker, even with the memory skill picked for the run
+  ---
+  duration_ms: 0.063833
+  type: 'test'
+  ...
+# Subtest: a memory answer with no recorded change says so, and a failed ask is a failed run with no memory answer
+ok 71 - a memory answer with no recorded change says so, and a failed ask is a failed run with no memory answer
+  ---
+  duration_ms: 0.28725
+  type: 'test'
+  ...
+# Subtest: a memory-skill dispatch carries the chat's conversation window, so the fact 'I just gave you' is in the ask
+ok 72 - a memory-skill dispatch carries the chat's conversation window, so the fact 'I just gave you' is in the ask
+  ---
+  duration_ms: 0.080833
+  type: 'test'
+  ...
+# Subtest: a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+ok 73 - a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+  ---
+  duration_ms: 0.111958
+  type: 'test'
+  ...
+# Subtest: a memory ask that outlives the run timeout is a timeout
+ok 74 - a memory ask that outlives the run timeout is a timeout
+  ---
+  duration_ms: 11.3885
+  type: 'test'
+  ...
+# Subtest: isMemoryAgentDispatch and memoryAgentSummary
+ok 75 - isMemoryAgentDispatch and memoryAgentSummary
+  ---
+  duration_ms: 0.140958
+  type: 'test'
+  ...
+# Subtest: the execution target is settled before the run deadline is armed
+ok 76 - the execution target is settled before the run deadline is armed
+  ---
+  duration_ms: 122.397125
+  type: 'test'
+  ...
+# Subtest: a refused target fails the delegation with the gate's words
+ok 77 - a refused target fails the delegation with the gate's words
+  ---
+  duration_ms: 0.192
+  type: 'test'
+  ...
+# Subtest: a chosen target lands on the run context
+ok 78 - a chosen target lands on the run context
+  ---
+  duration_ms: 0.141542
+  type: 'test'
+  ...
+# Subtest: a Space with no window takes the client's window OFF the context
+ok 79 - a Space with no window takes the client's window OFF the context
+  ---
+  duration_ms: 0.08625
+  type: 'test'
+  ...
+# Subtest: no gate wired leaves the run context untouched
+ok 80 - no gate wired leaves the run context untouched
+  ---
+  duration_ms: 0.062167
+  type: 'test'
+  ...
+# Subtest: the attached page's own tab id goes to the gate, and only the gate's answer drives
+ok 81 - the attached page's own tab id goes to the gate, and only the gate's answer drives
+  ---
+  duration_ms: 0.118042
+  type: 'test'
+  ...
+# Subtest: a deferred question is not asked before the run starts
+ok 82 - a deferred question is not asked before the run starts
+  ---
+  duration_ms: 0.088375
+  type: 'test'
+  ...
+# Subtest: a tool that needs the Space asks once, and the answer lands on the run
+ok 83 - a tool that needs the Space asks once, and the answer lands on the run
+  ---
+  duration_ms: 0.148125
+  type: 'test'
+  ...
+# Subtest: the deferred answer lands on the context the run is BOUND to, which is a copy
+ok 84 - the deferred answer lands on the context the run is BOUND to, which is a copy
+  ---
+  duration_ms: 0.07275
+  type: 'test'
+  ...
+# Subtest: declining the deferred question is the asking tool's refusal
+ok 85 - declining the deferred question is the asking tool's refusal
+  ---
+  duration_ms: 0.065458
+  type: 'test'
+  ...
+# Subtest: the deferred question's thinking time does not count against the run
+ok 86 - the deferred question's thinking time does not count against the run
+  ---
+  duration_ms: 152.016083
+  type: 'test'
+  ...
+# Subtest: while deferred the forwarded window is off the run, and back if nobody can be asked
+ok 87 - while deferred the forwarded window is off the run, and back if nobody can be asked
+  ---
+  duration_ms: 0.292458
+  type: 'test'
+  ...
+# Subtest: time the user spends answering does not count against the run
+ok 88 - time the user spends answering does not count against the run
+  ---
+  duration_ms: 149.732709
+  type: 'test'
+  ...
+# Subtest: time the computer sleeps does not count against the run
+ok 89 - time the computer sleeps does not count against the run
+  ---
+  duration_ms: 150.328542
+  type: 'test'
+  ...
+# Subtest: without a pause the run still times out on its budget
+ok 90 - without a pause the run still times out on its budget
+  ---
+  duration_ms: 52.637834
+  type: 'test'
+  ...
+# Subtest: the tab question is on the run only when the host can ask it
+ok 91 - the tab question is on the run only when the host can ask it
+  ---
+  duration_ms: 0.456125
+  type: 'test'
+  ...
+# Subtest: the tab is asked once, and lands on the context the run is bound to
+ok 92 - the tab is asked once, and lands on the context the run is bound to
+  ---
+  duration_ms: 0.357583
+  type: 'test'
+  ...
+# Subtest: a run whose Space is already settled asks only about that Space's tabs
+ok 93 - a run whose Space is already settled asks only about that Space's tabs
+  ---
+  duration_ms: 0.225209
+  type: 'test'
+  ...
+# Subtest: no tab from the question is the asking tool's refusal
+ok 94 - no tab from the question is the asking tool's refusal
+  ---
+  duration_ms: 0.190917
+  type: 'test'
+  ...
+# Subtest: the tab question's thinking time does not count against the run
+ok 95 - the tab question's thinking time does not count against the run
+  ---
+  duration_ms: 151.0335
+  type: 'test'
+  ...
+# Subtest: the tab question names the skill the user picked, not the internal one whose script runs
+ok 96 - the tab question names the skill the user picked, not the internal one whose script runs
+  ---
+  duration_ms: 0.842834
+  type: 'test'
+  ...
+# Subtest: the run's language rides the dispatch onto the run's context
+ok 97 - the run's language rides the dispatch onto the run's context
+  ---
+  duration_ms: 0.43925
+  type: 'test'
+  ...
+# Subtest: an interjection reaches the worker after its language is applied
+ok 98 - an interjection reaches the worker after its language is applied
+  ---
+  duration_ms: 4.88375
+  type: 'test'
+  ...
+# Subtest: interjections keep their order, whichever read lands first
+ok 99 - interjections keep their order, whichever read lands first
+  ---
+  duration_ms: 5.502666
+  type: 'test'
+  ...
+# Subtest: at the turn's end a held interjection is handed over unread
+ok 100 - at the turn's end a held interjection is handed over unread
+  ---
+  duration_ms: 0.492834
+  type: 'test'
+  ...
+# Subtest: a hung observation delays an interjection by the bound only
+ok 101 - a hung observation delays an interjection by the bound only
+  ---
+  duration_ms: 61.700708
+  type: 'test'
+  ...
+# Subtest: without a language an interjection is delivered at once
+ok 102 - without a language an interjection is delivered at once
+  ---
+  duration_ms: 0.48975
+  type: 'test'
+  ...
+# Subtest: ready() waits for an interjection still being read, and only while one is
+ok 103 - ready() waits for an interjection still being read, and only while one is
+  ---
+  duration_ms: 1.439208
+  type: 'test'
+  ...
+# [chat-host] artifact delivery unavailable { count: 1 }
+# Subtest: ready() is bounded by the read's wait
+ok 104 - ready() is bounded by the read's wait
+  ---
+  duration_ms: 20.298708
+  type: 'test'
+  ...
+# Subtest: saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+ok 105 - saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+  ---
+  duration_ms: 0.57625
+  type: 'test'
+  ...
+# Subtest: an unwired artifact host reports delivery failure instead of full success
+ok 106 - an unwired artifact host reports delivery failure instead of full success
+  ---
+  duration_ms: 0.510875
+  type: 'test'
+  ...
+# Subtest: 1c synthesize-when-idle: a brand-new late session pushed while idle is delivered as a NEW run — full RUN_STARTED → TEXT_MESSAGE_CHUNK → RUN_FINISHED bracket
+ok 107 - 1c synthesize-when-idle: a brand-new late session pushed while idle is delivered as a NEW run — full RUN_STARTED → TEXT_MESSAGE_CHUNK → RUN_FINISHED bracket
+  ---
+  duration_ms: 79.185042
+  type: 'test'
+  ...
+# Subtest: 1c defer-during-the-drain-gap: a brand-new late session whose frames arrive in the finalize drain-gap (current undefined, draining) is BUFFERED and promoted to its own synthetic run only after the gap drains
+ok 108 - 1c defer-during-the-drain-gap: a brand-new late session whose frames arrive in the finalize drain-gap (current undefined, draining) is BUFFERED and promoted to its own synthetic run only after the gap drains
+  ---
+  duration_ms: 92.522042
+  type: 'test'
+  ...
+# Subtest: 1c user-turn priority: a queued user turn drains BEFORE a buffered late session — the late synthetic run never starts while the user run is in-flight
+ok 109 - 1c user-turn priority: a queued user turn drains BEFORE a buffered late session — the late synthetic run never starts while the user run is in-flight
+  ---
+  duration_ms: 90.884792
+  type: 'test'
+  ...
+# Subtest: 1c multi-late FIFO: two late sessions buffered in the drain-gap promote as two sequential bracketed synthetic runs in FIFO order
+ok 110 - 1c multi-late FIFO: two late sessions buffered in the drain-gap promote as two sequential bracketed synthetic runs in FIFO order
+  ---
+  duration_ms: 94.843042
+  type: 'test'
+  ...
+# Subtest: 1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+ok 111 - 1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+  ---
+  duration_ms: 78.392875
+  type: 'test'
+  ...
+# Subtest: 1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+ok 112 - 1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+  ---
+  duration_ms: 97.08875
+  type: 'test'
+  ...
+# Subtest: 1c dead-conn drop: a brand-new late session with a STALE delivery conn is dropped — no synthesized RUN_STARTED, no throw
+ok 113 - 1c dead-conn drop: a brand-new late session with a STALE delivery conn is dropped — no synthesized RUN_STARTED, no throw
+  ---
+  duration_ms: 74.987625
+  type: 'test'
+  ...
+# Subtest: 1c straggler still dropped: a late frame whose session is in recentlyClosedSessions is STILL dropped — NOT delivered as a synthetic run (1b regression guard)
+ok 114 - 1c straggler still dropped: a late frame whose session is in recentlyClosedSessions is STILL dropped — NOT delivered as a synthetic run (1b regression guard)
+  ---
+  duration_ms: 91.71725
+  type: 'test'
+  ...
+# Subtest: a late session that completes after the thread went idle still promotes, and the thread keeps taking turns
+ok 115 - a late session that completes after the thread went idle still promotes, and the thread keeps taking turns
+  ---
+  duration_ms: 97.9835
+  type: 'test'
+  ...
+# Subtest: a card published on a synthetic run reaches the user: the delegate re-entry executes the worker there, and a change it makes asks first
+ok 116 - a card published on a synthetic run reaches the user: the delegate re-entry executes the worker there, and a change it makes asks first
+  ---
+  duration_ms: 84.569125
+  type: 'test'
+  ...
+# [phi-chat] a card for the user cannot be shown {
+#   runId: 'r1',
+#   requestId: 'card-late',
+#   reason: 'the connection it would go to is gone'
+# }
+# Subtest: a card that cannot reach the user fails at once instead of waiting out its timeout
+ok 117 - a card that cannot reach the user fails at once instead of waiting out its timeout
+  ---
+  duration_ms: 33.0755
+  type: 'test'
+  ...
+# Subtest: a late session buffered in the drain gap persists after its socket closes
+ok 118 - a late session buffered in the drain gap persists after its socket closes
+  ---
+  duration_ms: 64.927833
+  type: 'test'
+  ...
+# Subtest: user message is persisted on receipt (chatId === threadId, role user)
+ok 119 - user message is persisted on receipt (chatId === threadId, role user)
+  ---
+  duration_ms: 13.946916
+  type: 'test'
+  ...
+# Subtest: assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+ok 120 - assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+  ---
+  duration_ms: 51.495791
+  type: 'test'
+  ...
+# Subtest: after RUN_FINISHED the stored assistant message has the COMPLETE text; ids are uuidv7 and monotonic (user < assistant)
+ok 121 - after RUN_FINISHED the stored assistant message has the COMPLETE text; ids are uuidv7 and monotonic (user < assistant)
+  ---
+  duration_ms: 39.035417
+  type: 'test'
+  ...
+# Subtest: mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+ok 122 - mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+  ---
+  duration_ms: 61.496917
+  type: 'test'
+  ...
+# Subtest: a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+ok 123 - a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+  ---
+  duration_ms: 58.597917
+  type: 'test'
+  ...
+# [sidecar-chat] persist user message failed Error: fake_store_fail_always
+#     at Proxy.saveMessages (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-persistence.test.ts:241:37)
+#     at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:1661:15)
+# Subtest: a plain cancel neither deletes the turn nor replaces the actor
+ok 124 - a plain cancel neither deletes the turn nor replaces the actor
+  ---
+  duration_ms: 39.938833
+  type: 'test'
+  ...
+# [sidecar-chat] persist assistant message failed Error: fake_store_fail_always
+#     at Proxy.saveMessages (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-persistence.test.ts:241:37)
+#     at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:1719:15)
+#     at async Promise.all (index 1)
+# [sidecar-chat] persist assistant message failed Error: fake_store_fail_always
+#     at Proxy.saveMessages (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-persistence.test.ts:241:37)
+#     at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:1719:15)
+#     at async Promise.all (index 1)
+# Subtest: a persist failure does NOT crash the run — frames still flow and the run finishes
+ok 125 - a persist failure does NOT crash the run — frames still flow and the run finishes
+  ---
+  duration_ms: 59.519291
+  type: 'test'
+  ...
+# Subtest: write ORDER: the user row survives even when the assistant write fires first and the user save is slow (no tail-guard row loss)
+ok 126 - write ORDER: the user row survives even when the assistant write fires first and the user save is slow (no tail-guard row loss)
+  ---
+  duration_ms: 229.395167
+  type: 'test'
+  ...
+# Subtest: DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+ok 127 - DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+  ---
+  duration_ms: 89.376417
+  type: 'test'
+  ...
+# Subtest: dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+ok 128 - dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+  ---
+  duration_ms: 44.118292
+  type: 'test'
+  ...
+# Subtest: chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+ok 129 - chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+  ---
+  duration_ms: 111.282334
+  type: 'test'
+  ...
+# Subtest: chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+ok 130 - chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+  ---
+  duration_ms: 124.921209
+  type: 'test'
+  ...
+# Subtest: chat-interject: two interjections in one run chain to a 6-message split timeline
+ok 131 - chat-interject: two interjections in one run chain to a 6-message split timeline
+  ---
+  duration_ms: 158.784916
+  type: 'test'
+  ...
+# Subtest: worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+ok 132 - worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+  ---
+  duration_ms: 96.181
+  type: 'test'
+  ...
+# Subtest: chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+ok 133 - chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+  ---
+  duration_ms: 112.005208
+  type: 'test'
+  ...
+# Subtest: chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+ok 134 - chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+  ---
+  duration_ms: 166.283667
+  type: 'test'
+  ...
+# Subtest: chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+ok 135 - chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+  ---
+  duration_ms: 101.699292
+  type: 'test'
+  ...
+# Subtest: worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+ok 136 - worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+  ---
+  duration_ms: 96.442417
+  type: 'test'
+  ...
+# Subtest: P2: a debounced write in flight across a boundary lands under the PRE id (id snapshot at call time)
+ok 137 - P2: a debounced write in flight across a boundary lands under the PRE id (id snapshot at call time)
+  ---
+  duration_ms: 93.756167
+  type: 'test'
+  ...
+# Subtest: uplink parts + metadata are persisted verbatim on the user row
+ok 138 - uplink parts + metadata are persisted verbatim on the user row
+  ---
+  duration_ms: 10.859
+  type: 'test'
+  ...
+# Subtest: emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+ok 139 - emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+  ---
+  duration_ms: 12.004041
+  type: 'test'
+  ...
+# Subtest: emitWorkerArtifacts drops frames that do not belong to the live run
+ok 140 - emitWorkerArtifacts drops frames that do not belong to the live run
+  ---
+  duration_ms: 10.856958
+  type: 'test'
+  ...
+# Subtest: emitWorkerArtifacts emits nothing for an empty artifact list
+ok 141 - emitWorkerArtifacts emits nothing for an empty artifact list
+  ---
+  duration_ms: 10.889875
+  type: 'test'
+  ...
+# Subtest: image artifacts use one stable quad per file across dispatches and persist online
+ok 142 - image artifacts use one stable quad per file across dispatches and persist online
+  ---
+  duration_ms: 74.477042
+  type: 'test'
+  ...
+# Subtest: image artifacts use one stable quad per file across dispatches and persist offline
+ok 143 - image artifacts use one stable quad per file across dispatches and persist offline
+  ---
+  duration_ms: 73.920667
+  type: 'test'
+  ...
+# Subtest: artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+ok 144 - artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+  ---
+  duration_ms: 73.736
+  type: 'test'
+  ...
+1..144
+# tests 144
+# suites 0
+# pass 144
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3125.62125

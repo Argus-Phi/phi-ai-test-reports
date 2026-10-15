@@ -1,0 +1,11 @@
+[
+  {
+    "phase": "sent",
+    "threadId": "01a140b9-528c-76f8-b651-e87d856b8ac8",
+    "at": 1792087350067
+  },
+  {
+    "phase": "close-at-first-RUN_FINISHED",
+    "at": 1792087354570
+  }
+]

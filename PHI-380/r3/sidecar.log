@@ -1,0 +1,653 @@
+pnpm --filter @phi-ai/sidecar exec tsx --test src/services/api-files.test.ts src/hooks/use-renderable-file-url.test.tsx src/components/message-parts/file-part.test.tsx src/lib/artifact-delivery.test.tsx src/lib/agui-subscriber.test.ts src/store/message-store.test.ts
+TAP version 13
+# react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: 'NO_I18NEXT_INSTANCE' }
+# [NTP Perf] mark: newtab:window-id-start @ 1917.1ms
+# [NTP Perf] mark: newtab:window-id-end @ 1917.1ms
+# [NTP Perf] Window ID fetch: 0.1ms (1917.1 → 1917.1)
+# [NTP Perf] mark: newtab:window-id-start @ 1929.2ms
+# [NTP Perf] mark: newtab:window-id-end @ 1929.3ms
+# [NTP Perf] Window ID fetch: 0.1ms (1929.2 → 1929.3)
+# Subtest: an image remains visible with its name while loading
+ok 1 - an image remains visible with its name while loading
+  ---
+  duration_ms: 17.929959
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2046.5ms
+# [NTP Perf] mark: newtab:window-id-end @ 2046.6ms
+# [NTP Perf] Window ID fetch: 0.0ms (2046.5 → 2046.6)
+# Subtest: native preview uses the service address http://127.0.0.1:8788/api/v1/files/image while the image renders a blob
+ok 2 - native preview uses the service address http://127.0.0.1:8788/api/v1/files/image while the image renders a blob
+  ---
+  duration_ms: 120.021334
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2111.6ms
+# [NTP Perf] mark: newtab:window-id-end @ 2111.6ms
+# [NTP Perf] Window ID fetch: 0.0ms (2111.5 → 2111.6)
+# Subtest: native preview uses the service address /api/v1/files/image while the image renders a blob
+ok 3 - native preview uses the service address /api/v1/files/image while the image renders a blob
+  ---
+  duration_ms: 65.099083
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2116.7ms
+# [NTP Perf] mark: newtab:window-id-end @ 2116.7ms
+# [NTP Perf] Window ID fetch: 0.0ms (2116.7 → 2116.7)
+# Subtest: HTTP 404 renders unavailable with appropriate recovery
+ok 4 - HTTP 404 renders unavailable with appropriate recovery
+  ---
+  duration_ms: 5.487334
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2123.9ms
+# [NTP Perf] mark: newtab:window-id-end @ 2123.9ms
+# [NTP Perf] Window ID fetch: 0.0ms (2123.9 → 2123.9)
+# Subtest: HTTP 401 renders authorization with appropriate recovery
+ok 5 - HTTP 401 renders authorization with appropriate recovery
+  ---
+  duration_ms: 6.122708
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2129.3ms
+# [NTP Perf] mark: newtab:window-id-end @ 2129.3ms
+# [NTP Perf] Window ID fetch: 0.0ms (2129.3 → 2129.3)
+# Subtest: HTTP 403 renders authorization with appropriate recovery
+ok 6 - HTTP 403 renders authorization with appropriate recovery
+  ---
+  duration_ms: 5.988709
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2137.6ms
+# [NTP Perf] mark: newtab:window-id-end @ 2137.7ms
+# [NTP Perf] Window ID fetch: 0.0ms (2137.6 → 2137.7)
+# Subtest: HTTP 503 renders loadError with appropriate recovery
+ok 7 - HTTP 503 renders loadError with appropriate recovery
+  ---
+  duration_ms: 8.442875
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2155.3ms
+# [NTP Perf] mark: newtab:window-id-end @ 2155.3ms
+# [NTP Perf] Window ID fetch: 0.0ms (2155.3 → 2155.3)
+# Subtest: network retry re-reads the original file and successful image downloads original identity
+ok 8 - network retry re-reads the original file and successful image downloads original identity
+  ---
+  duration_ms: 17.575458
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2170.3ms
+# [NTP Perf] mark: newtab:window-id-end @ 2170.4ms
+# [NTP Perf] Window ID fetch: 0.0ms (2170.3 → 2170.4)
+# Subtest: image decoding failure is visible and isolated from the next file request
+ok 9 - image decoding failure is visible and isolated from the next file request
+  ---
+  duration_ms: 14.383791
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2175.8ms
+# [NTP Perf] mark: newtab:window-id-end @ 2175.9ms
+# [NTP Perf] Window ID fetch: 0.0ms (2175.8 → 2175.9)
+# Subtest: an external image decoding failure is visible
+ok 10 - an external image decoding failure is visible
+  ---
+  duration_ms: 6.554
+  type: 'test'
+  ...
+# [NTP Perf] mark: newtab:window-id-start @ 2187.9ms
+# [NTP Perf] mark: newtab:window-id-end @ 2187.9ms
+# [NTP Perf] Window ID fetch: 0.0ms (2187.9 → 2187.9)
+# Subtest: download failure has an explicit image error
+ok 11 - download failure has an explicit image error
+  ---
+  duration_ms: 11.532417
+  type: 'test'
+  ...
+# Subtest: a late error from an external image cannot hide its replacement
+ok 12 - a late error from an external image cannot hide its replacement
+  ---
+  duration_ms: 6.400458
+  type: 'test'
+  ...
+# Subtest: loads broker-backed object URLs for history, avatar, upload, and message file paths
+ok 13 - loads broker-backed object URLs for history, avatar, upload, and message file paths
+  ---
+  duration_ms: 222.780542
+  type: 'test'
+  ...
+# Subtest: never publishes or leaks a stale object URL when the source changes during loading
+ok 14 - never publishes or leaks a stale object URL when the source changes during loading
+  ---
+  duration_ms: 57.450667
+  type: 'test'
+  ...
+# Subtest: same source and loader identity are reloaded and revoked when auth scope changes
+ok 15 - same source and loader identity are reloaded and revoked when auth scope changes
+  ---
+  duration_ms: 108.241167
+  type: 'test'
+  ...
+# Subtest: status tells a load in flight from one that failed
+ok 16 - status tells a load in flight from one that failed
+  ---
+  duration_ms: 5.7095
+  type: 'test'
+  ...
+# Subtest: retry preserves the original reference, exposes the error, and releases prior attempts
+ok 17 - retry preserves the original reference, exposes the error, and releases prior attempts
+  ---
+  duration_ms: 159.986584
+  type: 'test'
+  ...
+# Subtest: retry releases an older in-flight response and account changes reject its completion
+ok 18 - retry releases an older in-flight response and account changes reject its completion
+  ---
+  duration_ms: 1.483458
+  type: 'test'
+  ...
+# Subtest: a resolved file is hidden when its loader auth scope is invalidated
+ok 19 - a resolved file is hidden when its loader auth scope is invalidated
+  ---
+  duration_ms: 53.996167
+  type: 'test'
+  ...
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# [AguiSubscriber] chat-trace tap failed Error: tap blew up
+#     at onChatTraceEvent (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/ai-extension/sidecar/src/lib/agui-subscriber.test.ts:1685:13)
+#     at Object.onEvent (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/ai-extension/sidecar/src/lib/agui-subscriber.ts:1198:11)
+#     at TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/ai-extension/sidecar/src/lib/agui-subscriber.test.ts:1691:20)
+#     at Test.runInAsyncScope (node:async_hooks:214:14)
+#     at Test.run (node:internal/test_runner/test:1047:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+#     at Test.postRun (node:internal/test_runner/test:1173:19)
+#     at Test.run (node:internal/test_runner/test:1101:12)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+# [AguiSubscriber] chat_error { message: 'llm stream error', code: 'QUOTA' }
+# Subtest: tool result file content is uploaded and converted into a generic file part
+ok 20 - tool result file content is uploaded and converted into a generic file part
+  ---
+  duration_ms: 19.19725
+  type: 'test'
+  ...
+# Subtest: tool result file content without mime type defaults to a generic binary artifact
+ok 21 - tool result file content without mime type defaults to a generic binary artifact
+  ---
+  duration_ms: 1.623584
+  type: 'test'
+  ...
+# Subtest: default (merge) joins two wire messageIds into ONE bubble separated by a blank line
+ok 22 - default (merge) joins two wire messageIds into ONE bubble separated by a blank line
+  ---
+  duration_ms: 2.767334
+  type: 'test'
+  ...
+# Subtest: default (merge) keeps a single wire messageId in one bubble with no separator
+ok 23 - default (merge) keeps a single wire messageId in one bubble with no separator
+  ---
+  duration_ms: 0.829542
+  type: 'test'
+  ...
+# Subtest: default (merge) without a wire messageId still produces one bubble (no separator)
+ok 24 - default (merge) without a wire messageId still produces one bubble (no separator)
+  ---
+  duration_ms: 0.760167
+  type: 'test'
+  ...
+# Subtest: default (merge) injects exactly one separator across THREE wire messageIds
+ok 25 - default (merge) injects exactly one separator across THREE wire messageIds
+  ---
+  duration_ms: 1.614958
+  type: 'test'
+  ...
+# Subtest: merge mode: assistant_bubble_boundary forces post-boundary text into a NEW bubble
+ok 26 - merge mode: assistant_bubble_boundary forces post-boundary text into a NEW bubble
+  ---
+  duration_ms: 2.024625
+  type: 'test'
+  ...
+# Subtest: merge mode control: WITHOUT a boundary the two segments merge into ONE bubble
+ok 27 - merge mode control: WITHOUT a boundary the two segments merge into ONE bubble
+  ---
+  duration_ms: 0.4205
+  type: 'test'
+  ...
+# Subtest: merge mode: boundary still splits even when both segments share a wire messageId
+ok 28 - merge mode: boundary still splits even when both segments share a wire messageId
+  ---
+  duration_ms: 2.085125
+  type: 'test'
+  ...
+# Subtest: split mode routes two wire messageIds in one run to two assistant bubbles
+ok 29 - split mode routes two wire messageIds in one run to two assistant bubbles
+  ---
+  duration_ms: 0.889958
+  type: 'test'
+  ...
+# Subtest: split mode keeps a single wire messageId in one bubble (no regression)
+ok 30 - split mode keeps a single wire messageId in one bubble (no regression)
+  ---
+  duration_ms: 0.526417
+  type: 'test'
+  ...
+# Subtest: split mode without a wire messageId still produces one bubble per run
+ok 31 - split mode without a wire messageId still produces one bubble per run
+  ---
+  duration_ms: 0.209834
+  type: 'test'
+  ...
+# Subtest: [merge (default)] RUN_STARTED immediately shows an English activity fallback before any text
+ok 32 - [merge (default)] RUN_STARTED immediately shows an English activity fallback before any text
+  ---
+  duration_ms: 0.205625
+  type: 'test'
+  ...
+# Subtest: [merge (default)] activity_status set replaces the fallback with the LLM narrator label
+ok 33 - [merge (default)] activity_status set replaces the fallback with the LLM narrator label
+  ---
+  duration_ms: 0.258708
+  type: 'test'
+  ...
+# Subtest: [merge (default)] streaming a new text segment does not clear the activity label
+ok 34 - [merge (default)] streaming a new text segment does not clear the activity label
+  ---
+  duration_ms: 0.119125
+  type: 'test'
+  ...
+# Subtest: [merge (default)] hold_line shows as run metadata until clear, never as reply text
+ok 35 - [merge (default)] hold_line shows as run metadata until clear, never as reply text
+  ---
+  duration_ms: 0.159791
+  type: 'test'
+  ...
+# Subtest: [merge (default)] the answer's first text or the run ending clears a hold_line left set
+ok 36 - [merge (default)] the answer's first text or the run ending clears a hold_line left set
+  ---
+  duration_ms: 0.124792
+  type: 'test'
+  ...
+# Subtest: [merge (default)] worker_progress does not directly replace the narrator activity label
+ok 37 - [merge (default)] worker_progress does not directly replace the narrator activity label
+  ---
+  duration_ms: 0.084708
+  type: 'test'
+  ...
+# Subtest: [merge (default)] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+ok 38 - [merge (default)] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+  ---
+  duration_ms: 0.460417
+  type: 'test'
+  ...
+# Subtest: [merge (default)] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+ok 39 - [merge (default)] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+  ---
+  duration_ms: 0.164792
+  type: 'test'
+  ...
+# Subtest: [merge (default)] RUN_FINISHED clears the activity label
+ok 40 - [merge (default)] RUN_FINISHED clears the activity label
+  ---
+  duration_ms: 0.159292
+  type: 'test'
+  ...
+# Subtest: [merge (default)] RUN_FINISHED after text does not leave an empty assistant bubble
+ok 41 - [merge (default)] RUN_FINISHED after text does not leave an empty assistant bubble
+  ---
+  duration_ms: 0.16125
+  type: 'test'
+  ...
+# Subtest: [merge (default)] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+ok 42 - [merge (default)] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+  ---
+  duration_ms: 0.171083
+  type: 'test'
+  ...
+# Subtest: [merge (default)] trace-only synthetic run does not mint an empty assistant bubble
+ok 43 - [merge (default)] trace-only synthetic run does not mint an empty assistant bubble
+  ---
+  duration_ms: 0.305417
+  type: 'test'
+  ...
+# Subtest: [merge (default)] unrelated CUSTOM events leave the activity label alone
+ok 44 - [merge (default)] unrelated CUSTOM events leave the activity label alone
+  ---
+  duration_ms: 0.104375
+  type: 'test'
+  ...
+# Subtest: [split] RUN_STARTED immediately shows an English activity fallback before any text
+ok 45 - [split] RUN_STARTED immediately shows an English activity fallback before any text
+  ---
+  duration_ms: 0.078084
+  type: 'test'
+  ...
+# Subtest: [split] activity_status set replaces the fallback with the LLM narrator label
+ok 46 - [split] activity_status set replaces the fallback with the LLM narrator label
+  ---
+  duration_ms: 0.04775
+  type: 'test'
+  ...
+# Subtest: [split] streaming a new text segment does not clear the activity label
+ok 47 - [split] streaming a new text segment does not clear the activity label
+  ---
+  duration_ms: 0.065833
+  type: 'test'
+  ...
+# Subtest: [split] hold_line shows as run metadata until clear, never as reply text
+ok 48 - [split] hold_line shows as run metadata until clear, never as reply text
+  ---
+  duration_ms: 0.143708
+  type: 'test'
+  ...
+# Subtest: [split] the answer's first text or the run ending clears a hold_line left set
+ok 49 - [split] the answer's first text or the run ending clears a hold_line left set
+  ---
+  duration_ms: 0.124958
+  type: 'test'
+  ...
+# Subtest: [split] worker_progress does not directly replace the narrator activity label
+ok 50 - [split] worker_progress does not directly replace the narrator activity label
+  ---
+  duration_ms: 0.055792
+  type: 'test'
+  ...
+# Subtest: [split] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+ok 51 - [split] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+  ---
+  duration_ms: 0.117459
+  type: 'test'
+  ...
+# Subtest: [split] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+ok 52 - [split] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+  ---
+  duration_ms: 0.280625
+  type: 'test'
+  ...
+# Subtest: [split] RUN_FINISHED clears the activity label
+ok 53 - [split] RUN_FINISHED clears the activity label
+  ---
+  duration_ms: 0.152041
+  type: 'test'
+  ...
+# Subtest: [split] RUN_FINISHED after text does not leave an empty assistant bubble
+ok 54 - [split] RUN_FINISHED after text does not leave an empty assistant bubble
+  ---
+  duration_ms: 0.1405
+  type: 'test'
+  ...
+# Subtest: [split] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+ok 55 - [split] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+  ---
+  duration_ms: 0.072292
+  type: 'test'
+  ...
+# Subtest: [split] trace-only synthetic run does not mint an empty assistant bubble
+ok 56 - [split] trace-only synthetic run does not mint an empty assistant bubble
+  ---
+  duration_ms: 0.057458
+  type: 'test'
+  ...
+# Subtest: [split] unrelated CUSTOM events leave the activity label alone
+ok 57 - [split] unrelated CUSTOM events leave the activity label alone
+  ---
+  duration_ms: 0.046708
+  type: 'test'
+  ...
+# Subtest: worker-route interjection: ack → user(interjection) → report renders the report as a NEW bubble positioned AFTER the interjection (merge default)
+ok 58 - worker-route interjection: ack → user(interjection) → report renders the report as a NEW bubble positioned AFTER the interjection (merge default)
+  ---
+  duration_ms: 0.739709
+  type: 'test'
+  ...
+# Subtest: worker-route control: WITHOUT a boundary a normal multi-segment run still merges into ONE bubble (merge flag not regressed)
+ok 59 - worker-route control: WITHOUT a boundary a normal multi-segment run still merges into ONE bubble (merge flag not regressed)
+  ---
+  duration_ms: 0.145416
+  type: 'test'
+  ...
+# Subtest: B2: an unsolicited run renders a NEW bubble keyed to the SERVER runId via the shared store
+ok 60 - B2: an unsolicited run renders a NEW bubble keyed to the SERVER runId via the shared store
+  ---
+  duration_ms: 0.530916
+  type: 'test'
+  ...
+# Subtest: B2: a normal run and a concurrent unsolicited run do not cross-contaminate the store
+ok 61 - B2: a normal run and a concurrent unsolicited run do not cross-contaminate the store
+  ---
+  duration_ms: 0.879958
+  type: 'test'
+  ...
+# Subtest: the per-run subscriber forwards EVERY raw frame to onChatTraceEvent before filtering
+ok 62 - the per-run subscriber forwards EVERY raw frame to onChatTraceEvent before filtering
+  ---
+  duration_ms: 0.459167
+  type: 'test'
+  ...
+# Subtest: an onChatTraceEvent tap throw cannot break the run
+ok 63 - an onChatTraceEvent tap throw cannot break the run
+  ---
+  duration_ms: 6.197125
+  type: 'test'
+  ...
+# Subtest: isPersonaMutationWorkerProgress accepts successful persona set_name/set_avatar results
+ok 64 - isPersonaMutationWorkerProgress accepts successful persona set_name/set_avatar results
+  ---
+  duration_ms: 0.24325
+  type: 'test'
+  ...
+# Subtest: isPersonaMutationWorkerProgress rejects errors, other capabilities, and non-result frames
+ok 65 - isPersonaMutationWorkerProgress rejects errors, other capabilities, and non-result frames
+  ---
+  duration_ms: 0.0875
+  type: 'test'
+  ...
+# Subtest: metrics recorder is stamped synchronously on run start, chunk deltas, and finish
+ok 66 - metrics recorder is stamped synchronously on run start, chunk deltas, and finish
+  ---
+  duration_ms: 0.543333
+  type: 'test'
+  ...
+# Subtest: metrics recorder is stamped on TEXT_MESSAGE_CONTENT deltas and error terminals
+ok 67 - metrics recorder is stamped on TEXT_MESSAGE_CONTENT deltas and error terminals
+  ---
+  duration_ms: 0.317709
+  type: 'test'
+  ...
+# Subtest: a blank-line-prefixed progress line renders as soon as it arrives
+ok 68 - a blank-line-prefixed progress line renders as soon as it arrives
+  ---
+  duration_ms: 0.399584
+  type: 'test'
+  ...
+# Subtest: progress lines accumulate into ONE part rather than stacking per step
+ok 69 - progress lines accumulate into ONE part rather than stacking per step
+  ---
+  duration_ms: 0.267208
+  type: 'test'
+  ...
+# Subtest: chat_error frames reach onChatError with their code and leave the run open
+ok 70 - chat_error frames reach onChatError with their code and leave the run open
+  ---
+  duration_ms: 0.488208
+  type: 'test'
+  ...
+# Subtest: a card reaches the handler with the run that asked, whatever run the subscriber is keyed to
+ok 71 - a card reaches the handler with the run that asked, whatever run the subscriber is keyed to
+  ---
+  duration_ms: 0.328584
+  type: 'test'
+  ...
+# Subtest: a question that ended unanswered reaches the handler, so its card can retire
+ok 72 - a question that ended unanswered reaches the handler, so its card can retire
+  ---
+  duration_ms: 0.110084
+  type: 'test'
+  ...
+# Subtest: a subscriber with nobody to show a card says so instead of dropping it
+ok 73 - a subscriber with nobody to show a card says so instead of dropping it
+  ---
+  duration_ms: 0.089458
+  type: 'test'
+  ...
+# Subtest: a form card's origin, fields and allowSkip reach the handler as sent
+ok 74 - a form card's origin, fields and allowSkip reach the handler as sent
+  ---
+  duration_ms: 0.088042
+  type: 'test'
+  ...
+# Subtest: an open question's style reaches the handler; any other style is dropped
+ok 75 - an open question's style reaches the handler; any other style is dropped
+  ---
+  duration_ms: 0.16725
+  type: 'test'
+  ...
+# Subtest: a task report frame tags the reply it precedes (merge mode)
+ok 76 - a task report frame tags the reply it precedes (merge mode)
+  ---
+  duration_ms: 0.2075
+  type: 'test'
+  ...
+# Subtest: a task report frame tags the reply it precedes (split mode)
+ok 77 - a task report frame tags the reply it precedes (split mode)
+  ---
+  duration_ms: 0.1015
+  type: 'test'
+  ...
+# Subtest: a malformed task report frame changes nothing
+ok 78 - a malformed task report frame changes nothing
+  ---
+  duration_ms: 0.099167
+  type: 'test'
+  ...
+# Subtest: internal screenshot observations are not promoted, while explicit exports survive replay
+ok 79 - internal screenshot observations are not promoted, while explicit exports survive replay
+  ---
+  duration_ms: 0.777375
+  type: 'test'
+  ...
+# Subtest: assistant file identity preserves external origins, distinct IDs, conversations and new runs
+ok 80 - assistant file identity preserves external origins, distinct IDs, conversations and new runs
+  ---
+  duration_ms: 0.149417
+  type: 'test'
+  ...
+# [AguiSubscriber] assistant_bubble_boundary → new bubble interject (segment=1)
+# react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: 'NO_I18NEXT_INSTANCE' }
+# [NTP Perf] mark: newtab:window-id-start @ 1936.1ms
+# [NTP Perf] mark: newtab:window-id-end @ 1936.2ms
+# [NTP Perf] Window ID fetch: 0.1ms (1936.1 → 1936.2)
+# Subtest: artifact replay after an interjection and history reload preserves its original run segment
+ok 81 - artifact replay after an interjection and history reload preserves its original run segment
+  ---
+  duration_ms: 10.812875
+  type: 'test'
+  ...
+# Subtest: real artifact mapping persists, streams, reloads and renders one downloadable image
+ok 82 - real artifact mapping persists, streams, reloads and renders one downloadable image
+  ---
+  duration_ms: 78.835958
+  type: 'test'
+  ...
+# Subtest: direct image loads preserve HTTP 401
+ok 83 - direct image loads preserve HTTP 401
+  ---
+  duration_ms: 11.851083
+  type: 'test'
+  ...
+# Subtest: direct image loads preserve HTTP 403
+ok 84 - direct image loads preserve HTTP 403
+  ---
+  duration_ms: 1.013834
+  type: 'test'
+  ...
+# Subtest: direct image loads preserve HTTP 404
+ok 85 - direct image loads preserve HTTP 404
+  ---
+  duration_ms: 0.47225
+  type: 'test'
+  ...
+# Subtest: direct image loads preserve HTTP 503
+ok 86 - direct image loads preserve HTTP 503
+  ---
+  duration_ms: 0.781875
+  type: 'test'
+  ...
+# Subtest: direct image loads fetch normalized bytes and release the object URL once
+ok 87 - direct image loads fetch normalized bytes and release the object URL once
+  ---
+  duration_ms: 2.456875
+  type: 'test'
+  ...
+# Subtest: external image URLs do not fetch or receive Phi credentials
+ok 88 - external image URLs do not fetch or receive Phi credentials
+  ---
+  duration_ms: 0.481666
+  type: 'test'
+  ...
+# Subtest: finishAssistantMessage marks running tool parts as aborted for aborted runs
+ok 89 - finishAssistantMessage marks running tool parts as aborted for aborted runs
+  ---
+  duration_ms: 1.25525
+  type: 'test'
+  ...
+# Subtest: a run with two wire messageIds renders two assistant bubbles with activity between
+ok 90 - a run with two wire messageIds renders two assistant bubbles with activity between
+  ---
+  duration_ms: 0.570334
+  type: 'test'
+  ...
+# Subtest: a run with a single wire messageId still renders exactly one bubble
+ok 91 - a run with a single wire messageId still renders exactly one bubble
+  ---
+  duration_ms: 0.452083
+  type: 'test'
+  ...
+# Subtest: absent wireMessageId falls back to one assistant bubble per run
+ok 92 - absent wireMessageId falls back to one assistant bubble per run
+  ---
+  duration_ms: 0.410958
+  type: 'test'
+  ...
+# Subtest: a single wire messageId spanning a real tool call stays one bubble
+ok 93 - a single wire messageId spanning a real tool call stays one bubble
+  ---
+  duration_ms: 0.692541
+  type: 'test'
+  ...
+# Subtest: interleaved deltas (A, B, A) append the late A to the existing bubble
+ok 94 - interleaved deltas (A, B, A) append the late A to the existing bubble
+  ---
+  duration_ms: 0.385459
+  type: 'test'
+  ...
+# Subtest: two-bubble run persists and reloads as two assistant messages
+ok 95 - two-bubble run persists and reloads as two assistant messages
+  ---
+  duration_ms: 0.26175
+  type: 'test'
+  ...
+# Subtest: replacing a sent user message keeps its place before the reply
+ok 96 - replacing a sent user message keeps its place before the reply
+  ---
+  duration_ms: 0.763708
+  type: 'test'
+  ...
+# Subtest: untimed history is not stamped later than the load
+ok 97 - untimed history is not stamped later than the load
+  ---
+  duration_ms: 0.421916
+  type: 'test'
+  ...
+1..97
+# tests 97
+# suites 0
+# pass 97
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2222.47

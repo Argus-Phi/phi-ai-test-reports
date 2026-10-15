@@ -1,0 +1,33 @@
+{
+  "chatId": "3f9b7da9-0f2e-408d-8f29-5e107c824310",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140b9-8660-727f-a178-8bbc5741e2fd",
+      "role": "user",
+      "parts": [
+        {
+          "text": "请给我当前页面一张完整的截图",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a140b9-982f-7231-9958-6438abfad655",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正在为你截取当前页面的完整截图。当前没有附加可供截图的页面，所以这次无法导出截图。截图技能已完成处理；如果你愿意，我可以为你安装它，让下次能直接一步完成。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": []
+}

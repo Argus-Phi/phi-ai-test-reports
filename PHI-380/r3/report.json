@@ -1,0 +1,762 @@
+{
+ "key": "PHI-380",
+ "title": "修复图片生成与截图任务产物未返回对话的问题（反馈 #196）",
+ "work_type": "bugfix",
+ "round": 3,
+ "kind": "regression",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮仅按修复文件映射执行6条定向用例，6通过、0失败、0阻塞、0未执行；1334项自动化全通过。真实Canary验证生成/截图首段断线后的持久化与重启恢复，以及direct/native Plan最终总结和真实部分成功报告，B2-1/B2-2均关闭。发现1个非阻塞minor文案问题；既有执行前Paused单列PHI-439，失败与QA准备尝试分组保留。本轮回归已通过，允许进入同SHA完整终测；本报告不替代最终PR引用的终测报告。",
+ "sha": "d423531174f07850748fb9ea714ffb07ee90622d",
+ "branch": "PHI-380-deliver-requested-images",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/582",
+ "generated_at": "2026-10-15T18:19:02.568676+00:00",
+ "environment": {
+  "机器": "专用macOS测试机（本机）",
+  "Phi Canary": "2026.10.15.0207",
+  "Sidecar": "direct100.0.0 / native2026.10.16.0136；结束恢复商店1908",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "服务": "同SHA Sentinel dev attach；stage配置；8788/UDS/Gateway/CDP",
+  "数据库": "Runner既有测试账号phi_agent；仅本轮合成会话/文件，无schema改动",
+  "Langfuse": "Phi Agent - dev（/api/public/projects确认）",
+  "测试站": "127.0.0.1:18938 fixture.html；已停止",
+  "恢复": "原注册与406文件hash一致；8788/18938/18939空闲；产品worktree clean"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（r3范围及手测方案）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/6e2233ae284a28456774f7d4bb57875c396fbda9/PHI-380/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/064475a5c2296b7d9c353640e0b7581f0c15436f/PHI-380/runbook.md"
+  },
+  {
+   "title": "修复评审r3",
+   "url": "https://github.com/phibrowser/phi-ai/blob/b5d8cf4b9/PHI-380/reviews/fix-r3-spock.md"
+  },
+  {
+   "title": "上一轮终测r2",
+   "url": "https://argus-phi.github.io/phi-ai-test-reports/PHI-380/r2-final/"
+  },
+  {
+   "title": "本地模拟页面源文件（本轮端口18938）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-380/qa-evidence/fix-r2/resumed/fixture.html"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-3",
+   "title": "B2-1：委派首段断线后的生成图与最终回复持久化",
+   "mode": "api",
+   "ac": "AC-8",
+   "priority": "P0",
+   "precondition": "固定被测SHA；专用Canary2026.10.15.0207；stag配置与测试账号；仅合成页面和会话",
+   "steps": [
+    "POST /api/v1/chats 创建合成Default profile会话。",
+    "真实WS发送原文“生成两张独立图片：一张红色纸船，一张蓝色风筝”，首个RUN_FINISHED立即close；该CLI结束后继续保持源码服务，等executor/report真正结束。",
+    "GET本会话messages与每个文件；Canary打开同conv_id，核对2图和最终回复。",
+    "截图独立通过真实sidebar发送，在首个RUN_FINISHED关闭实际WebSocket；详见T-18。"
+   ],
+   "expected": "断线不丢已确认文件与最终回复；原对话恰2生成图；截图独立恰1文件，正确归属无重复。",
+   "actual": "首段WS已关闭，executor随后ok=true；历史含2张1024² PNG及“红色纸船和蓝色风筝”最终回复，文件200，1189856/1182228bytes；DOM与下载SHA256一致。真实截图断线也1文件+最终回复，见T-18。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "offline-generated-ws.json",
+     "caption": "首段终态即关闭的真实WS事件",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-progress.json",
+     "caption": "执行中历史：尚无文件，未冒称完成",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-final.json",
+     "caption": "最终持久化2文件及SHA256",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "runtime-success.log",
+     "caption": "同SHA生产宿主委派、终态与报告时序",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-01.png",
+     "caption": "Canary重入后的2张独立图片",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-02.png",
+     "caption": "结束状态与最终回复",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "b64a8b4f-1993-469b-a19a-d849466ca297",
+     "path": "trace-b64a8b4f-1993-469b-a19a-d849466ca297.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/b64a8b4f-1993-469b-a19a-d849466ca297",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "uses_chat": true,
+   "notes": "",
+   "bugs": []
+  },
+  {
+   "id": "T-4",
+   "title": "continuation事实、失败原因与部分结果自动化回归",
+   "mode": "auto",
+   "ac": "AC-10",
+   "priority": "P1",
+   "precondition": "固定被测SHA；专用Canary2026.10.15.0207；stag配置与测试账号；仅合成页面和会话",
+   "steps": [
+    "执行本轮chat878、bundle215和host144定向生产链测试，完整命令见checks.json。",
+    "确认blocking/background在terminal update_plan清除计划后，最终speaking retry仍获得成功状态、executor摘要、已交付数。",
+    "检查失败正常/空/异常/部分异常/无voice、持久化与三态retryable相关断言。"
+   ],
+   "expected": "最终总结事实保留；失败/部分成功准确；无无限重试或旧文件冒充。",
+   "actual": "本轮chat878/878、bundle215/215、host144/144，0失败/取消；两条plan completion preserves result facts用例通过；blocking/background失败原因及历史断言通过。实际部分成功另由T-19真机验证。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "chat-engine.log",
+     "caption": "chat全套878及两种执行模式的事实保留断言",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "bundle.log",
+     "caption": "生产loop→executor→assistant→hub/persist离线回归",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "host.log",
+     "caption": "宿主144项，含即时和排队late session",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-01.png",
+     "caption": "实际自动化输出的可读视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-02.png",
+     "caption": "实际自动化汇总视图",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "uses_chat": false,
+   "notes": "",
+   "bugs": []
+  },
+  {
+   "id": "T-9",
+   "title": "相称自动化、类型、两种Sidecar构建与源码启动",
+   "mode": "auto",
+   "ac": "AC-2—AC-12",
+   "priority": "P1",
+   "precondition": "固定被测SHA；专用Canary2026.10.15.0207；stag配置与测试账号；仅合成页面和会话",
+   "steps": [
+    "检出指定SHA并pnpm install --frozen-lockfile。",
+    "执行checks.py中bundle/chat/host/Sidecar定向套件；pnpm type-check和linked/Sidecar tsc --force。",
+    "执行build:local和普通build；加载本轮快照，核对live版本100.0.0/2026.10.16.0136及后者无pinned URL。",
+    "同SHA以stage配置启动8788，确认Gateway/UDS/CDP；另实际PORT=0启动后收尾停止。"
+   ],
+   "expected": "受影响测试、类型、构建和真实启动通过；不修改产品代码。",
+   "actual": "1334项：bundle215+chat878+host144+Sidecar97全部通过；repo type-check56/56、force类型与local/普通build exit0。8788及PORT0均有真实ready/Gateway/CDP证据；产品worktree clean。未重跑host全套，不把评审的PHI-416取消称为本轮全绿。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "checks.json",
+     "caption": "命令、退出码和耗时",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar.log",
+     "caption": "Sidecar定向97项",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "types.log",
+     "caption": "repo类型检查",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "force-types.log",
+     "caption": "linked force类型",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-force.log",
+     "caption": "Sidecar force类型",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "build-local.log",
+     "caption": "direct build",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "build-native.log",
+     "caption": "普通build",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "runtime-port0.log",
+     "caption": "真实PORT0与UDS/Gateway/CDP启动",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cleanup.json",
+     "caption": "环境恢复与产品clean",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-9-01.png",
+     "caption": "自动化与构建实际命令/退出码视图",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-9-02.png",
+     "caption": "断言及汇总视图",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "uses_chat": false,
+   "notes": "",
+   "bugs": []
+  },
+  {
+   "id": "T-15",
+   "title": "B2-2：direct/native多步Plan完成后的总结",
+   "mode": "gui",
+   "ac": "AC-5、AC-10",
+   "priority": "P0",
+   "precondition": "固定被测SHA；专用Canary2026.10.15.0207；stag配置与测试账号；仅合成页面和会话",
+   "steps": [
+    "保持三色长页面A前台，通过原生sidebar输入“先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图”。",
+    "direct100.0.0下第一次在执行前Paused，单列失败尝试，重开新会话同原文重跑至terminal update_plan后最终回复。",
+    "普通Sidecar2026.10.16.0136/native broker同原文再跑；核对图和截图各1、最终文字、不重复委派。",
+    "两传输产品下载，计算DOM/历史/实际下载哈希；系统Preview打开；native截图原生预览。"
+   ],
+   "expected": "执行完成后总结准确肯定已交付文件；不否认、不再次委派相同任务；两文件可用。",
+   "actual": "direct尝试2与native尝试1均实际完成Plan并各交付1主题图1024²+1整页截图1422×5280；terminal update_plan后分别明确“整页截图也已附上”“主题图片…生成并交付”。两传输下载complete，逐份hash=DOM=历史；实际系统打开通过，native长截图原生预览通过。direct尝试1执行前Paused属于既有PHI-439；它未到B2-2触发点，不记为成功且保留独立证据。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-15-01.png",
+     "caption": "direct尝试1请求与计划",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-15-02.png",
+     "caption": "direct尝试1停在Paused",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "plan-direct-attempt1.json",
+     "caption": "失败尝试只有用户消息/0文件",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "trace_id": "763a0e6a-fa82-4a3f-8f2c-5ed4e7faf62e",
+     "path": "trace-763a0e6a-fa82-4a3f-8f2c-5ed4e7faf62e.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/763a0e6a-fa82-4a3f-8f2c-5ed4e7faf62e",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-15-03.png",
+     "caption": "direct重跑原文",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-04.png",
+     "caption": "direct执行中",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-05.png",
+     "caption": "direct最终总结",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "plan-direct-final.json",
+     "caption": "direct最终2文件与回复",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "plan-direct-dom.json",
+     "caption": "direct显示/尺寸/hash",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-08.png",
+     "caption": "direct主题图实际下载后在系统Preview打开",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "74589449-1e3f-4ac7-a7bc-7c898154cde9",
+     "path": "trace-74589449-1e3f-4ac7-a7bc-7c898154cde9.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/74589449-1e3f-4ac7-a7bc-7c898154cde9",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-07.png",
+     "caption": "native原文请求",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-09.png",
+     "caption": "native最终总结",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "plan-native-final.json",
+     "caption": "native最终2文件与回复",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "plan-native-dom.json",
+     "caption": "native显示/尺寸/hash",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-native.json",
+     "caption": "两传输本轮实际下载及哈希",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-10.png",
+     "caption": "native长截图实际原生预览",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-11.png",
+     "caption": "native主题图实际系统打开",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-12.png",
+     "caption": "native截图实际系统打开",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "5e1a82f6-932f-4b2e-a2ae-18213e9fd83f",
+     "path": "trace-5e1a82f6-932f-4b2e-a2ae-18213e9fd83f.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/5e1a82f6-932f-4b2e-a2ae-18213e9fd83f",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 3,
+     "outcome": "pass"
+    }
+   ],
+   "uses_chat": true,
+   "notes": "attempt为本条用例跨组合的顺序：1=direct Paused；2=direct成功；3=native成功。原有格式/尺寸/取消矩阵不在本轮定向范围。",
+   "bugs": []
+  },
+  {
+   "id": "T-18",
+   "title": "B2-1：真实截图断线及两类文件刷新/重启/native恢复",
+   "mode": "gui",
+   "ac": "AC-8",
+   "priority": "P0",
+   "precondition": "固定被测SHA；专用Canary2026.10.15.0207；stag配置与测试账号；仅合成页面和会话",
+   "steps": [
+    "截图API第一次缺少附加页面上下文，返回无附加页面；作为QA准备失败单列，不当产品bug。",
+    "在真实原生sidebar保留页面附件；对实际WebSocket注入一次网络故障，在首个RUN_FINISHED关闭；记录close事件，等真实后台结束后GET/刷新。",
+    "核对截图1份1422×5280、三色与END2400，原生预览、产品下载、系统Preview打开并比较hash。",
+    "生成2图同样验证原生预览与下载打开；换普通Sidecar并重启Canary，再打开两个conv_id和刷新，重读文件字节hash。",
+    "一次额外native预览发生在QA主动停止8788做PORT0检查期间，准确显示远程加载失败；恢复8788 ready后重试成功，单列环境尝试。"
+   ],
+   "expected": "首段断线后生成/截图各自保存文件与最终回复；刷新/重启后原图原回合不丢不重复，文件可打开。",
+   "actual": "真实sidebar断线记录明确，后台截图成功后历史1PNG+最终回复；生成2张1024²及截图1张1422×5280在重启Canary/普通Sidecar2026.10.16.0136后都重新解码，hash与direct原值、产品下载一致。生成图与截图原生预览和系统打开实测。QA停止8788期间的预览失败恢复后成功，未混入成功组。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "offline-screenshot-ws.json",
+     "caption": "QA API尝试1：无附加页面上下文",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-progress.json",
+     "caption": "准确返回无附加页面，非图片丢失",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "trace_id": "249af1f8-0f2a-4674-8efc-e52234fbc00f",
+     "path": "trace-249af1f8-0f2a-4674-8efc-e52234fbc00f.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/249af1f8-0f2a-4674-8efc-e52234fbc00f",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-18-04.png",
+     "caption": "真实sidebar请求关键步骤",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-fault.json",
+     "caption": "实际发送和首个RUN_FINISHED close时间",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-final.json",
+     "caption": "后台完成后历史1文件与回复",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-05.png",
+     "caption": "刷新后完整截图",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-06.png",
+     "caption": "截图原生预览，capability已遮蔽",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-07.png",
+     "caption": "截图实际系统打开",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-01.png",
+     "caption": "生成图原生预览，capability已遮蔽",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-03.png",
+     "caption": "红纸船实际系统打开",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-08.png",
+     "caption": "蓝风筝实际系统打开",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-direct.json",
+     "caption": "实际产品下载与哈希",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-native-restore.json",
+     "caption": "Canary重启后2图hash完全一致",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-native-restore.json",
+     "caption": "Canary重启后截图hash一致",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-09.png",
+     "caption": "重启/native恢复两张图",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-12.png",
+     "caption": "重启/native恢复独立截图",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "4ef556c4-7122-4839-a92c-08a715e69b05",
+     "path": "trace-4ef556c4-7122-4839-a92c-08a715e69b05.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/4ef556c4-7122-4839-a92c-08a715e69b05",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "b64a8b4f-1993-469b-a19a-d849466ca297",
+     "path": "trace-b64a8b4f-1993-469b-a19a-d849466ca297.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/b64a8b4f-1993-469b-a19a-d849466ca297",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-10.png",
+     "caption": "QA停止8788做PORT0检查期间的预览失败",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "runtime-port0.log",
+     "caption": "该时段只启动PORT0，未满足文件原8788地址",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "runtime-restore.log",
+     "caption": "恢复同SHA8788 ready",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-11.png",
+     "caption": "服务恢复后蓝风筝原生预览成功",
+     "attempt": 4,
+     "outcome": "pass"
+    }
+   ],
+   "uses_chat": true,
+   "notes": "",
+   "bugs": []
+  },
+  {
+   "id": "T-19",
+   "title": "真实模型拒绝与Plan部分成功最终报告",
+   "mode": "gui",
+   "ac": "AC-10",
+   "priority": "P1",
+   "precondition": "固定被测SHA；专用Canary2026.10.15.0207；stag配置与测试账号；仅合成页面和会话",
+   "steps": [
+    "停止上一源码attach；按runbook在stage配置之后将IMAGE_GENERATION_MODEL设为phi-380-invalid-model，重新启动同SHA。",
+    "真实原生sidebar同原文Plan请求，保持A前台；等待图片拒绝、实际截图交付、terminal update_plan和最终回复。",
+    "GET历史并刷新，核对0生成图、1可解码截图、实际拒绝原因及已交付数；检查没有重复执行相同任务。"
+   ],
+   "expected": "部分成功准确：生成失败原因与不可立即重试的事实不丢；截图已交付1份仍被承认；最终不称全成功或0文件。",
+   "actual": "真实worker ok=false：invalid model不存在/无权访问，生成0图；完整截图成功189917bytes/1422×5280。Plan将生成步骤dropped、截图done；最终回复和刷新历史准确保留模型拒绝、未再次尝试生成、截图已保存及已交付1文件。未出现B2-2式否认/重复委派。发现非阻塞B3-1：事实尾段重复附带截图准备JSON和错误串，内容事实正确但影响可读性。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-19-01.png",
+     "caption": "invalid-model Plan原文请求",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-02.png",
+     "caption": "执行中的阶段事实",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-03.png",
+     "caption": "部分成功最终回复",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-04.png",
+     "caption": "刷新后同样结果与Plan结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "failure-plan-final.json",
+     "caption": "持久化1截图和完整失败原因",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "failure-plan-dom.json",
+     "caption": "刷新DOM和实际解码尺寸",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "runtime-partial.log",
+     "caption": "真实拒绝/已交付1文件/terminal update_plan时序",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "978e33ae-d624-4864-a961-6cc125aef464",
+     "path": "trace-978e33ae-d624-4864-a961-6cc125aef464.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/978e33ae-d624-4864-a961-6cc125aef464",
+     "caption": "DEV trace：按本轮合成 conversation/session 查询并导出；用户标识、凭据、无关记忆与文件 capability 脱敏",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "uses_chat": true,
+   "notes": "自然quota/policy、EACCES等原计划其余子项本轮未重跑；未用invalid-model冒充自然故障。",
+   "bugs": [
+    "B3-1"
+   ]
+  }
+ ],
+ "bugs": [
+  {
+   "id": "B2-1",
+   "severity": "major",
+   "title": "委派首段结束后断线丢图/最终回复",
+   "case_ids": [
+    "T-3",
+    "T-18"
+   ],
+   "repro": "沿上一轮原文断线步骤；本轮生成与截图各自验证成功。",
+   "status": "closed — fixed"
+  },
+  {
+   "id": "B2-2",
+   "severity": "major",
+   "title": "多步Plan最终总结否认已交付文件",
+   "case_ids": [
+    "T-15",
+    "T-19"
+   ],
+   "repro": "沿上一轮Plan原文；direct/native及部分成功最终总结已实测准确。",
+   "status": "closed — fixed"
+  },
+  {
+   "id": "B3-1",
+   "severity": "minor",
+   "title": "部分成功事实尾段重复输出截图准备JSON与错误串",
+   "case_ids": [
+    "T-19"
+   ],
+   "repro": "invalid-model模式执行原文主题图+整页截图Plan；生成失败/截图成功后，最终事实尾段包含cdpParams/cdpParamsJson并重复同一错误原因；刷新仍存在。",
+   "status": "open — non-blocking"
+  }
+ ],
+ "known_issues": [
+  {
+   "id": "PHI-439",
+   "title": "Plan连续保存相同计划后在执行前Paused（本轮direct1/2；基线上轮2/3）",
+   "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+   "url": "mention://issue/01a140c2-400c-7ee0-a02a-a38ab6ef0c00",
+   "case_ids": [
+    "T-15"
+   ],
+   "evidence": "本轮T-15-01/02、plan-direct-attempt1.json、trace763a0e6a；基线来自test-report-final-r2.md@4dd38aad和r2-final/baseline-plan-1/2/3.json及trace4268005f/0b93f23a，已重新读取核对，不声称本轮重新执行基线。"
+  }
+ ]
+}

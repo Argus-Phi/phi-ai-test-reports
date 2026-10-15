@@ -1,0 +1,166 @@
+{
+  "label": "offline-screenshot",
+  "threadId": "3f9b7da9-0f2e-408d-8f29-5e107c824310",
+  "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c",
+  "text": "请给我当前页面一张完整的截图",
+  "events": [
+    {
+      "phase": "open",
+      "at": 1792087262798
+    },
+    {
+      "type": "RUN_STARTED",
+      "timestamp": 1792087262816,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "chat_state",
+      "timestamp": 1792087262819,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "chat_state",
+      "timestamp": 1792087262819,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "thought",
+      "timestamp": 1792087262891,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087263411,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087263429,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087263444,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087263467,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087263470,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "live_context_skipped",
+      "timestamp": 1792087264022,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "task_route",
+      "timestamp": 1792087264023,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "chat_state",
+      "timestamp": 1792087264024,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "intent",
+      "timestamp": 1792087264025,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_hit",
+      "timestamp": 1792087264025,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087265427,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087265836,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087266012,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_request",
+      "timestamp": 1792087266014,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_result",
+      "timestamp": 1792087266014,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_request",
+      "timestamp": 1792087266014,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_result",
+      "timestamp": 1792087266015,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "activity_status",
+      "timestamp": 1792087266323,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087267008,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087267356,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "control_intercepted",
+      "timestamp": 1792087267359,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    },
+    {
+      "type": "RUN_FINISHED",
+      "timestamp": 1792087267359,
+      "runId": "fcfa3ea5-705e-46ca-a7dc-6fc7482a455c"
+    }
+  ]
+}

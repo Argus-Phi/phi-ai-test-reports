@@ -1,0 +1,33 @@
+{
+  "chatId": "0ff7979c-0ad5-4be3-aee4-a370690ea695",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140b7-95a0-77d2-9a5a-3cc673e2647f",
+      "role": "user",
+      "parts": [
+        {
+          "text": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a140b7-a986-758d-8cee-dd93a1498bde",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正在为你分别生成纸船和风筝的图片。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": []
+}

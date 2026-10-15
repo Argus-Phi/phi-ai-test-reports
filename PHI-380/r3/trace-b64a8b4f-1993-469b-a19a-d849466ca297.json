@@ -1,0 +1,4378 @@
+{
+  "id": "b64a8b4f-1993-469b-a19a-d849466ca297",
+  "projectId": "cmoicirky002jsq07vrduoi5s",
+  "name": "phi-agent.chat",
+  "timestamp": "2026-10-15T17:58:55.699Z",
+  "environment": "default",
+  "tags": [
+    "subject:phi"
+  ],
+  "bookmarked": false,
+  "release": null,
+  "version": null,
+  "userId": "[REDACTED]",
+  "sessionId": "0ff7979c-0ad5-4be3-aee4-a370690ea695",
+  "public": false,
+  "input": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+  "output": "我正在为你分别生成纸船和风筝的图片。\n\n两张独立图片已生成：红色纸船和蓝色风筝。",
+  "metadata": {},
+  "createdAt": "2026-10-15T17:58:57.591Z",
+  "updatedAt": "2026-10-15T18:00:05.172Z",
+  "externalId": null,
+  "scores": [],
+  "latency": 52.386,
+  "observations": [
+    {
+      "id": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:00.741Z",
+      "endTime": "2026-10-15T17:59:47.679Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": null,
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.turn",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:03.488Z",
+      "updatedAt": "2026-10-15T18:00:05.310Z",
+      "input": "生成两张独立图片：一张红色纸船，一张蓝色风筝。",
+      "output": "我正在为你分别生成纸船和风筝的图片。\n\n两张独立图片已生成：红色纸船和蓝色风筝。",
+      "metadata": {
+        "kind": "delegation",
+        "conversationId": "0ff7979c-0ad5-4be3-aee4-a370690ea695",
+        "states": "thinking → responding → reflecting → responding → reflecting → idle"
+      },
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 46.938,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "8a88024e-39df-4074-bfed-dc8c0f2ba00e",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:46.215Z",
+      "endTime": "2026-10-15T17:59:47.679Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "5b8a99db-4bd8-4f3d-ba3a-19e9f01029c7",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.reply",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:48.025Z",
+      "updatedAt": "2026-10-15T18:00:05.205Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_084488d3427dfa96006ad11492a86c87d296f3aea8a02ca309",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087186,
+        "completed_at": 1792087187,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "msg_084488d3427dfa96006ad114934f9487d2a3612b30669e37e2",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "两张独立图片已生成：红色纸船和蓝色风筝。",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/response",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.464,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1753,
+        "output": 23,
+        "total": 4893,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1753,
+        "output": 23,
+        "total": 4893
+      }
+    },
+    {
+      "id": "5b8a99db-4bd8-4f3d-ba3a-19e9f01029c7",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:00.756Z",
+      "endTime": "2026-10-15T17:59:47.679Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.respond",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:04.045Z",
+      "updatedAt": "2026-10-15T18:00:05.176Z",
+      "input": "生成两张独立图片：一张红色纸船，一张蓝色风筝。",
+      "output": {
+        "segments": [
+          "我正在为你分别生成纸船和风筝的图片。",
+          "两张独立图片已生成：红色纸船和蓝色风筝。"
+        ]
+      },
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 46.923,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "1fdc9bb4-c767-4f66-b4ce-f6ab88bc9684",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:47.114Z",
+      "endTime": "2026-10-15T17:59:48.086Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:58.538Z",
+      "updatedAt": "2026-10-15T18:00:05.056Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_064f17dfedb04b8d006ad114938e0087d286b2f0f0a9dc33ca",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087187,
+        "completed_at": 1792087188,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_064f17dfedb04b8d006ad11493e71887d29f4a98f07b70435e",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 0.972,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 250,
+        "output": 17,
+        "total": 267,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 250,
+        "output": 17,
+        "total": 267
+      }
+    },
+    {
+      "id": "5d723bc0-ab6b-4672-a160-9e0da0c4a17f",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:24.129Z",
+      "endTime": "2026-10-15T17:59:36.276Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "5f62819b-fdde-47f2-9c9c-f42773500853",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "image_generation.run",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:31.545Z",
+      "updatedAt": "2026-10-15T17:59:54.925Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/chat/completions",
+        "payload": {
+          "model": "phi/agent/image-generation",
+          "messages": "[REDACTED_PERSONAL_CONTEXT]",
+          "modalities": [
+            "image",
+            "text"
+          ],
+          "image_config": {
+            "aspect_ratio": "1:1",
+            "image_size": "1K"
+          }
+        }
+      },
+      "output": "@@@langfuseMedia:type=application/json|id=1qzhrqrtbRW_ygdy0EO8pB|source=bytes@@@",
+      "metadata": {},
+      "model": "phi/agent/image-generation",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 12.147,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 71,
+        "output": 1120,
+        "total": 1191,
+        "cache_read_input_tokens": "[REDACTED]",
+        "cache_creation_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 71,
+        "output": 1120,
+        "total": 1191
+      }
+    },
+    {
+      "id": "75d368af-df3e-4e20-a779-06013b7c6bc0",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:36.326Z",
+      "endTime": "2026-10-15T17:59:42.005Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "worker.llm",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:48.861Z",
+      "updatedAt": "2026-10-15T17:59:54.602Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "include": [
+            "reasoning.encrypted_content"
+          ],
+          "reasoning": {
+            "effort": "medium",
+            "summary": "auto"
+          },
+          "parallel_tool_calls": false,
+          "tools": "[REDACTED_PERSONAL_CONTEXT]"
+        }
+      },
+      "output": {
+        "id": "resp_0c4004b93d6268ed006ad11489f3c087d2a05cccb426e3a7a9",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087178,
+        "completed_at": 1792087181,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "rs_0c4004b93d6268ed006ad1148c17a887d2829c5de45734d366",
+            "type": "reasoning",
+            "content": [],
+            "summary": [],
+            "encrypted_content": "gAAAAABq0RSNrg_g4OnzgS7-YbUHoNn_A0EdtPjyP6UinhNJEMyKWvEnH4c5ef-SPs-lGW2NXEUje6x7K4rVvc5K18gvQPrKJQdjd1jKMkpjnewW2Z1N4etuK6pmOwkf3b6Eou4tlS7hIrnw92ta-VZfWpyqXKlsMFdezLbag6XM0Ofm1hT4pnEnSzjw-_MdRqeZ58N6RKxE5RHmg2GD9vorBpTz4FLONGB-0QnWbfrSduJkfaL573A3bYay-0qrxXyKwKmmwC8bvvk2KBCXTrn9nApK7TkUjHseHW_YUvbQKc9JFNgfP-CaFL0_poPLZT1zG5xZYb5noO9b_ja0vzipwnVmtd6pjWzSG0i2_gnxnreWgzgJJBHYpLFAYO3x6F0hjnDKNFunFjTmG_PDdNrPITcuTx--_ZD4YA7HgYR2OB4xnxQx45eR4g3-6w4IylgvcI9xk2dydhHnGnJMBX1kNYQ-OpMq46uIdqEirxkgTENV9WuqES_cDEMdZl_ljC1jt1vBNqRGR-sgUIRbtyFi_kk5PNrIUahJkiV_tXGKPfNwnP0KOzGtmtQ0qmPMR8l3PJEyidd1Cx7bDUpLod_oh6hEcIi5cZiPcjVhk7TE-9l1kZVnWBPS4QV3XM0Q84kXnW5oOAbWR8nB8cWBpnBLYyFnjyFm-4P2ssqANCMDenkTC4NypeJg806hciLiY18JzoLOEKpHjgeMEJXEtVJTNRv-jclkEB7jglfEbxshp7iH7MASEUISnIlUVtEOgyXBlpPQl9-yX8KWWfTZ7yjHiJ0LlGCJe6igBdnY1eFzve3RXtYkXFC2G5Tqq8_KfV5A6q12DQcJm0lu0XcmafCxa9t44q42ee2ewa7eiBpQGYGPbYT_u6kA0K67i1W8JrvHbf9pua69Wo43i97beSomwha4sX-PgywzxNDBs3GyZR4iDdLZ2uVAY-abv_jAx3OBEpenWAx1MYJmNRPAmVZe4xPoIGw_S1LNYXUG5xn4XuONho__HYUoeOZF9QgSEgS5ZnB6QLB4lVgJq6Ciw-sn77KsteCvp8cEUJ950KU_TgEKz4OAIo2HYZ02Weqxul4fBk5vOx8a47mcNtCu0lpW_FPJOI7nO2BersQUS2Gcyj-bLFADEZNGtwFNNyEjCGeKMxgHsFO5zxQjijEvCHzaiMNLYqPezRw7Y6tVRPpop5Xp444qTOsUmuJnTgycWJ1Nr691sXbQdApo0FNl4YqvJXVMr006qtBlDc351wjusIJCe8XnTweeL9qHDpWi82hCkfVEHxhy6dUICqjlA8-ec8VCIJAYfXfaaXVwuDDFkw352XvmoNZg4exmQDyUXmggfFl6m1m5VV222b0BBkGatxBf1Zgomp3vmmB1fyyOcH_1oMM0zQBUDVv7vtwY8ONjb8UJAzPzsfvR2F_5QOYqB663Am_jk3QMXXr4Q-0AWuB_zsoAjqhz7cBJPYv4BRuNfEUP_bupvxzD7yWWipyk04g0pPCq0Vr8q4nIJXCrCjh6Arxtepiyj7-RHlUtNIMXm7HyPkj_b6WLEfBkIX6P8JRXb5SR_C74q64iSSO6zXnEa_55El2A0QEIMIiUtZEOKyP5rELhyb5mluSVFCqdORYwz5SCuXyqI4d1hv6bspIYiZ_q5gahA5ENR9k83_jsCotiEIIK"
+          },
+          {
+            "id": "msg_0c4004b93d6268ed006ad1148d34b887d2aba94715fcc23d62",
+            "type": "message",
+            "status": "completed",
+            "phase": "commentary",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "两张图片都已生成，我现在把它们作为独立文件交付给你。",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          },
+          {
+            "id": "fc_0c4004b93d6268ed006ad1148d441887d2821de5612c922423",
+            "type": "function_call",
+            "status": "completed",
+            "call_id": "call_T37UXpli9EjlZv4cEfDr67ap",
+            "name": "artifact",
+            "arguments": "{\"action\":\"deliver\",\"input\":{\"action\":\"deliver\",\"fileIds\":[\"qa-file-91faf7e28e01\",\"qa-file-4ffb55a58194\"]}}"
+          }
+        ],
+        "parallel_tool_calls": false,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "medium",
+          "summary": "detailed"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {},
+      "model": "phi/chat/response",
+      "modelParameters": {
+        "reasoning_effort": "medium"
+      },
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 5.679,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1631,
+        "output": 124,
+        "total": 29103,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1631,
+        "output": 124,
+        "total": 29103
+      }
+    },
+    {
+      "id": "80c79a5a-05c2-42e9-be94-431e27c2e753",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:42.015Z",
+      "endTime": "2026-10-15T17:59:46.214Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "worker.llm",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:48.308Z",
+      "updatedAt": "2026-10-15T17:59:54.559Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "include": [
+            "reasoning.encrypted_content"
+          ],
+          "reasoning": {
+            "effort": "medium",
+            "summary": "auto"
+          },
+          "parallel_tool_calls": false,
+          "tools": "[REDACTED_PERSONAL_CONTEXT]"
+        }
+      },
+      "output": {
+        "id": "resp_0c4004b93d6268ed006ad1148fb8f087d2880b74ff3dfa9598",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087184,
+        "completed_at": 1792087185,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "msg_0c4004b93d6268ed006ad114918f0087d2a15363782271832a",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "已生成并交付两张独立图片：红色纸船和蓝色风筝。",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": false,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "medium",
+          "summary": "detailed"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {},
+      "model": "phi/chat/response",
+      "modelParameters": {
+        "reasoning_effort": "medium"
+      },
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 4.199,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 245,
+        "output": 26,
+        "total": 29247,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 245,
+        "output": 26,
+        "total": 29247
+      }
+    },
+    {
+      "id": "5f62819b-fdde-47f2-9c9c-f42773500853",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:24.129Z",
+      "endTime": "2026-10-15T17:59:36.278Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "tool.image_generation",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:31.521Z",
+      "updatedAt": "2026-10-15T17:59:54.515Z",
+      "input": {
+        "action": "generate",
+        "aspectRatio": "1:1",
+        "imageSize": "1k",
+        "query": "一张独立的方形插画：一只鲜蓝色的风筝在晴朗天空中飞翔，风筝主体清晰，带轻盈飘动的尾带，背景简洁明亮、柔和自然光，构图精致。画面中仅有蓝色风筝，不要纸船、不要文字、不要拼图或多格排版。"
+      },
+      "output": {
+        "ok": true,
+        "provider": "openai-compatible",
+        "model": "phi/agent/image-generation",
+        "query": "一张独立的方形插画：一只鲜蓝色的风筝在晴朗天空中飞翔，风筝主体清晰，带轻盈飘动的尾带，背景简洁明亮、柔和自然光，构图精致。画面中仅有蓝色风筝，不要纸船、不要文字、不要拼图或多格排版。",
+        "text": null,
+        "images": [
+          {
+            "url": "/api/v1/files/qa-file-4ffb55a58194",
+            "mimeType": "image/png",
+            "filename": "image-generation-1.png",
+            "revisedPrompt": null
+          }
+        ],
+        "stored_artifacts": [
+          {
+            "file_id": "qa-file-4ffb55a58194",
+            "filename": "image-generation-1.png",
+            "mimeType": "image/png",
+            "size_bytes": 1182228
+          }
+        ]
+      },
+      "metadata": {
+        "toolId": "image_generation",
+        "capabilityId": "[REDACTED]",
+        "toolCallId": "fc_0c4004b93d6268ed006ad1147ae15887d2abe12f8a9694d28f",
+        "callId": "call_NiL4yGuyPpryzILZS7iADXxK"
+      },
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 12.149,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "7f7ef9d5-6484-4328-a401-7323fcee1bb1",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:42.005Z",
+      "endTime": "2026-10-15T17:59:42.006Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "tool.artifact",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:48.052Z",
+      "updatedAt": "2026-10-15T17:59:54.478Z",
+      "input": {
+        "action": "deliver",
+        "input": {
+          "action": "deliver",
+          "fileIds": [
+            "qa-file-91faf7e28e01",
+            "qa-file-4ffb55a58194"
+          ]
+        }
+      },
+      "output": {
+        "ok": true,
+        "delivered_artifacts": [
+          {
+            "file_id": "qa-file-91faf7e28e01",
+            "filename": "image-generation-1.png",
+            "mimeType": "image/png",
+            "size_bytes": 1189856
+          },
+          {
+            "file_id": "qa-file-4ffb55a58194",
+            "filename": "image-generation-1.png",
+            "mimeType": "image/png",
+            "size_bytes": 1182228
+          }
+        ]
+      },
+      "metadata": {
+        "toolId": "artifact",
+        "capabilityId": "[REDACTED]",
+        "toolCallId": "fc_0c4004b93d6268ed006ad1148d441887d2821de5612c922423",
+        "callId": "call_T37UXpli9EjlZv4cEfDr67ap"
+      },
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 0.001,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:02.393Z",
+      "endTime": "2026-10-15T17:59:46.214Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "5b8a99db-4bd8-4f3d-ba3a-19e9f01029c7",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "worker.run",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:03.604Z",
+      "updatedAt": "2026-10-15T17:59:54.452Z",
+      "input": {
+        "objective": "生成两张独立图片：一张红色纸船，一张蓝色风筝。"
+      },
+      "output": {
+        "status": "ok",
+        "summary": "已生成并交付两张独立图片：红色纸船和蓝色风筝。",
+        "toolTrace": [
+          {
+            "tool": "image_generation.generate",
+            "ok": true
+          },
+          {
+            "tool": "image_generation.generate",
+            "ok": true
+          },
+          {
+            "tool": "artifact.deliver",
+            "ok": true
+          }
+        ],
+        "artifacts": [
+          {
+            "fileId": "qa-file-91faf7e28e01",
+            "url": "/api/v1/files/qa-file-91faf7e28e01",
+            "filename": "image-generation-1.png",
+            "mimeType": "image/png",
+            "sizeBytes": 1189856
+          },
+          {
+            "fileId": "qa-file-4ffb55a58194",
+            "url": "/api/v1/files/qa-file-4ffb55a58194",
+            "filename": "image-generation-1.png",
+            "mimeType": "image/png",
+            "sizeBytes": 1182228
+          }
+        ]
+      },
+      "metadata": {
+        "runId": "01a140b7-a986-758d-8cee-d55a30603856",
+        "executionContext": "default"
+      },
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 43.821,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "4c8e09b0-7eab-416c-8092-a52eccbbf202",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:42.896Z",
+      "endTime": "2026-10-15T17:59:44.213Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:47.998Z",
+      "updatedAt": "2026-10-15T17:59:54.414Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0aeea5259972f514006ad1148f694887d2b2e6480cf4b3fdcc",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087183,
+        "completed_at": 1792087184,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_0aeea5259972f514006ad1148ffb7087d28970e21220b1c13c",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝的独立图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.317,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 250,
+        "output": 20,
+        "total": 270,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 250,
+        "output": 20,
+        "total": 270
+      }
+    },
+    {
+      "id": "6b77b469-cf76-4147-8685-2e37c76c879c",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:37.175Z",
+      "endTime": "2026-10-15T17:59:39.809Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:48.017Z",
+      "updatedAt": "2026-10-15T17:59:54.408Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0d2f38e2c324468e006ad11489a4f487d29869958c972f6f75",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087177,
+        "completed_at": 1792087179,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_0d2f38e2c324468e006ad1148af5a887d28c2138dff508d887",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝的图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 2.634,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 252,
+        "output": 18,
+        "total": 270,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 252,
+        "output": 18,
+        "total": 270
+      }
+    },
+    {
+      "id": "dd9c8fa0-4266-4dad-b3fb-d8f72bfe9e51",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:25.029Z",
+      "endTime": "2026-10-15T17:59:26.443Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:31.252Z",
+      "updatedAt": "2026-10-15T17:59:37.810Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_04c7951ce3f9d14c006ad1147d8e4c87d286ad9b7e5e130f32",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087165,
+        "completed_at": 1792087166,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_04c7951ce3f9d14c006ad1147e40c887d2ae75bf37c29be424",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝\n",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.414,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 253,
+        "output": 17,
+        "total": 270,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 253,
+        "output": 17,
+        "total": 270
+      }
+    },
+    {
+      "id": "fa122b76-805e-414c-8891-0b3115cde5af",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:20.237Z",
+      "endTime": "2026-10-15T17:59:21.461Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:31.151Z",
+      "updatedAt": "2026-10-15T17:59:37.807Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_05c03cdaca7c4526006ad11478bc0c87d2b52455e6f48efe6d",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087160,
+        "completed_at": 1792087161,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_05c03cdaca7c4526006ad11479229887d28699778de2c254c3",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.224,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 252,
+        "output": 17,
+        "total": 269,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 252,
+        "output": 17,
+        "total": 269
+      }
+    },
+    {
+      "id": "4040f1d7-e75b-4098-b59c-0c5bed875b0b",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:19.344Z",
+      "endTime": "2026-10-15T17:59:24.129Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "worker.llm",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:31.202Z",
+      "updatedAt": "2026-10-15T17:59:37.782Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "include": [
+            "reasoning.encrypted_content"
+          ],
+          "reasoning": {
+            "effort": "medium",
+            "summary": "auto"
+          },
+          "parallel_tool_calls": false,
+          "tools": "[REDACTED_PERSONAL_CONTEXT]"
+        }
+      },
+      "output": {
+        "id": "resp_0c4004b93d6268ed006ad11478bcd887d289cd226bcd5b6c03",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087161,
+        "completed_at": 1792087163,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "rs_0c4004b93d6268ed006ad1147a5a5087d2a7bc86bdb5c40b69",
+            "type": "reasoning",
+            "content": [],
+            "summary": [],
+            "encrypted_content": "gAAAAABq0RR7L6_5nCfyaMTwjv-Fqz4ok9qV8sKj3PLUSOXNI7H0kqkyW9THwW71lFcktduWWkeVkLQY0bWAzNdsfAh8TBgiy-owYS0PNp-Ht5PwJ-5417zVYCjORem11I3WDMbXCdbdm-ixr9Jf40cOf-JRoKC34uEnTqhAEFo2xgEA2Ghp91F1GCwqsG-QczDico6cEzYb8ngQH7iOH3QpHXxdE9lswbg6kz6RESMVTm2-l4eMv9G8qfkY9MC6D47dLJNyIRlGqLPcYWJuFOrhJpHH0qi9Qjy3ZA38XC-qGqSEw42bXWRToNz8uQCfh-MFZfYq2XXZ-O6dfmP9S3gSw7g4w8M19EmCbSRXedRZAs1FcOifSddBE0YCk_U0Zj0y9NRxikOGo4na7vDzvx7iZzqgBUVF-nHyNuBX-3VexWC2JrHYF30G3L06KlehaflW48HcjuktH1gx4mBJXQPjMg6vuGZEq5oU-d-SZDoXrnR4B212DPwZNG1l_uDQHwOBwdsuzUOaUlGD8QwzhcF-X-TGlB4NcIkYoFEk2YoImhEJq90HkFIBDmZVktxOnI9-XR0RURF_fptkl_qNjyxvddbPrT6mGycZtmGPaEr87Pg31q4k5CW5CZ499kFon7HzgJ53niVf7nIKL_AotbTPn0WeriPt9EralJbbu-3dyx76pUI2JPrrlVoZFGNKgRIaVgsQPJ40Wp-Hl537dh9T8jlAd9uCAsn0elMxbyoFVDnalSb4-0LhJqLoqxA8UGPSSXwStJnCGVl21zXlTMR0R0vWfSobVdWbauzrY95CLA_TdhulTTbFrJpuKBDJqg-pXjxIi9p2gbRQTVBMqLaHzNOyWtb3RhjL-FCKLzw1LZG98MXNzJWImkLXhEdiOF4z6y60rvQf0NsHCbcDZQEIM-F4OSR2W2Udgap2AUi73K0HZUWTf2QuRbWYfKs4eCj8po3IKwpoUW05HSzGU6DeXdlJvR7MB8R6J9gB4L9ZKfbi_AE9B_939lJDoi6q9_e2OAOVQX0Esfxn9E3QjPw7-UDCX5I1fnrdlAvg5ofTLnGNuDkpvqRzKBZKgYpVqLnZeDl7W8GIFm9izKbTVrsELzJUSsWSRDmI-RHizaV7sKIwixH4MkMdWRM2tBHZ1WnWyzaAkA9PRwUB5lsY0nHlF-LYYibS7IrbP5pgIoUOh6NQtZiAgIriJ-EuPAakXntNkWJ0ZAD-xYwsUnwHTcncpbMAvQmTneNPM8xRYcwuXZiEMAOx-jBpQMjXKXpFFPKlyTJRn5W66hp2hHohwWRKqUroYSm6Y1ZfbRHuj0cK-LpQirgxRfDVj5Oy2iaOmEfv7u_Apg-iim6WR2-vHS0G6JlxbdgfsYh9K7yttoK9akDAtXk3S9SDvJEpAJ5LAK0FTrhzyssZdNUr3Uz_RD4s-r3ikuaXG6akxYATg0UKDGVZIz4t2u8nknjY4nyoJ0FWo38IKai4ZRiniB4JgbrJ_NZ3kL6Lk286s80zk358RXQGa0uXDZ4="
+          },
+          {
+            "id": "msg_0c4004b93d6268ed006ad1147a9e0487d29e2cb66a2c8f29d1",
+            "type": "message",
+            "status": "completed",
+            "phase": "commentary",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "红色纸船已生成；我现在另行生成蓝色风筝，保持为单独图片。",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          },
+          {
+            "id": "fc_0c4004b93d6268ed006ad1147ae15887d2abe12f8a9694d28f",
+            "type": "function_call",
+            "status": "completed",
+            "call_id": "call_NiL4yGuyPpryzILZS7iADXxK",
+            "name": "image_generation",
+            "arguments": "{\"action\":\"generate\",\"aspectRatio\":\"1:1\",\"imageSize\":\"1k\",\"query\":\"一张独立的方形插画：一只鲜蓝色的风筝在晴朗天空中飞翔，风筝主体清晰，带轻盈飘动的尾带，背景简洁明亮、柔和自然光，构图精致。画面中仅有蓝色风筝，不要纸船、不要文字、不要拼图或多格排版。\"}"
+          }
+        ],
+        "parallel_tool_calls": false,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "medium",
+          "summary": "detailed"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {},
+      "model": "phi/chat/response",
+      "modelParameters": {
+        "reasoning_effort": "medium"
+      },
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 4.785,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1683,
+        "output": 162,
+        "total": 27513,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1683,
+        "output": 162,
+        "total": 27513
+      }
+    },
+    {
+      "id": "cf187a26-8b16-4ac2-a7df-954fd5692e23",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:07.724Z",
+      "endTime": "2026-10-15T17:59:19.309Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "ddf2b078-0424-4f56-97de-4cff367cf6dd",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "image_generation.run",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:13.939Z",
+      "updatedAt": "2026-10-15T17:59:37.776Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/chat/completions",
+        "payload": {
+          "model": "phi/agent/image-generation",
+          "messages": "[REDACTED_PERSONAL_CONTEXT]",
+          "modalities": [
+            "image",
+            "text"
+          ],
+          "image_config": {
+            "aspect_ratio": "1:1",
+            "image_size": "1K"
+          }
+        }
+      },
+      "output": "@@@langfuseMedia:type=application/json|id=G33f2OeJOWA1UmFcvrwowK|source=bytes@@@",
+      "metadata": {},
+      "model": "phi/agent/image-generation",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 11.585,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 57,
+        "output": 1120,
+        "total": 1177,
+        "cache_read_input_tokens": "[REDACTED]",
+        "cache_creation_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 57,
+        "output": 1120,
+        "total": 1177
+      }
+    },
+    {
+      "id": "ddf2b078-0424-4f56-97de-4cff367cf6dd",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:07.724Z",
+      "endTime": "2026-10-15T17:59:19.338Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "tool.image_generation",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:13.980Z",
+      "updatedAt": "2026-10-15T17:59:37.773Z",
+      "input": {
+        "action": "generate",
+        "aspectRatio": "1:1",
+        "imageSize": "1k",
+        "query": "一张独立的方形插画：一只鲜红色的折纸船，置于浅色干净背景上，柔和自然光，简洁精致、主体清晰。画面中仅有红色纸船，不要风筝、不要文字、不要拼图或多格排版。"
+      },
+      "output": {
+        "ok": true,
+        "provider": "openai-compatible",
+        "model": "phi/agent/image-generation",
+        "query": "一张独立的方形插画：一只鲜红色的折纸船，置于浅色干净背景上，柔和自然光，简洁精致、主体清晰。画面中仅有红色纸船，不要风筝、不要文字、不要拼图或多格排版。",
+        "text": null,
+        "images": [
+          {
+            "url": "/api/v1/files/qa-file-91faf7e28e01",
+            "mimeType": "image/png",
+            "filename": "image-generation-1.png",
+            "revisedPrompt": null
+          }
+        ],
+        "stored_artifacts": [
+          {
+            "file_id": "qa-file-91faf7e28e01",
+            "filename": "image-generation-1.png",
+            "mimeType": "image/png",
+            "size_bytes": 1189856
+          }
+        ]
+      },
+      "metadata": {
+        "toolId": "image_generation",
+        "capabilityId": "[REDACTED]",
+        "toolCallId": "fc_0c4004b93d6268ed006ad1146b178087d2bdd2d7d3511ca3c1",
+        "callId": "call_z2D0FS3KtH73ugNJAtteN903"
+      },
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 11.614,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "6d49b071-a207-4cb6-a764-fa80086aad1c",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:01.664Z",
+      "endTime": "2026-10-15T17:59:02.848Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:03.485Z",
+      "updatedAt": "2026-10-15T17:59:19.633Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0a24cba52f51b0b9006ad114662d0887d2964c6dfaebc35ad9",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087142,
+        "completed_at": 1792087142,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_0a24cba52f51b0b9006ad11466997887d2b78c97e0d1452ef2",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在准备红色纸船和蓝色风筝图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.184,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 211,
+        "output": 17,
+        "total": 228,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 211,
+        "output": 17,
+        "total": 228
+      }
+    },
+    {
+      "id": "00a95229-995a-45b3-a69d-a3fb81d3c189",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:08.631Z",
+      "endTime": "2026-10-15T17:59:09.931Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:14.032Z",
+      "updatedAt": "2026-10-15T17:59:19.632Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_01b704d6146551f2006ad1146d136c87d2972c36df5cbd4880",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087149,
+        "completed_at": 1792087149,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_01b704d6146551f2006ad1146da3b087d2af42dd9b04494888",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.3,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 250,
+        "output": 17,
+        "total": 267,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 250,
+        "output": 17,
+        "total": 267
+      }
+    },
+    {
+      "id": "29bdd0f6-dfcb-4131-a534-c39ad26e6ec1",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:03.760Z",
+      "endTime": "2026-10-15T17:59:04.880Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:13.944Z",
+      "updatedAt": "2026-10-15T17:59:19.601Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0b576267e1af98c8006ad114683b7887d2b86964034e7fa19b",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087144,
+        "completed_at": 1792087144,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_0b576267e1af98c8006ad114689da887d28c5e46b3fe858e86",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.12,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 245,
+        "output": 17,
+        "total": 262,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 245,
+        "output": 17,
+        "total": 262
+      }
+    },
+    {
+      "id": "9361c606-bfdf-467f-9487-a98c08bdcee4",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:02.438Z",
+      "endTime": "2026-10-15T17:59:07.724Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "b48f08eb-e6a7-4040-b4a4-196c202ea0ec",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "worker.llm",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:03.682Z",
+      "updatedAt": "2026-10-15T17:59:19.580Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "include": [
+            "reasoning.encrypted_content"
+          ],
+          "reasoning": {
+            "effort": "medium",
+            "summary": "auto"
+          },
+          "parallel_tool_calls": false,
+          "tools": "[REDACTED_PERSONAL_CONTEXT]"
+        }
+      },
+      "output": {
+        "id": "resp_0c4004b93d6268ed006ad1146761a487d2863e0a572d32680b",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087143,
+        "completed_at": 1792087147,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "rs_0c4004b93d6268ed006ad11469218c87d28507f72a0f2fdaf7",
+            "type": "reasoning",
+            "content": [],
+            "summary": [
+              {
+                "type": "summary_text",
+                "text": "**Creating separate images**\n\nI need to create two distinct images. The tool can generate one or more images, so I’m thinking of calling the image generation function for each prompt separately. It’s probably best to handle each request in its own turn, to keep things clear. The first image will be a red paper boat, and the second will be a blue kite. Once I generate both assets, I’ll inspect the results and deliver the respective file IDs."
+              }
+            ],
+            "encrypted_content": "gAAAAABq0RRrvJ26c0YsysamnvfLDdDPy-vW_UKMnhQFSwyjwDIdqz3QqqRBKaLVY7E_IHEOsIrS7rH0MRLjU2rhs0PQXSc5Qj0Ei5ow6354kgu3uj5E-doQe8rOntu0GaBrLdnTTWhD4QnNKzoEmD0OEHwjvESGtjaK9KOuHHSHweJtWa30Bz0f7hpLFeVA0ir1VnUEk6hCDKaHbJeiaiVtUQwlM6bQ1EXsSGyonHX3ADrSaKn3_DubntWLenrvyetZQymInzmakvQxoq0YuRkefyFjOjgMAI2nED0tm_Kq2JVZxJkt4NYp6ijVwCzRnGdMVYGh9g2G_vXpvb7zT13QOx56-rIkO3HiCjSAacryFGcSYviVGvGM3tqpq_TScwULeYs0shr1ZuXAYl5fTTfqvySRKRIeWZLfI40XdVkDSRdz0qbjSmrxlhXmzUhiN-nfG8LgAjcyJKS4pN1hJk0L2JDbJwtPCxUfXF9-oSiyzLL0kCoHxhbaSaGQwmIYW23iUrA4uUB1mQc-OB37gU87RwlBiEyAGQVo4dR1YzrszcEUe2d8VdXHQIaniQHR47ezUezzYTpZXfSc6uWfn6p_Y8rsrpiE9IDfyDT0IWCa_Gy_VOnsWOjO2NHNk_d1exnwHZJjvjQEiOUu8faQO5BxgMEZQgkc4qyT2-ysVnKKWgX0TqOHdkvb1TgFC7Kn4LfgY8woFJ9OvwkEBMFWEDELT4hpNBCa42IOSRIMD_vxU_jmjaIlYP3XnopMKgsDuzsBjLYOhwZ0dTUTqe5vWv0axmsnwtD5k2dkBqWKx3V9YHmNGGcUHVOK8patd_iF72r2lgsH0pbBvWv5cuyo8ZHkh6AlieOJanS2FoOLz1tt6nviC55YHBx9HUfXdBoj2FFPD69QHFXpMoT0srgYfgpj8gNFqE9URtUkyCs9qGA-AwjqXUBjb0Z8zU6K_T4skrGEbLtp35U9OWtKme8PwYpEQmOT3BVsNJ0vL6MszXYO7iT4xoQosr3hpRHVEl5Nn63hXAwQW8Xg_eObQSn1gi6tWbQJyzsJF3OQXTqoA56PM2otVMSB-JDTDQtJRYL8_PciMp5csvZU0t9QPrdjY7NGkwRh3Hh5zcSJSg_sIZkFF77QAT9AK60BfrobsjL2ZmoHP41BSqAfWnK3rufyFnV2XdU4SERUPLSbAtwYnsYH10rCdrQIWM0ENoPFgwp_RaMHyUo9bpPPsZr7U-xzw6y3PYez4xnPSp7bEJPL7QxXrljPt-56QeNh3L7J5es8gwtGizEgFPAT39jCG6va5-VxUsR-khOmwIPaNiA5Ree1az4wmQY9d_K5PsQahU4Q3Sd1hMejzpGMlLE4eqkQdzXS9LiLFFVTgnpj5rUrmw1hZ1HwtE0boD7dIGxv0jnyoEqjhqXT5Hl1VRPMUdXT381xlEMBERHI0t2vAKF1Ta3Z8e0mJpqYMmNL37TFhwqagO2CicSb3CQ2Q3X5cp7RpamgSQFxs27DQozFovRqJxaRPoAom_nEAvEoe9Oz_qxNl5BYVTyhHEyGQOInw8sHySQaSB3sA-oYyEE91S-DULOJb7_TEVlo0qk9MHuqSY686vbQ9dBzCYD2MU_pL6ofVGjrPvdaAT-0AOsyVsVJxoV3SE_CBwKxquO5qm6mFLj_1V5h9wOYFnC7-xvGEZlG9IvDarV5Yxpn-I_UVEEdGeOZLKNIdCcBcUDtcjGQ5bUJMWiFe1zlylB2BVLM_v5K6R0WW1Sfs7d52_hnGe-RBLqvH4f5xo_HBbiFcCml7JYkuPOfl-Agn2QKHkQdY1587Bk8WFpnVGXQo9rNrbxJFEqcqUTgIxmuIhB3kGaGX6Q1lRU0hprRvF1_FaSx6xstJOtgfawBXojYJt5l0JgtaXjUraGRK9U80npmGTmxVWAomUsnRHQ42Hmg5Z0ldF9UUwNJ7EDm-36qYvZQe1vCHnxbP3xnpw2nrL0seUCrMjmGjheMTaEO490jqmDluxA_ZnbivmzfATfxm8Uw9fueEbgU6kV2pzXIC2SjXODxIY27Iabl2DdiF6UAnzJomDlH2mSF_VjZ9X1HnTJU-oiZRY9erQwZjAlSPfIagqLRR_ewP1eiJeKwdJNRsNOaTvdHwMgaVntXeEDsuISMliIFHYSFGdc3R7L9ce2rZf18A5KOV7FSabcNg4g582kpGzQg5lNm5cDQTNzPlUqxYn222YBaNYZ71FBdOuvj4X7Zl_IcrqVOgVk9-KVaEBd22HF9m62SPqdxCnkDVWLMfInC7ulgZeQ5pSNaJMn85VKAbdcRIQJWPwp4sVoigBsK2dEykSMDVy4Q2GGGZdJTkFs9KnFFOgZ50cIB5I3_6oMBhq2EaMfcHc3E6xcV2CPOzr1cLQ8i93AKAjYv7qYAR1aDy1Qh1QH01wpn9cDKdqW0xhC8Lp0K1XdAZmNueb1gGq9gbGzZhObULth5OKwTotzFqU6tyLYryP_2X0RZM8JR5hpwDCaUmfGqh_ePAWE2_r8jye7BNbBaUWPRvrhv8LFQl0ngnF9KkfHKjlEihT1jTdK-oVMpiDX4fk_bXRU0JtOXfrYETrcE6w0-JuVWw4ZUE0iARJ47bFYmCCcUx6AMV2SqRxb7vPR12tHabk22StoB1CBu1FATBw_PAM3DcwoIDsu-cyOTwww4k_yz2pK6-_X2M4I0yubAqU2MdNxmKm0oNLyOJSWV5Rx2wA=="
+          },
+          {
+            "id": "msg_0c4004b93d6268ed006ad1146b080c87d2a5bf49a0dca3cc8b",
+            "type": "message",
+            "status": "completed",
+            "phase": "commentary",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "我先生成红色纸船的独立图片，再单独生成蓝色风筝。",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          },
+          {
+            "id": "fc_0c4004b93d6268ed006ad1146b178087d2bdd2d7d3511ca3c1",
+            "type": "function_call",
+            "status": "completed",
+            "call_id": "call_z2D0FS3KtH73ugNJAtteN903",
+            "name": "image_generation",
+            "arguments": "{\"action\":\"generate\",\"aspectRatio\":\"1:1\",\"imageSize\":\"1k\",\"query\":\"一张独立的方形插画：一只鲜红色的折纸船，置于浅色干净背景上，柔和自然光，简洁精致、主体清晰。画面中仅有红色纸船，不要风筝、不要文字、不要拼图或多格排版。\"}"
+          }
+        ],
+        "parallel_tool_calls": false,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "medium",
+          "summary": "detailed"
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {},
+      "model": "phi/chat/response",
+      "modelParameters": {
+        "reasoning_effort": "medium"
+      },
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 5.286,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 291,
+        "output": 229,
+        "total": 25900,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 291,
+        "output": 229,
+        "total": 25900
+      }
+    },
+    {
+      "id": "339d3fba-fbc1-42a6-be6d-fa1b4baec22c",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:57.452Z",
+      "endTime": "2026-10-15T17:59:00.741Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.respond",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:01.540Z",
+      "updatedAt": "2026-10-15T17:59:09.690Z",
+      "input": {
+        "intent": {
+          "label": "conversation_turn",
+          "description": "生成两张独立图片：一张红色纸船，一张蓝色风筝"
+        },
+        "turnVerdict": {
+          "trigger": "",
+          "selfActivity": false,
+          "webSearch": false
+        }
+      },
+      "output": {
+        "controls": [
+          {
+            "action": "control_delegate_task",
+            "routed": true
+          }
+        ],
+        "segments": []
+      },
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 3.289,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "0802f264-e704-48b7-ba09-f7a3690469de",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.701Z",
+      "endTime": "2026-10-15T17:59:00.741Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.recall",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.556Z",
+      "updatedAt": "2026-10-15T17:59:09.680Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 5.04,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "1a8e2268-6aa1-4f49-b510-dcb0ad209771",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:00.741Z",
+      "endTime": "2026-10-15T17:59:00.756Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e4c7d163-c4f0-4bac-92a6-592b6d4f2904",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.assess",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:03.519Z",
+      "updatedAt": "2026-10-15T17:59:09.667Z",
+      "input": {
+        "text": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+        "selfPrompt": {
+          "reason": "delegate",
+          "hint": "生成两张独立图片：一张红色纸船，一张蓝色风筝。"
+        }
+      },
+      "output": {
+        "intent": {
+          "label": "conversation_turn",
+          "description": "生成两张独立图片：一张红色纸船，一张蓝色风筝"
+        },
+        "task": {
+          "objective": "生成两张独立图片：一张红色纸船，一张蓝色风筝。"
+        }
+      },
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 0.015,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.700Z",
+      "endTime": "2026-10-15T17:59:00.741Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": null,
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.turn",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.530Z",
+      "updatedAt": "2026-10-15T17:59:09.664Z",
+      "input": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+      "output": {
+        "action": "control_delegate_task",
+        "routed": true
+      },
+      "metadata": {
+        "kind": "user",
+        "conversationId": "0ff7979c-0ad5-4be3-aee4-a370690ea695",
+        "states": "thinking"
+      },
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 5.041,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "f89dde17-3792-435e-b207-b6d1aa84ca03",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.703Z",
+      "endTime": "2026-10-15T17:59:00.488Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0802f264-e704-48b7-ba09-f7a3690469de",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.recall.search",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.528Z",
+      "updatedAt": "2026-10-15T17:59:09.576Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 4.785,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "63f4d33e-8ca7-4009-9b0b-12e6d134791e",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:00.756Z",
+      "endTime": "2026-10-15T17:59:02.392Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "5b8a99db-4bd8-4f3d-ba3a-19e9f01029c7",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.reply",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:03.852Z",
+      "updatedAt": "2026-10-15T17:59:09.547Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0f31a9489bbd1469006ad11465610c87d2b96b1b5297c72d13",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087141,
+        "completed_at": 1792087142,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "msg_0f31a9489bbd1469006ad11466233487d29124ae68adb88851",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "我正在为你分别生成纸船和风筝的图片。",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/response",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.636,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1532,
+        "output": 19,
+        "total": 4668,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1532,
+        "output": 19,
+        "total": 4668
+      }
+    },
+    {
+      "id": "1d23734c-a22a-4da0-a238-96fec1f1f7a2",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:59:00.428Z",
+      "endTime": "2026-10-15T17:59:01.796Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:01.589Z",
+      "updatedAt": "2026-10-15T17:59:09.538Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0a47f9388f78fefd006ad11464f3b887d28ccd8d0e4d3a91ae",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087140,
+        "completed_at": 1792087141,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_0a47f9388f78fefd006ad114658f7087d28b10ac869cb2b050",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在生成红色纸船和蓝色风筝图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.368,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 239,
+        "output": 17,
+        "total": 256,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 239,
+        "output": 17,
+        "total": 256
+      }
+    },
+    {
+      "id": "8de81405-5ac3-4eab-a90c-136be0d96c94",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:57.453Z",
+      "endTime": "2026-10-15T17:59:00.741Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "339d3fba-fbc1-42a6-be6d-fa1b4baec22c",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.reply",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:02.111Z",
+      "updatedAt": "2026-10-15T17:59:09.499Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/response",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "low"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0c9866a904b4f711006ad11463448c87d2a35ef07f43436cf5",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087139,
+        "completed_at": 1792087140,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/response",
+        "output": [
+          {
+            "id": "fc_0c9866a904b4f711006ad11464358487d2a689f5791b02ab42",
+            "type": "function_call",
+            "status": "completed",
+            "call_id": "call_4upHU4sjNqwx7xgFDmcxtIwR",
+            "name": "control_delegate_task",
+            "arguments": "{\"objective\":\"生成两张独立图片：一张红色纸船，一张蓝色风筝。\",\"system_skill\": \"skill_library\"}"
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "low",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 1,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/response",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 3.288,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 4865,
+        "output": 46,
+        "total": 12759,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 4865,
+        "output": 46,
+        "total": 12759
+      }
+    },
+    {
+      "id": "f1e2ccd2-da5d-41cd-8f2d-ac9ba6d0a6ed",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.701Z",
+      "endTime": "2026-10-15T17:58:56.867Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "e8c14756-c043-4abe-b009-2a458a3a622d",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.live_context.fetch",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.659Z",
+      "updatedAt": "2026-10-15T17:59:08.089Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.166,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "b6609498-62cb-4b07-89c9-08ae076bd70f",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.728Z",
+      "endTime": "2026-10-15T17:58:58.533Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0802f264-e704-48b7-ba09-f7a3690469de",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.recall_plan",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.577Z",
+      "updatedAt": "2026-10-15T17:59:07.948Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 2.805,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1090,
+        "output": 35,
+        "total": 1125,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1090,
+        "output": 35,
+        "total": 1125
+      }
+    },
+    {
+      "id": "0b5de578-4509-4cd0-9605-62d5b866d512",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.701Z",
+      "endTime": "2026-10-15T17:58:57.452Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.assess",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.559Z",
+      "updatedAt": "2026-10-15T17:59:07.932Z",
+      "input": {
+        "text": "生成两张独立图片：一张红色纸船，一张蓝色风筝"
+      },
+      "output": {
+        "taskRoute": {
+          "isTask": true,
+          "objective": "生成两张独立图片：一张红色纸船，一张蓝色风筝"
+        },
+        "intent": {
+          "label": "conversation_turn",
+          "description": "生成两张独立图片：一张红色纸船，一张蓝色风筝"
+        },
+        "task": {
+          "objective": "生成两张独立图片：一张红色纸船，一张蓝色风筝"
+        }
+      },
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.751,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "e8c14756-c043-4abe-b009-2a458a3a622d",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.701Z",
+      "endTime": "2026-10-15T17:58:56.868Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.live_context",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.569Z",
+      "updatedAt": "2026-10-15T17:59:07.925Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.167,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "ab8a922d-981c-47fb-81a3-3af5ecae0df7",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.701Z",
+      "endTime": "2026-10-15T17:58:57.397Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.decision.turn_verdict",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.558Z",
+      "updatedAt": "2026-10-15T17:59:07.904Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+        "payload": {
+          "model": "phi/chat/jev",
+          "state": "[REDACTED_PERSONAL_CONTEXT]",
+          "questions": {
+            "memoryTrigger": {
+              "type": "choice",
+              "instructions": "Which of these best describes what the latest message asks the assistant?",
+              "criteria": {
+                "entity": "Whether the assistant knows, recognizes or has heard of a specific named person, handle, company, product, project or place, who or what that is, or to remember it.",
+                "activity": "About the user's own past activity: what they did, read, watched, visited, searched or worked on.",
+                "recommendation": "To recommend, suggest, pick or choose something for the user.",
+                "none": "Anything else: small talk, explaining a general concept, a question about the world, a task, or a question about the assistant itself."
+              }
+            },
+            "selfActivity": {
+              "type": "choice",
+              "instructions": "Does the latest message ask what the assistant itself did, helped with or handled for the user?",
+              "criteria": {
+                "yes": "It asks about the assistant's own past actions, such as what it did today, whether it finished something, or what it has helped with.",
+                "no": "It asks about the user's own activity, the assistant's opinion or taste, or anything else."
+              }
+            },
+            "webSearch": {
+              "type": "choice",
+              "instructions": "Does a good answer to the latest message need a search of the public web right now?",
+              "criteria": {
+                "yes": "It depends on current or changing information (news, prices, scores, weather, schedules, releases, latest versions, who holds a role now), on specific facts about a public person, place, product, company or event that should be checked, or the user asks to search or look something up online.",
+                "no": "It is small talk, about the user's own life, notes or past activity, about the assistant itself, about the attached page's own content, a writing, coding, math or reasoning task, or general knowledge that does not change."
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "memoryTrigger": {
+            "type": "choice",
+            "choice": "none",
+            "probabilities": {
+              "activity": 0,
+              "entity": 0,
+              "none": 1,
+              "recommendation": 0
+            },
+            "confidence": 1
+          },
+          "selfActivity": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "webSearch": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "cost": 3.1122e-05
+        },
+        "id": "gen-dec-1792087137-VhxUgAxk3TXGpg9vuJvP",
+        "provider": "TypeSafe"
+      },
+      "metadata": {
+        "latencyMs": 1730
+      },
+      "model": "typesafe/jev-1.13-20260917",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.696,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 741,
+        "output": 112,
+        "total": 853
+      },
+      "costDetails": {
+        "total": 3.1122e-05
+      },
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 3.1122e-05,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 741,
+        "output": 112,
+        "total": 853
+      }
+    },
+    {
+      "id": "5f4aee72-8e6b-462b-b7ac-8cc1401c5de1",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.701Z",
+      "endTime": "2026-10-15T17:58:57.452Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0b5de578-4509-4cd0-9605-62d5b866d512",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.decision.reply_language",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.568Z",
+      "updatedAt": "2026-10-15T17:59:07.837Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+        "payload": {
+          "model": "phi/chat/jev",
+          "state": "[REDACTED_PERSONAL_CONTEXT]",
+          "questions": {
+            "replyLanguage": {
+              "type": "choice",
+              "instructions": "Which language is the latest message written in? That is the language the assistant must reply in. Judge the words the message is written in, never a language, country or place it mentions, and read it as a whole: a typo or an unusual spelling does not change its language. If the message explicitly asks for the reply in a particular language, choose that language.",
+              "criteria": {
+                "english": "English.",
+                "chinese": "Chinese: Han characters with no Japanese kana, in simplified or traditional script.",
+                "japanese": "Japanese: the text contains hiragana or katakana.",
+                "korean": "Korean: the text is written in Hangul.",
+                "spanish": "Spanish.",
+                "french": "French.",
+                "german": "German.",
+                "dutch": "Dutch.",
+                "portuguese": "Portuguese.",
+                "italian": "Italian.",
+                "russian": "Russian.",
+                "arabic": "Arabic.",
+                "hindi": "Hindi.",
+                "vietnamese": "Vietnamese.",
+                "thai": "Thai.",
+                "indonesian": "Indonesian.",
+                "turkish": "Turkish.",
+                "polish": "Polish.",
+                "other": "A natural language not listed here.",
+                "none": "The message has no natural-language words at all: only symbols, emoji, digits or a bare URL."
+              }
+            },
+            "languageRequest": {
+              "type": "choice",
+              "instructions": "Does the latest message explicitly ask the assistant to use a particular language, and for how long? Writing in a language is not asking for it, and mentioning a language, country or place is not asking for it.",
+              "criteria": {
+                "none": "The message does not ask the assistant to use any particular language.",
+                "this_reply": "It asks for this reply in a particular language and says nothing about later replies.",
+                "from_now_on": "It asks the assistant to use a particular language from now on, always, or until told otherwise.",
+                "follow_me": "It asks the assistant to stop using a fixed language and to reply in whatever language the user writes in."
+              }
+            },
+            "requestedLanguage": {
+              "type": "choice",
+              "instructions": "Which language does the latest message ask the assistant to write its replies to the user in? Choose none when it does not ask for one. A language asked for something other than the replies themselves - translating a page or a text, writing an email, a letter or a document, how to say a word - is not a language for the replies. The language the message is written in is not a request either.",
+              "criteria": {
+                "english": "English.",
+                "chinese": "Chinese: Han characters with no Japanese kana, in simplified or traditional script.",
+                "japanese": "Japanese: the text contains hiragana or katakana.",
+                "korean": "Korean: the text is written in Hangul.",
+                "spanish": "Spanish.",
+                "french": "French.",
+                "german": "German.",
+                "dutch": "Dutch.",
+                "portuguese": "Portuguese.",
+                "italian": "Italian.",
+                "russian": "Russian.",
+                "arabic": "Arabic.",
+                "hindi": "Hindi.",
+                "vietnamese": "Vietnamese.",
+                "thai": "Thai.",
+                "indonesian": "Indonesian.",
+                "turkish": "Turkish.",
+                "polish": "Polish.",
+                "other": "A natural language not listed here.",
+                "none": "The message does not ask for the assistant's replies in any particular language."
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "languageRequest": {
+            "type": "choice",
+            "choice": "none",
+            "probabilities": {
+              "follow_me": 0,
+              "from_now_on": 0,
+              "none": 0.99,
+              "this_reply": 0.01
+            },
+            "confidence": 0.99
+          },
+          "replyLanguage": {
+            "type": "choice",
+            "choice": "chinese",
+            "probabilities": {
+              "arabic": 0,
+              "chinese": 1,
+              "dutch": 0,
+              "english": 0,
+              "french": 0,
+              "german": 0,
+              "hindi": 0,
+              "indonesian": 0,
+              "italian": 0,
+              "japanese": 0,
+              "korean": 0,
+              "none": 0,
+              "other": 0,
+              "polish": 0,
+              "portuguese": 0,
+              "russian": 0,
+              "spanish": 0,
+              "thai": 0,
+              "turkish": 0,
+              "vietnamese": 0
+            },
+            "confidence": 1
+          },
+          "requestedLanguage": {
+            "type": "choice",
+            "choice": "none",
+            "probabilities": {
+              "arabic": 0,
+              "chinese": 0,
+              "dutch": 0,
+              "english": 0,
+              "french": 0,
+              "german": 0,
+              "hindi": 0,
+              "indonesian": 0,
+              "italian": 0,
+              "japanese": 0,
+              "korean": 0,
+              "none": 1,
+              "other": 0,
+              "polish": 0,
+              "portuguese": 0,
+              "russian": 0,
+              "spanish": 0,
+              "thai": 0,
+              "turkish": 0,
+              "vietnamese": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "cost": 5.6784e-05
+        },
+        "id": "gen-dec-1792087137-JLLhJcHDAig6x9ZNVFpr",
+        "provider": "TypeSafe"
+      },
+      "metadata": {
+        "latencyMs": 1782
+      },
+      "model": "typesafe/jev-1.13-20260917",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.751,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1352,
+        "output": 413,
+        "total": 1765
+      },
+      "costDetails": {
+        "total": 5.6784e-05
+      },
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 5.6784e-05,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1352,
+        "output": 413,
+        "total": 1765
+      }
+    },
+    {
+      "id": "173d4385-6e05-41d4-8e91-b1b91bdcbdf2",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.729Z",
+      "endTime": "2026-10-15T17:58:57.365Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0b5de578-4509-4cd0-9605-62d5b866d512",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.decision.route_skills",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:01.546Z",
+      "updatedAt": "2026-10-15T17:59:07.818Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+        "payload": {
+          "model": "phi/chat/jev",
+          "state": "[REDACTED_PERSONAL_CONTEXT]",
+          "questions": {
+            "alpha": {
+              "type": "choice",
+              "instructions": "Is skill alpha the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill alpha does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill alpha does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "bravo": {
+              "type": "choice",
+              "instructions": "Is skill bravo the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill bravo does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill bravo does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "charlie": {
+              "type": "choice",
+              "instructions": "Is skill charlie the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill charlie does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill charlie does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "delta": {
+              "type": "choice",
+              "instructions": "Is skill delta the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill delta does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill delta does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "echo": {
+              "type": "choice",
+              "instructions": "Is skill echo the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill echo does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill echo does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "foxtrot": {
+              "type": "choice",
+              "instructions": "Is skill foxtrot the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill foxtrot does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill foxtrot does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "golf": {
+              "type": "choice",
+              "instructions": "Is skill golf the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill golf does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill golf does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "hotel": {
+              "type": "choice",
+              "instructions": "Is skill hotel the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill hotel does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill hotel does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "india": {
+              "type": "choice",
+              "instructions": "Is skill india the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill india does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill india does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "juliet": {
+              "type": "choice",
+              "instructions": "Is skill juliet the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill juliet does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill juliet does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "kilo": {
+              "type": "choice",
+              "instructions": "Is skill kilo the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill kilo does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill kilo does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "lima": {
+              "type": "choice",
+              "instructions": "Is skill lima the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill lima does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill lima does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            },
+            "mike": {
+              "type": "choice",
+              "instructions": "Is skill mike the skill the latest message asks for?",
+              "criteria": {
+                "yes": "Skill mike does exactly what the latest message asks to be done, the message calls it by name, or the message asks to install or uninstall it.",
+                "no": "Skill mike does something else or only shares a topic with the message, or the message asks for nothing to be done."
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "alpha": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "bravo": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "charlie": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "delta": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "echo": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "foxtrot": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "golf": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "hotel": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "india": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 0.98,
+              "yes": 0.02
+            },
+            "confidence": 0.96
+          },
+          "juliet": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "kilo": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "lima": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          },
+          "mike": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "cost": 0.000131082
+        },
+        "id": "gen-dec-1792087137-DbvYmAiabnG58F0saUJp",
+        "provider": "TypeSafe"
+      },
+      "metadata": {
+        "latencyMs": 1627
+      },
+      "model": "typesafe/jev-1.13-20260917",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.636,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 3121,
+        "output": 377,
+        "total": 3498
+      },
+      "costDetails": {
+        "total": 0.000131082
+      },
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0.000131082,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 3121,
+        "output": 377,
+        "total": 3498
+      }
+    },
+    {
+      "id": "9f81933a-a3b6-4f08-9c84-eda6e75b3a14",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:57.452Z",
+      "endTime": "2026-10-15T17:58:59.518Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.activity_status",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:01.733Z",
+      "updatedAt": "2026-10-15T17:59:07.773Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+        "payload": {
+          "model": "phi/chat/reasoning",
+          "instructions": "[REDACTED_PERSONAL_CONTEXT]",
+          "temperature": 0.2,
+          "input": "[REDACTED_PERSONAL_CONTEXT]",
+          "tools": "[REDACTED_PERSONAL_CONTEXT]",
+          "stream": true,
+          "parallel_tool_calls": true,
+          "reasoning": {
+            "effort": "none"
+          }
+        }
+      },
+      "output": {
+        "id": "resp_0e052d8550415389006ad11462ce2487d2bcea53994722ce87",
+        "object": "response",
+        "background": false,
+        "created_at": 1792087138,
+        "completed_at": 1792087139,
+        "error": null,
+        "incomplete_details": null,
+        "max_output_tokens": "[REDACTED]",
+        "max_tool_calls": null,
+        "metadata": {},
+        "model": "chat/reasoning",
+        "output": [
+          {
+            "id": "msg_0e052d8550415389006ad114634d8c87d2bbf872c6a16f810d",
+            "type": "message",
+            "status": "completed",
+            "phase": "final_answer",
+            "role": "assistant",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "正在准备红色纸船和蓝色风筝的图片",
+                "annotations": [],
+                "logprobs": []
+              }
+            ]
+          }
+        ],
+        "parallel_tool_calls": true,
+        "previous_response_id": null,
+        "prompt_cache_key": null,
+        "prompt_cache_retention": "24h",
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "reasoning": {
+          "effort": "none",
+          "summary": null
+        },
+        "safety_identifier": null,
+        "service_tier": "default",
+        "status": "completed",
+        "store": true,
+        "temperature": 0.2,
+        "text": {
+          "format": {
+            "type": "text"
+          },
+          "verbosity": "medium"
+        },
+        "top_logprobs": 0,
+        "top_p": 0.98,
+        "tool_choice": "auto",
+        "truncation": "disabled",
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "input_tokens_details": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "output_tokens_details": "[REDACTED]",
+          "total_tokens": "[REDACTED]"
+        },
+        "extra_fields": {
+          "request_type": "",
+          "latency": 0,
+          "chunk_index": 0
+        }
+      },
+      "metadata": {
+        "round": 0
+      },
+      "model": "phi/chat/reasoning",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 2.066,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 224,
+        "output": 18,
+        "total": 242,
+        "cache_read_input_tokens": "[REDACTED]"
+      },
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 224,
+        "output": 18,
+        "total": 242
+      }
+    },
+    {
+      "id": "a9457ca9-d6cb-4b1a-b37f-757775cf51f1",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.728Z",
+      "endTime": "2026-10-15T17:58:57.452Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0b5de578-4509-4cd0-9605-62d5b866d512",
+      "type": "GENERATION",
+      "environment": "default",
+      "name": "chat.decision.route_lane",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:59:01.596Z",
+      "updatedAt": "2026-10-15T17:59:07.741Z",
+      "input": {
+        "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+        "payload": {
+          "model": "phi/chat/jev",
+          "state": "[REDACTED_PERSONAL_CONTEXT]",
+          "questions": {
+            "lane": {
+              "type": "choice",
+              "instructions": "What does the latest message ask the assistant for? When it chains several steps, judge the step that needs the most: action outranks memory, persona and video, and each of those outranks answer and history. A question about whether the assistant can do something, or how it or a skill works or is used, is answered, not carried out.",
+              "criteria": {
+                "answer": "A reply the assistant writes itself: explaining, advising, chatting, an opinion, writing or code help, a lookup on the public web (news, prices, weather, scores, versions, opening hours), reading, summarizing or translating the attached page or image, a question about what the assistant can do, or how it or a skill works or is used (with nothing handed over to do now), recalling one thing from the user's past, or building a card, chart, table or small self-contained app right in the chat, or changing one the assistant made earlier.",
+                "action": "Work only the execution agent can do: acting in the browser or on a web page (open, click, fill in, post, save, export, download, print, screenshot), using the user's own accounts (email, calendar, Slack, drive, task tools), scheduling or automating something, or changing one the user set up (what it checks, how often, how its reports are written, when it stops) or running it once now, generating an image, logo, audio, video or file, running a skill, or creating a new skill — asked to be done now.",
+                "video": "What is said or shown inside a video: summarizing, transcribing or answering about a video's content.",
+                "persona": "Renaming the assistant, or changing the assistant's avatar or look.",
+                "memory": "Telling the assistant to change what it keeps about the user or how it behaves from now on: remembering, correcting or forgetting a lasting fact about the user, a standing instruction for the assistant, or a preference about or a redo of the user's new-tab greetings, insight, suggestions or profile.",
+                "history": "A broad look back through the user's own history, interests, habits or plans that one quick recall cannot answer.",
+                "skill_library": "Work on the user's own skill library: listing which skills they have installed or could install, installing or uninstalling a particular skill, agreeing to an install the assistant offered, or saving what the assistant just did as a skill.",
+                "unclear": "It cannot be understood: several materially different readings fit and nothing in the conversation or the attached page settles which."
+              }
+            },
+            "userChoice": {
+              "type": "choice",
+              "instructions": "If the latest message asks for something to be done, does doing it hinge on a choice only the user can make?",
+              "criteria": {
+                "yes": "The user handed a choice back to the assistant (\"Thursday or Friday, what do you think?\"), or it sends a message in the user's name to someone nothing in the conversation identifies (\"message the group\" when no group was named).",
+                "no": "Nothing is left for the user to choose: the details are stated or can be looked up while doing it (a named contact's address, the date \"Friday\" means, a channel, a timezone), or the message asks for nothing to be done."
+              }
+            },
+            "libraryAction": {
+              "type": "choice",
+              "instructions": "If the latest message is about the assistant's skills, what does it ask?",
+              "criteria": {
+                "list": "To see which skills they have installed, or which they could install.",
+                "install": "To install or add a skill, or it agrees to an install the assistant offered.",
+                "uninstall": "To uninstall, remove or delete a skill.",
+                "record": "To save or record what the assistant just did as a reusable skill.",
+                "none": "None of these."
+              }
+            },
+            "reusable": {
+              "type": "choice",
+              "instructions": "If the latest message hands the execution agent something to do, is it a procedure the user would plausibly run again the same way?",
+              "criteria": {
+                "yes": "A general, repeatable procedure the agent carries out, whose only inputs are the page or a value (\"export this Jira board as a PDF\", \"summarize my unread email\").",
+                "no": "A one-time action tied to this moment (\"email Sarah I'm running late\", one booking or purchase), a trivial single step, something the assistant does in its own reply (an answer, writing, code, a card or app in the chat, or a change to one), or nothing handed over to do."
+              }
+            },
+            "artifact": {
+              "type": "choice",
+              "instructions": "Will the assistant's reply to the latest message include a visual card it builds in the chat, rather than only plain prose? A card in the chat is a snapshot: it can show current data the assistant looks up while replying, but once sent it never fetches new data, refreshes or updates itself, or runs on a timer. A question about what a card or app the assistant made can do, or how it works, is answered in prose; asking for a change a card can hold is a card.",
+              "criteria": {
+                "yes": "It asks to see something as a card, dashboard, table, chart or timeline (current data included, such as today's weather or a price now); to build a small self-contained app, tool, widget or game in the chat; to fix or change a card or app the assistant made earlier; or for a guide, itinerary, trip or day plan, schedule, comparison of named options, ranking or top list, checklist, meal plan, or study or workout plan.",
+                "no": "Plain prose serves it: explaining, advising, an opinion, a single fact, a live lookup, chat, code help, \"which is better, X or Y?\", or a question about what a card or app the assistant made can do or how it works, with no change asked (\"can it refresh itself?\", \"does it work offline?\"); it asks for a card that keeps its own data current after it is sent (refreshes, updates live, polls), which no card in the chat can be, so the reply says so in prose; or it asks for an image, logo or file to be generated."
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "artifact": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 0.99,
+              "yes": 0.01
+            },
+            "confidence": 0.98
+          },
+          "lane": {
+            "type": "choice",
+            "choice": "action",
+            "probabilities": {
+              "action": 1,
+              "answer": 0,
+              "history": 0,
+              "memory": 0,
+              "persona": 0,
+              "skill_library": 0,
+              "unclear": 0,
+              "video": 0
+            },
+            "confidence": 1
+          },
+          "libraryAction": {
+            "type": "choice",
+            "choice": "none",
+            "probabilities": {
+              "install": 0,
+              "list": 0,
+              "none": 1,
+              "record": 0,
+              "uninstall": 0
+            },
+            "confidence": 1
+          },
+          "reusable": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 0.75,
+              "yes": 0.25
+            },
+            "confidence": 0.5
+          },
+          "userChoice": {
+            "type": "choice",
+            "choice": "no",
+            "probabilities": {
+              "no": 1,
+              "yes": 0
+            },
+            "confidence": 1
+          }
+        },
+        "usage": {
+          "input_tokens": "[REDACTED]",
+          "output_tokens": "[REDACTED]",
+          "cost": 7.329e-05
+        },
+        "id": "gen-dec-1792087137-sFRi17n6s92Oxs66V4cO",
+        "provider": "TypeSafe"
+      },
+      "metadata": {
+        "latencyMs": 1712
+      },
+      "model": "typesafe/jev-1.13-20260917",
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 1.724,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {
+        "input": 1745,
+        "output": 218,
+        "total": 1963
+      },
+      "costDetails": {
+        "total": 7.329e-05
+      },
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 7.329e-05,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 1745,
+        "output": 218,
+        "total": 1963
+      }
+    },
+    {
+      "id": "003408d8-7929-4f64-b3de-18f8770cc646",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.703Z",
+      "endTime": "2026-10-15T17:58:55.727Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0b5de578-4509-4cd0-9605-62d5b866d512",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.profile",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.644Z",
+      "updatedAt": "2026-10-15T17:59:03.523Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 0.024,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "3af70d88-2ad4-48a7-a702-dbbe8a9f48bf",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.727Z",
+      "endTime": null,
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "396fda65-0efd-4841-a4d5-c51256f7c219",
+      "type": "EVENT",
+      "environment": "default",
+      "name": "chat.thought",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.644Z",
+      "updatedAt": "2026-10-15T17:59:03.347Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": null,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "0868504f-d430-4085-8f00-8a92eb6500c2",
+      "traceId": "b64a8b4f-1993-469b-a19a-d849466ca297",
+      "startTime": "2026-10-15T17:58:55.703Z",
+      "endTime": "2026-10-15T17:58:55.727Z",
+      "projectId": "cmoicirky002jsq07vrduoi5s",
+      "parentObservationId": "0802f264-e704-48b7-ba09-f7a3690469de",
+      "type": "SPAN",
+      "environment": "default",
+      "name": "chat.episodic_memory.fetch",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "version": null,
+      "createdAt": "2026-10-15T17:58:57.570Z",
+      "updatedAt": "2026-10-15T17:59:03.333Z",
+      "input": "[REDACTED_PERSONAL_CONTEXT]",
+      "output": "[REDACTED_PERSONAL_CONTEXT]",
+      "metadata": {},
+      "model": null,
+      "modelParameters": null,
+      "completionStartTime": null,
+      "promptId": null,
+      "promptName": null,
+      "promptVersion": null,
+      "latency": 0.024,
+      "timeToFirstToken": "[REDACTED]",
+      "usageDetails": {},
+      "costDetails": {},
+      "usagePricingTierId": null,
+      "usagePricingTierName": null,
+      "inputPrice": 0,
+      "outputPrice": 0,
+      "totalPrice": 0,
+      "calculatedInputCost": null,
+      "calculatedOutputCost": null,
+      "calculatedTotalCost": 0,
+      "unit": "TOKENS",
+      "promptTokens": "[REDACTED]",
+      "completionTokens": "[REDACTED]",
+      "totalTokens": "[REDACTED]",
+      "modelId": null,
+      "usage": {
+        "unit": "TOKENS",
+        "input": 0,
+        "output": 0,
+        "total": 0
+      }
+    }
+  ],
+  "htmlPath": "/project/cmoicirky002jsq07vrduoi5s/traces/b64a8b4f-1993-469b-a19a-d849466ca297",
+  "totalCost": 0.000292278
+}

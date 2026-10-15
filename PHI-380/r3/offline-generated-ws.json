@@ -1,0 +1,136 @@
+{
+  "label": "offline-generated",
+  "threadId": "0ff7979c-0ad5-4be3-aee4-a370690ea695",
+  "runId": "74d8340f-650e-4033-8bca-cfbb34047e40",
+  "text": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+  "events": [
+    {
+      "phase": "open",
+      "at": 1792087135637
+    },
+    {
+      "type": "RUN_STARTED",
+      "timestamp": 1792087135648,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "chat_state",
+      "timestamp": 1792087135651,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "chat_state",
+      "timestamp": 1792087135652,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "thought",
+      "timestamp": 1792087135708,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "live_context_skipped",
+      "timestamp": 1792087136854,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087137355,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087137388,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087137433,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087137437,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087137440,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "task_route",
+      "timestamp": 1792087137441,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "chat_state",
+      "timestamp": 1792087137441,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "intent",
+      "timestamp": 1792087137442,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_hit",
+      "timestamp": 1792087137443,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087138520,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "recall_context_skipped",
+      "timestamp": 1792087138521,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "activity_status",
+      "timestamp": 1792087139509,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087140479,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "llm_call",
+      "timestamp": 1792087140722,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "CUSTOM",
+      "name": "control_intercepted",
+      "timestamp": 1792087140725,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    },
+    {
+      "type": "RUN_FINISHED",
+      "timestamp": 1792087140725,
+      "runId": "74d8340f-650e-4033-8bca-cfbb34047e40"
+    }
+  ]
+}

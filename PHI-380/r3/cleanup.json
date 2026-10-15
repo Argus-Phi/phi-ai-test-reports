@@ -1,0 +1,12 @@
+{
+  "preferences_match": true,
+  "extension_files_hash_match": 406,
+  "ports_free": [
+    "8788",
+    "18938",
+    "18939"
+  ],
+  "source_sha": "d423531174f07850748fb9ea714ffb07ee90622d",
+  "product_worktree_clean": true,
+  "restored_live_version": "2026.10.15.1908"
+}

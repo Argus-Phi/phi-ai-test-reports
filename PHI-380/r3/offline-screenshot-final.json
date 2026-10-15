@@ -1,0 +1,62 @@
+{
+  "chatId": "01a140b9-528c-76f8-b651-e87d856b8ac8",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140ba-dae8-739b-9fcb-f63e1b5179cb",
+      "role": "user",
+      "parts": [
+        {
+          "text": "请给我当前页面一张完整的截图",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a140ba-ecd0-7074-9986-65e15b767782",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正在为你截取当前页面的完整截图。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-e973a156cded",
+          "type": "file",
+          "filename": "phi-380-direct-preview-fixture.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 4,
+            "toolCallId": "worker-artifacts-01a140ba-ecd0-7074-9986-5ce4514e3818-qa-file-e973a156cded",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "text": "当前页面的完整截图已保存为 PNG。这个截图技能完成了这次任务；要我安装它，让下次可以直接一步完成吗？",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:1",
+            "partSeq": 5,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "url": "/api/v1/files/qa-file-e973a156cded",
+      "type": "image/png",
+      "status": 200,
+      "bytes": 189917,
+      "sha256": "8e41f6c40fcd69440f5b204e1270ada506a6a8d359c75d74cb557889f6c52de7"
+    }
+  ]
+}

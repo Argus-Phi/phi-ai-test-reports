@@ -1,0 +1,1874 @@
+pnpm --filter @phi-ai/dsh-bundle test
+
+> @phi-ai/dsh-bundle@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle
+> node ../scripts/generate-rows.mjs && tsx --test "src/**/*.test.ts" "tests/*.test.ts" "tests/support/**/*.test.ts"
+
+[generate-rows] wrote 51 rows to src/rows.generated.ts
+TAP version 13
+# Subtest: assembly row resolution
+    # Subtest: yields the bundle layer's rows by default
+    ok 1 - yields the bundle layer's rows by default
+      ---
+      duration_ms: 12.779417
+      type: 'test'
+      ...
+    # Subtest: honours PORT — AGENTS.md's build check runs PORT=0
+    ok 2 - honours PORT — AGENTS.md's build check runs PORT=0
+      ---
+      duration_ms: 9.956459
+      type: 'test'
+      ...
+    # Subtest: rejects a non-integer PORT instead of binding something surprising
+    ok 3 - rejects a non-integer PORT instead of binding something surprising
+      ---
+      duration_ms: 1.320417
+      type: 'test'
+      ...
+    # Subtest: drops the tcp row when the loopback face is disabled
+    ok 4 - drops the tcp row when the loopback face is disabled
+      ---
+      duration_ms: 0.498042
+      type: 'test'
+      ...
+    # Subtest: a socket path asks for the uds face, which refuses to run without its capability
+    ok 5 - a socket path asks for the uds face, which refuses to run without its capability
+      ---
+      duration_ms: 5.19525
+      type: 'test'
+      ...
+    # Subtest: a capability without a socket path mounts no uds face
+    ok 6 - a capability without a socket path mounts no uds face
+      ---
+      duration_ms: 0.559125
+      type: 'test'
+      ...
+    # Subtest: a socket path alone is UDS-only: the tcp face stays off
+    ok 7 - a socket path alone is UDS-only: the tcp face stays off
+      ---
+      duration_ms: 3.305042
+      type: 'test'
+      ...
+    # Subtest: ENABLE_LOOPBACK=true keeps the tcp face beside the socket
+    ok 8 - ENABLE_LOOPBACK=true keeps the tcp face beside the socket
+      ---
+      duration_ms: 0.861333
+      type: 'test'
+      ...
+    # Subtest: any ENABLE_LOOPBACK other than true switches the tcp face off
+    ok 9 - any ENABLE_LOOPBACK other than true switches the tcp face off
+      ---
+      duration_ms: 0.758709
+      type: 'test'
+      ...
+    # Subtest: refuses to boot with no listener left
+    ok 10 - refuses to boot with no listener left
+      ---
+      duration_ms: 0.746333
+      type: 'test'
+      ...
+    # Subtest: lets the machine layer change the port — zero code, per spec §4.3
+    ok 11 - lets the machine layer change the port — zero code, per spec §4.3
+      ---
+      duration_ms: 182.539458
+      type: 'test'
+      ...
+    # Subtest: lets the machine layer disable a row outright
+    ok 12 - lets the machine layer disable a row outright
+      ---
+      duration_ms: 13.783542
+      type: 'test'
+      ...
+# [dsh-bundle] machine patch unreadable; ignored {
+#   file: '/nonexistent/machine.yml',
+#   error: Error: ENOENT: no such file or directory, open '/nonexistent/machine.yml'
+#       at readFileSync (node:fs:440:20)
+#       at machineLayers (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.ts:250:23)
+#       at resolveAllRows (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.ts:419:8)
+#       at resolveRows (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.ts:430:10)
+#       at TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.test.ts:348:7)
+#       at Test.runInAsyncScope (node:async_hooks:214:14)
+#       at Test.run (node:internal/test_runner/test:1047:25)
+#       at Suite.processPendingSubtests (node:internal/test_runner/test:744:18)
+#       at Test.postRun (node:internal/test_runner/test:1173:19)
+#       at Test.run (node:internal/test_runner/test:1101:12) {
+#     errno: -2,
+#     code: 'ENOENT',
+#     syscall: 'open',
+#     path: '/nonexistent/machine.yml'
+#   }
+# }
+    # Subtest: the machine layer wins over the env layer — later layers sit on top
+    ok 13 - the machine layer wins over the env layer — later layers sit on top
+      ---
+      duration_ms: 9.778625
+      type: 'test'
+      ...
+    # Subtest: ignores an unreadable machine patch rather than refusing to boot
+    ok 14 - ignores an unreadable machine patch rather than refusing to boot
+      ---
+      duration_ms: 3.003583
+      type: 'test'
+      ...
+    # Subtest: the kernel rows are the base the layers apply to
+        # Subtest: the bundle layer points the default model at phi's router
+        ok 1 - the bundle layer points the default model at phi's router
+          ---
+          duration_ms: 0.48525
+          type: 'test'
+          ...
+        # Subtest: OPENAI_RESPONSE_MODEL restates the default model, provider included
+        ok 2 - OPENAI_RESPONSE_MODEL restates the default model, provider included
+          ---
+          duration_ms: 0.306458
+          type: 'test'
+          ...
+        # Subtest: the machine layer wins over the env layer for a kernel row too
+        ok 3 - the machine layer wins over the env layer for a kernel row too
+          ---
+          duration_ms: 4.091792
+          type: 'test'
+          ...
+        # Subtest: a kernel row a layer disables is not mounted
+        ok 4 - a kernel row a layer disables is not mounted
+          ---
+          duration_ms: 3.091667
+          type: 'test'
+          ...
+        # Subtest: a wrong name assertion leaves the kernel row as it was
+        ok 5 - a wrong name assertion leaves the kernel row as it was
+          ---
+          duration_ms: 1.534625
+          type: 'test'
+          ...
+        # Subtest: resolving with the env layer in play warns about nothing
+        ok 6 - resolving with the env layer in play warns about nothing
+          ---
+          duration_ms: 0.612583
+          type: 'test'
+          ...
+        # Subtest: phi-telemetry is told the shipped version
+        ok 7 - phi-telemetry is told the shipped version
+          ---
+          duration_ms: 0.256208
+          type: 'test'
+          ...
+        # Subtest: the layered rows never include a kernel row
+        ok 8 - the layered rows never include a kernel row
+          ---
+          duration_ms: 0.666292
+          type: 'test'
+          ...
+        1..8
+    ok 15 - the kernel rows are the base the layers apply to
+      ---
+      duration_ms: 11.247666
+      type: 'suite'
+      ...
+    1..15
+ok 1 - assembly row resolution
+  ---
+  duration_ms: 258.823625
+  type: 'suite'
+  ...
+# Subtest: the boot check on patch rows
+    # Subtest: a row whose inject is unmet mounts silently, and the check names it
+    ok 1 - a row whose inject is unmet mounts silently, and the check names it
+      ---
+      duration_ms: 2.41275
+      type: 'test'
+      ...
+    # Subtest: names a child fiber a row opened, and the service it waits for
+    ok 2 - names a child fiber a row opened, and the service it waits for
+      ---
+      duration_ms: 2.771208
+      type: 'test'
+      ...
+    # Subtest: names a child fiber that failed to start
+    ok 3 - names a child fiber that failed to start
+      ---
+      duration_ms: 2.87475
+      type: 'test'
+      ...
+    # Subtest: passes when a service arrives from a later row, and ignores fibers no patch row owns
+    ok 4 - passes when a service arrives from a later row, and ignores fibers no patch row owns
+      ---
+      duration_ms: 9.078958
+      type: 'test'
+      ...
+    1..4
+ok 2 - the boot check on patch rows
+  ---
+  duration_ms: 17.367375
+  type: 'suite'
+  ...
+# Subtest: upstream log lines
+    # Subtest: a warning an upstream plugin logs reaches the console, named by the plugin
+    ok 1 - a warning an upstream plugin logs reaches the console, named by the plugin
+      ---
+      duration_ms: 2.027584
+      type: 'test'
+      ...
+    # Subtest: errors carry their stack, and debug stays out
+    ok 2 - errors carry their stack, and debug stays out
+      ---
+      duration_ms: 0.721417
+      type: 'test'
+      ...
+    # Subtest: stops printing once disposed
+    ok 3 - stops printing once disposed
+      ---
+      duration_ms: 0.955959
+      type: 'test'
+      ...
+    1..3
+ok 3 - upstream log lines
+  ---
+  duration_ms: 3.842834
+  type: 'suite'
+  ...
+# Subtest: config layering
+    # Subtest: inserts a new row at the end
+    ok 1 - inserts a new row at the end
+      ---
+      duration_ms: 1.149792
+      type: 'test'
+      ...
+    # Subtest: disables an existing row by id
+    ok 2 - disables an existing row by id
+      ---
+      duration_ms: 0.099625
+      type: 'test'
+      ...
+    # Subtest: replaces config wholesale — there is no deep merge
+    ok 3 - replaces config wholesale — there is no deep merge
+      ---
+      duration_ms: 0.081333
+      type: 'test'
+      ...
+    # Subtest: skips and warns when the name assertion does not match
+    ok 4 - skips and warns when the name assertion does not match
+      ---
+      duration_ms: 4.684584
+      type: 'test'
+      ...
+    # Subtest: warns when the targeted id does not exist
+    ok 5 - warns when the targeted id does not exist
+      ---
+      duration_ms: 0.222875
+      type: 'test'
+      ...
+    # Subtest: applies later layers on top of earlier ones
+    ok 6 - applies later layers on top of earlier ones
+      ---
+      duration_ms: 0.140958
+      type: 'test'
+      ...
+    # Subtest: a later layer can re-insert a row an earlier layer disabled
+    ok 7 - a later layer can re-insert a row an earlier layer disabled
+      ---
+      duration_ms: 1.930875
+      type: 'test'
+      ...
+    # Subtest: throws on a duplicate row id — ids are identities
+    ok 8 - throws on a duplicate row id — ids are identities
+      ---
+      duration_ms: 0.435541
+      type: 'test'
+      ...
+    # Subtest: does not mutate the base rows
+    ok 9 - does not mutate the base rows
+      ---
+      duration_ms: 0.240125
+      type: 'test'
+      ...
+    1..9
+ok 4 - config layering
+  ---
+  duration_ms: 10.101
+  type: 'suite'
+  ...
+# Subtest: two delegations from one thread's anchor each get their own child, and leave nothing behind
+ok 5 - two delegations from one thread's anchor each get their own child, and leave nothing behind
+  ---
+  duration_ms: 447.50875
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model image budget exceeded'
+# }
+# Subtest: production image capability naturally accepts unselected saved images and deduplicates its result
+ok 6 - production image capability naturally accepts unselected saved images and deduplicates its result
+  ---
+  duration_ms: 534.001792
+  type: 'test'
+  ...
+# Subtest: a model completion claim cannot hide failSave
+ok 7 - a model completion claim cannot hide failSave
+  ---
+  duration_ms: 128.262375
+  type: 'test'
+  ...
+# Subtest: a model completion claim cannot hide empty
+ok 8 - a model completion claim cannot hide empty
+  ---
+  duration_ms: 111.12975
+  type: 'test'
+  ...
+# Subtest: generation HTTP 429 retains its reason when no image is delivered
+ok 9 - generation HTTP 429 retains its reason when no image is delivered
+  ---
+  duration_ms: 107.003625
+  type: 'test'
+  ...
+# Subtest: generation HTTP 400 retains its reason when no image is delivered
+ok 10 - generation HTTP 400 retains its reason when no image is delivered
+  ---
+  duration_ms: 85.926042
+  type: 'test'
+  ...
+# Subtest: generation HTTP 503 retains its reason when no image is delivered
+ok 11 - generation HTTP 503 retains its reason when no image is delivered
+  ---
+  duration_ms: 83.153792
+  type: 'test'
+  ...
+# Subtest: a permanent screenshot error retains the handler's reason and retry decision
+ok 12 - a permanent screenshot error retains the handler's reason and retry decision
+  ---
+  duration_ms: 94.348125
+  type: 'test'
+  ...
+# Subtest: page screenshot browser failure recovers through the real loop
+ok 13 - page screenshot browser failure recovers through the real loop
+  ---
+  duration_ms: 107.464916
+  type: 'test'
+  ...
+# Subtest: page screenshot browser failure cannot be hidden by narration through the real loop
+ok 14 - page screenshot browser failure cannot be hidden by narration through the real loop
+  ---
+  duration_ms: 88.136459
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: page screenshot save failure remains partial after the same screenshot retries successfully
+ok 15 - page screenshot save failure remains partial after the same screenshot retries successfully
+  ---
+  duration_ms: 108.550708
+  type: 'test'
+  ...
+# Subtest: page screenshot failure is not satisfied by an independently delivered generated image
+ok 16 - page screenshot failure is not satisfied by an independently delivered generated image
+  ---
+  duration_ms: 125.241333
+  type: 'test'
+  ...
+# Subtest: page screenshot browser success with missing file metadata cannot claim complete delivery
+ok 17 - page screenshot browser success with missing file metadata cannot claim complete delivery
+  ---
+  duration_ms: 120.181
+  type: 'test'
+  ...
+# Subtest: page screenshot browser success with empty file metadata cannot claim complete delivery
+ok 18 - page screenshot browser success with empty file metadata cannot claim complete delivery
+  ---
+  duration_ms: 184.961459
+  type: 'test'
+  ...
+# Subtest: page screenshot browser success with zero file metadata cannot claim complete delivery
+ok 19 - page screenshot browser success with zero file metadata cannot claim complete delivery
+  ---
+  duration_ms: 133.018458
+  type: 'test'
+  ...
+# Subtest: cdp screenshot browser failure recovers through the real loop
+ok 20 - cdp screenshot browser failure recovers through the real loop
+  ---
+  duration_ms: 100.020334
+  type: 'test'
+  ...
+# [phi-worker] browser_cdp.send could not store the file {
+#   method: 'Page.captureScreenshot',
+#   filename: 'shot.png',
+#   message: 'blob storage refused'
+# }
+# Subtest: cdp screenshot browser failure cannot be hidden by narration through the real loop
+ok 21 - cdp screenshot browser failure cannot be hidden by narration through the real loop
+  ---
+  duration_ms: 76.175292
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: cdp screenshot save failure remains partial after the same screenshot retries successfully
+ok 22 - cdp screenshot save failure remains partial after the same screenshot retries successfully
+  ---
+  duration_ms: 163.763333
+  type: 'test'
+  ...
+# Subtest: cdp screenshot failure is not satisfied by an independently delivered generated image
+ok 23 - cdp screenshot failure is not satisfied by an independently delivered generated image
+  ---
+  duration_ms: 213.382958
+  type: 'test'
+  ...
+# Subtest: cdp screenshot browser success with missing file metadata cannot claim complete delivery
+ok 24 - cdp screenshot browser success with missing file metadata cannot claim complete delivery
+  ---
+  duration_ms: 97.82775
+  type: 'test'
+  ...
+# Subtest: cdp screenshot browser success with empty file metadata cannot claim complete delivery
+ok 25 - cdp screenshot browser success with empty file metadata cannot claim complete delivery
+  ---
+  duration_ms: 115.378666
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: cdp screenshot browser success with zero file metadata cannot claim complete delivery
+ok 26 - cdp screenshot browser success with zero file metadata cannot claim complete delivery
+  ---
+  duration_ms: 108.911417
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: generation empty failure followed by full delivery has the accepted recovery classification
+ok 27 - generation empty failure followed by full delivery has the accepted recovery classification
+  ---
+  duration_ms: 109.276708
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: generation service failure followed by full delivery has the accepted recovery classification
+ok 28 - generation service failure followed by full delivery has the accepted recovery classification
+  ---
+  duration_ms: 155.801167
+  type: 'test'
+  ...
+# Subtest: generation save failure followed by full delivery has the accepted recovery classification
+ok 29 - generation save failure followed by full delivery has the accepted recovery classification
+  ---
+  duration_ms: 107.918666
+  type: 'test'
+  ...
+# Subtest: generation partial upload naturally accepts the usable image and reports incomplete output
+ok 30 - generation partial upload naturally accepts the usable image and reports incomplete output
+  ---
+  duration_ms: 82.951625
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: a generation HTTP dependency delayed at least five seconds never emits an unsaved image
+ok 31 - a generation HTTP dependency delayed at least five seconds never emits an unsaved image
+  ---
+  duration_ms: 5169.273292
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: generation file saved across deadline is retained only when confirmed before abort
+ok 32 - generation file saved across deadline is retained only when confirmed before abort
+  ---
+  duration_ms: 73.822542
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 68, error: 'supplement refused' }
+# Subtest: generation file saved across deadline is retained only when confirmed before abort
+ok 33 - generation file saved across deadline is retained only when confirmed before abort
+  ---
+  duration_ms: 76.167584
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 68, error: 'supplement refused' }
+# Subtest: generation abort before a confirmed file fences a late upload and isolates the next run
+ok 34 - generation abort before a confirmed file fences a late upload and isolates the next run
+  ---
+  duration_ms: 137.658084
+  type: 'test'
+  ...
+# Subtest: generation abort after a confirmed file fences a late upload and isolates the next run
+ok 35 - generation abort after a confirmed file fences a late upload and isolates the next run
+  ---
+  duration_ms: 121.941458
+  type: 'test'
+  ...
+# Subtest: page file saved across deadline is retained only when confirmed before abort
+ok 36 - page file saved across deadline is retained only when confirmed before abort
+  ---
+  duration_ms: 62.314084
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 68, error: 'supplement refused' }
+# Subtest: page file saved across deadline is retained only when confirmed before abort
+ok 37 - page file saved across deadline is retained only when confirmed before abort
+  ---
+  duration_ms: 76.888708
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 68, error: 'supplement refused' }
+# Subtest: page abort before a confirmed file fences a late upload and isolates the next run
+ok 38 - page abort before a confirmed file fences a late upload and isolates the next run
+  ---
+  duration_ms: 114.181042
+  type: 'test'
+  ...
+# Subtest: page abort after a confirmed file fences a late upload and isolates the next run
+ok 39 - page abort after a confirmed file fences a late upload and isolates the next run
+  ---
+  duration_ms: 122.261042
+  type: 'test'
+  ...
+# Subtest: cdp file saved across deadline is retained only when confirmed before abort
+ok 40 - cdp file saved across deadline is retained only when confirmed before abort
+  ---
+  duration_ms: 74.919292
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 68, error: 'supplement refused' }
+# Subtest: cdp file saved across deadline is retained only when confirmed before abort
+ok 41 - cdp file saved across deadline is retained only when confirmed before abort
+  ---
+  duration_ms: 51.995542
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 68, error: 'supplement refused' }
+# Subtest: cdp abort before a confirmed file fences a late upload and isolates the next run
+ok 42 - cdp abort before a confirmed file fences a late upload and isolates the next run
+  ---
+  duration_ms: 126.288833
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: cdp abort after a confirmed file fences a late upload and isolates the next run
+ok 43 - cdp abort after a confirmed file fences a late upload and isolates the next run
+  ---
+  duration_ms: 144.927833
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/jpeg',
+#   bytes: 619,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: image/png generation carries the original bytes through saving and host notification
+ok 44 - image/png generation carries the original bytes through saving and host notification
+  ---
+  duration_ms: 66.7895
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/webp',
+#   bytes: 42,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: image/jpeg generation carries the original bytes through saving and host notification
+ok 45 - image/jpeg generation carries the original bytes through saving and host notification
+  ---
+  duration_ms: 70.375458
+  type: 'test'
+  ...
+# Subtest: image/webp generation carries the original bytes through saving and host notification
+ok 46 - image/webp generation carries the original bytes through saving and host notification
+  ---
+  duration_ms: 69.692583
+  type: 'test'
+  ...
+# Subtest: CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+ok 47 - CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+  ---
+  duration_ms: 77.364166
+  type: 'test'
+  ...
+# Subtest: CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+ok 48 - CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+  ---
+  duration_ms: 65.950333
+  type: 'test'
+  ...
+# Subtest: CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+ok 49 - CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+  ---
+  duration_ms: 64.517125
+  type: 'test'
+  ...
+# Subtest: CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+ok 50 - CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+  ---
+  duration_ms: 64.185
+  type: 'test'
+  ...
+# Subtest: a saved PDF does not satisfy a requested screenshot that the browser never produced
+ok 51 - a saved PDF does not satisfy a requested screenshot that the browser never produced
+  ---
+  duration_ms: 62.945417
+  type: 'test'
+  ...
+# Subtest: an internal CDP screenshot observation never becomes an artifact
+ok 52 - an internal CDP screenshot observation never becomes an artifact
+  ---
+  duration_ms: 58.944833
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# Subtest: an internal CDP screenshot observation accompanies only the explicit exported artifact
+ok 53 - an internal CDP screenshot observation accompanies only the explicit exported artifact
+  ---
+  duration_ms: 61.945167
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# Subtest: final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 54 - final image selection delivers only validated files: ["final-boat","final-kite"]
+  ---
+  duration_ms: 68.292958
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# Subtest: final image selection delivers only validated files: ["final-boat","outside-run"]
+ok 55 - final image selection delivers only validated files: ["final-boat","outside-run"]
+  ---
+  duration_ms: 66.496458
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'no model supplement in this test'
+# }
+# Subtest: final image selection delivers only validated files: []
+ok 56 - final image selection delivers only validated files: []
+  ---
+  duration_ms: 65.530375
+  type: 'test'
+  ...
+# Subtest: final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 57 - final image selection delivers only validated files: ["final-boat","final-kite"]
+  ---
+  duration_ms: 59.213584
+  type: 'test'
+  ...
+# Subtest: page screenshot selection discards a saved candidate and confirms only the final export
+ok 58 - page screenshot selection discards a saved candidate and confirms only the final export
+  ---
+  duration_ms: 75.943083
+  type: 'test'
+  ...
+# Subtest: cdp screenshot selection discards a saved candidate and confirms only the final export
+ok 59 - cdp screenshot selection discards a saved candidate and confirms only the final export
+  ---
+  duration_ms: 72.232083
+  type: 'test'
+  ...
+# Subtest: saved image failure preserves structured recovery facts: EACCES
+ok 60 - saved image failure preserves structured recovery facts: EACCES
+  ---
+  duration_ms: 55.169375
+  type: 'test'
+  ...
+# Subtest: saved image failure preserves structured recovery facts: EPERM+ETIMEDOUT
+ok 61 - saved image failure preserves structured recovery facts: EPERM+ETIMEDOUT
+  ---
+  duration_ms: 44.605209
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: saved image failure preserves structured recovery facts: UNKNOWN_STORE
+ok 62 - saved image failure preserves structured recovery facts: UNKNOWN_STORE
+  ---
+  duration_ms: 46.487625
+  type: 'test'
+  ...
+# Subtest: generation cancellation with only a saved candidate never delivers it
+ok 63 - generation cancellation with only a saved candidate never delivers it
+  ---
+  duration_ms: 41.618375
+  type: 'test'
+  ...
+# Subtest: page cancellation with only a saved candidate never delivers it
+ok 64 - page cancellation with only a saved candidate never delivers it
+  ---
+  duration_ms: 44.614125
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement refused independently of user file delivery'
+# }
+# Subtest: cdp cancellation with only a saved candidate never delivers it
+ok 65 - cdp cancellation with only a saved candidate never delivers it
+  ---
+  duration_ms: 41.675208
+  type: 'test'
+  ...
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Generate an image)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Generate an image)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=5 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Generate an image
+# [chat] blocking taskExecutor SETTLED → ok=false error=No requested image delivered. 1: Saving failed: EACCES No generation image delivered.
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=9 toolCalls=[]
+# Subtest: final image selection persists only confirmed files through the real executor and host
+ok 66 - final image selection persists only confirmed files through the real executor and host
+  ---
+  duration_ms: 62.517417
+  type: 'test'
+  ...
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Generate an image)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Generate an image)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=5 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Generate an image
+# [chat] blocking taskExecutor SETTLED → ok=false error=No requested image delivered. 1: Saving failed: temporary_store_error No generation image delivered.
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=9 toolCalls=[]
+# Subtest: structured EACCES crosses real worker/executor/chat reporting and persistence
+ok 67 - structured EACCES crosses real worker/executor/chat reporting and persistence
+  ---
+  duration_ms: 51.9305
+  type: 'test'
+  ...
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Generate an image)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Generate an image)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=5 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Generate an image
+# [chat] blocking taskExecutor SETTLED → ok=false error=No requested image delivered. 1: Saving failed: unknown_store_error No generation image delivered.
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=9 toolCalls=[]
+# Subtest: structured temporary_store_error crosses real worker/executor/chat reporting and persistence
+ok 68 - structured temporary_store_error crosses real worker/executor/chat reporting and persistence
+  ---
+  duration_ms: 44.036834
+  type: 'test'
+  ...
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Generate a colored dove)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Generate a colored dove)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=20 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Generate a colored dove
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'model supplement unavailable'
+# }
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=18 toolCalls=[]
+# Subtest: structured unknown_store_error crosses real worker/executor/chat reporting and persistence
+ok 69 - structured unknown_store_error crosses real worker/executor/chat reporting and persistence
+  ---
+  duration_ms: 45.750667
+  type: 'test'
+  ...
+# Subtest: delegated images and the final report persist when the first run finishes on a disconnected socket
+ok 70 - delegated images and the final report persist when the first run finishes on a disconnected socket
+  ---
+  duration_ms: 53.939917
+  type: 'test'
+  ...
+# Subtest: a run whose answer hit the output cap is reported as cut off, not completed
+ok 71 - a run whose answer hit the output cap is reported as cut off, not completed
+  ---
+  duration_ms: 347.659416
+  type: 'test'
+  ...
+# Subtest: any other incomplete carries the provider's own reason into the failure
+ok 72 - any other incomplete carries the provider's own reason into the failure
+  ---
+  duration_ms: 126.478959
+  type: 'test'
+  ...
+# Subtest: every kernel row applies and provides its service
+ok 73 - every kernel row applies and provides its service
+  ---
+  duration_ms: 37.65925
+  type: 'test'
+  ...
+# Subtest: the agent loop really applied — it installed the agent factory
+ok 74 - the agent loop really applied — it installed the agent factory
+  ---
+  duration_ms: 38.68225
+  type: 'test'
+  ...
+# Subtest: an unmet inject is SILENT — which is why the assertion above exists
+ok 75 - an unmet inject is SILENT — which is why the assertion above exists
+  ---
+  duration_ms: 10.027417
+  type: 'test'
+  ...
+# Subtest: the mount order satisfies every plugin's declared inject
+ok 76 - the mount order satisfies every plugin's declared inject
+  ---
+  duration_ms: 5.263
+  type: 'test'
+  ...
+# Subtest: Chat and the agent loop resolve distinct UDS purposes and observe changed default/override settings
+ok 77 - Chat and the agent loop resolve distinct UDS purposes and observe changed default/override settings
+  ---
+  duration_ms: 383.66225
+  type: 'test'
+  ...
+# Subtest: phi-agent dependency
+    # Subtest: finds the dsh packages
+    ok 1 - finds the dsh packages
+      ---
+      duration_ms: 0.314375
+      type: 'test'
+      ...
+    # Subtest: no package declares a dependency on phi-agent
+    ok 2 - no package declares a dependency on phi-agent
+      ---
+      duration_ms: 20.760708
+      type: 'test'
+      ...
+    # Subtest: the retired phi-agent and agent-worker trees hold no source files
+    ok 3 - the retired phi-agent and agent-worker trees hold no source files
+      ---
+      duration_ms: 0.150167
+      type: 'test'
+      ...
+    # Subtest: no source file imports phi-agent
+    ok 4 - no source file imports phi-agent
+      ---
+      duration_ms: 156.8975
+      type: 'test'
+      ...
+    1..4
+ok 78 - phi-agent dependency
+  ---
+  duration_ms: 178.821666
+  type: 'suite'
+  ...
+# Subtest: catch-all carve-out
+    # Subtest: a domain prefix beside the legacy catch-all does NOT throw
+    ok 1 - a domain prefix beside the legacy catch-all does NOT throw
+      ---
+      duration_ms: 17.122917
+      type: 'test'
+      ...
+    # Subtest: the SAME path twice still throws — the conflict rule is intact
+    ok 2 - the SAME path twice still throws — the conflict rule is intact
+      ---
+      duration_ms: 9.35725
+      type: 'test'
+      ...
+    # Subtest: every path the task row claims wins over the catch-all
+    ok 3 - every path the task row claims wins over the catch-all
+      ---
+      duration_ms: 30.143792
+      type: 'test'
+      ...
+    # Subtest: `/api/task-runs` is claimed separately — it is NOT under `/api/tasks`
+    ok 4 - `/api/task-runs` is claimed separately — it is NOT under `/api/tasks`
+      ---
+      duration_ms: 10.570542
+      type: 'test'
+      ...
+    # Subtest: every path the chat and llm rows claim wins over the catch-all
+    ok 5 - every path the chat and llm rows claim wins over the catch-all
+      ---
+      duration_ms: 23.06075
+      type: 'test'
+      ...
+    # Subtest: the chats prefix carries its three sub-path handlers with it
+    ok 6 - the chats prefix carries its three sub-path handlers with it
+      ---
+      duration_ms: 14.988458
+      type: 'test'
+      ...
+    # Subtest: the self-model paths are exact, so a deeper path stays with legacy
+    ok 7 - the self-model paths are exact, so a deeper path stays with legacy
+      ---
+      duration_ms: 4.279917
+      type: 'test'
+      ...
+    # Subtest: the three IM prefixes win, and their sub-paths with them
+    ok 8 - the three IM prefixes win, and their sub-paths with them
+      ---
+      duration_ms: 9.169375
+      type: 'test'
+      ...
+    # Subtest: the browser-eval prefix wins, and every one of its eleven paths with it
+    ok 9 - the browser-eval prefix wins, and every one of its eleven paths with it
+      ---
+      duration_ms: 2.610875
+      type: 'test'
+      ...
+    # Subtest: the browser row's driven-tabs question is an exact path of its own
+    ok 10 - the browser row's driven-tabs question is an exact path of its own
+      ---
+      duration_ms: 0.811125
+      type: 'test'
+      ...
+    # Subtest: the skills row now claims learned-skills and recorder too
+    ok 11 - the skills row now claims learned-skills and recorder too
+      ---
+      duration_ms: 0.971709
+      type: 'test'
+      ...
+    # Subtest: a path no row claims falls through to whoever registered `/`
+    ok 12 - a path no row claims falls through to whoever registered `/`
+      ---
+      duration_ms: 0.680958
+      type: 'test'
+      ...
+    # Subtest: `/health` is the routes row's own, not the catch-all's
+    ok 13 - `/health` is the routes row's own, not the catch-all's
+      ---
+      duration_ms: 0.648958
+      type: 'test'
+      ...
+    1..13
+ok 79 - catch-all carve-out
+  ---
+  duration_ms: 126.188542
+  type: 'suite'
+  ...
+# Subtest: generated row table
+    # Subtest: contains exactly the rows this phase mounts
+    ok 1 - contains exactly the rows this phase mounts
+      ---
+      duration_ms: 0.5765
+      type: 'test'
+      ...
+    # Subtest: never exposes a file under src/lib as a row
+    ok 2 - never exposes a file under src/lib as a row
+      ---
+      duration_ms: 0.10625
+      type: 'test'
+      ...
+    # Subtest: every entry really is a cordis plugin module
+    ok 3 - every entry really is a cordis plugin module
+      ---
+      duration_ms: 16.358208
+      type: 'test'
+      ...
+    # Subtest: the table key matches the package export subpath
+    ok 4 - the table key matches the package export subpath
+      ---
+      duration_ms: 1.064
+      type: 'test'
+      ...
+    1..4
+ok 80 - generated row table
+  ---
+  duration_ms: 30.046375
+  type: 'suite'
+  ...
+# Subtest: a web page: the prompt states it and the briefing names it
+ok 81 - a web page: the prompt states it and the briefing names it
+  ---
+  duration_ms: 390.260541
+  type: 'test'
+  ...
+# Subtest: the new-tab page: no page to act on, and the briefing says so
+ok 82 - the new-tab page: no page to act on, and the briefing says so
+  ---
+  duration_ms: 109.748334
+  type: 'test'
+  ...
+# Subtest: a URL with braces: the run still goes out, the briefing keeps it verbatim
+ok 83 - a URL with braces: the run still goes out, the briefing keeps it verbatim
+  ---
+  duration_ms: 89.589417
+  type: 'test'
+  ...
+# Subtest: the chat's context and constraints reach the worker, as the legacy briefing had them
+ok 84 - the chat's context and constraints reach the worker, as the legacy briefing had them
+  ---
+  duration_ms: 84.080333
+  type: 'test'
+  ...
+# Subtest: no tab: the default prompt and the bare objective, byte for byte
+ok 85 - no tab: the default prompt and the bare objective, byte for byte
+  ---
+  duration_ms: 109.375333
+  type: 'test'
+  ...
+# Subtest: a task run from a conversation: the briefing lists that conversation's pages
+ok 86 - a task run from a conversation: the briefing lists that conversation's pages
+  ---
+  duration_ms: 80.098709
+  type: 'test'
+  ...
+# Subtest: task run: the prompt lists exactly the tools on the wire, in their order
+ok 87 - task run: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 340.948834
+  type: 'test'
+  ...
+# Subtest: chat delegation: the prompt lists exactly the tools on the wire, in their order
+ok 88 - chat delegation: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 148.18775
+  type: 'test'
+  ...
+# Subtest: two capabilities: the prompt lists exactly the tools on the wire, in their order
+ok 89 - two capabilities: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 100.614208
+  type: 'test'
+  ...
+# Subtest: no surface named: the prompt lists exactly the tools on the wire, in their order
+ok 90 - no surface named: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 78.262959
+  type: 'test'
+  ...
+# Subtest: a task run is told it is one, and is not offered the fork to the user
+ok 91 - a task run is told it is one, and is not offered the fork to the user
+  ---
+  duration_ms: 63.173292
+  type: 'test'
+  ...
+# Subtest: a narrowed run lists only what it may reach
+ok 92 - a narrowed run lists only what it may reach
+  ---
+  duration_ms: 62.06525
+  type: 'test'
+  ...
+# Subtest: a run that names no surface keeps the default prompt, byte for byte
+ok 93 - a run that names no surface keeps the default prompt, byte for byte
+  ---
+  duration_ms: 108.872458
+  type: 'test'
+  ...
+# [phi-agent-tools] skill dependencies unresolved {
+#   runId: 'skills-2',
+#   message: 'skill_dependency_cycle:built_in:read-page'
+# }
+# Subtest: a run's first request carries its catalog, expanded, and the picked skill's body verbatim
+ok 94 - a run's first request carries its catalog, expanded, and the picked skill's body verbatim
+  ---
+  duration_ms: 256.163333
+  type: 'test'
+  ...
+# Subtest: a run whose internal dependencies cannot be resolved ends before the model is called
+ok 95 - a run whose internal dependencies cannot be resolved ends before the model is called
+  ---
+  duration_ms: 28.770416
+  type: 'test'
+  ...
+# Subtest: a run with no skills keeps the default prompt, byte for byte
+ok 96 - a run with no skills keeps the default prompt, byte for byte
+  ---
+  duration_ms: 108.724625
+  type: 'test'
+  ...
+# Subtest: a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+ok 97 - a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+  ---
+  duration_ms: 274.913708
+  type: 'test'
+  ...
+# Subtest: a stop condition with {{…}} groups reaches the run verbatim and does not break the prompt
+ok 98 - a stop condition with {{…}} groups reaches the run verbatim and does not break the prompt
+  ---
+  duration_ms: 77.517542
+  type: 'test'
+  ...
+# Subtest: a task run without them keeps the task-page answer line and no markers
+ok 99 - a task run without them keeps the task-page answer line and no markers
+  ---
+  duration_ms: 60.4105
+  type: 'test'
+  ...
+# Subtest: the run is told the user's language, and told again when it changes
+ok 100 - the run is told the user's language, and told again when it changes
+  ---
+  duration_ms: 253.222459
+  type: 'test'
+  ...
+# Subtest: an unchanged language adds no snapshot
+ok 101 - an unchanged language adds no snapshot
+  ---
+  duration_ms: 150.306625
+  type: 'test'
+  ...
+# Subtest: a run with no language is told none
+ok 102 - a run with no language is told none
+  ---
+  duration_ms: 94.946458
+  type: 'test'
+  ...
+# Subtest: a task run with no language writes in its objective's language
+ok 103 - a task run with no language writes in its objective's language
+  ---
+  duration_ms: 69.433542
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=34 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=answer p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=33 toolCalls=[]
+# [chat] turn planner replan failed Error: chatTurnReplan must NOT be called on the in-band delegation path
+#     at forTask (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/sidecar-chat-action-e2e.test.ts:221:13)
+#     at Object.generateForTask (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/sidecar-chat-action-e2e.test.ts:286:27)
+#     at Object.replan (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-planner.ts:460:25)
+#     at ChatAssistant.reflectLoop (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:7395:40)
+#     at ChatAssistant.runReflecting (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:7046:16)
+#     at async ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:3287:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# Subtest: e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+ok 104 - e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+  ---
+  duration_ms: 1302.290375
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=查黄金价并写中英文两段报道)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=查黄金价并写中英文两段报道)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=16 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → 查黄金价并写中英文两段报道
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] interjection folded into report context (no new turn): 再加一个西班牙文版本 / also add a Spanish version
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=43 toolCalls=[]
+# Subtest: e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+ok 105 - e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+  ---
+  duration_ms: 1169.183834
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=action p=1.00 skill=memory-agent model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=run the memory-agent skill on this: Open producthunt.com)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=run the memory-agent skill on this: Open producthunt.com)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=29 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → run the memory-agent skill on this: Open producthunt.com
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Check the current time.)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Check the current time.)
+# [chat] blocking taskExecutor INVOKED → Check the current time.
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=21 toolCalls=[]
+# Subtest: a worker run the memory continuation delegates streams its progress
+ok 106 - a worker run the memory continuation delegates streams its progress
+  ---
+  duration_ms: 348.827333
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: no worker ports in this test
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2233:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:20)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=24 toolCalls=[]
+# Subtest: e2e (production path, memory route B): MCP recall grounds a substantive reply over the WS hub
+ok 107 - e2e (production path, memory route B): MCP recall grounds a substantive reply over the WS hub
+  ---
+  duration_ms: 637.306166
+  type: 'test'
+  ...
+# Subtest: Stop closes the assembled pipeline while model is stalled
+ok 108 - Stop closes the assembled pipeline while model is stalled
+  ---
+  duration_ms: 46.072667
+  type: 'test'
+  ...
+# Subtest: Stop closes the assembled pipeline while profile is stalled
+ok 109 - Stop closes the assembled pipeline while profile is stalled
+  ---
+  duration_ms: 13.137541
+  type: 'test'
+  ...
+# Subtest: real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+ok 110 - real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+  ---
+  duration_ms: 134.583416
+  type: 'test'
+  ...
+# Subtest: real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+ok 111 - real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+  ---
+  duration_ms: 89.199208
+  type: 'test'
+  ...
+# Subtest: real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+ok 112 - real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+  ---
+  duration_ms: 273.508792
+  type: 'test'
+  ...
+# Subtest: real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+ok 113 - real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+  ---
+  duration_ms: 259.088167
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 3, error: 'model supplement refused' }
+# Subtest: real worker cancel without an accepted generation preserves exactly the host's persisted files
+ok 114 - real worker cancel without an accepted generation preserves exactly the host's persisted files
+  ---
+  duration_ms: 73.877792
+  type: 'test'
+  ...
+# Subtest: real worker cancel with an accepted generation preserves exactly the host's persisted files
+ok 115 - real worker cancel with an accepted generation preserves exactly the host's persisted files
+  ---
+  duration_ms: 97.792625
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 3, error: 'model supplement refused' }
+# Subtest: real worker timeout without an accepted generation preserves exactly the host's persisted files
+ok 116 - real worker timeout without an accepted generation preserves exactly the host's persisted files
+  ---
+  duration_ms: 242.144416
+  type: 'test'
+  ...
+# Subtest: real worker timeout with an accepted generation preserves exactly the host's persisted files
+ok 117 - real worker timeout with an accepted generation preserves exactly the host's persisted files
+  ---
+  duration_ms: 247.04075
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it { mediaType: 'image/png', bytes: 3, error: 'model supplement refused' }
+# Subtest: a cancelled pending upload can finish after a new run without changing either run's files or terminal
+ok 118 - a cancelled pending upload can finish after a new run without changing either run's files or terminal
+  ---
+  duration_ms: 264.398958
+  type: 'test'
+  ...
+# [agent-worker] browser_task completed {
+#   toolId: 'browser_task',
+#   isError: false,
+#   unverified: 0,
+#   evidenceTruncated: false
+# }
+# Subtest: browser_task's internal screenshot and page protobuf never create user or persisted files
+ok 119 - browser_task's internal screenshot and page protobuf never create user or persisted files
+  ---
+  duration_ms: 131.900334
+  type: 'test'
+  ...
+# [agent-worker] browser_task completed {
+#   toolId: 'browser_task',
+#   isError: false,
+#   unverified: 0,
+#   evidenceTruncated: false
+# }
+# Subtest: browser_task's internal screenshot and page protobuf stay internal beside an explicit screenshot export
+ok 120 - browser_task's internal screenshot and page protobuf stay internal beside an explicit screenshot export
+  ---
+  duration_ms: 142.486875
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=34 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=answer p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=43 toolCalls=[]
+# Subtest: TASK turn: one trace — a user turn that records its routing decision, a delegation turn that rejoins it, worker.run under the delegation's chat.respond with its model rounds and tool under it
+ok 121 - TASK turn: one trace — a user turn that records its routing decision, a delegation turn that rejoins it, worker.run under the delegation's chat.respond with its model rounds and tool under it
+  ---
+  duration_ms: 473.68675
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=34 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# Subtest: ANSWER turn (no worker): one user turn, the reply under chat.respond, NO worker.run — one trace
+ok 122 - ANSWER turn (no worker): one user turn, the reply under chat.respond, NO worker.run — one trace
+  ---
+  duration_ms: 477.720416
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=34 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# Subtest: a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+ok 123 - a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+  ---
+  duration_ms: 383.40375
+  type: 'test'
+  ...
+# Subtest: no telemetry row: without phi-chat-telemetry the chat records no chat.turn and worker.run is untraced — TASK turn completes unchanged
+ok 124 - no telemetry row: without phi-chat-telemetry the chat records no chat.turn and worker.run is untraced — TASK turn completes unchanged
+  ---
+  duration_ms: 362.077666
+  type: 'test'
+  ...
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2233:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:20)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+# [LiveConnectorProvider] no auth token — skipping fetch
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=6 toolCalls=[]
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2233:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:20)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+# [LiveConnectorProvider] no auth token — skipping fetch
+# Subtest: turn 1: the full recall pipeline surfaces its diagnostics on the wire (recall_context_request/result, gate_hold) through the real owner-fence
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+ok 125 - turn 1: the full recall pipeline surfaces its diagnostics on the wire (recall_context_request/result, gate_hold) through the real owner-fence
+  ---
+  duration_ms: 451.924167
+  type: 'test'
+  ...
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=6 toolCalls=[]
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2233:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:20)
+# [LiveConnectorProvider] no auth token — skipping fetch
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:309:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:164:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:2350:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1981:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-438-e5e14f8cd3c3/workdir/phi-ai/chat/src/engine/assistant.ts:1823:9)
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=6 toolCalls=[]
+# Subtest: turn 2: the SECOND recall turn on the same actor STILL surfaces every diagnostic on r2 (owner-fence does NOT drop the run's own session)
+ok 126 - turn 2: the SECOND recall turn on the same actor STILL surfaces every diagnostic on r2 (owner-fence does NOT drop the run's own session)
+  ---
+  duration_ms: 793.377208
+  type: 'test'
+  ...
+# Subtest: stopped during the model request, the turn still records its end
+ok 127 - stopped during the model request, the turn still records its end
+  ---
+  duration_ms: 246.709167
+  type: 'test'
+  ...
+# Subtest: stopped during a tool's own request, the turn still records its end
+ok 128 - stopped during a tool's own request, the turn still records its end
+  ---
+  duration_ms: 155.943584
+  type: 'test'
+  ...
+# Subtest: structure: rows (design section 9)
+    # Subtest: the target is 47 named rows, 2 diagnostic rows and 1 override
+    ok 1 - the target is 47 named rows, 2 diagnostic rows and 1 override
+      ---
+      duration_ms: 0.319083
+      type: 'test'
+      ...
+    # Subtest: the bundle mounts every design row
+    ok 2 - the bundle mounts every design row
+      ---
+      duration_ms: 0.271375
+      type: 'test'
+      ...
+    # Subtest: the bundle mounts no row the design does not list
+    ok 3 - the bundle mounts no row the design does not list
+      ---
+      duration_ms: 0.056084
+      type: 'test'
+      ...
+    # Subtest: the bundle mounts both diagnostic rows
+    ok 4 - the bundle mounts both diagnostic rows
+      ---
+      duration_ms: 0.037959
+      type: 'test'
+      ...
+    # Subtest: the bundle layer carries the design's override, and no other
+    ok 5 - the bundle layer carries the design's override, and no other
+      ---
+      duration_ms: 1.907625
+      type: 'test'
+      ...
+    1..5
+ok 129 - structure: rows (design section 9)
+  ---
+  duration_ms: 3.112
+  type: 'suite'
+  ...
+# Subtest: structure: packages (design section 9)
+    # Subtest: every design package exists
+    ok 1 - every design package exists
+      ---
+      duration_ms: 0.184292
+      type: 'test'
+      ...
+    # Subtest: every package outside the design is a recorded deviation
+    ok 2 - every package outside the design is a recorded deviation
+      ---
+      duration_ms: 0.297167
+      type: 'test'
+      ...
+    # Subtest: every recorded deviation still exists
+    ok 3 - every recorded deviation still exists
+      ---
+      duration_ms: 0.519292
+      type: 'test'
+      ...
+    1..3
+ok 130 - structure: packages (design section 9)
+  ---
+  duration_ms: 1.422
+  type: 'suite'
+  ...
+# Subtest: structure: bundle/src holds configuration, not services
+    # Subtest: holds exactly scheme A's files
+    ok 1 - holds exactly scheme A's files
+      ---
+      duration_ms: 1.102875
+      type: 'test'
+      ...
+    1..1
+ok 131 - structure: bundle/src holds configuration, not services
+  ---
+  duration_ms: 1.292334
+  type: 'suite'
+  ...
+# Subtest: structure: every top-level plugin source file is a row (10.2)
+    # Subtest: no top-level file in plugins/<pkg>/src lacks a plugin surface
+    ok 1 - no top-level file in plugins/<pkg>/src lacks a plugin surface
+      ---
+      duration_ms: 2.095625
+      type: 'test'
+      ...
+    1..1
+ok 132 - structure: every top-level plugin source file is a row (10.2)
+  ---
+  duration_ms: 2.155916
+  type: 'suite'
+  ...
+# Subtest: structure: no plugin value-imports another plugin (section 8)
+    # Subtest: every cross-plugin import in plugin source is type-only
+    ok 1 - every cross-plugin import in plugin source is type-only
+      ---
+      duration_ms: 798.102125
+      type: 'test'
+      ...
+    1..1
+ok 133 - structure: no plugin value-imports another plugin (section 8)
+  ---
+  duration_ms: 798.161792
+  type: 'suite'
+  ...
+# Subtest: structure: the default bundle suite
+    # Subtest: never reaches tests/pg
+    ok 1 - never reaches tests/pg
+      ---
+      duration_ms: 0.853
+      type: 'test'
+      ...
+    # Subtest: drops no other test file
+    ok 2 - drops no other test file
+      ---
+      duration_ms: 0.661
+      type: 'test'
+      ...
+    1..2
+ok 134 - structure: the default bundle suite
+  ---
+  duration_ms: 1.565458
+  type: 'suite'
+  ...
+# Subtest: a scripted round drives the upstream loop and its text becomes the summary
+ok 135 - a scripted round drives the upstream loop and its text becomes the summary
+  ---
+  duration_ms: 220.673292
+  type: 'test'
+  ...
+# [agent-worker] artifact.create stored {
+#   toolId: 'artifact',
+#   capabilityId: 'artifact.create',
+#   filename: 'note.txt',
+#   sizeBytes: 4
+# }
+# Subtest: a turn that ENDS IN ERROR is reported as an error, not an empty success
+ok 136 - a turn that ENDS IN ERROR is reported as an error, not an empty success
+  ---
+  duration_ms: 128.884833
+  type: 'test'
+  ...
+# [agent-worker] chat_category.list ok {"userId":"u1","totalCount":1,"filteredCount":1,"filteredIds":[{"id":"c1","name":"Work"}]}
+# Subtest: a capability's produced files reach WorkerRunResult.artifacts
+ok 137 - a capability's produced files reach WorkerRunResult.artifacts
+  ---
+  duration_ms: 118.646667
+  type: 'test'
+  ...
+# Subtest: tool_call_result carries every field the Sidecar renders from
+ok 138 - tool_call_result carries every field the Sidecar renders from
+  ---
+  duration_ms: 79.611166
+  type: 'test'
+  ...
+# Subtest: two runs at once never narrate each other
+ok 139 - two runs at once never narrate each other
+  ---
+  duration_ms: 110.837458
+  type: 'test'
+  ...
+# [chat] reply segment parsed (kind=follow_up role=report): control=none textLen=46 toolCalls=[]
+# [task-report] writing the run's log failed {
+#   runId: 'run-2',
+#   error: 'store.appendTaskRunLogEntries is not a function'
+# }
+# Subtest: a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+ok 140 - a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+  ---
+  duration_ms: 17.677666
+  type: 'test'
+  ...
+# Subtest: a correction during the only round runs before success
+ok 141 - a correction during the only round runs before success
+  ---
+  duration_ms: 160.157916
+  type: 'test'
+  ...
+# Subtest: a correction during the final round after a tool runs before success
+ok 142 - a correction during the final round after a tool runs before success
+  ---
+  duration_ms: 114.89125
+  type: 'test'
+  ...
+# [phi-guard-max-rounds] granted the wrap-up step { turn: 1, step: 13, maxRounds: 12 }
+# [phi-guard-max-rounds] refused a step past the ceiling { turn: 1, step: 14, maxRounds: 12 }
+# Subtest: an empty finish-boundary inbox does not add a model request
+ok 143 - an empty finish-boundary inbox does not add a model request
+  ---
+  duration_ms: 78.391542
+  type: 'test'
+  ...
+# Subtest: persistent late corrections stop at the existing round limit
+ok 144 - persistent late corrections stop at the existing round limit
+  ---
+  duration_ms: 151.981291
+  type: 'test'
+  ...
+# Subtest: a late correction cannot continue past the run deadline
+ok 145 - a late correction cannot continue past the run deadline
+  ---
+  duration_ms: 55.602167
+  type: 'test'
+  ...
+# Subtest: a late correction cannot continue a cancelled run
+ok 146 - a late correction cannot continue a cancelled run
+  ---
+  duration_ms: 51.886084
+  type: 'test'
+  ...
+# Subtest: an interjection still being read is handed over when the turn ends
+ok 147 - an interjection still being read is handed over when the turn ends
+  ---
+  duration_ms: 77.391083
+  type: 'test'
+  ...
+# Subtest: a step waits for an interjection still being read
+ok 148 - a step waits for an interjection still being read
+  ---
+  duration_ms: 87.194833
+  type: 'test'
+  ...
+# Subtest: each model call of a traced run is reported with its prompt, output and round
+ok 149 - each model call of a traced run is reported with its prompt, output and round
+  ---
+  duration_ms: 239.105417
+  type: 'test'
+  ...
+# Subtest: a run that does not ask reports no model calls
+ok 150 - a run that does not ask reports no model calls
+  ---
+  duration_ms: 89.512292
+  type: 'test'
+  ...
+# Subtest: a two-round run records worker.run with a raw generation per round and the tool between
+ok 151 - a two-round run records worker.run with a raw generation per round and the tool between
+  ---
+  duration_ms: 132.720959
+  type: 'test'
+  ...
+# [phi-guard-max-rounds] granted the wrap-up step { turn: 1, step: 3, maxRounds: 2 }
+# [phi-guard-max-rounds] dropped tool calls from the wrap-up step {
+#   sessionId: 'd4f537de-8dbb-4438-83b7-f4133e98d3f2',
+#   droppedToolCalls: 1
+# }
+# [phi-guard-max-rounds] granted the wrap-up step { turn: 1, step: 3, maxRounds: 2 }
+# [phi-guard-max-rounds] dropped tool calls from the wrap-up step {
+#   sessionId: 'b1d01f58-c383-461b-bac7-0c73d3cf92f1',
+#   droppedToolCalls: 1
+# }
+# Subtest: a run at its round ceiling reports what it did, still as the ceiling
+ok 152 - a run at its round ceiling reports what it did, still as the ceiling
+  ---
+  duration_ms: 138.685916
+  type: 'test'
+  ...
+# Subtest: a wrap-up that only reaches for a tool is still the round ceiling
+ok 153 - a wrap-up that only reaches for a tool is still the round ceiling
+  ---
+  duration_ms: 69.555333
+  type: 'test'
+  ...
+# Subtest: a run that finishes inside its ceiling never sees the wrap-up
+ok 154 - a run that finishes inside its ceiling never sees the wrap-up
+  ---
+  duration_ms: 61.87275
+  type: 'test'
+  ...
+# [phi-guard-run-deadline] refused a step past the deadline {
+#   agent: '2c950b48-3b9a-4ba6-abf2-5f873772f0d1',
+#   turn: 1,
+#   step: 2,
+#   elapsedMs: 5002,
+#   maxRunTimeoutMs: 1000
+# }
+# Subtest: a run the computer slept through keeps its budget
+ok 155 - a run the computer slept through keeps its budget
+  ---
+  duration_ms: 114.916916
+  type: 'test'
+  ...
+# Subtest: a run that ran past its budget awake loses its budget
+ok 156 - a run that ran past its budget awake loses its budget
+  ---
+  duration_ms: 61.102208
+  type: 'test'
+  ...
+1..156
+# tests 215
+# suites 14
+# pass 215
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 17686.859167

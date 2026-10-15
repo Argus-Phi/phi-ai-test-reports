@@ -1,0 +1,80 @@
+{
+  "chatId": "0ff7979c-0ad5-4be3-aee4-a370690ea695",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a140b7-95a0-77d2-9a5a-3cc673e2647f",
+      "role": "user",
+      "parts": [
+        {
+          "text": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a140b7-a986-758d-8cee-dd93a1498bde",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正在为你分别生成纸船和风筝的图片。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-91faf7e28e01",
+          "type": "file",
+          "filename": "image-generation-1.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 4,
+            "toolCallId": "worker-artifacts-01a140b7-a986-758d-8cee-d55a30603856-qa-file-91faf7e28e01",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-4ffb55a58194",
+          "type": "file",
+          "filename": "image-generation-1.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 6,
+            "toolCallId": "worker-artifacts-01a140b7-a986-758d-8cee-d55a30603856-qa-file-4ffb55a58194",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "text": "两张独立图片已生成：红色纸船和蓝色风筝。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:2",
+            "partSeq": 7,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "url": "/api/v1/files/qa-file-91faf7e28e01",
+      "type": "image/png",
+      "status": 200,
+      "bytes": 1189856,
+      "sha256": "134f237506088f5eb57078b169a5fd82a02feb1cf1150edd3c47a5d359671d70"
+    },
+    {
+      "url": "/api/v1/files/qa-file-4ffb55a58194",
+      "type": "image/png",
+      "status": 200,
+      "bytes": 1182228,
+      "sha256": "f96aa7ee78e9ff39994c289974445864d395bba13177fa21c977e1237bbfdae1"
+    }
+  ]
+}
