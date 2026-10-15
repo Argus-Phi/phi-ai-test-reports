@@ -1,6 +1,6 @@
 {
  "key": "PHI-354",
- "title": "网页读取返回可用正文，避免内部文件进入聊天与任务附件",
+ "title": "修复创建定时任务时将内部页面 protobuf 作为用户附件发送的问题",
  "work_type": "bugfix",
  "round": 3,
  "kind": "regression",
