@@ -10,7 +10,7 @@
  "sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
  "branch": "PHI-354-readable-page-content",
  "pr_url": "https://github.com/phibrowser/phi-ai/pull/578",
- "generated_at": "2026-10-15T06:54:25.009507+00:00",
+ "generated_at": "2026-10-15T06:55:34.805648+00:00",
  "environment": {
   "机器": "独立 macOS QA，Canary 真机",
   "Canary": "2026.10.15.0207 / Chrome154.0.8037.54",
@@ -1101,7 +1101,7 @@
      "caption": "export-files/T-21-pdf.pdf"
     },
     {
-     "type": "image",
+     "type": "log",
      "path": "evidence/export-files/T-21-png.png",
      "caption": "export-files/T-21-png.png"
     },
@@ -1247,12 +1247,12 @@
      "caption": "export-files/T-22-pdf.pdf"
     },
     {
-     "type": "image",
+     "type": "log",
      "path": "evidence/export-files/T-22-png-native.png",
      "caption": "export-files/T-22-png-native.png"
     },
     {
-     "type": "image",
+     "type": "log",
      "path": "evidence/export-files/T-22-png.png",
      "caption": "export-files/T-22-png.png"
     },
