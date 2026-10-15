@@ -1,0 +1,35 @@
+ok 2 - persists generic file content from tool results as assistant file parts
+ok 3 - replayed rich files persist once while later text and new runs retain the file
+ok 7 - persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+ok 21 - GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+ok 33 - GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+ok 35 - another account cannot obtain an image-bearing chat even by declaring the owner's profile
+ok 36 - fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+ok 46 - the files the user attached in this conversation ride in the worker's context
+ok 47 - a file listing that fails leaves the worker's context as it was
+ok 54 - emits no lifecycle progress when no owner run is known (scoped)
+ok 55 - worker artifacts are mapped onto the TaskExecutionResult and emitted once
+ok 56 - a run with no artifacts emits nothing and leaves the result field absent
+ok 57 - artifacts from a FAILED run are still emitted and reported
+ok 59 - image delivery diagnostics do not claim that requested work was gathered
+ok 60 - image delivery diagnostics accompany saved partial files
+ok 63 - a USER cancel salvages nothing — a cancel is a decision, not a loss
+ok 64 - a TIMEOUT salvages too — the other way a finished piece of work is lost
+ok 74 - a memory ask that outlives the run timeout is a timeout
+ok 105 - saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+ok 106 - an unwired artifact host reports delivery failure instead of full success
+ok 110 - mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+ok 111 - a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+ok 112 - a plain cancel neither deletes the turn nor replaces the actor
+ok 122 - chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+ok 127 - emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+ok 128 - emitWorkerArtifacts drops frames that do not belong to the live run
+ok 129 - emitWorkerArtifacts emits nothing for an empty artifact list
+ok 130 - image artifacts use one stable quad per file across dispatches and persist online
+ok 131 - image artifacts use one stable quad per file across dispatches and persist offline
+ok 132 - artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+# tests 132
+# pass 132
+# fail 0
+# cancelled 0
+# skipped 0

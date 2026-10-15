@@ -1,0 +1,133 @@
+ok 1 - fenced artifact splits correctly at chunk size 1
+ok 2 - fenced artifact splits correctly at chunk size 3
+ok 3 - fenced artifact splits correctly at chunk size 7
+ok 4 - fenced artifact splits correctly at chunk size 126
+ok 8 - stream ending inside an artifact completes it as truncated
+ok 10 - close-fence lookalikes inside the artifact stay in the html
+ok 12 - two artifacts in one reply get sequential ids and placeholders
+ok 13 - buildArtifactSrcDoc wraps fragments in the structural shell (no design system)
+ok 14 - resolveArtifactMedia: resolved slots substitute, unresolved imgs vanish
+ok 15 - resolveArtifactCites: cite hrefs resolve positionally; unknown cites unlink but keep the text
+ok 16 - ARTIFACT_SHELL_CSS is structural only, shared by both render paths
+ok 17 - buildArtifactSrcDoc shell carries the new-tab link base
+ok 18 - buildArtifactSrcDoc shell closes img-src to local schemes (meta CSP — no remote declarative fetches)
+ok 19 - buildArtifactSrcDoc: a legacy FULL document gets the meta CSP injected, not served raw
+ok 20 - resolveArtifactMedia: a host-inlined data:image URI substitutes (the closed-CSP delivery form)
+ok 24 - buildArtifactSrcDoc keeps an already-full document unwrapped (legacy tolerance), CSP aside
+ok 31 - seeding alone emits nothing and persists nothing (pure prime — seed is not replay)
+ok 34 - hold rider tells it the attached page IS visible (no paste/screenshot refusal)
+ok 36 - profileProvider blurb is injected into the answering model's system prompt
+ok 37 - no profile section is added when no profileProvider is configured
+ok 53 - one solicitation per turn: a later replan round cannot schedule a second offer
+ok 55 - first ceiling elapses, then a WAITING line replaces the hold line; recall lands within the hard ceiling -> grounded answer (no timeout narration)
+ok 61 - follow-up yield window: user message arrives mid-yield -> follow-up cancelled
+ok 71 - late context after session close -> planner schedules a correction follow-up
+ok 72 - interrupt: cancels stream and routes to Perceiving
+ok 75 - scratchpad tool turns accumulate across turns (append, not replace)
+ok 81 - <self> precedes the name line which precedes <user_profile> (no identity confusion)
+ok 88 - web_search: each call ends with a trace header row, and a reply without image slots says so
+ok 90 - web_search: a search that lands first cancels the hold line and never waits on it
+ok 93 - web_search: a later search lists only the sources it added, under continuing ids
+ok 95 - web_search: an unrelated event mid-wait defers — the wait holds and one search lands
+ok 116 - decision segment delegates: reflect is SKIPPED so late context can't stream a follow-up that contradicts the pending task
+ok 134 - artifact turn: a control_delegate_task is refused and the nudged retry authors the card with the guide in context
+ok 135 - prepare_artifact: the reply loads the design guide mid-segment and authors the card
+ok 136 - prepare_artifact: a repeat load the same turn is refused — the guide is a fixed text
+ok 137 - prepare_artifact: not advertised without a wired artifacts config
+ok 138 - prepare_artifact: not advertised while the router's design-guide note rides the turn
+ok 153 - live context is captured once per conversation and reused in every later turn
+ok 163 - sessionId: late-recall diagnostics carry the NEW late session, distinct from the first
+ok 165 - image + text-file attachments ride in the user turn
+ok 166 - source identities remain scoped to their user turn on subsequent live replies
+ok 168 - binary file attachments ride in the user turn as file items
+ok 183 - selfReview detached: a control_close tail streams as a LATE bubble after the answer closed
+ok 212 - a task result with artifacts tells the report model what files were produced
+ok 213 - a task result without artifacts adds no artifact line
+ok 227 - plan mode: the delegate-now nudge quotes the ACTIVE step verbatim, so the model delegates THAT step (observed live: it delegated a later step's unresolvable objective)
+ok 250 - a later from-now-on in a card wins over one the dispatching message made
+ok 263 - readImageAttachments keeps only image-kind entries with content
+ok 264 - readImageAttachments trims content and tolerates missing optionals
+ok 265 - readImageAttachments returns [] for undefined
+ok 266 - buildImageMessageItems maps to image LLM items
+ok 267 - readTextFileAttachments keeps text-file entries and defaults filename
+ok 268 - formatTextFilesForPrompt returns '' when there are no files
+ok 269 - formatTextFilesForPrompt fences each file with its name
+ok 270 - formatTextFilesForPrompt truncates very large files
+ok 274 - readFileAttachments keeps only file-kind entries with content
+ok 275 - buildFileMessageItems maps read files to file LLM message items
+ok 291 - a standing request says it holds whatever the latest message is written in
+ok 344 - a later batch in the same turn cannot evict an earlier batch's best records
+ok 351 - a later search in the same turn adds only its new cards, under their own ids
+ok 361 - image cards: classic carries page url + thumbnail, slot mode stays id-keyed
+ok 378 - the acknowledgment of a request for LATER promises only the setting up
+ok 402 - failure facts and distinct recovery templates exist for English
+ok 403 - failure facts and distinct recovery templates exist for Chinese
+ok 404 - failure facts and distinct recovery templates exist for Japanese
+ok 405 - failure facts and distinct recovery templates exist for Korean
+ok 406 - failure facts and distinct recovery templates exist for Spanish
+ok 407 - failure facts and distinct recovery templates exist for French
+ok 408 - failure facts and distinct recovery templates exist for German
+ok 409 - failure facts and distinct recovery templates exist for Dutch
+ok 410 - failure facts and distinct recovery templates exist for Portuguese
+ok 411 - failure facts and distinct recovery templates exist for Italian
+ok 412 - failure facts and distinct recovery templates exist for Russian
+ok 413 - failure facts and distinct recovery templates exist for Arabic
+ok 414 - failure facts and distinct recovery templates exist for Hindi
+ok 415 - failure facts and distinct recovery templates exist for Vietnamese
+ok 416 - failure facts and distinct recovery templates exist for Thai
+ok 417 - failure facts and distinct recovery templates exist for Indonesian
+ok 418 - failure facts and distinct recovery templates exist for Turkish
+ok 419 - failure facts and distinct recovery templates exist for Polish
+ok 429 - the files a run saved are named, not claimed as attached
+ok 437 - a late run, or the first run after an unchecked gap, says so in one clause
+ok 476 - decideTurnVerdict fails open: no answers, a throw, an abort, an empty message
+ok 493 - the lane state carries the transcript tail, the page, images and the pending offer
+ok 494 - the artifact question is asked only when the guide is wired
+ok 501 - a pre-aborted turn returns not-a-task without deciding
+ok 509 - artifact: an answer-lane card turn loads the guide
+ok 510 - artifact: a chain with an action step dispatches, and the card waits for the report
+ok 511 - artifact: a failing guide provider degrades to no guidance
+ok 546 - provider returns [] for an already-aborted signal without fetching
+ok 558 - retrieveFromKnowledgeBase: pre-aborted signal short-circuits
+ok 567 - BUILTIN_KNOWLEDGE_BASE: the escaped backtick spans survived the template-literal conversion
+ok 575 - slot session: cap ignores later slots; duplicates dedupe by pseudo-URL
+ok 577 - slot session: aborted signal stops scanning and late emissions
+ok 579 - slot session: a duplicate result retries with exclusions and uses another image
+ok 580 - slot session: duplicate retries stop when the resolver has no unused image
+ok 582 - slot session: drain closes out still-pending slots and discards their late results
+ok 584 - slot session: dispose aborts in-flight resolvers so nothing emits later
+ok 585 - matchMediaSlotFromPool: term overlap, image-kind tiebreak, no-overlap miss
+ok 588 - onText also admits the HTML img form (artifact fragments)
+ok 601 - dedupeWebResultsByHost: a titled holder keeps its slot over later same-host entries
+ok 610 - formatWebResultsForBrief: image results list their source page url
+ok 618 - race: empty fallback post-window still waits for a late rich primary
+ok 623 - race: pre-aborted signal → [] without calling providers
+ok 633 - cancel defaults to keepInbox: interrupt only, queue untouched
+ok 634 - cancel keepInbox:false drops queued input BEFORE the interrupt
+ok 635 - dispose stops the spine once, is idempotent, and pins status/cancel afterwards
+ok 638 - cancel keepInbox:false drops queued-but-undequeued input
+ok 655 - runner: abort keeps streamed text and drops tool calls
+ok 657 - runner: abort settles before a stalled provider and forwards its signal
+ok 673 - getProfileId sets the x-profile-id header, resolved fresh per call
+ok 674 - no getProfileId ⇒ no x-profile-id header (unchanged behavior)
+ok 675 - scope: "user" sends x-memory-scope on every request, alongside x-profile-id
+ok 676 - scope: "user" works without getProfileId; default/profile scope sends no ambient header
+ok 679 - recall short-circuits to [] when the caller signal is already aborted
+ok 681 - profile formats a UserProfile, '' when absent
+ok 704 - plan prompt carries the profile and browser-activity sections
+ok 730 - timeScopeWindow computes the host's calendar periods from the stated clock
+ok 731 - timeScopeWindow: an evening west of UTC is still today, not the next UTC day
+ok 743 - asks nothing with fewer than two recalled memories or after an abort
+ok 749 - late recall hits after the answer: a chat.late_context span at the root of the request's trace; the re-plan and the correction hang under it
+ok 798 - seam 4: the profile fetch opens a chat.profile span under chat.assess, with the profile text as output
+ok 799 - seam 4 no-op: with NO telemetry port, NO chat.profile span exists and the provider runs identically
+ok 836 - a replay keeps the time each frame was sent
+ok 837 - a replayed turn ends at the time its idle frame was sent
+ok 838 - a replayed LLM call without its own start is placed by the frame's time
+ok 841 - the default scope describes the panel's in-memory trace
+ok 842 - a caller may restate the scope and add notes
+# tests 876
+# pass 876
+# fail 0
+# cancelled 0
+# skipped 0

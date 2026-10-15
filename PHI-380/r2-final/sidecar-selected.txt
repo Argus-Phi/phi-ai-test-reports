@@ -1,0 +1,36 @@
+ok 1 - an image remains visible with its name while loading
+ok 2 - native preview uses the service address http://127.0.0.1:8788/api/v1/files/image while the image renders a blob
+ok 3 - native preview uses the service address /api/v1/files/image while the image renders a blob
+ok 8 - network retry re-reads the original file and successful image downloads original identity
+ok 9 - image decoding failure is visible and isolated from the next file request
+ok 10 - an external image decoding failure is visible
+ok 11 - download failure has an explicit image error
+ok 12 - a late error from an external image cannot hide its replacement
+ok 13 - loads broker-backed object URLs for history, avatar, upload, and message file paths
+ok 15 - same source and loader identity are reloaded and revoked when auth scope changes
+ok 19 - a resolved file is hidden when its loader auth scope is invalidated
+ok 20 - tool result file content is uploaded and converted into a generic file part
+ok 21 - tool result file content without mime type defaults to a generic binary artifact
+ok 42 - [merge (default)] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+ok 44 - [merge (default)] unrelated CUSTOM events leave the activity label alone
+ok 55 - [split] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+ok 57 - [split] unrelated CUSTOM events leave the activity label alone
+ok 69 - progress lines accumulate into ONE part rather than stacking per step
+ok 79 - internal screenshot observations are not promoted, while explicit exports survive replay
+ok 80 - assistant file identity preserves external origins, distinct IDs, conversations and new runs
+ok 81 - artifact replay after an interjection and history reload preserves its original run segment
+ok 82 - real artifact mapping persists, streams, reloads and renders one downloadable image
+ok 83 - direct image loads preserve HTTP 401
+ok 84 - direct image loads preserve HTTP 403
+ok 85 - direct image loads preserve HTTP 404
+ok 86 - direct image loads preserve HTTP 503
+ok 87 - direct image loads fetch normalized bytes and release the object URL once
+ok 88 - external image URLs do not fetch or receive Phi credentials
+ok 89 - finishAssistantMessage marks running tool parts as aborted for aborted runs
+ok 94 - interleaved deltas (A, B, A) append the late A to the existing bubble
+ok 97 - untimed history is not stamped later than the load
+# tests 97
+# pass 97
+# fail 0
+# cancelled 0
+# skipped 0

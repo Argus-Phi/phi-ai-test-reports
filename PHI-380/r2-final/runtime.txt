@@ -1,0 +1,8 @@
+issue: PHI-380
+based_on: phi-ai@d50a19f8cb16fa2b93b948ee080503b96419f9be
+Source attach: HTTP 127.0.0.1:8788 + Runner UDS; gateway via UDS; Phi Canary 2026.10.15.0207
+Dependency install: frozen lockfile, exit 0. Product worktree remains clean.
+Disconnect test: foreground source attachment ended; 8788 absent; both actual chat targets reload and fetch reject Failed to fetch.
+PORT=0: actual startup banner verified; attachment ended before native run.
+Native Sidecar build manifest: 2026.10.15.2252.
+Native: live Sidecar2026.10.15.2252, no pinned local URLs; own source d50a19f8c served through broker and UDS.

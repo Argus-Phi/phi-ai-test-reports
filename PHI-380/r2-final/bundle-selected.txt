@@ -1,0 +1,78 @@
+ok 6 - production image capability naturally accepts unselected saved images and deduplicates its result
+ok 9 - generation HTTP 429 retains its reason when no image is delivered
+ok 10 - generation HTTP 400 retains its reason when no image is delivered
+ok 11 - generation HTTP 503 retains its reason when no image is delivered
+ok 12 - a permanent screenshot error retains the handler's reason and retry decision
+ok 13 - page screenshot browser failure recovers through the real loop
+ok 14 - page screenshot browser failure cannot be hidden by narration through the real loop
+ok 15 - page screenshot save failure remains partial after the same screenshot retries successfully
+ok 16 - page screenshot failure is not satisfied by an independently delivered generated image
+ok 17 - page screenshot browser success with missing file metadata cannot claim complete delivery
+ok 18 - page screenshot browser success with empty file metadata cannot claim complete delivery
+ok 19 - page screenshot browser success with zero file metadata cannot claim complete delivery
+ok 20 - cdp screenshot browser failure recovers through the real loop
+ok 21 - cdp screenshot browser failure cannot be hidden by narration through the real loop
+ok 22 - cdp screenshot save failure remains partial after the same screenshot retries successfully
+ok 23 - cdp screenshot failure is not satisfied by an independently delivered generated image
+ok 24 - cdp screenshot browser success with missing file metadata cannot claim complete delivery
+ok 25 - cdp screenshot browser success with empty file metadata cannot claim complete delivery
+ok 26 - cdp screenshot browser success with zero file metadata cannot claim complete delivery
+ok 30 - generation partial upload naturally accepts the usable image and reports incomplete output
+ok 31 - a generation HTTP dependency delayed at least five seconds never emits an unsaved image
+ok 32 - generation file saved across deadline is retained only when confirmed before abort
+ok 33 - generation file saved across deadline is retained only when confirmed before abort
+ok 34 - generation abort before a confirmed file fences a late upload and isolates the next run
+ok 35 - generation abort after a confirmed file fences a late upload and isolates the next run
+ok 36 - page file saved across deadline is retained only when confirmed before abort
+ok 37 - page file saved across deadline is retained only when confirmed before abort
+ok 38 - page abort before a confirmed file fences a late upload and isolates the next run
+ok 39 - page abort after a confirmed file fences a late upload and isolates the next run
+ok 40 - cdp file saved across deadline is retained only when confirmed before abort
+ok 41 - cdp file saved across deadline is retained only when confirmed before abort
+ok 42 - cdp abort before a confirmed file fences a late upload and isolates the next run
+ok 43 - cdp abort after a confirmed file fences a late upload and isolates the next run
+ok 44 - image/png generation carries the original bytes through saving and host notification
+ok 45 - image/jpeg generation carries the original bytes through saving and host notification
+ok 46 - image/webp generation carries the original bytes through saving and host notification
+ok 47 - CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+ok 48 - CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+ok 49 - CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+ok 50 - CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+ok 51 - a saved PDF does not satisfy a requested screenshot that the browser never produced
+ok 52 - an internal CDP screenshot observation never becomes an artifact
+ok 53 - an internal CDP screenshot observation accompanies only the explicit exported artifact
+ok 54 - final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 55 - final image selection delivers only validated files: ["final-boat","outside-run"]
+ok 56 - final image selection delivers only validated files: []
+ok 57 - final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 58 - page screenshot selection discards a saved candidate and confirms only the final export
+ok 59 - cdp screenshot selection discards a saved candidate and confirms only the final export
+ok 60 - saved image failure preserves structured recovery facts: EACCES
+ok 61 - saved image failure preserves structured recovery facts: EPERM+ETIMEDOUT
+ok 62 - saved image failure preserves structured recovery facts: UNKNOWN_STORE
+ok 63 - generation cancellation with only a saved candidate never delivers it
+ok 64 - page cancellation with only a saved candidate never delivers it
+ok 65 - cdp cancellation with only a saved candidate never delivers it
+ok 66 - final image selection persists only confirmed files through the real executor and host
+ok 108 - Stop closes the assembled pipeline while profile is stalled
+ok 109 - real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+ok 110 - real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+ok 111 - real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+ok 112 - real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+ok 113 - real worker cancel without an accepted generation preserves exactly the host's persisted files
+ok 114 - real worker cancel with an accepted generation preserves exactly the host's persisted files
+ok 115 - real worker timeout without an accepted generation preserves exactly the host's persisted files
+ok 116 - real worker timeout with an accepted generation preserves exactly the host's persisted files
+ok 117 - a cancelled pending upload can finish after a new run without changing either run's files or terminal
+ok 118 - browser_task's internal screenshot and page protobuf never create user or persisted files
+ok 119 - browser_task's internal screenshot and page protobuf stay internal beside an explicit screenshot export
+ok 131 - structure: every top-level plugin source file is a row (10.2)
+ok 136 - a capability's produced files reach WorkerRunResult.artifacts
+ok 143 - persistent late corrections stop at the existing round limit
+ok 144 - a late correction cannot continue past the run deadline
+ok 145 - a late correction cannot continue a cancelled run
+# tests 214
+# pass 214
+# fail 0
+# cancelled 0
+# skipped 0

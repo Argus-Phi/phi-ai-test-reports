@@ -1,0 +1,297 @@
+pnpm type-check
+
+> @phi-ai/root@ type-check <WORKDIR>/phi-ai
+> turbo run type-check
+
+• turbo 2.9.4
+
+   • Packages in scope: @phi-ai/agent-loop-eval, @phi-ai/agent-protocol, @phi-ai/ai-extension, @phi-ai/api-base, @phi-ai/auth, @phi-ai/browser-use-eval, @phi-ai/browser-use-sonic, @phi-ai/chat, @phi-ai/current-page-qr-code-skill, @phi-ai/download-twitter-video-skill, @phi-ai/dsh, @phi-ai/dsh-bundle, @phi-ai/dsh-lib-shared, @phi-ai/dsh-lib-storage, @phi-ai/dsh-plugin-ask-user, @phi-ai/dsh-plugin-attachment, @phi-ai/dsh-plugin-browser, @phi-ai/dsh-plugin-chat, @phi-ai/dsh-plugin-guard, @phi-ai/dsh-plugin-im, @phi-ai/dsh-plugin-llm, @phi-ai/dsh-plugin-phi-cdp, @phi-ai/dsh-plugin-session-pg, @phi-ai/dsh-plugin-skills, @phi-ai/dsh-plugin-storage-pg, @phi-ai/dsh-plugin-tasks, @phi-ai/dsh-plugin-telemetry, @phi-ai/dsh-plugin-transport, @phi-ai/dsh-plugin-worker, @phi-ai/eval, @phi-ai/export-chatgpt-conversation-skill, @phi-ai/extension-updater, @phi-ai/extract-current-page-content-skill, @phi-ai/games, @phi-ai/kensington, @phi-ai/lexington, @phi-ai/memory, @phi-ai/mirage, @phi-ai/observability, @phi-ai/onboarding, @phi-ai/phi-agent-devtools, @phi-ai/phi-browser-help-skill, @phi-ai/phi-memory, @phi-ai/save-current-page-pdf-skill, @phi-ai/save-current-page-screenshot-skill, @phi-ai/sentinel-sdk, @phi-ai/shared-types, @phi-ai/shared-ui, @phi-ai/show-current-page-as-markdown-skill, @phi-ai/show-page-reader-mode-skill, @phi-ai/show-page-tech-stack-skill, @phi-ai/sidecar, @phi-ai/video-gist-skill, @phi-ai/widget, @phi-ai/window-theme, @types/phi-chromium, eval-dashboard
+   • Running type-check in 57 packages
+   • Remote caching enabled, using shared worktree cache
+
+@phi-ai/shared-types:type-check: cache hit, replaying logs 69b5cc45564f7f91
+@phi-ai/shared-types:type-check: 
+@phi-ai/shared-types:type-check: > @phi-ai/shared-types@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-386-ef8a1f95b26a/workdir/phi-ai/shared-types
+@phi-ai/shared-types:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/shared-types:type-check: 
+@phi-ai/extract-current-page-content-skill:type-check: cache hit, replaying logs 48eb56b74bbbe699
+@phi-ai/extract-current-page-content-skill:type-check: 
+@phi-ai/extract-current-page-content-skill:type-check: > @phi-ai/extract-current-page-content-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/extract-current-page-content
+@phi-ai/extract-current-page-content-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/extract-current-page-content-skill:type-check: 
+@phi-ai/games:type-check: cache hit, replaying logs acdfd2359c18cf19
+@phi-ai/games:type-check: 
+@phi-ai/games:type-check: > @phi-ai/games@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/games
+@phi-ai/games:type-check: > tsc -b --noEmit
+@phi-ai/games:type-check: 
+@phi-ai/observability:type-check: cache hit, replaying logs 2b345bbc55f19e34
+@phi-ai/observability:type-check: 
+@phi-ai/observability:type-check: > @phi-ai/observability@0.0.1 type-check /Users/sjdhome/Projects/Phi/phi-ai-staging-3/ai-extension/observability
+@phi-ai/observability:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/observability:type-check: 
+@phi-ai/save-current-page-screenshot-skill:type-check: cache hit, replaying logs 0a4b193c35cdd92f
+@phi-ai/save-current-page-screenshot-skill:type-check: 
+@phi-ai/save-current-page-screenshot-skill:type-check: > @phi-ai/save-current-page-screenshot-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/save-current-page-screenshot
+@phi-ai/save-current-page-screenshot-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/save-current-page-screenshot-skill:type-check: 
+@phi-ai/extension-updater:type-check: cache hit, replaying logs 7a225488cce30f38
+@phi-ai/save-current-page-pdf-skill:type-check: cache hit, replaying logs a42d1935e2ca1eab
+@phi-ai/save-current-page-pdf-skill:type-check: 
+@phi-ai/save-current-page-pdf-skill:type-check: > @phi-ai/save-current-page-pdf-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/save-current-page-pdf
+@phi-ai/current-page-qr-code-skill:type-check: cache hit, replaying logs 7c06a0225e41737b
+@phi-ai/extension-updater:type-check: 
+@phi-ai/extension-updater:type-check: > @phi-ai/extension-updater@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/extension-updater
+@phi-ai/extension-updater:type-check: > tsc --noEmit
+@phi-ai/extension-updater:type-check: 
+@phi-ai/save-current-page-pdf-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/save-current-page-pdf-skill:type-check: 
+@phi-ai/current-page-qr-code-skill:type-check: 
+@phi-ai/current-page-qr-code-skill:type-check: > @phi-ai/current-page-qr-code-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/current-page-qr-code
+@phi-ai/current-page-qr-code-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/current-page-qr-code-skill:type-check: 
+@phi-ai/sentinel-sdk:type-check: cache hit, replaying logs 5faf9f84f846a492
+@phi-ai/show-page-tech-stack-skill:type-check: cache hit, replaying logs 3c5f3c69f24f446e
+@phi-ai/show-page-tech-stack-skill:type-check: 
+@phi-ai/show-page-tech-stack-skill:type-check: > @phi-ai/show-page-tech-stack-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-page-tech-stack
+@phi-ai/show-page-tech-stack-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/show-page-tech-stack-skill:type-check: 
+@phi-ai/sentinel-sdk:type-check: 
+@phi-ai/sentinel-sdk:type-check: > @phi-ai/sentinel-sdk@0.0.2 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/sentinel-sdk
+@phi-ai/sentinel-sdk:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sentinel-sdk:type-check: 
+@phi-ai/auth:type-check: cache hit, replaying logs cf1f121433f89a34
+@phi-ai/auth:type-check: 
+@phi-ai/auth:type-check: > @phi-ai/auth@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/auth
+@phi-ai/auth:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/auth:type-check: 
+@phi-ai/download-twitter-video-skill:type-check: cache hit, replaying logs d8c4235d408653bb
+@phi-ai/memory:type-check: cache hit, replaying logs 11cc87149b788765
+@phi-ai/memory:type-check: 
+@phi-ai/memory:type-check: > @phi-ai/memory@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/memory
+@phi-ai/memory:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/memory:type-check: 
+@phi-ai/download-twitter-video-skill:type-check: 
+@phi-ai/download-twitter-video-skill:type-check: > @phi-ai/download-twitter-video-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/download-twitter-video
+@phi-ai/download-twitter-video-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/download-twitter-video-skill:type-check: 
+@phi-ai/show-current-page-as-markdown-skill:type-check: cache hit, replaying logs 35b24a5ff7c6c92c
+@phi-ai/video-gist-skill:type-check: cache hit, replaying logs 53b9f89906f06b82
+@phi-ai/show-current-page-as-markdown-skill:type-check: 
+@phi-ai/show-current-page-as-markdown-skill:type-check: > @phi-ai/show-current-page-as-markdown-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-current-page-as-markdown
+@phi-ai/show-current-page-as-markdown-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/show-current-page-as-markdown-skill:type-check: 
+@phi-ai/video-gist-skill:type-check: 
+@phi-ai/video-gist-skill:type-check: > @phi-ai/video-gist-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/video-gist
+@phi-ai/video-gist-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/video-gist-skill:type-check: 
+@phi-ai/show-page-reader-mode-skill:type-check: cache hit, replaying logs 835446deafabe58e
+@phi-ai/show-page-reader-mode-skill:type-check: 
+@phi-ai/show-page-reader-mode-skill:type-check: > @phi-ai/show-page-reader-mode-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-page-reader-mode
+@phi-ai/show-page-reader-mode-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/show-page-reader-mode-skill:type-check: 
+@phi-ai/dsh-lib-shared:type-check: cache hit, replaying logs 69cbd4b9f30e6430
+@phi-ai/dsh-lib-shared:type-check: 
+@phi-ai/dsh-lib-shared:type-check: > @phi-ai/dsh-lib-shared@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/lib/shared
+@phi-ai/dsh-lib-shared:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-lib-shared:type-check: 
+@phi-ai/shared-ui:type-check: cache hit, replaying logs e6dc068608debdc9
+@phi-ai/shared-ui:type-check: 
+@phi-ai/shared-ui:type-check: > @phi-ai/shared-ui@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/ai-extension/shared-ui
+@phi-ai/shared-ui:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/shared-ui:type-check: 
+@phi-ai/agent-protocol:type-check: cache hit, replaying logs cac2d649a17d68d7
+@phi-ai/agent-protocol:type-check: 
+@phi-ai/agent-protocol:type-check: > @phi-ai/agent-protocol@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-386-ef8a1f95b26a/workdir/phi-ai/agent-protocol
+@phi-ai/agent-protocol:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/agent-protocol:type-check: 
+@phi-ai/export-chatgpt-conversation-skill:type-check: cache hit, replaying logs 9092e855910f60e2
+@phi-ai/export-chatgpt-conversation-skill:type-check: 
+@phi-ai/export-chatgpt-conversation-skill:type-check: > @phi-ai/export-chatgpt-conversation-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-386-ef8a1f95b26a/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/export-chatgpt-conversation
+@phi-ai/export-chatgpt-conversation-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/export-chatgpt-conversation-skill:type-check: 
+@phi-ai/window-theme:type-check: cache hit, replaying logs 728b49ed539ec60e
+@phi-ai/window-theme:type-check: 
+@phi-ai/window-theme:type-check: > @phi-ai/window-theme@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/ai-extension/window-theme
+@phi-ai/window-theme:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/window-theme:type-check: 
+@phi-ai/api-base:type-check: cache hit, replaying logs 2f57e065aed12594
+@phi-ai/api-base:type-check: 
+@phi-ai/api-base:type-check: > @phi-ai/api-base@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-353-ab2dd781826d/workdir/phi-ai/ai-extension/api-base
+@phi-ai/api-base:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/api-base:type-check: 
+@phi-ai/auth:build: cache hit, replaying logs 2fa104c94e3d6277
+@phi-ai/auth:build: 
+@phi-ai/auth:build: > @phi-ai/auth@0.0.1 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/auth
+@phi-ai/auth:build: > tsc
+@phi-ai/auth:build: 
+@phi-ai/browser-use-sonic:type-check: cache hit, replaying logs 8980327983b97d07
+@phi-ai/browser-use-sonic:type-check: 
+@phi-ai/browser-use-sonic:type-check: > @phi-ai/browser-use-sonic@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-386-ef8a1f95b26a/workdir/phi-ai/browser-use-sonic
+@phi-ai/browser-use-sonic:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/browser-use-sonic:type-check: 
+@phi-ai/browser-use-eval:type-check: cache hit, replaying logs 00f7aeb620c5ad5c
+@phi-ai/browser-use-eval:type-check: 
+@phi-ai/browser-use-eval:type-check: > @phi-ai/browser-use-eval@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-386-ef8a1f95b26a/workdir/phi-ai/browser-use-eval
+@phi-ai/browser-use-eval:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/browser-use-eval:type-check: 
+@phi-ai/dsh-plugin-attachment:type-check: cache hit, replaying logs ea50ea3233bb826e
+@phi-ai/dsh-plugin-ask-user:type-check: cache hit, replaying logs 9fc403f5603b5fd3
+@phi-ai/dsh-plugin-attachment:type-check: 
+@phi-ai/dsh-plugin-attachment:type-check: > @phi-ai/dsh-plugin-attachment@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/attachment
+@phi-ai/dsh-plugin-attachment:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-attachment:type-check: 
+@phi-ai/dsh-plugin-ask-user:type-check: 
+@phi-ai/dsh-plugin-ask-user:type-check: > @phi-ai/dsh-plugin-ask-user@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/ask-user
+@phi-ai/dsh-plugin-ask-user:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-ask-user:type-check: 
+@phi-ai/dsh-plugin-telemetry:type-check: cache hit, replaying logs c7dbdeb50c26f67e
+@phi-ai/mirage:type-check: cache hit, replaying logs 3c723395a5485b36
+@phi-ai/mirage:type-check: 
+@phi-ai/mirage:type-check: > @phi-ai/mirage@ type-check /Users/sjdhome/Projects/Phi/phi-ai-staging-3/ai-extension/mirage
+@phi-ai/mirage:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/mirage:type-check: 
+@phi-ai/dsh-plugin-telemetry:type-check: 
+@phi-ai/dsh-plugin-telemetry:type-check: > @phi-ai/dsh-plugin-telemetry@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/telemetry
+@phi-ai/dsh-plugin-telemetry:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-telemetry:type-check: 
+@phi-ai/dsh-plugin-guard:type-check: cache hit, replaying logs 50fbb15f8d94c81d
+@phi-ai/dsh-plugin-guard:type-check: 
+@phi-ai/dsh-plugin-guard:type-check: > @phi-ai/dsh-plugin-guard@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/guard
+@phi-ai/dsh-plugin-guard:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-guard:type-check: 
+@phi-ai/memory:build: cache hit, replaying logs e9789dc398f9f93b
+@phi-ai/memory:build: 
+@phi-ai/memory:build: > @phi-ai/memory@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/memory
+@phi-ai/memory:build: > tsc
+@phi-ai/memory:build: 
+@phi-ai/dsh-lib-storage:type-check: cache hit, replaying logs dfd164b5a46a6b81
+@phi-ai/widget:type-check: cache hit, replaying logs dcb958e3f24ce740
+@phi-ai/widget:type-check: 
+@phi-ai/widget:type-check: > @phi-ai/widget@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/modules/widget
+@phi-ai/widget:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/widget:type-check: 
+@phi-ai/dsh-lib-storage:type-check: 
+@phi-ai/dsh-lib-storage:type-check: > @phi-ai/dsh-lib-storage@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-386-ef8a1f95b26a/workdir/phi-ai/phi-agent-dsh/lib/storage
+@phi-ai/dsh-lib-storage:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-lib-storage:type-check: 
+@phi-ai/chat:type-check: cache hit, replaying logs c27d18943739e52c
+@phi-ai/chat:type-check: 
+@phi-ai/chat:type-check: > @phi-ai/chat@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/chat
+@phi-ai/chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/chat:type-check: 
+@phi-ai/dsh-plugin-transport:type-check: cache hit, replaying logs 76f1c58edf09dcfa
+@phi-ai/dsh-plugin-transport:type-check: 
+@phi-ai/dsh-plugin-transport:type-check: > @phi-ai/dsh-plugin-transport@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/transport
+@phi-ai/dsh-plugin-transport:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-transport:type-check: 
+@phi-ai/dsh-plugin-phi-cdp:type-check: cache hit, replaying logs 1e63748e1c020fdd
+@phi-ai/dsh-plugin-phi-cdp:type-check: 
+@phi-ai/dsh-plugin-phi-cdp:type-check: > @phi-ai/dsh-plugin-phi-cdp@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp
+@phi-ai/dsh-plugin-phi-cdp:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-phi-cdp:type-check: 
+@phi-ai/dsh-plugin-session-pg:type-check: cache hit, replaying logs c41dc19473acc0fb
+@phi-ai/dsh-plugin-session-pg:type-check: 
+@phi-ai/dsh-plugin-session-pg:type-check: > @phi-ai/dsh-plugin-session-pg@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/session-pg
+@phi-ai/dsh-plugin-session-pg:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-session-pg:type-check: 
+@phi-ai/dsh-plugin-llm:type-check: cache hit, replaying logs aa6e0ccf6af7b933
+@phi-ai/dsh-plugin-llm:type-check: 
+@phi-ai/dsh-plugin-llm:type-check: > @phi-ai/dsh-plugin-llm@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/llm
+@phi-ai/dsh-plugin-llm:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-llm:type-check: 
+@phi-ai/dsh-plugin-storage-pg:type-check: cache hit, replaying logs 8e7d28e5bbeb61fa
+@phi-ai/dsh-plugin-storage-pg:type-check: 
+@phi-ai/dsh-plugin-storage-pg:type-check: > @phi-ai/dsh-plugin-storage-pg@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/storage-pg
+@phi-ai/dsh-plugin-storage-pg:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-storage-pg:type-check: 
+@phi-ai/dsh-plugin-worker:type-check: cache hit, replaying logs 6632010f654b120f
+@phi-ai/dsh-plugin-browser:type-check: cache hit, replaying logs 1a29a8c9b13e6e2f
+@phi-ai/dsh-plugin-worker:type-check: 
+@phi-ai/dsh-plugin-worker:type-check: > @phi-ai/dsh-plugin-worker@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/worker
+@phi-ai/dsh-plugin-worker:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-worker:type-check: 
+@phi-ai/dsh-plugin-browser:type-check: 
+@phi-ai/dsh-plugin-browser:type-check: > @phi-ai/dsh-plugin-browser@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/browser
+@phi-ai/dsh-plugin-browser:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-browser:type-check: 
+@phi-ai/dsh-plugin-skills:type-check: cache hit, replaying logs 303d7a0659f3ec27
+@phi-ai/dsh-plugin-skills:type-check: 
+@phi-ai/dsh-plugin-skills:type-check: > @phi-ai/dsh-plugin-skills@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/skills
+@phi-ai/dsh-plugin-skills:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-skills:type-check: 
+@phi-ai/dsh-plugin-im:type-check: cache hit, replaying logs 5fe4e4d6d1b2c0c5
+@phi-ai/dsh-plugin-im:type-check: 
+@phi-ai/dsh-plugin-im:type-check: > @phi-ai/dsh-plugin-im@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/im
+@phi-ai/dsh-plugin-im:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-im:type-check: 
+@phi-ai/agent-loop-eval:type-check: cache hit, replaying logs 123b90bb2f7971b9
+@phi-ai/agent-loop-eval:type-check: 
+@phi-ai/agent-loop-eval:type-check: > @phi-ai/agent-loop-eval@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/agent-loop-eval
+@phi-ai/agent-loop-eval:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/agent-loop-eval:type-check: 
+@phi-ai/dsh-plugin-tasks:type-check: cache hit, replaying logs 10baa50daf6ba2f0
+@phi-ai/dsh-plugin-tasks:type-check: 
+@phi-ai/dsh-plugin-tasks:type-check: > @phi-ai/dsh-plugin-tasks@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/tasks
+@phi-ai/dsh-plugin-tasks:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-tasks:type-check: 
+@phi-ai/widget:build: cache hit, replaying logs 670538e553f75d1c
+@phi-ai/widget:build: 
+@phi-ai/widget:build: > @phi-ai/widget@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/modules/widget
+@phi-ai/widget:build: > tsc
+@phi-ai/widget:build: 
+@phi-ai/chat:build: cache hit, replaying logs db479ff477990688
+@phi-ai/chat:build: 
+@phi-ai/chat:build: > @phi-ai/chat@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/chat
+@phi-ai/chat:build: > tsc
+@phi-ai/chat:build: 
+@phi-ai/onboarding:type-check: cache hit, replaying logs 89b022c43a0b91e0
+@phi-ai/onboarding:type-check: 
+@phi-ai/onboarding:type-check: > @phi-ai/onboarding@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/onboarding
+@phi-ai/onboarding:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/onboarding:type-check: 
+@phi-ai/eval:type-check: cache hit, replaying logs 582247255d4ebd74
+@phi-ai/phi-memory:type-check: cache hit, replaying logs bd5f5ada9ba15f0c
+@phi-ai/eval:type-check: 
+@phi-ai/eval:type-check: > @phi-ai/eval@1.0.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/eval
+@phi-ai/eval:type-check: > tsc --noEmit
+@phi-ai/eval:type-check: 
+@phi-ai/phi-memory:type-check: 
+@phi-ai/phi-memory:type-check: > @phi-ai/phi-memory@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-memory
+@phi-ai/phi-memory:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/phi-memory:type-check: 
+@phi-ai/onboarding:build: cache hit, replaying logs be62c80121c69f4f
+@phi-ai/onboarding:build: 
+@phi-ai/onboarding:build: > @phi-ai/onboarding@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/onboarding
+@phi-ai/onboarding:build: > tsc
+@phi-ai/onboarding:build: 
+@phi-ai/dsh-plugin-chat:type-check: cache hit, replaying logs d9e5e3580f9eee9b
+@phi-ai/phi-agent-devtools:type-check: cache hit, replaying logs b2dcf6bac9c801f6
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: > @phi-ai/dsh-plugin-chat@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/plugins/chat
+@phi-ai/dsh-plugin-chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/sidecar:type-check: cache hit, replaying logs 680a257b70d4b98c
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/phi-agent-devtools:type-check: > @phi-ai/phi-agent-devtools@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-devtools
+@phi-ai/phi-agent-devtools:type-check: > tsc --noEmit
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/sidecar:type-check: 
+@phi-ai/sidecar:type-check: > @phi-ai/sidecar@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/ai-extension/sidecar
+@phi-ai/sidecar:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sidecar:type-check: 
+@phi-ai/dsh-bundle:type-check: cache hit, replaying logs 7e8f8a631e428bfd
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: > @phi-ai/dsh-bundle@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh/bundle
+@phi-ai/dsh-bundle:type-check: > node ../scripts/generate-rows.mjs && tsc -b --emitDeclarationOnly
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: [generate-rows] wrote 51 rows to src/rows.generated.ts
+@phi-ai/dsh:type-check: cache hit, replaying logs debc193e18c2f7c4
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh:type-check: > @phi-ai/dsh@0.5.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-423-9ca6f966e6da/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh:type-check: 
+
+ Tasks:    56 successful, 56 total
+Cached:    56 cached, 56 total
+  Time:    485ms >>> FULL TURBO
+

@@ -1,0 +1,156 @@
+ok 6 - binds a run's identity, scope and prompt to its agent, and undoes all of it
+ok 11 - artifact.create stores the model-authored body and reports it as a run artifact
+ok 12 - artifact.create strips a directory component from the filename
+ok 13 - a store rejection becomes a non-retryable file_upload_failed, not a run crash
+ok 15 - delivery without an execution binding fails without artifacts
+ok 19 - release or abort rejects selection and fallback while preserving confirmed files
+ok 20 - unrelated explicit files cannot become image candidates
+ok 21 - artifacts produced across rounds land on WorkerRunResult in order
+ok 22 - a run that produces no artifacts omits the field
+ok 23 - artifacts survive an aborted run
+ok 31 - a base64 field becomes a chat file, and only its metadata is reported
+ok 34 - a file sink with nothing to store says so instead of attaching an empty file
+ok 35 - the run's scope goes with a raw call, so it cannot reach past what the other tools may
+ok 36 - a run with no scope of its own sends none, as before
+ok 47 - confirmed screenshot fileBase64Field empty bytes are a delivery failure
+ok 48 - confirmed screenshot fileStream empty bytes are a delivery failure
+ok 49 - confirmed screenshot stream beyond its sink limit has a delivery marker while a json observation does not
+ok 50 - a browser refusal of an explicit screenshot sink does not claim that an image was produced
+ok 54 - the tool's own timeout waits out a question sonic is asking
+ok 64 - browser_task.execute in a task run: ctx.profileId picks the hidden window's profile
+ok 67 - browser_task.execute taskResult error (abort + generic message): responses_error, retryable=true via code EXECUTION_ERROR (main:4285-4288)
+ok 68 - browser_task.execute taskResult error (abort + non-retryable code): retryable=false via classifyBrowserError SESSION_ABORTED (main:4283-4288)
+ok 69 - browser_task.execute timeout: a port that SETTLES on signal-abort yields tool_timeout (retryable) and the loop CONTINUES — the FIX 3 settle-on-abort contract proves the wrapper does NOT hang (main:4240-4256)
+ok 71 - browser_task.execute aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:4232-4239, terminal main:1788/1674)
+ok 72 - browser_task.execute aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+ok 85 - a chosen target leaves other modes alone and adds no profileId
+ok 113 - after the user shares, uploads the trace as a log and returns its file id and note
+ok 115 - nobody to ask (IM, timeout) exports nothing
+ok 122 - attaches stored files with their type, and a filename override
+ok 123 - an unknown file id is refused before the feedback port is called
+ok 124 - a file over 20 MB is refused before the feedback port is called
+ok 127 - image_generation.generate: success — calls SearchAIPort.imageGenerate with the faithful { query } args + threaded opts, and JSON-stringifies the result as content (main:2620/2677)
+ok 128 - image_generation.generate: requestAuthorization falls back to connectionAuthorization when resolvedAuthorization is absent (main:2628-2629)
+ok 129 - image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+ok 130 - image_generation.generate: a timeout (operation never resolves before the per-call deadline) yields a tool_timeout outcome, loop continues (main:2641-2655)
+ok 131 - image_generation.generate: a MID-CALL abort (run signal fires during the port call) returns the 'aborted' sentinel → run status 'aborted' (main:2637-2640)
+ok 132 - image_generation.generate: a signal already aborted before the call short-circuits to 'aborted' (runWithTimeout pre-check, main:2638)
+ok 133 - image_generation.generate: threads the run context's userId to the port so the host can store the image in-process
+ok 139 - custom avatar but getFileDataUrl THROWS (file deleted) → swallowed: metadata only, NO note, NO input_image — main:3315-3323
+ok 140 - custom avatar with EMPTY fileId → file store NOT read, metadata only — main:3309 guard
+ok 147 - persona.set_avatar: calls PersonaPort.setAvatar({ userId, fileId, url, mimeType, filename }) and returns JSON.stringify(result) — main:3214/3222
+ok 155 - schedule.create records the issuing profile, so every run is the same user
+ok 189 - reads an on-disk built-in file: calls getSkillForExecution then readFile(storageRef) and returns { ok:true, path, content }
+ok 194 - file_not_found when the requested path is not among the skill's files — no fs read
+ok 195 - file_not_found for a malformed path (path traversal) — never looks the skill up
+ok 196 - file_too_large when the file's declared size exceeds MAX_FILE_READ_BYTES — no fs read, faithful hint
+ok 197 - file_too_large for an oversized in-memory SKILL.md (user skill) — capped without an fs read
+ok 198 - an fs read failure (port readFile not-ok) surfaces as file_not_found with the underlying detail — skill-scripts.ts:337-348
+ok 199 - a STAT/size-cap failure (port readFile not-ok WITHOUT detail) surfaces as a BARE file_not_found — no spurious detail attached (FIX 7 minor B, skill-scripts.ts:291-296)
+ok 210 - skill.run_script timeout: a port that SETTLES on signal-abort yields a `reason:'timeout'` error outcome and the loop CONTINUES (run_script returns a NORMAL outcome on tool_timeout, never the 'aborted' sentinel)
+ok 211 - skill.run_script abort: an aborted operation maps to a `reason:'aborted'` HandlerResult (NOT the terminal 'aborted' sentinel) — run_script returns Promise<SkillScriptOutcome>, never 'aborted' (skill-scripts.ts dispatch-catch + main:2285-2304 no-guard branch)
+ok 212 - skill.run_script (loop): with a PRE-aborted run signal the loop's own guard terminates 'aborted' before dispatch — the handler's no-sentinel contract is independent of this shared-loop guard
+ok 213 - skill.run_script uploads declared artifacts and hides their contents from the model
+ok 214 - a script payload without artifacts is passed through untouched
+ok 215 - a script whose SECOND artifact fails to upload still reports the first
+ok 228 - websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+ok 230 - websearch.search aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:2444-2451, terminal main:1788/1674)
+ok 231 - websearch.search aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+ok 243 - buildWorkerSystemPrompt routes targeted Split View browser work through browser_task before CDP artifacts on a named tab
+ok 246 - buildWorkerSystemPrompt renders the sites note when a skill is site-scoped
+ok 274 - SETTLE-ON-ABORT: aborting input.signal settles the returned promise (does NOT hang) — the executor reacts to the signal
+ok 289 - getFileDataUrl forwards the {userId, fileId} object verbatim and returns the raw result
+ok 291 - uploadFile decodes base64, forwards a File-like object, and maps UploadResult
+ok 292 - uploadFile reports the store's contentType when it overrides the requested mime
+ok 293 - file store forwards an explicit generic size limit without changing defaults
+ok 294 - a thrown uploadFile propagates
+ok 295 - getFile hands back the stored bytes, scoped to the user
+ok 309 - create carries the profile down to the task it creates
+ok 313 - imageGenerate forwards {query} + bound deps (incl. imageUpload) + per-call deps and returns the raw result
+ok 314 - a thrown run-fn propagates (websearch + imageGenerate)
+ok 319 - hostRunSkillScript READS the latch for a LATER script (state preserved across calls)
+ok 320 - hostRunSkillScript returns state_lost when a LATER script of a PIPELINE has NO latched run id (latch read miss)
+ok 323 - hostRunSkillScript evaluates the bundle in the page (tabId/code/scriptArgs/timeoutMs/signal) and unwraps lastValue
+ok 332 - readFile stat-caps then reads the file → { ok:true, content }
+ok 333 - readFile honors the size cap → { ok:false, reason:'file_too_large' } with NO detail (stat/size-cap failure)
+ok 334 - readFile maps a STAT failure to { ok:false, reason:'file_not_found' } with NO detail
+ok 335 - readFile maps a READ failure to { ok:false, reason:'file_not_found', detail } WITH the error message
+ok 342 - listCatalog scopes to the userId passed with EACH call, so back-to-back runs by different users never cross over (no shared catalog-owner ref)
+ok 382 - worker resolves+executes skill.read_file through the REAL registry + real SkillsPort (faked service, user skill via compiledSkillMd)
+ok 396 - runScheduledTaskList keeps one conversation's schedules, with each task's mute and latest status
+ok 411 - the loop's abort reaches the capability, but its reason object does not
+ok 415 - a produced image reaches the attachment store and becomes deferred context
+ok 416 - an image the store REFUSES is dropped; the text result survives
+ok 418 - delivery failure and saved artifacts travel together in the execution report even when the capability throws
+ok 429 - a screenshot is saved and the model is told what was saved, not the bytes
+ok 439 - image_generation calls the model with the run's bearer
+ok 443 - image_generation works with no static key: generated on the run's bearer, stored for the run's owner
+ok 444 - video_gist reads a bilibili audio track back for the run's owner, through the port's file store
+ok 465 - a ceiling keeps the artifacts and the tool output the run already produced
+ok 472 - saved artifacts reach their original host before finish, with late callbacks fenced
+ok 473 - saved artifacts reach their original host before abort, with late callbacks fenced
+ok 474 - saved artifacts reach their original host before deadline, with late callbacks fenced
+ok 478 - files the run's pause clock under the agent id, and drops it after
+ok 482 - release unbinds, stops observing and aborts the start signal - once
+ok 485 - a caller that aborted before the child exists gets it cancelled as a user stop
+ok 501 - fetchGreetingContext returns null when fetch throws (network / timeout)
+ok 512 - presigns every file, PUTs each with its returned headers, and submits the object keys
+ok 521 - the caller's cancel reaches a reply whose body stalls
+ok 522 - an abort of the caller's signal propagates instead of being retried
+ok 536 - handler dispatch: other capabilities keep their own descriptor timeout
+ok 537 - successful explicit screenshot without a usable file is a delivery failure
+ok 538 - screenshot browser-error before confirmed production does not acquire a deliveryFailure marker
+ok 539 - screenshot throw before confirmed production does not acquire a deliveryFailure marker
+ok 540 - screenshot missing-handler before confirmed production does not acquire a deliveryFailure marker
+ok 541 - screenshot missing-ports before confirmed production does not acquire a deliveryFailure marker
+ok 542 - screenshot false-success zero metadata is fenced before the artifact report
+ok 543 - screenshot false-success missing-url metadata is fenced before the artifact report
+ok 544 - screenshot false-success not-image metadata is fenced before the artifact report
+ok 545 - producer deliveryFailure preserves its original code and partial file metadata through the screenshot bridge
+ok 546 - a non-image CDP export never promotes an unrelated producer marker to image delivery failure
+ok 551 - skipped, timeout and unavailable each tell the model what to do next
+ok 552 - a cancelled question ends the run as aborted
+ok 573 - schedule.list lists every schedule for scope all, for a named task, and outside a conversation
+ok 577 - carries the issuing browser profile into the launched task
+ok 578 - omits the profile entirely when the chat run had none
+ok 579 - a deferred Space is asked first, and the task gets its Space and profile
+ok 604 - runImageGeneration rejects missing model configuration
+ok 605 - runImageGeneration uses env-backed image_config defaults when tool params are omitted
+ok 606 - runImageGeneration keeps its phibrowser URL and request auth when fixed LLM credentials are configured
+ok 607 - runImageGeneration sends a non-Phi fixed upstream its own key and User-Agent, never the user's bearer or the gateway header
+ok 608 - runImageGeneration hands the generated bytes to onGeneratedImage, and keeps them out of the result
+ok 609 - runImageGeneration forwards the run's userId to the image upload port
+ok 610 - onGeneratedImage fires only after the upload the user's copy depends on
+ok 611 - partial image saves are reported immediately and never regenerate the batch
+ok 612 - an upload returning after cancellation is never delivered or followed by another upload
+ok 618 - storeUserImageIn hands the store the decoded bytes as a file
+ok 619 - stored image metadata survives the in-process upload for user delivery
+ok 624 - an avatar made outside a run is its own phi-agent.persona-avatar trace: the prompt in, the image out
+ok 627 - setName preserves template and non-name variables
+ok 628 - setAvatar preserves template and variables while updating avatar metadata
+ok 640 - screenshot guidance locates a target before explicit export and never promotes observations
+ok 647 - files.upload decodes base64 and binds the HOST's userId, not the page's
+ok 655 - read_file rejects inactive skills
+ok 656 - read_file rejects path outside scripts/references/assets
+ok 657 - read_file failure detail points the LLM back to SKILL.md
+ok 659 - read_file rejects path traversal
+ok 660 - read_file returns scripts/ content
+ok 661 - read_file returns references/ content
+ok 662 - read_file returns SKILL.md from skill root
+ok 663 - read_file returns assets/ content
+ok 664 - read_file rejects files larger than the cap
+ok 675 - run_script maps the runner's own tool_timeout to timeout
+ok 676 - run_script maps a CDP evaluation that timed out to timeout
+ok 677 - run_script maps an abort to aborted
+ok 678 - run_script maps a lowercase abort to aborted
+ok 680 - RunIdLatch returns the latest run id for a key
+ok 681 - RunIdLatch isolates values by user and skill
+ok 684 - a pause while the operation runs moves the timeout
+ok 686 - without a pause the timeout fires on time
+ok 693 - worker toolkit preserves the file-stream cap and rejects values above 100 MiB
+ok 695 - browser_task timeout resolves from BROWSER_TASK_TIMEOUT_MS
+# tests 784
+# pass 784
+# fail 0
+# cancelled 0
+# skipped 0
