@@ -1,0 +1,32 @@
+[
+  {
+    "profile": "Default",
+    "file": "Preferences",
+    "restored_fields_equal": true
+  },
+  {
+    "profile": "Default",
+    "file": "Secure Preferences",
+    "restored_fields_equal": true
+  },
+  {
+    "profile": "PhiChat",
+    "file": "Preferences",
+    "restored_fields_equal": true
+  },
+  {
+    "profile": "PhiChat",
+    "file": "Secure Preferences",
+    "restored_fields_equal": true
+  },
+  {
+    "original_extension_files_equal": true
+  },
+  {
+    "live_sidecar_manifest": "2026.10.15.1908",
+    "load_extension": false,
+    "source_attach_stopped": true,
+    "port_8788": "free",
+    "runner_agent": "published"
+  }
+]

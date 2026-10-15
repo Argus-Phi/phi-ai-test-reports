@@ -321,6 +321,13 @@
      "caption": "实际命令、断言名称与结果摘录",
      "attempt": 1,
      "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "runtime.txt",
+     "caption": "实际SHA、clean状态和各模式服务启动摘录",
+     "attempt": 1,
+     "outcome": "pass"
     }
    ],
    "notes": "仅记录本轮修复直接覆盖的子项；原计划其他矩阵留给终测。"
@@ -616,6 +623,13 @@
      "trace_id": "476b9fab-c981-43db-8c0f-9bb31cb8e9d6",
      "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/476b9fab-c981-43db-8c0f-9bb31cb8e9d6",
      "caption": "DEV 项目真实 chat trace；凭据、用户标识、个人上下文与文件 capability 已脱敏",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cleanup.json",
+     "caption": "原Canary配置与扩展文件逐项恢复校验",
      "attempt": 1,
      "outcome": "pass"
     }
