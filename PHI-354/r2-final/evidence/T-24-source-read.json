@@ -1,0 +1,19 @@
+{
+  "chatId": "3415f529-98f2-41f6-8c04-a0f5b5bc220f",
+  "calls": [
+    {
+      "callId": "fc_02157f96c0ceaaf1006ad065d3d7f087d29bf06fdf4da4bda5",
+      "capability": "browser_page.content",
+      "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727915,\"expectedUrl\":\"https://github.com/octocat/Hello-World/commit/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d\",\"selector\":\"main\",\"includeActionableInformation\":null}}"
+    }
+  ],
+  "results": [
+    {
+      "capability": "browser_page.content",
+      "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"Merge pull request #6 from Spaceghost/patch-1 · octocat/Hello-World@7fd1a60 · GitHub\",\"url\":\"https://github.com/octocat/Hello-World/commit/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d\",\"content\":\"octocat (https://github.com/octocat)\\n\\nHello-World (https://github.com/octocat/Hello-World)\\n\\nRepository navigation\\n\\nCode (https://github.com/octocat/Hello-World)\\n\\nIssues (5k+) (https://github.com/octocat/Hello-World/issues)\\n\\nPull requests (1.3k) (https://github.com/octocat/Hello-World/pulls)\\n\\nActions (https://github.com/octocat/Hello-World/actions)\\n\\nProjects (https://github.com/octocat/Hello-World/projects)\\n\\nWiki (https://github.com/octocat/Hello-World/wiki)\\n\\nMore items\\n\\nCommit 7fd1a60\\n\\n (https://github.com/octocat/Hello-World/tree/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d)\\n\\noctocat (https://github.com/octocat)octocat (https://github.com/octocat/Hello-World/commits?author=octocat)\\ncommittedon Mar 7, 2012\\n\\nMerge pull request #6 (https://github.com/octocat/Hello-World/pull/6) from Spaceghost/patch-1\\nNew line at end of file.\\n\\nmaster (https://github.com/octocat/Hello-World/compare/master)\\n\\n2 parents 553c207 (https://github.com/octocat/Hello-World/commit/553c2077f0edc3d5dc5d17262f6aa498e69d6f8e) + 7629413 (https://github.com/octocat/Hello-World/commit/762941318ee16e59dabbacb1b4049eec22f0d303) commit 7fd1a60\\n\\n1 file changed\\n\\nLines changed: 1 addition & 1 deletion\\n\\n‎README‎ (https://github.com/octocat/Hello-World/commit/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d#diff-2b7814d3fca2e99e56c51b6ff2aa313ea6e9da6424804240aa8ad891fdfe0900)\\n\\nOriginal file line number\\n\\nDiff line number\\n\\nDiff line change\\n\\n@@ -1 +1 @@\\n\\n1\\n\\n-\\nHello World!\\n\\n1\\n\\n+\\nHello World!\\n\\n0 commit comments\\n\\nComments\\n (0)\\n\\nFailed to load comments.Retry\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[\"form_control_values_omitted\"]}}"
+    }
+  ],
+  "files": [],
+  "text": "I’m checking the commit page now and will report its ID and title.Commit ID: `7fd1a60b01f91b314f59955a4e4d4e80d8edf11d`  \nTitle: **Merge pull request #6 from Spaceghost/patch-1**",
+  "terminalCount": 2
+}

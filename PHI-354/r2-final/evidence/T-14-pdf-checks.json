@@ -1,0 +1,32 @@
+[
+  {
+    "file": "T-21-mixed-explicit.pdf",
+    "pages": 1,
+    "containsTitle": true,
+    "containsCommit": true
+  },
+  {
+    "file": "T-21-pdf.pdf",
+    "pages": 1,
+    "containsTitle": true,
+    "containsCommit": true
+  },
+  {
+    "file": "T-22-mixed.pdf",
+    "pages": 1,
+    "containsTitle": true,
+    "containsCommit": true
+  },
+  {
+    "file": "T-22-pdf-native.pdf",
+    "pages": 1,
+    "containsTitle": true,
+    "containsCommit": true
+  },
+  {
+    "file": "T-22-pdf.pdf",
+    "pages": 1,
+    "containsTitle": true,
+    "containsCommit": true
+  }
+]

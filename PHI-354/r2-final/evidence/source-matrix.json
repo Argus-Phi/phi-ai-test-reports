@@ -1,0 +1,239 @@
+[
+  {
+    "target": {
+      "name": "index",
+      "url": "http://127.0.0.1:18970/index.html",
+      "targetId": "AC7352D541F694D5E6FFA7156A37225A",
+      "windowId": 1005727855,
+      "tabId": 1005727897
+    },
+    "selector": null,
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      650
+    ],
+    "files": [],
+    "text": "I’m checking that page’s content once and will give you the tool’s exact response.Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)  \nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+    "calls": [
+      {
+        "callId": "fc_0e55a4ce0a6f6a4b006ad061fc9d4887d2a55ac9bab6bb1fa0",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727897,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "url": "http://127.0.0.1:18970/large.html",
+      "targetId": "0BE0B8A0BCEDFBBC6ACDC21D05E1F7BD",
+      "windowId": 1005727855,
+      "tabId": 1005727898
+    },
+    "selector": null,
+    "expected": "result_too_large",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "result_too_large",
+          "message": "Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\"content\", the same tabId, and selector:\"main\" or a smaller section selector.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      257
+    ],
+    "files": [],
+    "text": "I’m checking the page’s content now and will report the tool’s exact response.`result_too_large`: Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\"content\", the same tabId, and selector:\"main\" or a smaller section selector. (retryable: false)",
+    "calls": [
+      {
+        "callId": "fc_0bf82a0cfb9c6af8006ad062117a5c87d2ad931163e3041af4",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727898,\"expectedUrl\":\"http://127.0.0.1:18970/large.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "url": "http://127.0.0.1:18970/large.html",
+      "targetId": "0BE0B8A0BCEDFBBC6ACDC21D05E1F7BD",
+      "windowId": 1005727855,
+      "tabId": 1005727898
+    },
+    "selector": "#commit-list",
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/large.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      380
+    ],
+    "files": [],
+    "text": "I’m checking that page section for you now, without changing tabs or its contents.The selected section returned:\n\n```text\nCommits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n```",
+    "calls": [
+      {
+        "callId": "fc_07ec4c6061e60ee1006ad0622082e487d2b94bd8649dc910f7",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727898,\"expectedUrl\":\"http://127.0.0.1:18970/large.html\",\"selector\":\"#commit-list\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "empty",
+      "url": "http://127.0.0.1:18970/empty.html",
+      "targetId": "7552772EACC54E41FE0AA8952BEB98B1",
+      "windowId": 1005727855,
+      "tabId": 1005727899
+    },
+    "selector": null,
+    "expected": "no_readable_content",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "no_readable_content",
+          "message": "The selected root has no readable text. Choose another loaded text section.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      157
+    ],
+    "files": [],
+    "text": "I’m checking that page once and will give you the exact result.The selected root has no readable text. Choose another loaded text section.",
+    "calls": [
+      {
+        "callId": "fc_0d813078c6e7c154006ad06230e22c87d2aea3feae4f9d4d26",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727899,\"expectedUrl\":\"http://127.0.0.1:18970/empty.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "coverage",
+      "url": "http://127.0.0.1:18970/coverage.html",
+      "targetId": "6C1F22CB0BB980A6D723BB534671479C",
+      "windowId": 1005727855,
+      "tabId": 1005727900
+    },
+    "selector": "#hidden-child",
+    "expected": "no_readable_content",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "no_readable_content",
+          "message": "The selected root has no readable text. Choose another loaded text section.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      157
+    ],
+    "files": [],
+    "text": "I’m checking that exact page element once and will pass along the result verbatim.`no_readable_content`: The selected root has no readable text. Choose another loaded text section.",
+    "calls": [
+      {
+        "callId": "fc_06cd4c525865a5df006ad062413a1c87d2bfb6b87843c72548",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727900,\"expectedUrl\":\"http://127.0.0.1:18970/coverage.html\",\"selector\":\"#hidden-child\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "index",
+      "url": "http://127.0.0.1:18970/index.html",
+      "targetId": "AC7352D541F694D5E6FFA7156A37225A",
+      "windowId": 1005727855,
+      "tabId": 1005727897
+    },
+    "selector": "#missing-qa-element",
+    "expected": "resource_not_found",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "resource_not_found",
+          "message": "The tab or selected element was not found. Check the tabId and choose an existing selector.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      172
+    ],
+    "files": [],
+    "text": "I’m checking that page for the requested element now.{\"ok\":false,\"error\":{\"code\":\"resource_not_found\",\"message\":\"The tab or selected element was not found. Check the tabId and choose an existing selector.\",\"retryable\":false}}",
+    "calls": [
+      {
+        "callId": "fc_0816c9c1f0479a01006ad0624fd6b887d29219016e47081b20",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727897,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":\"#missing-qa-element\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "index",
+      "url": "http://127.0.0.1:18970/index.html",
+      "targetId": "AC7352D541F694D5E6FFA7156A37225A",
+      "windowId": 1005727855,
+      "tabId": 1005727897
+    },
+    "selector": "[",
+    "expected": "invalid_argument",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "invalid_argument",
+          "message": "Use a nonempty valid CSS selector of at most 1,024 characters.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      141
+    ],
+    "files": [],
+    "text": "I’m checking the page with that selector and will give you the exact result.Use a nonempty valid CSS selector of at most 1,024 characters.",
+    "calls": [
+      {
+        "callId": "fc_05b010536908813d006ad0625ff89887d2b20d0c8d14039fd6",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727897,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":\"[\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  }
+]

@@ -1,0 +1,170 @@
+{
+  "records": [
+    {
+      "name": "baseline-small",
+      "expected": "ok",
+      "actual": "ok",
+      "pass": true,
+      "elapsedMs": 30,
+      "result": {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "pushState-current",
+      "expected": "ok",
+      "actual": "ok",
+      "pass": true,
+      "elapsedMs": 3,
+      "result": {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/index.html?qa-pushstate=1",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "pushState-stale",
+      "expected": "active_tab_changed",
+      "actual": "active_tab_changed",
+      "pass": true,
+      "elapsedMs": 0,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "active_tab_changed",
+          "message": "tab 1005727763 no longer shows the page the request was about"
+        }
+      }
+    },
+    {
+      "name": "empty",
+      "expected": "no_readable_content",
+      "actual": "no_readable_content",
+      "pass": true,
+      "elapsedMs": 2,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "no_readable_content",
+          "message": "The selected root has no readable text. Choose another loaded text section."
+        }
+      }
+    },
+    {
+      "name": "authorized-file",
+      "expected": "ok",
+      "actual": "ok",
+      "pass": true,
+      "elapsedMs": 2,
+      "result": {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "read-timeout",
+      "expected": "cdp_timeout",
+      "actual": "cdp_timeout",
+      "pass": true,
+      "elapsedMs": 1003,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "cdp_timeout",
+          "message": "Runtime.evaluate: no reply within 1000ms"
+        }
+      },
+      "evaluationStarted": true
+    },
+    {
+      "name": "recover-after-timeout",
+      "expected": "ok",
+      "actual": "ok",
+      "pass": true,
+      "elapsedMs": 3,
+      "result": {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "read-abort",
+      "expected": "aborted",
+      "actual": "aborted",
+      "pass": true,
+      "elapsedMs": 103,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "aborted",
+          "message": "Runtime.evaluate: aborted"
+        }
+      }
+    },
+    {
+      "name": "recover-after-abort",
+      "expected": "ok",
+      "actual": "ok",
+      "pass": true,
+      "elapsedMs": 2,
+      "result": {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    },
+    {
+      "name": "restricted-internal",
+      "expected": "restricted_page",
+      "actual": "restricted_page",
+      "pass": true,
+      "elapsedMs": 0,
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "restricted_page",
+          "message": "tab 1005727763 shows a browser-internal page or the Web Store"
+        }
+      }
+    }
+  ],
+  "counts": {
+    "attach": 9,
+    "detach": 9,
+    "evaluate": 21
+  }
+}

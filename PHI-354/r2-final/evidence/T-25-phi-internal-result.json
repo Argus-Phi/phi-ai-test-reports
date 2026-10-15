@@ -1,0 +1,16 @@
+{
+  "target": {
+    "targetId": "F0496EA54AA4D62E1FD50BBEA83B7461",
+    "windowId": 1005728159,
+    "requestedUrl": "phi://version/",
+    "actualUrl": "chrome://version/",
+    "tabId": 1005728169
+  },
+  "result": {
+    "ok": false,
+    "error": {
+      "code": "restricted_page",
+      "message": "tab 1005728169 shows a browser-internal page or the Web Store"
+    }
+  }
+}

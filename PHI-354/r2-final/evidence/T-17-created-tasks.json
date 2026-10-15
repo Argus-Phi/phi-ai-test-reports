@@ -1,0 +1,78 @@
+{
+  "chatId": "01a13e4b-c743-741f-95b9-731031bc36fd",
+  "added": [
+    {
+      "task_id": "01a13e4c-025a-713d-adbc-c0cd2392fca3",
+      "title": "PHI-354 提交信息测试",
+      "description": "读取 PHI-354 测试页面并汇报提交标识、标题与提交链接；不导出文件、不发送外部通知。",
+      "objective": "读取 https://argus-phi.github.io/phi-qa-fixtures/PHI-354/index.html，并报告页面提供的提交标识、标题和提交链接。不要导出文件，也不要发送外部通知。",
+      "input_payload": {
+        "activeTabUrl": "http://127.0.0.1:18970/index.html"
+      },
+      "profile_id": "Default",
+      "chat_id": "01a13e4b-c743-741f-95b9-731031bc36fd",
+      "origin": {
+        "pages": [
+          {
+            "url": "http://127.0.0.1:18970/index.html",
+            "title": "PHI-354 synthetic commits",
+            "favicon": null
+          }
+        ]
+      },
+      "report_muted": false,
+      "report_policy": "always",
+      "stop_condition": null,
+      "task_status": "ready",
+      "display_status": "running",
+      "concurrency_policy": "single_active_run",
+      "next_run_index": 2,
+      "latest_run_id": "01a13e4c-0267-7233-94f9-9685ea4feb30",
+      "latest_run_status": "running",
+      "latest_run_summary": {
+        "run_id": "01a13e4c-0267-7233-94f9-9685ea4feb30",
+        "run_index": 1,
+        "run_status": "running",
+        "trigger_source": "main_agent",
+        "created_at": 1792046531175,
+        "started_at": 1792046531208
+      },
+      "active_run_id": "01a13e4c-0267-7233-94f9-9685ea4feb30",
+      "active_run_summary": {
+        "run_id": "01a13e4c-0267-7233-94f9-9685ea4feb30",
+        "run_index": 1,
+        "run_status": "running",
+        "trigger_source": "main_agent",
+        "created_at": 1792046531175,
+        "started_at": 1792046531208
+      },
+      "created_at": 1792046531162,
+      "updated_at": 1792046531208
+    }
+  ],
+  "schedules": [
+    {
+      "schedule_id": "01a13e0a-4a51-75ba-8081-4094f3e72fcd",
+      "task_id": "01a13e0a-4a47-741e-b92c-11656cdd1c45",
+      "name": "监控 octocat/Hello-World 最新提交",
+      "description": "每天检查 GitHub 上 octocat/Hello-World 的 master 分支最新提交，并在提交变化时简洁汇报。",
+      "enabled": false,
+      "state": "paused",
+      "schedule": {
+        "tz": "Asia/Shanghai",
+        "expr": "0 11 * * *",
+        "kind": "cron"
+      },
+      "next_run_at": 1792119600000,
+      "paused_at": 1792042227446,
+      "paused_reason": "manual",
+      "source": "agent_tool",
+      "created_at": 1792042224208,
+      "updated_at": 1792044400343
+    }
+  ],
+  "calls": [
+    "task.create"
+  ],
+  "files": []
+}

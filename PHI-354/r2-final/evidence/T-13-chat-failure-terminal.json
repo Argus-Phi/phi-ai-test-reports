@@ -1,0 +1,41 @@
+[
+  {
+    "type": "CUSTOM",
+    "runId": "01a13e1a-f45a-710f-804f-497fc1154300",
+    "threadId": "01a13e1a-e387-77d1-ad97-2d8f7be34606",
+    "timestamp": 1792043321710,
+    "forwardedProps": {
+      "traceId": "01a13e1a-f45a-710f-804f-497fc1154300",
+      "userId": "QA_ACCOUNT",
+      "connectionId": "85f9fcb6-5608-4a5d-b88f-965e165a49d9"
+    },
+    "name": "worker_progress",
+    "value": {
+      "kind": "tool_call_result",
+      "toolCallId": "fc_04701445700a8ce5006ad06939275087d29cca8e4132c99b90",
+      "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+      "isError": false,
+      "toolId": "browser_page",
+      "capabilityId": "browser_page.content",
+      "sidecarDisplayName": "Browser page",
+      "emitter": "browser_page.content"
+    }
+  },
+  {
+    "type": "CUSTOM",
+    "runId": "01a13e1a-f45a-710f-804f-497fc1154300",
+    "threadId": "01a13e1a-e387-77d1-ad97-2d8f7be34606",
+    "timestamp": 1792043321744,
+    "forwardedProps": {
+      "traceId": "01a13e1a-f45a-710f-804f-497fc1154300",
+      "userId": "QA_ACCOUNT",
+      "connectionId": "85f9fcb6-5608-4a5d-b88f-965e165a49d9"
+    },
+    "name": "worker_progress",
+    "value": {
+      "kind": "run_result",
+      "ok": false,
+      "errorCode": "phi-responses-adapter: upstream returned 400: {\"error\":{\"type\":\"invalid_request_error\",\"message\":\"PHI-354 controlled upstream failure after a real browser_page.content result\"}}"
+    }
+  }
+]

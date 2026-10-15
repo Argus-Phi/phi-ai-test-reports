@@ -1,0 +1,178 @@
+[
+  {
+    "context": "chat",
+    "name": "failure",
+    "chatId": "01a13e1a-e387-77d1-ad97-2d8f7be34606",
+    "files": [],
+    "terminals": 2,
+    "messages": [
+      {
+        "id": "01a13e1a-e4d3-7514-902a-6f72042f528d",
+        "chatId": "01a13e1a-e387-77d1-ad97-2d8f7be34606",
+        "role": "user",
+        "parts": [
+          {
+            "text": "PHI354_TERMINATE_CHAT_FAILURE: Actually use browser_page content on tabId 1005727897, expectedUrl http://127.0.0.1:18970/index.html once. Then report the commit title and link. Do not use browser_task, skills, exports, or retry any tool.",
+            "type": "text"
+          }
+        ],
+        "attachments": [],
+        "metadata": {
+          "timelineSeq": 1,
+          "timelineTimestamp": 1792043312339
+        },
+        "createdAt": "2026-10-15T05:48:32.504Z"
+      },
+      {
+        "id": "01a13e1a-f45a-710f-804f-533274da6432",
+        "chatId": "01a13e1a-e387-77d1-ad97-2d8f7be34606",
+        "role": "assistant",
+        "parts": [
+          {
+            "text": "I’m checking the page now and will report the commit title and link.The commit title is **“Fix example”**: https://github.com/phibrowser/phi-ai/commit/abc1234. The run was cut short before it could finish, so this isn’t a complete, verified result; I can run it again if you’d like.",
+            "type": "text",
+            "state": "done",
+            "providerMetadata": {
+              "partKey": "main-response:0",
+              "partSeq": 1,
+              "segmentType": "main-response"
+            }
+          }
+        ],
+        "attachments": [],
+        "metadata": {
+          "runId": "01a13e1a-f45a-710f-804f-497fc1154300"
+        },
+        "createdAt": "2026-10-15T05:48:36.314Z"
+      }
+    ]
+  },
+  {
+    "context": "chat",
+    "name": "timeout",
+    "chatId": "01a13e1b-1d21-734f-b556-9697425a355b",
+    "files": [],
+    "terminals": 2,
+    "messages": [
+      {
+        "id": "01a13e1b-1e65-7118-8ca6-3420d5d95215",
+        "chatId": "01a13e1b-1d21-734f-b556-9697425a355b",
+        "role": "user",
+        "parts": [
+          {
+            "text": "PHI354_TERMINATE_CHAT_TIMEOUT: Actually use browser_page content on tabId 1005727897, expectedUrl http://127.0.0.1:18970/index.html once. Then report the commit title and link. Do not use browser_task, skills, exports, or retry any tool.",
+            "type": "text"
+          }
+        ],
+        "attachments": [],
+        "metadata": {
+          "timelineSeq": 1,
+          "timelineTimestamp": 1792043327077
+        },
+        "createdAt": "2026-10-15T05:48:47.153Z"
+      },
+      {
+        "id": "01a13e1b-2b9f-702a-9633-d810331339ef",
+        "chatId": "01a13e1b-1d21-734f-b556-9697425a355b",
+        "role": "assistant",
+        "parts": [
+          {
+            "text": "I’m checking the page now and will report the commit title and link.The commit is titled **“Fix example”**: https://github.com/phibrowser/phi-ai/commit/abc1234. The run was cut short before it could finish, so this isn’t a complete, verified result.",
+            "type": "text",
+            "state": "done",
+            "providerMetadata": {
+              "partKey": "main-response:0",
+              "partSeq": 1,
+              "segmentType": "main-response"
+            }
+          }
+        ],
+        "attachments": [],
+        "metadata": {
+          "runId": "01a13e1b-2b9f-702a-9633-d20859a375e6"
+        },
+        "createdAt": "2026-10-15T05:48:50.463Z"
+      }
+    ]
+  },
+  {
+    "context": "chat",
+    "name": "cancel",
+    "chatId": "01a13e20-2f78-72cd-a8b5-b26e22234414",
+    "files": [],
+    "terminals": 2,
+    "messages": [
+      {
+        "id": "01a13e20-30be-750b-9073-6dc34b2b73d6",
+        "chatId": "01a13e20-2f78-72cd-a8b5-b26e22234414",
+        "role": "user",
+        "parts": [
+          {
+            "text": "PHI354_TERMINATE_CHAT_CANCEL: Use browser_page content on tabId 1005727897, expectedUrl http://127.0.0.1:18970/index.html once. Then report the commit title and link. Do not export files or use skills/browser_task.",
+            "type": "text"
+          }
+        ],
+        "attachments": [],
+        "metadata": {
+          "timelineSeq": 1,
+          "timelineTimestamp": 1792043659454
+        },
+        "createdAt": "2026-10-15T05:54:19.591Z"
+      },
+      {
+        "id": "01a13e20-3e19-77b8-8d3b-44004413be94",
+        "chatId": "01a13e20-2f78-72cd-a8b5-b26e22234414",
+        "role": "assistant",
+        "parts": [
+          {
+            "text": "I’m checking the page now and will report the commit title and link.",
+            "type": "text",
+            "state": "done",
+            "providerMetadata": {
+              "partKey": "main-response:0",
+              "partSeq": 1,
+              "segmentType": "main-response"
+            }
+          }
+        ],
+        "attachments": [],
+        "metadata": {
+          "runId": "01a13e20-3e19-77b8-8d3b-3f82c3fd125d"
+        },
+        "createdAt": "2026-10-15T05:54:22.873Z"
+      }
+    ]
+  },
+  {
+    "context": "task_run",
+    "name": "failure",
+    "read": true,
+    "runId": "01a13e1c-b369-71dd-8a9b-0c3507a391ee",
+    "status": "failed",
+    "error": {
+      "code": "UNKNOWN",
+      "message": "phi-responses-adapter: upstream returned 400: {\"error\":{\"type\":\"invalid_request_error\",\"message\":\"PHI-354 controlled upstream failure after a real browser_page.content result\"}}"
+    },
+    "artifacts": []
+  },
+  {
+    "context": "task_run",
+    "name": "timeout",
+    "read": true,
+    "runId": "01a13e1e-3d3f-75ef-ad5e-d6dbe6dd18b8",
+    "status": "failed",
+    "error": {
+      "code": "run_timeout",
+      "message": "Run exceeded maximum runtime"
+    },
+    "artifacts": []
+  },
+  {
+    "context": "task_run",
+    "name": "cancel",
+    "read": true,
+    "runId": "01a13e21-8460-76d1-9325-4cbdff4d9925",
+    "status": "cancelled",
+    "artifacts": []
+  }
+]

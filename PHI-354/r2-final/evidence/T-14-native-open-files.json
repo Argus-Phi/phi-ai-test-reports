@@ -1,0 +1,98 @@
+[
+  {
+    "id": "T-21-pdf",
+    "filename": "phi-354-synthetic-commits (4).pdf",
+    "bytes": 74293,
+    "sha256": "b60c38969a22ed4318e2b118f71a407523952537796415b17eef1d6b6a74a794",
+    "tabId": 1005727964,
+    "state": {
+      "title": "",
+      "type": "application/pdf",
+      "text": ""
+    }
+  },
+  {
+    "id": "T-21-mhtml",
+    "filename": "page (3).mhtml",
+    "bytes": 3792,
+    "sha256": "95953bb4e12f7c6e8ed9c03c1b37afb8f9fa2acda6db596fc8d795b5eeb31a0c",
+    "tabId": 1005727965,
+    "state": {
+      "title": "PHI-354 synthetic commits",
+      "type": "text/html",
+      "text": "Commits\nabc1234\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page"
+    }
+  },
+  {
+    "id": "T-21-mixed-explicit",
+    "filename": "page (3).pdf",
+    "bytes": 74214,
+    "sha256": "f3cbdaafe4a3a3de8406ce7f777f33514366329dac906be7cd24cb1d176c4c30",
+    "tabId": 1005727966,
+    "state": {
+      "title": "",
+      "type": "application/pdf",
+      "text": ""
+    }
+  },
+  {
+    "id": "T-22-mhtml",
+    "filename": "page (4).mhtml",
+    "bytes": 3792,
+    "sha256": "686dd062c83846735c1c4f17a785f0aecab35a48f6f7f4b8d4804d2c74b7543c",
+    "tabId": 1005727967,
+    "state": {
+      "title": "PHI-354 synthetic commits",
+      "type": "text/html",
+      "text": "Commits\nabc1234\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page"
+    }
+  },
+  {
+    "id": "T-22-pdf",
+    "filename": "T-22-pdf-native.pdf",
+    "bytes": 74293,
+    "sha256": "ba7bbd52864d9c52bca423b7f51cffbedcbde8b7262096e189ef930d4858fe7b",
+    "tabId": 1005727968,
+    "state": {
+      "title": "",
+      "type": "application/pdf",
+      "text": ""
+    }
+  },
+  {
+    "id": "T-22-mixed",
+    "filename": "T-22-mixed-native.pdf",
+    "bytes": 74293,
+    "sha256": "2417b862dfd6760d7854d769eda8538dc741b41aabbd00a5e13f81ef666c0a61",
+    "tabId": 1005727969,
+    "state": {
+      "title": "",
+      "type": "application/pdf",
+      "text": ""
+    }
+  },
+  {
+    "id": "T-22-png",
+    "filename": "T-22-png-native.png",
+    "bytes": 52624,
+    "sha256": "b706e41ca7660ed1cfb247916716f76a34ded39387b9948b5d345fe63f171f22",
+    "tabId": 1005727970,
+    "state": {
+      "title": "T-22-png-native.png (1422×1592)",
+      "type": "image/png",
+      "text": ""
+    }
+  },
+  {
+    "id": "T-14-png",
+    "filename": "T-21-png.png",
+    "bytes": 90310,
+    "sha256": "89e067f00216cb48a530d6341cd7d065e6c942686632273ed82e46e7255942fe",
+    "tabId": 1005727971,
+    "state": {
+      "title": "T-21-png.png (1422×1592)",
+      "type": "image/png",
+      "text": ""
+    }
+  }
+]

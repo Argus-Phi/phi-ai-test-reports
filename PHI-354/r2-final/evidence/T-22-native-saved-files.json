@@ -1,0 +1,17 @@
+[
+  {
+    "filename": "T-22-png-native.png",
+    "size": 52624,
+    "sha256": "b706e41ca7660ed1cfb247916716f76a34ded39387b9948b5d345fe63f171f22"
+  },
+  {
+    "filename": "T-22-pdf-native.pdf",
+    "size": 74293,
+    "sha256": "ba7bbd52864d9c52bca423b7f51cffbedcbde8b7262096e189ef930d4858fe7b"
+  },
+  {
+    "filename": "T-22-mixed-native.pdf",
+    "size": 74293,
+    "sha256": "2417b862dfd6760d7854d769eda8538dc741b41aabbd00a5e13f81ef666c0a61"
+  }
+]

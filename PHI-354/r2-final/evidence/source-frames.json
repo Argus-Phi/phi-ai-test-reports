@@ -1,0 +1,102 @@
+[
+  {
+    "target": {
+      "name": "report",
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/final-r2/report.html",
+      "tabId": 1005727909
+    },
+    "expected": "ok",
+    "chatId": "eb1cb49e-791e-4b86-9586-11b770563eb5",
+    "calls": [
+      {
+        "callId": "fc_03ebd3c738b7bf2a006ad0629451b887d2959e0504439ce170",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727909,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ],
+    "results": [
+      {
+        "capability": "browser_page.content",
+        "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 Local report\",\"url\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/final-r2/report.html\",\"content\":\"abc1234 Fix example Commit evidence (https://a.test/commit/abc1234)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}"
+      }
+    ],
+    "files": [],
+    "text": "I’m checking the page now and will report its text or the error code.abc1234 Fix example Commit evidence (https://a.test/commit/abc1234)",
+    "terminalCount": 2
+  },
+  {
+    "target": {
+      "name": "empty",
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/final-r2/empty.html",
+      "tabId": 1005727910
+    },
+    "expected": "no_readable_content",
+    "chatId": "30c7f52d-8aaf-4249-997a-ac1b160e1361",
+    "calls": [
+      {
+        "callId": "fc_0ae58c292a95040d006ad062a9199487d2b5e199b2e64a17b5",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727910,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ],
+    "results": [
+      {
+        "capability": "browser_page.content",
+        "content": "{\"ok\":false,\"error\":{\"code\":\"no_readable_content\",\"message\":\"The selected root has no readable text. Choose another loaded text section.\",\"retryable\":false}}"
+      }
+    ],
+    "files": [],
+    "text": "I’m checking that tab’s current page now and will pass along its text or error code.Error code: `no_readable_content` — the selected root has no readable text.",
+    "terminalCount": 2
+  },
+  {
+    "target": {
+      "name": "hidden",
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/final-r2/hidden.html",
+      "tabId": 1005727911
+    },
+    "expected": "no_readable_content",
+    "chatId": "e56c2d02-e087-44cf-ab40-c9be35464cb0",
+    "calls": [
+      {
+        "callId": "fc_08cc4eda541739a4006ad062b9c6d887d28bbdbb43fc4ddb3b",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727911,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ],
+    "results": [
+      {
+        "capability": "browser_page.content",
+        "content": "{\"ok\":false,\"error\":{\"code\":\"no_readable_content\",\"message\":\"The selected root has no readable text. Choose another loaded text section.\",\"retryable\":false}}"
+      }
+    ],
+    "files": [],
+    "text": "I’m reading the current page now and will report its text or the error code.Error code: `no_readable_content` — the selected page root has no readable text.",
+    "terminalCount": 2
+  },
+  {
+    "target": {
+      "name": "frame",
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/final-r2/frame.html",
+      "tabId": 1005727912
+    },
+    "expected": "ok",
+    "chatId": "663047f9-4744-4a1b-8c5f-ed7d6b7acd5f",
+    "calls": [
+      {
+        "callId": "fc_0e84f0e4a94a5ac0006ad062cb9bac87d2bb15d6a67504da17",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727912,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ],
+    "results": [
+      {
+        "capability": "browser_page.content",
+        "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 Frame evidence\",\"url\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/artifacts-wt/PHI-354/test-site/final-r2/frame.html\",\"content\":\"[Frame: about:srcdoc]\\n\\nFrame evidence abc1234 (https://a.test/commit/abc1234)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}"
+      }
+    ],
+    "files": [],
+    "text": "I’m checking the page now and will report its text or the error code.[Frame: about:srcdoc]\n\nFrame evidence abc1234 (https://a.test/commit/abc1234)",
+    "terminalCount": 2
+  }
+]

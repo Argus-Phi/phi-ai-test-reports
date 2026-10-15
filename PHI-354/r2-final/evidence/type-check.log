@@ -1,0 +1,297 @@
+command: pnpm type-check --force
+
+> @phi-ai/root@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai
+> turbo run type-check --force
+
+• turbo 2.9.4
+
+   • Packages in scope: @phi-ai/agent-loop-eval, @phi-ai/agent-protocol, @phi-ai/ai-extension, @phi-ai/api-base, @phi-ai/auth, @phi-ai/browser-use-eval, @phi-ai/browser-use-sonic, @phi-ai/chat, @phi-ai/current-page-qr-code-skill, @phi-ai/download-twitter-video-skill, @phi-ai/dsh, @phi-ai/dsh-bundle, @phi-ai/dsh-lib-shared, @phi-ai/dsh-lib-storage, @phi-ai/dsh-plugin-ask-user, @phi-ai/dsh-plugin-attachment, @phi-ai/dsh-plugin-browser, @phi-ai/dsh-plugin-chat, @phi-ai/dsh-plugin-guard, @phi-ai/dsh-plugin-im, @phi-ai/dsh-plugin-llm, @phi-ai/dsh-plugin-phi-cdp, @phi-ai/dsh-plugin-session-pg, @phi-ai/dsh-plugin-skills, @phi-ai/dsh-plugin-storage-pg, @phi-ai/dsh-plugin-tasks, @phi-ai/dsh-plugin-telemetry, @phi-ai/dsh-plugin-transport, @phi-ai/dsh-plugin-worker, @phi-ai/eval, @phi-ai/export-chatgpt-conversation-skill, @phi-ai/extension-updater, @phi-ai/extract-current-page-content-skill, @phi-ai/games, @phi-ai/kensington, @phi-ai/lexington, @phi-ai/memory, @phi-ai/mirage, @phi-ai/observability, @phi-ai/onboarding, @phi-ai/phi-agent-devtools, @phi-ai/phi-browser-help-skill, @phi-ai/phi-memory, @phi-ai/save-current-page-pdf-skill, @phi-ai/save-current-page-screenshot-skill, @phi-ai/sentinel-sdk, @phi-ai/shared-types, @phi-ai/shared-ui, @phi-ai/show-current-page-as-markdown-skill, @phi-ai/show-page-reader-mode-skill, @phi-ai/show-page-tech-stack-skill, @phi-ai/sidecar, @phi-ai/video-gist-skill, @phi-ai/widget, @phi-ai/window-theme, @types/phi-chromium, eval-dashboard
+   • Running type-check in 57 packages
+   • Remote caching enabled, using shared worktree cache
+
+@phi-ai/auth:type-check: cache bypass, force executing cf1f121433f89a34
+@phi-ai/show-page-reader-mode-skill:type-check: cache bypass, force executing 835446deafabe58e
+@phi-ai/video-gist-skill:type-check: cache bypass, force executing 53b9f89906f06b82
+@phi-ai/extract-current-page-content-skill:type-check: cache bypass, force executing 48eb56b74bbbe699
+@phi-ai/save-current-page-pdf-skill:type-check: cache bypass, force executing a42d1935e2ca1eab
+@phi-ai/show-page-tech-stack-skill:type-check: cache bypass, force executing 3c5f3c69f24f446e
+@phi-ai/auth:build: cache bypass, force executing 2fa104c94e3d6277
+@phi-ai/shared-types:type-check: cache bypass, force executing 1f5db5765ba79e0c
+@phi-ai/memory:build: cache bypass, force executing e9789dc398f9f93b
+@phi-ai/current-page-qr-code-skill:type-check: cache bypass, force executing 7c06a0225e41737b
+@phi-ai/extract-current-page-content-skill:type-check: 
+@phi-ai/extract-current-page-content-skill:type-check: > @phi-ai/extract-current-page-content-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/extract-current-page-content
+@phi-ai/extract-current-page-content-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/extract-current-page-content-skill:type-check: 
+@phi-ai/current-page-qr-code-skill:type-check: 
+@phi-ai/current-page-qr-code-skill:type-check: > @phi-ai/current-page-qr-code-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/current-page-qr-code
+@phi-ai/current-page-qr-code-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/current-page-qr-code-skill:type-check: 
+@phi-ai/video-gist-skill:type-check: 
+@phi-ai/video-gist-skill:type-check: > @phi-ai/video-gist-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/video-gist
+@phi-ai/video-gist-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/video-gist-skill:type-check: 
+@phi-ai/auth:type-check: 
+@phi-ai/auth:type-check: > @phi-ai/auth@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/auth
+@phi-ai/auth:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/auth:type-check: 
+@phi-ai/memory:build: 
+@phi-ai/memory:build: > @phi-ai/memory@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/memory
+@phi-ai/memory:build: > tsc
+@phi-ai/memory:build: 
+@phi-ai/show-page-reader-mode-skill:type-check: 
+@phi-ai/show-page-reader-mode-skill:type-check: > @phi-ai/show-page-reader-mode-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-page-reader-mode
+@phi-ai/show-page-reader-mode-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/show-page-reader-mode-skill:type-check: 
+@phi-ai/show-page-tech-stack-skill:type-check: 
+@phi-ai/show-page-tech-stack-skill:type-check: > @phi-ai/show-page-tech-stack-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-page-tech-stack
+@phi-ai/show-page-tech-stack-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/show-page-tech-stack-skill:type-check: 
+@phi-ai/save-current-page-pdf-skill:type-check: 
+@phi-ai/save-current-page-pdf-skill:type-check: > @phi-ai/save-current-page-pdf-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/save-current-page-pdf
+@phi-ai/save-current-page-pdf-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/save-current-page-pdf-skill:type-check: 
+@phi-ai/shared-types:type-check: 
+@phi-ai/shared-types:type-check: > @phi-ai/shared-types@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/shared-types
+@phi-ai/shared-types:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/shared-types:type-check: 
+@phi-ai/auth:build: 
+@phi-ai/auth:build: > @phi-ai/auth@0.0.1 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/auth
+@phi-ai/auth:build: > tsc
+@phi-ai/auth:build: 
+@phi-ai/sentinel-sdk:type-check: cache bypass, force executing 915c5198cd0355c0
+@phi-ai/sentinel-sdk:type-check: 
+@phi-ai/sentinel-sdk:type-check: > @phi-ai/sentinel-sdk@0.0.2 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/sentinel-sdk
+@phi-ai/sentinel-sdk:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sentinel-sdk:type-check: 
+@phi-ai/games:type-check: cache bypass, force executing acdfd2359c18cf19
+@phi-ai/games:type-check: 
+@phi-ai/games:type-check: > @phi-ai/games@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/games
+@phi-ai/games:type-check: > tsc -b --noEmit
+@phi-ai/games:type-check: 
+@phi-ai/download-twitter-video-skill:type-check: cache bypass, force executing d8c4235d408653bb
+@phi-ai/observability:type-check: cache bypass, force executing 75b0ebc5ab9cbd56
+@phi-ai/download-twitter-video-skill:type-check: 
+@phi-ai/download-twitter-video-skill:type-check: > @phi-ai/download-twitter-video-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/download-twitter-video
+@phi-ai/download-twitter-video-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/download-twitter-video-skill:type-check: 
+@phi-ai/observability:type-check: 
+@phi-ai/observability:type-check: > @phi-ai/observability@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/ai-extension/observability
+@phi-ai/observability:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/observability:type-check: 
+@phi-ai/extension-updater:type-check: cache bypass, force executing 7a225488cce30f38
+@phi-ai/show-current-page-as-markdown-skill:type-check: cache bypass, force executing 35b24a5ff7c6c92c
+@phi-ai/extension-updater:type-check: 
+@phi-ai/extension-updater:type-check: > @phi-ai/extension-updater@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/extension-updater
+@phi-ai/extension-updater:type-check: > tsc --noEmit
+@phi-ai/extension-updater:type-check: 
+@phi-ai/show-current-page-as-markdown-skill:type-check: 
+@phi-ai/show-current-page-as-markdown-skill:type-check: > @phi-ai/show-current-page-as-markdown-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-current-page-as-markdown
+@phi-ai/show-current-page-as-markdown-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/show-current-page-as-markdown-skill:type-check: 
+@phi-ai/shared-ui:type-check: cache bypass, force executing e6dc068608debdc9
+@phi-ai/memory:type-check: cache bypass, force executing 11cc87149b788765
+@phi-ai/shared-ui:type-check: 
+@phi-ai/shared-ui:type-check: > @phi-ai/shared-ui@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/ai-extension/shared-ui
+@phi-ai/shared-ui:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/shared-ui:type-check: 
+@phi-ai/memory:type-check: 
+@phi-ai/memory:type-check: > @phi-ai/memory@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/memory
+@phi-ai/memory:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/memory:type-check: 
+@phi-ai/save-current-page-screenshot-skill:type-check: cache bypass, force executing 9e62a230af76d553
+@phi-ai/save-current-page-screenshot-skill:type-check: 
+@phi-ai/save-current-page-screenshot-skill:type-check: > @phi-ai/save-current-page-screenshot-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/save-current-page-screenshot
+@phi-ai/save-current-page-screenshot-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/save-current-page-screenshot-skill:type-check: 
+@phi-ai/dsh-lib-shared:type-check: cache bypass, force executing bf5ab67b72a74852
+@phi-ai/agent-protocol:type-check: cache bypass, force executing 61727e45cd53c40b
+@phi-ai/agent-protocol:type-check: 
+@phi-ai/agent-protocol:type-check: > @phi-ai/agent-protocol@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/agent-protocol
+@phi-ai/agent-protocol:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/agent-protocol:type-check: 
+@phi-ai/dsh-lib-shared:type-check: 
+@phi-ai/dsh-lib-shared:type-check: > @phi-ai/dsh-lib-shared@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/lib/shared
+@phi-ai/dsh-lib-shared:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-lib-shared:type-check: 
+@phi-ai/export-chatgpt-conversation-skill:type-check: cache bypass, force executing 79919e42d44cdad0
+@phi-ai/api-base:type-check: cache bypass, force executing 3c17e29450fc834e
+@phi-ai/window-theme:type-check: cache bypass, force executing 728b49ed539ec60e
+@phi-ai/export-chatgpt-conversation-skill:type-check: 
+@phi-ai/export-chatgpt-conversation-skill:type-check: > @phi-ai/export-chatgpt-conversation-skill@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills/built-in/export-chatgpt-conversation
+@phi-ai/export-chatgpt-conversation-skill:type-check: > tsc --noEmit -p tsconfig.json
+@phi-ai/export-chatgpt-conversation-skill:type-check: 
+@phi-ai/api-base:type-check: 
+@phi-ai/api-base:type-check: > @phi-ai/api-base@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/ai-extension/api-base
+@phi-ai/api-base:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/api-base:type-check: 
+@phi-ai/window-theme:type-check: 
+@phi-ai/window-theme:type-check: > @phi-ai/window-theme@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/ai-extension/window-theme
+@phi-ai/window-theme:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/window-theme:type-check: 
+@phi-ai/browser-use-sonic:type-check: cache bypass, force executing e10d7d22c2d889bd
+@phi-ai/browser-use-sonic:type-check: 
+@phi-ai/browser-use-sonic:type-check: > @phi-ai/browser-use-sonic@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/browser-use-sonic
+@phi-ai/browser-use-sonic:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/browser-use-sonic:type-check: 
+@phi-ai/browser-use-eval:type-check: cache bypass, force executing 5e9738a0e50805dc
+@phi-ai/browser-use-eval:type-check: 
+@phi-ai/browser-use-eval:type-check: > @phi-ai/browser-use-eval@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/browser-use-eval
+@phi-ai/browser-use-eval:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/browser-use-eval:type-check: 
+@phi-ai/dsh-plugin-telemetry:type-check: cache bypass, force executing d5d4a8bfaab45cdc
+@phi-ai/dsh-plugin-telemetry:type-check: 
+@phi-ai/dsh-plugin-telemetry:type-check: > @phi-ai/dsh-plugin-telemetry@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/telemetry
+@phi-ai/dsh-plugin-telemetry:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-telemetry:type-check: 
+@phi-ai/dsh-plugin-guard:type-check: cache bypass, force executing 7d2ca2f1abd31f7f
+@phi-ai/dsh-plugin-ask-user:type-check: cache bypass, force executing 275d016352a30b7f
+@phi-ai/dsh-plugin-attachment:type-check: cache bypass, force executing 2ba5d41c3675d6a9
+@phi-ai/dsh-plugin-guard:type-check: 
+@phi-ai/dsh-plugin-guard:type-check: > @phi-ai/dsh-plugin-guard@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/guard
+@phi-ai/dsh-plugin-guard:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-guard:type-check: 
+@phi-ai/dsh-plugin-ask-user:type-check: 
+@phi-ai/dsh-plugin-ask-user:type-check: > @phi-ai/dsh-plugin-ask-user@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/ask-user
+@phi-ai/dsh-plugin-ask-user:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-ask-user:type-check: 
+@phi-ai/mirage:type-check: cache bypass, force executing 0fd0a42ddb1b44fa
+@phi-ai/dsh-plugin-attachment:type-check: 
+@phi-ai/dsh-plugin-attachment:type-check: > @phi-ai/dsh-plugin-attachment@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/attachment
+@phi-ai/dsh-plugin-attachment:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-attachment:type-check: 
+@phi-ai/widget:type-check: cache bypass, force executing dcb958e3f24ce740
+@phi-ai/mirage:type-check: 
+@phi-ai/mirage:type-check: > @phi-ai/mirage@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/ai-extension/mirage
+@phi-ai/mirage:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/mirage:type-check: 
+@phi-ai/widget:type-check: 
+@phi-ai/widget:type-check: > @phi-ai/widget@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/modules/widget
+@phi-ai/widget:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/widget:type-check: 
+@phi-ai/widget:build: cache bypass, force executing 670538e553f75d1c
+@phi-ai/widget:build: 
+@phi-ai/widget:build: > @phi-ai/widget@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/modules/widget
+@phi-ai/widget:build: > tsc
+@phi-ai/widget:build: 
+@phi-ai/chat:build: cache bypass, force executing 611b875f3bae1ebb
+@phi-ai/dsh-lib-storage:type-check: cache bypass, force executing ad50616c45c63ab6
+@phi-ai/chat:build: 
+@phi-ai/chat:build: > @phi-ai/chat@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/chat
+@phi-ai/chat:build: > tsc
+@phi-ai/chat:build: 
+@phi-ai/chat:type-check: cache bypass, force executing 8abe3058cca39067
+@phi-ai/dsh-lib-storage:type-check: 
+@phi-ai/dsh-lib-storage:type-check: > @phi-ai/dsh-lib-storage@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/lib/storage
+@phi-ai/dsh-lib-storage:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-lib-storage:type-check: 
+@phi-ai/chat:type-check: 
+@phi-ai/chat:type-check: > @phi-ai/chat@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/chat
+@phi-ai/chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/chat:type-check: 
+@phi-ai/dsh-plugin-phi-cdp:type-check: cache bypass, force executing 74c707d62f6009fb
+@phi-ai/dsh-plugin-phi-cdp:type-check: 
+@phi-ai/dsh-plugin-phi-cdp:type-check: > @phi-ai/dsh-plugin-phi-cdp@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp
+@phi-ai/dsh-plugin-phi-cdp:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-phi-cdp:type-check: 
+@phi-ai/dsh-plugin-transport:type-check: cache bypass, force executing e28cdbd2f55f07ca
+@phi-ai/dsh-plugin-storage-pg:type-check: cache bypass, force executing 5060a3ae1415f14a
+@phi-ai/dsh-plugin-transport:type-check: 
+@phi-ai/dsh-plugin-transport:type-check: > @phi-ai/dsh-plugin-transport@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/transport
+@phi-ai/dsh-plugin-transport:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-transport:type-check: 
+@phi-ai/dsh-plugin-session-pg:type-check: cache bypass, force executing 6ed00e97af329079
+@phi-ai/dsh-plugin-storage-pg:type-check: 
+@phi-ai/dsh-plugin-storage-pg:type-check: > @phi-ai/dsh-plugin-storage-pg@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/storage-pg
+@phi-ai/dsh-plugin-storage-pg:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-storage-pg:type-check: 
+@phi-ai/dsh-plugin-session-pg:type-check: 
+@phi-ai/dsh-plugin-session-pg:type-check: > @phi-ai/dsh-plugin-session-pg@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/session-pg
+@phi-ai/dsh-plugin-session-pg:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-session-pg:type-check: 
+@phi-ai/dsh-plugin-llm:type-check: cache bypass, force executing 9b184b0bf8c43ac4
+@phi-ai/dsh-plugin-llm:type-check: 
+@phi-ai/dsh-plugin-llm:type-check: > @phi-ai/dsh-plugin-llm@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/llm
+@phi-ai/dsh-plugin-llm:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-llm:type-check: 
+@phi-ai/dsh-plugin-browser:type-check: cache bypass, force executing 961201663b9a2a61
+@phi-ai/dsh-plugin-browser:type-check: 
+@phi-ai/dsh-plugin-browser:type-check: > @phi-ai/dsh-plugin-browser@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/browser
+@phi-ai/dsh-plugin-browser:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-browser:type-check: 
+@phi-ai/dsh-plugin-skills:type-check: cache bypass, force executing 424ca2ab0f078136
+@phi-ai/dsh-plugin-skills:type-check: 
+@phi-ai/dsh-plugin-skills:type-check: > @phi-ai/dsh-plugin-skills@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/skills
+@phi-ai/dsh-plugin-skills:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-skills:type-check: 
+@phi-ai/agent-loop-eval:type-check: cache bypass, force executing 33731c19c216f11c
+@phi-ai/dsh-plugin-tasks:type-check: cache bypass, force executing 273205099ceccb94
+@phi-ai/phi-memory:type-check: cache bypass, force executing 800f03660ca64f85
+@phi-ai/agent-loop-eval:type-check: 
+@phi-ai/agent-loop-eval:type-check: > @phi-ai/agent-loop-eval@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/agent-loop-eval
+@phi-ai/agent-loop-eval:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/agent-loop-eval:type-check: 
+@phi-ai/onboarding:build: cache bypass, force executing 7c7bc43669033adc
+@phi-ai/dsh-plugin-tasks:type-check: 
+@phi-ai/dsh-plugin-tasks:type-check: > @phi-ai/dsh-plugin-tasks@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/tasks
+@phi-ai/dsh-plugin-tasks:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-tasks:type-check: 
+@phi-ai/onboarding:type-check: cache bypass, force executing 60a0349727306148
+@phi-ai/phi-memory:type-check: 
+@phi-ai/phi-memory:type-check: > @phi-ai/phi-memory@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-memory
+@phi-ai/phi-memory:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/phi-memory:type-check: 
+@phi-ai/onboarding:build: 
+@phi-ai/onboarding:build: > @phi-ai/onboarding@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/onboarding
+@phi-ai/onboarding:build: > tsc
+@phi-ai/onboarding:build: 
+@phi-ai/onboarding:type-check: 
+@phi-ai/onboarding:type-check: > @phi-ai/onboarding@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/onboarding
+@phi-ai/onboarding:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/onboarding:type-check: 
+@phi-ai/eval:type-check: cache bypass, force executing 945c6ecf95f3648f
+@phi-ai/eval:type-check: 
+@phi-ai/eval:type-check: > @phi-ai/eval@1.0.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/eval
+@phi-ai/eval:type-check: > tsc --noEmit
+@phi-ai/eval:type-check: 
+@phi-ai/dsh-plugin-im:type-check: cache bypass, force executing 8d4e932aafc04ffa
+@phi-ai/dsh-plugin-im:type-check: 
+@phi-ai/dsh-plugin-im:type-check: > @phi-ai/dsh-plugin-im@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/im
+@phi-ai/dsh-plugin-im:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-im:type-check: 
+@phi-ai/dsh-plugin-worker:type-check: cache bypass, force executing b9d93521ef97c270
+@phi-ai/dsh-plugin-worker:type-check: 
+@phi-ai/dsh-plugin-worker:type-check: > @phi-ai/dsh-plugin-worker@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/worker
+@phi-ai/dsh-plugin-worker:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-worker:type-check: 
+@phi-ai/phi-agent-devtools:type-check: cache bypass, force executing af3ed1616e5aee5c
+@phi-ai/dsh-plugin-chat:type-check: cache bypass, force executing 29b0deab7ecf8a46
+@phi-ai/sidecar:type-check: cache bypass, force executing fd947b81f1831aef
+@phi-ai/dsh:type-check: cache bypass, force executing 8e57bf68dce08556
+@phi-ai/dsh-bundle:type-check: cache bypass, force executing 42fdbed0f7508bbc
+@phi-ai/sidecar:type-check: 
+@phi-ai/sidecar:type-check: > @phi-ai/sidecar@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/ai-extension/sidecar
+@phi-ai/sidecar:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sidecar:type-check: 
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh:type-check: > @phi-ai/dsh@0.5.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh:type-check: 
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/phi-agent-devtools:type-check: > @phi-ai/phi-agent-devtools@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-devtools
+@phi-ai/phi-agent-devtools:type-check: > tsc --noEmit
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: > @phi-ai/dsh-plugin-chat@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/chat
+@phi-ai/dsh-plugin-chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: > @phi-ai/dsh-bundle@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/bundle
+@phi-ai/dsh-bundle:type-check: > node ../scripts/generate-rows.mjs && tsc -b --emitDeclarationOnly
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: [generate-rows] wrote 51 rows to src/rows.generated.ts
+
+ Tasks:    56 successful, 56 total
+Cached:    0 cached, 56 total
+  Time:    52.739s 
+

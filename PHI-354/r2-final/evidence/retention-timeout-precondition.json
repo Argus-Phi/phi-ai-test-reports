@@ -1,0 +1,173 @@
+{
+  "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+  "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+  "run_index": 1,
+  "trigger_source": "sidebar",
+  "tool_call_count": 0,
+  "run_status": "failed",
+  "progress_message": "timed out",
+  "progress_updated_at": 1792045467638,
+  "task_snapshot": {
+    "title": "PHI-354 final r2 retain timeout QA",
+    "description": "PHI354_TERMINATE_RETAIN_TASK_TIMEOUT: Actually call browser_page content on tabId 1005728173, expectedUrl http://127.0.0.1:18970/index.html, once, then browser_page pdf on the same tabId once. After both calls, report the commit title. Do not use skills or browser_task; do not retry tools or export anything except the one PDF.",
+    "objective": "PHI354_TERMINATE_RETAIN_TASK_TIMEOUT: Actually call browser_page content on tabId 1005728173, expectedUrl http://127.0.0.1:18970/index.html, once, then browser_page pdf on the same tabId once. After both calls, report the commit title. Do not use skills or browser_task; do not retry tools or export anything except the one PDF.",
+    "profile_id": "Default"
+  },
+  "error": {
+    "code": "run_timeout",
+    "message": "Run exceeded maximum runtime"
+  },
+  "tabs": [],
+  "started_at": 1792045429944,
+  "finished_at": 1792045467638,
+  "chat_report": null,
+  "created_at": 1792045429938,
+  "updated_at": 1792045467638,
+  "logs": [
+    {
+      "log_id": "01a13e3b-34b5-7019-a7f6-29427ee0a996",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045429938,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "run_queued",
+      "message": "Run #1 queued from the sidebar",
+      "payload": {
+        "run_index": 1,
+        "run_status": "queued",
+        "trigger_source": "sidebar"
+      }
+    },
+    {
+      "log_id": "8b40158a-e465-4824-b0c5-568d37219d25",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045429946,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "run_started",
+      "message": "Run #1 started from the sidebar",
+      "payload": {
+        "run_index": 1,
+        "trigger_source": "sidebar"
+      }
+    },
+    {
+      "log_id": "214a1aa3-6dfa-43e4-a238-ff0c0e490eb9",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045433870,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "agent_note",
+      "message": "Agent: I’ll read the open page once to find the commit title, then export that same page as a PDF.",
+      "payload": {
+        "text": "I’ll read the open page once to find the commit title, then export that same page as a PDF.",
+        "round": 1
+      }
+    },
+    {
+      "log_id": "b9bde1a8-60de-4ba5-8627-c8dbaef6dfdb",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045433873,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "tool_call",
+      "message": "Calling browser_page.content: action: \"content\", input: {\"action\":\"content\",\"tabId\":1005728173,\"expectedUrl\":\"http://127.0.0.1:18970/in…",
+      "payload": {
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005728173,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}",
+        "tool_id": "browser_page",
+        "tool_call_id": "fc_0b27147a851aa3fe006ad071794aac87d29023e51d63a875fd",
+        "capability_id": "browser_page.content"
+      }
+    },
+    {
+      "log_id": "45ade2a4-9d9b-4fbf-9253-951e9dc6aa1e",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045433888,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "tool_result",
+      "message": "browser_page.content returned after 15ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+      "payload": {
+        "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+        "duration_ms": 15,
+        "tool_call_id": "fc_0b27147a851aa3fe006ad071794aac87d29023e51d63a875fd",
+        "capability_id": "browser_page.content"
+      }
+    },
+    {
+      "log_id": "40d53483-0bf6-42b1-ae5f-1ed35628935b",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045441579,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "agent_note",
+      "message": "Agent: The commit title shown on the page is “Fix example”; I’ll now create the requested PDF from that page.",
+      "payload": {
+        "text": "The commit title shown on the page is “Fix example”; I’ll now create the requested PDF from that page.",
+        "round": 2
+      }
+    },
+    {
+      "log_id": "018651e4-7071-42ad-952d-d959f6d51e8f",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045441584,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "tool_call",
+      "message": "Calling browser_page.pdf: action: \"pdf\", input: {\"action\":\"pdf\",\"tabId\":1005728173,\"expectedUrl\":\"http://127.0.0.1:18970/index.…",
+      "payload": {
+        "args": "{\"action\":\"pdf\",\"input\":{\"action\":\"pdf\",\"tabId\":1005728173,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"landscape\":null,\"printBackground\":null,\"scale\":null,\"paperWidth\":null,\"paperHeight\":null,\"marginTop\":null,\"marginBottom\":null,\"marginLeft\":null,\"marginRight\":null,\"pageRanges\":null,\"preferCSSPageSize\":null,\"maxBytes\":null}}",
+        "tool_id": "browser_page",
+        "tool_call_id": "fc_0b27147a851aa3fe006ad071809b6887d29ac2c216f55f8109",
+        "capability_id": "browser_page.pdf"
+      }
+    },
+    {
+      "log_id": "28a11f1a-3ef4-43b4-a2d3-88f927ebb96c",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045441718,
+      "level": "info",
+      "source": "phi_agent",
+      "category": "tool_result",
+      "message": "browser_page.pdf returned after 134ms: {\"ok\":true,\"mimeType\":\"application/pdf\",\"bytes\":74214,\"file_id\":\"01a13e3b-629c-75b3-b83d-6c4900022166\",\"filename\":\"page.pdf\",\"size_bytes\":74214}",
+      "payload": {
+        "result": "{\"ok\":true,\"mimeType\":\"application/pdf\",\"bytes\":74214,\"file_id\":\"01a13e3b-629c-75b3-b83d-6c4900022166\",\"filename\":\"page.pdf\",\"size_bytes\":74214}",
+        "duration_ms": 134,
+        "tool_call_id": "fc_0b27147a851aa3fe006ad071809b6887d29ac2c216f55f8109",
+        "capability_id": "browser_page.pdf"
+      }
+    },
+    {
+      "log_id": "3070655e-e318-4c8d-b89b-a64d064fb0c2",
+      "task_id": "01a13e3b-34aa-715d-96d4-df7d176f694d",
+      "scope": "run",
+      "run_id": "01a13e3b-34b2-720d-9bc1-6ffee4d74474",
+      "ts": 1792045467665,
+      "level": "warn",
+      "source": "phi_agent",
+      "category": "run_timed_out",
+      "message": "Timed out: still running after 25.0s",
+      "payload": {
+        "active_since": 1792045429944,
+        "max_running_run_age_ms": 25000
+      }
+    }
+  ],
+  "artifacts": []
+}

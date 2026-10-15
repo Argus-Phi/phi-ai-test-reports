@@ -1,0 +1,73 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://127.0.0.1:18970/index.html
+Subject: PHI-354 synthetic commits
+Date: Thu, 15 Oct 2026 05:34:35 GMT
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--DvXDStC6e2XAN2fZI923qYTCj6h4nNSUoksB0YmpqG----"
+
+
+------MultipartBoundary--DvXDStC6e2XAN2fZI923qYTCj6h4nNSUoksB0YmpqG----
+Content-Type: text/html
+Content-ID: <frame-AC7352D541F694D5E6FFA7156A37225A@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://127.0.0.1:18970/index.html
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-a3e3a326-1ed9-4ac9-ab86-5f1aa1514850@mhtml.blink" /><l=
+ink rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-6c4453d3-2e66-4e3d=
+-9032-85bf7dbe646d@mhtml.blink" /><meta name=3D"robots" content=3D"noindex,=
+nofollow"><meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-s=
+cale=3D1"><title>PHI-354 synthetic commits</title></head><body><main id=3D"=
+commit-list"><h1>Commits</h1><article><a href=3D"https://github.com/phibrow=
+ser/phi-ai/commit/abc1234">abc1234</a><h2>Fix example</h2><p>Public synthet=
+ic fixture. =E4=B8=AD=E6=96=87=E8=BE=B9=E7=95=8C=E3=80=82</p></article></ma=
+in><p><a href=3D"http://127.0.0.1:18970/large.html">Large page</a> =C2=B7 <=
+a href=3D"http://127.0.0.1:18970/empty.html">Empty page</a> =C2=B7 <a href=
+=3D"http://127.0.0.1:18970/coverage.html">Coverage page</a> =C2=B7 <a href=
+=3D"http://127.0.0.1:18970/workload.html">Workload page</a> =C2=B7 <a href=
+=3D"http://127.0.0.1:18970/navigate.html">Navigation page</a></p>
+<div id=3D"phi-journey-now-host" class=3D"phi-journey-now" style=3D""><temp=
+late shadowmode=3D"open"><div class=3D"root"><button class=3D"pill" title=
+=3D"What am I doing right now? (phi-memory journey, dev/canary only)" aria-=
+label=3D"What am I doing right now? (phi-memory journey, dev/canary only)">=
+<svg viewBox=3D"0 0 18.2 21.6" fill=3D"currentColor" aria-hidden=3D"true"><=
+path d=3D"M14.3839 8.65634C14.3839 6.36596 12.5239 4.50225 10.2365 4.50225C=
+7.50789 4.50225 5.28516 6.72778 5.28516 9.46361C5.28516 12.7234 7.932 15.37=
+56 11.1852 15.3756C15.055 15.3756 18.2026 12.2233 18.2026 8.34402C18.2026 3=
+.74448 14.4673 0 9.8737 0C4.42843 0 0 4.4374 0 9.89369C0 16.2102 5.01605 21=
+.3746 11.2687 21.5999V16.2204H11.1869C7.46872 16.2204 4.44376 13.1893 4.443=
+76 9.46361C4.44376 6.26356 7.04291 3.65744 10.2382 3.65744C12.9906 3.65744 =
+15.2287 5.90004 15.2287 8.65634C15.2287 11.0133 13.333 12.9265 10.9893 12.9=
+623C9.76084 12.9623 8.70868 11.9721 8.70868 10.7163C8.70868 9.48409 9.7153 =
+8.46349 10.957 8.46349C12.1986 8.46349 13.2052 9.47214 13.2052 10.7163C13.2=
+052 10.9416 13.1388 11.1464 13.0775 11.3512C13.8678 10.7146 14.3856 9.75033=
+ 14.3856 8.65634H14.3839Z"></path></svg></button></div></template></div></b=
+ody></html>
+------MultipartBoundary--DvXDStC6e2XAN2fZI923qYTCj6h4nNSUoksB0YmpqG----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-6c4453d3-2e66-4e3d-9032-85bf7dbe646d@mhtml.blink
+
+@charset "utf-8";
+
+body { font: 18px / 1.6 system-ui; margin: 40px auto; max-width: 900px; pad=
+ding: 0px 24px; }
+
+main, section { margin: 24px 0px; }
+
+a { color: rgb(22, 79, 196); }
+
+pre { white-space: pre-wrap; }
+
+.hidden { display: none; }
+------MultipartBoundary--DvXDStC6e2XAN2fZI923qYTCj6h4nNSUoksB0YmpqG----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-a3e3a326-1ed9-4ac9-ab86-5f1aa1514850@mhtml.blink
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--DvXDStC6e2XAN2fZI923qYTCj6h4nNSUoksB0YmpqG------

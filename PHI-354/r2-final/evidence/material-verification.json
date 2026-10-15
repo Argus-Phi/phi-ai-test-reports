@@ -1,0 +1,16 @@
+{
+  "head": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+  "regressionHeadSame": true,
+  "latestFetchedStaging": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+  "mergeBase": "75f5868d52957d5e23a39b3e4299dafdbe3fb369",
+  "codeWorkspaceClean": true,
+  "pr": {
+    "number": 578,
+    "state": "OPEN",
+    "draft": true,
+    "base": "staging",
+    "headRef": "PHI-354-readable-page-content"
+  },
+  "node": "v22.23.3",
+  "pnpm": "10.17.1"
+}

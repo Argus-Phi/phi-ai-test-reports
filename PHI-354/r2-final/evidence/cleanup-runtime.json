@@ -1,0 +1,23 @@
+{
+  "defaultSidecar": {
+    "version": "2026.10.15.1146",
+    "location": 1,
+    "liveVerified": true
+  },
+  "phiChatOriginalRegistrationAbsent": true,
+  "phiChatColdOpenVerified": false,
+  "phiChatColdOpenObservation": "原无Sidecar注册；额外冷启动探测转圈，已关闭。未声称原生PhiChat恢复可用。",
+  "ownRuntimePortsClosed": {
+    "18798": true,
+    "18799": true,
+    "18956": true,
+    "18957": true,
+    "18972": true
+  },
+  "originalSentinelAgentAlive": true,
+  "privateRecoveryManifestEqualsOriginal": true,
+  "canaryPid": 84413,
+  "noLoadExtension": true,
+  "ownFinalQaSpaceDeleted": true,
+  "agentSpacesEmpty": true
+}

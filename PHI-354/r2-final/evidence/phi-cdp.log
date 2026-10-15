@@ -1,0 +1,3651 @@
+command: pnpm --filter @phi-ai/dsh-plugin-phi-cdp test
+
+> @phi-ai/dsh-plugin-phi-cdp@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp
+> tsx --test "src/**/*.test.ts"
+
+TAP version 13
+# [phi-cdp] agent-control: no Lexington worker to tell about tab 7
+# [phi-cdp] agent-control: wake in profile Default failed: Extension not enabled in profile or has no service worker
+# [phi-cdp] agent-control: this build cannot wake extension workers
+# [phi-cdp] agent-control: no Lexington worker to tell about tab 7
+# [phi-cdp] agent-control: worker lex-old refused tab 7: no_entry_point
+# [phi-cdp] agent-control: worker lex-x unreachable: worker went away
+# [phi-cdp] agent-control: could not mark tab 7: browser_disconnected
+# Subtest: a running Lexington worker is told directly, with the mark evaluated in its context
+ok 1 - a running Lexington worker is told directly, with the mark evaluated in its context
+  ---
+  duration_ms: 0.980959
+  type: 'test'
+  ...
+# Subtest: another extension's worker is never a candidate
+ok 2 - another extension's worker is never a candidate
+  ---
+  duration_ms: 0.365959
+  type: 'test'
+  ...
+# Subtest: with no running worker, the browser is asked to wake one in each loaded profile
+ok 3 - with no running worker, the browser is asked to wake one in each loaded profile
+  ---
+  duration_ms: 102.026458
+  type: 'test'
+  ...
+# Subtest: a build without the wake call gives up after the first refusal, without an error
+ok 4 - a build without the wake call gives up after the first refusal, without an error
+  ---
+  duration_ms: 0.309667
+  type: 'test'
+  ...
+# Subtest: a worker that does not know the tab (another profile) passes it on to the next worker
+ok 5 - a worker that does not know the tab (another profile) passes it on to the next worker
+  ---
+  duration_ms: 3.262375
+  type: 'test'
+  ...
+# Subtest: a Lexington without the entry point, or a worker that throws, is a false, never an exception; the worker is always detached
+ok 6 - a Lexington without the entry point, or a worker that throws, is a false, never an exception; the worker is always detached
+  ---
+  duration_ms: 0.204875
+  type: 'test'
+  ...
+# Subtest: a dead connection is a false, never an exception
+ok 7 - a dead connection is a false, never an exception
+  ---
+  duration_ms: 0.120417
+  type: 'test'
+  ...
+# Subtest: an unmark is broadcast to every worker: the profile that holds the mark may not be the first to answer ok
+ok 8 - an unmark is broadcast to every worker: the profile that holds the mark may not be the first to answer ok
+  ---
+  duration_ms: 0.156583
+  type: 'test'
+  ...
+# Subtest: a mark still stops at the first worker that accepts it
+ok 9 - a mark still stops at the first worker that accepts it
+  ---
+  duration_ms: 0.260625
+  type: 'test'
+  ...
+# Subtest: state reads the OS state in the tab's session
+ok 10 - state reads the OS state in the tab's session
+  ---
+  duration_ms: 72.284
+  type: 'test'
+  ...
+# Subtest: state without a badge count is browser_error
+ok 11 - state without a badge count is browser_error
+  ---
+  duration_ms: 2.690208
+  type: 'test'
+  ...
+# Subtest: install, uninstall and openCurrentPage send their one command
+ok 12 - install, uninstall and openCurrentPage send their one command
+  ---
+  duration_ms: 0.298917
+  type: 'test'
+  ...
+# Subtest: launch returns the new target and its Phi tab id
+ok 13 - launch returns the new target and its Phi tab id
+  ---
+  duration_ms: 0.222791
+  type: 'test'
+  ...
+# Subtest: launch without a Phi tab for the target leaves tabId out
+ok 14 - launch without a Phi tab for the target leaves tabId out
+  ---
+  duration_ms: 0.50125
+  type: 'test'
+  ...
+# Subtest: apps refuse bad arguments before attaching
+ok 15 - apps refuse bad arguments before attaching
+  ---
+  duration_ms: 0.112083
+  type: 'test'
+  ...
+# Subtest: a build without PWA reports browser_capability_unavailable
+ok 16 - a build without PWA reports browser_capability_unavailable
+  ---
+  duration_ms: 0.1665
+  type: 'test'
+  ...
+# (node:75203) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: list reads the tree with each node's Space, parent, index and kind
+ok 17 - list reads the tree with each node's Space, parent, index and kind
+  ---
+  duration_ms: 1.524
+  type: 'test'
+  ...
+# Subtest: list without a Space asks for the default one
+ok 18 - list without a Space asks for the default one
+  ---
+  duration_ms: 0.153708
+  type: 'test'
+  ...
+# Subtest: a node without its guid, or a folder without children, is browser_error
+ok 19 - a node without its guid, or a folder without children, is browser_error
+  ---
+  duration_ms: 0.450583
+  type: 'test'
+  ...
+# Subtest: an unknown Space is resource_not_found, with Phi's own code
+ok 20 - an unknown Space is resource_not_found, with Phi's own code
+  ---
+  duration_ms: 0.214583
+  type: 'test'
+  ...
+# Subtest: add sends only what was given and reads the new guid back in its Space
+ok 21 - add sends only what was given and reads the new guid back in its Space
+  ---
+  duration_ms: 0.396792
+  type: 'test'
+  ...
+# Subtest: addFolder sends the title, and both creates refuse bad arguments before sending
+ok 22 - addFolder sends the title, and both creates refuse bad arguments before sending
+  ---
+  duration_ms: 78.304875
+  type: 'test'
+  ...
+# Subtest: update reads back in the Space Phi names, comparing URLs as stored
+ok 23 - update reads back in the Space Phi names, comparing URLs as stored
+  ---
+  duration_ms: 0.379834
+  type: 'test'
+  ...
+# Subtest: move settles on the new parent, or at the root
+ok 24 - move settles on the new parent, or at the root
+  ---
+  duration_ms: 0.32275
+  type: 'test'
+  ...
+# Subtest: remove settles once the guid is gone; a folder takes its subtree along
+ok 25 - remove settles once the guid is gone; a folder takes its subtree along
+  ---
+  duration_ms: 0.299584
+  type: 'test'
+  ...
+# Subtest: a write that never reads back is settled: false, not an error
+ok 26 - a write that never reads back is settled: false, not an error
+  ---
+  duration_ms: 38.256708
+  type: 'test'
+  ...
+# Subtest: a refused write keeps Phi's code and is not read back
+ok 27 - a refused write keeps Phi's code and is not read back
+  ---
+  duration_ms: 0.375875
+  type: 'test'
+  ...
+# Subtest: a silent bookmarks probe is browser_capability_unavailable, and nothing else is sent
+ok 28 - a silent bookmarks probe is browser_capability_unavailable, and nothing else is sent
+  ---
+  duration_ms: 0.773125
+  type: 'test'
+  ...
+# Subtest: an abort ends a call, the read-back included
+ok 29 - an abort ends a call, the read-back included
+  ---
+  duration_ms: 0.793167
+  type: 'test'
+  ...
+# (node:75207) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: list reads every row field and ignores unknown ones
+ok 30 - list reads every row field and ignores unknown ones
+  ---
+  duration_ms: 2.377875
+  type: 'test'
+  ...
+# Subtest: a sparse row gets its defaults; a row without guid, state, paused or done is browser_error
+ok 31 - a sparse row gets its defaults; a row without guid, state, paused or done is browser_error
+  ---
+  duration_ms: 1.902625
+  type: 'test'
+  ...
+# Subtest: get returns the one row; unknown_download is resource_not_found
+ok 32 - get returns the one row; unknown_download is resource_not_found
+  ---
+  duration_ms: 0.332042
+  type: 'test'
+  ...
+# Subtest: get: a reply without the download is browser_error
+ok 33 - get: a reply without the download is browser_error
+  ---
+  duration_ms: 0.094459
+  type: 'test'
+  ...
+# Subtest: pause, resume, cancel and remove send one scoped call each
+ok 34 - pause, resume, cancel and remove send one scoped call each
+  ---
+  duration_ms: 0.258125
+  type: 'test'
+  ...
+# Subtest: a control without a guid or a Space is refused before sending
+ok 35 - a control without a guid or a Space is refused before sending
+  ---
+  duration_ms: 0.170208
+  type: 'test'
+  ...
+# Subtest: a silent downloads probe is browser_capability_unavailable; an abort ends a call
+ok 36 - a silent downloads probe is browser_capability_unavailable; an abort ends a call
+  ---
+  duration_ms: 134.031791
+  type: 'test'
+  ...
+# Subtest: set sends one command per override, in a fixed order, and holds the session
+ok 37 - set sends one command per override, in a fixed order, and holds the session
+  ---
+  duration_ms: 117.746333
+  type: 'test'
+  ...
+# Subtest: a second set on the same (owner, tab) reuses the held session and merges
+ok 38 - a second set on the same (owner, tab) reuses the held session and merges
+  ---
+  duration_ms: 6.855417
+  type: 'test'
+  ...
+# Subtest: set rejects bad arguments before attaching
+ok 39 - set rejects bad arguments before attaching
+  ---
+  duration_ms: 2.126041
+  type: 'test'
+  ...
+# Subtest: set on a missing tab fails and registers nothing
+ok 40 - set on a missing tab fails and registers nothing
+  ---
+  duration_ms: 0.172208
+  type: 'test'
+  ...
+# Subtest: set honours an already aborted signal
+ok 41 - set honours an already aborted signal
+  ---
+  duration_ms: 0.164625
+  type: 'test'
+  ...
+# [phi-cdp] emulation: held session is gone, attaching again Emulation.setTimezoneOverride: {"code":-32001,"message":"Session with given id not found."}
+# Subtest: a failure half-way keeps what was applied; a failure first releases the session
+ok 42 - a failure half-way keeps what was applied; a failure first releases the session
+  ---
+  duration_ms: 54.318625
+  type: 'test'
+  ...
+# Subtest: set re-attaches and re-applies everything when the held session died
+ok 43 - set re-attaches and re-applies everything when the held session died
+  ---
+  duration_ms: 0.5195
+  type: 'test'
+  ...
+# Subtest: a dead session on a closed tab: set fails and the stale overrides are dropped
+ok 44 - a dead session on a closed tab: set fails and the stale overrides are dropped
+  ---
+  duration_ms: 0.473417
+  type: 'test'
+  ...
+# Subtest: clear runs even when the caller's signal already fired
+ok 45 - clear runs even when the caller's signal already fired
+  ---
+  duration_ms: 0.404125
+  type: 'test'
+  ...
+# [phi-cdp] emulation: clearing locale on tab 1 failed on the held session Emulation.setLocaleOverride: {"code":-32001,"message":"Session with given id not found."}
+# Subtest: clear({ owner }) clears every override explicitly, then detaches
+ok 46 - clear({ owner }) clears every override explicitly, then detaches
+  ---
+  duration_ms: 22.675917
+  type: 'test'
+  ...
+# Subtest: clear with tabId and kinds clears only those and keeps the session
+ok 47 - clear with tabId and kinds clears only those and keeps the session
+  ---
+  duration_ms: 0.242458
+  type: 'test'
+  ...
+# Subtest: clear re-attaches when the held session is gone
+ok 48 - clear re-attaches when the held session is gone
+  ---
+  duration_ms: 0.288125
+  type: 'test'
+  ...
+# Subtest: clear logs failures instead of throwing and forgets them
+ok 49 - clear logs failures instead of throwing and forgets them
+  ---
+  duration_ms: 0.276916
+  type: 'test'
+  ...
+# Subtest: clear of an owner with nothing registered is a no-op
+ok 50 - clear of an owner with nothing registered is a no-op
+  ---
+  duration_ms: 0.117333
+  type: 'test'
+  ...
+# Subtest: concurrent sets on one (owner, tab) share one session
+ok 51 - concurrent sets on one (owner, tab) share one session
+  ---
+  duration_ms: 0.102083
+  type: 'test'
+  ...
+# Subtest: list returns copies, filtered by owner
+ok 52 - list returns copies, filtered by owner
+  ---
+  duration_ms: 0.112333
+  type: 'test'
+  ...
+# Subtest: two API objects never share a registry
+ok 53 - two API objects never share a registry
+  ---
+  duration_ms: 0.059792
+  type: 'test'
+  ...
+# Subtest: candidates are our extensions' targets in the named contexts, workers first
+ok 54 - candidates are our extensions' targets in the named contexts, workers first
+  ---
+  duration_ms: 0.782875
+  type: 'test'
+  ...
+# Subtest: the extension order is Sidecar, then Lexington, then Kensington
+ok 55 - the extension order is Sidecar, then Lexington, then Kensington
+  ---
+  duration_ms: 0.084625
+  type: 'test'
+  ...
+# Subtest: contextOfTarget reads the browser context a target belongs to
+ok 56 - contextOfTarget reads the browser context a target belongs to
+  ---
+  duration_ms: 0.081042
+  type: 'test'
+  ...
+# Subtest: evaluateIn attaches, evaluates once, and always detaches
+ok 57 - evaluateIn attaches, evaluates once, and always detaches
+  ---
+  duration_ms: 0.113417
+  type: 'test'
+  ...
+# Subtest: an exception inside the extension detaches and is reported, not swallowed
+ok 58 - an exception inside the extension detaches and is reported, not swallowed
+  ---
+  duration_ms: 0.226917
+  type: 'test'
+  ...
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 16 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 16 PhiAgentSpace.wakeExtensionServiceWorker: Service worker failed to start
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 16 no answer
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 16 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: lexington could not be woken in Profile 16 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: kensington could not be woken in Profile 16 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: loaded Profile 16 through hidden window phi-agent-profile-load-6c3c96d0-1bf0-46ca-9ea1-fcc2a43b6242
+# [phi-cdp] extension bridge: loaded Profile 16 through hidden window phi-agent-profile-load-b8297f73-7fc2-4eff-a722-b2ca98a7f328
+# [phi-cdp] extension bridge: loaded Profile 16 through hidden window phi-agent-profile-load-946540cd-b864-400d-8341-cc6882e36014
+# [phi-cdp] extension bridge: loaded Profile 16 through hidden window phi-agent-profile-load-1b3ec13c-20fc-42fe-895f-13314e3d49bd
+# Subtest: waking is lazy: the first extension that starts is the only one woken
+ok 59 - waking is lazy: the first extension that starts is the only one woken
+  ---
+  duration_ms: 0.926125
+  type: 'test'
+  ...
+# Subtest: an extension that is off is skipped, and the next one is woken
+ok 60 - an extension that is off is skipped, and the next one is woken
+  ---
+  duration_ms: 0.443584
+  type: 'test'
+  ...
+# Subtest: a worker that fails to start hands over too
+ok 61 - a worker that fails to start hands over too
+  ---
+  duration_ms: 0.114542
+  type: 'test'
+  ...
+# Subtest: a wake that never answers is bounded, and skipped
+ok 62 - a wake that never answers is bounded, and skipped
+  ---
+  duration_ms: 10.25325
+  type: 'test'
+  ...
+# Subtest: a profile that cannot be loaded ends the search at once
+ok 63 - a profile that cannot be loaded ends the search at once
+  ---
+  duration_ms: 6.070625
+  type: 'test'
+  ...
+# Subtest: every extension off yields nothing, rather than throwing
+ok 64 - every extension off yields nothing, rather than throwing
+  ---
+  duration_ms: 2.083125
+  type: 'test'
+  ...
+# Subtest: a build without the method falls back to the live-target scan
+ok 65 - a build without the method falls back to the live-target scan
+  ---
+  duration_ms: 0.435041
+  type: 'test'
+  ...
+# Subtest: with no profile to wake, the scan is used directly
+ok 66 - with no profile to wake, the scan is used directly
+  ---
+  duration_ms: 0.08425
+  type: 'test'
+  ...
+# Subtest: a build WITH the method reports that it woke, and never scans
+ok 67 - a build WITH the method reports that it woke, and never scans
+  ---
+  duration_ms: 27.203084
+  type: 'test'
+  ...
+# Subtest: a tab's profile is the profile of the Space whose window holds it
+ok 68 - a tab's profile is the profile of the Space whose window holds it
+  ---
+  duration_ms: 2.718417
+  type: 'test'
+  ...
+# Subtest: a tab no Space holds has no profile, rather than a wrong one
+ok 69 - a tab no Space holds has no profile, rather than a wrong one
+  ---
+  duration_ms: 0.103
+  type: 'test'
+  ...
+# Subtest: an unloaded profile is loaded through a hidden window, then woken
+ok 70 - an unloaded profile is loaded through a hidden window, then woken
+  ---
+  duration_ms: 0.298292
+  type: 'test'
+  ...
+# Subtest: the hidden window stays open until the caller is done with the worker
+ok 71 - the hidden window stays open until the caller is done with the worker
+  ---
+  duration_ms: 0.289042
+  type: 'test'
+  ...
+# Subtest: the hidden window is closed even when the caller throws
+ok 72 - the hidden window is closed even when the caller throws
+  ---
+  duration_ms: 0.139625
+  type: 'test'
+  ...
+# Subtest: a loaded profile opens no window at all
+ok 73 - a loaded profile opens no window at all
+  ---
+  duration_ms: 0.101667
+  type: 'test'
+  ...
+# Subtest: a profile the user barred agents from is reported, not retried
+ok 74 - a profile the user barred agents from is reported, not retried
+  ---
+  duration_ms: 0.324959
+  type: 'test'
+  ...
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 16 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# Subtest: a profile that never comes up ends the search, and its window is closed
+ok 75 - a profile that never comes up ends the search, and its window is closed
+  ---
+  duration_ms: 1760.708375
+  type: 'test'
+  ...
+# Subtest: a caller narrowed to the Sidecar never wakes another extension
+ok 76 - a caller narrowed to the Sidecar never wakes another extension
+  ---
+  duration_ms: 0.613292
+  type: 'test'
+  ...
+# Subtest: a caller that may not load the profile is refused at once, and no window opens
+ok 77 - a caller that may not load the profile is refused at once, and no window opens
+  ---
+  duration_ms: 0.452666
+  type: 'test'
+  ...
+# Subtest: the scan fallback is narrowed to the same extensions
+ok 78 - the scan fallback is narrowed to the same extensions
+  ---
+  duration_ms: 0.763208
+  type: 'test'
+  ...
+# [phi-cdp] extract candidate failed W1 worker died mid-call
+# [phi-cdp] extract candidate refused W1 no entry point on this build
+# [phi-cdp] extract: no reachable extension for tab 11 tab 11 has no live CDP target
+# [phi-cdp] extract: no reachable extension for tab 11 profile "Profile 9" is not loaded in this browser session
+# [phi-cdp] wake candidate failed W1 worker went away
+# [phi-cdp] wake candidate refused W1 x
+# [phi-cdp] wake candidate refused W2 no reason given
+# [phi-cdp] wake: no reachable extension for tab 11 profile not loaded
+# Subtest: the first candidate that answers wins
+ok 79 - the first candidate that answers wins
+  ---
+  duration_ms: 2.892584
+  type: 'test'
+  ...
+# Subtest: the extractor travels: no entry point is assumed on the far side
+ok 80 - the extractor travels: no entry point is assumed on the far side
+  ---
+  duration_ms: 0.459209
+  type: 'test'
+  ...
+# Subtest: a candidate that throws hands over to the next extension
+ok 81 - a candidate that throws hands over to the next extension
+  ---
+  duration_ms: 1.122625
+  type: 'test'
+  ...
+# Subtest: a candidate answering {ok:false} also hands over: it could not run
+ok 82 - a candidate answering {ok:false} also hands over: it could not run
+  ---
+  duration_ms: 0.289125
+  type: 'test'
+  ...
+# Subtest: no live candidate is extract_unavailable, and never an exception
+ok 83 - no live candidate is extract_unavailable, and never an exception
+  ---
+  duration_ms: 0.958667
+  type: 'test'
+  ...
+# Subtest: a page with no article is no_article, and no other extension is asked
+ok 84 - a page with no article is no_article, and no other extension is asked
+  ---
+  duration_ms: 1.687875
+  type: 'test'
+  ...
+# Subtest: a tab that moved on is refused rather than reading another page
+ok 85 - a tab that moved on is refused rather than reading another page
+  ---
+  duration_ms: 0.909917
+  type: 'test'
+  ...
+# Subtest: a tab with no live target is extract_unavailable, not a crash
+ok 86 - a tab with no live target is extract_unavailable, not a crash
+  ---
+  duration_ms: 0.307542
+  type: 'test'
+  ...
+# Subtest: a profile that is not loaded is extract_unavailable, never a throw
+ok 87 - a profile that is not loaded is extract_unavailable, never a throw
+  ---
+  duration_ms: 1.621333
+  type: 'test'
+  ...
+# Subtest: the first answer stops the search: later extensions are never woken
+ok 88 - the first answer stops the search: later extensions are never woken
+  ---
+  duration_ms: 0.901791
+  type: 'test'
+  ...
+# Subtest: a clean negative stops the search too: no other worker is woken
+ok 89 - a clean negative stops the search too: no other worker is woken
+  ---
+  duration_ms: 0.10525
+  type: 'test'
+  ...
+# Subtest: a tab that moved on is not read, whichever side notices
+ok 90 - a tab that moved on is not read, whichever side notices
+  ---
+  duration_ms: 0.099666
+  type: 'test'
+  ...
+# Subtest: extraction gives the extension room to wake the tab first
+ok 91 - extraction gives the extension room to wake the tab first
+  ---
+  duration_ms: 0.164875
+  type: 'test'
+  ...
+# Subtest: wake: the first candidate that answers wins, the rest are never woken
+ok 92 - wake: the first candidate that answers wins, the rest are never woken
+  ---
+  duration_ms: 0.102042
+  type: 'test'
+  ...
+# Subtest: wake: a broken or refusing candidate hands over to the next
+ok 93 - wake: a broken or refusing candidate hands over to the next
+  ---
+  duration_ms: 0.165458
+  type: 'test'
+  ...
+# Subtest: wake: a tab that moved on is reported, and nothing else is asked
+ok 94 - wake: a tab that moved on is reported, and nothing else is asked
+  ---
+  duration_ms: 0.06725
+  type: 'test'
+  ...
+# Subtest: wake: nowhere to run is a result, never a throw
+ok 95 - wake: nowhere to run is a result, never a throw
+  ---
+  duration_ms: 0.147833
+  type: 'test'
+  ...
+# [phi-cdp] favicon candidate refused W1 this extension cannot read favicons
+# [phi-cdp] favicon candidate failed W1 worker died
+# [phi-cdp] favicon candidate refused W2 no reason given
+# Subtest: the first extension that can read favicons answers
+ok 96 - the first extension that can read favicons answers
+  ---
+  duration_ms: 30.156292
+  type: 'test'
+  ...
+# Subtest: nothing readable is an empty map, never a failure
+ok 97 - nothing readable is an empty map, never a failure
+  ---
+  duration_ms: 0.220083
+  type: 'test'
+  ...
+# Subtest: the payload is a JSON literal naming the urls, and asks nothing for none
+ok 98 - the payload is a JSON literal naming the urls, and asks nothing for none
+  ---
+  duration_ms: 0.106167
+  type: 'test'
+  ...
+# Subtest: only data urls are kept
+ok 99 - only data urls are kept
+  ---
+  duration_ms: 0.070667
+  type: 'test'
+  ...
+# Subtest: a site this profile has no icon for is left out, not returned blank
+ok 100 - a site this profile has no icon for is left out, not returned blank
+  ---
+  duration_ms: 0.553917
+  type: 'test'
+  ...
+# Subtest: an extension without the favicon permission refuses instead of guessing
+ok 101 - an extension without the favicon permission refuses instead of guessing
+  ---
+  duration_ms: 0.142042
+  type: 'test'
+  ...
+# Subtest: an icon larger than the cap is skipped
+ok 102 - an icon larger than the cap is skipped
+  ---
+  duration_ms: 0.430667
+  type: 'test'
+  ...
+# Subtest: the image type comes from the bytes, not from what the store calls them
+ok 103 - the image type comes from the bytes, not from what the store calls them
+  ---
+  duration_ms: 28.292083
+  type: 'test'
+  ...
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] history: sidecar service_worker failed sidecar threw: boom
+# [phi-cdp] history: lexington service_worker failed Target.attachToTarget: No target with given id found
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] history: sidecar service_worker failed Runtime.evaluate: reply field "rows" is missing or not an array of objects
+# [phi-cdp] history: sidecar page failed sidecar threw: TypeError: Cannot read properties of undefined
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 15 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: loaded Profile 16 through hidden window phi-agent-profile-load-3a9eb7cb-d10f-4485-bf79-ca9c391187e5
+# [phi-cdp] extension bridge: sidecar could not be woken in Profile 15 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: lexington could not be woken in Profile 15 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# [phi-cdp] extension bridge: kensington could not be woken in Profile 15 PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# Subtest: the extension ids are the ones each manifest's key produces
+ok 104 - the extension ids are the ones each manifest's key produces
+  ---
+  duration_ms: 1.191458
+  type: 'test'
+  ...
+# Subtest: search tries service workers Sidecar -> Lexington -> Kensington, then pages, in the profile's context only
+ok 105 - search tries service workers Sidecar -> Lexington -> Kensington, then pages, in the profile's context only
+  ---
+  duration_ms: 1.876125
+  type: 'test'
+  ...
+# Subtest: an extension page is used when no service worker of the profile is alive
+ok 106 - an extension page is used when no service worker of the profile is alive
+  ---
+  duration_ms: 0.276042
+  type: 'test'
+  ...
+# Subtest: contexts no mapped profile owns are never used (M0 finding)
+ok 107 - contexts no mapped profile owns are never used (M0 finding)
+  ---
+  duration_ms: 0.35725
+  type: 'test'
+  ...
+# Subtest: a profile with no open window cannot be mapped: history_unavailable, nothing attached
+ok 108 - a profile with no open window cannot be mapped: history_unavailable, nothing attached
+  ---
+  duration_ms: 0.152958
+  type: 'test'
+  ...
+# Subtest: every candidate failing is history_unavailable, not the last error
+ok 109 - every candidate failing is history_unavailable, not the last error
+  ---
+  duration_ms: 0.479084
+  type: 'test'
+  ...
+# Subtest: no running extension context is history_unavailable, and nothing is woken
+ok 110 - no running extension context is history_unavailable, and nothing is woken
+  ---
+  duration_ms: 0.276958
+  type: 'test'
+  ...
+# Subtest: a tab names the profile too
+ok 111 - a tab names the profile too
+  ---
+  duration_ms: 0.3755
+  type: 'test'
+  ...
+# Subtest: only the two built-in functions are ever evaluated, with the arguments as JSON
+ok 112 - only the two built-in functions are ever evaluated, with the arguments as JSON
+  ---
+  duration_ms: 81.179042
+  type: 'test'
+  ...
+# Subtest: the built-in functions call chrome.history and shape the result
+ok 113 - the built-in functions call chrome.history and shape the result
+  ---
+  duration_ms: 0.48375
+  type: 'test'
+  ...
+# Subtest: history arguments are checked before anything is sent
+ok 114 - history arguments are checked before anything is sent
+  ---
+  duration_ms: 0.413125
+  type: 'test'
+  ...
+# Subtest: an abort stops the walk; a dead connection is not history_unavailable
+ok 115 - an abort stops the walk; a dead connection is not history_unavailable
+  ---
+  duration_ms: 0.49675
+  type: 'test'
+  ...
+# Subtest: a profile with NO open window is read by waking its worker
+ok 116 - a profile with NO open window is read by waking its worker
+  ---
+  duration_ms: 0.094375
+  type: 'test'
+  ...
+# Subtest: a profile whose workers are ALL asleep is read by waking one
+ok 117 - a profile whose workers are ALL asleep is read by waking one
+  ---
+  duration_ms: 0.119
+  type: 'test'
+  ...
+# Subtest: a profile that cannot be loaded is history_unavailable, and says why
+ok 118 - a profile that cannot be loaded is history_unavailable, and says why
+  ---
+  duration_ms: 0.367875
+  type: 'test'
+  ...
+# Subtest: an UNLOADED profile is loaded, read, and its hidden window closed after
+ok 119 - an UNLOADED profile is loaded, read, and its hidden window closed after
+  ---
+  duration_ms: 0.171667
+  type: 'test'
+  ...
+# Subtest: every extension off is history_unavailable, worded as such
+ok 120 - every extension off is history_unavailable, worded as such
+  ---
+  duration_ms: 0.109167
+  type: 'test'
+  ...
+# Subtest: a tab is turned into its Space's profile, and that profile is woken
+ok 121 - a tab is turned into its Space's profile, and that profile is woken
+  ---
+  duration_ms: 9.174125
+  type: 'test'
+  ...
+# [phi-cdp] tabs candidate failed worker-0 worker stopped
+# [phi-cdp] tabs candidate refused worker-1 this extension cannot reach tabs
+# [phi-cdp] tabs candidate refused worker-0 no reason given
+# Subtest: show activates the tab and focuses its window
+ok 122 - show activates the tab and focuses its window
+  ---
+  duration_ms: 13.548708
+  type: 'test'
+  ...
+# Subtest: create opens beside a tab that still exists, in its window
+ok 123 - create opens beside a tab that still exists, in its window
+  ---
+  duration_ms: 0.4
+  type: 'test'
+  ...
+# Subtest: create falls back to the profile's own window when the place is gone
+ok 124 - create falls back to the profile's own window when the place is gone
+  ---
+  duration_ms: 15.406833
+  type: 'test'
+  ...
+# Subtest: a fresh window's seed New Tab is reused for the page
+ok 125 - a fresh window's seed New Tab is reused for the page
+  ---
+  duration_ms: 7.298792
+  type: 'test'
+  ...
+# Subtest: a window whose only tab is not a New Tab gets a new tab instead
+ok 126 - a window whose only tab is not a New Tab gets a new tab instead
+  ---
+  duration_ms: 0.411875
+  type: 'test'
+  ...
+# Subtest: a tab that is gone is reported, not thrown
+ok 127 - a tab that is gone is reported, not thrown
+  ---
+  duration_ms: 0.263958
+  type: 'test'
+  ...
+# Subtest: the first extension that answers settles it
+ok 128 - the first extension that answers settles it
+  ---
+  duration_ms: 0.542542
+  type: 'test'
+  ...
+# Subtest: no extension able to run is undefined, for the caller's fallback
+ok 129 - no extension able to run is undefined, for the caller's fallback
+  ---
+  duration_ms: 0.07975
+  type: 'test'
+  ...
+# [phi-cdp] extension bridge: this browser cannot wake extension workers; scanning for one that is running
+# [phi-cdp] extension bridge: sidecar could not be woken in Default PhiAgentSpace.wakeExtensionServiceWorker: Extension not enabled in profile or has no service worker
+# Subtest: a card is sent by the Sidecar of the given profile, through one fixed function
+ok 130 - a card is sent by the Sidecar of the given profile, through one fixed function
+  ---
+  duration_ms: 1.231458
+  type: 'test'
+  ...
+# Subtest: only the Sidecar ever sends a card: no other extension is woken
+ok 131 - only the Sidecar ever sends a card: no other extension is woken
+  ---
+  duration_ms: 0.144
+  type: 'test'
+  ...
+# Subtest: a given profile that is not open hands the card to the active Space's profile
+ok 132 - a given profile that is not open hands the card to the active Space's profile
+  ---
+  duration_ms: 0.342875
+  type: 'test'
+  ...
+# Subtest: a conversation in no profile (Phi Chat) gets its card from an open Space's profile
+ok 133 - a conversation in no profile (Phi Chat) gets its card from an open Space's profile
+  ---
+  duration_ms: 0.145167
+  type: 'test'
+  ...
+# Subtest: with no Space to wake a Sidecar in, a Sidecar worker already running anywhere sends it
+ok 134 - with no Space to wake a Sidecar in, a Sidecar worker already running anywhere sends it
+  ---
+  duration_ms: 0.489083
+  type: 'test'
+  ...
+# Subtest: a build that cannot wake a worker uses a running Sidecar worker
+ok 135 - a build that cannot wake a worker uses a running Sidecar worker
+  ---
+  duration_ms: 0.377375
+  type: 'test'
+  ...
+# Subtest: no Sidecar anywhere is notification_unavailable
+ok 136 - no Sidecar anywhere is notification_unavailable
+  ---
+  duration_ms: 0.455625
+  type: 'test'
+  ...
+# Subtest: a Sidecar without the hook, or one whose hook fails, is notification_unavailable
+ok 137 - a Sidecar without the hook, or one whose hook fails, is notification_unavailable
+  ---
+  duration_ms: 0.228417
+  type: 'test'
+  ...
+# Subtest: an answer without the card's id is notification_unavailable
+ok 138 - an answer without the card's id is notification_unavailable
+  ---
+  duration_ms: 0.320083
+  type: 'test'
+  ...
+# Subtest: a card without a conversation, a title or an expiry is refused before anything is woken
+ok 139 - a card without a conversation, a title or an expiry is refused before anything is woken
+  ---
+  duration_ms: 0.328334
+  type: 'test'
+  ...
+# Subtest: the page's title survives the pruning of hidden content
+ok 140 - the page's title survives the pruning of hidden content
+  ---
+  duration_ms: 1350.194584
+  type: 'test'
+  ...
+# Subtest: hidden body content is still left out
+ok 141 - hidden body content is still left out
+  ---
+  duration_ms: 113.20425
+  type: 'test'
+  ...
+# Subtest: the attached tab is read by id, even when another tab carries the same url
+ok 142 - the attached tab is read by id, even when another tab carries the same url
+  ---
+  duration_ms: 4.006458
+  type: 'test'
+  ...
+# Subtest: an id this profile does not hold falls back to the url, but only when one tab carries it
+ok 143 - an id this profile does not hold falls back to the url, but only when one tab carries it
+  ---
+  duration_ms: 14.502459
+  type: 'test'
+  ...
+# Subtest: a tab that has moved on is reported, not read
+ok 144 - a tab that has moved on is reported, not read
+  ---
+  duration_ms: 3.476291
+  type: 'test'
+  ...
+# Subtest: an id from another profile is refused rather than resolved by url
+ok 145 - an id from another profile is refused rather than resolved by url
+  ---
+  duration_ms: 15.073708
+  type: 'test'
+  ...
+# Subtest: an unloaded tab is reloaded, and read only once it has loaded
+ok 146 - an unloaded tab is reloaded, and read only once it has loaded
+  ---
+  duration_ms: 105.004417
+  type: 'test'
+  ...
+# Subtest: a loaded tab is never reloaded
+ok 147 - a loaded tab is never reloaded
+  ---
+  duration_ms: 0.581
+  type: 'test'
+  ...
+# Subtest: a moved tab is not woken either
+ok 148 - a moved tab is not woken either
+  ---
+  duration_ms: 0.196541
+  type: 'test'
+  ...
+# Subtest: WAKE_SOURCE wakes an unloaded tab and says so
+ok 149 - WAKE_SOURCE wakes an unloaded tab and says so
+  ---
+  duration_ms: 102.362625
+  type: 'test'
+  ...
+# Subtest: WAKE_SOURCE leaves a loaded tab alone
+ok 150 - WAKE_SOURCE leaves a loaded tab alone
+  ---
+  duration_ms: 0.926
+  type: 'test'
+  ...
+# Subtest: WAKE_SOURCE refuses a moved tab and a tab this profile does not hold
+ok 151 - WAKE_SOURCE refuses a moved tab and a tab this profile does not hold
+  ---
+  duration_ms: 1.297625
+  type: 'test'
+  ...
+# Subtest: reads required fields of a reply and of its rows
+ok 152 - reads required fields of a reply and of its rows
+  ---
+  duration_ms: 0.707458
+  type: 'test'
+  ...
+# Subtest: a missing or mistyped required field names the method and its path
+ok 153 - a missing or mistyped required field names the method and its path
+  ---
+  duration_ms: 3.417542
+  type: 'test'
+  ...
+# Subtest: optional fields normalize absence the way Phi's own client does, and still reject a wrong type
+ok 154 - optional fields normalize absence the way Phi's own client does, and still reject a wrong type
+  ---
+  duration_ms: 0.257125
+  type: 'test'
+  ...
+# Subtest: an empty id or name is invalid_argument before anything is sent
+ok 155 - an empty id or name is invalid_argument before anything is sent
+  ---
+  duration_ms: 0.115416
+  type: 'test'
+  ...
+# Subtest: an index is a non-negative integer when given
+ok 156 - an index is a non-negative integer when given
+  ---
+  duration_ms: 0.076834
+  type: 'test'
+  ...
+# (node:75268) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: probes the domain once per connection, then sends the call with the caller's budget
+ok 157 - probes the domain once per connection, then sends the call with the caller's budget
+  ---
+  duration_ms: 0.850625
+  type: 'test'
+  ...
+# Subtest: a refusal after the probe is a coded PhiCdpError
+ok 158 - a refusal after the probe is a coded PhiCdpError
+  ---
+  duration_ms: 0.27175
+  type: 'test'
+  ...
+# Subtest: a closed service's refusal comes through untouched, before any probe
+ok 159 - a closed service's refusal comes through untouched, before any probe
+  ---
+  duration_ms: 1.086417
+  type: 'test'
+  ...
+# Subtest: silence at the probe is browser_capability_unavailable and the call is never sent
+ok 160 - silence at the probe is browser_capability_unavailable and the call is never sent
+  ---
+  duration_ms: 43.625791
+  type: 'test'
+  ...
+# Subtest: each domain's probe is its cheapest read, sent raw with the probe's budget
+ok 161 - each domain's probe is its cheapest read, sent raw with the probe's budget
+  ---
+  duration_ms: 0.896708
+  type: 'test'
+  ...
+# Subtest: createManagementApis mounts the nine management namespaces
+ok 162 - createManagementApis mounts the nine management namespaces
+  ---
+  duration_ms: 0.411417
+  type: 'test'
+  ...
+# Subtest: the namespaces share the service's probe: each domain is probed once per connection
+ok 163 - the namespaces share the service's probe: each domain is probed once per connection
+  ---
+  duration_ms: 0.783958
+  type: 'test'
+  ...
+# Subtest: the original tab still on the saved URL is shown through the extension
+ok 164 - the original tab still on the saved URL is shown through the extension
+  ---
+  duration_ms: 1.288792
+  type: 'test'
+  ...
+# Subtest: the original tab is shown in whatever Space and profile it is in now
+ok 165 - the original tab is shown in whatever Space and profile it is in now
+  ---
+  duration_ms: 0.091708
+  type: 'test'
+  ...
+# Subtest: the tab an earlier click opened is tried before the original
+ok 166 - the tab an earlier click opened is tried before the original
+  ---
+  duration_ms: 0.122666
+  type: 'test'
+  ...
+# Subtest: a reopened tab that moved on falls back to the original
+ok 167 - a reopened tab that moved on falls back to the original
+  ---
+  duration_ms: 0.062292
+  type: 'test'
+  ...
+# Subtest: without a reachable extension, a tab is woken and activated over CDP
+ok 168 - without a reachable extension, a tab is woken and activated over CDP
+  ---
+  duration_ms: 0.144375
+  type: 'test'
+  ...
+# Subtest: a navigated original gets a new tab beside it in the saved Space
+ok 169 - a navigated original gets a new tab beside it in the saved Space
+  ---
+  duration_ms: 0.109917
+  type: 'test'
+  ...
+# Subtest: an original moved to another Space leaves the new tab in the saved window
+ok 170 - an original moved to another Space leaves the new tab in the saved window
+  ---
+  duration_ms: 0.091834
+  type: 'test'
+  ...
+# Subtest: a saved window no longer showing the Space falls back to one that does
+ok 171 - a saved window no longer showing the Space falls back to one that does
+  ---
+  duration_ms: 0.052125
+  type: 'test'
+  ...
+# Subtest: with no saved Space, a navigated tab's URL opens beside it
+ok 172 - with no saved Space, a navigated tab's URL opens beside it
+  ---
+  duration_ms: 0.258833
+  type: 'test'
+  ...
+# Subtest: with no saved Space and no tab, the URL opens in the current Space
+ok 173 - with no saved Space and no tab, the URL opens in the current Space
+  ---
+  duration_ms: 0.372583
+  type: 'test'
+  ...
+# Subtest: a closed tab is never matched by URL
+ok 174 - a closed tab is never matched by URL
+  ---
+  duration_ms: 0.082
+  type: 'test'
+  ...
+# Subtest: without a reachable extension, the agent API opens the tab
+ok 175 - without a reachable extension, the agent API opens the tab
+  ---
+  duration_ms: 0.068625
+  type: 'test'
+  ...
+# Subtest: a Space with no open window gets one, and the page loads in its New Tab
+ok 176 - a Space with no open window gets one, and the page loads in its New Tab
+  ---
+  duration_ms: 0.057333
+  type: 'test'
+  ...
+# Subtest: a saved Space with no open window is still where the page opens
+ok 177 - a saved Space with no open window is still where the page opens
+  ---
+  duration_ms: 0.048917
+  type: 'test'
+  ...
+# Subtest: a failed activation is not reported as a switch
+ok 178 - a failed activation is not reported as a switch
+  ---
+  duration_ms: 0.207125
+  type: 'test'
+  ...
+# Subtest: content expression reads commit text, absolute links, alt and preformatted lines
+ok 179 - content expression reads commit text, absolute links, alt and preformatted lines
+  ---
+  duration_ms: 911.579542
+  type: 'test'
+  ...
+# Subtest: content expression reads authorized file, data and blob pages
+ok 180 - content expression reads authorized file, data and blob pages
+  ---
+  duration_ms: 133.539291
+  type: 'test'
+  ...
+# Subtest: content expression rejects frames containing only metadata, hidden text or form values
+ok 181 - content expression rejects frames containing only metadata, hidden text or form values
+  ---
+  duration_ms: 634.986084
+  type: 'test'
+  ...
+# Subtest: content expression omits hidden text and form values even with a selected descendant
+ok 182 - content expression omits hidden text and form values even with a selected descendant
+  ---
+  duration_ms: 50.471166
+  type: 'test'
+  ...
+# Subtest: content expression reads open shadows, slots and accessible frames without duplicate light DOM
+ok 183 - content expression reads open shadows, slots and accessible frames without duplicate light DOM
+  ---
+  duration_ms: 132.191584
+  type: 'test'
+  ...
+# Subtest: content expression validates selector as data and checks normalized target URL
+ok 184 - content expression validates selector as data and checks normalized target URL
+  ---
+  duration_ms: 106.938333
+  type: 'test'
+  ...
+# Subtest: content expression rejects empty pages, oversized metadata and traversal budgets
+ok 185 - content expression rejects empty pages, oversized metadata and traversal budgets
+  ---
+  duration_ms: 1593.770834
+  type: 'test'
+  ...
+# Subtest: content expression bounds UTF-8 JSON and gives a successful smaller subtree retry
+ok 186 - content expression bounds UTF-8 JSON and gives a successful smaller subtree retry
+  ---
+  duration_ms: 214.155875
+  type: 'test'
+  ...
+# Subtest: screenshot: the viewport by default, base64 with its type
+ok 187 - screenshot: the viewport by default, base64 with its type
+  ---
+  duration_ms: 1.485833
+  type: 'test'
+  ...
+# Subtest: screenshot: fullPage clips to the content size and captures beyond the viewport
+ok 188 - screenshot: fullPage clips to the content size and captures beyond the viewport
+  ---
+  duration_ms: 0.342833
+  type: 'test'
+  ...
+# Subtest: pdf: printed as a stream, read to eof in the same session, then closed
+ok 189 - pdf: printed as a stream, read to eof in the same session, then closed
+  ---
+  duration_ms: 0.369375
+  type: 'test'
+  ...
+# Subtest: pdf: more than maxBytes is result_too_large, and the stream is still closed
+ok 190 - pdf: more than maxBytes is result_too_large, and the stream is still closed
+  ---
+  duration_ms: 0.291458
+  type: 'test'
+  ...
+# Subtest: mhtml: the snapshot text, base64 as multipart/related
+ok 191 - mhtml: the snapshot text, base64 as multipart/related
+  ---
+  duration_ms: 0.194458
+  type: 'test'
+  ...
+# Subtest: content: evaluates readable DOM in the checked tab and never calls protobuf
+ok 192 - content: evaluates readable DOM in the checked tab and never calls protobuf
+  ---
+  duration_ms: 2.604125
+  type: 'test'
+  ...
+# Subtest: content: shared tab policy accepts local HTML and refuses browser internal pages
+ok 193 - content: shared tab policy accepts local HTML and refuses browser internal pages
+  ---
+  duration_ms: 1.986667
+  type: 'test'
+  ...
+# Subtest: content: validates evaluation results and keeps known failures without page exception text
+ok 194 - content: validates evaluation results and keeps known failures without page exception text
+  ---
+  duration_ms: 0.894167
+  type: 'test'
+  ...
+# Subtest: content: checks full serialized bytes and malformed selectors without reading
+ok 195 - content: checks full serialized bytes and malformed selectors without reading
+  ---
+  duration_ms: 1.043125
+  type: 'test'
+  ...
+# Subtest: content: CDP cancellation, timeout and missing capability still detach
+ok 196 - content: CDP cancellation, timeout and missing capability still detach
+  ---
+  duration_ms: 0.920625
+  type: 'test'
+  ...
+# Subtest: accessibilityTree: the nodes; a reply without them is browser_error naming both
+ok 197 - accessibilityTree: the nodes; a reply without them is browser_error naming both
+  ---
+  duration_ms: 0.540708
+  type: 'test'
+  ...
+# Subtest: navigationHistory: the entries and where the tab is in them
+ok 198 - navigationHistory: the entries and where the tab is in them
+  ---
+  duration_ms: 0.17525
+  type: 'test'
+  ...
+# Subtest: frames: the frame tree, flattened with the main frame first
+ok 199 - frames: the frame tree, flattened with the main frame first
+  ---
+  duration_ms: 0.14
+  type: 'test'
+  ...
+# Subtest: resource: loaded in the main frame's context and read from its stream
+ok 200 - resource: loaded in the main frame's context and read from its stream
+  ---
+  duration_ms: 0.246208
+  type: 'test'
+  ...
+# Subtest: resource: a failed load is browser_error with its status, and its stream is closed
+ok 201 - resource: a failed load is browser_error with its status, and its stream is closed
+  ---
+  duration_ms: 0.106042
+  type: 'test'
+  ...
+# Subtest: appManifest and layout: parsed from their replies
+ok 202 - appManifest and layout: parsed from their replies
+  ---
+  duration_ms: 0.201583
+  type: 'test'
+  ...
+# Subtest: every export goes through the tab checks
+ok 203 - every export goes through the tab checks
+  ---
+  duration_ms: 0.088792
+  type: 'test'
+  ...
+# Subtest: set: one origin, reduced from a URL, on the service connection
+ok 204 - set: one origin, reduced from a URL, on the service connection
+  ---
+  duration_ms: 69.97225
+  type: 'test'
+  ...
+# Subtest: set refuses a missing or non-web origin, a nameless permission and an unknown setting
+ok 205 - set refuses a missing or non-web origin, a nameless permission and an unknown setting
+  ---
+  duration_ms: 1.8155
+  type: 'test'
+  ...
+# Subtest: reset drops the overrides of the default context, or of the one given
+ok 206 - reset drops the overrides of the default context, or of the one given
+  ---
+  duration_ms: 0.319084
+  type: 'test'
+  ...
+# Subtest: a refused permission name is browser_error
+ok 207 - a refused permission name is browser_error
+  ---
+  duration_ms: 0.202
+  type: 'test'
+  ...
+# Subtest: list reads one profile's pins, the active one's when none is named
+ok 208 - list reads one profile's pins, the active one's when none is named
+  ---
+  duration_ms: 1.109792
+  type: 'test'
+  ...
+# Subtest: an unknown profile is unknown_profile
+ok 209 - an unknown profile is unknown_profile
+  ---
+  duration_ms: 22.96675
+  type: 'test'
+  ...
+# Subtest: a pin without its index is browser_error
+ok 210 - a pin without its index is browser_error
+  ---
+  duration_ms: 0.833333
+  type: 'test'
+  ...
+# Subtest: add sends only what was given and reads the new pin back in its profile
+ok 211 - add sends only what was given and reads the new pin back in its profile
+  ---
+  duration_ms: 1.076583
+  type: 'test'
+  ...
+# Subtest: an add reply without the new guid is browser_error
+ok 212 - an add reply without the new guid is browser_error
+  ---
+  duration_ms: 0.503375
+  type: 'test'
+  ...
+# Subtest: update reads back in the profile it is told, comparing URLs as the browser stores them
+ok 213 - update reads back in the profile it is told, comparing URLs as the browser stores them
+  ---
+  duration_ms: 0.377834
+  type: 'test'
+  ...
+# Subtest: remove sends the guid and settles once the pin is gone
+ok 214 - remove sends the guid and settles once the pin is gone
+  ---
+  duration_ms: 0.221459
+  type: 'test'
+  ...
+# Subtest: an empty url or guid, or a bad index, never reaches the browser
+ok 215 - an empty url or guid, or a bad index, never reaches the browser
+  ---
+  duration_ms: 0.195084
+  type: 'test'
+  ...
+# Subtest: list reads every profile from a reply that has no `ok`
+ok 216 - list reads every profile from a reply that has no `ok`
+  ---
+  duration_ms: 5.974375
+  type: 'test'
+  ...
+# Subtest: a profile without agentSpacesAllowed is browser_error
+ok 217 - a profile without agentSpacesAllowed is browser_error
+  ---
+  duration_ms: 0.2725
+  type: 'test'
+  ...
+# Subtest: create sends the display name and returns the new profileId
+ok 218 - create sends the display name and returns the new profileId
+  ---
+  duration_ms: 0.13425
+  type: 'test'
+  ...
+# Subtest: a refusal with a code the table does not know is browser_error, the code kept
+ok 219 - a refusal with a code the table does not know is browser_error, the code kept
+  ---
+  duration_ms: 0.207958
+  type: 'test'
+  ...
+# Subtest: rename sends both fields and echoes them
+ok 220 - rename sends both fields and echoes them
+  ---
+  duration_ms: 0.102
+  type: 'test'
+  ...
+# Subtest: rename of an unknown profile is unknown_profile
+ok 221 - rename of an unknown profile is unknown_profile
+  ---
+  duration_ms: 0.099417
+  type: 'test'
+  ...
+# Subtest: an empty display name or profileId never reaches the browser
+ok 222 - an empty display name or profileId never reaches the browser
+  ---
+  duration_ms: 0.172709
+  type: 'test'
+  ...
+# Subtest: a denied method never reaches the browser and names its replacement
+ok 223 - a denied method never reaches the browser and names its replacement
+  ---
+  duration_ms: 0.983375
+  type: 'test'
+  ...
+# Subtest: a browser-level method runs on the service connection, without a tab
+ok 224 - a browser-level method runs on the service connection, without a tab
+  ---
+  duration_ms: 0.506042
+  type: 'test'
+  ...
+# Subtest: a page-level method needs a valid tabId
+ok 225 - a page-level method needs a valid tabId
+  ---
+  duration_ms: 0.323166
+  type: 'test'
+  ...
+# Subtest: a page-level read sends its requiresEnable first, in the same session
+ok 226 - a page-level read sends its requiresEnable first, in the same session
+  ---
+  duration_ms: 0.653083
+  type: 'test'
+  ...
+# Subtest: modify and delete methods run: confirming them is the caller's job
+ok 227 - modify and delete methods run: confirming them is the caller's job
+  ---
+  duration_ms: 0.273583
+  type: 'test'
+  ...
+# Subtest: the tab checks apply: a moved-on tab is refused before anything runs
+ok 228 - the tab checks apply: a moved-on tab is refused before anything runs
+  ---
+  duration_ms: 54.348417
+  type: 'test'
+  ...
+# Subtest: a listed method this build lacks is browser_capability_unavailable
+ok 229 - a listed method this build lacks is browser_capability_unavailable
+  ---
+  duration_ms: 0.453167
+  type: 'test'
+  ...
+# Subtest: readStream: Page.printToPDF's stream is read to the end in its own session, then closed
+ok 230 - readStream: Page.printToPDF's stream is read to the end in its own session, then closed
+  ---
+  duration_ms: 0.844959
+  type: 'test'
+  ...
+# Subtest: readStream: Network.loadNetworkResource's resource.stream is read the same way
+ok 231 - readStream: Network.loadNetworkResource's resource.stream is read the same way
+  ---
+  duration_ms: 2.331792
+  type: 'test'
+  ...
+# Subtest: readStream on a result without a handle returns the result as is, still detaching; on a browser-level method it is invalid_argument
+ok 232 - readStream on a result without a handle returns the result as is, still detaching; on a browser-level method it is invalid_argument
+  ---
+  duration_ms: 0.432833
+  type: 'test'
+  ...
+# Subtest: readStream past maxBytes is result_too_large; the stream is closed and the tab detached
+ok 233 - readStream past maxBytes is result_too_large; the stream is closed and the tab detached
+  ---
+  duration_ms: 0.171708
+  type: 'test'
+  ...
+# Subtest: the budget is contract §3's: 5 s, polled every 200 ms
+ok 234 - the budget is contract §3's: 5 s, polled every 200 ms
+  ---
+  duration_ms: 0.400542
+  type: 'test'
+  ...
+# Subtest: a write that already reads back settles without sleeping
+ok 235 - a write that already reads back settles without sleeping
+  ---
+  duration_ms: 0.104375
+  type: 'test'
+  ...
+# Subtest: polls until the write reads back
+ok 236 - polls until the write reads back
+  ---
+  duration_ms: 21.19125
+  type: 'test'
+  ...
+# Subtest: a write that never reads back is false after the budget, not an error
+ok 237 - a write that never reads back is false after the budget, not an error
+  ---
+  duration_ms: 25.048625
+  type: 'test'
+  ...
+# Subtest: an abort stops the wait as an aborted PhiCdpError
+ok 238 - an abort stops the wait as an aborted PhiCdpError
+  ---
+  duration_ms: 2.015583
+  type: 'test'
+  ...
+# Subtest: a failing read-back propagates
+ok 239 - a failing read-back propagates
+  ---
+  duration_ms: 0.158291
+  type: 'test'
+  ...
+# Subtest: cookiesGet requires url or domain and attaches nowhere without one
+ok 240 - cookiesGet requires url or domain and attaches nowhere without one
+  ---
+  duration_ms: 2.301917
+  type: 'test'
+  ...
+# Subtest: cookiesGet redacts values by default
+ok 241 - cookiesGet redacts values by default
+  ---
+  duration_ms: 0.640792
+  type: 'test'
+  ...
+# Subtest: cookiesGet with a domain asks for both schemes, dedupes, and includes values on request
+ok 242 - cookiesGet with a domain asks for both schemes, dedupes, and includes values on request
+  ---
+  duration_ms: 0.194458
+  type: 'test'
+  ...
+# Subtest: cookiesSet and cookiesDelete need url or domain and pass the cookie through
+ok 243 - cookiesSet and cookiesDelete need url or domain and pass the cookie through
+  ---
+  duration_ms: 0.231291
+  type: 'test'
+  ...
+# Subtest: cookiesSet reports a refused cookie as invalid_argument
+ok 244 - cookiesSet reports a refused cookie as invalid_argument
+  ---
+  duration_ms: 0.089833
+  type: 'test'
+  ...
+# Subtest: localStorage calls address the tab's origin unless one is given
+ok 245 - localStorage calls address the tab's origin unless one is given
+  ---
+  duration_ms: 0.504084
+  type: 'test'
+  ...
+# Subtest: a tab without a web origin needs an explicit origin
+ok 246 - a tab without a web origin needs an explicit origin
+  ---
+  duration_ms: 0.20525
+  type: 'test'
+  ...
+# Subtest: indexedDbList reads names, then each database's stores
+ok 247 - indexedDbList reads names, then each database's stores
+  ---
+  duration_ms: 15.999292
+  type: 'test'
+  ...
+# Subtest: indexedDbRead pages, and redacts values unless asked
+ok 248 - indexedDbRead pages, and redacts values unless asked
+  ---
+  duration_ms: 2.461583
+  type: 'test'
+  ...
+# Subtest: indexedDbDelete clears a store, or deletes the database
+ok 249 - indexedDbDelete clears a store, or deletes the database
+  ---
+  duration_ms: 0.406167
+  type: 'test'
+  ...
+# Subtest: cacheList and cacheDelete go by cache name
+ok 250 - cacheList and cacheDelete go by cache name
+  ---
+  duration_ms: 3.503875
+  type: 'test'
+  ...
+# Subtest: usage keeps the non-zero breakdown; clearOrigin defaults to all types
+ok 251 - usage keeps the non-zero breakdown; clearOrigin defaults to all types
+  ---
+  duration_ms: 0.290875
+  type: 'test'
+  ...
+# Subtest: serviceWorkerUnregister enables the domain and stays on the origin
+ok 252 - serviceWorkerUnregister enables the domain and stays on the origin
+  ---
+  duration_ms: 0.160291
+  type: 'test'
+  ...
+# Subtest: site-data calls pass the caller's options; a reply without usage is browser_error
+ok 253 - site-data calls pass the caller's options; a reply without usage is browser_error
+  ---
+  duration_ms: 0.100625
+  type: 'test'
+  ...
+# Subtest: a tab that changed URL is refused before any site-data command
+ok 254 - a tab that changed URL is refused before any site-data command
+  ---
+  duration_ms: 0.061958
+  type: 'test'
+  ...
+# (node:75322) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: list reads every Space, with an absent color or icon as empty
+ok 255 - list reads every Space, with an absent color or icon as empty
+  ---
+  duration_ms: 31.548167
+  type: 'test'
+  ...
+# Subtest: the domain is probed once per connection, with the probe's short budget
+ok 256 - the domain is probed once per connection, with the probe's short budget
+  ---
+  duration_ms: 0.372542
+  type: 'test'
+  ...
+# Subtest: a row without its id is browser_error naming the method and the field
+ok 257 - a row without its id is browser_error naming the method and the field
+  ---
+  duration_ms: 0.833292
+  type: 'test'
+  ...
+# Subtest: a refusal is a coded error with Phi's own code kept, and still passes the probe
+ok 258 - a refusal is a coded error with Phi's own code kept, and still passes the probe
+  ---
+  duration_ms: 1.52625
+  type: 'test'
+  ...
+# Subtest: focus reads the focused window's selected tab by Phi tab id
+ok 259 - focus reads the focused window's selected tab by Phi tab id
+  ---
+  duration_ms: 0.192625
+  type: 'test'
+  ...
+# Subtest: focus without a window has neither windowId nor tab, and defaults the flags
+ok 260 - focus without a window has neither windowId nor tab, and defaults the flags
+  ---
+  duration_ms: 0.083791
+  type: 'test'
+  ...
+# Subtest: create sends only what was given, activate only when true
+ok 261 - create sends only what was given, activate only when true
+  ---
+  duration_ms: 0.2315
+  type: 'test'
+  ...
+# Subtest: create without a name, or a reply without the new id, fails
+ok 262 - create without a name, or a reply without the new id, fails
+  ---
+  duration_ms: 0.149333
+  type: 'test'
+  ...
+# Subtest: update sends the non-empty fields and settles once they read back
+ok 263 - update sends the non-empty fields and settles once they read back
+  ---
+  duration_ms: 0.387958
+  type: 'test'
+  ...
+# Subtest: a write that never reads back is settled: false, not an error
+ok 264 - a write that never reads back is settled: false, not an error
+  ---
+  duration_ms: 89.840666
+  type: 'test'
+  ...
+# Subtest: delete settles once the Space is gone from the list
+ok 265 - delete settles once the Space is gone from the list
+  ---
+  duration_ms: 0.344834
+  type: 'test'
+  ...
+# Subtest: delete of an unknown Space is resource_not_found
+ok 266 - delete of an unknown Space is resource_not_found
+  ---
+  duration_ms: 0.176041
+  type: 'test'
+  ...
+# Subtest: an empty spaceId never reaches the browser
+ok 267 - an empty spaceId never reaches the browser
+  ---
+  duration_ms: 0.150792
+  type: 'test'
+  ...
+# Subtest: activate sends the spaceId and returns nothing
+ok 268 - activate sends the spaceId and returns nothing
+  ---
+  duration_ms: 0.172084
+  type: 'test'
+  ...
+# (node:75324) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: list reads the splits and stamps the scope
+ok 269 - list reads the splits and stamps the scope
+  ---
+  duration_ms: 1.018458
+  type: 'test'
+  ...
+# Subtest: a split without its id, ratio or panes is browser_error
+ok 270 - a split without its id, ratio or panes is browser_error
+  ---
+  duration_ms: 0.351542
+  type: 'test'
+  ...
+# Subtest: create defaults to a vertical layout and reads the splitId back
+ok 271 - create defaults to a vertical layout and reads the splitId back
+  ---
+  duration_ms: 0.326583
+  type: 'test'
+  ...
+# Subtest: writes refuse one tab twice, a non-id tab, an unknown layout or a ratio outside 0-1
+ok 272 - writes refuse one tab twice, a non-id tab, an unknown layout or a ratio outside 0-1
+  ---
+  duration_ms: 0.204792
+  type: 'test'
+  ...
+# Subtest: update reads back the layout, and a ratio to within 0.05
+ok 273 - update reads back the layout, and a ratio to within 0.05
+  ---
+  duration_ms: 0.155417
+  type: 'test'
+  ...
+# Subtest: swap reads the panes first and settles once they are exchanged
+ok 274 - swap reads the panes first and settles once they are exchanged
+  ---
+  duration_ms: 0.177167
+  type: 'test'
+  ...
+# Subtest: a swap of a split nobody lists is still sent, and Phi's refusal wins
+ok 275 - a swap of a split nobody lists is still sent, and Phi's refusal wins
+  ---
+  duration_ms: 0.311042
+  type: 'test'
+  ...
+# Subtest: remove settles once the split is gone
+ok 276 - remove settles once the split is gone
+  ---
+  duration_ms: 0.152667
+  type: 'test'
+  ...
+# Subtest: a write that never reads back is settled: false, not an error
+ok 277 - a write that never reads back is settled: false, not an error
+  ---
+  duration_ms: 80.701
+  type: 'test'
+  ...
+# Subtest: a silent splitView probe is browser_capability_unavailable; an abort ends a call
+ok 278 - a silent splitView probe is browser_capability_unavailable; an abort ends a call
+  ---
+  duration_ms: 1.348291
+  type: 'test'
+  ...
+# (node:75326) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: list reads the groups and stamps the scope it was asked for
+ok 279 - list reads the groups and stamps the scope it was asked for
+  ---
+  duration_ms: 20.080708
+  type: 'test'
+  ...
+# Subtest: list: a closed Space is resource_not_found; a group without its token or members is browser_error
+ok 280 - list: a closed Space is resource_not_found; a group without its token or members is browser_error
+  ---
+  duration_ms: 1.464458
+  type: 'test'
+  ...
+# Subtest: create sends Phi's payload and reads the new token back
+ok 281 - create sends Phi's payload and reads the new token back
+  ---
+  duration_ms: 2.128209
+  type: 'test'
+  ...
+# Subtest: writes refuse bad arguments before sending anything
+ok 282 - writes refuse bad arguments before sending anything
+  ---
+  duration_ms: 20.025708
+  type: 'test'
+  ...
+# Subtest: update, addTabs and removeTabs read back what they changed
+ok 283 - update, addTabs and removeTabs read back what they changed
+  ---
+  duration_ms: 0.517875
+  type: 'test'
+  ...
+# Subtest: ungroup and close read back until the token is gone
+ok 284 - ungroup and close read back until the token is gone
+  ---
+  duration_ms: 13.735625
+  type: 'test'
+  ...
+# Subtest: a write that never reads back is settled: false, not an error
+ok 285 - a write that never reads back is settled: false, not an error
+  ---
+  duration_ms: 36.640041
+  type: 'test'
+  ...
+# Subtest: a refused write keeps Phi's code and is not read back
+ok 286 - a refused write keeps Phi's code and is not read back
+  ---
+  duration_ms: 0.671542
+  type: 'test'
+  ...
+# Subtest: writes are at least the write interval apart, concurrent ones included
+ok 287 - writes are at least the write interval apart, concurrent ones included
+  ---
+  duration_ms: 83.151917
+  type: 'test'
+  ...
+# Subtest: an abort while waiting for a write slot rejects with aborted and sends nothing
+ok 288 - an abort while waiting for a write slot rejects with aborted and sends nothing
+  ---
+  duration_ms: 0.522583
+  type: 'test'
+  ...
+# Subtest: a silent tabGroups probe is browser_capability_unavailable, and the write is never sent
+ok 289 - a silent tabGroups probe is browser_capability_unavailable, and the write is never sent
+  ---
+  duration_ms: 2.527042
+  type: 'test'
+  ...
+# Subtest: list joins the Space's tabs with their CDP targets
+ok 290 - list joins the Space's tabs with their CDP targets
+  ---
+  duration_ms: 54.400583
+  type: 'test'
+  ...
+# Subtest: list: a Space with no open window is resource_not_found; a bad scope is never sent
+ok 291 - list: a Space with no open window is resource_not_found; a bad scope is never sent
+  ---
+  duration_ms: 5.209084
+  type: 'test'
+  ...
+# Subtest: list: a reply without windowId, or a tab without its id, is browser_error
+ok 292 - list: a reply without windowId, or a tab without its id, is browser_error
+  ---
+  duration_ms: 9.743542
+  type: 'test'
+  ...
+# Subtest: open diffs the window it landed in and waits for the new tab's target
+ok 293 - open diffs the window it landed in and waits for the new tab's target
+  ---
+  duration_ms: 202.000791
+  type: 'test'
+  ...
+# Subtest: open: a Space with no open window gets one from the open itself
+ok 294 - open: a Space with no open window gets one from the open itself
+  ---
+  duration_ms: 0.722958
+  type: 'test'
+  ...
+# Subtest: open: the New Tab a window was seeded with is closed, so the page shows
+ok 295 - open: the New Tab a window was seeded with is closed, so the page shows
+  ---
+  duration_ms: 0.369959
+  type: 'test'
+  ...
+# Subtest: open: a New Tab in a window the open did not make is left alone
+ok 296 - open: a New Tab in a window the open did not make is left alone
+  ---
+  duration_ms: 0.325583
+  type: 'test'
+  ...
+# Subtest: open: a named window that is not open is still refused, and nothing opens
+ok 297 - open: a named window that is not open is still refused, and nothing opens
+  ---
+  duration_ms: 0.190042
+  type: 'test'
+  ...
+# Subtest: two concurrent opens never return the same tab
+ok 298 - two concurrent opens never return the same tab
+  ---
+  duration_ms: 0.379667
+  type: 'test'
+  ...
+# Subtest: a tab already open in the window the open landed in is not claimed as ours
+ok 299 - a tab already open in the window the open landed in is not claimed as ours
+  ---
+  duration_ms: 201.248125
+  type: 'test'
+  ...
+# (node:75328) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: a slow open does not take the tab the other one opened
+ok 300 - a slow open does not take the tab the other one opened
+  ---
+  duration_ms: 204.001583
+  type: 'test'
+  ...
+# Subtest: open: no new tab within its budget is a non-retryable browser_error
+ok 301 - open: no new tab within its budget is a non-retryable browser_error
+  ---
+  duration_ms: 14.011958
+  type: 'test'
+  ...
+# Subtest: open refuses an empty url before sending anything
+ok 302 - open refuses an empty url before sending anything
+  ---
+  duration_ms: 0.625541
+  type: 'test'
+  ...
+# Subtest: close resolves the target, closes it and reads back until it is gone
+ok 303 - close resolves the target, closes it and reads back until it is gone
+  ---
+  duration_ms: 0.597084
+  type: 'test'
+  ...
+# Subtest: close: a tab with no live target is resource_not_found, and nothing is closed
+ok 304 - close: a tab with no live target is resource_not_found, and nothing is closed
+  ---
+  duration_ms: 0.498125
+  type: 'test'
+  ...
+# Subtest: close: a target that went away in between is resource_not_found too
+ok 305 - close: a target that went away in between is resource_not_found too
+  ---
+  duration_ms: 0.455833
+  type: 'test'
+  ...
+# Subtest: list goes through the spaces probe; an abort ends a close
+ok 306 - list goes through the spaces probe; an abort ends a close
+  ---
+  duration_ms: 1.818458
+  type: 'test'
+  ...
+# Subtest: a tab the user opened while ours was loading is never claimed
+ok 307 - a tab the user opened while ours was loading is never claimed
+  ---
+  duration_ms: 10070.544875
+  type: 'test'
+  ...
+# Subtest: a host opened without a scheme still matches the tab the browser made
+ok 308 - a host opened without a scheme still matches the tab the browser made
+  ---
+  duration_ms: 0.395125
+  type: 'test'
+  ...
+# (node:75336) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: list reads every rule, an absent prefix as empty and an absent ask as false
+ok 309 - list reads every rule, an absent prefix as empty and an absent ask as false
+  ---
+  duration_ms: 14.301875
+  type: 'test'
+  ...
+# Subtest: a rule without sortOrder is browser_error
+ok 310 - a rule without sortOrder is browser_error
+  ---
+  duration_ms: 0.31225
+  type: 'test'
+  ...
+# Subtest: add sends only what was given and returns the new rule under its new id
+ok 311 - add sends only what was given and returns the new rule under its new id
+  ---
+  duration_ms: 2.798375
+  type: 'test'
+  ...
+# Subtest: add never mistakes an identical rule from before the write for the new one
+ok 312 - add never mistakes an identical rule from before the write for the new one
+  ---
+  duration_ms: 81.684709
+  type: 'test'
+  ...
+# Subtest: an add that never reads back has no rule, and is not an error
+ok 313 - an add that never reads back has no rule, and is not an error
+  ---
+  duration_ms: 5.125209
+  type: 'test'
+  ...
+# Subtest: update sends every given field, null included, and settles when the old id is gone
+ok 314 - update sends every given field, null included, and settles when the old id is gone
+  ---
+  duration_ms: 1.231333
+  type: 'test'
+  ...
+# Subtest: update sends nothing it was not given
+ok 315 - update sends nothing it was not given
+  ---
+  duration_ms: 0.500083
+  type: 'test'
+  ...
+# Subtest: a stale id is refused by Phi as a missing resource
+ok 316 - a stale id is refused by Phi as a missing resource
+  ---
+  duration_ms: 0.423375
+  type: 'test'
+  ...
+# Subtest: delete sends the id and settles when it is gone
+ok 317 - delete sends the id and settles when it is gone
+  ---
+  duration_ms: 1.323875
+  type: 'test'
+  ...
+# Subtest: findByContent matches host case-blind and an absent prefix as empty, within one Space
+ok 318 - findByContent matches host case-blind and an absent prefix as empty, within one Space
+  ---
+  duration_ms: 0.453458
+  type: 'test'
+  ...
+# Subtest: an empty id, Space or host never reaches the browser
+ok 319 - an empty id, Space or host never reaches the browser
+  ---
+  duration_ms: 0.290583
+  type: 'test'
+  ...
+# (node:75348) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: listTools enables, collects toolsAdded for the window, then disables
+ok 320 - listTools enables, collects toolsAdded for the window, then disables
+  ---
+  duration_ms: 27.076959
+  type: 'test'
+  ...
+# Subtest: listTools with no tools is an empty list, not an error
+ok 321 - listTools with no tools is an empty list, not an error
+  ---
+  duration_ms: 2.61925
+  type: 'test'
+  ...
+# Subtest: a build without WebMCP is webmcp_unavailable
+ok 322 - a build without WebMCP is webmcp_unavailable
+  ---
+  duration_ms: 2.589375
+  type: 'test'
+  ...
+# Subtest: invoke calls the tool in its frame and waits for toolResponded
+ok 323 - invoke calls the tool in its frame and waits for toolResponded
+  ---
+  duration_ms: 23.546709
+  type: 'test'
+  ...
+# Subtest: invoke keeps a response that arrives before invokeTool's reply, and flags untrusted output
+ok 324 - invoke keeps a response that arrives before invokeTool's reply, and flags untrusted output
+  ---
+  duration_ms: 16.450166
+  type: 'test'
+  ...
+# Subtest: invoke picks the requested frame when two frames register the same name
+ok 325 - invoke picks the requested frame when two frames register the same name
+  ---
+  duration_ms: 12.964042
+  type: 'test'
+  ...
+# Subtest: invoke of a tool the page never registers is webmcp_unavailable
+ok 326 - invoke of a tool the page never registers is webmcp_unavailable
+  ---
+  duration_ms: 7.708458
+  type: 'test'
+  ...
+# Subtest: a tool that fails is webmcp_tool_failed with its error text
+ok 327 - a tool that fails is webmcp_tool_failed with its error text
+  ---
+  duration_ms: 11.623708
+  type: 'test'
+  ...
+# Subtest: invoke cancels the invocation on timeout and on abort
+ok 328 - invoke cancels the invocation on timeout and on abort
+  ---
+  duration_ms: 46.1325
+  type: 'test'
+  ...
+# Subtest: cancel reaches a running invocation through the session that started it
+ok 329 - cancel reaches a running invocation through the session that started it
+  ---
+  duration_ms: 2.328125
+  type: 'test'
+  ...
+# Subtest: cancel of an invocation this process is not waiting on uses a new session
+ok 330 - cancel of an invocation this process is not waiting on uses a new session
+  ---
+  duration_ms: 0.986083
+  type: 'test'
+  ...
+# Subtest: invoke refuses bad arguments before attaching
+ok 331 - invoke refuses bad arguments before attaching
+  ---
+  duration_ms: 0.360166
+  type: 'test'
+  ...
+# Subtest: list: each page target's window, with its bounds and Phi tabIds
+ok 332 - list: each page target's window, with its bounds and Phi tabIds
+  ---
+  duration_ms: 7.7835
+  type: 'test'
+  ...
+# Subtest: list: a build without getWindowForTarget is browser_capability_unavailable
+ok 333 - list: a build without getWindowForTarget is browser_capability_unavailable
+  ---
+  duration_ms: 1.310375
+  type: 'test'
+  ...
+# Subtest: getBounds reads one window
+ok 334 - getBounds reads one window
+  ---
+  duration_ms: 0.590625
+  type: 'test'
+  ...
+# Subtest: setBounds refuses a state mixed with a position or size, and an empty change
+ok 335 - setBounds refuses a state mixed with a position or size, and an empty change
+  ---
+  duration_ms: 3.015042
+  type: 'test'
+  ...
+# Subtest: setBounds applies the change and returns the bounds read back
+ok 336 - setBounds applies the change and returns the bounds read back
+  ---
+  duration_ms: 0.249875
+  type: 'test'
+  ...
+# Subtest: bringToFront activates the tab's target; an unknown tab is resource_not_found
+ok 337 - bringToFront activates the tab's target; an unknown tab is resource_not_found
+  ---
+  duration_ms: 0.2215
+  type: 'test'
+  ...
+# [workspace] shadow-window read failed; hiding none Error: Unknown method agentSpace.shadow.list
+#     at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:129:13)
+#     at readHidden (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.ts:217:18)
+#     at listBrowserWorkspace (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.ts:56:24)
+#     at TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:125:27)
+#     at Test.runInAsyncScope (node:async_hooks:214:14)
+#     at Test.run (node:internal/test_runner/test:1047:25)
+#     at Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+#     at Test.postRun (node:internal/test_runner/test:1173:19)
+#     at Test.run (node:internal/test_runner/test:1101:12)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+# [workspace] skipping a window that failed its read {
+#   spaceId: 'S2',
+#   windowId: 9,
+#   error: Error: window 9 not found
+#       at Object.tabs.list (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:147:37)
+#       at listSpaceWindows (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/manage/snapshots.ts:143:28)
+#       at listBrowserWorkspace (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.ts:92:32)
+#       at async TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:151:21)
+#       at async Test.run (node:internal/test_runner/test:1054:7)
+#       at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+# }
+# [workspace] no favicons for a profile {
+#   profileId: 'Profile 15',
+#   error: Error: no extension could be woken
+#       at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:271:13)
+#       at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.ts:189:34)
+#       at Array.map (<anonymous>)
+#       at stampFavicons (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.ts:187:20)
+#       at listBrowserWorkspace (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.ts:153:9)
+#       at async TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-379-0f13bd12bad7/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:265:21)
+#       at async Test.run (node:internal/test_runner/test:1054:7)
+#       at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+# }
+# Subtest: every Space appears, and every open window contributes its tabs
+ok 338 - every Space appears, and every open window contributes its tabs
+  ---
+  duration_ms: 9.865084
+  type: 'test'
+  ...
+# Subtest: a Space with no open window is still listed but contributes no tab
+ok 339 - a Space with no open window is still listed but contributes no tab
+  ---
+  duration_ms: 0.202792
+  type: 'test'
+  ...
+# Subtest: the payload carries no field the wire contract does not declare
+ok 340 - the payload carries no field the wire contract does not declare
+  ---
+  duration_ms: 0.388333
+  type: 'test'
+  ...
+# Subtest: a shadow window is not the user's: its id and its tabs are left out
+ok 341 - a shadow window is not the user's: its id and its tabs are left out
+  ---
+  duration_ms: 0.171375
+  type: 'test'
+  ...
+# Subtest: a failed shadow-window read hides nothing
+ok 342 - a failed shadow-window read hides nothing
+  ---
+  duration_ms: 39.633
+  type: 'test'
+  ...
+# Subtest: a window that fails its read (it closed mid-listing) is skipped, not fatal
+ok 343 - a window that fails its read (it closed mid-listing) is skipped, not fatal
+  ---
+  duration_ms: 1.119
+  type: 'test'
+  ...
+# Subtest: an aborted listing still fails: skipping is for a vanished window, not for a cancel
+ok 344 - an aborted listing still fails: skipping is for a vanished window, not for a cancel
+  ---
+  duration_ms: 0.271666
+  type: 'test'
+  ...
+# Subtest: a window parked off screen is left out, whoever opened it
+ok 345 - a window parked off screen is left out, whoever opened it
+  ---
+  duration_ms: 0.168334
+  type: 'test'
+  ...
+# Subtest: a failed position probe hides nothing
+ok 346 - a failed position probe hides nothing
+  ---
+  duration_ms: 0.189792
+  type: 'test'
+  ...
+# Subtest: only a window parked far off screen counts as hidden
+ok 347 - only a window parked far off screen counts as hidden
+  ---
+  duration_ms: 0.230334
+  type: 'test'
+  ...
+# Subtest: each tab gets the icon its own profile holds, asked once per profile
+ok 348 - each tab gets the icon its own profile holds, asked once per profile
+  ---
+  duration_ms: 0.195583
+  type: 'test'
+  ...
+# Subtest: a profile that answers nothing leaves its tabs without icons
+ok 349 - a profile that answers nothing leaves its tabs without icons
+  ---
+  duration_ms: 0.224834
+  type: 'test'
+  ...
+# Subtest: every code the M2 live check observed maps to the code its call expected
+ok 350 - every code the M2 live check observed maps to the code its call expected
+  ---
+  duration_ms: 0.485208
+  type: 'test'
+  ...
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# Subtest: a live browser is reused, never re-launched
+ok 351 - a live browser is reused, never re-launched
+  ---
+  duration_ms: 0.838125
+  type: 'test'
+  ...
+# Subtest: a stale pointer file is not liveness — the dead socket is walked past and a browser is launched
+ok 352 - a stale pointer file is not liveness — the dead socket is walked past and a browser is launched
+  ---
+  duration_ms: 0.575
+  type: 'test'
+  ...
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer {
+#   channel: 'canary',
+#   outcome: 'unusable',
+#   error: 'Phi did not answer /json/version'
+# }
+# [browser-launcher] endpoint did not answer {
+#   channel: 'canary',
+#   outcome: 'unusable',
+#   error: 'Phi denied CDP access to this agent (403). Ask the user to allow it.'
+# }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer {
+#   channel: 'canary',
+#   outcome: 'unusable',
+#   error: 'consent prompt pending'
+# }
+# [browser-launcher] endpoint did not answer {
+#   channel: 'canary',
+#   outcome: 'unusable',
+#   error: 'consent prompt pending'
+# }
+# [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+# [browser-launcher] endpoint did not answer {
+#   channel: 'canary',
+#   outcome: 'unusable',
+#   error: 'Phi denied CDP access to this agent (403).'
+# }
+# [browser-launcher] endpoint did not answer {
+#   channel: 'canary',
+#   outcome: 'unusable',
+#   error: 'EACCES: permission denied, connect'
+# }
+# Subtest: concurrent acquires launch exactly ONE browser and share its endpoint
+ok 353 - concurrent acquires launch exactly ONE browser and share its endpoint
+  ---
+  duration_ms: 50.293
+  type: 'test'
+  ...
+# Subtest: a browser that never publishes an endpoint fails loudly instead of hanging the run
+ok 354 - a browser that never publishes an endpoint fails loudly instead of hanging the run
+  ---
+  duration_ms: 5.539875
+  type: 'test'
+  ...
+# Subtest: a missing executable says so rather than silently doing nothing
+ok 355 - a missing executable says so rather than silently doing nothing
+  ---
+  duration_ms: 0.147834
+  type: 'test'
+  ...
+# Subtest: a failed launch does not wedge the lock for the next caller
+ok 356 - a failed launch does not wedge the lock for the next caller
+  ---
+  duration_ms: 7.168333
+  type: 'test'
+  ...
+# Subtest: a browser still behind the consent prompt is NOT a cold start
+ok 357 - a browser still behind the consent prompt is NOT a cold start
+  ---
+  duration_ms: 1.047417
+  type: 'test'
+  ...
+# Subtest: a denied agent is reported with the denial, not worked around
+ok 358 - a denied agent is reported with the denial, not worked around
+  ---
+  duration_ms: 0.206459
+  type: 'test'
+  ...
+# Subtest: a browser WE launched is waited for while it sits behind its own prompt
+ok 359 - a browser WE launched is waited for while it sits behind its own prompt
+  ---
+  duration_ms: 0.409291
+  type: 'test'
+  ...
+# Subtest: a denial after our own launch fails fast instead of burning the whole budget
+ok 360 - a denial after our own launch fails fast instead of burning the whole budget
+  ---
+  duration_ms: 0.317584
+  type: 'test'
+  ...
+# Subtest: an error nobody recognises is NOT taken as a cold start
+ok 361 - an error nobody recognises is NOT taken as a cold start
+  ---
+  duration_ms: 0.08375
+  type: 'test'
+  ...
+# Subtest: an unpinned launcher inherits the agent's channel and refuses the other one
+ok 362 - an unpinned launcher inherits the agent's channel and refuses the other one
+  ---
+  duration_ms: 0.203917
+  type: 'test'
+  ...
+# Subtest: each method gets its L1 budget
+ok 363 - each method gets its L1 budget
+  ---
+  duration_ms: 0.621667
+  type: 'test'
+  ...
+# Subtest: no published endpoint is a disconnected browser, as a PhiCdpError coded browser_not_running
+ok 364 - no published endpoint is a disconnected browser, as a PhiCdpError coded browser_not_running
+  ---
+  duration_ms: 0.942375
+  type: 'test'
+  ...
+# Subtest: an endpoint whose socket nobody listens on is a crash leftover, coded browser_not_running
+ok 365 - an endpoint whose socket nobody listens on is a crash leftover, coded browser_not_running
+  ---
+  duration_ms: 8.126833
+  type: 'test'
+  ...
+# Subtest: a holder connects once, with its options, and hands every caller the same connection
+ok 366 - a holder connects once, with its options, and hands every caller the same connection
+  ---
+  duration_ms: 0.710708
+  type: 'test'
+  ...
+# Subtest: a connection that no longer reads as connected is replaced on the next get()
+ok 367 - a connection that no longer reads as connected is replaced on the next get()
+  ---
+  duration_ms: 0.168625
+  type: 'test'
+  ...
+# Subtest: a disconnect drops the held connection, so the next get() reconnects
+ok 368 - a disconnect drops the held connection, so the next get() reconnects
+  ---
+  duration_ms: 0.103834
+  type: 'test'
+  ...
+# Subtest: a failed connect is not remembered: the next get() tries again
+ok 369 - a failed connect is not remembered: the next get() tries again
+  ---
+  duration_ms: 0.136375
+  type: 'test'
+  ...
+# Subtest: until close(), a dead connection is still replaced; close() then closes the live one
+ok 370 - until close(), a dead connection is still replaced; close() then closes the live one
+  ---
+  duration_ms: 80.356791
+  type: 'test'
+  ...
+# Subtest: close() is terminal: every later get() rejects as a disconnected browser and nothing reconnects
+ok 371 - close() is terminal: every later get() rejects as a disconnected browser and nothing reconnects
+  ---
+  duration_ms: 0.324708
+  type: 'test'
+  ...
+# Subtest: close() is idempotent, and closing a holder that never connected opens nothing
+ok 372 - close() is idempotent, and closing a holder that never connected opens nothing
+  ---
+  duration_ms: 3.838292
+  type: 'test'
+  ...
+# Subtest: a connect still in flight when close() runs is closed as it lands, and its callers are rejected
+ok 373 - a connect still in flight when close() runs is closed as it lands, and its callers are rejected
+  ---
+  duration_ms: 1.10125
+  type: 'test'
+  ...
+# Subtest: two holders never share a connection, and closing one leaves the other open
+ok 374 - two holders never share a connection, and closing one leaves the other open
+  ---
+  duration_ms: 0.137375
+  type: 'test'
+  ...
+# Subtest: PHI_CDP_DIAG turns the trace on
+ok 375 - PHI_CDP_DIAG turns the trace on
+  ---
+  duration_ms: 0.436292
+  type: 'test'
+  ...
+# Subtest: SONIC_DIAG still turns it on when PHI_CDP_DIAG says nothing
+ok 376 - SONIC_DIAG still turns it on when PHI_CDP_DIAG says nothing
+  ---
+  duration_ms: 0.071459
+  type: 'test'
+  ...
+# Subtest: PHI_CDP_DIAG wins over SONIC_DIAG when both are set
+ok 377 - PHI_CDP_DIAG wins over SONIC_DIAG when both are set
+  ---
+  duration_ms: 0.056792
+  type: 'test'
+  ...
+# Subtest: off by default
+ok 378 - off by default
+  ---
+  duration_ms: 0.103834
+  type: 'test'
+  ...
+# Subtest: a line is one JSON object behind the [phi-cdp/diag] prefix
+ok 379 - a line is one JSON object behind the [phi-cdp/diag] prefix
+  ---
+  duration_ms: 1.672375
+  type: 'test'
+  ...
+# Subtest: nothing is written while the trace is off
+ok 380 - nothing is written while the trace is off
+  ---
+  duration_ms: 0.46575
+  type: 'test'
+  ...
+# Subtest: readDialogState asks the browser session about one target, with a 5s budget
+ok 381 - readDialogState asks the browser session about one target, with a 5s budget
+  ---
+  duration_ms: 0.6495
+  type: 'test'
+  ...
+# Subtest: readDialogState reads an empty reply as no dialog
+ok 382 - readDialogState reads an empty reply as no dialog
+  ---
+  duration_ms: 0.058167
+  type: 'test'
+  ...
+# Subtest: readDialogState throws when the browser cannot answer
+ok 383 - readDialogState throws when the browser cannot answer
+  ---
+  duration_ms: 0.194292
+  type: 'test'
+  ...
+# Subtest: handleJavaScriptDialog closes the dialog from the browser process, with an 8s budget
+ok 384 - handleJavaScriptDialog closes the dialog from the browser process, with an 8s budget
+  ---
+  duration_ms: 0.106042
+  type: 'test'
+  ...
+# Subtest: handleJavaScriptDialog throws when the browser refuses
+ok 385 - handleJavaScriptDialog throws when the browser refuses
+  ---
+  duration_ms: 0.06475
+  type: 'test'
+  ...
+# Subtest: a browser sitting behind the consent prompt reads as a timeout, not as absent
+ok 386 - a browser sitting behind the consent prompt reads as a timeout, not as absent
+  ---
+  duration_ms: 119.568208
+  type: 'test'
+  ...
+# Subtest: a denied agent reads as a browser that is running and refusing
+ok 387 - a denied agent reads as a browser that is running and refusing
+  ---
+  duration_ms: 6.419917
+  type: 'test'
+  ...
+# Subtest: no endpoint on the pinned channel is a browser that is not running, even with the other channel live
+ok 388 - no endpoint on the pinned channel is a browser that is not running, even with the other channel live
+  ---
+  duration_ms: 0.389334
+  type: 'test'
+  ...
+# Subtest: carries its kind and message, and is an Error
+ok 389 - carries its kind and message, and is an Error
+  ---
+  duration_ms: 1.370125
+  type: 'test'
+  ...
+# Subtest: every kind is spelled exactly as sonic's step error kind
+ok 390 - every kind is spelled exactly as sonic's step error kind
+  ---
+  duration_ms: 0.883208
+  type: 'test'
+  ...
+# Subtest: a normalized code and the browser's own code ride along only when given
+ok 391 - a normalized code and the browser's own code ride along only when given
+  ---
+  duration_ms: 0.103291
+  type: 'test'
+  ...
+# Subtest: english fills placeholders, renders nested messages first, and leaves a missing value visible
+ok 392 - english fills placeholders, renders nested messages first, and leaves a missing value visible
+  ---
+  duration_ms: 0.387333
+  type: 'test'
+  ...
+# Subtest: the catalog can become the Sidecar's nested JSON as it is
+ok 393 - the catalog can become the Sidecar's nested JSON as it is
+  ---
+  duration_ms: 23.189417
+  type: 'test'
+  ...
+# Subtest: the Sidecar's English catalog is this catalog, key for key
+ok 394 - the Sidecar's English catalog is this catalog, key for key
+  ---
+  duration_ms: 1.825959
+  type: 'test'
+  ...
+# Subtest: a deleted bookmark comes back where it was; the restore is recorded and marks the original
+ok 395 - a deleted bookmark comes back where it was; the restore is recorded and marks the original
+  ---
+  duration_ms: 31.034625
+  type: 'test'
+  ...
+# Subtest: a deleted folder comes back with its whole subtree; every new guid is mapped
+ok 396 - a deleted folder comes back with its whole subtree; every new guid is mapped
+  ---
+  duration_ms: 0.645875
+  type: 'test'
+  ...
+# Subtest: undoing a restore removes what it brought back, found through the id map
+ok 397 - undoing a restore removes what it brought back, found through the id map
+  ---
+  duration_ms: 0.651958
+  type: 'test'
+  ...
+# Subtest: a re-added duplicate: merge keeps the existing one, overwrite adds another
+ok 398 - a re-added duplicate: merge keeps the existing one, overwrite adds another
+  ---
+  duration_ms: 0.746792
+  type: 'test'
+  ...
+# Subtest: changed again since: overwrite restores every field, merge only the untouched ones, keep current abandons
+ok 399 - changed again since: overwrite restores every field, merge only the untouched ones, keep current abandons
+  ---
+  duration_ms: 42.021417
+  type: 'test'
+  ...
+# Subtest: its folders gone: overwrite rebuilds the path by title and place, merge uses a same-named folder
+ok 400 - its folders gone: overwrite rebuilds the path by title and place, merge uses a same-named folder
+  ---
+  duration_ms: 1.427084
+  type: 'test'
+  ...
+# Subtest: undoing a move whose folder is gone since rebuilds that folder
+ok 401 - undoing a move whose folder is gone since rebuilds that folder
+  ---
+  duration_ms: 1.066417
+  type: 'test'
+  ...
+# Subtest: its Space gone: no card, the record becomes unrestorable
+ok 402 - its Space gone: no card, the record becomes unrestorable
+  ---
+  duration_ms: 2.505
+  type: 'test'
+  ...
+# Subtest: a restore is refused in a task run, and a no changes nothing
+ok 403 - a restore is refused in a task run, and a no changes nothing
+  ---
+  duration_ms: 15.072458
+  type: 'test'
+  ...
+# Subtest: the restore card names the change by the record's summary message, so it reads in the user's language
+ok 404 - the restore card names the change by the record's summary message, so it reads in the user's language
+  ---
+  duration_ms: 20.03825
+  type: 'test'
+  ...
+# Subtest: URL rules: a delete is added back; an edit is found by content though every id changed
+ok 405 - URL rules: a delete is added back; an edit is found by content though every id changed
+  ---
+  duration_ms: 30.40175
+  type: 'test'
+  ...
+# Subtest: pinned tab: merge keeps the user's new title and restores the URL
+ok 406 - pinned tab: merge keeps the user's new title and restores the URL
+  ---
+  duration_ms: 0.914
+  type: 'test'
+  ...
+# Subtest: a closed tab reopens by URL and rejoins its group
+ok 407 - a closed tab reopens by URL and rejoins its group
+  ---
+  duration_ms: 14.938
+  type: 'test'
+  ...
+# Subtest: a closed tab whose window is gone: overwrite reopens it in the Space's current window
+ok 408 - a closed tab whose window is gone: overwrite reopens it in the Space's current window
+  ---
+  duration_ms: 2.574916
+  type: 'test'
+  ...
+# Subtest: a closed tab group comes back with its tabs; undoing that closes it again
+ok 409 - a closed tab group comes back with its tabs; undoing that closes it again
+  ---
+  duration_ms: 17.613583
+  type: 'test'
+  ...
+# Subtest: an ungrouped group is regrouped from its tabs, which stayed open
+ok 410 - an ungrouped group is regrouped from its tabs, which stayed open
+  ---
+  duration_ms: 1.481875
+  type: 'test'
+  ...
+# Subtest: group edits and membership changes go back
+ok 411 - group edits and membership changes go back
+  ---
+  duration_ms: 2.236167
+  type: 'test'
+  ...
+# Subtest: split view: an end is undone with the same tabs; a swap is swapped back
+ok 412 - split view: an end is undone with the same tabs; a swap is swapped back
+  ---
+  duration_ms: 0.836375
+  type: 'test'
+  ...
+# Subtest: undoing a folder restore keeps what the user filed in it since
+ok 413 - undoing a folder restore keeps what the user filed in it since
+  ---
+  duration_ms: 1.104
+  type: 'test'
+  ...
+# Subtest: overwrite still takes the whole folder back
+ok 414 - overwrite still takes the whole folder back
+  ---
+  duration_ms: 0.501417
+  type: 'test'
+  ...
+# Subtest: a rule moved to another Space is moved back
+ok 415 - a rule moved to another Space is moved back
+  ---
+  duration_ms: 0.325708
+  type: 'test'
+  ...
+# Subtest: merging a tab-group restore puts back what the operation removed and keeps what the user added
+ok 416 - merging a tab-group restore puts back what the operation removed and keeps what the user added
+  ---
+  duration_ms: 0.358208
+  type: 'test'
+  ...
+# Subtest: merging a rename does not drag back a tab the user moved out since
+ok 417 - merging a rename does not drag back a tab the user moved out since
+  ---
+  duration_ms: 0.48025
+  type: 'test'
+  ...
+# Subtest: undoing a closed-group restore keeps a tab the user moved in since
+ok 418 - undoing a closed-group restore keeps a tab the user moved in since
+  ---
+  duration_ms: 0.43375
+  type: 'test'
+  ...
+# Subtest: overwrite still closes the whole restored group
+ok 419 - overwrite still closes the whole restored group
+  ---
+  duration_ms: 102.399917
+  type: 'test'
+  ...
+# Subtest: undoing a closed tab's restore says so when the user navigated it since
+ok 420 - undoing a closed tab's restore says so when the user navigated it since
+  ---
+  duration_ms: 6.460417
+  type: 'test'
+  ...
+# Subtest: undoing a deleted rule's restore says so when the user changed it since
+ok 421 - undoing a deleted rule's restore says so when the user changed it since
+  ---
+  duration_ms: 0.30375
+  type: 'test'
+  ...
+# Subtest: undoing a removed pin's restore says so when the user retitled it since
+ok 422 - undoing a removed pin's restore says so when the user retitled it since
+  ---
+  duration_ms: 0.311375
+  type: 'test'
+  ...
+# Subtest: overwrite still undoes a restore whatever changed since
+ok 423 - overwrite still undoes a restore whatever changed since
+  ---
+  duration_ms: 22.984084
+  type: 'test'
+  ...
+# Subtest: undoing a group restore keeps a member the user navigated elsewhere
+ok 424 - undoing a group restore keeps a member the user navigated elsewhere
+  ---
+  duration_ms: 0.594667
+  type: 'test'
+  ...
+# Subtest: undoing a folder restore keeps a bookmark the user retitled
+ok 425 - undoing a folder restore keeps a bookmark the user retitled
+  ---
+  duration_ms: 0.836958
+  type: 'test'
+  ...
+# Subtest: undoing a single bookmark's restore keeps it when the user edited it
+ok 426 - undoing a single bookmark's restore keeps it when the user edited it
+  ---
+  duration_ms: 0.53225
+  type: 'test'
+  ...
+# [phi-cdp] manage: reading back after a write failed { operation: 'bookmarks.update', error: 'slow' }
+# [phi-cdp] manage: keeping the change record failed { operation: 'bookmarks.update', error: 'db down' }
+# Subtest: every management method phi-cdp exposes is classified, and nothing else
+ok 427 - every management method phi-cdp exposes is classified, and nothing else
+  ---
+  duration_ms: 1.218333
+  type: 'test'
+  ...
+# Subtest: reads pass straight through, with no card
+ok 428 - reads pass straight through, with no card
+  ---
+  duration_ms: 55.932
+  type: 'test'
+  ...
+# Subtest: a task run can read but not create, switch, modify or delete
+ok 429 - a task run can read but not create, switch, modify or delete
+  ---
+  duration_ms: 3.544125
+  type: 'test'
+  ...
+# Subtest: deleting a folder asks first (high risk, counts inside), then records the subtree
+ok 430 - deleting a folder asks first (high risk, counts inside), then records the subtree
+  ---
+  duration_ms: 11.313917
+  type: 'test'
+  ...
+# Subtest: the card carries catalog messages for the user's language beside the English
+ok 431 - the card carries catalog messages for the user's language beside the English
+  ---
+  duration_ms: 0.587625
+  type: 'test'
+  ...
+# Subtest: a refusal, a timeout or nobody to ask changes nothing and records nothing
+ok 432 - a refusal, a timeout or nobody to ask changes nothing and records nothing
+  ---
+  duration_ms: 1.25925
+  type: 'test'
+  ...
+# Subtest: a resource that does not exist is resource_not_found, without a card
+ok 433 - a resource that does not exist is resource_not_found, without a card
+  ---
+  duration_ms: 0.317875
+  type: 'test'
+  ...
+# Subtest: a rule rewrite is read back by content, under its new id
+ok 434 - a rule rewrite is read back by content, under its new id
+  ---
+  duration_ms: 0.339625
+  type: 'test'
+  ...
+# Subtest: a failed read-back records after as unknown; a failed record still reports success
+ok 435 - a failed read-back records after as unknown; a failed record still reports success
+  ---
+  duration_ms: 1.153166
+  type: 'test'
+  ...
+# Subtest: Spaces, profiles and downloads are confirmed but never recorded
+ok 436 - Spaces, profiles and downloads are confirmed but never recorded
+  ---
+  duration_ms: 0.398459
+  type: 'test'
+  ...
+# Subtest: a phi-cdp failure keeps its code
+ok 437 - a phi-cdp failure keeps its code
+  ---
+  duration_ms: 52.231167
+  type: 'test'
+  ...
+# Subtest: deleting a Space asks three ways, with counts; export-then-delete returns the export
+ok 438 - deleting a Space asks three ways, with counts; export-then-delete returns the export
+  ---
+  duration_ms: 45.885291
+  type: 'test'
+  ...
+# Subtest: a Space is not deleted when its export cannot be saved
+ok 439 - a Space is not deleted when its export cannot be saved
+  ---
+  duration_ms: 18.543167
+  type: 'test'
+  ...
+# Subtest: deleting a Space without export returns none; cancel deletes nothing
+ok 440 - deleting a Space without export returns none; cancel deletes nothing
+  ---
+  duration_ms: 2.335625
+  type: 'test'
+  ...
+# Subtest: spaces.export is a read and works in a task run
+ok 441 - spaces.export is a read and works in a task run
+  ---
+  duration_ms: 1.032542
+  type: 'test'
+  ...
+# Subtest: changes.list and changes.show read the user's records
+ok 442 - changes.list and changes.show read the user's records
+  ---
+  duration_ms: 2.123459
+  type: 'test'
+  ...
+# Subtest: a bookmark with no Space of its own goes to the one the user is in
+ok 443 - a bookmark with no Space of its own goes to the one the user is in
+  ---
+  duration_ms: 1.046083
+  type: 'test'
+  ...
+# Subtest: a Space the caller named beats the run's window
+ok 444 - a Space the caller named beats the run's window
+  ---
+  duration_ms: 1.573125
+  type: 'test'
+  ...
+# Subtest: a run with no window leaves the browser's own default alone
+ok 445 - a run with no window leaves the browser's own default alone
+  ---
+  duration_ms: 0.190875
+  type: 'test'
+  ...
+# Subtest: a deferred run asks for its Space when a bookmark needs one
+ok 446 - a deferred run asks for its Space when a bookmark needs one
+  ---
+  duration_ms: 0.193375
+  type: 'test'
+  ...
+# Subtest: a deferred run does not ask when the call names its own Space
+ok 447 - a deferred run does not ask when the call names its own Space
+  ---
+  duration_ms: 0.211
+  type: 'test'
+  ...
+# Subtest: creating a Space never asks where the run works
+ok 448 - creating a Space never asks where the run works
+  ---
+  duration_ms: 0.137708
+  type: 'test'
+  ...
+# Subtest: a person declining the deferred question refuses the call
+ok 449 - a person declining the deferred question refuses the call
+  ---
+  duration_ms: 0.159625
+  type: 'test'
+  ...
+# Subtest: nobody to ask leaves the browser's own default, as before
+ok 450 - nobody to ask leaves the browser's own default, as before
+  ---
+  duration_ms: 0.208041
+  type: 'test'
+  ...
+# Subtest: a pin with no profile of its own goes to the user's
+ok 451 - a pin with no profile of its own goes to the user's
+  ---
+  duration_ms: 0.180666
+  type: 'test'
+  ...
+# Subtest: a pin of another profile is still found: only a destination is filled in
+ok 452 - a pin of another profile is still found: only a destination is filled in
+  ---
+  duration_ms: 0.317125
+  type: 'test'
+  ...
+# Subtest: a card says so when what it changes is in another Space
+ok 453 - a card says so when what it changes is in another Space
+  ---
+  duration_ms: 0.230583
+  type: 'test'
+  ...
+# Subtest: and says nothing when it is the Space in front of the user
+ok 454 - and says nothing when it is the Space in front of the user
+  ---
+  duration_ms: 0.183416
+  type: 'test'
+  ...
+# Subtest: a confined chat cannot read another Space's bookmarks, and the standalone application can
+ok 455 - a confined chat cannot read another Space's bookmarks, and the standalone application can
+  ---
+  duration_ms: 82.908959
+  type: 'test'
+  ...
+# Subtest: what a guid names is read before it is judged: another Space's bookmark is refused, and no card is shown
+ok 456 - what a guid names is read before it is judged: another Space's bookmark is refused, and no card is shown
+  ---
+  duration_ms: 0.444583
+  type: 'test'
+  ...
+# Subtest: a tab of another Space cannot be reached by its id
+ok 457 - a tab of another Space cannot be reached by its id
+  ---
+  duration_ms: 0.254667
+  type: 'test'
+  ...
+# Subtest: the Space's tabs are the union over its windows, read without hunting for each tab
+ok 458 - the Space's tabs are the union over its windows, read without hunting for each tab
+  ---
+  duration_ms: 0.154708
+  type: 'test'
+  ...
+# Subtest: a tab in this Space's OTHER window is the user's own, and is not refused
+ok 459 - a tab in this Space's OTHER window is the user's own, and is not refused
+  ---
+  duration_ms: 0.273291
+  type: 'test'
+  ...
+# Subtest: a tab id the browser knows nothing about is left to the browser
+ok 460 - a tab id the browser knows nothing about is left to the browser
+  ---
+  duration_ms: 0.263125
+  type: 'test'
+  ...
+# Subtest: a confined chat still manages Spaces and profiles themselves
+ok 461 - a confined chat still manages Spaces and profiles themselves
+  ---
+  duration_ms: 0.17575
+  type: 'test'
+  ...
+# Subtest: a confined chat whose window shows no Space is refused rather than sent to the browser's default
+ok 462 - a confined chat whose window shows no Space is refused rather than sent to the browser's default
+  ---
+  duration_ms: 0.144333
+  type: 'test'
+  ...
+# Subtest: undoing a change made in another Space is refused; seeing it is not
+ok 463 - undoing a change made in another Space is refused; seeing it is not
+  ---
+  duration_ms: 0.275292
+  type: 'test'
+  ...
+# Subtest: another profile's pinned tab is refused although it names no Space
+ok 464 - another profile's pinned tab is refused although it names no Space
+  ---
+  duration_ms: 0.29925
+  type: 'test'
+  ...
+# Subtest: undoing another profile's change is refused too
+ok 465 - undoing another profile's change is refused too
+  ---
+  duration_ms: 0.16
+  type: 'test'
+  ...
+# Subtest: a folder in another Space cannot be the destination either
+ok 466 - a folder in another Space cannot be the destination either
+  ---
+  duration_ms: 0.295
+  type: 'test'
+  ...
+# Subtest: a change listing is a summary, newest first, and only as many as asked for
+ok 467 - a change listing is a summary, newest first, and only as many as asked for
+  ---
+  duration_ms: 0.238125
+  type: 'test'
+  ...
+# Subtest: tabs.open refuses anything but a website, before the browser is asked
+ok 468 - tabs.open refuses anything but a website, before the browser is asked
+  ---
+  duration_ms: 0.208875
+  type: 'test'
+  ...
+# Subtest: a call naming only a Space is answered by a visible window of it
+ok 469 - a call naming only a Space is answered by a visible window of it
+  ---
+  duration_ms: 0.168625
+  type: 'test'
+  ...
+# Subtest: the run's own window is used when it shows that Space and is visible
+ok 470 - the run's own window is used when it shows that Space and is visible
+  ---
+  duration_ms: 32.168458
+  type: 'test'
+  ...
+# Subtest: a window the model named itself is left alone
+ok 471 - a window the model named itself is left alone
+  ---
+  duration_ms: 5.931417
+  type: 'test'
+  ...
+# Subtest: spaces.list never shows the model a hidden window
+ok 472 - spaces.list never shows the model a hidden window
+  ---
+  duration_ms: 0.28125
+  type: 'test'
+  ...
+# Subtest: a hidden window named explicitly is replaced by a visible one
+ok 473 - a hidden window named explicitly is replaced by a visible one
+  ---
+  duration_ms: 0.179458
+  type: 'test'
+  ...
+# Subtest: listSpaceWindows asks each open window in turn, scoped to that window
+ok 474 - listSpaceWindows asks each open window in turn, scoped to that window
+  ---
+  duration_ms: 2.261792
+  type: 'test'
+  ...
+# Subtest: a Space with no open window asks the browser nothing and yields nothing
+ok 475 - a Space with no open window asks the browser nothing and yields nothing
+  ---
+  duration_ms: 1.212459
+  type: 'test'
+  ...
+# Subtest: page and history reads pass through, in a task run too
+ok 476 - page and history reads pass through, in a task run too
+  ---
+  duration_ms: 4.656542
+  type: 'test'
+  ...
+# Subtest: reading cookies asks first; the card says whether values go to the AI
+ok 477 - reading cookies asks first; the card says whether values go to the AI
+  ---
+  duration_ms: 5.178708
+  type: 'test'
+  ...
+# Subtest: a confirmed read is refused in a task run, without asking
+ok 478 - a confirmed read is refused in a task run, without asking
+  ---
+  duration_ms: 0.337917
+  type: 'test'
+  ...
+# Subtest: clearing a site's data is high risk; a no leaves it alone
+ok 479 - clearing a site's data is high risk; a no leaves it alone
+  ---
+  duration_ms: 0.289916
+  type: 'test'
+  ...
+# Subtest: resizing asks, bringing a window to the front does not
+ok 480 - resizing asks, bringing a window to the front does not
+  ---
+  duration_ms: 0.264542
+  type: 'test'
+  ...
+# Subtest: emulation is owned by the run: set / list / clear pass the run id; releaseRun clears it
+ok 481 - emulation is owned by the run: set / list / clear pass the run id; releaseRun clears it
+  ---
+  duration_ms: 26.793334
+  type: 'test'
+  ...
+# Subtest: releaseRun never throws
+ok 482 - releaseRun never throws
+  ---
+  duration_ms: 1.71025
+  type: 'test'
+  ...
+# Subtest: raw.send: a read runs, a modify asks with the tab's title, a denied method reaches phi-cdp
+ok 483 - raw.send: a read runs, a modify asks with the tab's title, a denied method reaches phi-cdp
+  ---
+  duration_ms: 32.300417
+  type: 'test'
+  ...
+# Subtest: without the standard namespaces the calls say so
+ok 484 - without the standard namespaces the calls say so
+  ---
+  duration_ms: 0.375791
+  type: 'test'
+  ...
+# Subtest: browsing history without a profile of its own is read from the user's own
+ok 485 - browsing history without a profile of its own is read from the user's own
+  ---
+  duration_ms: 1.299583
+  type: 'test'
+  ...
+# Subtest: another profile's history is refused a confined chat
+ok 486 - another profile's history is refused a confined chat
+  ---
+  duration_ms: 3.920042
+  type: 'test'
+  ...
+# Subtest: a page call on a tab of another Space is refused before anything is sent
+ok 487 - a page call on a tab of another Space is refused before anything is sent
+  ---
+  duration_ms: 4.393
+  type: 'test'
+  ...
+# Subtest: a CDP window id is resolved to its tabs before it is judged
+ok 488 - a CDP window id is resolved to its tabs before it is judged
+  ---
+  duration_ms: 1.615333
+  type: 'test'
+  ...
+# Subtest: a picked Space fills in the profile, with no window anywhere
+ok 489 - a picked Space fills in the profile, with no window anywhere
+  ---
+  duration_ms: 0.223666
+  type: 'test'
+  ...
+# Subtest: a picked Space wins over a window showing another one
+ok 490 - a picked Space wins over a window showing another one
+  ---
+  duration_ms: 0.149292
+  type: 'test'
+  ...
+# Subtest: an explicit profile still beats both
+ok 491 - an explicit profile still beats both
+  ---
+  duration_ms: 0.143375
+  type: 'test'
+  ...
+# Subtest: a tabId answers the same question, so no profile is filled in
+ok 492 - a tabId answers the same question, so no profile is filled in
+  ---
+  duration_ms: 0.118875
+  type: 'test'
+  ...
+# Subtest: a published endpoint on the asked-for channel counts
+ok 493 - a published endpoint on the asked-for channel counts
+  ---
+  duration_ms: 5.497958
+  type: 'test'
+  ...
+# Subtest: an endpoint on another channel does not count
+ok 494 - an endpoint on another channel does not count
+  ---
+  duration_ms: 0.556542
+  type: 'test'
+  ...
+# Subtest: a pointer whose socket is gone does not count
+ok 495 - a pointer whose socket is gone does not count
+  ---
+  duration_ms: 1.396333
+  type: 'test'
+  ...
+# Subtest: with no channel given, the agent's own pinned channel is asked about
+ok 496 - with no channel given, the agent's own pinned channel is asked about
+  ---
+  duration_ms: 1.611666
+  type: 'test'
+  ...
+# Subtest: mapBrowserErrorCode: exact matches, then the resource-gone shapes
+ok 497 - mapBrowserErrorCode: exact matches, then the resource-gone shapes
+  ---
+  duration_ms: 0.576416
+  type: 'test'
+  ...
+# Subtest: callPrivate returns a successful reply untouched
+ok 498 - callPrivate returns a successful reply untouched
+  ---
+  duration_ms: 0.534042
+  type: 'test'
+  ...
+# Subtest: callPrivate treats a reply without `ok` as a success
+ok 499 - callPrivate treats a reply without `ok` as a success
+  ---
+  duration_ms: 0.071459
+  type: 'test'
+  ...
+# Subtest: callPrivate turns {ok:false} into a coded PhiCdpError
+ok 500 - callPrivate turns {ok:false} into a coded PhiCdpError
+  ---
+  duration_ms: 0.251709
+  type: 'test'
+  ...
+# Subtest: callPrivate: {ok:false} without an error string is browser_error
+ok 501 - callPrivate: {ok:false} without an error string is browser_error
+  ---
+  duration_ms: 0.080291
+  type: 'test'
+  ...
+# (node:75409) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: callPrivate forwards timeoutMs and the signal
+ok 502 - callPrivate forwards timeoutMs and the signal
+  ---
+  duration_ms: 91.604792
+  type: 'test'
+  ...
+# Subtest: phiCdpErrorCode prefers the code, then derives one from the kind
+ok 503 - phiCdpErrorCode prefers the code, then derives one from the kind
+  ---
+  duration_ms: 0.508959
+  type: 'test'
+  ...
+# Subtest: CapabilityProbe caches an answering domain per connection object
+ok 504 - CapabilityProbe caches an answering domain per connection object
+  ---
+  duration_ms: 1.956375
+  type: 'test'
+  ...
+# Subtest: CapabilityProbe: a refusal still proves the domain exists
+ok 505 - CapabilityProbe: a refusal still proves the domain exists
+  ---
+  duration_ms: 3.271041
+  type: 'test'
+  ...
+# Subtest: CapabilityProbe: silence is browser_capability_unavailable and is not cached
+ok 506 - CapabilityProbe: silence is browser_capability_unavailable and is not cached
+  ---
+  duration_ms: 10.507209
+  type: 'test'
+  ...
+# Subtest: CapabilityProbe rethrows an abort unchanged
+ok 507 - CapabilityProbe rethrows an abort unchanged
+  ---
+  duration_ms: 0.129792
+  type: 'test'
+  ...
+# Subtest: the service exposes the standard-CDP namespaces, exactly
+ok 508 - the service exposes the standard-CDP namespaces, exactly
+  ---
+  duration_ms: 19.2095
+  type: 'test'
+  ...
+# Subtest: two services never share an emulation registry
+ok 509 - two services never share an emulation registry
+  ---
+  duration_ms: 1.299042
+  type: 'test'
+  ...
+# Subtest: connection() hands back what the connector produced, and hasEndpoint() never connects
+ok 510 - connection() hands back what the connector produced, and hasEndpoint() never connects
+  ---
+  duration_ms: 1.258875
+  type: 'test'
+  ...
+# Subtest: building the service opens nothing
+ok 511 - building the service opens nothing
+  ---
+  duration_ms: 0.209166
+  type: 'test'
+  ...
+# Subtest: close() is terminal: the service closes the connection it owns, and connection() then rejects without connecting
+ok 512 - close() is terminal: the service closes the connection it owns, and connection() then rejects without connecting
+  ---
+  duration_ms: 73.199334
+  type: 'test'
+  ...
+# Subtest: close() leaves a connection from an injected connector alone, and still ends the service
+ok 513 - close() leaves a connection from an injected connector alone, and still ends the service
+  ---
+  duration_ms: 0.391791
+  type: 'test'
+  ...
+# Subtest: two services built with injected connectors never hand out each other's connection
+ok 514 - two services built with injected connectors never hand out each other's connection
+  ---
+  duration_ms: 0.239042
+  type: 'test'
+  ...
+# Subtest: the default connection goes through discovery on the agent's pinned channel
+ok 515 - the default connection goes through discovery on the agent's pinned channel
+  ---
+  duration_ms: 0.307
+  type: 'test'
+  ...
+# Subtest: each default service holds its own connection: concurrent callers share one attempt, another service makes its own
+ok 516 - each default service holds its own connection: concurrent callers share one attempt, another service makes its own
+  ---
+  duration_ms: 42.841542
+  type: 'test'
+  ...
+# Subtest: the default endpoint check reads the pinned channel from the filesystem
+ok 517 - the default endpoint check reads the pinned channel from the filesystem
+  ---
+  duration_ms: 0.228167
+  type: 'test'
+  ...
+# Subtest: one launcher per service, so every caller shares its launch lock
+ok 518 - one launcher per service, so every caller shares its launch lock
+  ---
+  duration_ms: 0.643583
+  type: 'test'
+  ...
+# Subtest: createTabIndex builds a tab index on the connection it is given
+ok 519 - createTabIndex builds a tab index on the connection it is given
+  ---
+  duration_ms: 0.411209
+  type: 'test'
+  ...
+# Subtest: createShadowWindows and createTabGroups speak the private channel of the connection they are given
+ok 520 - createShadowWindows and createTabGroups speak the private channel of the connection they are given
+  ---
+  duration_ms: 0.429833
+  type: 'test'
+  ...
+# Subtest: the stateless capabilities are the modules' own functions
+ok 521 - the stateless capabilities are the modules' own functions
+  ---
+  duration_ms: 0.110042
+  type: 'test'
+  ...
+# Subtest: the management namespaces ride the service's own connection, probe included
+ok 522 - the management namespaces ride the service's own connection, probe included
+  ---
+  duration_ms: 0.489542
+  type: 'test'
+  ...
+# Subtest: after close() a management call rejects as a disconnected browser and connects nothing
+ok 523 - after close() a management call rejects as a disconnected browser and connects nothing
+  ---
+  duration_ms: 1.044333
+  type: 'test'
+  ...
+# Subtest: the management namespaces sit beside every M1 member and replace none
+ok 524 - the management namespaces sit beside every M1 member and replace none
+  ---
+  duration_ms: 0.14175
+  type: 'test'
+  ...
+# Subtest: all nine management namespaces are on the service, each with its methods
+ok 525 - all nine management namespaces are on the service, each with its methods
+  ---
+  duration_ms: 0.160292
+  type: 'test'
+  ...
+# Subtest: M2-B's namespaces ride the service's connection: bookmarks probed, tabs closed through the tab index
+ok 526 - M2-B's namespaces ride the service's connection: bookmarks probed, tabs closed through the tab index
+  ---
+  duration_ms: 0.437625
+  type: 'test'
+  ...
+# Subtest: after close() M2-B's namespaces reject as a disconnected browser too
+ok 527 - after close() M2-B's namespaces reject as a disconnected browser too
+  ---
+  duration_ms: 51.942417
+  type: 'test'
+  ...
+# Subtest: the standard-CDP APIs ride the service's own connection
+ok 528 - the standard-CDP APIs ride the service's own connection
+  ---
+  duration_ms: 0.64975
+  type: 'test'
+  ...
+# Subtest: after close() the standard-CDP APIs refuse like the connection
+ok 529 - after close() the standard-CDP APIs refuse like the connection
+  ---
+  duration_ms: 0.140959
+  type: 'test'
+  ...
+# Subtest: create sends taskId + profileId and returns the windowId
+ok 530 - create sends taskId + profileId and returns the windowId
+  ---
+  duration_ms: 0.702
+  type: 'test'
+  ...
+# Subtest: create surfaces the wire error code verbatim
+ok 531 - create surfaces the wire error code verbatim
+  ---
+  duration_ms: 0.213292
+  type: 'test'
+  ...
+# Subtest: create rejects when the reply carries no windowId
+ok 532 - create rejects when the reply carries no windowId
+  ---
+  duration_ms: 0.067292
+  type: 'test'
+  ...
+# Subtest: openTab sends taskId + url
+ok 533 - openTab sends taskId + url
+  ---
+  duration_ms: 0.053208
+  type: 'test'
+  ...
+# Subtest: list maps the shadows array
+ok 534 - list maps the shadows array
+  ---
+  duration_ms: 0.1835
+  type: 'test'
+  ...
+# Subtest: list returns an empty array when the reply has no shadows
+ok 535 - list returns an empty array when the reply has no shadows
+  ---
+  duration_ms: 0.043584
+  type: 'test'
+  ...
+# Subtest: list skips malformed rows rather than throwing
+ok 536 - list skips malformed rows rather than throwing
+  ---
+  duration_ms: 0.079375
+  type: 'test'
+  ...
+# Subtest: close sends the taskId
+ok 537 - close sends the taskId
+  ---
+  duration_ms: 0.048416
+  type: 'test'
+  ...
+# Subtest: ping omits ttlSeconds unless supplied, and clamps it to the 3600 ceiling
+ok 538 - ping omits ttlSeconds unless supplied, and clamps it to the 3600 ceiling
+  ---
+  duration_ms: 0.297083
+  type: 'test'
+  ...
+# Subtest: an incognito window is only trusted when the browser echoes it back
+ok 539 - an incognito window is only trusted when the browser echoes it back
+  ---
+  duration_ms: 0.245667
+  type: 'test'
+  ...
+# Subtest: a build that ignores `incognito` gets the window CLOSED and the call refused
+ok 540 - a build that ignores `incognito` gets the window CLOSED and the call refused
+  ---
+  duration_ms: 36.615708
+  type: 'test'
+  ...
+# Subtest: a window that never asked for incognito needs no echo
+ok 541 - a window that never asked for incognito needs no echo
+  ---
+  duration_ms: 0.070458
+  type: 'test'
+  ...
+# Subtest: resolves after the delay when nothing aborts it
+ok 542 - resolves after the delay when nothing aborts it
+  ---
+  duration_ms: 1.251875
+  type: 'test'
+  ...
+# Subtest: an already-aborted signal rejects at once, as an aborted PhiCdpError
+ok 543 - an already-aborted signal rejects at once, as an aborted PhiCdpError
+  ---
+  duration_ms: 0.232
+  type: 'test'
+  ...
+# Subtest: an abort mid-sleep rejects without waiting the delay out
+ok 544 - an abort mid-sleep rejects without waiting the delay out
+  ---
+  duration_ms: 0.097375
+  type: 'test'
+  ...
+# Subtest: resolves the tab, attaches flat, runs the body on its session, detaches
+ok 545 - resolves the tab, attaches flat, runs the body on its session, detaches
+  ---
+  duration_ms: 15.020166
+  type: 'test'
+  ...
+# Subtest: a tab with no live page target is resource_not_found, and nothing attaches
+ok 546 - a tab with no live page target is resource_not_found, and nothing attaches
+  ---
+  duration_ms: 8.856875
+  type: 'test'
+  ...
+# Subtest: a browser-internal page is restricted_page, refused before attaching
+ok 547 - a browser-internal page is restricted_page, refused before attaching
+  ---
+  duration_ms: 0.74075
+  type: 'test'
+  ...
+# Subtest: a tab showing another URL than expected is active_tab_changed
+ok 548 - a tab showing another URL than expected is active_tab_changed
+  ---
+  duration_ms: 1.152709
+  type: 'test'
+  ...
+# Subtest: the session detaches when the body throws, and the body's error wins
+ok 549 - the session detaches when the body throws, and the body's error wins
+  ---
+  duration_ms: 1.2145
+  type: 'test'
+  ...
+# Subtest: a failing detach is logged with console.debug, never thrown over the result
+ok 550 - a failing detach is logged with console.debug, never thrown over the result
+  ---
+  duration_ms: 4.045042
+  type: 'test'
+  ...
+# Subtest: send: a method this build lacks is browser_capability_unavailable; other refusals keep their kind as browser_error
+ok 551 - send: a method this build lacks is browser_capability_unavailable; other refusals keep their kind as browser_error
+  ---
+  duration_ms: 0.519375
+  type: 'test'
+  ...
+# Subtest: sendCdp codes a browser-level call the same way
+ok 552 - sendCdp codes a browser-level call the same way
+  ---
+  duration_ms: 0.170083
+  type: 'test'
+  ...
+# Subtest: abort: a signal that already fired attaches nothing; one that fires in the body still detaches
+ok 553 - abort: a signal that already fired attaches nothing; one that fires in the body still detaches
+  ---
+  duration_ms: 0.558084
+  type: 'test'
+  ...
+# Subtest: on: the body hears only its own session's events
+ok 554 - on: the body hears only its own session's events
+  ---
+  duration_ms: 0.342166
+  type: 'test'
+  ...
+# Subtest: a tab in another Space's second window is found there
+ok 555 - a tab in another Space's second window is found there
+  ---
+  duration_ms: 1.894334
+  type: 'test'
+  ...
+# Subtest: each window is listed by window, so pinned tabs are included
+ok 556 - each window is listed by window, so pinned tabs are included
+  ---
+  duration_ms: 0.166542
+  type: 'test'
+  ...
+# Subtest: a closed tab is not found
+ok 557 - a closed tab is not found
+  ---
+  duration_ms: 0.086125
+  type: 'test'
+  ...
+# Subtest: a window that closed mid-scan is skipped
+ok 558 - a window that closed mid-scan is skipped
+  ---
+  duration_ms: 0.112417
+  type: 'test'
+  ...
+# Subtest: a Space with no window: the refused pre-read is an empty strip, not a failure
+ok 559 - a Space with no window: the refused pre-read is an empty strip, not a failure
+  ---
+  duration_ms: 1.055084
+  type: 'test'
+  ...
+# Subtest: a freshly opened window: the tab we asked for wins over the one it came with
+ok 560 - a freshly opened window: the tab we asked for wins over the one it came with
+  ---
+  duration_ms: 0.120209
+  type: 'test'
+  ...
+# Subtest: no url match yet keeps polling rather than settling for another tab
+ok 561 - no url match yet keeps polling rather than settling for another tab
+  ---
+  duration_ms: 35.861875
+  type: 'test'
+  ...
+# Subtest: an existing window still diffs against what was already there
+ok 562 - an existing window still diffs against what was already there
+  ---
+  duration_ms: 0.286583
+  type: 'test'
+  ...
+# Subtest: a pre-read that failed for any other reason is still an error
+ok 563 - a pre-read that failed for any other reason is still an error
+  ---
+  duration_ms: 0.254625
+  type: 'test'
+  ...
+# Subtest: the chat's window names its Space
+ok 564 - the chat's window names its Space
+  ---
+  duration_ms: 1.70275
+  type: 'test'
+  ...
+# Subtest: a different window names a different Space
+ok 565 - a different window names a different Space
+  ---
+  duration_ms: 0.06775
+  type: 'test'
+  ...
+# Subtest: it asks by window, never by Space
+ok 566 - it asks by window, never by Space
+  ---
+  duration_ms: 48.410167
+  type: 'test'
+  ...
+# Subtest: a window no Space claims resolves to nothing, so the caller falls back
+ok 567 - a window no Space claims resolves to nothing, so the caller falls back
+  ---
+  duration_ms: 0.074666
+  type: 'test'
+  ...
+# Subtest: both browser refusal messages are recognised
+ok 568 - both browser refusal messages are recognised
+  ---
+  duration_ms: 0.372917
+  type: 'test'
+  ...
+# Subtest: an ordinary CDP error is not a takeover
+ok 569 - an ordinary CDP error is not a takeover
+  ---
+  duration_ms: 0.052459
+  type: 'test'
+  ...
+# Subtest: provides ctx.phiBrowserManage once phiCdp, phiStorage and phiAskUser exist
+ok 570 - provides ctx.phiBrowserManage once phiCdp, phiStorage and phiAskUser exist
+  ---
+  duration_ms: 16.461334
+  type: 'test'
+  ...
+# Subtest: a worker run's end clears the emulation it owned
+ok 571 - a worker run's end clears the emulation it owned
+  ---
+  duration_ms: 37.224542
+  type: 'test'
+  ...
+# Subtest: without phiAskUser the row waits: no service
+ok 572 - without phiAskUser the row waits: no service
+  ---
+  duration_ms: 13.740125
+  type: 'test'
+  ...
+# Subtest: a substituted service is what ctx.phiCdp provides, and the row never closes it
+ok 573 - a substituted service is what ctx.phiCdp provides, and the row never closes it
+  ---
+  duration_ms: 2.352958
+  type: 'test'
+  ...
+# Subtest: with no substitute the row builds the service and closes it when it goes
+ok 574 - with no substitute the row builds the service and closes it when it goes
+  ---
+  duration_ms: 1.237375
+  type: 'test'
+  ...
+# Subtest: each row closes only the service it built
+ok 575 - each row closes only the service it built
+  ---
+  duration_ms: 60.858708
+  type: 'test'
+  ...
+# Subtest: mounting the built service attempts no connection
+ok 576 - mounting the built service attempts no connection
+  ---
+  duration_ms: 30.583
+  type: 'test'
+  ...
+# Subtest: a full stop in reverse mount order closes the one connection, and nothing reconnects afterwards
+ok 577 - a full stop in reverse mount order closes the one connection, and nothing reconnects afterwards
+  ---
+  duration_ms: 33.9545
+  type: 'test'
+  ...
+# Subtest: disposing only the phi-cdp row leaves no connection open while its dependent asks for one on the way out
+ok 578 - disposing only the phi-cdp row leaves no connection open while its dependent asks for one on the way out
+  ---
+  duration_ms: 3.94075
+  type: 'test'
+  ...
+1..578
+# tests 578
+# suites 0
+# pass 578
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13245.193875

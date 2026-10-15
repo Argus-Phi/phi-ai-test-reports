@@ -1,0 +1,33 @@
+{
+  "chatId": "3e711a6d-e3cd-4656-8d4f-3a9af887fb5f",
+  "calls": [
+    {
+      "callId": "fc_0de38783a081483c006ad067a56eec87d2903e379699571793",
+      "capability": "browser_page.content",
+      "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727897,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+    },
+    {
+      "callId": "fc_0de38783a081483c006ad067a8aadc87d280b1a067c75c5c03",
+      "capability": "browser_page.pdf",
+      "args": "{\"action\":\"pdf\",\"input\":{\"action\":\"pdf\",\"tabId\":1005727897,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"landscape\":null,\"printBackground\":null,\"scale\":null,\"paperWidth\":null,\"paperHeight\":null,\"marginTop\":null,\"marginBottom\":null,\"marginLeft\":null,\"marginRight\":null,\"pageRanges\":null,\"preferCSSPageSize\":null,\"maxBytes\":null}}"
+    }
+  ],
+  "results": [
+    {
+      "capability": "browser_page.content",
+      "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}"
+    },
+    {
+      "capability": "browser_page.pdf",
+      "content": "{\"ok\":true,\"mimeType\":\"application/pdf\",\"bytes\":74214,\"file_id\":\"01a13e14-eec4-70ab-a498-5724e10740eb\",\"filename\":\"page.pdf\",\"size_bytes\":74214}"
+    }
+  ],
+  "files": [
+    {
+      "filename": "page.pdf",
+      "mediaType": "application/pdf"
+    }
+  ],
+  "text": "I’m checking the page for the commit title and then I’ll make its PDF available to download.The commit title is **“Fix example.”** I saved the page as a PDF for you. The skill that made it can be installed so it’s ready to use in one step next time—would you like me to install it?",
+  "terminalCount": 2
+}

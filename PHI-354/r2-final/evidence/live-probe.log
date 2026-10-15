@@ -1,0 +1,12 @@
+[phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-501.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+{"name":"baseline-small","expected":"ok","actual":"ok","pass":true}
+{"name":"pushState-current","expected":"ok","actual":"ok","pass":true}
+{"name":"pushState-stale","expected":"active_tab_changed","actual":"active_tab_changed","pass":true}
+{"name":"empty","expected":"no_readable_content","actual":"no_readable_content","pass":true}
+{"name":"authorized-file","expected":"ok","actual":"ok","pass":true}
+{"name":"read-timeout","expected":"cdp_timeout","actual":"cdp_timeout","pass":true}
+{"name":"recover-after-timeout","expected":"ok","actual":"ok","pass":true}
+{"name":"read-abort","expected":"aborted","actual":"aborted","pass":true}
+{"name":"recover-after-abort","expected":"ok","actual":"ok","pass":true}
+{"name":"restricted-internal","expected":"restricted_page","actual":"restricted_page","pass":true}
+{"pass":true,"counts":{"attach":9,"detach":9,"evaluate":21}}

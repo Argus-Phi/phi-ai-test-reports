@@ -1,0 +1,41 @@
+[
+  {
+    "type": "CUSTOM",
+    "runId": "01a13e20-3e19-77b8-8d3b-3f82c3fd125d",
+    "threadId": "01a13e20-2f78-72cd-a8b5-b26e22234414",
+    "timestamp": 1792043670468,
+    "forwardedProps": {
+      "traceId": "01a13e20-3e19-77b8-8d3b-3f82c3fd125d",
+      "userId": "QA_ACCOUNT",
+      "connectionId": "d31e50cb-a3d6-4b0b-a206-7b0877680923"
+    },
+    "name": "worker_progress",
+    "value": {
+      "kind": "tool_call_result",
+      "toolCallId": "fc_092bed733320c4f6006ad06a959eec87d28529432c1b93ca6d",
+      "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+      "isError": false,
+      "toolId": "browser_page",
+      "capabilityId": "browser_page.content",
+      "sidecarDisplayName": "Browser page",
+      "emitter": "browser_page.content"
+    }
+  },
+  {
+    "type": "CUSTOM",
+    "runId": "01a13e20-3e19-77b8-8d3b-3f82c3fd125d",
+    "threadId": "01a13e20-2f78-72cd-a8b5-b26e22234414",
+    "timestamp": 1792043706760,
+    "forwardedProps": {
+      "traceId": "01a13e20-3e19-77b8-8d3b-3f82c3fd125d",
+      "userId": "QA_ACCOUNT",
+      "connectionId": "d31e50cb-a3d6-4b0b-a206-7b0877680923"
+    },
+    "name": "worker_progress",
+    "value": {
+      "kind": "run_result",
+      "ok": false,
+      "errorCode": "aborted"
+    }
+  }
+]

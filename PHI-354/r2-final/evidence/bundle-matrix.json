@@ -1,0 +1,107 @@
+[
+  {
+    "target": {
+      "name": "index",
+      "url": "http://127.0.0.1:18970/index.html",
+      "targetId": "AC7352D541F694D5E6FFA7156A37225A",
+      "windowId": 1005727855,
+      "tabId": 1005727897
+    },
+    "selector": null,
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      650
+    ],
+    "files": [],
+    "text": "I’m checking the page’s content now and will pass along the tool’s exact response.Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)  \nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)",
+    "calls": [
+      {
+        "callId": "fc_0501f3b3c648d382006ad0679a441487d29445722d2fc6bf9e",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727897,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "url": "http://127.0.0.1:18970/large.html",
+      "targetId": "0BE0B8A0BCEDFBBC6ACDC21D05E1F7BD",
+      "windowId": 1005727855,
+      "tabId": 1005727898
+    },
+    "selector": null,
+    "expected": "result_too_large",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "result_too_large",
+          "message": "Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\"content\", the same tabId, and selector:\"main\" or a smaller section selector.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      257
+    ],
+    "files": [],
+    "text": "I’m checking the page content for you now.{\"ok\":false,\"error\":{\"code\":\"result_too_large\",\"message\":\"Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\\\"content\\\", the same tabId, and selector:\\\"main\\\" or a smaller section selector.\",\"retryable\":false}}",
+    "calls": [
+      {
+        "callId": "fc_04af7f067f136938006ad067aee28487d2a20d8d5c8967436d",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727898,\"expectedUrl\":\"http://127.0.0.1:18970/large.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "url": "http://127.0.0.1:18970/large.html",
+      "targetId": "0BE0B8A0BCEDFBBC6ACDC21D05E1F7BD",
+      "windowId": 1005727855,
+      "tabId": 1005727898
+    },
+    "selector": "#commit-list",
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "http://127.0.0.1:18970/large.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      380
+    ],
+    "files": [],
+    "text": "I’m checking that page section now and will report exactly what the browser returns.{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/large.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+    "calls": [
+      {
+        "callId": "fc_0341af680da06724006ad067be26c087d2bbf2c2428f1e693a",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727898,\"expectedUrl\":\"http://127.0.0.1:18970/large.html\",\"selector\":\"#commit-list\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  }
+]

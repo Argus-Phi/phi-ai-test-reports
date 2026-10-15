@@ -1,0 +1,1552 @@
+{
+ "key": "PHI-354",
+ "title": "修复创建定时任务时将内部页面 protobuf 作为用户附件发送的问题",
+ "work_type": "bugfix",
+ "round": 2,
+ "kind": "final",
+ "verdict": "fail",
+ "pr_allowed": false,
+ "summary": "同一回归 SHA 从头执行 25 条用例，22 pass、3 fail、0 blocked、0 skipped，全部必需 GUI 已在匹配本分支的 Canary 执行并补齐真实会话重开。内部 content 读取、有界响应、源码/stage 包、六种终止及文件交付已验证；当前范围仍有 B2-1 最终回复否认真实文件、B2-2 混合任务多交付录屏两项未获豁免的 major，TEST: fail，AI 测试和审查不允许放行 PR。T-13 的 PDF 硬超时丢附件在基线也实跑复现，作为已授权范围外问题保留原始 fail；B1-1/B1-2 既有 declined 未声称修复。",
+ "sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+ "branch": "PHI-354-readable-page-content",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/578",
+ "generated_at": "2026-10-15T06:54:25.009507+00:00",
+ "environment": {
+  "机器": "独立 macOS QA，Canary 真机",
+  "Canary": "2026.10.15.0207 / Chrome154.0.8037.54",
+  "Runner": "2026.10.14.2c370b06",
+  "被测 Sidecar": "HEAD 构建 local100.0.0，冻结快照钉住127.0.0.1:18798；重开补测仍是同一源码构建",
+  "Node/pnpm": "v22.23.3 /10.17.1",
+  "隔离服务": "source/bundle18798 + PostgreSQL18956；基线18799/18957；夹具18970、故障代理18972，仅stag测试账号",
+  "stage包SHA256": "dced6b68cdc712836930cbb09f9482068f305cccce589847e7ae83d11e53fa81",
+  "恢复边界": "Default原StoreSidecar2026.10.15.1146/location1及live manifest已核对；PhiChat原注册为空，额外冷启动仍转圈，已关闭，不声称恢复其可用UI。最终清理见cleanup-runtime.json。",
+  "证据规则": "真实GUI截图与命令/JSON事后视图明确区分；后者不是产品GUI证明。截图压到1280以内，原始导出PNG只作文件字节样本。",
+  "未验证边界": "未部署/merge，未验证与最新staging合并后的产物；用户原反馈运行包SHA未锁定；新发现的回归归因未确定。"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含完整手测方案与终测环境）@2249583452596c004cae65b30fcf1551a9a65d2d",
+   "url": "https://github.com/phibrowser/phi-ai/blob/2249583452596c004cae65b30fcf1551a9a65d2d/PHI-354/test-plan.md"
+  },
+  {
+   "title": "runbook.md@16ab997bde7855eb3b9af22eab88d94cb1e851a3",
+   "url": "https://github.com/phibrowser/phi-ai/blob/16ab997bde7855eb3b9af22eab88d94cb1e851a3/PHI-354/runbook.md"
+  },
+  {
+   "title": "上一轮回归报告",
+   "url": "https://argus-phi.github.io/phi-ai-test-reports/PHI-354/r2/"
+  },
+  {
+   "title": "公开合成测试站",
+   "url": "https://argus-phi.github.io/phi-qa-fixtures/PHI-354/"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "普通读取贯通边界",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1,AC-9",
+   "precondition": "合成提交页，真实 handler/worker/Chat 交付链，末端 CDP 可同时支持旧 protobuf 与新读取；文件存储记录上传字节并可回读。",
+   "steps": [
+    "执行 `pnpm --filter @phi-ai/dsh-bundle test` 中 content delivery 场景；令 worker 实际读取并完成；检查模型下一轮请求、上传调用、worker 结果、Sidecar hub 帧。对隔离基线跑同一行为断言，再对修复 SHA 跑；适配只能处理测试框架导入，不移除失败断言。"
+   ],
+   "expected": "修复前因真实内部上传/文件交付或只有元数据失败，不能因缺模块/方法失败；修复后三项页面证据可见、无二进制正文、无内部附件。",
+   "actual": "本轮同一贯通断言：基线 9 pass/19 fail，失败包含内部读取上传了文件；head 28/28 通过。初始化缺生成表的尝试补齐 build 后重跑，不拿缺模块当回归红证据。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-1-baseline.log",
+     "caption": "T-1-baseline.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-current.log",
+     "caption": "T-1-current.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-1-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-1-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-2",
+   "title": "固定时钟创建任务",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2",
+   "precondition": "隔离任务存储、真实调度服务；时钟 `2026-10-14T03:28:00Z`，合成页面。",
+   "steps": [
+    "bundle 套件中先读取，再模拟原文“每天北京时间 11:00 检查 octocat/Hello-World 最新提交”；通过真实创建调用获取任务记录及交付。另分别固定在当天 `02:59:59Z`、`03:00:01Z` 创建同类任务，独立存储。"
+   ],
+   "expected": "主例 cron `0 11 * * *`、tz `Asia/Shanghai`、nextRunAt `2026-10-15T03:00:00.000Z`；前一秒是当日03:00，后一秒是次日03:00；无内部附件。不 mock nextRunAt，也不更改系统时钟。",
+   "actual": "03:28Z 固定时钟包含在当前 28 项贯通中；前一秒/后一秒两套共 56/56 通过。日程、时区、nextRunAt 由真实 schedule service 计算。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-2-clock.log",
+     "caption": "T-2-clock.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-current.log",
+     "caption": "T-1-current.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-2-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-2-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-3",
+   "title": "task_run 贯通边界",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-3",
+   "precondition": "相同真实 worker 接任务 executor，测试结果存储。",
+   "steps": [
+    "bundle 套件执行一次 task_run 读取并完成；检查下一轮模型输入和实际持久化结果，再重新读取任务结果。"
+   ],
+   "expected": "三项证据到达模型，存储中的 resultPayload.artifacts 无内部读取附件；报告文本不将读取描述为导出。",
+   "actual": "真实 handler/worker/task executor 的集成边界通过，存储 I/O 末端受控；模型工具输入与结果无内部附件。另在 Canary 真实 task_run 执行并重开结果，见 T-17。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/bundle.log",
+     "caption": "bundle.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-17-task-ui.json",
+     "caption": "T-17-task-ui.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-3-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-3-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-4",
+   "title": "UTF-8 完整响应边界",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-4",
+   "precondition": "含中文、emoji、引号、反斜杠、换行的可读数据；最终完整成功 JSON 可精确构造为 65,535/65,536/65,537 字节。",
+   "steps": [
+    "执行 phi-cdp 与 worker 套件；分别测量工具实际返回的完整 JSON 的 `Buffer.byteLength(JSON.stringify(response),'utf8')`，不是正文字符数；对超限按提示改 selector 重试；对异常长失败 message 也测量完整错误响应。"
+   ],
+   "expected": "前两个允许成功，65,537 必须 result_too_large，错误含限制及可调用缩小建议、无部分正文和附件；成功/失败均 ≤65,536；中文不被按字符数误判，重试成功。",
+   "actual": "phi-cdp/worker 套件覆盖完整 UTF-8 JSON 65,535/65,536/65,537 字节边界、多字节转义、错误 envelope 和超长策略说明；相关套件通过。真实源码/包超限及 selector 恢复均实跑。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/phi-cdp.log",
+     "caption": "phi-cdp.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/worker.log",
+     "caption": "worker.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-4-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-4-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-5",
+   "title": "有界遍历与覆盖",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-4",
+   "precondition": "节点与字符预算上下界、深 DOM、长标题/URL/链接、coverage 页面等价 DOM。",
+   "steps": [
+    "phi-cdp 套件分别运行预算以内、达到设计工作量上限、超过上限及深层 DOM；检查链接/alt/pre/shadow/slot/可访问 frame；检查隐藏祖先、表单、关闭 shadow 和不可访问 frame；selector 缩小到提交区再读。"
+   ],
+   "expected": "预算触发明确 result_too_large，不静默截断成功、无堆栈溢出；元数据也不能绕过预算。可读字段保留、省略字段不泄漏，warnings/coverage 如答案表，不宣称未加载内容完整；缩小读取恢复。",
+   "actual": "覆盖隐藏/表单/open shadow/slot/frame 的测试与真实 DOM 通过。31,000 节点在 3ms 有界失败，selector 1ms 恢复；静态 256 层在 2ms 读到 DEPTH_SENTINEL。没有声称 4,000 层动态夹具已验证。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/budget-probe.log",
+     "caption": "budget-probe.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-5-T-7-real-boundaries.json",
+     "caption": "T-5-T-7-real-boundaries.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-5-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-5-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-6",
+   "title": "空内容、损坏与能力故障",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5",
+   "precondition": "空正文；底层分别返回缺字段、错误字段类型、旧 base64 对象、远程异常、未知失败码、超长异常消息、能力不可用、断连。",
+   "steps": [
+    "phi-cdp/worker 套件逐个输入；再经 bundle 的 worker/Chat 链传播结果，检查最终交付和模型实际收到的失败。"
+   ],
+   "expected": "空正文 no_readable_content；损坏/旧二进制/异常为可识别 browser_error，能力不可用和断连保留对应原因及 retryable；不假装成功、不过度回显异常正文、无内部附件；完整响应有界。",
+   "actual": "缺字段、错误类型、远程异常、空正文、缺能力、取消/超时等确定性场景通过；真实空页、空/隐藏表单 frame 均诚实 no_readable_content，未产生内部文件。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/phi-cdp.log",
+     "caption": "phi-cdp.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/worker.log",
+     "caption": "worker.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-6-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-6-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-7",
+   "title": "selector 输入与页面目标",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5",
+   "precondition": "提交页及目标 URL 变化/受限页/不可访问 tab、普通与 task_run 权限上下文。",
+   "steps": [
+    "phi-cdp/worker 套件调用 content，selector 依次为缺省、`#commit-list`、空串、非字符串、1,024/1,025 UTF-16 单元的合法 selector、非法 CSS、不存在 selector、含引号/反斜杠/代码样式的字符串；检查其未产生页面副作用。另切 URL，传旧 expectedUrl；尝试既有策略禁止的 tab/Space、受限页。"
+   ],
+   "expected": "合法范围工作；无匹配 resource_not_found，输入错误 invalid_argument；边界按 UTF-16 单元；字符串不能执行代码；URL 变化 active_tab_changed；禁止目标维持既有拒绝，不读到非授权正文、不泄漏异常/附件。",
+   "actual": "真实 1,024 单元合法 selector 无匹配为 resource_not_found，1,025 为 invalid_argument；非法 selector、隐藏祖先、旧 expectedUrl 拒绝及恢复均实跑。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/source-matrix.json",
+     "caption": "source-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/budget-probe.log",
+     "caption": "budget-probe.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-7-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-7-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-8",
+   "title": "实际模型工具契约",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-8,AC-5",
+   "precondition": "实际 worker 注册的工具与模型请求记录，不只文档字符串。",
+   "steps": [
+    "worker/bundle 套件读取模型实际收到的 browser_page schema/描述；调用缺省与 selector 读取，分别带/不带旧 includeActionableInformation；再触发超限和空内容。"
+   ],
+   "expected": "描述说明可读正文、selector、65,536 字节与失败/缩小方式；不承诺自动附文件，导出操作仍可用；旧参数可接受但不改变读取语义；实际结果符合说明。",
+   "actual": "实际注册 schema/modelDescription/runtime guidance 的两个执行上下文测试通过；真机工具输出 live_dom 可读正文，说明与 selector/预算/导出边界一致。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-1-current.log",
+     "caption": "T-1-current.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-15-explicit-gui.json",
+     "caption": "T-15-explicit-gui.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-8-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-8-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-9",
+   "title": "读取后终止与导出保留",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-6,AC-7",
+   "precondition": "普通 Chat 与 task_run 两上下文，真实交付链，终止控制在成功读取后的下一阶段；完成基线也记录。",
+   "steps": [
+    "bundle 套件对两上下文分别造成后续失败、worker 超时、用户取消；各子例先只读，再各重复一次“已显式生成 PDF 后再读取”。等待终止后重读 Chat/任务结果。"
+   ],
+   "expected": "六种只读终止结果无内部附件；混合子例保留已实际生成的 PDF，不新增读取附件；终止状态正确，无晚到 file part。",
+   "actual": "Chat/task_run 的只读与读取+PDF 在失败/超时/取消下贯通测试通过；没有用最终空列表替代 handler/worker/交付边界。真实 hard task deadline 的既存缺陷单列 B2-3，不称所有层面全绿。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-1-current.log",
+     "caption": "T-1-current.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-13-export-retention.json",
+     "caption": "T-13-export-retention.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-9-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-9-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-10",
+   "title": "显式导出贯通矩阵",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1,AC-7",
+   "precondition": "真实上传适配器及可回读存储，普通与 task_run。",
+   "steps": [
+    "worker/bundle 套件在两上下文分别运行 PDF、PNG、MHTML、现有 resource 导出和“读取+PDF”；回读实际存储字节并校验交付链接对应文件；另验证用户明确提供的合法 protobuf 文件仍按既有能力交付。"
+   ],
+   "expected": "各导出类型/内容正确、对应 Chat file part 或任务附件；混合仅交付请求导出；不是禁全部 artifact/二进制/MIME/文件名。",
+   "actual": "普通/任务的 PDF、PNG、MHTML、resource、content+PDF 交付矩阵及合法 protobuf 上传非回归测试通过；此处是集成边界，实际文件和原生入口由 T-14/T-21/T-22 裁定。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/worker.log",
+     "caption": "worker.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-current.log",
+     "caption": "T-1-current.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-10-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-10-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-11",
+   "title": "源码与 stage 单文件包真实读取",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1,AC-4",
+   "precondition": "同一 stag 测试配置，真实 Canary 打开 index/large，分别启动被测源码与 stage 单文件包且能确认 SHA/哈希。",
+   "steps": [
+    "模拟 Chat 客户端发“读取当前测试页，列出提交标识、标题和链接，不导出文件”；观察真实 browser_page.content 调用及下一轮模型输入；对 large 发同类请求，强制一次完整读取，再根据错误建议用 #commit-list 重试。对源码与包各跑一次。"
+   ],
+   "expected": "小页三项正确；大页有界错误和可执行重试建议，缩小成功；无内部上传/附件/保存文件声明，打包后表达式可运行。",
+   "actual": "源码与 stage 包的小页、完整大页超限、#commit-list 恢复均通过且 files=[]；stage 包另实际 content→PDF，只交付一个有效 PDF。包 SHA256 dced6b68cdc712836930cbb09f9482068f305cccce589847e7ae83d11e53fa81。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/source-matrix.json",
+     "caption": "source-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/bundle-matrix.json",
+     "caption": "bundle-matrix.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-11-bundle-mixed-export.json",
+     "caption": "T-11-bundle-mixed-export.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/stage-package-skills.log",
+     "caption": "stage-package-skills.log"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-11-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-11-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-12",
+   "title": "真实空页、拒绝与超时取消",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-5",
+   "precondition": "empty/coverage/navigate 页面，以及实际策略禁止的受限页面；真实浏览器/CDP。",
+   "steps": [
+    "调用 empty；对 coverage 读取隐藏子树、无匹配与非法 selector；读前导航后用旧 expectedUrl；请求受限页面；通过本地测试客户端的 timeout/AbortSignal 制造读取期间超时/取消（不可只中断取日志）。随后立即新请求读取 index。"
+   ],
+   "expected": "分别明确 no_readable_content、相应 selector 错误、active_tab_changed、既有受限码、超时/aborted；无内部附件，下一次正常读取可恢复，session 未泄漏。能力不可用/损坏响应由 T-6 确定性覆盖，不破坏用户浏览器安装来模拟。",
+   "actual": "真实 Page API 10/10：空页、旧 URL、file 授权、内部页、读取中的 timeout/abort 及立即恢复；attach 9/detach 9。源码 Chat selector 错误矩阵亦实跑。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-12-T-24-T-25-live-cdp.json",
+     "caption": "T-12-T-24-T-25-live-cdp.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/live-probe.log",
+     "caption": "live-probe.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/source-matrix.json",
+     "caption": "source-matrix.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-12-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-12-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-13",
+   "title": "真实双上下文终止",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-6",
+   "precondition": "新隔离 Chat/任务，已记录读取完成；runbook 提供可恢复的隔离超时设置与失败触发方法。",
+   "steps": [
+    "普通与 task_run 各执行读取后后续失败、超时、取消；失败可用无效后续目标触发并确认 worker 实际以失败结束，超时按隔离 worker 时限，取消通过当前客户端/任务取消接口；若模型恢复失败则该子例不算已覆盖。每次重读持久结果。"
+   ],
+   "expected": "六子例终态真实发生，无内部附件/晚到 file part；T-9 不能代替本条。",
+   "actual": "两上下文的只读六子例均在真实读取后终止，持久结果无内部附件；另六个读取+PDF 子例实跑，五个保留一个可下载 PDF。task 整体硬超时丢失已生成 PDF 的任务结果附件，文件本身 HTTP 200；基线纯 PDF 任务同样复现，B2-3 按 Wood 非本次引入的边界记录，不作为本 PR 新阻断。保留此用例的原始 fail。",
+   "status": "fail",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-13-T-20-persistence-audit.json",
+     "caption": "T-13-T-20-persistence-audit.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-13-chat-failure-terminal.json",
+     "caption": "T-13-chat-failure-terminal.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-13-chat-timeout-terminal.json",
+     "caption": "T-13-chat-timeout-terminal.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-13-chat-cancel-terminal.json",
+     "caption": "T-13-chat-cancel-terminal.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-13-export-retention.json",
+     "caption": "T-13-export-retention.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/B2-3-baseline-retention.json",
+     "caption": "B2-3-baseline-retention.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/retention-timeout-precondition.json",
+     "caption": "retention-timeout-precondition.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-13-retention-pdf-checks.json",
+     "caption": "T-13-retention-pdf-checks.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-13-retain-chat-cancel.pdf",
+     "caption": "export-files/T-13-retain-chat-cancel.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-13-retain-chat-failure.pdf",
+     "caption": "export-files/T-13-retain-chat-failure.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-13-retain-chat-timeout.pdf",
+     "caption": "export-files/T-13-retain-chat-timeout.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-13-retain-task-cancel.pdf",
+     "caption": "export-files/T-13-retain-task-cancel.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-13-retain-task-failure.pdf",
+     "caption": "export-files/T-13-retain-task-failure.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-13-retain-task-timeout.pdf",
+     "caption": "export-files/T-13-retain-task-timeout.pdf"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-13-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-13-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [
+    "B2-3"
+   ],
+   "notes": "不复用前轮结果。T-13 原始 fail 为已在基线重现的已授权范围外问题；T-21/T-22 的两项新 major 未获豁免。"
+  },
+  {
+   "id": "T-14",
+   "title": "真实文件存储回读",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-7",
+   "precondition": "真实 stag 导出链及 index 页、普通与 task_run。",
+   "steps": [
+    "两上下文分别请求 PDF、PNG、MHTML及读取+PDF；经实际交付 URL 下载到本轮证据目录，校验 magic/MIME、大小和哈希；PDF 打开/渲染看到 Fix example，PNG 打开看到提交区，MHTML 在浏览器打开看到提交区。"
+   ],
+   "expected": "均可下载打开，混合仅有 PDF；文件元数据/链接与实际内容一致，无 page.xprotobuf 或其他内部附件。",
+   "actual": "八个正常导出均真实 HTTP 200、MIME/魔数/哈希有效；PDF 有 abc1234/Fix example，PNG/归档在 Canary 打开看见提交区。任务 PDF/PNG/混合 PDF 经系统面板保存，哈希等于原文件；普通 PNG 用户保存限制另见 B1-1。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-14-downloads.json",
+     "caption": "T-14-downloads.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-14-pdf-checks.json",
+     "caption": "T-14-pdf-checks.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-14-native-open-files.json",
+     "caption": "T-14-native-open-files.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-22-native-saved-files.json",
+     "caption": "T-22-native-saved-files.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-14-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-14-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-15",
+   "title": "普通读取及重新打开会话",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1,AC-8",
+   "precondition": "index 页，清空新对话中的旧附件。",
+   "steps": [
+    "“请使用 browser_page 的 content 读取当前测试页，告诉我提交标识、标题和提交链接。不要导出文件。”发送后以真实 content 完成事件为关键截图点；到终态后等2秒，检查三项答案、全部回复与附件，再重新打开本 QA 会话检查一次。"
+   ],
+   "expected": "abc1234 / Fix example / 指定 commit URL；无附件卡/隐藏 file part、无“已保存/生成文件”声明，持久化后也无。",
+   "actual": "实际原生 Sidebar 调用 content，三项证据到达模型与回复，上传表当时 0 行；真实 PostgreSQL 模型输入有 live_dom 工具消息。恢复同一测试数据库后在匹配 100.0.0 Native Phi Chat 重新选择原会话，内容和零文件卡保持。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-15-explicit-gui.json",
+     "caption": "T-15-explicit-gui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-15-model-input-storage.json",
+     "caption": "T-15-model-input-storage.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/native-conversation-reopen.json",
+     "caption": "native-conversation-reopen.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-15-explicit-01.png",
+     "caption": "T-15-explicit-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-15-explicit-03.png",
+     "caption": "T-15-explicit-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-15-reopen-01.png",
+     "caption": "T-15-reopen-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-15-reopen-02.png",
+     "caption": "T-15-reopen-02.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-16",
+   "title": "原始创建场景与当前时间",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-2",
+   "precondition": "测试 Profile 可匿名访问公开 octocat/Hello-World 提交页；记录服务 UTC 时间，禁止改系统时钟；创建前拍现有 QA 任务清单，区分线上任务。",
+   "steps": [
+    "“每天北京时间 11:00 检查 octocat/Hello-World 最新提交。”在新 QA 对话发送；确认当前交互实际发生页面 content 读取，未发生则记录该事实并另用明确读取请求补测，不以补测替代原场景。等任务创建成功文字后2秒，打开新任务/通过API读记录并拍终态。"
+   ],
+   "expected": "新任务成功，Asia/Shanghai 每天11:00；nextRunAt 为创建时刻之后下一次 UTC03:00（精确历史时钟由T-2验证）；回复没有内部附件和保存文件声明。真实 GitHub 内容按当时页面核对，不套合成答案。",
+   "actual": "公开 octocat/Hello-World 原文创建成功；两次可选问答采用“跳过”默认。Asia/Shanghai、0 11 * * *，创建后下一次为 2026-10-16T03:00:00Z；自己的新任务随后暂停/禁用并最终归档。自然路径为 watch-page/browser_task，不冒充 content；公开 content 另由 T-24 验证。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-16-final-schedule.json",
+     "caption": "T-16-final-schedule.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-16-gui.json",
+     "caption": "T-16-gui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/cleanup-tasks.json",
+     "caption": "cleanup-tasks.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-16-01.png",
+     "caption": "T-16-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-16-default-0.png",
+     "caption": "T-16-default-0.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-16-final-02.png",
+     "caption": "T-16-final-02.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-17",
+   "title": "真正执行一次定时任务",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3",
+   "precondition": "隔离任务内容为读取合成 index；任务描述显式使用测试站，不发 Slack/邮件等通知。",
+   "steps": [
+    "“创建一个测试任务：读取 https://argus-phi.github.io/phi-qa-fixtures/PHI-354/index.html，报告提交标识、标题和提交链接，不导出文件，不发送外部通知。”创建后使用当前任务页“运行”入口执行一次（S9按runbook补控件名称/定位），确认后端执行上下文为 task_run；见运行中状态截图，收到完成后2秒打开结果。"
+   ],
+   "expected": "任务报告三项答案，无内部附件/保存文件声明，持久化结果与界面一致。",
+   "actual": "真实任务页“重新运行”触发独立 task_run，实际 content 返回三项证据，持久 result artifacts=[]；运行中与完成状态均留图。API 仅用于准备隔离任务和首次运行，未把普通 Chat 结果当作 task_run。原文 GUI 创建并在同一任务页重新运行亦完成，三项答案正确；该自然路径实际 browser_task，含一个运行录屏（不是内部 content 文件），不声称它调用 content 或 artifacts=[]。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-17-task-ui.json",
+     "caption": "T-17-task-ui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-17-create-ui-gui.json",
+     "caption": "T-17-create-ui-gui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-17-created-tasks.json",
+     "caption": "T-17-created-tasks.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-17-created-rerun-task-ui.json",
+     "caption": "T-17-created-rerun-task-ui.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-01.png",
+     "caption": "T-17-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-02.png",
+     "caption": "T-17-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-03.png",
+     "caption": "T-17-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-create-ui-01.png",
+     "caption": "T-17-create-ui-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-create-ui-03.png",
+     "caption": "T-17-create-ui-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-created-rerun-01.png",
+     "caption": "T-17-created-rerun-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-17-created-rerun-03.png",
+     "caption": "T-17-created-rerun-03.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-18",
+   "title": "大页错误及缩小读取",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-4,AC-8",
+   "precondition": "large 页完成加载，新对话。",
+   "steps": [
+    "“请用 browser_page content 完整读取当前页面，不设置 selector；报告是否成功，不导出文件。”收到 result_too_large 后2秒截图；随后发送“按照错误提示，使用 content 的 selector #commit-list 重试，只告诉我提交标识、标题和链接，不导出文件。”"
+   ],
+   "expected": "首读明确超限与可操作建议，无静默完整成功；次读三项正确，完整工具响应均≤65,536字节，界面无附件。",
+   "actual": "原生侧栏实际完整读取返回 result_too_large，#commit-list 获得三项答案且无附件；另在同一真实会话执行完整读取→selector 后续消息，断言两次 chatId 相同，重试真实调用成功。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-18-same-chat-full-gui.json",
+     "caption": "T-18-same-chat-full-gui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-18-same-chat-retry-gui.json",
+     "caption": "T-18-same-chat-retry-gui.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-18-same-chat-full-02.png",
+     "caption": "T-18-same-chat-full-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-18-same-chat-full-03.png",
+     "caption": "T-18-same-chat-full-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-18-same-chat-retry-02.png",
+     "caption": "T-18-same-chat-retry-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-18-same-chat-retry-03.png",
+     "caption": "T-18-same-chat-retry-03.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-19",
+   "title": "空页与覆盖范围",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-5",
+   "precondition": "分别新开 empty 与 coverage 页，后者等 window.fixtureReady=true 且同源 frame 加载完成。",
+   "steps": [
+    "“用 browser_page content 读取当前页，说明是否有可读正文，不导出文件。”终态2秒截图。coverage 新对话发：“用 browser_page content 读取当前页，列出实际可读的 SENTINEL 标记和覆盖限制，不导出文件。”另发“只读取 selector #hidden-child，报告结果，不导出文件。”每次关键步骤/终态截图。"
+   ],
+   "expected": "empty 诚实无可读内容、不编造提交；coverage 按答案表保留和省略，warnings/coverage存在，隐藏子树不能绕过；无内部附件。",
+   "actual": "原生 empty、coverage、隐藏 selector 实跑；覆盖保留可见/alt/pre/open shadow/slot/同源 frame，省略隐藏和表单值并给 warnings。隐藏子树显式目标重试得到 no_readable_content；未把初次 tabId=0 的准备/模型调用失败计通过。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-19-empty-gui.json",
+     "caption": "T-19-empty-gui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-19-coverage-gui.json",
+     "caption": "T-19-coverage-gui.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-19-hidden-retry-gui.json",
+     "caption": "T-19-hidden-retry-gui.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-19-empty-03.png",
+     "caption": "T-19-empty-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-19-coverage-03.png",
+     "caption": "T-19-coverage-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-19-hidden-retry-03.png",
+     "caption": "T-19-hidden-retry-03.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-20",
+   "title": "用户取消与任务终止界面",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-6",
+   "precondition": "T-13 的六种真实终态场景，读取完成事件是触发门槛；同轮可复用对应 API run，但在 Canary 实际显示。",
+   "steps": [
+    "普通聊天取消子例在读成功后立即点击当前 Stop；任务取消子例在读成功后点任务取消。失败/超时子例按T-13控制，期间打开对应聊天/任务结果；每例终态2秒截图，重新打开检查持久结果。"
+   ],
+   "expected": "停止、失败或超时状态可见且与后端一致；无内部附件和迟到文件卡。",
+   "actual": "六种终止已在 Canary/Phi Chat 显示。普通取消在 content 成功后 CUA 点击 Stop；任务在成功读取后物理点击取消任务并确认原生对话框，后端 cancelled。六条持久结果回读无内部文件，原始聊天与任务都在同一数据库及匹配 100.0.0 UI 重新打开验证。B1-2 原 i18n key 仍可见。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-13-T-20-persistence-audit.json",
+     "caption": "T-13-T-20-persistence-audit.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/native-conversation-reopen.json",
+     "caption": "native-conversation-reopen.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/native-task-reopen.json",
+     "caption": "native-task-reopen.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-20-chat-native-stop.json",
+     "caption": "T-20-chat-native-stop.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-20-task-native-cancel.json",
+     "caption": "T-20-task-native-cancel.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-cancel-03.png",
+     "caption": "T-20-chat-cancel-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-cancel-reopen-02.png",
+     "caption": "T-20-chat-cancel-reopen-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-failure-03.png",
+     "caption": "T-20-chat-failure-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-failure-reopen-02.png",
+     "caption": "T-20-chat-failure-reopen-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-stop-after.png",
+     "caption": "T-20-chat-stop-after.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-stop-before.png",
+     "caption": "T-20-chat-stop-before.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-timeout-03.png",
+     "caption": "T-20-chat-timeout-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-chat-timeout-reopen-02.png",
+     "caption": "T-20-chat-timeout-reopen-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-cancel-03.png",
+     "caption": "T-20-task-cancel-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-cancel-confirm.png",
+     "caption": "T-20-task-cancel-confirm.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-cancel-reopen-02.png",
+     "caption": "T-20-task-cancel-reopen-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-failure-03.png",
+     "caption": "T-20-task-failure-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-failure-reopen-02.png",
+     "caption": "T-20-task-failure-reopen-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-timeout-03.png",
+     "caption": "T-20-task-timeout-03.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-20-task-timeout-reopen-02.png",
+     "caption": "T-20-task-timeout-reopen-02.png"
+    }
+   ],
+   "bugs": [
+    "B1-2"
+   ],
+   "notes": ""
+  },
+  {
+   "id": "T-21",
+   "title": "显式导出与混合请求（普通交互）",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-7",
+   "precondition": "index 页，四个独立新对话。",
+   "steps": [
+    "“请把当前页面导出为 PDF，给我可下载文件。”；“请把当前页面截图为 PNG，给我可下载文件。”；“请把当前页面保存为 MHTML 归档，给我可下载文件。”；“请先用 browser_page content 阅读当前页并告诉我提交标题，再把当前页面导出为 PDF，给我可下载文件。”终态2秒后拍文件卡；通过用户入口下载并打开，每例再拍打开状态。"
+   ],
+   "expected": "PDF/PNG/MHTML 可打开且包含提交区，混合回复标题正确且仅交付PDF；没有内部读取文件，现有下载入口可用。",
+   "actual": "PDF/MHTML/混合 PDF 从 Native Phi Chat 下载并打开，哈希匹配；PNG 文件有效、原生预览可见，但仍无下载/可用保存入口，B1-1 已接受外部 declined。另一次明确 content→PDF 虽有成功工具和有效文件，最终回复却否认工具及文件，B2-1 major，故 fail。",
+   "status": "fail",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-21-mixed-explicit-messages.json",
+     "caption": "T-21-mixed-explicit-messages.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-21-native-downloads.json",
+     "caption": "T-21-native-downloads.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/B2-1-repro-messages.json",
+     "caption": "B2-1-repro-messages.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-14-downloads.json",
+     "caption": "T-14-downloads.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-21-mhtml.mhtml",
+     "caption": "export-files/T-21-mhtml.mhtml"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-21-mixed-explicit.pdf",
+     "caption": "export-files/T-21-mixed-explicit.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-21-pdf.pdf",
+     "caption": "export-files/T-21-pdf.pdf"
+    },
+    {
+     "type": "image",
+     "path": "evidence/export-files/T-21-png.png",
+     "caption": "export-files/T-21-png.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/B2-1-contradictory-final.png",
+     "caption": "B2-1-contradictory-final.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-png-native-preview-final.png",
+     "caption": "T-21-png-native-preview-final.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-mhtml-native-01.png",
+     "caption": "T-21-mhtml-native-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-mhtml-native-02.png",
+     "caption": "T-21-mhtml-native-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-mhtml-opened-02.png",
+     "caption": "T-21-mhtml-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-mixed-explicit-native-01.png",
+     "caption": "T-21-mixed-explicit-native-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-mixed-explicit-native-02.png",
+     "caption": "T-21-mixed-explicit-native-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-mixed-explicit-opened-02.png",
+     "caption": "T-21-mixed-explicit-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-pdf-native-01.png",
+     "caption": "T-21-pdf-native-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-pdf-native-02.png",
+     "caption": "T-21-pdf-native-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-pdf-opened-02.png",
+     "caption": "T-21-pdf-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-png-native-01.png",
+     "caption": "T-21-png-native-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-21-png-native-02.png",
+     "caption": "T-21-png-native-02.png"
+    }
+   ],
+   "bugs": [
+    "B2-1",
+    "B1-1"
+   ],
+   "notes": "不复用前轮结果。T-13 原始 fail 为已在基线重现的已授权范围外问题；T-21/T-22 的两项新 major 未获豁免。"
+  },
+  {
+   "id": "T-22",
+   "title": "显式导出与混合请求（task_run）",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-7",
+   "precondition": "四个独立QA任务，以T-17方式创建/运行；任务使用合成index、不发外部通知。",
+   "steps": [
+    "将T-21四条动作中的“当前页面”替换为公开index URL作为任务内容，逐个运行。到完成后2秒打开任务结果并拍附件；逐个下载/打开再截图。"
+   ],
+   "expected": "任务渠道分别有可用PDF/PNG/MHTML；读取+PDF仅有PDF且提交标题正确。",
+   "actual": "四种 task_run 导出都生成有效文件并从实际任务结果入口打开；PDF/PNG/混合 PDF 完成系统保存，MHTML 下载后打开。混合读取+PDF 的结果还含两个未请求的 Browser Task 录屏，违反 AC-7“仅交付请求导出”，B2-2 major；MHTML 路径亦记录一个录屏，未把视频当内部 content 文件。",
+   "status": "fail",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-22-pdf-run.json",
+     "caption": "T-22-pdf-run.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-22-png-run.json",
+     "caption": "T-22-png-run.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-22-mhtml-run.json",
+     "caption": "T-22-mhtml-run.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-22-mixed-run.json",
+     "caption": "T-22-mixed-run.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-22-native-saved-files.json",
+     "caption": "T-22-native-saved-files.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-14-native-open-files.json",
+     "caption": "T-14-native-open-files.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-22-mhtml.mhtml",
+     "caption": "export-files/T-22-mhtml.mhtml"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-22-mixed-native.pdf",
+     "caption": "export-files/T-22-mixed-native.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-22-mixed.pdf",
+     "caption": "export-files/T-22-mixed.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-22-pdf-native.pdf",
+     "caption": "export-files/T-22-pdf-native.pdf"
+    },
+    {
+     "type": "log",
+     "path": "evidence/export-files/T-22-pdf.pdf",
+     "caption": "export-files/T-22-pdf.pdf"
+    },
+    {
+     "type": "image",
+     "path": "evidence/export-files/T-22-png-native.png",
+     "caption": "export-files/T-22-png-native.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/export-files/T-22-png.png",
+     "caption": "export-files/T-22-png.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-mhtml-latest-result.png",
+     "caption": "T-22-mhtml-latest-result.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-mhtml-opened-02.png",
+     "caption": "T-22-mhtml-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-mixed-latest-result.png",
+     "caption": "T-22-mixed-latest-result.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-mixed-opened-02.png",
+     "caption": "T-22-mixed-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-mixed-save-panel.png",
+     "caption": "T-22-mixed-save-panel.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-pdf-latest-result.png",
+     "caption": "T-22-pdf-latest-result.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-pdf-opened-02.png",
+     "caption": "T-22-pdf-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-pdf-save-panel.png",
+     "caption": "T-22-pdf-save-panel.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-png-latest-result.png",
+     "caption": "T-22-png-latest-result.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-png-opened-02.png",
+     "caption": "T-22-png-opened-02.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-22-png-save-panel.png",
+     "caption": "T-22-png-save-panel.png"
+    }
+   ],
+   "bugs": [
+    "B2-2"
+   ],
+   "notes": "不复用前轮结果。T-13 原始 fail 为已在基线重现的已授权范围外问题；T-21/T-22 的两项新 major 未获豁免。"
+  },
+  {
+   "id": "T-23",
+   "title": "回归证据及验收材料",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-9",
+   "precondition": "明确 PR head SHA、Q 验证材料、S8 覆盖缺口及本轮实际执行记录。",
+   "steps": [
+    "核对 T-1 同一行为的基线失败/修复通过证据；运行本计划相关 suite、type-check、build、stage package、启动与真实 API/GUI；核对相关文档确有同步、PR base 为 staging，记录最新基线差异与未验证边界；检查报告逐条引用本轮证据。"
+   ],
+   "expected": "测试不是只断言空列表/文件名；缺失证据如实记录，不称真机/部署已验证；本轮没有 blocker/major，且所有非人工 GUI 用例实跑才允许 TEST: pass。S9 使用 phi-test-report 固定脚本发布 report.json，MD 开头和收尾含报告 URL；完成不以等待外部 CI 为前提，除非本轮另有明确要求。",
+   "actual": "25 条全部按本轮证据核对；同回归 SHA、PR OPEN/draft/base staging、相关检查与基线对照、源码/包/真机、重开和清理记录齐全。原始结果 22 pass/3 fail，当前范围仍有 B2-1/B2-2 两项未获豁免的 major，不允许放行；材料核验完成。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/checks.json",
+     "caption": "checks.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/type-check.log",
+     "caption": "type-check.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/tsc-force.log",
+     "caption": "tsc-force.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/baseline-shared.log",
+     "caption": "baseline-shared.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/baseline-chat.log",
+     "caption": "baseline-chat.log"
+    },
+    {
+     "type": "log",
+     "path": "evidence/cleanup-runtime.json",
+     "caption": "cleanup-runtime.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/cleanup-tasks.json",
+     "caption": "cleanup-tasks.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/restored-live-manifest.json",
+     "caption": "restored-live-manifest.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/material-verification.json",
+     "caption": "material-verification.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/evidence-validation.json",
+     "caption": "evidence-validation.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/report-preview-validation.json",
+     "caption": "report-preview-validation.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-23-report-01.png",
+     "caption": "T-23-report-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-23-report-02.png",
+     "caption": "T-23-report-02.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-24",
+   "title": "Turbo/pushState 后的真实读取",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-5",
+   "precondition": "stag 测试 Profile 可匿名访问公开 octocat/Hello-World 提交页，真实被测服务；新 QA tab，不改用户已有 tab。",
+   "steps": [
+    "打开 `https://github.com/octocat/Hello-World/commits/master/`；点击一条可见提交链接进行站内 Turbo 跳转，记录 CDP target URL、浏览器 location 与提交标识。用跳转后的实际 URL 调用 browser_page content，核对模型工具结果；再在合成 navigate 页用 `history.pushState` 变更路径，重复记录和读取。每种场景留关键/终态图。"
+   ],
+   "expected": "当前目标页面可读且提供实际页面证据；不能因过期 target URL 误报 active_tab_changed。用真正旧 expectedUrl 调用时仍必须拒绝。",
+   "actual": "公开 GitHub 点 commit 链接，经真实 Turbo 同文档导航，before-turbo marker 保留；记录 CDP target/location/URL，随后 worker 以新 expectedUrl 读到实际提交、无文件。合成 pushState 新 URL 成功/旧 URL 拒绝。本机真实跳转后三者一致，未强行伪造 target URL 不一致。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-24-navigation.json",
+     "caption": "T-24-navigation.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-24-source-read.json",
+     "caption": "T-24-source-read.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-12-T-24-T-25-live-cdp.json",
+     "caption": "T-12-T-24-T-25-live-cdp.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-24-01.png",
+     "caption": "T-24-01.png"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-24-02.png",
+     "caption": "T-24-02.png"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-25",
+   "title": "授权协议、frame 空正文与跨 Space 拒绝",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1,AC-5",
+   "precondition": "源码/包分别运行；自己的合成 file HTML、空 iframe、仅隐藏/表单 iframe、真实正文 iframe；自己的 QA Space；只操作本次创建的数据。",
+   "steps": [
+    "对四类页面分别让真实 Chat 调用 content；本地 HTML 应含三项提交证据。对 phi://、chrome:// 内部页发同类读取请求。再在 Space 受限会话请求另一 QA Space 的 tab，一次拒绝后不重试/改 Space。每个变体记录读取完成或拒绝事件，截图关键与终态。"
+   ],
+   "expected": "file HTML 可读；空/隐藏/表单 frame 为 no_readable_content，只有来源标签不能成功；正文 frame 保留文本、有效绝对链接；内部页保持受限；跨 Space 返回 operation_not_allowed，保留 another Space/standalone Phi Chat 的实际策略说明。全部不产生内部附件。",
+   "actual": "源码和 stage 包分别跑 file HTML、空 iframe、仅隐藏/表单 iframe、正文 iframe：成功/no_readable_content/no_readable_content/成功，files=[]。两种服务的实际 profile scope 跨 Space 返回完整策略说明。chrome:// 及 phi://version（规范为 chrome://version）真实拒绝，授权本地文件仍可读。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/source-frames.json",
+     "caption": "source-frames.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/bundle-frames.json",
+     "caption": "bundle-frames.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/source-cross-space.json",
+     "caption": "source-cross-space.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/bundle-cross-space.json",
+     "caption": "bundle-cross-space.json"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-25-phi-internal-result.json",
+     "caption": "T-25-phi-internal-result.json"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-25-recorded-01.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-25-recorded-02.png",
+     "caption": "本轮命令/接口记录的事后只读视图；非产品 GUI"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  }
+ ],
+ "bugs": [
+  {
+   "id": "B2-1",
+   "severity": "major",
+   "title": "真实 content→PDF 成功后，最终回复又否认工具结果及已交付文件",
+   "case_ids": [
+    "T-21"
+   ],
+   "repro": "在匹配本 SHA 的 Canary Sidecar 打开合成 index；新会话发送“请实际调用 browser_page action content，tabId <当前测试页id>，读取后告诉我提交标题。然后实际调用 browser_page action pdf，tabId <同页id>，给我 PDF 文件。不要用已有页面快照代替 content 调用，不要执行保存网页技能。”；工具均成功、PDF 74214 B/HTTP200，原生 Phi Chat 重开后最终文本仍说“没有收到…content 或 pdf…没有可交付的 PDF”。原会话 01a13e0c-bf75-710c-8bf9-f0ea514babe1。否认现象 1/2；第二次未复现否认，但将页面标题当提交标题。没有基线等价真机结果，回归归因未确认；不自动使用通用既存矛盾备注豁免。",
+   "status": "open"
+  },
+  {
+   "id": "B2-2",
+   "severity": "major",
+   "title": "task_run 读取+PDF 除请求 PDF 外交付两个未请求的录屏",
+   "case_ids": [
+    "T-22"
+   ],
+   "repro": "创建仅要求读取合成 index 并导出 PDF、不发送外部通知的 QA 任务；先执行一次，再在实际任务页点击重新运行。run 01a13e0e-9e77-711b-8853-7c8f931909cd 实际 content 成功并有 page.pdf，但 result_payload.artifacts 另有两个 video/webm Browser Task 录屏（24947 B、8483 B）。预期混合请求仅交付 PDF；实际额外产物违反 AC-7。此复现条件 1/1，MHTML 变体亦有一个录屏。不是 content 的 protobuf 上传；是否为本 PR 引入尚未得到基线等价实跑证明。",
+   "status": "open"
+  },
+  {
+   "id": "B2-3",
+   "severity": "major",
+   "title": "任务整体硬超时丢失已生成 PDF 的任务结果附件（基线同样存在）",
+   "case_ids": [
+    "T-13"
+   ],
+   "repro": "隔离库任务 deadline 25000 ms；成功 content 后成功 pdf，再在下一轮模型请求注入延迟。head run 01a13e3b-34b2-720d-9bc1-6ffee4d74474 以 run_timeout 结束，PDF 已生成且 HTTP200/74214 B，但任务 result_payload/artifacts 没有 PDF。基线 75f5868d5 纯 PDF 任务、相同真实文件/硬超时路径也复现，且 tasks/PDF 生产路径未改动；因此按 Wood 的非本次引入边界作为范围外 finding，不声称修复、不列为本 PR 新阻断。",
+   "status": "declined"
+  },
+  {
+   "id": "B1-1",
+   "severity": "major",
+   "title": "普通聊天 PNG 原生入口仅可预览，未能保存（既有外部豁免）",
+   "case_ids": [
+    "T-21"
+   ],
+   "repro": "普通聊天明确请求可下载 PNG；图片卡无下载按钮，点击进入原生预览，只有缩放；File 菜单“页面存储为”禁用。文件本身有效，任务 PNG 原生右键保存成功。本轮再次实测；沿用 Wood 指定由浏览器团队处理及回归已接受 declined 的边界，产品问题仍未修复。",
+   "status": "declined"
+  },
+  {
+   "id": "B1-2",
+   "severity": "minor",
+   "title": "任务摘要仍显示 shadowTasks.sections.taskReady（既有 declined）",
+   "case_ids": [
+    "T-20"
+   ],
+   "repro": "打开本轮任务结果，任务状态摘要出现未翻译 key；后端终态与执行不受影响。本轮仍可见，沿用已接受的范围外 declined。",
+   "status": "declined"
+  }
+ ]
+}

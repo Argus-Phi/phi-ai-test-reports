@@ -1,0 +1,131 @@
+{
+  "baselineSha": "75f5868d52957d5e23a39b3e4299dafdbe3fb369",
+  "taskId": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+  "runId": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+  "result": {
+    "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+    "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+    "run_index": 1,
+    "trigger_source": "sidebar",
+    "tool_call_count": 0,
+    "run_status": "failed",
+    "progress_message": "timed out",
+    "progress_updated_at": 1792045828561,
+    "task_snapshot": {
+      "title": "PHI-354 baseline PDF retention QA",
+      "description": "PHI354_TERMINATE_BASELINE_RETENTION: Use browser_page pdf on tabId 1005728173, expectedUrl http://127.0.0.1:18970/index.html, once. Then state completion. Do not use skills/browser_task, content or any other export.",
+      "objective": "PHI354_TERMINATE_BASELINE_RETENTION: Use browser_page pdf on tabId 1005728173, expectedUrl http://127.0.0.1:18970/index.html, once. Then state completion. Do not use skills/browser_task, content or any other export.",
+      "profile_id": "Default"
+    },
+    "error": {
+      "code": "run_timeout",
+      "message": "Run exceeded maximum runtime"
+    },
+    "tabs": [],
+    "started_at": 1792045792609,
+    "finished_at": 1792045828561,
+    "chat_report": null,
+    "created_at": 1792045792598,
+    "updated_at": 1792045828561,
+    "logs": [
+      {
+        "log_id": "01a13e40-bd5b-73b9-9e43-db30018bc68b",
+        "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+        "scope": "run",
+        "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+        "ts": 1792045792598,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_queued",
+        "message": "Run #1 queued from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "run_status": "queued",
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "8f63722c-6dd0-4b63-bdbc-d91f098d7c4d",
+        "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+        "scope": "run",
+        "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+        "ts": 1792045792611,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_started",
+        "message": "Run #1 started from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "117ea59e-4177-48f5-81e5-3bbb0248cc83",
+        "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+        "scope": "run",
+        "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+        "ts": 1792045797247,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "agent_note",
+        "message": "Agent: I’ll export the open page as a PDF once, as requested.",
+        "payload": {
+          "text": "I’ll export the open page as a PDF once, as requested.",
+          "round": 1
+        }
+      },
+      {
+        "log_id": "46fca6a7-67b0-4a09-a574-920e6aedb679",
+        "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+        "scope": "run",
+        "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+        "ts": 1792045797256,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_call",
+        "message": "Calling browser_page.pdf: action: \"pdf\", input: {\"action\":\"pdf\",\"tabId\":1005728173,\"expectedUrl\":\"http://127.0.0.1:18970/index.…",
+        "payload": {
+          "args": "{\"action\":\"pdf\",\"input\":{\"action\":\"pdf\",\"tabId\":1005728173,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"landscape\":null,\"printBackground\":null,\"scale\":null,\"paperWidth\":null,\"paperHeight\":null,\"marginTop\":null,\"marginBottom\":null,\"marginLeft\":null,\"marginRight\":null,\"pageRanges\":null,\"preferCSSPageSize\":null,\"maxBytes\":null}}",
+          "tool_id": "browser_page",
+          "tool_call_id": "fc_00bc91f3d179d54c006ad072e4569c87d2bc55c29d1c87b61e",
+          "capability_id": "browser_page.pdf"
+        }
+      },
+      {
+        "log_id": "39874092-956a-4de4-9258-fc5ef05bd17b",
+        "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+        "scope": "run",
+        "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+        "ts": 1792045797399,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.pdf returned after 143ms: {\"ok\":true,\"mimeType\":\"application/pdf\",\"bytes\":74214,\"file_id\":\"01a13e40-cff7-77b8-b808-0430b0d82b02\",\"filename\":\"page.pdf\",\"size_bytes\":74214}",
+        "payload": {
+          "result": "{\"ok\":true,\"mimeType\":\"application/pdf\",\"bytes\":74214,\"file_id\":\"01a13e40-cff7-77b8-b808-0430b0d82b02\",\"filename\":\"page.pdf\",\"size_bytes\":74214}",
+          "duration_ms": 143,
+          "tool_call_id": "fc_00bc91f3d179d54c006ad072e4569c87d2bc55c29d1c87b61e",
+          "capability_id": "browser_page.pdf"
+        }
+      },
+      {
+        "log_id": "c73792f5-8b05-4953-b788-578c15d402cc",
+        "task_id": "01a13e40-bd49-727a-8dda-45bae750a1bb",
+        "scope": "run",
+        "run_id": "01a13e40-bd56-72a8-9157-c02beaf5f075",
+        "ts": 1792045828590,
+        "level": "warn",
+        "source": "phi_agent",
+        "category": "run_timed_out",
+        "message": "Timed out: still running after 25.0s",
+        "payload": {
+          "active_since": 1792045792609,
+          "max_running_run_age_ms": 25000
+        }
+      }
+    ],
+    "artifacts": []
+  },
+  "pdfGeneratedBeforeTimeout": true,
+  "missingRequestedPdf": true
+}

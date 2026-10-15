@@ -1,0 +1,22 @@
+{
+  "before": {
+    "targetId": "F0B256BACB6112D5E06A5FA46949D3F1",
+    "url": "https://github.com/octocat/Hello-World/commits/master/",
+    "title": "Commits · octocat/Hello-World · GitHub",
+    "current": false,
+    "tabId": 1005727915
+  },
+  "after": {
+    "location": "https://github.com/octocat/Hello-World/commit/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+    "marker": "before-turbo",
+    "target": {
+      "targetId": "F0B256BACB6112D5E06A5FA46949D3F1",
+      "type": "page",
+      "title": "Merge pull request #6 from Spaceghost/patch-1 · octocat/Hello-World@7fd1a60 · GitHub",
+      "url": "https://github.com/octocat/Hello-World/commit/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+      "attached": true,
+      "canAccessOpener": false,
+      "browserContextId": "F092C51346BF61BA737159A997060944"
+    }
+  }
+}

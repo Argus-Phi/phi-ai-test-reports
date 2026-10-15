@@ -1,0 +1,94 @@
+{
+  "rows": [
+    {
+      "taskId": "01a13e4c-025a-713d-adbc-c0cd2392fca3",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e01-b394-71c8-a490-44becc883ecf",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e0a-4a47-741e-b92c-11656cdd1c45",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e07-222f-718f-8e82-3b8591872b3e",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e07-224f-732b-b489-2edb5ed2c8f5",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e07-226d-71ee-92d9-daa8da93b14a",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e07-22b8-75ba-b26b-8b092814f2f4",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e1c-b35e-760a-8676-a1ddd251ecce",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e1e-3d35-7469-8e28-5d4a7e9ea154",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    },
+    {
+      "taskId": "01a13e21-8456-7528-b5a0-96cf7440dcfc",
+      "status": 200,
+      "archived": true,
+      "muted": true
+    }
+  ],
+  "schedules": {
+    "items": [
+      {
+        "schedule_id": "01a13e0a-4a51-75ba-8081-4094f3e72fcd",
+        "task_id": "01a13e0a-4a47-741e-b92c-11656cdd1c45",
+        "name": "监控 octocat/Hello-World 最新提交",
+        "description": "每天检查 GitHub 上 octocat/Hello-World 的 master 分支最新提交，并在提交变化时简洁汇报。",
+        "enabled": false,
+        "state": "paused",
+        "schedule": {
+          "tz": "Asia/Shanghai",
+          "expr": "0 11 * * *",
+          "kind": "cron"
+        },
+        "next_run_at": 1792119600000,
+        "paused_at": 1792042227446,
+        "paused_reason": "manual",
+        "source": "agent_tool",
+        "created_at": 1792042224208,
+        "updated_at": 1792046948303
+      }
+    ]
+  },
+  "settings": {
+    "running_timeout_ms": 1800000,
+    "min_running_timeout_ms": 600000,
+    "max_running_timeout_ms": 259200000,
+    "created_at": 1792043436670,
+    "updated_at": 1792043570458
+  }
+}
