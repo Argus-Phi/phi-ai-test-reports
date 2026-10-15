@@ -1,0 +1,33 @@
+{
+  "chatId": "01a1402b-9d6e-723c-b3c0-2ba7f9be739b",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a1402b-a453-70f9-88f3-7e4e96a6fd77",
+      "role": "user",
+      "parts": [
+        {
+          "text": "生成一张白底橙色方块的图片",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a1402b-b5c7-709e-8e09-fed0eb4e5898",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我来为你生成这张图片。这次图片生成没有成功，也没有返回图片；生成模型不可用（`phi-380-invalid-model` 不存在或无权访问）。\n\n任务未完成。\n已交付文件：0。\nNo requested image delivered. The model `phi-380-invalid-model` does not exist or you do not have access to it. No generation image delivered.\n请先处理已报告的原因，或检查配置和权限，再决定是否重试。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": []
+}

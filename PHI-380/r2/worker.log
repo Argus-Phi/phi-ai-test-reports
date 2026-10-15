@@ -1,0 +1,153 @@
+pnpm --filter @phi-ai/dsh-plugin-worker test
+Actual output excerpt; unrelated test detail omitted.
+ok 11 - artifact.create stores the model-authored body and reports it as a run artifact
+ok 12 - artifact.create strips a directory component from the filename
+ok 13 - a store rejection becomes a non-retryable file_upload_failed, not a run crash
+ok 15 - delivery without an execution binding fails without artifacts
+ok 16 - candidate registration, atomic validation, and confirmation are separate
+ok 19 - release or abort rejects selection and fallback while preserving confirmed files
+ok 21 - artifacts produced across rounds land on WorkerRunResult in order
+ok 22 - a run that produces no artifacts omits the field
+ok 23 - artifacts survive an aborted run
+ok 29 - the service's refusal is reported with its own code and whether retrying is worth it
+ok 31 - a base64 field becomes a chat file, and only its metadata is reported
+ok 47 - confirmed screenshot fileBase64Field empty bytes are a delivery failure
+ok 48 - confirmed screenshot fileStream empty bytes are a delivery failure
+ok 49 - confirmed screenshot stream beyond its sink limit has a delivery marker while a json observation does not
+ok 54 - the tool's own timeout waits out a question sonic is asking
+ok 66 - browser_task.execute taskResult error (failure): responses_error: <msg>, retryable=false (main:4283-4302)
+ok 67 - browser_task.execute taskResult error (abort + generic message): responses_error, retryable=true via code EXECUTION_ERROR (main:4285-4288)
+ok 68 - browser_task.execute taskResult error (abort + non-retryable code): retryable=false via classifyBrowserError SESSION_ABORTED (main:4283-4288)
+ok 69 - browser_task.execute timeout: a port that SETTLES on signal-abort yields tool_timeout (retryable) and the loop CONTINUES — the FIX 3 settle-on-abort contract proves the wrapper does NOT hang (main:4240-4256)
+ok 71 - browser_task.execute aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:4232-4239, terminal main:1788/1674)
+ok 72 - browser_task.execute aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+ok 97 - chat_category.list maps a store throw to a RETRYABLE responses_error carrying the message — main:3524-3544
+ok 100 - chat_category.ensure rejects an EMPTY trimmed name as NON-retryable invalid_arguments: empty_name (no store call) — main:3569-3584
+ok 101 - chat_category.ensure maps a chat_category_name_conflict to NON-retryable invalid_arguments — main:3619-3643
+ok 102 - chat_category.ensure maps any OTHER store error to a RETRYABLE responses_error — main:3619-3643
+ok 105 - chat_category.assign rejects a missing category as NON-retryable invalid_arguments: chat_category_not_found (no write) — main:3675-3696
+ok 106 - chat_category.assign rejects a missing chat as NON-retryable invalid_arguments: chat_not_found (no write)
+ok 107 - chat_category.assign maps the store refusing the category id to NON-retryable invalid_arguments
+ok 108 - chat_category.assign maps any other write failure to a RETRYABLE responses_error carrying the message — main:3718-3746
+ok 110 - chat_category.unassign rejects a missing chat as NON-retryable invalid_arguments: chat_not_found (no write)
+ok 111 - chat_category.unassign maps a write failure to a RETRYABLE responses_error carrying the message
+ok 112 - every sibling returns a RETRYABLE responses_error: chat_category_store_unavailable when the store is absent — main:3472/3554/3653
+ok 115 - nobody to ask (IM, timeout) exports nothing
+ok 120 - external_context.get reports missing run authorization as a non-retryable tool error
+ok 126 - dropped attachments are reported on success
+ok 129 - image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+ok 130 - image_generation.generate: a timeout (operation never resolves before the per-call deadline) yields a tool_timeout outcome, loop continues (main:2641-2655)
+ok 131 - image_generation.generate: a MID-CALL abort (run signal fires during the port call) returns the 'aborted' sentinel → run status 'aborted' (main:2637-2640)
+ok 132 - image_generation.generate: a signal already aborted before the call short-circuits to 'aborted' (runWithTimeout pre-check, main:2638)
+ok 141 - getState failure (Error) → faithful in-handler responses_error envelope: message `responses_error: <error.message>` (main:3369-3380 outer catch) — FIX 4
+ok 142 - getState failure (non-Error throw) → faithful fallback message `responses_error: get_agent_avatar_failed` (main:3372 fallback) — FIX 4
+ok 144 - persona.set_name: a typed InvalidAgentNameError → NON-retryable invalid_arguments: invalid_name — main:3173-3189
+ok 146 - persona.set_name: any OTHER error → RETRYABLE responses_error carrying the message — main:3191-3202
+ok 148 - persona.set_avatar: a typed InvalidAgentPersonaStateError → NON-retryable invalid_arguments: invalid_avatar — main:3234-3250
+ok 153 - schedule.create maps an invalid_arguments-prefixed failure to invalid_arguments (non-retryable) — main:3924-3933
+ok 154 - schedule.create maps a generic failure to responses_error (retryable) — main:3924-3933
+ok 157 - schedule.create passes on how the task reports, when it stops and when its schedule ends
+ok 166 - schedule.list port failure (Error with message) surfaces as a retryable responses_error carrying the message (run continues, then finishes)
+ok 167 - schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+ok 171 - install / uninstall: a refusal is a structured, non-retryable error
+ok 172 - install: a throwing port is a retryable failure, never a thrown run
+ok 182 - error: SkillValidationError → error.code, outer invalid_arguments (non-retryable) (main:2936)
+ok 186 - error: re-tagged StorageNotConfiguredError → storage_unavailable, outer responses_error (RETRYABLE) (main:2952-2954)
+ok 187 - error: a generic Error → skill_write_failed, outer responses_error (RETRYABLE) (main:2955)
+ok 198 - an fs read failure (port readFile not-ok) surfaces as file_not_found with the underlying detail — skill-scripts.ts:337-348
+ok 199 - a STAT/size-cap failure (port readFile not-ok WITHOUT detail) surfaces as a BARE file_not_found — no spurious detail attached (FIX 7 minor B, skill-scripts.ts:291-296)
+ok 208 - skill.run_script structured failure: a port { ok:false, reason:'kensington_unreachable' } yields the JSON error envelope WITH the describeFailure recovery hint (skill-scripts.ts:99-133)
+ok 209 - skill.run_script structured failure: a port-supplied `detail` is PRESERVED (not overwritten by the generic hint) — skill-scripts.ts:142-149
+ok 210 - skill.run_script timeout: a port that SETTLES on signal-abort yields a `reason:'timeout'` error outcome and the loop CONTINUES (run_script returns a NORMAL outcome on tool_timeout, never the 'aborted' sentinel)
+ok 211 - skill.run_script abort: an aborted operation maps to a `reason:'aborted'` HandlerResult (NOT the terminal 'aborted' sentinel) — run_script returns Promise<SkillScriptOutcome>, never 'aborted' (skill-scripts.ts dispatch-catch + main:2285-2304 no-guard branch)
+ok 212 - skill.run_script (loop): with a PRE-aborted run signal the loop's own guard terminates 'aborted' before dispatch — the handler's no-sentinel contract is independent of this shared-loop guard
+ok 213 - skill.run_script uploads declared artifacts and hides their contents from the model
+ok 214 - a script payload without artifacts is passed through untouched
+ok 215 - a script whose SECOND artifact fails to upload still reports the first
+ok 217 - skill.run_script with no tab and a refusal from the host reports no_target_tab with its reason, and never runs
+ok 219 - skill.run_script with no tab and no picker runs as before (the host reports no_target_tab)
+ok 224 - catch path: queryTaskRuns throws → responses_error (retryable) carrying the error message (main:3836-3852)
+ok 228 - websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+ok 230 - websearch.search aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:2444-2451, terminal main:1788/1674)
+ok 231 - websearch.search aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+ok 243 - buildWorkerSystemPrompt routes targeted Split View browser work through browser_task before CDP artifacts on a named tab
+ok 252 - a task run that reports only changes is told its answer is judged after it finishes
+ok 273 - execute returns the host error result unchanged (e.g. no_connection failure) — the worker classifies it
+ok 274 - SETTLE-ON-ABORT: aborting input.signal settles the returned promise (does NOT hang) — the executor reacts to the signal
+ok 292 - uploadFile reports the store's contentType when it overrides the requested mime
+ok 323 - hostRunSkillScript evaluates the bundle in the page (tabId/code/scriptArgs/timeoutMs/signal) and unwraps lastValue
+ok 333 - readFile honors the size cap → { ok:false, reason:'file_too_large' } with NO detail (stat/size-cap failure)
+ok 334 - readFile maps a STAT failure to { ok:false, reason:'file_not_found' } with NO detail
+ok 335 - readFile maps a READ failure to { ok:false, reason:'file_not_found', detail } WITH the error message
+ok 345 - runScript forwards a STRUCTURED failure result from hostRunSkillScript unchanged
+ok 358 - a stubbed port method throws the expected pending error
+ok 372 - deny is confirmed:false; any other choice carries no confirmed flag
+ok 401 - runScheduledTaskRegistration gives the task its report policy and stop condition, and the schedule its end
+ok 403 - runScheduledTaskList shows what each task does, how it reports, when it stops and when its schedule ends
+ok 407 - a capability failure THROWS instead of returning as success
+ok 408 - a capability's own failure text reaches the model verbatim
+ok 409 - a failure the bridge did not author keeps the harness's wording
+ok 411 - the loop's abort reaches the capability, but its reason object does not
+ok 418 - delivery failure and saved artifacts travel together in the execution report even when the capability throws
+ok 422 - a handler sends the action's operation and the run's identity, and reports what came back
+ok 451 - the card is a medium-risk confirm with a note prefilled, in English and as catalog keys
+ok 455 - a failed call is recorded with the failure as its response
+ok 456 - a stream that throws still reports its call, then rethrows
+ok 459 - a wrap-up is still the ceiling, carrying the model's report as its summary
+ok 463 - the deadline keeps the retryable shape phi's own halt gives it
+ok 465 - a ceiling keeps the artifacts and the tool output the run already produced
+ok 467 - a model failure after a successful tool keeps that tool's output
+ok 472 - saved artifacts reach their original host before finish, with late callbacks fenced
+ok 473 - saved artifacts reach their original host before abort, with late callbacks fenced
+ok 474 - saved artifacts reach their original host before deadline, with late callbacks fenced
+ok 482 - release unbinds, stops observing and aborts the start signal - once
+ok 485 - a caller that aborted before the child exists gets it cancelled as a user stop
+ok 501 - fetchGreetingContext returns null when fetch throws (network / timeout)
+ok 508 - a development endpoint channel is not reported
+ok 517 - a non-zero envelope code on HTTP 200 is a retryable server error
+ok 521 - the caller's cancel reaches a reply whose body stalls
+ok 522 - an abort of the caller's signal propagates instead of being retried
+ok 536 - handler dispatch: other capabilities keep their own descriptor timeout
+ok 537 - successful explicit screenshot without a usable file is a delivery failure
+ok 538 - screenshot browser-error before confirmed production does not acquire a deliveryFailure marker
+ok 539 - screenshot throw before confirmed production does not acquire a deliveryFailure marker
+ok 540 - screenshot missing-handler before confirmed production does not acquire a deliveryFailure marker
+ok 541 - screenshot missing-ports before confirmed production does not acquire a deliveryFailure marker
+ok 542 - screenshot false-success zero metadata is fenced before the artifact report
+ok 543 - screenshot false-success missing-url metadata is fenced before the artifact report
+ok 544 - screenshot false-success not-image metadata is fenced before the artifact report
+ok 545 - producer deliveryFailure preserves its original code and partial file metadata through the screenshot bridge
+ok 546 - a non-image CDP export never promotes an unrelated producer marker to image delivery failure
+ok 551 - skipped, timeout and unavailable each tell the model what to do next
+ok 552 - a cancelled question ends the run as aborted
+ok 554 - a malformed question is a retryable argument error listing every issue
+ok 566 - a failure with nothing committed says nothing was found or changed, and is retryable
+ok 567 - a failure after a committed write names the completed operations, denies a rollback, and is not retryable whole
+ok 568 - a result lost after the run started is reported as an unknown outcome, with the writes seen as a floor, and is not retryable
+ok 583 - a task started in a conversation tells the model its result is reported there
+ok 588 - task.update switches how the task reports and clears its stop condition
+ok 590 - task.update refuses a blank title and an unknown task without writing, and retries a store failure
+ok 592 - task.inspect_run reports a failed run's error, refuses another task's run, and says when a task has not run
+ok 611 - partial image saves are reported immediately and never regenerate the batch
+ok 612 - an upload returning after cancellation is never delivered or followed by another upload
+ok 613 - user delivery rejects incomplete upload metadata without publishing a fake card
+ok 615 - the requested mime type stands when the store reports none
+ok 619 - stored image metadata survives the in-process upload for user delivery
+ok 648 - a store failure comes back as the store's own code, verbatim
+ok 657 - read_file failure detail points the LLM back to SKILL.md
+ok 658 - run_script failure detail nudges LLM to read SKILL.md
+ok 675 - run_script maps the runner's own tool_timeout to timeout
+ok 676 - run_script maps a CDP evaluation that timed out to timeout
+ok 677 - run_script maps an abort to aborted
+ok 678 - run_script maps a lowercase abort to aborted
+ok 684 - a pause while the operation runs moves the timeout
+ok 686 - without a pause the timeout fires on time
+ok 695 - browser_task timeout resolves from BROWSER_TASK_TIMEOUT_MS
+ok 741 - an incomplete response ends at WARNING, a failure at ERROR
+ok 742 - a call no traced run owns is not reported
+# tests 784
+# pass 784
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 4414.648125

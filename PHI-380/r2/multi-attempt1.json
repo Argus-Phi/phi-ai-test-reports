@@ -1,0 +1,63 @@
+{
+  "chatId": "01a14022-45d2-760d-b12f-eba97b579f03",
+  "messages": [
+    {
+      "id": "01a14022-c5dc-77ef-b378-243ec484e7fe",
+      "role": "user",
+      "parts": [
+        {
+          "text": "生成两张独立图片：一张红色纸船，一张蓝色风筝",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a14022-d80b-7528-96a7-509cfe06d43c",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我正在为你分别生成这两张图片。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-7b4ebe72219a",
+          "type": "file",
+          "filename": "image-generation-1.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 4,
+            "toolCallId": "worker-artifacts-01a14022-d80b-7528-96a7-4bc64175c0bb-qa-file-7b4ebe72219a",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "url": "/api/v1/files/qa-file-b29a73205e34",
+          "type": "file",
+          "filename": "image-generation-1.png",
+          "mediaType": "image/png",
+          "providerMetadata": {
+            "partSeq": 6,
+            "toolCallId": "worker-artifacts-01a14022-d80b-7528-96a7-4bc64175c0bb-qa-file-b29a73205e34",
+            "segmentType": "tool-output"
+          }
+        },
+        {
+          "text": "两张独立图片都已生成并交付：一张红色纸船，一张蓝色风筝。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:2",
+            "partSeq": 7,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+pnpm --filter @phi-ai/sidecar exec tsx --test src/services/api-files.test.ts src/hooks/use-renderable-file-url.test.tsx src/components/message-parts/file-part.test.tsx src/lib/artifact-delivery.test.tsx src/lib/agui-subscriber.test.ts src/store/message-store.test.ts
+Actual output excerpt; unrelated test detail omitted.
+ok 2 - native preview uses the service address http://127.0.0.1:8788/api/v1/files/image while the image renders a blob
+ok 3 - native preview uses the service address /api/v1/files/image while the image renders a blob
+ok 9 - image decoding failure is visible and isolated from the next file request
+ok 10 - an external image decoding failure is visible
+ok 11 - download failure has an explicit image error
+ok 21 - tool result file content without mime type defaults to a generic binary artifact
+ok 58 - worker-route interjection: ack → user(interjection) → report renders the report as a NEW bubble positioned AFTER the interjection (merge default)
+ok 76 - a task report frame tags the reply it precedes (merge mode)
+ok 77 - a task report frame tags the reply it precedes (split mode)
+ok 78 - a malformed task report frame changes nothing
+ok 81 - artifact replay after an interjection and history reload preserves its original run segment
+ok 82 - real artifact mapping persists, streams, reloads and renders one downloadable image
+ok 89 - finishAssistantMessage marks running tool parts as aborted for aborted runs
+# tests 97
+# pass 97
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 1801.910625

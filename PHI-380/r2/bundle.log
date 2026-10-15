@@ -1,0 +1,85 @@
+pnpm --filter @phi-ai/dsh-bundle test
+Actual output excerpt; unrelated test detail omitted.
+ok 9 - generation HTTP 429 retains its reason when no image is delivered
+ok 10 - generation HTTP 400 retains its reason when no image is delivered
+ok 11 - generation HTTP 503 retains its reason when no image is delivered
+ok 13 - page screenshot browser failure recovers through the real loop
+ok 14 - page screenshot browser failure cannot be hidden by narration through the real loop
+ok 15 - page screenshot save failure remains partial after the same screenshot retries successfully
+ok 16 - page screenshot failure is not satisfied by an independently delivered generated image
+ok 17 - page screenshot browser success with missing file metadata cannot claim complete delivery
+ok 18 - page screenshot browser success with empty file metadata cannot claim complete delivery
+ok 19 - page screenshot browser success with zero file metadata cannot claim complete delivery
+ok 20 - cdp screenshot browser failure recovers through the real loop
+ok 21 - cdp screenshot browser failure cannot be hidden by narration through the real loop
+ok 22 - cdp screenshot save failure remains partial after the same screenshot retries successfully
+ok 23 - cdp screenshot failure is not satisfied by an independently delivered generated image
+ok 24 - cdp screenshot browser success with missing file metadata cannot claim complete delivery
+ok 25 - cdp screenshot browser success with empty file metadata cannot claim complete delivery
+ok 26 - cdp screenshot browser success with zero file metadata cannot claim complete delivery
+ok 27 - generation empty failure followed by full delivery has the accepted recovery classification
+ok 28 - generation service failure followed by full delivery has the accepted recovery classification
+ok 29 - generation save failure followed by full delivery has the accepted recovery classification
+ok 30 - generation partial upload naturally accepts the usable image and reports incomplete output
+ok 32 - generation file saved across deadline is retained only when confirmed before abort
+ok 33 - generation file saved across deadline is retained only when confirmed before abort
+ok 34 - generation abort before a confirmed file fences a late upload and isolates the next run
+ok 35 - generation abort after a confirmed file fences a late upload and isolates the next run
+ok 36 - page file saved across deadline is retained only when confirmed before abort
+ok 37 - page file saved across deadline is retained only when confirmed before abort
+ok 38 - page abort before a confirmed file fences a late upload and isolates the next run
+ok 39 - page abort after a confirmed file fences a late upload and isolates the next run
+ok 40 - cdp file saved across deadline is retained only when confirmed before abort
+ok 41 - cdp file saved across deadline is retained only when confirmed before abort
+ok 42 - cdp abort before a confirmed file fences a late upload and isolates the next run
+ok 43 - cdp abort after a confirmed file fences a late upload and isolates the next run
+ok 47 - CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+ok 48 - CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+ok 49 - CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+ok 50 - CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+ok 52 - an internal CDP screenshot observation never becomes an artifact
+ok 53 - an internal CDP screenshot observation accompanies only the explicit exported artifact
+ok 54 - final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 55 - final image selection delivers only validated files: ["final-boat","outside-run"]
+ok 56 - final image selection delivers only validated files: []
+ok 57 - final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 58 - page screenshot selection discards a saved candidate and confirms only the final export
+ok 59 - cdp screenshot selection discards a saved candidate and confirms only the final export
+ok 60 - saved image failure preserves structured recovery facts: EACCES
+ok 61 - saved image failure preserves structured recovery facts: EPERM+ETIMEDOUT
+ok 62 - saved image failure preserves structured recovery facts: UNKNOWN_STORE
+ok 63 - generation cancellation with only a saved candidate never delivers it
+ok 64 - page cancellation with only a saved candidate never delivers it
+ok 65 - cdp cancellation with only a saved candidate never delivers it
+ok 66 - final image selection persists only confirmed files through the real executor and host
+ok 67 - structured EACCES crosses real worker/executor/chat reporting and persistence
+ok 68 - structured temporary_store_error crosses real worker/executor/chat reporting and persistence
+ok 69 - structured unknown_store_error crosses real worker/executor/chat reporting and persistence
+ok 70 - a run whose answer hit the output cap is reported as cut off, not completed
+ok 71 - any other incomplete carries the provider's own reason into the failure
+ok 96 - a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+ok 103 - e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+ok 104 - e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+ok 109 - real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+ok 110 - real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+ok 111 - real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+ok 112 - real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+ok 113 - real worker cancel without an accepted generation preserves exactly the host's persisted files
+ok 114 - real worker cancel with an accepted generation preserves exactly the host's persisted files
+ok 115 - real worker timeout without an accepted generation preserves exactly the host's persisted files
+ok 116 - real worker timeout with an accepted generation preserves exactly the host's persisted files
+ok 117 - a cancelled pending upload can finish after a new run without changing either run's files or terminal
+ok 122 - a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+ok 135 - a turn that ENDS IN ERROR is reported as an error, not an empty success
+ok 136 - a capability's produced files reach WorkerRunResult.artifacts
+ok 139 - a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+ok 145 - a late correction cannot continue a cancelled run
+ok 148 - each model call of a traced run is reported with its prompt, output and round
+ok 149 - a run that does not ask reports no model calls
+ok 151 - a run at its round ceiling reports what it did, still as the ceiling
+# tests 214
+# pass 214
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 16399.189042

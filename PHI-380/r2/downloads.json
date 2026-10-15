@@ -1,0 +1,20 @@
+[
+  {
+    "filename": "phi-380-direct-preview-fixture (2).png",
+    "state": "complete",
+    "totalBytes": 189917,
+    "sha256": "8e41f6c40fcd69440f5b204e1270ada506a6a8d359c75d74cb557889f6c52de7"
+  },
+  {
+    "filename": "image-generation-1 (10).png",
+    "state": "complete",
+    "totalBytes": 1318893,
+    "sha256": "9a61c370fdeeade371ad1e4c6ac95188496cb6668f2bc641ce53d3aad3c23e7c"
+  },
+  {
+    "filename": "image-generation-1 (9).png",
+    "state": "complete",
+    "totalBytes": 1176208,
+    "sha256": "9d5dd17ad8734361ff9a5df4115189930d8796d54ddab57b27f7f065f1e7006c"
+  }
+]

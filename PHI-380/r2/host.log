@@ -1,0 +1,32 @@
+pnpm --filter @phi-ai/dsh-plugin-chat exec tsx --test src/lib/worker-task-executor.test.ts src/lib/assistant-parts-accumulator.test.ts src/lib/event-bridge.test.ts src/lib/ws-tests/sidecar-chat-persistence.test.ts src/lib/routes-files.test.ts src/lib/routes-chats.test.ts
+Actual output excerpt; unrelated test detail omitted.
+ok 39 - maps a question WorkerRunResult to { ok:false, question } (never a failure)
+ok 55 - worker artifacts are mapped onto the TaskExecutionResult and emitted once
+ok 56 - a run with no artifacts emits nothing and leaves the result field absent
+ok 57 - artifacts from a FAILED run are still emitted and reported
+ok 59 - image delivery diagnostics do not claim that requested work was gathered
+ok 60 - image delivery diagnostics accompany saved partial files
+ok 62 - a failed run with nothing gathered reports a plain failure
+ok 63 - a USER cancel salvages nothing — a cancel is a decision, not a loss
+ok 64 - a TIMEOUT salvages too — the other way a finished piece of work is lost
+ok 73 - a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+ok 74 - a memory ask that outlives the run timeout is a timeout
+ok 102 - without a language an interjection is delivered at once
+ok 106 - an unwired artifact host reports delivery failure instead of full success
+ok 110 - mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+ok 111 - a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+ok 112 - a plain cancel neither deletes the turn nor replaces the actor
+ok 113 - a persist failure does NOT crash the run — frames still flow and the run finishes
+ok 116 - dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+ok 127 - emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+ok 128 - emitWorkerArtifacts drops frames that do not belong to the live run
+ok 129 - emitWorkerArtifacts emits nothing for an empty artifact list
+ok 130 - image artifacts use one stable quad per file across dispatches and persist online
+ok 131 - image artifacts use one stable quad per file across dispatches and persist offline
+ok 132 - artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+# tests 132
+# pass 132
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 3074.266292

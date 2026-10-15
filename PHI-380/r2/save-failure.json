@@ -1,0 +1,33 @@
+{
+  "chatId": "01a1402c-e238-7070-98f2-63557b98479a",
+  "status": 200,
+  "messages": [
+    {
+      "id": "01a1402c-e7b0-734b-b02b-55652c2eb6d0",
+      "role": "user",
+      "parts": [
+        {
+          "text": "生成一张白底橙色方块的图片",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "01a1402d-b76c-76e9-b0af-6f4a53556f38",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "我来为你生成这张简洁的方块图。这次图片没有生成成功：保存目录创建时遇到权限拒绝，因此没有返回图片。\n\n任务未完成。\n已交付文件：0。\nNo requested image delivered. 1: EACCES: permission denied, mkdir '<QA_FILES_ROOT>/[USER]' No generation image delivered.\n请先处理已报告的原因，或检查配置和权限，再决定是否重试。",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ]
+    }
+  ],
+  "files": []
+}

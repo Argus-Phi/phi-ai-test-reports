@@ -1,0 +1,147 @@
+pnpm --filter @phi-ai/chat test
+Actual output excerpt; unrelated test detail omitted.
+ok 1 - fenced artifact splits correctly at chunk size 1
+ok 2 - fenced artifact splits correctly at chunk size 3
+ok 3 - fenced artifact splits correctly at chunk size 7
+ok 4 - fenced artifact splits correctly at chunk size 126
+ok 8 - stream ending inside an artifact completes it as truncated
+ok 10 - close-fence lookalikes inside the artifact stay in the html
+ok 12 - two artifacts in one reply get sequential ids and placeholders
+ok 13 - buildArtifactSrcDoc wraps fragments in the structural shell (no design system)
+ok 14 - resolveArtifactMedia: resolved slots substitute, unresolved imgs vanish
+ok 15 - resolveArtifactCites: cite hrefs resolve positionally; unknown cites unlink but keep the text
+ok 16 - ARTIFACT_SHELL_CSS is structural only, shared by both render paths
+ok 17 - buildArtifactSrcDoc shell carries the new-tab link base
+ok 18 - buildArtifactSrcDoc shell closes img-src to local schemes (meta CSP — no remote declarative fetches)
+ok 19 - buildArtifactSrcDoc: a legacy FULL document gets the meta CSP injected, not served raw
+ok 20 - resolveArtifactMedia: a host-inlined data:image URI substitutes (the closed-CSP delivery form)
+ok 24 - buildArtifactSrcDoc keeps an already-full document unwrapped (legacy tolerance), CSP aside
+ok 45 - backbone in hand + only recall pending at the gate -> ANSWER NOW, then a memory beat (no hold)
+ok 50 - beats path: when the planner declines to voice the recalled memory, the answer stands alone (no tacked-on memory beat)
+ok 55 - first ceiling elapses, then a WAITING line replaces the hold line; recall lands within the hard ceiling -> grounded answer (no timeout narration)
+ok 61 - follow-up yield window: user message arrives mid-yield -> follow-up cancelled
+ok 72 - interrupt: cancels stream and routes to Perceiving
+ok 90 - web_search: a search that lands first cancels the hold line and never waits on it
+ok 111 - confirm-intent route: the answering segment gets the confirm-intent note, nothing is delegated
+ok 116 - decision segment delegates: reflect is SKIPPED so late context can't stream a follow-up that contradicts the pending task
+ok 120 - task turn acknowledges, delegates to taskExecutor, then reports the outcome
+ok 125 - delegation hint forbids invented deliverables and navigating to the page already in hand
+ok 128 - interrupting a failed task report prevents its factual footer from streaming or persisting
+ok 133 - voice-only ack: a control_delegate_task on the acknowledge segment is ignored and the ack is voiced (no double delegation)
+ok 134 - artifact turn: a control_delegate_task is refused and the nudged retry authors the card with the guide in context
+ok 135 - prepare_artifact: the reply loads the design guide mid-segment and authors the card
+ok 136 - prepare_artifact: a repeat load the same turn is refused — the guide is a fixed text
+ok 137 - prepare_artifact: not advertised without a wired artifacts config
+ok 138 - prepare_artifact: not advertised while the router's design-guide note rides the turn
+ok 139 - a failed task is reported honestly
+ok 140 - CONTENT task: the report presents the worker's FULL deliverable (all sections incl. ES), NOT a one-line status
+ok 141 - ACTION task: the report carries the worker's result text and lets the model choose the shape
+ok 142 - blockingTaskExecution: AWAITS the executor in-turn — no session_close until it settles, then ack→report→one close in ONE session
+ok 143 - injectInterjectionContext: folds a worker-routed interjection into the report's CONTEXT WITHOUT minting a new turn — the in-turn report prompt carries it (so it isn't dropped)
+ok 145 - blockingTaskExecution=false keeps the DEFAULT background path (detached, report via SIGNAL_TASK_RESULT)
+ok 146 - task decision is grounded by the speculative burst; committed delegation clears it — ack/report never see its facts
+ok 148 - ACTION task does NOT lead with a brief answer (no self-contradiction) — decision then ack then report
+ok 149 - the acknowledgment asks for its first message only; the decision and the report do not
+ok 151 - a delegated task still running surfaces in the NEXT turn's pending-context block
+ok 156 - interrupting a delegated task drops it from the NEXT turn's pending block
+ok 169 - memory agent: chat reads its output and answers, with no report beat
+ok 171 - memory agent: a continuation that neither speaks nor delegates falls back to reporting the output
+ok 179 - control tools ride the tool-bearing segments' head (byte-stable), and are OMITTED from voice-only beats
+ok 185 - legacy personal flag does not switch the reply onto the voice key
+ok 186 - the hold line streams on the voice key while the answer keeps chatResponse
+ok 205 - the language pin survives the delegate re-entry: ack and report keep the named language
+ok 212 - a task result with artifacts tells the report model what files were produced
+ok 213 - a task result without artifacts adds no artifact line
+ok 218 - plan mode: save-as-skill offer is withheld on a mid-plan step report (background path)
+ok 219 - plan mode: save-as-skill offer is withheld on a mid-plan step report (blocking path)
+ok 224 - plan mode: runaway-chain cap — a delegate past maxStepsPerTurn is refused (plan_cap) and the nudged retry voices a check-in
+ok 225 - plan mode: no-progress guard — after maxConsecutiveStepFailures the next delegate is refused
+ok 231 - plan mode: a continuation that stalls TWICE forces a voice-only check-in — the user hears the plan is paused instead of silence
+ok 253 - failed task report retains its cause in Chinese and history: blocking/normal
+ok 254 - failed task report retains its cause in Chinese and history: blocking/empty
+ok 255 - failed task report retains its cause in Chinese and history: blocking/error
+ok 256 - failed task report retains its cause in Chinese and history: blocking/partial-error
+ok 257 - failed task report retains its cause in Chinese and history: blocking/missing
+ok 258 - failed task report retains its cause in Chinese and history: background/normal
+ok 259 - failed task report retains its cause in Chinese and history: background/empty
+ok 260 - failed task report retains its cause in Chinese and history: background/error
+ok 261 - failed task report retains its cause in Chinese and history: background/partial-error
+ok 262 - failed task report retains its cause in Chinese and history: background/missing
+ok 295 - plan mode tells reporting only changes apart from muting and stopping
+ok 312 - a provider that resolves to empty skips the LLM call and reports the no-words verdict
+ok 328 - settle applies the standing language to a turn with no message (a report)
+ok 336 - a message with no words falls to the standing request, else reports no words
+ok 372 - rider invariants: save-as-skill offer is flag-gated on both report shapes
+ok 375 - rider invariants: a confirmation of settings the user chose keeps every setting
+ok 402 - failure facts and distinct recovery templates exist for English
+ok 403 - failure facts and distinct recovery templates exist for Chinese
+ok 404 - failure facts and distinct recovery templates exist for Japanese
+ok 405 - failure facts and distinct recovery templates exist for Korean
+ok 406 - failure facts and distinct recovery templates exist for Spanish
+ok 407 - failure facts and distinct recovery templates exist for French
+ok 408 - failure facts and distinct recovery templates exist for German
+ok 409 - failure facts and distinct recovery templates exist for Dutch
+ok 410 - failure facts and distinct recovery templates exist for Portuguese
+ok 411 - failure facts and distinct recovery templates exist for Italian
+ok 412 - failure facts and distinct recovery templates exist for Russian
+ok 413 - failure facts and distinct recovery templates exist for Arabic
+ok 414 - failure facts and distinct recovery templates exist for Hindi
+ok 415 - failure facts and distinct recovery templates exist for Vietnamese
+ok 416 - failure facts and distinct recovery templates exist for Thai
+ok 417 - failure facts and distinct recovery templates exist for Indonesian
+ok 418 - failure facts and distinct recovery templates exist for Turkish
+ok 419 - failure facts and distinct recovery templates exist for Polish
+ok 422 - success and discovered questions do not become failed reports
+ok 425 - real partial text remains available if the voice cannot hand it over
+ok 426 - a task run report streams a fresh bubble under the session the host named
+ok 427 - a failed run's report explains the failure and offers help
+ok 432 - a finished run's report never reads as a message that was not sent
+ok 433 - a task run report leaves a task delegated from this conversation running
+ok 434 - a task run report is its own chat.turn in the trace
+ok 476 - decideTurnVerdict fails open: no answers, a throw, an abort, an empty message
+ok 488 - unclear lane: confirm intent, reason obscure
+ok 490 - an action hinging on the user's choice confirms instead of dispatching
+ok 493 - the lane state carries the transcript tail, the page, images and the pending offer
+ok 494 - the artifact question is asked only when the guide is wired
+ok 501 - a pre-aborted turn returns not-a-task without deciding
+ok 509 - artifact: an answer-lane card turn loads the guide
+ok 510 - artifact: a chain with an action step dispatches, and the card waits for the report
+ok 511 - artifact: a failing guide provider degrades to no guidance
+ok 531 - jinaSearch splits favicons from preview thumbnails
+ok 538 - jinaSearch wraps transport failures
+ok 546 - provider returns [] for an already-aborted signal without fetching
+ok 558 - retrieveFromKnowledgeBase: pre-aborted signal short-circuits
+ok 573 - slot session: a resolver-reported diagnostic becomes the unresolved reason
+ok 577 - slot session: aborted signal stops scanning and late emissions
+ok 582 - slot session: drain closes out still-pending slots and discards their late results
+ok 583 - slot session: drain with nothing pending returns without emitting
+ok 584 - slot session: dispose aborts in-flight resolvers so nothing emits later
+ok 588 - onText also admits the HTML img form (artifact fragments)
+ok 620 - race: reports serve/degrade lane diagnostics with configured labels
+ok 621 - race: throwing primary reports an error diagnostic and serves fallback
+ok 623 - race: pre-aborted signal → [] without calling providers
+ok 633 - cancel defaults to keepInbox: interrupt only, queue untouched
+ok 634 - cancel keepInbox:false drops queued input BEFORE the interrupt
+ok 635 - dispose stops the spine once, is idempotent, and pins status/cancel afterwards
+ok 638 - cancel keepInbox:false drops queued-but-undequeued input
+ok 652 - runner: opt-in retry re-requests a retryable code and succeeds
+ok 654 - runner: retry never fires after visible text streamed, and not for non-retryable codes
+ok 655 - runner: abort keeps streamed text and drops tool calls
+ok 657 - runner: abort settles before a stalled provider and forwards its signal
+ok 658 - classifyLlmFailure names a reply that ran away
+ok 659 - classifyLlmFailure maps provider wording to stable codes
+ok 660 - an error finish carries the classified failure so the engine can route on its code
+ok 678 - the seam executor reports why a recall came back empty
+ok 679 - recall short-circuits to [] when the caller signal is already aborted
+ok 680 - describe returns the recall index TOC, '' on failure
+ok 725 - a throwing executor reports emptyReason 'error' on its request
+ok 743 - asks nothing with fewer than two recalled memories or after an abort
+ok 844 - cacheHitStat: reported cache read → pct of the full prompt; absence → undefined
+ok 845 - copied logs carry ttft and the cache-hit stat on calls that report them
+ok 854 - ingestPageContext opens the pending turn and records the untruncated content
+# tests 876
+# pass 876
+# fail 0
+# cancelled 0
+# skipped 0
+# duration_ms 16294.497375
