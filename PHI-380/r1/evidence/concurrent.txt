@@ -1,0 +1,179 @@
+[
+  {
+    "label": "C1",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "一张红色纸船的图片，并附一句说明"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "parts": [
+          {
+            "type": "text",
+            "text": "我正为你生成一艘红色纸船，并配上一句简短说明。"
+          },
+          {
+            "type": "dynamic-tool"
+          },
+          {
+            "type": "file",
+            "filename": "image-generation-1.png",
+            "url": "/api/v1/files/<synthetic>"
+          },
+          {
+            "type": "text",
+            "text": "图片已生成：一只鲜红的纸船，轻轻漂浮在宁静的湖面上。"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "再生成一张蓝色纸船的图片"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "parts": [
+          {
+            "type": "text",
+            "text": "我正为你生成一艘蓝色纸船。"
+          },
+          {
+            "type": "dynamic-tool"
+          },
+          {
+            "type": "file",
+            "filename": "image-generation-1.png",
+            "url": "/api/v1/files/<synthetic>"
+          },
+          {
+            "type": "text",
+            "text": "蓝色纸船已生成，图片也一并为你准备好了。"
+          }
+        ]
+      }
+    ],
+    "terminals": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "一只鲜红的纸船，轻轻漂浮在宁静的湖面上。"
+      },
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "蓝色纸船已生成。"
+      }
+    ]
+  },
+  {
+    "label": "C2",
+    "messages": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "生成一张绿色风筝的图片"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "parts": [
+          {
+            "type": "text",
+            "text": "我这就为你生成一张绿色风筝的图片。"
+          },
+          {
+            "type": "dynamic-tool"
+          },
+          {
+            "type": "file",
+            "filename": "image-generation-1.png",
+            "url": "/api/v1/files/<synthetic>"
+          },
+          {
+            "type": "text",
+            "text": "绿色风筝的图片已经生成。"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "再生成一张紫色风筝的图片"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "parts": [
+          {
+            "type": "text",
+            "text": "我正在为你生成另一张紫色风筝的图片。"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "parts": [
+          {
+            "type": "text",
+            "text": "重新执行刚才取消的请求"
+          }
+        ]
+      },
+      {
+        "role": "assistant",
+        "parts": [
+          {
+            "type": "text",
+            "text": "我正在重新生成那张紫色风筝图片。"
+          },
+          {
+            "type": "dynamic-tool"
+          },
+          {
+            "type": "file",
+            "filename": "image-generation-1.png",
+            "url": "/api/v1/files/<synthetic>"
+          },
+          {
+            "type": "text",
+            "text": "已生成一张紫色风筝图片，图片已为你准备好。"
+          }
+        ]
+      }
+    ],
+    "terminals": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "![绿色风筝](/api/v1/files/<synthetic>)"
+      },
+      {
+        "kind": "run_result",
+        "ok": false,
+        "errorCode": "aborted"
+      },
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已生成一张紫色风筝图片。"
+      }
+    ]
+  }
+]

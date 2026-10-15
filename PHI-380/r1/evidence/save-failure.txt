@@ -1,0 +1,10 @@
+Fixture: FILES_STORAGE_PATH points only to a new QA temporary directory; permissions 0555 after ready, restored 0755 in cleanup.
+[
+  {
+    "kind": "run_result",
+    "ok": false,
+    "errorCode": "No requested image delivered. artifact_delivery_failed: saved 0 image(s); 1 image(s) not delivered: 1: EACCES: permission denied, mkdir '[QA_TEMP_PATH] Retry the missing images.; artifact_delivery_failed: saved 0 image(s); 1 image(s) not delivered: 1: EACCES: permission denied, mkdir '[QA_TEMP_PATH] Retry the missing images. No generation image delivered. Resolve the reported cause before retrying the request."
+  }
+]
+Final UI: 抱歉，这次图片没有成功生成或送达；我可以重试。
+Actual images=0.

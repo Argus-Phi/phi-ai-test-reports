@@ -1,0 +1,5 @@
+{"phase": "open", "readyState": 1, "at": "2026-10-15T11:40:20.745Z", "probe": "scope-missing control"}
+{"phase": "close", "code": 1008, "readyState": 3, "at": "2026-10-15T11:40:20.748Z", "probe": "scope-missing control"}
+{"phase": "open", "readyState": 1, "at": "2026-10-15T11:40:51.385Z", "probe": "authenticated profile-scoped connection"}
+{"phase": "close", "code": 1006, "readyState": 3, "at": "2026-10-15T11:41:04.754Z", "probe": "authenticated profile-scoped connection"}
+{"phase":"reopen","readyState":1,"at":"2026-10-15T11:43:01.258Z"}

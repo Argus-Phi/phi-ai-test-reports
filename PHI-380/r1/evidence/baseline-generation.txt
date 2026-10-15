@@ -1,0 +1,9 @@
+SHA: bf679f4706d99c19106a0ae28cf1c64c2a58d628
+真实请求：生成一张彩色鸽子的图片
+
+UI: 图片已生成，见上方；仅头像29x29，无生成图。
+截图基线：真实Page A截图可见，PNG1422x4800，不复现截图丢图。
+
+工具真实结果（文件capability脱敏）：
+{"kind": "tool_call_start", "capabilityId": "image_generation.generate"}
+{"kind": "tool_call_result", "capabilityId": "image_generation.generate", "isError": false, "content": "{\"ok\":true,\"provider\":\"openai-compatible\",\"model\":\"phi/agent/image-generation\",\"query\":\"A beautiful colorful pigeon perched naturally on a sunlit stone ledge, iridescent jewel-toned feathers shimmering emerald green, violet, turquoise and magenta, realistic detailed plumage, soft warm daylight, tasteful natural background softly blurred, elegant wildlife photography, crisp subject, no text\",\"text\":null,\"images\":[{\"url\":\"/api/v1/files/<synthetic-file-id>\",\"mimeType\":\"image/png\",\"filename\":\"image-generation-1.png\",\"revisedPrompt\":null}]}"}

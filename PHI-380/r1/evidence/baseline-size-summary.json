@@ -1,0 +1,13 @@
+{
+  "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+  "requested_imageSize": "4k",
+  "actual_dimensions": [
+    1024,
+    1024
+  ],
+  "mime_type": "image/png",
+  "bytes": "814786",
+  "sha256": "efb2a738552c6569ea34e29f216f9839e37b9d20f36ec5a782745f60ad1c04e9",
+  "final_claim": "图像尺寸为4K",
+  "user_file_parts": 0
+}

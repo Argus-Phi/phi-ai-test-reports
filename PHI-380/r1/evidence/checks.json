@@ -1,0 +1,50 @@
+[
+  {
+    "name": "worker",
+    "command": "pnpm --filter @phi-ai/dsh-plugin-worker test",
+    "exit_code": 0,
+    "seconds": 6.63
+  },
+  {
+    "name": "bundle",
+    "command": "pnpm --filter @phi-ai/dsh-bundle test",
+    "exit_code": 0,
+    "seconds": 21.23
+  },
+  {
+    "name": "chat",
+    "command": "pnpm --filter @phi-ai/dsh-plugin-chat test",
+    "exit_code": 1,
+    "seconds": 16.68
+  },
+  {
+    "name": "sidecar",
+    "command": "pnpm --filter @phi-ai/sidecar test",
+    "exit_code": 0,
+    "seconds": 87.11
+  },
+  {
+    "name": "types",
+    "command": "pnpm type-check",
+    "exit_code": 0,
+    "seconds": 2.11
+  },
+  {
+    "name": "dsh-force",
+    "command": "pnpm --filter @phi-ai/dsh exec tsc -b --emitDeclarationOnly --force",
+    "exit_code": 0,
+    "seconds": 1.03
+  },
+  {
+    "name": "sidecar-force",
+    "command": "pnpm --filter @phi-ai/sidecar exec tsc -b --emitDeclarationOnly --force",
+    "exit_code": 0,
+    "seconds": 7.45
+  },
+  {
+    "name": "sidecar-build",
+    "command": "pnpm --filter @phi-ai/sidecar build",
+    "exit_code": 0,
+    "seconds": 18.33
+  }
+]

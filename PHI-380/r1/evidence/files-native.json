@@ -1,0 +1,76 @@
+[
+  {
+    "file": "generation",
+    "auth": true,
+    "method": "GET",
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"image-generation-1.png\"; filename*=UTF-8''image-generation-1.png",
+    "bytes": 1765631,
+    "hash": "f50bd0cac3b0db7818ecee9ad47b427d593ed6738e2f6ed1fc92d55c20345ec3"
+  },
+  {
+    "file": "generation",
+    "auth": true,
+    "method": "HEAD",
+    "error": "unsupported_method: The HTTP method is not supported."
+  },
+  {
+    "file": "screenshot",
+    "auth": true,
+    "method": "GET",
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"phi-380-page-a.png\"; filename*=UTF-8''phi-380-page-a.png",
+    "bytes": 222952,
+    "hash": "f82aeeb0ce59773c6a8463656fc37d8effd2816dd58e9ad82e9dbb4f5aa7f500"
+  },
+  {
+    "file": "screenshot",
+    "auth": true,
+    "method": "HEAD",
+    "error": "unsupported_method: The HTTP method is not supported."
+  },
+  {
+    "file": "missing",
+    "auth": true,
+    "status": 404
+  },
+  {
+    "file": "generation",
+    "auth": false,
+    "method": "GET",
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"image-generation-1.png\"; filename*=UTF-8''image-generation-1.png",
+    "bytes": 1765631,
+    "hash": "f50bd0cac3b0db7818ecee9ad47b427d593ed6738e2f6ed1fc92d55c20345ec3"
+  },
+  {
+    "file": "generation",
+    "auth": false,
+    "method": "HEAD",
+    "error": "unsupported_method: The HTTP method is not supported."
+  },
+  {
+    "file": "screenshot",
+    "auth": false,
+    "method": "GET",
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"phi-380-page-a.png\"; filename*=UTF-8''phi-380-page-a.png",
+    "bytes": 222952,
+    "hash": "f82aeeb0ce59773c6a8463656fc37d8effd2816dd58e9ad82e9dbb4f5aa7f500"
+  },
+  {
+    "file": "screenshot",
+    "auth": false,
+    "method": "HEAD",
+    "error": "unsupported_method: The HTTP method is not supported."
+  },
+  {
+    "file": "missing",
+    "auth": false,
+    "status": 404
+  }
+]

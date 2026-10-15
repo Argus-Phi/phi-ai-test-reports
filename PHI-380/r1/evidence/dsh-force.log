@@ -1,0 +1,1 @@
+pnpm --filter @phi-ai/dsh exec tsc -b --emitDeclarationOnly --force

@@ -1,0 +1,42 @@
+
+/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-389-530472f178b3/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/worker-task-executor.test.ts
+    38:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    39:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    40:28  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    40:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    40:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+    75:22  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   127:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   129:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   129:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   133:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   343:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   346:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   387:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   427:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   462:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   464:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   464:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   468:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   494:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   496:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   496:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   500:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   519:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   546:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   953:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   953:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   958:15  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   959:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   969:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  1011:19  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  1204:17  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  1242:23  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  1242:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  1247:10  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  1814:8   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 35 problems (0 errors, 35 warnings)
+
+Checking formatting...
+All matched files use Prettier code style!

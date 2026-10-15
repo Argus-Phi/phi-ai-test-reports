@@ -1,0 +1,156 @@
+closing the drawer aborts its worker without downloading
+ZIP cleans up a worker when posting fails and a blob when download dispatch throws
+initial chat send ignores composer-scoped skills
+newtab hides the search icon after a file is uploaded
+Phi Chat offers the Profile submenu only for conversations without a Profile
+the row's New category files the new category under that chat
+Profile and category views are peers and selecting a Profile does not move a chat
+protected category and Profile views do not expose category management
+filter search matches both kinds and categories remain selectable from a Profile view
+Profile load errors expose retry instead of claiming that all Profiles were deleted
+user file card downloads only on click, blocks duplicate requests and releases broker data
+assistant file card downloads only on click, blocks duplicate requests and releases broker data
+download failure displays a toast, never opens a tab, and permits retry
+an image remains visible with its name while loading
+HTTP 404 renders unavailable with appropriate recovery
+HTTP 401 renders authorization with appropriate recovery
+HTTP 403 renders authorization with appropriate recovery
+HTTP 503 renders loadError with appropriate recovery
+network retry re-reads the original file and successful image downloads original identity
+image decoding failure is visible and isolated from the next file request
+an external image decoding failure is visible
+download failure has an explicit image error
+a late error from an external image cannot hide its replacement
+assistant markdown images render through Phi preview button
+rewriteMediaSlotsForRender rewrites only image destinations, streaming-safe
+renders a theme-colored wandering dot with a trailing afterimage
+selectWebSourcesStripSources: partitions by preview image, not kind
+isFaviconLikeUrl: matches icon services and .ico files, not real thumbnails
+PDF/file mentions without attached tabs retain their legacy serialization
+renders nothing when there is no extension id or artifactId
+the iframe src carries the Lexington widget-source.html page and the encoded artifact id
+a refusal and a pipeline error both read as failed, with no image
+StrictMode replay re-arms one fixed retry and final unmount stays terminal
+packaged readiness uses request-scoped broker health without service exports or browser fetch
+a successful 401 refresh retry returns the mutation response exactly once
+createAPIClientResolver keeps the client and the auth scope when the same account rotates its token
+createAPIClientResolver invalidates the current scope when the token disappears
+APIClient fetchFileAsDataUrl uses native transport for relative phi-agent file paths
+APIClient loadRenderableFileUrl creates and idempotently releases a broker-backed object URL
+APIClient loadRenderableFileUrl loads checked object URLs from loopback files in legacy mode
+APIClient fetchFileAsDataUrl normalizes historical absolute phi-agent file URLs through native transport
+APIClient fetchFileAsDataUrl leaves absolute internet URLs on unauthenticated browser fetch
+Profile listing uses the native Phi Chat contract and never converts failures into deletion evidence
+offers the restart once the found update is downloaded
+offers the restart after a while when the download event never comes
+the cross-Space chain is the profile's own icon, then the service, then nothing
+explicit Profile moves release only after commit, and allow source close only after accepted arrival
+fetchQuotaStatus refreshes the token once on 401 and then gives up
+fetchQuotaStatus treats 403/404/405 as definitive and 5xx as transient
+loads broker-backed object URLs for history, avatar, upload, and message file paths
+same source and loader identity are reloaded and revoked when auth scope changes
+a resolved file is hidden when its loader auth scope is invalidated
+artifact empty state uses the dedicated no-shadow-task copy when no call was made
+standalone Phi Chat declares global scope and restores through native without borrowing a browser window
+Phi Chat adopts a global chat into the restored Profile after the scene exists and before the offer
+useTravelBack in Phi Chat adopts only a global chat, through the move route, into the restored Profile
+AgentBridge sends interject, cancel, and user-action responses over WebSocket
+tool result file content is uploaded and converted into a generic file part
+tool result file content without mime type defaults to a generic binary artifact
+[merge (default)] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+[merge (default)] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+[split] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+[split] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+worker-route interjection: ack → user(interjection) → report renders the report as a NEW bubble positioned AFTER the interjection (merge default)
+internal screenshot observations are not promoted, while explicit exports survive replay
+assistant file identity preserves external origins, distinct IDs, conversations and new runs
+artifact replay after an interjection and history reload preserves its original run segment
+real artifact mapping persists, streams, reloads and renders one downloadable image
+uploaded large images reuse the service address without reading or fetching bytes (native=true)
+uploaded large images reuse the service address without reading or fetching bytes (native=false)
+base64-expanded pending images above the limit wait without reading, resolving or opening
+small pending images retain inline native preview
+fetchWithAuthRetry uses the injected transport and preserves 401 refresh retry
+sync: image file-part → IMAGE kind with the URL as content (no inline)
+sync: data-text-file part → TEXT_FILE kind
+sync: unmappable parts (step marker, unknown, empty text-file) are dropped
+async with inliner resolves the image URL to a data: URL
+sync: non-image file part → file kind with verbatim URL
+async with inliner resolves file bytes to a data: URL
+async with throwing inliner falls back to the file URL
+the worker's round prose and absorbed interjections become note rows
+broker PDF requests a named Chrome download and retains its Blob until accepted
+legacy service URLs also use the download API without asAttachment or navigation
+external, data and borrowed Blob URLs need no file service and are not revoked
+download rejection releases broker data without a navigation fallback
+missing API, missing service, load failure and stale auth cannot start a download
+filenames cannot become paths and unnamed files let Chrome infer a name
+a temporarily unavailable native bridge does not permanently erase Profile identity
+nativeImagePreviewAddress preserves non-phi preview sources in both modes
+resolveNativeImagePreviewTransport reports an authorized broker transport
+resolveNativeImagePreviewTransport reports a declined broker transport
+requestImagePreviewDestination uses sidecar preview when window id is unavailable
+requestImagePreviewDestination prefers native preview when native call succeeds
+requestImagePreviewDestination does not fall back to sidecar when native call fails
+in-flight: interject uplink is sent for the in-flight run AND the user message is inserted
+idle: with no in-flight run, the live interject path does not fire (normal send instead)
+resolveComposerSubmitAction interjects when loading and canInterject
+resolveComposerSubmitAction ignores submit while loading without interjectable text
+no placeholder while a run streams after an interjection (tail = interjection user msg)
+placeholder still shows for a normal fresh-turn user message (no interjection flag)
+a falsey interjection flag does not suppress the placeholder
+two split references survive JSON persistence, live attachments and server replay
+normalizes relative phi-agent file identifiers
+normalizes historical loopback IPv4, localhost, and IPv6 file URLs
+returns the trimmed profile id
+treats an incognito profile as unspecified
+replay and retry keep the stored reading, which never had an id
+replay runs forward the anchor message and no initial user message
+isImageMediaType detects image/* media types
+pinned-artifacts grid spans tile rows correctly
+pinned artifacts store places widgets in cells and displaces overlaps
+pinned artifacts store shrinks displaced widgets during resize
+pinned artifacts store keeps displaced widgets original size when relocating
+pinned artifacts store supports horizontal shrink across height presets
+pinned artifacts store cascades widgets in their column during moves
+pinned artifacts store swaps two same-size widgets dropped onto each other
+pinned artifacts store tucks a smaller covered widget into the dragged card's slot
+pinned artifacts store cascades when the covered widget is too big to fit the slot
+pinned artifacts store swaps stacked same-size tall widgets dragged fully onto each other
+pinned artifacts store does not overlap when nudging a tall widget onto a same-size neighbour
+pinned artifacts store cascades widgets in their column during fresh drops
+pinned artifacts store aligns shorter drops onto taller widgets
+pinned artifacts store aligns shorter moves onto taller widgets
+pinned artifacts store keeps lower widgets fixed when moving into an empty slot
+pinned artifacts store compacts the row a move leaves empty
+pinned artifacts store compacts after dragging a widget out of its row
+a pinned cell follows its artifact's preferredSize when it changes (a refine), even over a manual resize; first sight upgrades only a default cell
+every image preview resolves its transport through the never-rejecting wrapper
+cross-Profile delivery is addressed even when numeric binding IDs match
+scoped animating tracks only the providing subtree's typewriters
+normalizePinnedArtifactPlacements re-places a widget stored off its track
+run() maps an image file-part to the engine IMAGE kind (URL when no inliner)
+run() inlines an image file-part's bytes to a data: URL via inlineImageUrl
+cancelRun during image preparation settles locally and never sends the late message
+run() falls back to the URL when inlineImageUrl throws
+run() maps a data-text-file part to the engine TEXT_FILE kind
+run() maps a non-image file part to a FILE attachment and drops an unmappable part, with no throw
+run() maps a mixed turn (image + text-file + tab context) together
+interject() sends an interject uplink on the shared run socket
+interject() buffers before the socket opens, then flushes in order
+interject() mints a clientMsgId when the caller omits one
+buildAuthenticatedArtifactContentUrl appends the bearer token as a query parameter
+buildAuthenticatedArtifactContentUrl preserves existing query params
+the workspace path carries the chat scope header
+task and schedule actions use the task routes, which carry no chat scope
+reads how many chats the Tasks view holds, in the caller's scope
+direct image loads preserve HTTP 401
+direct image loads preserve HTTP 403
+direct image loads preserve HTTP 404
+direct image loads preserve HTTP 503
+direct image loads fetch normalized bytes and release the object URL once
+external image URLs do not fetch or receive Phi credentials
+a tab shows the icon its own profile holds, and falls back only without one
+the Phi Chat window reads every Space; a Profile window uses chrome.tabs
+an unreadable scope falls back to chrome.tabs rather than reaching the network
+the page-level accent shades stay the pre-theme teal literals; only the widget scope follows the window accent

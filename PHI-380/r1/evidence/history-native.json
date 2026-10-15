@@ -1,0 +1,28 @@
+[
+  {
+    "label": "generation",
+    "messageCount": 2,
+    "files": [
+      {
+        "role": "assistant",
+        "filename": "image-generation-1.png",
+        "mediaType": "image/png",
+        "expectedFile": true,
+        "relative": true
+      }
+    ]
+  },
+  {
+    "label": "screenshot",
+    "messageCount": 2,
+    "files": [
+      {
+        "role": "assistant",
+        "filename": "phi-380-page-a.png",
+        "mediaType": "image/png",
+        "expectedFile": true,
+        "relative": true
+      }
+    ]
+  }
+]

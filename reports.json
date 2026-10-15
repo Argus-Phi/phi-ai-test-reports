@@ -62,5 +62,22 @@
     "total": 25
    }
   }
+ ],
+ "PHI-380": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "fail",
+   "title": "修复图片生成与截图任务产物未返回对话的问题（反馈 #196）",
+   "sha": "eea6533b02f187ed42f2bb62f34f1e8909cd2a75",
+   "generated_at": "2026-10-15T12:04:18.364844+00:00",
+   "counts": {
+    "pass": 16,
+    "fail": 6,
+    "blocked": 2,
+    "skipped": 3,
+    "total": 27
+   }
+  }
  ]
 }

@@ -1,0 +1,181 @@
+memory route B: a wired profileProvider injects its text into the answer prompt (the <user_profile> system head) of the engine phi-chat-core assembles
+Phase-2: the injected profileProvider lands in the reply prompt's profile head of the engine phi-chat-core assembles
+persists commentary phase on assistant text parts
+persists generic file content from tool results as assistant file parts
+replayed rich files persist once while later text and new runs retain the file
+buildWorkerCtx threads the issuing browser profile off the forwarded props
+buildWorkerCtx omits the issuing profile when it is absent or malformed
+lists isolate ordinary Profiles while standalone global access aggregates them
+global readers can filter owners but Profile callers cannot widen their scope
+foreign IDs cannot bypass Profile isolation through reads or mutations
+unassigned chats can be read and continued in either Profile without adoption
+a thread without a chats row is unowned: any declared scope reads it by account, no scope is still refused
+creation uses declared host scope, never origin metadata or a body ownership field
+standalone Phi Chat adopts only a global chat into the Profile it restores into
+Phi Chat moves a global chat to a Profile by name without a scene; Profiles still move only by Tab
+a chat in a user profile is held to its Space, the Phi Chat application is not
+the scope survives the connection, as the bearer does
+the scope survives even when only the BEARER was read while connected
+the bearer survives when only the SCOPE was read while connected
+lists the user's attached files newest first, each with an id a tool can attach
+a text file is stored once, however often the conversation delegates
+only the newest files are listed, and only those are stored
+a file that cannot be stored is left out, the rest are still listed
+the context block names each file with its id and the message it came with
+the message a file came with is quoted short, on one line
+importConversation files the chat under the input's categoryIds
+fresh actors restore per-message source identity without replaying page bodies
+system / tool records are SKIPPED (plain-text scope)
+user rows re-inject persisted textSelections as an untrusted context block
+resolveReplayRun (regenerate): truncates the stale reply after the anchor and seeds pre-anchor history
+resolveReplayRun (edit): anchor is the tail ⇒ no deletion
+resolveReplayRun: unknown id ⇒ null (no deletion)
+resolveReplayRun: anchor is not a user row ⇒ null (never regenerate from an assistant row)
+resolveReplayRun: the anchor's raw parts + metadata are passed through (attachment rebuild input)
+resolveReplayRun: store not configured ⇒ null
+plan snapshot: the newest OPEN snapshot restores (steps + persisted id)
+persist sink: text + closed tool events produce persisted parts
+persist sink: RUN_* / CUSTOM frames are ignored (no crash, no parts)
+hold_line → CUSTOM(hold_line), and the persisted row never carries it
+persist sink: CUSTOM(web_sources) persists metadata.webSources (normalized, deduped) for the reload strip
+persist sink: aborted build finalizes open tool calls
+persist sink: a synthetic abort RESULT persists as error, NOT output-available
+persist sink: CUSTOM(media_slots) persists only resolved, displayable resolutions
+createPersistSink stamps the runId into persisted assistant metadata
+persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+images: Tavily keyless, as image sources that open the image itself
+images: failures reject with the reason
+an image that already fits is not decoded and not changed
+only the oversized image changes, and a repeat call returns the same bytes
+image maps to a user message (not system/assistant)
+toResponsesInput maps file items to input_file user content
+an oversized image reaches the model fitted to 2048 on its long edge
+a ToolLoop tool item replays the call with its real arguments and only the result as output
+an errored ToolLoop tool item replays the call and keeps the error as the output
+slot resolver: pool miss goes live with mode:images and rotating tab slots
+slot resolver: an empty live grid reports no-image so the slot's miss is explained
+slot resolver: a failed live fetch falls back to the fallback image search
+slot resolver: a live image wins; the fallback is never asked
+slot resolver: every resolved image says where it came from
+the ask sends the host's configured user-wide read scope, and no scope header otherwise
+persona port: skip avatar is persisted only when no avatar exists
+avatar port resolves null without image-generation deps
+onboarding config: its turns are traced on the run, filed under the thread, with the ritual's user
+image file part → image attachment with bytes inlined via the store
+non-image binary file part (PDF) → file attachment with bytes inlined
+data-text-file part → text_file attachment (content already inline)
+a failed file fetch skips THAT attachment; the rest still map (never throws)
+a `data:` URL file part is forwarded verbatim without a store fetch
+skip registers the chat row when the thread has persisted messages
+GET role-card returns an empty card when nothing is persisted
+a global-scope caller gets the article
+a Profile-scope caller is refused without touching the browser
+a missing or malformed scope is refused, never read as global
+an unauthenticated caller is refused before the scope is read
+a global-scope caller gets the outcome
+a Profile-scope caller is refused without touching the browser
+a global-scope caller gets the workspace
+a Profile-scope caller is refused: this is Phi Chat only
+a missing or malformed scope is refused, never treated as global
+an unauthenticated caller is refused before the scope is read
+GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+another account cannot obtain an image-bearing chat even by declaring the owner's profile
+fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+journey-now forwards the profile id and returns the cards
+de-duplicates file parts sharing a fileId, keeping the first (richer) one
+strips an inline filecite envelope but keeps the surrounding text
+strips multiple citations (file + search variants) in one part
+lets metadata.widgetArtifact and metadata.runId through untouched (the widget extension's reconnect-recovery read)
+sticky owner: onOwner fires only for live resolutions, never the idle replay
+bing images: a tile names its source page, image and thumbnail; highlight markers go
+bing images: a tile without a source page, or with no image at all, is dropped
+search urls: Bing web and images carry the query (and the locale); Brave web only
+a build without incognito shadow windows fails the fetch instead of using the real profile
+serp provider: web mode only — images belong to the media-slot resolver
+artifactGeneration has its own env key and a widget-tier hard default
+an unread report judged worth an interruption is shown as a card by the conversation's Profile
+a conversation in no Profile (Phi Chat) still gets its card, sent through any open Profile
+the task's Profile is asked for when the conversation has none
+a run that stopped on a question reports the question, and the worker's files are named
+the reply routes under artifactGeneration
+finalize_artifact rejects an invalid freshness via schema validation without tripping the finalize-once gate
+the advertised finalize_artifact tool definition carries the freshness enum
+finalize_artifact refuses an unprobed page.extract source and accepts it once probe_extract_sources reported it ok
+finalize_artifact's unprobed-source error names the unavailable slot, never page.read, once probe_extract_sources is out of budget
+rejects file:///etc/passwd
+a conversation that belongs to a profile is offered only that profile's tabs
+a chat owned by a profile is only offered that profile's spaces
+across profiles the option names the profile, by its DISPLAY name
+a profile whose name IS the Space's name is not repeated
+within one profile the profile is not named at all
+profile names are only fetched when they would be shown
+a browser that will not name its profiles still shows the card
+an attached page in another profile does not override ownership
+a conversation adopted by another profile is asked again, and told why
+a remembered Space of another profile is not used when the listing fails either
+across profiles a Space's entry travels as a catalog message too
+the files the user attached in this conversation ride in the worker's context
+a file listing that fails leaves the worker's context as it was
+emits no lifecycle progress when no owner run is known (scoped)
+worker artifacts are mapped onto the TaskExecutionResult and emitted once
+a run with no artifacts emits nothing and leaves the result field absent
+artifacts from a FAILED run are still emitted and reported
+image delivery diagnostics do not claim that requested work was gathered
+image delivery diagnostics accompany saved partial files
+an interjection reaches the worker after its language is applied
+interjections keep their order, whichever read lands first
+at the turn's end a held interjection is handed over unread
+a hung observation delays an interjection by the bound only
+without a language an interjection is delivered at once
+ready() waits for an interjection still being read, and only while one is
+saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+an unwired artifact host reports delivery failure instead of full success
+coalescing does not change what the persist sink records
+interject (chat-only, no worker mid-flight): routes to actor.interject and emits a bubble-boundary signal for the continuation; a stale runId does NOT interject
+interject (worker mid-flight): lands in the running worker's interjection inbox, NOT the chat loop; after the worker returns the inbox is deactivated so a later interject routes to the chat
+interject is graceful when there is no live run: an unknown thread and an ended run never throw and never interject
+1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+user message is persisted on receipt (chatId === threadId, role user)
+assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+a persist failure does NOT crash the run — frames still flow and the run finishes
+DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+chat-interject: two interjections in one run chain to a 6-message split timeline
+worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+uplink parts + metadata are persisted verbatim on the user row
+emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+emitWorkerArtifacts drops frames that do not belong to the live run
+emitWorkerArtifacts emits nothing for an empty artifact list
+image artifacts use one stable quad per file across dispatches and persist online
+image artifacts use one stable quad per file across dispatches and persist offline
+artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+replay run drives the actor with the edited text (not empty) and seeds pre-edit history
+replay run forwards the resolver's rebuilt attachments to actor.send (image/PDF survive an edit)
+replay run without attachments still sends undefined (no empty-array envelope)
+replay rebuilds an existing thread's actor with the truncated seed
+replay with no loader wired is refused with a terminal RUN_ERROR
+append run persists the user row under the client-provided id (so a later edit can delete it)
+replay whose message is not found is refused with a terminal RUN_ERROR
+an interjection during a report continues the same report run
+a replay on a mode no variant serves is refused the same way
+a persisted functional frame marks the row dirty and lands in metadata under its key; the socket never creates a chat
+gate OFF: assistant_bubble_boundary (interject) is a functional frame and still emits
+Profile scope gates WS creation/control; global access uses the owner and move revocation does not interrupt work
+an unassigned chat follows each caller's run Profile without adopting or trusting forwarded identity
+a row-less widget thread runs under any declared scope, but widget mode never widens access to owned rows
+RE-REVIEW [MAJOR]: a DRAINING/PENDING entry in the finalizeRun defer-gap is NOT evicted by a new-thread admission; its queued interjection still promotes
+interject-queue: a 2nd user_message during a busy run is QUEUED (no run_busy, no RUN_STARTED for it yet) and runs as the next turn after RUN_FINISHED(r1)
+interject-queue: the pending queue is FIFO and depth-bounded — beyond MAX_PENDING one queue_full RUN_ERROR; queued interjections drain in FIFO order after r1
+interject-queue: an interjection does NOT abort the running task — r1 still completes normally (RUN_FINISHED, no interrupt)
+REVIEW [MAJOR]: closing a connection drops its queued interjections — finalizing the running run does NOT start the dead-conn pending item
+REVIEW [MAJOR]: a queued interjection preserves its attachments through the drain to the actor
+REVIEW [MAJOR]: cancelling a QUEUED interjection removes it from pending — it never starts when the running run finalizes
+1b OWNER-FENCE (R4 multi-session adoption): two deltas same session, then a third with a NEW session (interject continuation, no terminal between) ALL reach the wire under run-1

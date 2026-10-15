@@ -1,0 +1,8 @@
+{
+  "version": "2026.10.15.1908",
+  "original_version": "2026.10.15.1541",
+  "note": "Restored original store registration/files, then store auto-updated to1908 after normal launch.",
+  "launch_override": false,
+  "loopback8788": "free",
+  "agent": "Sentinel-managed published agent restored"
+}

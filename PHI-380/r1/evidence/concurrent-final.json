@@ -1,0 +1,176 @@
+[
+  {
+    "label": "C1",
+    "rows": [
+      {
+        "role": "user",
+        "text": "一张红色纸船的图片，并附一句说明",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我正为你生成一艘红色纸船，并配上一句简短说明。\n图片已生成：一只鲜红的纸船，轻轻漂浮在宁静的湖面上。",
+        "files": [
+          {
+            "filename": "image-generation-1.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 1237619,
+            "sha256": "e5b7d6889a35d1c9acae2e937423f5735601f394ea82191ddb58ebab878c6774"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "text": "再生成一张蓝色纸船的图片",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我正为你生成一艘蓝色纸船。\n蓝色纸船已生成，图片也一并为你准备好了。",
+        "files": [
+          {
+            "filename": "image-generation-1.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 1330731,
+            "sha256": "acfa9e3be5aaa42d3f12b3390fdc9be26444c925d7113f418a5ac46113ce3ab9"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "text": "用一句话总结刚才的结果",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "刚才我为你准备了红色和蓝色纸船的图片。",
+        "files": []
+      },
+      {
+        "role": "user",
+        "text": "请把 http://127.0.0.1:18938/a.html 的完整页面截图发给我",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我正为你截取并整理这个页面的完整截图。\n完整页面截图已截取并附上。这个截图技能完成了这次任务；要不要我为你安装它，让下次可以一步完成？",
+        "files": [
+          {
+            "filename": "screenshot.png",
+            "width": 2158,
+            "height": 4800,
+            "bytes": 126737,
+            "sha256": "a29bad44b6121675fc7fff5f5b55301f593151c02f22717d91f96b1477fa9e66"
+          }
+        ]
+      }
+    ],
+    "image_content_check": {
+      "top": [
+        221,
+        82,
+        76
+      ],
+      "middle": [
+        112,
+        163,
+        243
+      ],
+      "bottom": [
+        242,
+        193,
+        75
+      ],
+      "page": "A"
+    }
+  },
+  {
+    "label": "C2",
+    "rows": [
+      {
+        "role": "user",
+        "text": "生成一张绿色风筝的图片",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我这就为你生成一张绿色风筝的图片。\n绿色风筝的图片已经生成。",
+        "files": [
+          {
+            "filename": "image-generation-1.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 1306414,
+            "sha256": "e441135bae311df7e645421181623ca9b8f659862485f00cbbe26d8cb4e8ea43"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "text": "再生成一张紫色风筝的图片",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我正在为你生成另一张紫色风筝的图片。",
+        "files": []
+      },
+      {
+        "role": "user",
+        "text": "重新执行刚才取消的请求",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我正在重新生成那张紫色风筝图片。\n已生成一张紫色风筝图片，图片已为你准备好。",
+        "files": [
+          {
+            "filename": "image-generation-1.png",
+            "width": 1024,
+            "height": 1024,
+            "bytes": 1301166,
+            "sha256": "4b6e364ed123c4886a2438baa521009408d109e0566df4547e722b829f603d8f"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "text": "请把 http://127.0.0.1:18938/b.html 的完整页面截图发给我",
+        "files": []
+      },
+      {
+        "role": "assistant",
+        "text": "我正在打开该页面并为你截取完整页面，随后把截图发给你。\n完整页面截图已为你截取并附上。这个截图技能完成了任务；要我安装它，让下次可以一步完成吗？",
+        "files": [
+          {
+            "filename": "screenshot.png",
+            "width": 2158,
+            "height": 4800,
+            "bytes": 96814,
+            "sha256": "3b99e096be7e6c36248493630db5de4f49c7bf462631e5adb7484952b325ba6b"
+          }
+        ]
+      }
+    ],
+    "image_content_check": {
+      "top": [
+        119,
+        219,
+        137
+      ],
+      "middle": [
+        183,
+        135,
+        245
+      ],
+      "bottom": [
+        101,
+        208,
+        234
+      ],
+      "page": "B"
+    }
+  }
+]

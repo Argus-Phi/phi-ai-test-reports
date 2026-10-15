@@ -1,0 +1,166 @@
+[
+  {
+    "label": "region-0",
+    "attempt": 1,
+    "files": [
+      {
+        "filename": "region-a.png",
+        "mediaType": "image/png"
+      }
+    ],
+    "decoded_images": [
+      {
+        "alt": "region-a.png",
+        "w": 640,
+        "h": 360
+      }
+    ],
+    "final_text": "截取页面A中REGION A的320×180矩形\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n请只截取页面A中REGION A的320×180矩形，不要整个页面\nPhi\n\n我正在为你截取页面上对应的矩形区域，完成后把截图发给你。\n\n已截取 REGION A 的 320×180 CSS 像素区域，并以 PNG 截图交付。\n\n等待首字…\n·\n耗时 4.7s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已截取 PHI-380 Page A 中的 REGION A，范围为 **320×180 CSS 像素**。截图已作为 PNG 附上。"
+      }
+    ]
+  },
+  {
+    "label": "region-1",
+    "attempt": 1,
+    "files": [
+      {
+        "filename": "region-a.png",
+        "mediaType": "image/png"
+      }
+    ],
+    "decoded_images": [
+      {
+        "alt": "region-a.png",
+        "w": 640,
+        "h": 360
+      }
+    ],
+    "final_text": "页面A的REGION A矩形截取\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n请只截取页面A中REGION A的320×180矩形，不要整个页面\nPhi\n\n我正在为你截取页面上的这块区域，不会把整页一起截进去。\n\n已截取并保存为 region-a.png，仅包含 REGION A 的 320×180 像素区域。\n\n等待首字…\n·\n耗时 2.9s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已截取并附上 REGION A 的 320×180 CSS 像素截图，没有包含整页。"
+      }
+    ]
+  },
+  {
+    "label": "region-2",
+    "attempt": 1,
+    "files": [
+      {
+        "filename": "region-a-320x180.png",
+        "mediaType": "image/png"
+      }
+    ],
+    "decoded_images": [
+      {
+        "alt": "region-a-320x180.png",
+        "w": 640,
+        "h": 360
+      }
+    ],
+    "final_text": "截取页面A的REGION A矩形区域\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n请只截取页面A中REGION A的320×180矩形，不要整个页面\nPhi\n\n我正在为你裁出页面上的这块区域，并把截图发给你。\n\n已仅截取并裁剪 REGION A，尺寸为 320×180 CSS 像素，截图文件名为 region-a-320x180.png。\n\n等待首字…\n·\n耗时 4.6s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已仅截取 REGION A，裁剪尺寸为 **320×180 CSS 像素**。截图文件已附上。"
+      }
+    ]
+  },
+  {
+    "label": "size4k",
+    "attempt": 1,
+    "files": [],
+    "decoded_images": [],
+    "final_text": "白色背景上的橙色方块图片\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n生成一张单个橙色方块白色背景的图片，imageSize设为4k，aspectRatio为1:1。\nPhi\n\n我正在为你生成这张图片。\n\n图片已生成：白色背景中央只有一个橙色方块，采用 1:1 构图，图像尺寸为 4K。\n\n等待首字…\n·\n耗时 4.2s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已生成：白色背景中央为一个橙色方块，1:1 构图，4K。"
+      }
+    ]
+  },
+  {
+    "label": "multi-0",
+    "attempt": 1,
+    "files": [],
+    "decoded_images": [],
+    "final_text": "红色纸船与蓝色风筝\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n生成两张独立图片：一张红色纸船，一张蓝色风筝\nPhi\n\n我正在为你分别生成红色纸船和蓝色风筝的两张独立图片。\n\n已分别生成两张独立图片：一张红色纸船，一张蓝色风筝。\n\n等待首字…\n·\n耗时 2.8s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已分别生成两张独立图片：红色纸船和蓝色风筝。"
+      }
+    ]
+  },
+  {
+    "label": "multi-1",
+    "attempt": 1,
+    "files": [],
+    "decoded_images": [],
+    "final_text": "红色纸船与蓝色风筝图片\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n生成两张独立图片：一张红色纸船，一张蓝色风筝\nPhi\n\n我正为你分别生成纸船和风筝两张独立图片。\n\n已分别生成两张独立图片：一张红色纸船，一张蓝色风筝。\n\n等待首字…\n·\n耗时 45.1s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已分别生成两张独立图片：红色纸船和蓝色风筝。"
+      }
+    ]
+  },
+  {
+    "label": "multi-2",
+    "attempt": 1,
+    "files": [],
+    "decoded_images": [],
+    "final_text": "红色纸船与蓝色风筝图片\nPHI-380 Page A\nhttp://127.0.0.1:18938/a.html\n生成两张独立图片：一张红色纸船，一张蓝色风筝\nPhi\n\n我正在为你分别生成红色纸船和蓝色风筝两张图片。\n\n已分别生成两张独立图片：红色纸船和蓝色风筝。\n\n等待首字…\n·\n耗时 4.5s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已分别生成两张独立图片：红色纸船和蓝色风筝。"
+      }
+    ]
+  },
+  {
+    "label": "multi-NTP-1",
+    "file_parts": 0,
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "**红色纸船**  \n![红色纸船](/api/v1/files/<synthetic-file>)\n\n**蓝色风筝**  \n![蓝色风筝](/api/v1/files/<synthetic-file>)"
+      }
+    ]
+  },
+  {
+    "label": "multi-NTP-2",
+    "file_parts": 0,
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "已分别生成两张独立图片：红色纸船和蓝色风筝。"
+      }
+    ]
+  },
+  {
+    "label": "multi-NTP-3",
+    "file_parts": 0,
+    "terminal": [
+      {
+        "kind": "run_result",
+        "ok": true,
+        "summary": "两张独立图片已生成：\n\n**红色纸船**  \n![红色纸船](/api/v1/files/<synthetic-file>)\n\n**蓝色风筝**  \n![蓝色风筝](/api/v1/files/<synthetic-file>)"
+      }
+    ]
+  }
+]

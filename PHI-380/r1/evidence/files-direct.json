@@ -1,0 +1,126 @@
+[
+  {
+    "file": "generation",
+    "method": "GET",
+    "auth": true,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"image-generation-1.png\"; filename*=UTF-8''image-generation-1.png",
+    "bytes": 1765631,
+    "hash": "f50bd0cac3b0db7818ecee9ad47b427d593ed6738e2f6ed1fc92d55c20345ec3"
+  },
+  {
+    "file": "generation",
+    "method": "HEAD",
+    "auth": true,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"image-generation-1.png\"; filename*=UTF-8''image-generation-1.png",
+    "bytes": 0
+  },
+  {
+    "file": "generation",
+    "method": "GET",
+    "auth": false,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"image-generation-1.png\"; filename*=UTF-8''image-generation-1.png",
+    "bytes": 1765631,
+    "hash": "f50bd0cac3b0db7818ecee9ad47b427d593ed6738e2f6ed1fc92d55c20345ec3"
+  },
+  {
+    "file": "generation",
+    "method": "HEAD",
+    "auth": false,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"image-generation-1.png\"; filename*=UTF-8''image-generation-1.png",
+    "bytes": 0
+  },
+  {
+    "chat": "generation",
+    "profile": "Default",
+    "status": 200
+  },
+  {
+    "chat": "generation",
+    "profile": "qa-nonexistent-profile",
+    "status": 404
+  },
+  {
+    "file": "screenshot",
+    "method": "GET",
+    "auth": true,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"phi-380-page-a.png\"; filename*=UTF-8''phi-380-page-a.png",
+    "bytes": 222952,
+    "hash": "f82aeeb0ce59773c6a8463656fc37d8effd2816dd58e9ad82e9dbb4f5aa7f500"
+  },
+  {
+    "file": "screenshot",
+    "method": "HEAD",
+    "auth": true,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"phi-380-page-a.png\"; filename*=UTF-8''phi-380-page-a.png",
+    "bytes": 0
+  },
+  {
+    "file": "screenshot",
+    "method": "GET",
+    "auth": false,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"phi-380-page-a.png\"; filename*=UTF-8''phi-380-page-a.png",
+    "bytes": 222952,
+    "hash": "f82aeeb0ce59773c6a8463656fc37d8effd2816dd58e9ad82e9dbb4f5aa7f500"
+  },
+  {
+    "file": "screenshot",
+    "method": "HEAD",
+    "auth": false,
+    "status": 200,
+    "type": "image/png",
+    "disposition": "inline; filename=\"phi-380-page-a.png\"; filename*=UTF-8''phi-380-page-a.png",
+    "bytes": 0
+  },
+  {
+    "chat": "screenshot",
+    "profile": "Default",
+    "status": 200
+  },
+  {
+    "chat": "screenshot",
+    "profile": "qa-nonexistent-profile",
+    "status": 404
+  },
+  {
+    "file": "missing",
+    "method": "GET",
+    "auth": true,
+    "status": 404,
+    "bytes": 21
+  },
+  {
+    "file": "missing",
+    "method": "HEAD",
+    "auth": true,
+    "status": 404,
+    "bytes": 0
+  },
+  {
+    "file": "missing",
+    "method": "GET",
+    "auth": false,
+    "status": 404,
+    "bytes": 21
+  },
+  {
+    "file": "missing",
+    "method": "HEAD",
+    "auth": false,
+    "status": 404,
+    "bytes": 0
+  }
+]

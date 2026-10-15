@@ -1,0 +1,16 @@
+{
+  "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+  "same_persisted_screenshot": true,
+  "inline_scheme": "http",
+  "dimensions": [
+    1422,
+    1592
+  ],
+  "native_preview": "image visible; no invalid source error",
+  "head_sha": "eea6533b02f187ed42f2bb62f34f1e8909cd2a75",
+  "head_inline_scheme": "blob",
+  "head_native_preview": "无效的图片来源",
+  "head_same_persisted_screenshot_rechecked": true,
+  "head_attempts": 2,
+  "baseline_attempts": 1
+}

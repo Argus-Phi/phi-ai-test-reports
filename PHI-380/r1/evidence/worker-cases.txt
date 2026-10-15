@@ -1,0 +1,94 @@
+artifact.create stores the model-authored body and reports it as a run artifact
+artifact.create strips a directory component from the filename
+a store rejection becomes a non-retryable file_upload_failed, not a run crash
+artifacts produced across rounds land on WorkerRunResult in order
+a run that produces no artifacts omits the field
+artifacts survive an aborted run
+a stream sink's byte budget reaches both the read and the upload
+confirmed screenshot fileBase64Field empty bytes are a delivery failure
+confirmed screenshot fileStream empty bytes are a delivery failure
+confirmed screenshot stream beyond its sink limit has a delivery marker while a json observation does not
+a browser refusal of an explicit screenshot sink does not claim that an image was produced
+browser_task.execute taskResult error (abort + generic message): responses_error, retryable=true via code EXECUTION_ERROR (main:4285-4288)
+browser_task.execute taskResult error (abort + non-retryable code): retryable=false via classifyBrowserError SESSION_ABORTED (main:4283-4288)
+browser_task.execute timeout: a port that SETTLES on signal-abort yields tool_timeout (retryable) and the loop CONTINUES — the FIX 3 settle-on-abort contract proves the wrapper does NOT hang (main:4240-4256)
+browser_task.execute aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:4232-4239, terminal main:1788/1674)
+browser_task.execute aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+after the user shares, uploads the trace as a log and returns its file id and note
+nothing recorded is chat_trace_empty, and nothing is uploaded
+image_generation.generate: success — calls SearchAIPort.imageGenerate with the faithful { query } args + threaded opts, and JSON-stringifies the result as content (main:2620/2677)
+image_generation.generate: requestAuthorization falls back to connectionAuthorization when resolvedAuthorization is absent (main:2628-2629)
+image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+image_generation.generate: a timeout (operation never resolves before the per-call deadline) yields a tool_timeout outcome, loop continues (main:2641-2655)
+image_generation.generate: a MID-CALL abort (run signal fires during the port call) returns the 'aborted' sentinel → run status 'aborted' (main:2637-2640)
+image_generation.generate: a signal already aborted before the call short-circuits to 'aborted' (runWithTimeout pre-check, main:2638)
+image_generation.generate: threads the run context's userId to the port so the host can store the image in-process
+skill.run_script timeout: a port that SETTLES on signal-abort yields a `reason:'timeout'` error outcome and the loop CONTINUES (run_script returns a NORMAL outcome on tool_timeout, never the 'aborted' sentinel)
+skill.run_script abort: an aborted operation maps to a `reason:'aborted'` HandlerResult (NOT the terminal 'aborted' sentinel) — run_script returns Promise<SkillScriptOutcome>, never 'aborted' (skill-scripts.ts dispatch-catch + main:2285-2304 no-guard branch)
+skill.run_script (loop): with a PRE-aborted run signal the loop's own guard terminates 'aborted' before dispatch — the handler's no-sentinel contract is independent of this shared-loop guard
+skill.run_script uploads declared artifacts and hides their contents from the model
+a script payload without artifacts is passed through untouched
+a script whose SECOND artifact fails to upload still reports the first
+websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+websearch.search aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:2444-2451, terminal main:1788/1674)
+websearch.search aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+buildWorkerSystemPrompt routes targeted Split View browser work through browser_task before CDP artifacts on a named tab
+SETTLE-ON-ABORT: aborting input.signal settles the returned promise (does NOT hang) — the executor reacts to the signal
+uploadFile decodes base64, forwards a File-like object, and maps UploadResult
+uploadFile reports the store's contentType when it overrides the requested mime
+a thrown uploadFile propagates
+imageGenerate forwards {query} + bound deps (incl. imageUpload) + per-call deps and returns the raw result
+hostRunSkillScript READS the latch for a LATER script (state preserved across calls)
+hostRunSkillScript returns state_lost when a LATER script of a PIPELINE has NO latched run id (latch read miss)
+runScheduledTaskList keeps one conversation's schedules, with each task's mute and latest status
+the loop's abort reaches the capability, but its reason object does not
+delivery failure and saved artifacts travel together in the execution report even when the capability throws
+a screenshot is saved and the model is told what was saved, not the bytes
+image_generation calls the model with the run's bearer
+image_generation works with no static key: generated on the run's bearer, stored for the run's owner
+the deadline keeps the retryable shape phi's own halt gives it
+a ceiling keeps the artifacts and the tool output the run already produced
+saved artifacts reach their original host before finish, with late callbacks fenced
+saved artifacts reach their original host before abort, with late callbacks fenced
+saved artifacts reach their original host before deadline, with late callbacks fenced
+release unbinds, stops observing and aborts the start signal - once
+a caller that aborted before the child exists gets it cancelled as a user stop
+a reply whose body stalls is cut off by the request deadline
+an abort of the caller's signal propagates instead of being retried
+successful explicit screenshot without a usable file is a delivery failure
+screenshot browser-error before confirmed production does not acquire a deliveryFailure marker
+screenshot throw before confirmed production does not acquire a deliveryFailure marker
+screenshot missing-handler before confirmed production does not acquire a deliveryFailure marker
+screenshot missing-ports before confirmed production does not acquire a deliveryFailure marker
+screenshot false-success zero metadata is fenced before the artifact report
+screenshot false-success missing-url metadata is fenced before the artifact report
+screenshot false-success not-image metadata is fenced before the artifact report
+producer deliveryFailure preserves its original code and partial file metadata through the screenshot bridge
+a non-image CDP export never promotes an unrelated producer marker to image delivery failure
+a cancelled question ends the run as aborted
+runImageGeneration rejects missing model configuration
+runImageGeneration uses env-backed image_config defaults when tool params are omitted
+runImageGeneration keeps its phibrowser URL and request auth when fixed LLM credentials are configured
+runImageGeneration sends a non-Phi fixed upstream its own key and User-Agent, never the user's bearer or the gateway header
+runImageGeneration hands the generated bytes to onGeneratedImage, and keeps them out of the result
+runImageGeneration forwards the run's userId to the image upload port
+onGeneratedImage fires only after the upload the user's copy depends on
+an upload returning after cancellation is never delivered or followed by another upload
+user delivery rejects incomplete upload metadata without publishing a fake card
+a ui upload is stored for its user, and nothing is fetched
+an upload without a user fails, and neither stores nor fetches
+an llm-purpose upload is refused rather than stored where a provider cannot reach
+stored image metadata survives the in-process upload for user delivery
+setName preserves template and non-name variables
+setAvatar preserves template and variables while updating avatar metadata
+screenshot guidance locates a target before explicit export and never promotes observations
+files.upload decodes base64 and binds the HOST's userId, not the page's
+run_script maps an abort to aborted
+run_script maps a lowercase abort to aborted
+RunIdLatch returns the latest run id for a key
+RunIdLatch isolates values by user and skill
+the request is refused before any generation: method, user, kill switch, payload
+two racing saves of one video share one generation
+a user gets twenty generations an hour; the cache and other users are not counted against them
+a generation that runs out of time is a 504, however the model call ends
+a failed generation is not cached: the next save tries again

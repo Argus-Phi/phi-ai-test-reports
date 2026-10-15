@@ -1,0 +1,13 @@
+{
+  "mode": "direct",
+  "imageInfo": {
+    "w": 1024,
+    "h": 1024,
+    "bytes": 1641221,
+    "hash": "a9159de5b6923815250a3321c24a71ade0ef704958d725a562031d38caeb2335"
+  },
+  "filename": "image-generation-1 (2).png",
+  "state": "complete",
+  "receivedBytes": 1641221,
+  "hash": "a9159de5b6923815250a3321c24a71ade0ef704958d725a562031d38caeb2335"
+}

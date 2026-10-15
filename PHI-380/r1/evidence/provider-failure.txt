@@ -1,0 +1,9 @@
+Controlled environment: IMAGE_GENERATION_MODEL=phi-380-invalid-model
+Actual provider rejects; no image persisted or displayed.
+Worker run_result: ok=false
+errorCode: No requested image delivered. {"error":{"code":"provider_error","message":"The model `phi-380-invalid-model` does not exist or you do not have access to it.","type":"provider_error"}} No generation image delivered. Resolve the reported cause before retrying the request.
+Final UI: 抱歉，这次生成没成功，没有返回图片；我可以再试一次。
+
+Baseline control: same invalid model also returns provider_error twice, but baseline worker returns ok=true. This confirms the model request actually rejected on both versions; the head fixes worker status but final UI still loses the permanent cause. AC-10/FR-6 explicitly require accurate failure cause and appropriate retry guidance.
+Baseline final UI: 这次图片生成没有成功：图片生成服务暂时不可用，两次尝试都未能生成图片。
+Baseline also omits the permanent model/config cause. This is a required fix not closed under explicit AC-10, not claimed to be newly introduced.

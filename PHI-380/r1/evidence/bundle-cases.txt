@@ -1,0 +1,58 @@
+production image capability delivers saved artifacts before final narration and deduplicates its result
+generation HTTP 429 retains its reason when no image is delivered
+generation HTTP 400 retains its reason when no image is delivered
+generation HTTP 503 retains its reason when no image is delivered
+a permanent screenshot error retains the handler's reason and retry decision
+page screenshot browser failure recovers through the real loop
+page screenshot browser failure cannot be hidden by narration through the real loop
+page screenshot save failure remains partial after the same screenshot retries successfully
+page screenshot failure is not satisfied by an independently delivered generated image
+page screenshot browser success with missing file metadata cannot claim complete delivery
+page screenshot browser success with empty file metadata cannot claim complete delivery
+page screenshot browser success with zero file metadata cannot claim complete delivery
+cdp screenshot browser failure recovers through the real loop
+cdp screenshot browser failure cannot be hidden by narration through the real loop
+cdp screenshot save failure remains partial after the same screenshot retries successfully
+cdp screenshot failure is not satisfied by an independently delivered generated image
+cdp screenshot browser success with missing file metadata cannot claim complete delivery
+cdp screenshot browser success with empty file metadata cannot claim complete delivery
+cdp screenshot browser success with zero file metadata cannot claim complete delivery
+generation empty failure followed by full delivery has the accepted recovery classification
+generation service failure followed by full delivery has the accepted recovery classification
+generation save failure followed by full delivery has the accepted recovery classification
+generation partial upload delivers the saved image immediately and reports incomplete output
+a generation HTTP dependency delayed at least five seconds never emits an unsaved image
+generation file saved after the run deadline but before abort is retained in the timeout result
+generation abort before a saved file fences a late upload and isolates the next run
+generation abort after a saved file fences a late upload and isolates the next run
+page file saved after the run deadline but before abort is retained in the timeout result
+page abort before a saved file fences a late upload and isolates the next run
+page abort after a saved file fences a late upload and isolates the next run
+cdp file saved after the run deadline but before abort is retained in the timeout result
+cdp abort before a saved file fences a late upload and isolates the next run
+cdp abort after a saved file fences a late upload and isolates the next run
+image/png generation carries the original bytes through saving and host notification
+image/jpeg generation carries the original bytes through saving and host notification
+image/webp generation carries the original bytes through saving and host notification
+CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+a saved PDF does not satisfy a requested screenshot that the browser never produced
+an internal CDP screenshot observation never becomes an artifact
+an internal CDP screenshot observation accompanies only the explicit exported artifact
+real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+real worker cancel without an accepted generation preserves exactly the host's persisted files
+real worker cancel with an accepted generation preserves exactly the host's persisted files
+real worker timeout without an accepted generation preserves exactly the host's persisted files
+real worker timeout with an accepted generation preserves exactly the host's persisted files
+a cancelled pending upload can finish after a new run without changing either run's files or terminal
+browser_task's internal screenshot and page protobuf never create user or persisted files
+browser_task's internal screenshot and page protobuf stay internal beside an explicit screenshot export
+persistent late corrections stop at the existing round limit
+a late correction cannot continue past the run deadline
+a late correction cannot continue a cancelled run
+a two-round run records worker.run with a raw generation per round and the tool between

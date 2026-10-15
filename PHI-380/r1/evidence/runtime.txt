@@ -1,0 +1,18 @@
+被测SHA eea6533b02f187ed42f2bb62f34f1e8909cd2a75
+Canary Sidecar live 2026.10.15.1726；原版本1541完整备份
+UDS + Sentinel AI Gateway + phi-cdp connected (canary) 均已实测
+T-12: PNG1024x1024 bytes1765631 sha256=f50bd0cac3b0db7818ecee9ad47b427d593ed6738e2f6ed1fc92d55c20345ec3
+原生图片预览可见彩色鸽子；下载complete1765631bytes，SHA256与显示blob一致；Preview打开成功。
+T-14整页截图: PNG1422x4800 bytes222952 sha256=f82aeeb0ce59773c6a8463656fc37d8effd2816dd58e9ad82e9dbb4f5aa7f500；包含TOP RED/MIDDLE BLUE/BOTTOM GOLD及END-A-2400；下载complete，Preview打开，hash一致。
+T-10 native: 真实产品APIClient通过broker GET已登录及匿名两种请求均200/hash一致；不存在UUID404。HEAD native broker拒绝unsupported_method，属于实际不支持组合，direct另测。
+T-16真实参数：tool args分别imageSize=0.5k/4k,aspectRatio=1:1；实际两图均PNG1024x1024。4k最终文字声称尺寸4K，实际不符；不能认定服务支持枚举即支持该尺寸。
+T-13单图附说明1张、只要求图1张；多图请求实际3个不同fileId（首次合图后模型分别再生成两个），不是同一fileId重复挂载。该现象不能记成transport重复。
+T-14多页任务最终：真实run_result ok=true，持久化两文件A/B；刷新后两张PNG1422x4800，早先单图是中间状态，不作为缺陷证据。
+T-14区域任务最终：内部browser_task文字声称已截取320x180 PNG，宿主无file part；最终对话如实说明“这次没有返回裁出的矩形图像；我可以再试一次”。不把工具文字当二进制成功。
+T-20自然取消生成与截图：两类旧worker均run_result ok=false,errorCode=aborted；重试新worker均ok=true。生成历史绿色图与重试紫色图各在原回合；取消回合无图。截图原混合任务图保留，取消回合无新图，重试生成新fileId。旧run已明确结束，不需要把等待30分钟当取消判据。
+T-21前两轮只有文本且无files；混合请求通过真实截图skill/CDP导出一图，后续browser_task分析页面，最终准确说明布局，内部观察图未作为附件增加。
+T-19：仅本轮鸽子文件暂移，真实历史404后显示“文件已不可用，请重新生成或截图”；finally恢复后重新读取一张1024x1024图片。
+T-21 PDF：本轮PageA真实导出PDF1.4、3页、63951bytes；产品下载complete，Preview显示TOP RED及3页缩略图。
+T-22：同一Default Profile的既有PHI-354 QA Space中打开本轮鸽子会话→截图会话→返回鸽子，各自1张正确尺寸图；文件引用未串。openSpaceTab首报超时是URL被改写为chrome://conversation，后续枚举证实已打开，未重复创建。
+T-18 native：Ctrl-C结束本轮源码组件并保持3秒，Runner恢复发布版；原鸽子图仍可读。此步骤记录实际源码服务切断，不把renderer离线模拟称native断网；后续direct再验证端口中断与恢复。
+T-13额外候选图证据：首个生成文件为红色纸船/蓝色风筝的四格合图（T-13-07.png，来自实际保存的PNG），随后模型再次各生成一张独立纸船/风筝；三个不同fileId全部进入用户消息，最终却只称“两张图片”。不是同一文件重放或DOM重复计数。

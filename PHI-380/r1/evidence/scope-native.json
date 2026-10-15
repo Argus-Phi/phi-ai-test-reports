@@ -1,0 +1,22 @@
+[
+  {
+    "profile": "Default",
+    "chat": "generation",
+    "status": 200
+  },
+  {
+    "profile": "Default",
+    "chat": "screenshot",
+    "status": 200
+  },
+  {
+    "profile": "qa-nonexistent-profile",
+    "chat": "generation",
+    "status": 404
+  },
+  {
+    "profile": "qa-nonexistent-profile",
+    "chat": "screenshot",
+    "status": 404
+  }
+]

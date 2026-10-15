@@ -1,0 +1,23 @@
+[
+  {
+    "attempt": 1,
+    "newtab_context": true,
+    "generation_calls": 2,
+    "delivered_file_parts": 0,
+    "chat_errors": 0
+  },
+  {
+    "attempt": 2,
+    "newtab_context": true,
+    "generation_calls": 2,
+    "delivered_file_parts": 0,
+    "chat_errors": 0
+  },
+  {
+    "attempt": 3,
+    "newtab_context": true,
+    "generation_calls": 2,
+    "delivered_file_parts": 0,
+    "chat_errors": 0
+  }
+]
