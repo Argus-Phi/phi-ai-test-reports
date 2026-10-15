@@ -1,0 +1,2271 @@
+pnpm --filter @phi-ai/dsh-plugin-chat test
+
+> @phi-ai/dsh-plugin-chat@0.1.0 test <WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat
+> tsx --test "src/**/*.test.ts"
+
+TAP version 13
+# Subtest: phi-chat-core
+ok 1 - phi-chat-core
+# Subtest: resolveWorkerRunTimeoutMs defaults, accepts a positive integer, and rejects invalid values
+ok 2 - resolveWorkerRunTimeoutMs defaults, accepts a positive integer, and rejects invalid values
+# Subtest: a delegation asks the user only where a question can be shown, forms and open questions alike
+ok 3 - a delegation asks the user only where a question can be shown, forms and open questions alike
+# Subtest: buildChatMemorySeams forwards the route-B read seams from the adapter as the SAME references
+ok 4 - buildChatMemorySeams forwards the route-B read seams from the adapter as the SAME references
+# Subtest: buildChatMemorySeams carries no durable writer: the adapter is read-only and the host's `memoryAgent` seam is wired per thread
+ok 5 - buildChatMemorySeams carries no durable writer: the adapter is read-only and the host's `memoryAgent` seam is wired per thread
+# Subtest: buildChatMemorySeams forwards the adapter's browserMemoriesProvider (planner recent-activity seam) as the SAME reference
+ok 6 - buildChatMemorySeams forwards the adapter's browserMemoriesProvider (planner recent-activity seam) as the SAME reference
+# Subtest: buildChatMemorySeams forwards the adapter's episodicMemoryProvider (raw episodic candidates) as the SAME reference
+ok 7 - buildChatMemorySeams forwards the adapter's episodicMemoryProvider (raw episodic candidates) as the SAME reference
+# Subtest: buildChatMemorySeams forwards the adapter's agentActivityProvider (assistant self-activity / agent-memory) as the SAME reference
+ok 8 - buildChatMemorySeams forwards the adapter's agentActivityProvider (assistant self-activity / agent-memory) as the SAME reference
+# Subtest: phi-chat-memory's journey card route
+ok 9 - phi-chat-memory's journey card route
+# Subtest: the session slice hands the engine the conversation's language store
+ok 10 - the session slice hands the engine the conversation's language store
+# Subtest: phi-chat-trace-log
+ok 11 - phi-chat-trace-log
+# Subtest: phi-chat-widget: the variant
+ok 12 - phi-chat-widget: the variant
+# Subtest: phi-chat-widget: a thread's actor
+ok 13 - phi-chat-widget: a thread's actor
+# Subtest: phi-chat row
+ok 14 - phi-chat row
+# Subtest: phi-chat thread variants
+ok 15 - phi-chat thread variants
+# Subtest: activity status narrator prompts the model to follow the latest user message language
+ok 16 - activity status narrator prompts the model to follow the latest user message language
+# Subtest: activity status narrator names the detected reply language instead of guessing it
+ok 17 - activity status narrator names the detected reply language instead of guessing it
+# Subtest: a narration the turn caused hangs under that turn in its trace
+ok 18 - a narration the turn caused hangs under that turn in its trace
+# Subtest: without a live turn the narration names no trace
+ok 19 - without a live turn the narration names no trace
+# Subtest: a confirm question is its run's confirm card, and the choice comes back
+ok 20 - a confirm question is its run's confirm card, and the choice comes back
+# Subtest: refusing is a choice like any other
+ok 21 - refusing is a choice like any other
+# Subtest: a choose question is a select card with every option
+ok 22 - a choose question is a select card with every option
+# Subtest: a run it does not hold, or one another user owns, is not its question
+ok 23 - a run it does not hold, or one another user owns, is not its question
+# Subtest: a run that came in over IM is not its question: phase 1 has no IM responder
+ok 24 - a run that came in over IM is not its question: phase 1 has no IM responder
+# Subtest: the card's own timeout is a timeout
+ok 25 - the card's own timeout is a timeout
+# Subtest: the request's signal, or the run ending first, cancels it
+ok 26 - the request's signal, or the run ending first, cancels it
+# Subtest: an answer naming no option it offered is unavailable
+ok 27 - an answer naming no option it offered is unavailable
+# Subtest: a card that cannot be sent is an error, for the service to fail closed on
+ok 28 - a card that cannot be sent is an error, for the service to fail closed on
+# Subtest: a form card carries its fields, and its answer its checked values
+ok 29 - a form card carries its fields, and its answer its checked values
+# Subtest: values that do not fit the fields are unavailable, not guessed at
+ok 30 - values that do not fit the fields are unavailable, not guessed at
+# Subtest: a button that skips the fields answers without values
+ok 31 - a button that skips the fields answers without values
+# Subtest: an open question goes out as a question card; a form question carries no style
+ok 32 - an open question goes out as a question card; a form question carries no style
+# Subtest: a model's question goes out as a model card with Skip and Submit
+ok 33 - a model's question goes out as a model card with Skip and Submit
+# Subtest: Skip is skipped; without allowSkip there is no Skip button
+ok 34 - Skip is skipped; without allowSkip there is no Skip button
+# Subtest: a submitted answer that does not fit is unavailable
+ok 35 - a submitted answer that does not fit is unavailable
+# Subtest: a model's question for a run the chat does not own is not its to show
+ok 36 - a model's question for a run the chat does not own is not its to show
+# Subtest: memory route B: a wired memoryRecall + recallDescriptionProvider grounds the answer of the engine phi-chat-core assembles — the recalled 'Mochi' hit reaches the chat.reply prompt and a recall_context_result carries it
+ok 37 - memory route B: a wired memoryRecall + recallDescriptionProvider grounds the answer of the engine phi-chat-core assembles — the recalled 'Mochi' hit reaches the chat.reply prompt and a recall_context_result carries it
+# Subtest: memory route B: a wired profileProvider injects its text into the answer prompt (the <user_profile> system head) of the engine phi-chat-core assembles
+ok 38 - memory route B: a wired profileProvider injects its text into the answer prompt (the <user_profile> system head) of the engine phi-chat-core assembles
+# Subtest: Phase-2: the chatMemory slice's decision provider decides the turn verdict — a web verdict hints the reply to call web_search, with nothing searched ahead of it
+ok 39 - Phase-2: the chatMemory slice's decision provider decides the turn verdict — a web verdict hints the reply to call web_search, with nothing searched ahead of it
+# Subtest: Phase-2: the injected profileProvider lands in the reply prompt's profile head of the engine phi-chat-core assembles
+ok 40 - Phase-2: the injected profileProvider lands in the reply prompt's profile head of the engine phi-chat-core assembles
+# Subtest: persists commentary phase on assistant text parts
+ok 41 - persists commentary phase on assistant text parts
+# Subtest: persists generic file content from tool results as assistant file parts
+ok 42 - persists generic file content from tool results as assistant file parts
+# Subtest: replayed rich files persist once while later text and new runs retain the file
+ok 43 - replayed rich files persist once while later text and new runs retain the file
+# Subtest: buildWorkerCtx threads activeTabId/activeTabUrl off forwarded props onto the ctx
+ok 44 - buildWorkerCtx threads activeTabId/activeTabUrl off forwarded props onto the ctx
+# Subtest: buildWorkerCtx omits browser/connection fields when the forwarded props are absent
+ok 45 - buildWorkerCtx omits browser/connection fields when the forwarded props are absent
+# Subtest: buildWorkerCtx omits malformed browser/connection fields (wrong types are not threaded)
+ok 46 - buildWorkerCtx omits malformed browser/connection fields (wrong types are not threaded)
+# Subtest: buildWorkerCtx treats forwarded.skills.selectedSkillIds as active skill ids
+ok 47 - buildWorkerCtx treats forwarded.skills.selectedSkillIds as active skill ids
+# Subtest: buildWorkerCtx keeps the user's own picks as selectedSkillIds, separate from the ACL set — and CANONICALIZES renamed built-in ids
+ok 48 - buildWorkerCtx keeps the user's own picks as selectedSkillIds, separate from the ACL set — and CANONICALIZES renamed built-in ids
+# Subtest: buildWorkerCtx omits selectedSkillIds when the user picked nothing
+ok 49 - buildWorkerCtx omits selectedSkillIds when the user picked nothing
+# Subtest: buildWorkerCtx merges top-level activeSkillIds with nested selectedSkillIds without duplicates
+ok 50 - buildWorkerCtx merges top-level activeSkillIds with nested selectedSkillIds without duplicates
+# Subtest: buildWorkerCtx ignores malformed nested selectedSkillIds
+ok 51 - buildWorkerCtx ignores malformed nested selectedSkillIds
+# Subtest: buildWorkerCtx threads the issuing browser profile off the forwarded props
+ok 52 - buildWorkerCtx threads the issuing browser profile off the forwarded props
+# Subtest: buildWorkerCtx omits the issuing profile when it is absent or malformed
+ok 53 - buildWorkerCtx omits the issuing profile when it is absent or malformed
+# Subtest: buildWorkerCtx threads how far the run may reach into the browser
+ok 54 - buildWorkerCtx threads how far the run may reach into the browser
+# Subtest: buildWorkerCtx threads the conversation id as threadId, and omits it when absent
+ok 55 - buildWorkerCtx threads the conversation id as threadId, and omits it when absent
+# Subtest: buildWorkerCtx lists the turn's pages: the current tab, then the tabs attached to the message
+ok 56 - buildWorkerCtx lists the turn's pages: the current tab, then the tabs attached to the message
+# Subtest: buildWorkerCtx omits originPages when the turn has no web page
+ok 57 - buildWorkerCtx omits originPages when the turn has no web page
+# Subtest: the notices themselves are not a follow-up question: a yes after them names none
+ok 58 - the notices themselves are not a follow-up question: a yes after them names none
+# Subtest: routesTrivialMessages: the router asks to see pleasantries
+ok 59 - routesTrivialMessages: the router asks to see pleasantries
+# Subtest: no open question: the base router decides, and jev is not asked
+ok 60 - no open question: the base router decides, and jev is not asked
+# Subtest: a pleasantry with nothing open is answered without the base router or jev
+ok 61 - a pleasantry with nothing open is answered without the base router or jev
+# Subtest: a pleasantry with an install offer pending still goes to the base router
+ok 62 - a pleasantry with an install offer pending still goes to the base router
+# Subtest: one open question and 跑一下: it runs, via chat, and the reply only reports it
+ok 63 - one open question and 跑一下: it runs, via chat, and the reply only reports it
+# Subtest: several open, one named: only that task runs, and the others stay open
+ok 64 - several open, one named: only that task runs, and the others stay open
+# Subtest: several open and none named: nothing is answered, and the reply asks which
+ok 65 - several open and none named: nothing is answered, and the reply asks which
+# Subtest: several open and the message says not which: no task's choice is taken, even when jev picked some
+ok 66 - several open and the message says not which: no task's choice is taken, even when jev picked some
+# Subtest: several open and jev cannot say which: asked, as when it says not which
+ok 67 - several open and jev cannot say which: asked, as when it says not which
+# Subtest: all of them, but one task's choice unclear: asked, nothing applied
+ok 68 - all of them, but one task's choice unclear: asked, nothing applied
+# Subtest: all of them, every task's choice the same: applied, though some are short of 0.9
+ok 69 - all of them, every task's choice the same: applied, though some are short of 0.9
+# Subtest: all of them, but the tasks' choices differ: asked, nothing applied
+ok 70 - all of them, but the tasks' choices differ: asked, nothing applied
+# Subtest: particular ones named, but jev gives every question the same answer: asked, nothing applied
+ok 71 - particular ones named, but jev gives every question the same answer: asked, nothing applied
+# Subtest: particular ones named with different answers, covering every question: applied
+ok 72 - particular ones named with different answers, covering every question: applied
+# Subtest: several open: a task's choice needs 0.9, so a hedged one is left open
+ok 73 - several open: a task's choice needs 0.9, so a hedged one is left open
+# Subtest: one open question: jev is not asked which, and a bare yes runs it
+ok 74 - one open question: jev is not asked which, and a bare yes runs it
+# Subtest: a choice short of the threshold is not taken: one open question is asked about
+ok 75 - a choice short of the threshold is not taken: one open question is asked about
+# Subtest: 都不用了: every open question is ignored, and the facts keep the tasks' schedules straight
+ok 76 - 都不用了: every open question is ignored, and the facts keep the tasks' schedules straight
+# Subtest: a message that is not an answer goes to the base router untouched
+ok 77 - a message that is not an answer goes to the base router untouched
+# Subtest: an answer that lost the race to a button says so instead of failing
+ok 78 - an answer that lost the race to a button says so instead of failing
+# Subtest: a task already running is not started again, and the facts say it
+ok 79 - a task already running is not started again, and the facts say it
+# Subtest: a plan step's route call never answers a question
+ok 80 - a plan step's route call never answers a question
+# Subtest: a second call for the same run gets the same route, judged and applied once
+ok 81 - a second call for the same run gets the same route, judged and applied once
+# Subtest: the same words in a new run are judged again
+ok 82 - the same words in a new run are judged again
+# Subtest: jev failing leaves the turn to the base router
+ok 83 - jev failing leaves the turn to the base router
+# Subtest: without phi-tasks the base router decides
+ok 84 - without phi-tasks the base router decides
+# Subtest: jev reads the message and each open question, traced under the stage that asked
+ok 85 - jev reads the message and each open question, traced under the stage that asked
+# Subtest: the config a chat thread folds to
+ok 86 - the config a chat thread folds to
+# Subtest: lists isolate ordinary Profiles while standalone global access aggregates them
+ok 87 - lists isolate ordinary Profiles while standalone global access aggregates them
+# Subtest: global readers can filter owners but Profile callers cannot widen their scope
+ok 88 - global readers can filter owners but Profile callers cannot widen their scope
+# Subtest: archive ingress requires an authenticated global declaration and valid operation
+ok 89 - archive ingress requires an authenticated global declaration and valid operation
+# Subtest: foreign IDs cannot bypass Profile isolation through reads or mutations
+ok 90 - foreign IDs cannot bypass Profile isolation through reads or mutations
+# Subtest: unassigned chats can be read and continued in either Profile without adoption
+ok 91 - unassigned chats can be read and continued in either Profile without adoption
+# Subtest: a thread without a chats row is unowned: any declared scope reads it by account, no scope is still refused
+ok 92 - a thread without a chats row is unowned: any declared scope reads it by account, no scope is still refused
+# Subtest: batch deletion checks every ID before changing any chat
+ok 93 - batch deletion checks every ID before changing any chat
+# Subtest: batch category changes check every ID before changing any chat
+ok 94 - batch category changes check every ID before changing any chat
+# Subtest: creation uses declared host scope, never origin metadata or a body ownership field
+ok 95 - creation uses declared host scope, never origin metadata or a body ownership field
+# Subtest: ordinary browser-context replacement cannot change conversation ownership
+ok 96 - ordinary browser-context replacement cannot change conversation ownership
+# Subtest: standalone Phi Chat adopts only a global chat into the Profile it restores into
+ok 97 - standalone Phi Chat adopts only a global chat into the Profile it restores into
+# Subtest: Phi Chat moves a global chat to a Profile by name without a scene; Profiles still move only by Tab
+ok 98 - Phi Chat moves a global chat to a Profile by name without a scene; Profiles still move only by Tab
+# Subtest: publishes the frame verbatim to the registered run
+ok 99 - publishes the frame verbatim to the registered run
+# Subtest: an unknown run is a no-op — a browser task can outlive its chat run
+ok 100 - an unknown run is a no-op — a browser task can outlive its chat run
+# Subtest: runs are isolated from each other
+ok 101 - runs are isolated from each other
+# Subtest: unregister stops delivery and frees the slot
+ok 102 - unregister stops delivery and frees the slot
+# Subtest: a stale unregister does not evict the run that replaced it
+ok 103 - a stale unregister does not evict the run that replaced it
+# Subtest: a throwing emitter is contained — narration never breaks a run
+ok 104 - a throwing emitter is contained — narration never breaks a run
+# Subtest: hears the browser's narration event for as long as the listening fiber lives
+ok 105 - hears the browser's narration event for as long as the listening fiber lives
+# Subtest: a user turn starts the request's trace with the user, the session and the input
+ok 106 - a user turn starts the request's trace with the user, the session and the input
+# Subtest: a continuation rejoins the trace without replacing its input
+ok 107 - a continuation rejoins the trace without replacing its input
+# Subtest: span and event hang under the parent they are given
+ok 108 - span and event hang under the parent they are given
+# Subtest: root starts the same trace as a turn, without a chat.turn span
+ok 109 - root starts the same trace as a turn, without a chat.turn span
+# Subtest: traceOutput sets the trace output
+ok 110 - traceOutput sets the trace output
+# Subtest: requestTrace is the live run's trace: work the actor does before its first turn hangs on the request that caused it
+ok 111 - requestTrace is the live run's trace: work the actor does before its first turn hangs on the request that caused it
+# Subtest: while the actor is being built no run is bound yet: requestTrace names the run that is building it
+ok 112 - while the actor is being built no run is bound yet: requestTrace names the run that is building it
+# Subtest: a disabled tracer names no request trace
+ok 113 - a disabled tracer names no request trace
+# Subtest: a disabled tracer opens no turn, so the engine does no trace work
+ok 114 - a disabled tracer opens no turn, so the engine does no trace work
+# Subtest: a chat in a user profile is held to its Space, the Phi Chat application is not
+ok 115 - a chat in a user profile is held to its Space, the Phi Chat application is not
+# Subtest: the scope survives the connection, as the bearer does
+ok 116 - the scope survives the connection, as the bearer does
+# Subtest: the scope survives even when only the BEARER was read while connected
+ok 117 - the scope survives even when only the BEARER was read while connected
+# Subtest: the bearer survives when only the SCOPE was read while connected
+ok 118 - the bearer survives when only the SCOPE was read while connected
+# Subtest: request emits to the registered run and resolves the matching response
+ok 119 - request emits to the registered run and resolves the matching response
+# Subtest: response ownership is fenced by the registered user
+ok 120 - response ownership is fenced by the registered user
+# Subtest: request rejects with AbortError when the run signal aborts
+ok 121 - request rejects with AbortError when the run signal aborts
+# Subtest: request resolves the canonical timeout response
+ok 122 - request resolves the canonical timeout response
+# Subtest: a question that ends without the user is reported closed, so its card can go
+ok 123 - a question that ends without the user is reported closed, so its card can go
+# Subtest: the user's own answer closes nothing: their card retires itself
+ok 124 - the user's own answer closes nothing: their card retires itself
+# Subtest: run teardown rejects every pending request and removes the owner
+ok 125 - run teardown rejects every pending request and removes the owner
+# Subtest: emit failures reject and remove the pending request
+ok 126 - emit failures reject and remove the pending request
+# Subtest: registeredRun names a run's user and how its connection came in, until the run is torn down
+ok 127 - registeredRun names a run's user and how its connection came in, until the run is torn down
+# Subtest: a form card's fields go out, and its values come back
+ok 128 - a form card's fields go out, and its values come back
+# Subtest: lists the user's attached files newest first, each with an id a tool can attach
+ok 129 - lists the user's attached files newest first, each with an id a tool can attach
+# Subtest: a text file is stored once, however often the conversation delegates
+ok 130 - a text file is stored once, however often the conversation delegates
+# Subtest: only the newest files are listed, and only those are stored
+ok 131 - only the newest files are listed, and only those are stored
+# Subtest: a file that cannot be stored is left out, the rest are still listed
+ok 132 - a file that cannot be stored is left out, the rest are still listed
+# Subtest: messages without attachments, or with parts it cannot read, list nothing
+ok 133 - messages without attachments, or with parts it cannot read, list nothing
+# Subtest: the context block names each file with its id and the message it came with
+ok 134 - the context block names each file with its id and the message it came with
+# Subtest: the message a file came with is quoted short, on one line
+ok 135 - the message a file came with is quoted short, on one line
+# Subtest: importConversation uploads dataUrl attachments through an ArrayBuffer contract
+ok 136 - importConversation uploads dataUrl attachments through an ArrayBuffer contract
+# Subtest: importConversation stores the origin namespace and drops system messages
+ok 137 - importConversation stores the origin namespace and drops system messages
+# Subtest: importConversation rejects unknown metadata namespaces
+ok 138 - importConversation rejects unknown metadata namespaces
+# Subtest: importConversation files the chat under the input's categoryIds
+ok 139 - importConversation files the chat under the input's categoryIds
+# Subtest: user record → { type: 'text', content }
+ok 140 - user record → { type: 'text', content }
+# Subtest: fresh actors restore per-message source identity without replaying page bodies
+ok 141 - fresh actors restore per-message source identity without replaying page bodies
+# Subtest: assistant record → { type: 'assistant', content }
+ok 142 - assistant record → { type: 'assistant', content }
+# Subtest: system / tool records are SKIPPED (plain-text scope)
+ok 143 - system / tool records are SKIPPED (plain-text scope)
+# Subtest: extractText concatenates multiple text parts; non-text parts ignored
+ok 144 - extractText concatenates multiple text parts; non-text parts ignored
+# Subtest: records whose extracted text is empty / whitespace are DROPPED
+ok 145 - records whose extracted text is empty / whitespace are DROPPED
+# Subtest: chronological order (id-asc) is preserved
+ok 146 - chronological order (id-asc) is preserved
+# Subtest: non-array parts → record dropped (no crash)
+ok 147 - non-array parts → record dropped (no crash)
+# Subtest: output type-checks as LLMMessageItem[]
+ok 148 - output type-checks as LLMMessageItem[]
+# Subtest: REHYDRATE_LIMIT is 40 (window ≥ engine's slice(-10))
+ok 149 - REHYDRATE_LIMIT is 40 (window ≥ engine's slice(-10))
+# Subtest: user rows re-inject persisted textSelections as an untrusted context block
+ok 150 - user rows re-inject persisted textSelections as an untrusted context block
+# Subtest: includeToolParts: dynamic-tool parts become native tool items, interleaved in part order
+ok 151 - includeToolParts: dynamic-tool parts become native tool items, interleaved in part order
+# Subtest: includeToolParts: a tool-only assistant row is KEPT (script position), error states map to error
+ok 152 - includeToolParts: a tool-only assistant row is KEPT (script position), error states map to error
+# Subtest: includeToolParts OFF (default) is byte-identical to the plain-text mapping
+ok 153 - includeToolParts OFF (default) is byte-identical to the plain-text mapping
+# Subtest: user rows without textSelections metadata are unchanged
+ok 154 - user rows without textSelections metadata are unchanged
+# Subtest: resolveReplayRun (regenerate): truncates the stale reply after the anchor and seeds pre-anchor history
+ok 155 - resolveReplayRun (regenerate): truncates the stale reply after the anchor and seeds pre-anchor history
+# Subtest: resolveReplayRun (edit): anchor is the tail ⇒ no deletion
+ok 156 - resolveReplayRun (edit): anchor is the tail ⇒ no deletion
+# Subtest: resolveReplayRun: unknown id ⇒ null (no deletion)
+ok 157 - resolveReplayRun: unknown id ⇒ null (no deletion)
+# Subtest: resolveReplayRun: anchor is not a user row ⇒ null (never regenerate from an assistant row)
+ok 158 - resolveReplayRun: anchor is not a user row ⇒ null (never regenerate from an assistant row)
+# Subtest: resolveReplayRun: the anchor's raw parts + metadata are passed through (attachment rebuild input)
+ok 159 - resolveReplayRun: the anchor's raw parts + metadata are passed through (attachment rebuild input)
+# Subtest: resolveReplayRun: store not configured ⇒ null
+ok 160 - resolveReplayRun: store not configured ⇒ null
+# Subtest: plan snapshot: the newest OPEN snapshot restores (steps + persisted id)
+ok 161 - plan snapshot: the newest OPEN snapshot restores (steps + persisted id)
+# Subtest: plan snapshot: an ENDED newest snapshot yields nothing — no fallback to an older open one
+ok 162 - plan snapshot: an ENDED newest snapshot yields nothing — no fallback to an older open one
+# Subtest: plan snapshot: defensive reads — unkeyed snapshot is non-resumable; malformed steps re-normalize
+ok 163 - plan snapshot: defensive reads — unkeyed snapshot is non-resumable; malformed steps re-normalize
+# Subtest: chat delegates its mapped model, live bearer and deadline to the shared capability
+ok 164 - chat delegates its mapped model, live bearer and deadline to the shared capability
+# Subtest: a caller abort reaches the decision transport, not the wire payload
+ok 165 - a caller abort reaches the decision transport, not the wire payload
+# Subtest: all six chat decision keys retain their model and trace mapping
+ok 166 - all six chat decision keys retain their model and trace mapping
+# Subtest: an unknown task fails without calling the shared service
+ok 167 - an unknown task fails without calling the shared service
+# Subtest: a missing connection bearer is refused by the shared client before any transport, and is on the trace
+ok 168 - a missing connection bearer is refused by the shared client before any transport, and is on the trace
+# Subtest: a request that names its trace is reported there, as its chat.decision.* generation
+ok 169 - a request that names its trace is reported there, as its chat.decision.* generation
+# Subtest: transport failures propagate so the business lane still owns its fallback
+ok 170 - transport failures propagate so the business lane still owns its fallback
+# Subtest: delegates from the thread's anchor, on the default model, and lets go of it after
+ok 171 - delegates from the thread's anchor, on the default model, and lets go of it after
+# Subtest: a run its preparation settled starts no child, and still lets go of the anchor
+ok 172 - a run its preparation settled starts no child, and still lets go of the anchor
+# Subtest: overlapping delegations share one anchor, disposed when the last one ends
+ok 173 - overlapping delegations share one anchor, disposed when the last one ends
+# Subtest: a delegation right after the last one waits for the anchor's disposal, then creates it again
+ok 174 - a delegation right after the last one waits for the anchor's disposal, then creates it again
+# Subtest: an anchor that cannot be created fails the delegation and is tried again next time
+ok 175 - an anchor that cannot be created fails the delegation and is tried again next time
+# Subtest: a delegation with no agent plane names what is missing
+ok 176 - a delegation with no agent plane names what is missing
+# Subtest: assistant_delta → TEXT_MESSAGE_CHUNK with messageId=turnId (首帧必带 messageId)
+ok 177 - assistant_delta → TEXT_MESSAGE_CHUNK with messageId=turnId (首帧必带 messageId)
+# Subtest: session_close does NOT produce RUN_FINISHED via mapChatEvent (returns [])
+ok 178 - session_close does NOT produce RUN_FINISHED via mapChatEvent (returns [])
+# Subtest: error → RUN_ERROR with message:string (sourced from ErrorOutput.error)
+ok 179 - error → RUN_ERROR with message:string (sourced from ErrorOutput.error)
+# Subtest: assistant_message / user_message → [] (not on wire)
+ok 180 - assistant_message / user_message → [] (not on wire)
+# Subtest: diagnostic/state events → CUSTOM with a stable name
+ok 181 - diagnostic/state events → CUSTOM with a stable name
+# Subtest: MVP-closed memory/kb events → CUSTOM with design-aligned names (§3.6 table)
+ok 182 - MVP-closed memory/kb events → CUSTOM with design-aligned names (§3.6 table)
+# Subtest: genuinely-unknown event types still fall back to CUSTOM(name:type)
+ok 183 - genuinely-unknown event types still fall back to CUSTOM(name:type)
+# Subtest: ToolCallOutput → [START, ARGS, END] (dispatch-time, not a 4-tuple)
+ok 184 - ToolCallOutput → [START, ARGS, END] (dispatch-time, not a 4-tuple)
+# Subtest: toToolCallStartArgsEnd serializes args deterministically (key-sorted)
+ok 185 - toToolCallStartArgsEnd serializes args deterministically (key-sorted)
+# Subtest: ToolResultOutput → [RESULT] with messageId set + content is a string
+ok 186 - ToolResultOutput → [RESULT] with messageId set + content is a string
+# Subtest: toToolCallResult prefers error over result for content
+ok 187 - toToolCallResult prefers error over result for content
+# Subtest: toToolCallResult flags isError on the error (aborted) path, absent on success
+ok 188 - toToolCallResult flags isError on the error (aborted) path, absent on success
+# Subtest: worker progress → CUSTOM(worker_progress) carrying the payload
+ok 189 - worker progress → CUSTOM(worker_progress) carrying the payload
+# Subtest: persist sink: text + closed tool events produce persisted parts
+ok 190 - persist sink: text + closed tool events produce persisted parts
+# Subtest: persist sink: RUN_* / CUSTOM frames are ignored (no crash, no parts)
+ok 191 - persist sink: RUN_* / CUSTOM frames are ignored (no crash, no parts)
+# Subtest: hold_line → CUSTOM(hold_line), and the persisted row never carries it
+ok 192 - hold_line → CUSTOM(hold_line), and the persisted row never carries it
+# Subtest: persist sink: CUSTOM(web_sources) persists metadata.webSources (normalized, deduped) for the reload strip
+ok 193 - persist sink: CUSTOM(web_sources) persists metadata.webSources (normalized, deduped) for the reload strip
+# Subtest: persist sink: aborted build finalizes open tool calls
+ok 194 - persist sink: aborted build finalizes open tool calls
+# Subtest: persist sink: a synthetic abort RESULT persists as error, NOT output-available
+ok 195 - persist sink: a synthetic abort RESULT persists as error, NOT output-available
+# Subtest: persist sink: CUSTOM(media_slots) persists only resolved, displayable resolutions
+ok 196 - persist sink: CUSTOM(media_slots) persists only resolved, displayable resolutions
+# Subtest: createPersistSink stamps the runId into persisted assistant metadata
+ok 197 - createPersistSink stamps the runId into persisted assistant metadata
+# Subtest: toToolCallResult stamps metadata.rawEvent when the result carries a content array
+ok 198 - toToolCallResult stamps metadata.rawEvent when the result carries a content array
+# Subtest: toToolCallResult leaves metadata.rawEvent absent for an ordinary result
+ok 199 - toToolCallResult leaves metadata.rawEvent absent for an ordinary result
+# Subtest: persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+ok 200 - persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+# Subtest: parseFreeSearchTimeWindow: blank asks for no filter
+ok 201 - parseFreeSearchTimeWindow: blank asks for no filter
+# Subtest: parseFreeSearchTimeWindow: fixed tiers, relative windows, absolute dates
+ok 202 - parseFreeSearchTimeWindow: fixed tiers, relative windows, absolute dates
+# Subtest: parseFreeSearchTimeWindow: what does not parse is null, not ignored
+ok 203 - parseFreeSearchTimeWindow: what does not parse is null, not ignored
+# Subtest: parseExaResults: titles, urls, dated highlights
+ok 204 - parseExaResults: titles, urls, dated highlights
+# Subtest: exa: the first engine answers through its MCP tool
+ok 205 - exa: the first engine answers through its MCP tool
+# Subtest: anysearch: a non-zero code is a failure
+ok 206 - anysearch: a non-zero code is a failure
+# Subtest: tavily: keyless, with the nearest time tier
+ok 207 - tavily: keyless, with the nearest time tier
+# Subtest: parallel: results come from the JSON inside its text block
+ok 208 - parallel: results come from the JSON inside its text block
+# Subtest: an MCP tool error is a failure
+ok 209 - an MCP tool error is a failure
+# Subtest: jina: left out of the walk without access
+ok 210 - jina: left out of the walk without access
+# Subtest: jina: the last resort, authorized with the Phi bearer
+ok 211 - jina: the last resort, authorized with the Phi bearer
+# Subtest: jina: no Phi token is a failure, and no request is made
+ok 212 - jina: no Phi token is a failure, and no request is made
+# Subtest: walk: a failing engine falls through to the next one
+ok 213 - walk: a failing engine falls through to the next one
+# Subtest: walk: a time window puts the engines that honour it first
+ok 214 - walk: a time window puts the engines that honour it first
+# Subtest: walk: results from an engine without time filtering say so
+ok 215 - walk: results from an engine without time filtering say so
+# Subtest: walk: a clean empty result resolves empty instead of rejecting
+ok 216 - walk: a clean empty result resolves empty instead of rejecting
+# Subtest: walk: one budget bounds the whole walk
+ok 217 - walk: one budget bounds the whole walk
+# Subtest: walk: a hung engine times out and the next one still runs
+ok 218 - walk: a hung engine times out and the next one still runs
+# Subtest: walk: a throwing attempt listener does not stop the walk
+ok 219 - walk: a throwing attempt listener does not stop the walk
+# Subtest: walk: the caller's abort rejects without trying further engines
+ok 220 - walk: the caller's abort rejects without trying further engines
+# Subtest: walk: maxResults is clamped and results are deduplicated
+ok 221 - walk: maxResults is clamped and results are deduplicated
+# Subtest: a blank query rejects before any request
+ok 222 - a blank query rejects before any request
+# Subtest: provider: results, and one diagnostic per engine tried
+ok 223 - provider: results, and one diagnostic per engine tried
+# Subtest: provider: never throws; every engine failing resolves empty
+ok 224 - provider: never throws; every engine failing resolves empty
+# Subtest: provider: an aborted signal resolves empty without a request
+ok 225 - provider: an aborted signal resolves empty without a request
+# Subtest: images: Tavily keyless, as image sources that open the image itself
+ok 226 - images: Tavily keyless, as image sources that open the image itself
+# Subtest: images: failures reject with the reason
+ok 227 - images: failures reject with the reason
+# Subtest: execute maps an external IM chat and attachments into a Chat Hub user_message
+ok 228 - execute maps an external IM chat and attachments into a Chat Hub user_message
+# Subtest: text chunks and RUN_FINISHED flow through ChannelDeliverySink
+ok 229 - text chunks and RUN_FINISHED flow through ChannelDeliverySink
+# Subtest: RUN_ERROR delivers the terminal error text when no stream started
+ok 230 - RUN_ERROR delivers the terminal error text when no stream started
+# Subtest: dispatch failures close the virtual connection and release the run
+ok 231 - dispatch failures close the virtual connection and release the run
+# Subtest: execute reserves the run id before asynchronous preparation completes
+ok 232 - execute reserves the run id before asynchronous preparation completes
+# Subtest: IM user actions are delivered as buttons and responses return through the Hub
+ok 233 - IM user actions are delivered as buttons and responses return through the Hub
+# Subtest: abort dispatches a cancel uplink for the active IM run
+ok 234 - abort dispatches a cancel uplink for the active IM run
+# Subtest: execute records the IM origin namespace from the conversation source
+ok 235 - execute records the IM origin namespace from the conversation source
+# Subtest: execute refuses a channel outside the shared enum
+ok 236 - execute refuses a channel outside the shared enum
+# Subtest: an image that already fits is not decoded and not changed
+ok 237 - an image that already fits is not decoded and not changed
+# Subtest: a PNG over the budget is fitted to 2048 on its long edge and stays PNG
+ok 238 - a PNG over the budget is fitted to 2048 on its long edge and stays PNG
+# Subtest: a JPEG over the budget stays JPEG
+ok 239 - a JPEG over the budget stays JPEG
+# Subtest: a phone photo's EXIF orientation is applied, not dropped
+ok 240 - a phone photo's EXIF orientation is applied, not dropped
+# Subtest: URLs, WebP, oversized decodes and broken bytes are sent as they were
+ok 241 - URLs, WebP, oversized decodes and broken bytes are sent as they were
+# Subtest: only the oversized image changes, and a repeat call returns the same bytes
+ok 242 - only the oversized image changes, and a repeat call returns the same bytes
+# Subtest: the raw lane runs once per turn, and the reply cites at most the kept cap
+ok 243 - the raw lane runs once per turn, and the reply cites at most the kept cap
+# Subtest: the media pool holds every raw result of THIS turn only
+ok 244 - the media pool holds every raw result of THIS turn only
+# Subtest: rich failure degrades to raw sources; both failing rejects
+ok 245 - rich failure degrades to raw sources; both failing rejects
+# Subtest: the raw lane's diagnostics pass through, then the rich lane's and the merge's rows
+ok 246 - the raw lane's diagnostics pass through, then the rich lane's and the merge's rows
+# Subtest: the rich lane's row carries its answer, and the merge row says how the lanes combined
+ok 247 - the rich lane's row carries its answer, and the merge row says how the lanes combined
+# Subtest: the rich lane is handed the tool call's span, so its model call hangs there
+ok 248 - the rich lane is handed the tool call's span, so its model call hangs there
+# Subtest: the lanes merge by URL: a rich citation never swallows another page of its host
+ok 249 - the lanes merge by URL: a rich citation never swallows another page of its host
+# Subtest: load reads the conversation's language namespace
+ok 250 - load reads the conversation's language namespace
+# Subtest: load reads no request from a chat without one, or without a store
+ok 251 - load reads no request from a chat without one, or without a store
+# Subtest: save writes the language with its time, and removing it deletes the row
+ok 252 - save writes the language with its time, and removing it deletes the row
+# Subtest: mapGreetingContextToLiveConnectorContext maps every field snake→camel, incl. the Gmail thread URL + html_link→url + preview, omitting absent optionals
+ok 253 - mapGreetingContextToLiveConnectorContext maps every field snake→camel, incl. the Gmail thread URL + html_link→url + preview, omitting absent optionals
+# Subtest: mapGreetingContextToLiveConnectorContext tolerates empty / missing connector sections (no connector configured is valid, not an error)
+ok 254 - mapGreetingContextToLiveConnectorContext tolerates empty / missing connector sections (no connector configured is valid, not an error)
+# Subtest: liveContextProvider waits briefly on cold start when configured, then serves the fresh block on the first call
+ok 255 - liveContextProvider waits briefly on cold start when configured, then serves the fresh block on the first call
+# Subtest: liveContextProvider preserves stale-while-revalidate cold behavior when coldStartWaitMs is omitted
+ok 256 - liveContextProvider preserves stale-while-revalidate cold behavior when coldStartWaitMs is omitted
+# Subtest: prewarm() kicks the background refresh at construction so the FIRST turn can already be warm
+ok 257 - prewarm() kicks the background refresh at construction so the FIRST turn can already be warm
+# Subtest: liveContextProvider does NOT refetch within TTL (only one network call across many warm turns)
+ok 258 - liveContextProvider does NOT refetch within TTL (only one network call across many warm turns)
+# Subtest: liveContextProvider does not launch concurrent refreshes (a single in-flight refresh is shared)
+ok 259 - liveContextProvider does not launch concurrent refreshes (a single in-flight refresh is shared)
+# Subtest: liveContextProvider keeps the previous (empty) cache when the refresh fails
+ok 260 - liveContextProvider keeps the previous (empty) cache when the refresh fails
+# Subtest: tool turn renders as function_call + function_call_output, NOT system
+ok 261 - tool turn renders as function_call + function_call_output, NOT system
+# Subtest: tool turn defaults toolName to 'scratchpad' when omitted
+ok 262 - tool turn defaults toolName to 'scratchpad' when omitted
+# Subtest: system/text/assistant map to correct roles
+ok 263 - system/text/assistant map to correct roles
+# Subtest: image maps to a user message (not system/assistant)
+ok 264 - image maps to a user message (not system/assistant)
+# Subtest: toResponsesInput maps file items to input_file user content
+ok 265 - toResponsesInput maps file items to input_file user content
+# Subtest: every Chat task declares Chat purpose while retaining its cloud model resolution
+ok 266 - every Chat task declares Chat purpose while retaining its cloud model resolution
+# Subtest: generateForTask routes a real taskKey to the config-resolved model
+ok 267 - generateForTask routes a real taskKey to the config-resolved model
+# Subtest: generateForTask passes tools:[] and all three onToolCall* callbacks
+ok 268 - generateForTask passes tools:[] and all three onToolCall* callbacks
+# Subtest: chat calls forward the per-taskKey reasoning effort regardless of model
+ok 269 - chat calls forward the per-taskKey reasoning effort regardless of model
+# Subtest: generateForTask asks streamResponses for only final_answer text
+ok 270 - generateForTask asks streamResponses for only final_answer text
+# Subtest: a call that asks for its first message only gets that, and no other does
+ok 271 - a call that asks for its first message only gets that, and no other does
+# Subtest: generateForTask threads options.temperature (including 0) to streamResponses
+ok 272 - generateForTask threads options.temperature (including 0) to streamResponses
+# Subtest: generateStreamForTask threads options.numPredict to streamResponses as maxOutputTokens
+ok 273 - generateStreamForTask threads options.numPredict to streamResponses as maxOutputTokens
+# Subtest: generateForTask threads options.numPredict and leaves it unset when absent
+ok 274 - generateForTask threads options.numPredict and leaves it unset when absent
+# Subtest: generateStreamForTask accumulates chunks via onChunk and delivers finalText to onDone
+ok 275 - generateStreamForTask accumulates chunks via onChunk and delivers finalText to onDone
+# Subtest: unknown taskKey throws from the provider (no catch-all)
+ok 276 - unknown taskKey throws from the provider (no catch-all)
+# Subtest: onError fires and the call rejects when streamResponses throws
+ok 277 - onError fires and the call rejects when streamResponses throws
+# Subtest: tracer + options.traceId ⇒ the call is forwarded as a chat.replan generation under its parent
+ok 278 - tracer + options.traceId ⇒ the call is forwarded as a chat.replan generation under its parent
+# Subtest: a call with a trace but no parent observation hangs at the trace root
+ok 279 - a call with a trace but no parent observation hangs at the trace root
+# Subtest: tracer + options.traceId ⇒ turn_replan maps to the chat.replan generation
+ok 280 - tracer + options.traceId ⇒ turn_replan maps to the chat.replan generation
+# Subtest: tracer + options.traceId ⇒ chat_reply maps to the chat.reply generation
+ok 281 - tracer + options.traceId ⇒ chat_reply maps to the chat.reply generation
+# Subtest: tracer + options.traceId ⇒ chat_follow_up maps to the chat.follow_up generation
+ok 282 - tracer + options.traceId ⇒ chat_follow_up maps to the chat.follow_up generation
+# Subtest: tracer + options.traceId ⇒ memory_recall_path_plan maps to the chat.recall_plan generation
+ok 283 - tracer + options.traceId ⇒ memory_recall_path_plan maps to the chat.recall_plan generation
+# Subtest: tracer + options.traceId ⇒ knowledge_base maps to the chat.knowledge_base generation
+ok 284 - tracer + options.traceId ⇒ knowledge_base maps to the chat.knowledge_base generation
+# Subtest: tracer + options.traceId ⇒ chat_language_detect maps to the chat.language_detect generation
+ok 285 - tracer + options.traceId ⇒ chat_language_detect maps to the chat.language_detect generation
+# Subtest: tracer + options.traceId ⇒ self_review maps to the chat.self_review generation
+ok 286 - tracer + options.traceId ⇒ self_review maps to the chat.self_review generation
+# Subtest: tracer but NO options.traceId ⇒ no generation (a call made outside any turn)
+ok 287 - tracer but NO options.traceId ⇒ no generation (a call made outside any turn)
+# Subtest: NO tracer ⇒ no generation even with a threaded traceId
+ok 288 - NO tracer ⇒ no generation even with a threaded traceId
+# Subtest: emitTrace fires once per generation with the LLMCallTrace shape (chat-side name preserved, prompt + response + model)
+ok 289 - emitTrace fires once per generation with the LLMCallTrace shape (chat-side name preserved, prompt + response + model)
+# Subtest: emitTrace reports the streamed generation too (generateStreamForTask), preserving the chat_reply name
+ok 290 - emitTrace reports the streamed generation too (generateStreamForTask), preserving the chat_reply name
+# Subtest: emitTrace captures the native tool calls a generation emits (e.g. self_review's control decision)
+ok 291 - emitTrace captures the native tool calls a generation emits (e.g. self_review's control decision)
+# Subtest: emitTrace omits toolCalls for a text-only generation (byte-identical to before)
+ok 292 - emitTrace omits toolCalls for a text-only generation (byte-identical to before)
+# Subtest: emitTrace carries the provider-reported token usage
+ok 293 - emitTrace carries the provider-reported token usage
+# Subtest: emitTrace carries the serving provider when the gateway reported one, omits it otherwise
+ok 294 - emitTrace carries the serving provider when the gateway reported one, omits it otherwise
+# Subtest: emitTrace omits usage when the provider reported none (never zeros)
+ok 295 - emitTrace omits usage when the provider reported none (never zeros)
+# Subtest: emitTrace records a [error] response and still reports when the call throws
+ok 296 - emitTrace records a [error] response and still reports when the call throws
+# Subtest: emitTrace records a caller-stopped call as [cancelled] with what streamed by then, never as [error]
+ok 297 - emitTrace records a caller-stopped call as [cancelled] with what streamed by then, never as [error]
+# Subtest: emitTrace records a call stopped before any output as a bare [cancelled]
+ok 298 - emitTrace records a call stopped before any output as a bare [cancelled]
+# Subtest: no emitTrace dep ⇒ no trace overhead (the default — byte-identical to before)
+ok 299 - no emitTrace dep ⇒ no trace overhead (the default — byte-identical to before)
+# Subtest: an oversized image reaches the model fitted to 2048 on its long edge
+ok 300 - an oversized image reaches the model fitted to 2048 on its long edge
+# Subtest: a ToolLoop tool item replays the call with its real arguments and only the result as output
+ok 301 - a ToolLoop tool item replays the call with its real arguments and only the result as output
+# Subtest: an errored ToolLoop tool item replays the call and keeps the error as the output
+ok 302 - an errored ToolLoop tool item replays the call and keeps the error as the output
+# Subtest: a tool item without a ToolLoop envelope (scratchpad text) keeps the synthetic pairing
+ok 303 - a tool item without a ToolLoop envelope (scratchpad text) keeps the synthetic pairing
+# Subtest: a reply whose tool call never ends is stopped, and says it ran away
+ok 304 - a reply whose tool call never ends is stopped, and says it ran away
+# Subtest: slot resolver: pool match short-circuits without a live fetch
+ok 305 - slot resolver: pool match short-circuits without a live fetch
+# Subtest: slot resolver: excluded pool thumbnail falls through to a different live candidate
+ok 306 - slot resolver: excluded pool thumbnail falls through to a different live candidate
+# Subtest: slot resolver: pool miss goes live with mode:images and rotating tab slots
+ok 307 - slot resolver: pool miss goes live with mode:images and rotating tab slots
+# Subtest: slot resolver: executor throw and !ok both resolve undefined with a reported reason
+ok 308 - slot resolver: executor throw and !ok both resolve undefined with a reported reason
+# Subtest: slot resolver: the caller's abort signal reaches the executor
+ok 309 - slot resolver: the caller's abort signal reaches the executor
+# Subtest: slot resolver: an empty live grid reports no-image so the slot's miss is explained
+ok 310 - slot resolver: an empty live grid reports no-image so the slot's miss is explained
+# Subtest: slot resolver: a failed live fetch falls back to the fallback image search
+ok 311 - slot resolver: a failed live fetch falls back to the fallback image search
+# Subtest: slot resolver: an empty live grid and a thrown executor both fall back
+ok 312 - slot resolver: an empty live grid and a thrown executor both fall back
+# Subtest: slot resolver: a live image wins; the fallback is never asked
+ok 313 - slot resolver: a live image wins; the fallback is never asked
+# Subtest: slot resolver: the fallback skips thumbnails earlier slots used
+ok 314 - slot resolver: the fallback skips thumbnails earlier slots used
+# Subtest: slot resolver: when the fallback fails too, both reasons are reported
+ok 315 - slot resolver: when the fallback fails too, both reasons are reported
+# Subtest: slot resolver: an aborted slot never asks the fallback
+ok 316 - slot resolver: an aborted slot never asks the fallback
+# Subtest: slot resolver: every resolved image says where it came from
+ok 317 - slot resolver: every resolved image says where it came from
+# Subtest: the ask requests the stream, forwards each step, and returns the closing result
+ok 318 - the ask requests the stream, forwards each step, and returns the closing result
+# Subtest: a stream that ends without a result line is a failed ask
+ok 319 - a stream that ends without a result line is a failed ask
+# Subtest: a plain JSON answer is still read, with no steps
+ok 320 - a plain JSON answer is still read, with no steps
+# Subtest: the chat port asks with the tool's request and pairs each traced call with its result
+ok 321 - the chat port asks with the tool's request and pairs each traced call with its result
+# Subtest: answer mode asks with the tool's request and carries no note
+ok 322 - answer mode asks with the tool's request and carries no note
+# Subtest: note mode stands on the person's message, with the note beside it; without a message the note is the question
+ok 323 - note mode stands on the person's message, with the note beside it; without a message the note is the question
+# Subtest: the recent transcript is mapped to person/assistant turns: spoken text only, the last 6, 600 chars each
+ok 324 - the recent transcript is mapped to person/assistant turns: spoken text only, the last 6, 600 chars each
+# Subtest: selfModelWritable defaults to true, is read per ask, and is left off when false
+ok 325 - selfModelWritable defaults to true, is read per ask, and is left off when false
+# Subtest: the ask POSTs /v1/agent/ask with the note, the transcript and the self-model grant, and leaves each off when absent
+ok 326 - the ask POSTs /v1/agent/ask with the note, the transcript and the self-model grant, and leaves each off when absent
+# Subtest: the port and the ask compose: a note on a read-only boot reaches phi-memory without the self-model grant
+ok 327 - the port and the ask compose: a note on a read-only boot reaches phi-memory without the self-model grant
+# Subtest: a run the host did not mark writable asks READ-ONLY: no self-model grant, no verbatim instruction
+ok 328 - a run the host did not mark writable asks READ-ONLY: no self-model grant, no verbatim instruction
+# Subtest: a writable run sends the person's verbatim message as the instruction and the worker's request as its reading
+ok 329 - a writable run sends the person's verbatim message as the instruction and the worker's request as its reading
+# Subtest: a read-only boot withholds the self-model grant even on a writable run
+ok 330 - a read-only boot withholds the self-model grant even on a writable run
+# Subtest: a worker run's memory-agent steps are handed over with the run they belong to, each call paired with its result
+ok 331 - a worker run's memory-agent steps are handed over with the run they belong to, each call paired with its result
+# Subtest: a worker run's memory-agent calls are each traced on their own and forwarded live as progress
+ok 332 - a worker run's memory-agent calls are each traced on their own and forwarded live as progress
+# Subtest: the ask sends the host's configured user-wide read scope, and no scope header otherwise
+ok 333 - the ask sends the host's configured user-wide read scope, and no scope header otherwise
+# Subtest: a run that failed after a write hands its committed changes over on the failure, plain JSON and streamed alike
+ok 334 - a run that failed after a write hands its committed changes over on the failure, plain JSON and streamed alike
+# Subtest: the worker port passes a failure's committed changes through to the handler
+ok 335 - the worker port passes a failure's committed changes through to the handler
+# Subtest: a stream that breaks after a write landed is an UNKNOWN outcome with the writes seen as a floor, never zero changes
+ok 336 - a stream that breaks after a write landed is an UNKNOWN outcome with the writes seen as a floor, never zero changes
+# Subtest: an ask aborted by its own signal mid-run is an unknown outcome; one refused before the run is a plain failure
+ok 337 - an ask aborted by its own signal mid-run is an unknown outcome; one refused before the run is a plain failure
+# Subtest: the worker port hands the chat's conversation window over as person/assistant turns, bounded
+ok 338 - the worker port hands the chat's conversation window over as person/assistant turns, bounded
+# Subtest: a worker ask's memory-agent calls are Langfuse spans under the caller's span: whole args and results, timed, failures flagged
+ok 339 - a worker ask's memory-agent calls are Langfuse spans under the caller's span: whole args and results, timed, failures flagged
+# Subtest: a worker ask that throws still closes the calls it had open
+ok 340 - a worker ask that throws still closes the calls it had open
+# Subtest: without a caller trace the worker ask records nothing
+ok 341 - without a caller trace the worker ask records nothing
+# Subtest: the host memory agent's ask is a memory_agent.ask span under the caller, its calls under it
+ok 342 - the host memory agent's ask is a memory_agent.ask span under the caller, its calls under it
+# Subtest: persona port: setName passthrough and default-name detection
+ok 343 - persona port: setName passthrough and default-name detection
+# Subtest: persona port: skip avatar is persisted only when no avatar exists
+ok 344 - persona port: skip avatar is persisted only when no avatar exists
+# Subtest: self-model port: seed preserves directives and honors overwrite=false
+ok 345 - self-model port: seed preserves directives and honors overwrite=false
+# Subtest: avatar port resolves null without image-generation deps
+ok 346 - avatar port resolves null without image-generation deps
+# Subtest: avatar port generates through the persona service it was given
+ok 347 - avatar port generates through the persona service it was given
+# Subtest: memory port: the person's facts go to the memory agent as a note that stands on the same instruction
+ok 348 - memory port: the person's facts go to the memory agent as a note that stands on the same instruction
+# Subtest: memory port: the completing tool call's span goes along to the memory agent
+ok 349 - memory port: the completing tool call's span goes along to the memory agent
+# Subtest: memory port: without a memory agent the facts write-back no-ops
+ok 350 - memory port: without a memory agent the facts write-back no-ops
+# Subtest: chat-index port creates the row only when messages exist
+ok 351 - chat-index port creates the row only when messages exist
+# Subtest: onboarding config: minimal tool-loop actor with the ritual prompt leading
+ok 352 - onboarding config: minimal tool-loop actor with the ritual prompt leading
+# Subtest: onboarding config: its turns are traced on the run, filed under the thread, with the ritual's user
+ok 353 - onboarding config: its turns are traced on the run, filed under the thread, with the ritual's user
+# Subtest: onboarding config: no tracer, no telemetry port
+ok 354 - onboarding config: no tracer, no telemetry port
+# Subtest: onboarding config: the reply ends once prose AND the choice group are out
+ok 355 - onboarding config: the reply ends once prose AND the choice group are out
+# Subtest: onboarding config: the turn stays open until the model has spoken about the face it drew
+ok 356 - onboarding config: the turn stays open until the model has spoken about the face it drew
+# Subtest: onboarding config: a REFUSED drawing does not hold the turn open
+ok 357 - onboarding config: a REFUSED drawing does not hold the turn open
+# Subtest: onboarding config: a reply without a successful choice group gets the missing-options nudge
+ok 358 - onboarding config: a reply without a successful choice group gets the missing-options nudge
+# Subtest: onboarding config: terminal replies are exempt from the missing-options nudge
+ok 359 - onboarding config: terminal replies are exempt from the missing-options nudge
+# Subtest: onboarding config: display name and rehydration seed thread through
+ok 360 - onboarding config: display name and rehydration seed thread through
+# Subtest: onboarding config: an empty rehydration seed is omitted
+ok 361 - onboarding config: an empty rehydration seed is omitted
+# Subtest: reset clears onboarding completion state
+ok 362 - reset clears onboarding completion state
+# Subtest: completion claims are exclusive and fence onboarding mutations
+ok 363 - completion claims are exclusive and fence onboarding mutations
+# Subtest: a failed completion can release its claim and be retried
+ok 364 - a failed completion can release its claim and be retried
+# Subtest: the page the user is on comes first, then attached tabs, tab-group members and split-view members
+ok 365 - the page the user is on comes first, then attached tabs, tab-group members and split-view members
+# Subtest: only http(s) pages are kept — the chat's own new-tab page is not a page
+ok 366 - only http(s) pages are kept — the chat's own new-tab page is not a page
+# Subtest: a page attached twice appears once, at its first position, with the title a later copy carried
+ok 367 - a page attached twice appears once, at its first position, with the title a later copy carried
+# Subtest: malformed input yields no pages rather than throwing
+ok 368 - malformed input yields no pages rather than throwing
+# Subtest: broker env selects the broker channel (synthetic base + custom fetch)
+ok 369 - broker env selects the broker channel (synthetic base + custom fetch)
+# Subtest: broker wins over PHI_MEMORY_MCP_SYNC_URL when both are present
+ok 370 - broker wins over PHI_MEMORY_MCP_SYNC_URL when both are present
+# Subtest: invariant A: no BROKER_SOCKET_PATH falls back to the env override, no custom fetch
+ok 371 - invariant A: no BROKER_SOCKET_PATH falls back to the env override, no custom fetch
+# Subtest: invariant A: an incomplete broker env (socket without capability) does not activate the channel
+ok 372 - invariant A: an incomplete broker env (socket without capability) does not activate the channel
+# Subtest: guardrail warns when loopback is disabled and no broker socket is set
+ok 373 - guardrail warns when loopback is disabled and no broker socket is set
+# Subtest: guardrail stays silent when loopback is disabled but a broker socket exists
+ok 374 - guardrail stays silent when loopback is disabled but a broker socket exists
+# Subtest: guardrail stays silent when loopback is enabled
+ok 375 - guardrail stays silent when loopback is enabled
+# Subtest: image file part → image attachment with bytes inlined via the store
+ok 376 - image file part → image attachment with bytes inlined via the store
+# Subtest: non-image binary file part (PDF) → file attachment with bytes inlined
+ok 377 - non-image binary file part (PDF) → file attachment with bytes inlined
+# Subtest: data-text-file part → text_file attachment (content already inline)
+ok 378 - data-text-file part → text_file attachment (content already inline)
+# Subtest: metadata selections + tab context are rebuilt BEFORE the parts (client mapping order)
+ok 379 - metadata selections + tab context are rebuilt BEFORE the parts (client mapping order)
+# Subtest: a failed file fetch skips THAT attachment; the rest still map (never throws)
+ok 380 - a failed file fetch skips THAT attachment; the rest still map (never throws)
+# Subtest: a `data:` URL file part is forwarded verbatim without a store fetch
+ok 381 - a `data:` URL file part is forwarded verbatim without a store fetch
+# Subtest: a non-phi-agent http(s) URL is forwarded verbatim (publicly reachable)
+ok 382 - a non-phi-agent http(s) URL is forwarded verbatim (publicly reachable)
+# Subtest: malformed input → [] (non-array parts, null metadata, junk entries)
+ok 383 - malformed input → [] (non-array parts, null metadata, junk entries)
+# Subtest: skip applies default name + default personality and completes
+ok 384 - skip applies default name + default personality and completes
+# Subtest: skip keeps an existing custom name and existing self-narrative
+ok 385 - skip keeps an existing custom name and existing self-narrative
+# Subtest: skip registers the chat row when the thread has persisted messages
+ok 386 - skip registers the chat row when the thread has persisted messages
+# Subtest: returns conflict while the WS ritual owns the completion claim
+ok 387 - returns conflict while the WS ritual owns the completion claim
+# Subtest: rejects a malformed body
+ok 388 - rejects a malformed body
+# Subtest: GET /api/agent/onboarding/status returns onboarding completion state
+ok 389 - GET /api/agent/onboarding/status returns onboarding completion state
+# Subtest: GET /api/agent/onboarding/status requires authentication
+ok 390 - GET /api/agent/onboarding/status requires authentication
+# Subtest: DELETE /api/agent/onboarding/status clears onboarding completion state
+ok 391 - DELETE /api/agent/onboarding/status clears onboarding completion state
+# Subtest: GET role-card returns the narrative, bio, and trimmed directives
+ok 392 - GET role-card returns the narrative, bio, and trimmed directives
+# Subtest: GET role-card returns an empty card when nothing is persisted
+ok 393 - GET role-card returns an empty card when nothing is persisted
+# Subtest: GET role-card rejects unauthenticated requests
+ok 394 - GET role-card rejects unauthenticated requests
+# Subtest: role-card rejects non-GET methods
+ok 395 - role-card rejects non-GET methods
+# Subtest: GET role-card maps StorageNotConfiguredError to 503
+ok 396 - GET role-card maps StorageNotConfiguredError to 503
+# Subtest: a global-scope caller gets the article
+ok 397 - a global-scope caller gets the article
+# Subtest: a Profile-scope caller is refused without touching the browser
+ok 398 - a Profile-scope caller is refused without touching the browser
+# Subtest: a missing or malformed scope is refused, never read as global
+ok 399 - a missing or malformed scope is refused, never read as global
+# Subtest: a malformed body is 400
+ok 400 - a malformed body is 400
+# Subtest: an unauthenticated caller is refused before the scope is read
+ok 401 - an unauthenticated caller is refused before the scope is read
+# Subtest: only POST is allowed
+ok 402 - only POST is allowed
+# Subtest: an unreadable tab is 200 with a reason, not an error status
+ok 403 - an unreadable tab is 200 with a reason, not an error status
+# Subtest: a browser failure is a 502 naming nothing about the page
+ok 404 - a browser failure is a 502 naming nothing about the page
+# Subtest: a global-scope caller gets the outcome
+ok 405 - a global-scope caller gets the outcome
+# Subtest: a Profile-scope caller is refused without touching the browser
+ok 406 - a Profile-scope caller is refused without touching the browser
+# Subtest: an anonymous caller, a wrong method and a bad body are refused
+ok 407 - an anonymous caller, a wrong method and a bad body are refused
+# Subtest: a page sent from a sidebar, with no Space, is accepted
+ok 408 - a page sent from a sidebar, with no Space, is accepted
+# Subtest: a browser failure is a 502 that does not echo the browser's words
+ok 409 - a browser failure is a 502 that does not echo the browser's words
+# Subtest: a global-scope caller gets the workspace
+ok 410 - a global-scope caller gets the workspace
+# Subtest: a Profile-scope caller is refused: this is Phi Chat only
+ok 411 - a Profile-scope caller is refused: this is Phi Chat only
+# Subtest: a missing or malformed scope is refused, never treated as global
+ok 412 - a missing or malformed scope is refused, never treated as global
+# Subtest: an unauthenticated caller is refused before the scope is read
+ok 413 - an unauthenticated caller is refused before the scope is read
+# Subtest: only GET is allowed
+ok 414 - only GET is allowed
+# Subtest: a browser failure is a 502 naming nothing about the pages
+ok 415 - a browser failure is a 502 naming nothing about the pages
+# Subtest: POST /chats stores validated metadata and resolves the window's Space
+ok 416 - POST /chats stores validated metadata and resolves the window's Space
+# Subtest: POST /chats keeps windowId only when Space resolution fails
+ok 417 - POST /chats keeps windowId only when Space resolution fails
+# Subtest: POST /chats rejects unknown namespaces and invalid payloads
+ok 418 - POST /chats rejects unknown namespaces and invalid payloads
+# Subtest: the retired tasks namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+ok 419 - the retired tasks namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+# Subtest: the workerTarget namespace is closed to clients although it is mutable
+ok 420 - the workerTarget namespace is closed to clients although it is mutable
+# Subtest: metadata routes: GET map, PUT/DELETE mutable namespace, origin immutable
+ok 421 - metadata routes: GET map, PUT/DELETE mutable namespace, origin immutable
+# Subtest: the retired kickoff namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+ok 422 - the retired kickoff namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+# Subtest: retired routes are gone: PATCH metadata / visibility / category return 404
+ok 423 - retired routes are gone: PATCH metadata / visibility / category return 404
+# Subtest: GET /chats forwards the paging, search and category filters
+ok 424 - GET /chats forwards the paging, search and category filters
+# Subtest: GET /chats defaults the limit to 20 and leaves absent filters unset
+ok 425 - GET /chats defaults the limit to 20 and leaves absent filters unset
+# Subtest: GET /chats falls back to the default limit for a non-numeric value
+ok 426 - GET /chats falls back to the default limit for a non-numeric value
+# Subtest: GET /chats treats an empty category_id as no filter
+ok 427 - GET /chats treats an empty category_id as no filter
+# Subtest: GET /chats forwards has_tasks only when it is exactly true
+ok 428 - GET /chats forwards has_tasks only when it is exactly true
+# Subtest: GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+ok 429 - GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+# Subtest: GET /chats sends each chat as chat JSON, metadata included
+ok 430 - GET /chats sends each chat as chat JSON, metadata included
+# Subtest: POST /chats/batch_delete accepts a bare array and a { chatIds } object
+ok 431 - POST /chats/batch_delete accepts a bare array and a { chatIds } object
+# Subtest: POST /chats/batch_delete treats a missing body as an empty list
+ok 432 - POST /chats/batch_delete treats a missing body as an empty list
+# Subtest: POST /chats/batch_categories forwards the de-duplicated ids and both lists
+ok 433 - POST /chats/batch_categories forwards the de-duplicated ids and both lists
+# Subtest: POST /chats/batch_categories rejects a malformed body without touching the store
+ok 434 - POST /chats/batch_categories rejects a malformed body without touching the store
+# Subtest: POST /chats/batch_categories answers 404 for an unknown category
+ok 435 - POST /chats/batch_categories answers 404 for an unknown category
+# Subtest: chat JSON carries categoryIds, lastActivityAt, taskCount and an unread flag, never categoryId or unreadAt
+ok 436 - chat JSON carries categoryIds, lastActivityAt, taskCount and an unread flag, never categoryId or unreadAt
+# Subtest: POST /chats answers 400 for a categoryIds that is not a list of ids and 404 for an unknown category
+ok 437 - POST /chats answers 400 for a categoryIds that is not a list of ids and 404 for an unknown category
+# Subtest: PUT /chats/:id/categories replaces the set under the chat's current owner and answers the chat
+ok 438 - PUT /chats/:id/categories replaces the set under the chat's current owner and answers the chat
+# Subtest: PUT /chats/:id/categories answers 400 for a bad body and 404 for an unknown category or chat
+ok 439 - PUT /chats/:id/categories answers 400 for a bad body and 404 for an unknown category or chat
+# Subtest: POST /chats/:id/read clears unread and answers 204 with no body
+ok 440 - POST /chats/:id/read clears unread and answers 204 with no body
+# Subtest: GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+ok 441 - GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+# Subtest: GET /chats/:id/tasks answers an empty list for a chat without tasks, and 404 for a chat it cannot reach
+ok 442 - GET /chats/:id/tasks answers an empty list for a chat without tasks, and 404 for a chat it cannot reach
+# Subtest: another account cannot obtain an image-bearing chat even by declaring the owner's profile
+ok 443 - another account cannot obtain an image-bearing chat even by declaring the owner's profile
+# Subtest: fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+ok 444 - fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+# Subtest: journey-now answers disabled when the chat journey feed is off
+ok 445 - journey-now answers disabled when the chat journey feed is off
+# Subtest: journey-now forwards the profile id and returns the cards
+ok 446 - journey-now forwards the profile id and returns the cards
+# Subtest: journey-now keeps enabled when phi-memory has no answer, and requires a user
+ok 447 - journey-now keeps enabled when phi-memory has no answer, and requires a user
+# Subtest: journey-now answers only GET
+ok 448 - journey-now answers only GET
+# Subtest: de-duplicates file parts sharing a fileId, keeping the first (richer) one
+ok 449 - de-duplicates file parts sharing a fileId, keeping the first (richer) one
+# Subtest: de-duplicates the parallel attachments array by id
+ok 450 - de-duplicates the parallel attachments array by id
+# Subtest: drops reasoning text parts (both the \\n and opaque variants)
+ok 451 - drops reasoning text parts (both the \\n and opaque variants)
+# Subtest: drops tool-label text parts (both the bare and \\n variants)
+ok 452 - drops tool-label text parts (both the bare and \\n variants)
+# Subtest: keeps non-label parts of a tool message (e.g. an un-imported attachment note)
+ok 453 - keeps non-label parts of a tool message (e.g. an un-imported attachment note)
+# Subtest: keeps an emptied message when it still carries attachments
+ok 454 - keeps an emptied message when it still carries attachments
+# Subtest: does not touch a normal text part that merely mentions a tool
+ok 455 - does not touch a normal text part that merely mentions a tool
+# Subtest: strips an inline filecite envelope but keeps the surrounding text
+ok 456 - strips an inline filecite envelope but keeps the surrounding text
+# Subtest: strips multiple citations (file + search variants) in one part
+ok 457 - strips multiple citations (file + search variants) in one part
+# Subtest: drops a text part that is only a citation, then the empty message
+ok 458 - drops a text part that is only a citation, then the empty message
+# Subtest: keeps a citation-only part's siblings
+ok 459 - keeps a citation-only part's siblings
+# Subtest: lets metadata.widgetArtifact and metadata.runId through untouched (the widget extension's reconnect-recovery read)
+ok 460 - lets metadata.widgetArtifact and metadata.runId through untouched (the widget extension's reconnect-recovery read)
+# Subtest: preserves message order and untouched fields
+ok 461 - preserves message order and untouched fields
+# Subtest: sticky owner: resolves the live user while a run is in-flight
+ok 462 - sticky owner: resolves the live user while a run is in-flight
+# Subtest: sticky owner: keeps answering the last real owner after the run ends
+ok 463 - sticky owner: keeps answering the last real owner after the run ends
+# Subtest: sticky owner: falls back to anonymous only before any real owner
+ok 464 - sticky owner: falls back to anonymous only before any real owner
+# Subtest: sticky owner: onOwner fires only for live resolutions, never the idle replay
+ok 465 - sticky owner: onOwner fires only for live resolutions, never the idle replay
+# Subtest: selfModelProvider returns the BASE_SOUL when the store is empty (never soul-empty)
+ok 466 - selfModelProvider returns the BASE_SOUL when the store is empty (never soul-empty)
+# Subtest: selfModelProvider composes the curated narrative + directives over the base soul when present
+ok 467 - selfModelProvider composes the curated narrative + directives over the base soul when present
+# Subtest: the PG storage reads the tenant's blob, upserts the whole blob on write, and re-resolves the owner per call
+ok 468 - the PG storage reads the tenant's blob, upserts the whole blob on write, and re-resolves the owner per call
+# Subtest: CHAT_SELF_MODEL_READONLY=1 suppresses the PG storage's durable write
+ok 469 - CHAT_SELF_MODEL_READONLY=1 suppresses the PG storage's durable write
+# Subtest: the first read offers the legacy row once, and it wins when it says something
+ok 470 - the first read offers the legacy row once, and it wins when it says something
+# Subtest: the anonymous tenant's row is never offered as the signed-in person's self
+ok 471 - the anonymous tenant's row is never offered as the signed-in person's self
+# Subtest: a failed legacy read does not close the offer
+ok 472 - a failed legacy read does not close the offer
+# Subtest: an update is a compare-and-set, re-applied on the blob a conflict returns
+ok 473 - an update is a compare-and-set, re-applied on the blob a conflict returns
+# Subtest: with the memory row down the self-model is unavailable, not silently empty
+ok 474 - with the memory row down the self-model is unavailable, not silently empty
+# Subtest: the wrapped adapter redirects only the self-model accessors
+ok 475 - the wrapped adapter redirects only the self-model accessors
+# Subtest: an older phi-memory without the route leaves the legacy table the live store, then is probed again
+ok 476 - an older phi-memory without the route leaves the legacy table the live store, then is probed again
+# Subtest: an unreachable phi-memory is unavailability, never a reason to write the table
+ok 477 - an unreachable phi-memory is unavailability, never a reason to write the table
+# Subtest: bing links: the ck/a redirect decodes to the result page, fragment dropped
+ok 478 - bing links: the ck/a redirect decodes to the result page, fragment dropped
+# Subtest: bing links: a non-ASCII target decodes as UTF-8
+ok 479 - bing links: a non-ASCII target decodes as UTF-8
+# Subtest: bing links: plain result links pass, Bing's own and malformed ones drop
+ok 480 - bing links: plain result links pass, Bing's own and malformed ones drop
+# Subtest: bing images: a tile names its source page, image and thumbnail; highlight markers go
+ok 481 - bing images: a tile names its source page, image and thumbnail; highlight markers go
+# Subtest: bing images: a tile without a source page, or with no image at all, is dropped
+ok 482 - bing images: a tile without a source page, or with no image at all, is dropped
+# Subtest: search urls: Bing web and images carry the query (and the locale); Brave web only
+ok 483 - search urls: Bing web and images carry the query (and the locale); Brave web only
+# Subtest: query terms: content words, and adjacent pairs in unspaced scripts
+ok 484 - query terms: content words, and adjacent pairs in unspaced scripts
+# Subtest: on topic: one-word answers are caught, real results and term-less queries pass
+ok 485 - on topic: one-word answers are caught, real results and term-less queries pass
+# Subtest: keep-alive: pings the shadow window well inside the ~120s reclaim
+ok 486 - keep-alive: pings the shadow window well inside the ~120s reclaim
+# Subtest: keep-alive: stops pinging once the tab is released
+ok 487 - keep-alive: stops pinging once the tab is released
+# Subtest: keep-alive: a failed ping ends the heartbeat instead of retrying forever
+ok 488 - keep-alive: a failed ping ends the heartbeat instead of retrying forever
+# Subtest: keep-alive: starting twice keeps one heartbeat
+ok 489 - keep-alive: starting twice keeps one heartbeat
+# Subtest: isShadowWindowGone: only an unknown task counts as already-gone
+ok 490 - isShadowWindowGone: only an unknown task counts as already-gone
+# Subtest: a build without incognito shadow windows fails the fetch instead of using the real profile
+ok 491 - a build without incognito shadow windows fails the fetch instead of using the real profile
+# Subtest: a dead-connection ensure failure is retried once, then degrades with the cause named
+ok 492 - a dead-connection ensure failure is retried once, then degrades with the cause named
+# Subtest: a browser-refused ensure is NOT retried and degrades with its code
+ok 493 - a browser-refused ensure is NOT retried and degrades with its code
+# Subtest: /goto placeholders resolve through cookie-less manual-redirect lookups, and unresolved ones never leave
+ok 494 - /goto placeholders resolve through cookie-less manual-redirect lookups, and unresolved ones never leave
+# Subtest: a sweep without /goto placeholders costs no lookup
+ok 495 - a sweep without /goto placeholders costs no lookup
+# Subtest: warm-window reuse: a second search opens a new tab in the same window over the same connection object, and retires the old tab
+ok 496 - warm-window reuse: a second search opens a new tab in the same window over the same connection object, and retires the old tab
+# Subtest: a Google challenge hands the search to Bing and Brave, releases Google's window, and pauses Google until the probe after the pause
+ok 497 - a Google challenge hands the search to Bing and Brave, releases Google's window, and pauses Google until the probe after the pause
+# Subtest: a fallback engine's own challenge pauses only that engine; the other keeps answering
+ok 498 - a fallback engine's own challenge pauses only that engine; the other keeps answering
+# Subtest: when every engine says no, the reason names each one's answer
+ok 499 - when every engine says no, the reason names each one's answer
+# Subtest: a fallback engine whose results are about none of the query's terms is dropped
+ok 500 - a fallback engine whose results are about none of the query's terms is dropped
+# Subtest: a Google failure that is not Google saying no never reaches the fallback engines
+ok 501 - a Google failure that is not Google saying no never reaches the fallback engines
+# Subtest: interleaveSerpItems: first of each engine, then second of each, one copy per page
+ok 502 - interleaveSerpItems: first of each engine, then second of each, one copy per page
+# Subtest: challenge backoff: 5 minutes, doubling with each challenge in a row, capped at an hour
+ok 503 - challenge backoff: 5 minutes, doubling with each challenge in a row, capped at an hour
+# Subtest: a search tab that cannot be opened in the warm window degrades and gives the window up
+ok 504 - a search tab that cannot be opened in the warm window degrades and gives the window up
+# Subtest: warm-tab reuse is by connection identity: a new connection object gets a new warm tab
+ok 505 - warm-tab reuse is by connection identity: a new connection object gets a new warm tab
+# Subtest: no phi-cdp service: a search degrades exactly like a browser with no endpoint, and the service is read per call
+ok 506 - no phi-cdp service: a search degrades exactly like a browser with no endpoint, and the service is read per call
+# Subtest: no phi-cdp service: the pre-warm, a keep-alive tick and a release open nothing and throw nothing
+ok 507 - no phi-cdp service: the pre-warm, a keep-alive tick and a release open nothing and throw nothing
+# Subtest: a closed service: a search degrades, the pre-warm and the release stay quiet, and nothing reconnects
+ok 508 - a closed service: a search degrades, the pre-warm and the release stay quiet, and nothing reconnects
+# Subtest: serp provider: passes the query, locale, total and its own budget
+ok 509 - serp provider: passes the query, locale, total and its own budget
+# Subtest: serp provider: web mode only — images belong to the media-slot resolver
+ok 510 - serp provider: web mode only — images belong to the media-slot resolver
+# Subtest: serp provider: the caller's abort signal reaches the executor
+ok 511 - serp provider: the caller's abort signal reaches the executor
+# Subtest: serp provider: executor throw and !ok both degrade to []
+ok 512 - serp provider: executor throw and !ok both degrade to []
+# Subtest: serp provider: degrade paths report lane diagnostics with reasons
+ok 513 - serp provider: degrade paths report lane diagnostics with reasons
+# Subtest: serp provider: success reports no diagnostic (race announces the winner)
+ok 514 - serp provider: success reports no diagnostic (race announces the winner)
+# Subtest: serp provider: one row per engine the fetch asked, and every result says which engine found it
+ok 515 - serp provider: one row per engine the fetch asked, and every result says which engine found it
+# Subtest: serp provider: a Google pause reads as a skipped row with the time left
+ok 516 - serp provider: a Google pause reads as a skipped row with the time left
+# Subtest: toWebSearchResults: re-validates untrusted items
+ok 517 - toWebSearchResults: re-validates untrusted items
+# Subtest: toWebSearchResults: faviconUrl passes when http(s), dropped otherwise
+ok 518 - toWebSearchResults: faviconUrl passes when http(s), dropped otherwise
+# Subtest: toWebSearchResults: keeps the long AI Overview summary description
+ok 519 - toWebSearchResults: keeps the long AI Overview summary description
+# Subtest: toWebSearchResults: blanks overview citation descriptions echoing the summary card
+ok 520 - toWebSearchResults: blanks overview citation descriptions echoing the summary card
+# Subtest: toWebSearchResults: preserves fromAiOverview, dropping non-true values
+ok 521 - toWebSearchResults: preserves fromAiOverview, dropping non-true values
+# Subtest: toWebSearchResults: malformed input → []
+ok 522 - toWebSearchResults: malformed input → []
+# Subtest: raw provider: SERP results inside the window ship; Jina runs beside it on the resolved bearer
+ok 523 - raw provider: SERP results inside the window ship; Jina runs beside it on the resolved bearer
+# Subtest: raw provider: a failed SERP lane defers to Jina, and site / freshness / limit reach Jina only
+ok 524 - raw provider: a failed SERP lane defers to Jina, and site / freshness / limit reach Jina only
+# Subtest: raw provider: no Jina token skips that leg only
+ok 525 - raw provider: no Jina token skips that leg only
+# Subtest: raw provider: a SERP lane slower than serpWindowMs loses to Jina
+ok 526 - raw provider: a SERP lane slower than serpWindowMs loses to Jina
+# Subtest: no pick on the uplink: answers empty without reading the library
+ok 527 - no pick on the uplink: answers empty without reading the library
+# Subtest: resolves the picked ids to library skills, in pick order, canonicalized
+ok 528 - resolves the picked ids to library skills, in pick order, canonicalized
+# Subtest: a disabled or unknown pick drops out
+ok 529 - a disabled or unknown pick drops out
+# Subtest: one task worth it gets one card, opening its conversation
+ok 530 - one task worth it gets one card, opening its conversation
+# Subtest: several tasks worth it share one card, led by jev's pick
+ok 531 - several tasks worth it share one card, led by jev's pick
+# Subtest: a bad moment, or no task worth it, means no card
+ok 532 - a bad moment, or no task worth it, means no card
+# Subtest: unanswered questions count as no
+ok 533 - unanswered questions count as no
+# Subtest: a lead jev picked that is not worth it gives way to the worthiest task
+ok 534 - a lead jev picked that is not worth it gives way to the worthiest task
+# Subtest: read, muted, unlinked and answered offers are left out; with none left jev is not asked
+ok 535 - read, muted, unlinked and answered offers are left out; with none left jev is not asked
+# Subtest: the wait for the notices ends after two minutes; an offer whose notice never arrived gets no card
+ok 536 - the wait for the notices ends after two minutes; an offer whose notice never arrived gets no card
+# Subtest: a failed decision or a card that cannot be shown is logged, never thrown
+ok 537 - a failed decision or a card that cannot be shown is logged, never thrown
+# Subtest: the card lasts at least ten minutes and at most a day
+ok 538 - the card lasts at least ten minutes and at most a day
+# Subtest: each outage's card is its own named trace, with the decision as its output
+ok 539 - each outage's card is its own named trace, with the decision as its output
+# Subtest: a card that could not be decided on ends its span at WARNING
+ok 540 - a card that could not be decided on ends its span at WARNING
+# Subtest: real chat taskKeys resolve to the env-configured chat model
+ok 541 - real chat taskKeys resolve to the env-configured chat model
+# Subtest: real chat taskKeys resolve to their dedicated CHAT_* model env override
+ok 542 - real chat taskKeys resolve to their dedicated CHAT_* model env override
+# Subtest: richer-stage chat taskKeys resolve to the env-configured chat model
+ok 543 - richer-stage chat taskKeys resolve to the env-configured chat model
+# Subtest: richer-stage chat taskKeys resolve to their dedicated CHAT_* model env override
+ok 544 - richer-stage chat taskKeys resolve to their dedicated CHAT_* model env override
+# Subtest: falls back to gpt-5.4-nano when OPENAI_RESPONSE_MODEL is unset
+ok 545 - falls back to gpt-5.4-nano when OPENAI_RESPONSE_MODEL is unset
+# Subtest: empty dedicated CHAT_* model values fall back to OPENAI_RESPONSE_MODEL
+ok 546 - empty dedicated CHAT_* model values fall back to OPENAI_RESPONSE_MODEL
+# Subtest: chat activity status narrator resolves to its configurable model override
+ok 547 - chat activity status narrator resolves to its configurable model override
+# Subtest: chat activity status narrator falls back to the chat model when unset
+ok 548 - chat activity status narrator falls back to the chat model when unset
+# Subtest: the self-review chatSelfReview taskKey resolves to the env-configured chat model
+ok 549 - the self-review chatSelfReview taskKey resolves to the env-configured chat model
+# Subtest: self-review resolves to its dedicated CHAT_* model override
+ok 550 - self-review resolves to its dedicated CHAT_* model override
+# Subtest: the retired verdict, task-route and query-rewrite keys are unknown
+ok 551 - the retired verdict, task-route and query-rewrite keys are unknown
+# Subtest: unknown taskKey throws (no silent catch-all)
+ok 552 - unknown taskKey throws (no silent catch-all)
+# Subtest: registerTaskModel override wins over the config-resolved model
+ok 553 - registerTaskModel override wins over the config-resolved model
+# Subtest: chatResponse resolves to reasoning effort 'low'
+ok 554 - chatResponse resolves to reasoning effort 'low'
+# Subtest: chatResponseVoice resolves to the reply model at reasoning effort 'none'
+ok 555 - chatResponseVoice resolves to the reply model at reasoning effort 'none'
+# Subtest: the classifier-class chat taskKeys resolve to reasoning effort 'none'
+ok 556 - the classifier-class chat taskKeys resolve to reasoning effort 'none'
+# Subtest: the replan, self-review and compaction stages keep a 'low' budget
+ok 557 - the replan, self-review and compaction stages keep a 'low' budget
+# Subtest: 'none' is coerced to 'minimal' when the resolved model is gpt-5-nano
+ok 558 - 'none' is coerced to 'minimal' when the resolved model is gpt-5-nano
+# Subtest: 'none' is coerced to 'low' when the resolved model is gpt-oss
+ok 559 - 'none' is coerced to 'low' when the resolved model is gpt-oss
+# Subtest: 'none' is coerced to 'low' for the phi/chat/helper alias
+ok 560 - 'none' is coerced to 'low' for the phi/chat/helper alias
+# Subtest: 'none' is preserved for non-gpt-5-nano models
+ok 561 - 'none' is preserved for non-gpt-5-nano models
+# Subtest: unknown / empty taskKey resolves to no reasoning config
+ok 562 - unknown / empty taskKey resolves to no reasoning config
+# Subtest: artifactGeneration has its own env key and a widget-tier hard default
+ok 563 - artifactGeneration has its own env key and a widget-tier hard default
+# Subtest: an unread report judged worth an interruption is shown as a card by the conversation's Profile
+ok 564 - an unread report judged worth an interruption is shown as a card by the conversation's Profile
+# Subtest: jev is asked one yes/no question over the task, the run and the report, with the Runner's bearer
+ok 565 - jev is asked one yes/no question over the task, the run and the report, with the Runner's bearer
+# Subtest: jev is told when the run itself found nothing new, and why
+ok 566 - jev is told when the run itself found nothing new, and why
+# Subtest: a run judged worth sending is not marked as having nothing new
+ok 567 - a run judged worth sending is not marked as having nothing new
+# Subtest: a conversation the user read as the report arrived gets no card, and jev is not asked
+ok 568 - a conversation the user read as the report arrived gets no card, and jev is not asked
+# Subtest: a report jev judges not worth an interruption gets no card
+ok 569 - a report jev judges not worth an interruption gets no card
+# Subtest: every failure means no card, logged, and never a throw
+ok 570 - every failure means no card, logged, and never a throw
+# Subtest: a conversation in no Profile (Phi Chat) still gets its card, sent through any open Profile
+ok 571 - a conversation in no Profile (Phi Chat) still gets its card, sent through any open Profile
+# Subtest: the task's Profile is asked for when the conversation has none
+ok 572 - the task's Profile is asked for when the conversation has none
+# Subtest: the card lasts until the task's next run, at least ten minutes and at most a day
+ok 573 - the card lasts until the task's next run, at least ten minutes and at most a day
+# Subtest: the card's text is the report's first sentence, without Markdown, about a hundred characters at most
+ok 574 - the card's text is the report's first sentence, without Markdown, about a hundred characters at most
+# Subtest: the decision and the card are traced in the task run's trace
+ok 575 - the decision and the card are traced in the task run's trace
+# Subtest: a card that could not be decided on ends its span at WARNING; a plain no does not
+ok 576 - a card that could not be decided on ends its span at WARNING; a plain no does not
+# Subtest: a catch-up notice gets no report card, and jev is not asked
+ok 577 - a catch-up notice gets no report card, and jev is not asked
+# Subtest: a pending report is delivered, marks its conversation unread and is recorded as posted
+ok 578 - a pending report is delivered, marks its conversation unread and is recorded as posted
+# Subtest: the runs of one conversation go in order, and one not delivered holds back the next
+ok 579 - the runs of one conversation go in order, and one not delivered holds back the next
+# Subtest: a busy conversation returns the report to pending without spending the attempt
+ok 580 - a busy conversation returns the report to pending without spending the attempt
+# Subtest: the third failed attempt posts the fixed English report instead
+ok 581 - the third failed attempt posts the fixed English report instead
+# Subtest: a deleted conversation and a muted task are skipped
+ok 582 - a deleted conversation and a muted task are skipped
+# Subtest: a claim is left alone until it is two minutes old, then taken over
+ok 583 - a claim is left alone until it is two minutes old, then taken over
+# Subtest: a report still undelivered a day after its run is given up
+ok 584 - a report still undelivered a day after its run is given up
+# Subtest: a report the user stopped before it said anything is not sent again
+ok 585 - a report the user stopped before it said anything is not sent again
+# Subtest: a kick during a pass runs one more pass, never two at once
+ok 586 - a kick during a pass runs one more pass, never two at once
+# Subtest: a run that stopped on a question reports the question, and the worker's files are named
+ok 587 - a run that stopped on a question reports the question, and the worker's files are named
+# Subtest: the report says whether the run found the task's stop condition met, and whether the task stopped
+ok 588 - the report says whether the run found the task's stop condition met, and whether the task stopped
+# Subtest: a run judged worth sending carries the reason; a skipped or undecided one does not
+ok 589 - a run judged worth sending carries the reason; a skipped or undecided one does not
+# Subtest: the run's log says what became of its report
+ok 590 - the run's log says what became of its report
+# Subtest: a posted report, by the assistant or as the fixed message, is handed on once for its notification card
+ok 591 - a posted report, by the assistant or as the fixed message, is handed on once for its notification card
+# Subtest: a report that was not posted is never handed on for a card
+ok 592 - a report that was not posted is never handed on for a card
+# Subtest: a card step that throws neither undoes the posted report nor holds back the next
+ok 593 - a card step that throws neither undoes the posted report nor holds back the next
+# Subtest: a missed run's report asks about catching up, with the outage and what it missed
+ok 594 - a missed run's report asks about catching up, with the outage and what it missed
+# Subtest: a cut-off run's report is a catch-up too; a late run's report carries the note instead
+ok 595 - a cut-off run's report is a catch-up too; a late run's report carries the note instead
+# Subtest: a title is its own phi-agent.title trace: the message in, the title out, the model call under it
+ok 596 - a title is its own phi-agent.title trace: the message in, the title out, the model call under it
+# Subtest: a title that comes back unusable says why as its trace's output
+ok 597 - a title that comes back unusable says why as its trace's output
+# Subtest: generateChatTitle budgets for reasoning without changing the model or Skill input
+ok 598 - generateChatTitle budgets for reasoning without changing the model or Skill input
+# Subtest: generateChatTitle rejects output-limit exhaustion during reasoning
+ok 599 - generateChatTitle rejects output-limit exhaustion during reasoning
+# Subtest: generateChatTitle rejects output-limit exhaustion with partial text
+ok 600 - generateChatTitle rejects output-limit exhaustion with partial text
+# Subtest: generateChatTitle rejects explicit failed even with text
+ok 601 - generateChatTitle rejects explicit failed even with text
+# Subtest: generateChatTitle rejects explicit cancelled even with text
+ok 602 - generateChatTitle rejects explicit cancelled even with text
+# Subtest: generateChatTitle rejects explicit queued even with text
+ok 603 - generateChatTitle rejects explicit queued even with text
+# Subtest: generateChatTitle rejects explicit in_progress even with text
+ok 604 - generateChatTitle rejects explicit in_progress even with text
+# Subtest: generateChatTitle rejects non-budget incomplete responses
+ok 605 - generateChatTitle rejects non-budget incomplete responses
+# Subtest: generateChatTitle preserves legacy response format {"output_text":"\\"Legacy Title\\""}
+ok 606 - generateChatTitle preserves legacy response format {"output_text":"\\"Legacy Title\\""}
+# Subtest: generateChatTitle preserves legacy response format {"text":"Legacy Title"}
+ok 607 - generateChatTitle preserves legacy response format {"text":"Legacy Title"}
+# Subtest: generateChatTitle preserves legacy response format {"output":[{"content":[{"text":"Legacy Title"}]}]}
+ok 608 - generateChatTitle preserves legacy response format {"output":[{"content":[{"text":"Legacy Title"}]}]}
+# Subtest: generateChatTitle preserves legacy response format {"status":null,"output_text":"Legacy Title"}
+ok 609 - generateChatTitle preserves legacy response format {"status":null,"output_text":"Legacy Title"}
+# Subtest: generateChatTitle still rejects completed responses without title text
+ok 610 - generateChatTitle still rejects completed responses without title text
+# Subtest: one turn per user message, each at the time it happened
+ok 611 - one turn per user message, each at the time it happened
+# Subtest: drops the oldest turns until the text fits, and says so
+ok 612 - drops the oldest turns until the text fits, and says so
+# Subtest: nothing recorded, or nothing that forms a turn, is null
+ok 613 - nothing recorded, or nothing that forms a turn, is null
+# Subtest: the row's config wins, then the environment, then 7
+ok 614 - the row's config wins, then the environment, then 7
+# Subtest: a negative or fractional config is ignored
+ok 615 - a negative or fractional config is ignored
+# Subtest: a bad environment value falls back to 7, with a warning
+ok 616 - a bad environment value falls back to 7, with a warning
+# Subtest: keeps only folded frames, merges streamed text, and appends at the run's end
+ok 617 - keeps only folded frames, merges streamed text, and appends at the run's end
+# Subtest: appends after a quiet spell without waiting for the run to end
+ok 618 - appends after a quiet spell without waiting for the run to end
+# Subtest: a batch is stamped when it is flushed, not when a slow earlier write gets to it
+ok 619 - a batch is stamped when it is flushed, not when a slow earlier write gets to it
+# Subtest: an export flushes the chat first, so the turn in flight is in it
+ok 620 - an export flushes the chat first, so the turn in flight is in it
+# Subtest: retention 0 records nothing, and the sweep clears everything
+ok 621 - retention 0 records nothing, and the sweep clears everything
+# Subtest: the sweep cuts at now minus the window
+ok 622 - the sweep cuts at now minus the window
+# Subtest: a store that fails is warned about and never thrown into the caller
+ok 623 - a store that fails is warned about and never thrown into the caller
+# Subtest: results interleave, first lane first
+ok 624 - results interleave, first lane first
+# Subtest: waits for the slower lane inside the deadline
+ok 625 - waits for the slower lane inside the deadline
+# Subtest: a lane past the deadline contributes nothing and is aborted
+ok 626 - a lane past the deadline contributes nothing and is aborted
+# Subtest: a throwing lane degrades to nothing; the other still ships
+ok 627 - a throwing lane degrades to nothing; the other still ships
+# Subtest: an empty lane is reported as empty
+ok 628 - an empty lane is reported as empty
+# Subtest: the lanes' own diagnostics pass through
+ok 629 - the lanes' own diagnostics pass through
+# Subtest: the caller's abort resolves empty
+ok 630 - the caller's abort resolves empty
+# Subtest: a throwing diagnostics sink does not sink the merge
+ok 631 - a throwing diagnostics sink does not sink the merge
+# Subtest: a result its provider left untagged is tagged with its lane; a provider's own tag stays
+ok 632 - a result its provider left untagged is tagged with its lane; a provider's own tag stays
+# Subtest: a forwarded kind is passed through
+ok 633 - a forwarded kind is passed through
+# Subtest: an absent or unknown kind defaults to prompt
+ok 634 - an absent or unknown kind defaults to prompt
+# Subtest: the reply routes under artifactGeneration
+ok 635 - the reply routes under artifactGeneration
+# Subtest: config leaves a tool-capable segment for every finalize retry the client allows
+ok 636 - config leaves a tool-capable segment for every finalize retry the client allows
+# Subtest: a silent segment is nudged once: toward finalize before any attempt, back to the fix after a rejection, never after an acceptance
+ok 637 - a silent segment is nudged once: toward finalize before any attempt, back to the fix after a rejection, never after an acceptance
+# Subtest: a successful finalize ends the turn regardless of streamed prose
+ok 638 - a successful finalize ends the turn regardless of streamed prose
+# Subtest: a failed finalize does not end the turn
+ok 639 - a failed finalize does not end the turn
+# Subtest: another tool never ends the turn
+ok 640 - another tool never ends the turn
+# Subtest: the config carries no ChatAssistant-only fields
+ok 641 - the config carries no ChatAssistant-only fields
+# Subtest: a detected language is pinned for the turn
+ok 642 - a detected language is pinned for the turn
+# Subtest: an explicit no-words verdict falls back to the preferred language
+ok 643 - an explicit no-words verdict falls back to the preferred language
+# Subtest: no language at all yields no directive
+ok 644 - no language at all yields no directive
+# Subtest: the prelude injects recall and the language directive BEFORE the turn is queued
+ok 645 - the prelude injects recall and the language directive BEFORE the turn is queued
+# Subtest: a prelude failure still sends the turn, unpersonalised and silent
+ok 646 - a prelude failure still sends the turn, unpersonalised and silent
+# Subtest: interrupt drops the turn whose prelude had not been applied
+ok 647 - interrupt drops the turn whose prelude had not been applied
+# Subtest: stop cancels a pending prelude, then tears the actor down
+ok 648 - stop cancels a pending prelude, then tears the actor down
+# Subtest: a later turn is unaffected by an earlier turn's interrupt
+ok 649 - a later turn is unaffected by an earlier turn's interrupt
+# Subtest: an interrupt cancels EVERY in-flight prelude, not just the newest
+ok 650 - an interrupt cancels EVERY in-flight prelude, not just the newest
+# Subtest: a cancel reaches a prelude that already started
+ok 651 - a cancel reaches a prelude that already started
+# Subtest: turns keep their send order when an earlier prelude settles later
+ok 652 - turns keep their send order when an earlier prelude settles later
+# Subtest: a throwing telemetry span costs a trace, never the turn
+ok 653 - a throwing telemetry span costs a trace, never the turn
+# Subtest: a throwing span CLOSE also leaves the turn alone
+ok 654 - a throwing span CLOSE also leaves the turn alone
+# Subtest: the real rig survives a telemetry port that throws on span open
+ok 655 - the real rig survives a telemetry port that throws on span open
+# Subtest: a hung prelude is bounded and the turn goes out unpersonalised
+ok 656 - a hung prelude is bounded and the turn goes out unpersonalised
+# Subtest: a hung prelude does not hold the next turn past the deadline
+ok 657 - a hung prelude does not hold the next turn past the deadline
+# Subtest: one prelude span per turn
+ok 658 - one prelude span per turn
+# Subtest: a catalog Install skips the detector call and pins the UI language
+ok 659 - a catalog Install skips the detector call and pins the UI language
+# Subtest: the recall query override reaches the prelude's recall call
+ok 660 - the recall query override reaches the prelude's recall call
+# Subtest: the assembly makes NO LLM call of its own — no warm-up at construction or on the first send
+ok 661 - the assembly makes NO LLM call of its own — no warm-up at construction or on the first send
+# Subtest: assembleWidgetAssistant: prelude-wrapped, idempotent stop
+ok 662 - assembleWidgetAssistant: prelude-wrapped, idempotent stop
+# Subtest: the prelude is a widget.prelude span at the root of the run's trace: the turn's text in, what it injected out
+ok 663 - the prelude is a widget.prelude span at the root of the run's trace: the turn's text in, what it injected out
+# Subtest: a silent segment ends the turn: the reply is the tool call, never prose
+ok 664 - a silent segment ends the turn: the reply is the tool call, never prose
+# Subtest: a fresh prompt advertises the web tools
+ok 665 - a fresh prompt advertises the web tools
+# Subtest: install advertises only the two widget tools
+ok 666 - install advertises only the two widget tools
+# Subtest: finalize is not subject to the tool budget
+ok 667 - finalize is not subject to the tool budget
+# Subtest: search_web permits exactly its documented cap of 2 calls
+ok 668 - search_web permits exactly its documented cap of 2 calls
+# Subtest: read_web_url permits exactly its documented cap of 2 calls
+ok 669 - read_web_url permits exactly its documented cap of 2 calls
+# Subtest: finalize_artifact rejects an invalid freshness via schema validation without tripping the finalize-once gate
+ok 670 - finalize_artifact rejects an invalid freshness via schema validation without tripping the finalize-once gate
+# Subtest: the advertised finalize_artifact tool definition carries the freshness enum
+ok 671 - the advertised finalize_artifact tool definition carries the freshness enum
+# Subtest: a refine sees read_web_url but not search_web; an install sees neither
+ok 672 - a refine sees read_web_url but not search_web; an install sees neither
+# Subtest: finalize_artifact refuses an unprobed page.extract source and accepts it once probe_extract_sources reported it ok
+ok 673 - finalize_artifact refuses an unprobed page.extract source and accepts it once probe_extract_sources reported it ok
+# Subtest: finalize_artifact's unprobed-source error names the unavailable slot, never page.read, once probe_extract_sources is out of budget
+ok 674 - finalize_artifact's unprobed-source error names the unavailable slot, never page.read, once probe_extract_sources is out of budget
+# Subtest: widgetBubbleCompleteNudge nudges before any finalize and after a rejected one, never after an accepted one
+ok 675 - widgetBubbleCompleteNudge nudges before any finalize and after a rejected one, never after an accepted one
+# Subtest: widgetUserRequest takes the user's own words verbatim from a build or a refine turn
+ok 676 - widgetUserRequest takes the user's own words verbatim from a build or a refine turn
+# Subtest: todayLine names the UTC date and the US Eastern date
+ok 677 - todayLine names the UTC date and the US Eastern date
+# Subtest: finalize tool cleans, validates, budgets, and reports
+ok 678 - finalize tool cleans, validates, budgets, and reports
+# Subtest: finalize schema keeps the model-authored metadata, and the payload carries it
+ok 679 - finalize schema keeps the model-authored metadata, and the payload carries it
+# Subtest: finalize payload omits the optional metadata the model did not author
+ok 680 - finalize payload omits the optional metadata the model did not author
+# Subtest: finalize schema enforces the legacy length bounds
+ok 681 - finalize schema enforces the legacy length bounds
+# Subtest: finalize tool rejects a policy violation without firing onFinalized
+ok 682 - finalize tool rejects a policy violation without firing onFinalized
+# Subtest: load_widget_guidelines permits exactly its documented cap of 3 calls, and warns on the 4th
+ok 683 - load_widget_guidelines permits exactly its documented cap of 3 calls, and warns on the 4th
+# Subtest: load_widget_guidelines' tool budget resets when the run id changes across turns
+ok 684 - load_widget_guidelines' tool budget resets when the run id changes across turns
+# Subtest: finalize's already-finalized gate resets when the run id changes across turns
+ok 685 - finalize's already-finalized gate resets when the run id changes across turns
+# Subtest: finalize tool rejects a second successful call within the same turn
+ok 686 - finalize tool rejects a second successful call within the same turn
+# Subtest: finalize tool rejects a call before guidelines are loaded this turn, then succeeds after a load
+ok 687 - finalize tool rejects a call before guidelines are loaded this turn, then succeeds after a load
+# Subtest: finalize accepts an HTML widget, emits componentTsx as empty string and stamps the layout contract
+ok 688 - finalize accepts an HTML widget, emits componentTsx as empty string and stamps the layout contract
+# Subtest: finalize accepts a direction sentence and keeps it off the finalized payload
+ok 689 - finalize accepts a direction sentence and keeps it off the finalized payload
+# Subtest: finalize schema rejects both sources and neither
+ok 690 - finalize schema rejects both sources and neither
+# Subtest: load_widget_guidelines accepts tsx-legacy alongside a category
+ok 691 - load_widget_guidelines accepts tsx-legacy alongside a category
+# Subtest: load_widget_guidelines schema accepts tsx-legacy and rejects an unknown module
+ok 692 - load_widget_guidelines schema accepts tsx-legacy and rejects an unknown module
+# Subtest: load_widget_guidelines accepts a data module alongside a category
+ok 693 - load_widget_guidelines accepts a data module alongside a category
+# Subtest: a second load_widget_guidelines call returns only modules not yet loaded
+ok 694 - a second load_widget_guidelines call returns only modules not yet loaded
+# Subtest: a repeat load_widget_guidelines call with no new module gets the already-loaded note
+ok 695 - a repeat load_widget_guidelines call with no new module gets the already-loaded note
+# Subtest: a second call requesting the same new module twice returns its text once
+ok 696 - a second call requesting the same new module twice returns its text once
+# Subtest: load_widget_guidelines composes the connected HTML context, and a tsx-legacy request flips the format
+ok 697 - load_widget_guidelines composes the connected HTML context, and a tsx-legacy request flips the format
+# Subtest: a forwarded grid geometry reaches the composed guideline text
+ok 698 - a forwarded grid geometry reaches the composed guideline text
+# Subtest: a forwarded geometry missing sizes leaves the reference tables in place
+ok 699 - a forwarded geometry missing sizes leaves the reference tables in place
+# Subtest: a malformed forwarded geometry leaves the static size table in place
+ok 700 - a malformed forwarded geometry leaves the static size table in place
+# Subtest: a repeat call with live geometry still gets the already-loaded note, not a lone dynamic segment
+ok 701 - a repeat call with live geometry still gets the already-loaded note, not a lone dynamic segment
+# Subtest: a style violation is rejected until the last allowed attempt, then delivered and marked
+ok 702 - a style violation is rejected until the last allowed attempt, then delivered and marked
+# Subtest: a hard violation is never waived, and a clean widget is never marked
+ok 703 - a hard violation is never waived, and a clean widget is never marked
+# Subtest: hint tokens are field names, abbreviations, long hint words and the seasons or codes in a hint
+ok 704 - hint tokens are field names, abbreviations, long hint words and the seasons or codes in a hint
+# Subtest: the model's anchors replace the mechanical tokens when given
+ok 705 - the model's anchors replace the mechanical tokens when given
+# Subtest: a failed selector, an empty page and a timeout are out; the one that holds the figures wins
+ok 706 - a failed selector, an empty page and a timeout are out; the one that holds the figures wins
+# Subtest: with several viable candidates the decision model picks between PAGES (one per page, the narrowest), hint leaders first; the hint score decides only without it
+ok 707 - with several viable candidates the decision model picks between PAGES (one per page, the narrowest), hint leaders first; the hint score decides only without it
+# Subtest: nothing viable names every reason; a slow read is a timeout, not a hang
+ok 708 - nothing viable names every reason; a slow read is a timeout, not a hang
+# Subtest: the source key ignores a fragment, a trailing slash and host case, so the probed page matches the manifest's spelling of it
+ok 709 - the source key ignores a fragment, a trailing slash and host case, so the probed page matches the manifest's spelling of it
+# Subtest: the source key ignores surrounding whitespace and treats no selector as empty
+ok 710 - the source key ignores surrounding whitespace and treats no selector as empty
+# Subtest: several ok selectors on one page: the narrowest with the most hint tokens wins without the decision model
+ok 711 - several ok selectors on one page: the narrowest with the most hint tokens wins without the decision model
+# Subtest: a page that reads but holds none of the field words and no figures is thin, not ok
+ok 712 - a page that reads but holds none of the field words and no figures is thin, not ok
+# Subtest: the decision model picks the element on each page, or none: a page about another player is turned away on its text
+ok 713 - the decision model picks the element on each page, or none: a page about another player is turned away on its text
+# Subtest: the excerpt the decision model reads is the start of the text and the passages around the hint tokens, not the head alone
+ok 714 - the excerpt the decision model reads is the start of the text and the passages around the hint tokens, not the head alone
+# Subtest: a page given without a strong selector has its elements enumerated from the HTML; the pick is read through the relay before it is chosen
+ok 715 - a page given without a strong selector has its elements enumerated from the HTML; the pick is read through the relay before it is chosen
+# Subtest: accepts a valid two-request manifest
+ok 716 - accepts a valid two-request manifest
+# Subtest: rejects freshness: "fresh" at path ["requests", 0, "freshness"]
+ok 717 - rejects freshness: "fresh" at path ["requests", 0, "freshness"]
+# Subtest: rejects a sixth request
+ok 718 - rejects a sixth request
+# Subtest: rejects duplicate ids
+ok 719 - rejects duplicate ids
+# Subtest: rejects url: http://127.0.0.1/
+ok 720 - rejects url: http://127.0.0.1/
+# Subtest: rejects metadata: { apiKey: "x" } and names the key
+ok 721 - rejects metadata: { apiKey: "x" } and names the key
+# Subtest: rejects an unknown request key (strict)
+ok 722 - rejects an unknown request key (strict)
+# Subtest: accepts metadata.selector as a plain CSS selector and rejects anything else
+ok 723 - accepts metadata.selector as a plain CSS selector and rejects anything else
+# Subtest: the narrowest element that holds the hint words and figures is named by its unique id; a commented table is not an element
+ok 724 - the narrowest element that holds the hint words and figures is named by its unique id; a commented table is not an element
+# Subtest: elements that hold fewer of the words are listed after those that hold more, narrowest first, up to six
+ok 725 - elements that hold fewer of the words are listed after those that hold more, narrowest first, up to six
+# Subtest: without a usable id an element is named by a unique tag and class, else by a path from an identified ancestor
+ok 726 - without a usable id an element is named by a unique tag and class, else by a path from an identified ancestor
+# Subtest: a page that holds none of the hint words names nothing, and nav-only pages hold no figures
+ok 727 - a page that holds none of the hint words names nothing, and nav-only pages hold no figures
+# Subtest: recall runs with the override query verbatim when one is supplied
+ok 728 - recall runs with the override query verbatim when one is supplied
+# Subtest: a whitespace-only override is a decline: recall runs on the user message
+ok 729 - a whitespace-only override is a decline: recall runs on the user message
+# Subtest: a recall failure degrades silently and still returns a language
+ok 730 - a recall failure degrades silently and still returns a language
+# Subtest: recall hits become exactly one transcript addition
+ok 731 - recall hits become exactly one transcript addition
+# Subtest: no recall seam means no transcript addition
+ok 732 - no recall seam means no transcript addition
+# Subtest: rejects file:///etc/passwd
+ok 733 - rejects file:///etc/passwd
+# Subtest: rejects javascript:alert(1)
+ok 734 - rejects javascript:alert(1)
+# Subtest: rejects http://127.0.0.1/
+ok 735 - rejects http://127.0.0.1/
+# Subtest: rejects http://169.254.169.254/latest/meta-data
+ok 736 - rejects http://169.254.169.254/latest/meta-data
+# Subtest: rejects http://10.0.0.1/
+ok 737 - rejects http://10.0.0.1/
+# Subtest: rejects http://[::1]/
+ok 738 - rejects http://[::1]/
+# Subtest: rejects http://localhost/
+ok 739 - rejects http://localhost/
+# Subtest: rejects http://metadata/
+ok 740 - rejects http://metadata/
+# Subtest: rejects http://user:[EMAIL]/
+ok 741 - rejects http://user:[EMAIL]/
+# Subtest: rejects http://127.0.0.1.nip.io/
+ok 742 - rejects http://127.0.0.1.nip.io/
+# Subtest: rejects http://foo.internal/
+ok 743 - rejects http://foo.internal/
+# Subtest: rejects http://localhost./
+ok 744 - rejects http://localhost./
+# Subtest: accepts https://example.com/path?q=1
+ok 745 - accepts https://example.com/path?q=1
+# Subtest: accepts http://news.ycombinator.com/
+ok 746 - accepts http://news.ycombinator.com/
+# Subtest: the read_web_url schema rejects a URL over 2048 characters
+ok 747 - the read_web_url schema rejects a URL over 2048 characters
+# Subtest: the read_web_url schema accepts a URL at exactly 2048 characters
+ok 748 - the read_web_url schema accepts a URL at exactly 2048 characters
+# Subtest: readWebUrl posts freshness onto the reader headers, hits the reader path, and truncates its INTERMEDIATE payload via tokenBudget
+ok 749 - readWebUrl posts freshness onto the reader headers, hits the reader path, and truncates its INTERMEDIATE payload via tokenBudget
+# Subtest: readWebUrl returns a no-usable-text error when the proxy payload is empty
+ok 750 - readWebUrl returns a no-usable-text error when the proxy payload is empty
+# Subtest: readWebUrl forwards selector as X-Target-Selector and adds the plain-text twin
+ok 751 - readWebUrl forwards selector as X-Target-Selector and adds the plain-text twin
+# Subtest: readWebUrl names the selector when Jina reports it matched nothing
+ok 752 - readWebUrl names the selector when Jina reports it matched nothing
+# Subtest: readWebUrl stops reading at the 2 MiB reader cap rather than hanging
+ok 753 - readWebUrl stops reading at the 2 MiB reader cap rather than hanging
+# Subtest: searchWeb forwards site and freshness to the raced provider and applies maxResults client-side
+ok 754 - searchWeb forwards site and freshness to the raced provider and applies maxResults client-side
+# Subtest: searchWeb times out and aborts its signal when both the SERP and Jina legs hang
+ok 755 - searchWeb times out and aborts its signal when both the SERP and Jina legs hang
+# Subtest: readWebHtml asks the reader for HTML and returns it, null when the reader has none
+ok 756 - readWebHtml asks the reader for HTML and returns it, null when the reader has none
+# Subtest: advertises exactly the three web tools
+ok 757 - advertises exactly the three web tools
+# Subtest: an over-budget probe_extract_sources names the unavailable slot as the way out instead of the generic budget text
+ok 758 - an over-budget probe_extract_sources names the unavailable slot as the way out instead of the generic budget text
+# Subtest: a tool over budget returns the budget error and does not call through
+ok 759 - a tool over budget returns the budget error and does not call through
+# Subtest: read_web_url hands the model content and text as the token budget left them, and bounds every other string
+ok 760 - read_web_url hands the model content and text as the token budget left them, and bounds every other string
+# Subtest: read_web_url's tokenBudget stops at 8000 tokens
+ok 761 - read_web_url's tokenBudget stops at 8000 tokens
+# Subtest: read_web_url with a loopback URL is rejected by schema validation and never calls the executor
+ok 762 - read_web_url with a loopback URL is rejected by schema validation and never calls the executor
+# Subtest: read_web_url accepts a plain CSS selector and rejects a header-shaped one
+ok 763 - read_web_url accepts a plain CSS selector and rejects a header-shaped one
+# Subtest: no endpoint for the pinned channel: no connect, no lookup
+ok 764 - no endpoint for the pinned channel: no connect, no lookup
+# Subtest: no phi-cdp service: resolves undefined exactly like no endpoint, and the service is read per lookup
+ok 765 - no phi-cdp service: resolves undefined exactly like no endpoint, and the service is read per lookup
+# Subtest: asks the service for the window's Space over the service's connection
+ok 766 - asks the service for the window's Space over the service's connection
+# Subtest: a connection that never settles resolves undefined after the budget
+ok 767 - a connection that never settles resolves undefined after the budget
+# Subtest: a closed service: the lookup fails browser_disconnected without reconnecting, and the enrichment keeps the window id
+ok 768 - a closed service: the lookup fails browser_disconnected without reconnecting, and the enrichment keeps the window id
+# Subtest: a tab title and a space name are parameters, never baked into the key
+ok 769 - a tab title and a space name are parameters, never baked into the key
+  ...
+# Subtest: the Sidecar's English catalog is this catalog, key for key
+not ok 770 - the Sidecar's English catalog is this catalog, key for key
+  ---
+  duration_ms: 3.334
+  type: 'test'
+  location: '<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:1:555'
+  failureType: 'testCodeFailure'
+  error: |-
+    tabInSpace
+    + actual - expected
+
+    + '{{title}} ({{space}})'
+    - '{{title}} — {{space}}'
+                 ^
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '{{title}} — {{space}}'
+  actual: '{{title}} ({{space}})'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:40:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# [skill-target] nobody to ask, or no browser view { runId: 'run-1', askUser: false, phiCdp: true }
+# [skill-target] no open tab fits {
+#   runId: 'run-1',
+#   skillId: 'built_in:fact-check-current-page',
+#   sites: []
+# }
+# [skill-target] could not wake the picked tab Error: no extension
+# Subtest: outside the standalone Phi Chat window nothing is asked
+ok 771 - outside the standalone Phi Chat window nothing is asked
+# Subtest: with nobody to ask there is no card, and the refusal says so
+ok 772 - with nobody to ask there is no card, and the refusal says so
+# Subtest: the card offers the drivable tabs of every eligible Space, active Space and active tab first
+ok 773 - the card offers the drivable tabs of every eligible Space, active Space and active tab first
+# Subtest: a conversation that belongs to a profile is offered only that profile's tabs
+ok 774 - a conversation that belongs to a profile is offered only that profile's tabs
+# Subtest: a run whose Space is settled is offered only that Space's tabs
+ok 775 - a run whose Space is settled is offered only that Space's tabs
+# Subtest: a skill limited to some sites is offered only tabs on them
+ok 776 - a skill limited to some sites is offered only tabs on them
+# Subtest: a single fitting tab is still asked about, never run on unasked
+ok 777 - a single fitting tab is still asked about, never run on unasked
+# Subtest: no fitting tab is a refusal without a card
+ok 778 - no fitting tab is a refusal without a card
+# Subtest: Run with an offered tab settles it, and wakes it first
+ok 779 - Run with an offered tab settles it, and wakes it first
+# Subtest: a wake that fails does not stop the run
+ok 780 - a wake that fails does not stop the run
+# Subtest: every way of not picking is a refusal
+ok 781 - every way of not picking is a refusal
+# Subtest: the card names the skill the user asked for, not the internal one whose script runs
+ok 782 - the card names the skill the user asked for, not the internal one whose script runs
+# Subtest: the requested skill's sites apply when the script's own skill has none
+ok 783 - the requested skill's sites apply when the script's own skill has none
+# Subtest: an ordinary sidebar never reaches the card
+ok 784 - an ordinary sidebar never reaches the card
+# Subtest: a Space with no open window is offered like any other
+ok 785 - a Space with no open window is offered like any other
+# Subtest: an open Space hands over NO window: windowIds has no meaning
+ok 786 - an open Space hands over NO window: windowIds has no meaning
+# Subtest: an attached page DOES hand over its own window
+ok 787 - an attached page DOES hand over its own window
+# Subtest: the choice is remembered without a window, and reused
+ok 788 - the choice is remembered without a window, and reused
+# Subtest: closing the Space's window does NOT make the choice stale
+ok 789 - closing the Space's window does NOT make the choice stale
+# Subtest: a DELETED Space is stale: the card comes back and says why
+ok 790 - a DELETED Space is stale: the card comes back and says why
+# Subtest: "just this once" is not remembered, so the next one asks again
+ok 791 - "just this once" is not remembered, so the next one asks again
+# Subtest: cancelled and timeout refuse the delegation
+ok 792 - cancelled and timeout refuse the delegation
+# Subtest: unavailable proceeds unchanged: nobody was there to ask
+ok 793 - unavailable proceeds unchanged: nobody was there to ask
+# Subtest: an answer that does not fit the form is refused, not read as silence
+ok 794 - an answer that does not fit the form is refused, not read as silence
+# Subtest: an answer naming no offered space is refused, not guessed at
+ok 795 - an answer naming no offered space is refused, not guessed at
+# Subtest: no row mounted, or a browser that will not answer, proceeds unchanged
+ok 796 - no row mounted, or a browser that will not answer, proceeds unchanged
+# Subtest: a chat owned by a profile is only offered that profile's spaces
+ok 797 - a chat owned by a profile is only offered that profile's spaces
+# Subtest: across profiles the option names the profile, by its DISPLAY name
+ok 798 - across profiles the option names the profile, by its DISPLAY name
+# Subtest: a profile whose name IS the Space's name is not repeated
+ok 799 - a profile whose name IS the Space's name is not repeated
+# Subtest: within one profile the profile is not named at all
+ok 800 - within one profile the profile is not named at all
+# Subtest: profile names are only fetched when they would be shown
+ok 801 - profile names are only fetched when they would be shown
+# Subtest: a browser that will not name its profiles still shows the card
+ok 802 - a browser that will not name its profiles still shows the card
+# Subtest: no Space at all refuses without putting up a card
+ok 803 - no Space at all refuses without putting up a card
+# Subtest: the card is a low-risk choice, attributed to this gate
+ok 804 - the card is a low-risk choice, attributed to this gate
+# Subtest: a write that fails costs a question later, not the delegation
+ok 805 - a write that fails costs a question later, not the delegation
+# Subtest: a page attached to this turn settles the Space without a card
+ok 806 - a page attached to this turn settles the Space without a card
+# Subtest: an attachment settles THIS turn only: nothing is remembered
+ok 807 - an attachment settles THIS turn only: nothing is remembered
+# Subtest: an attachment wins over a remembered Space, without replacing it
+ok 808 - an attachment wins over a remembered Space, without replacing it
+# Subtest: an attached Space the workspace does not know falls back to asking
+ok 809 - an attached Space the workspace does not know falls back to asking
+# Subtest: an attached page in another profile does not override ownership
+ok 810 - an attached page in another profile does not override ownership
+# Subtest: the attached page's own TAB is recovered, so the turn acts on it
+ok 811 - the attached page's own TAB is recovered, so the turn acts on it
+# Subtest: a page that has since navigated away yields no tab, not the wrong one
+ok 812 - a page that has since navigated away yields no tab, not the wrong one
+# Subtest: a same-url tab in ANOTHER Space is not mistaken for the attachment
+ok 813 - a same-url tab in ANOTHER Space is not mistaken for the attachment
+# Subtest: the window holding the Space's active tab is the one named
+ok 814 - the window holding the Space's active tab is the one named
+# Subtest: with no active tab the busiest window wins, and ties do not wander
+ok 815 - with no active tab the busiest window wins, and ties do not wander
+# Subtest: a window that surfaces no tabs is never named
+ok 816 - a window that surfaces no tabs is never named
+# Subtest: an attached page's window beats the Space's busiest
+ok 817 - an attached page's window beats the Space's busiest
+# Subtest: a remembered Space is given a window too, not left bare
+ok 818 - a remembered Space is given a window too, not left bare
+# Subtest: a browser that will not list its Spaces still runs a remembered conversation in its Space
+ok 819 - a browser that will not list its Spaces still runs a remembered conversation in its Space
+# Subtest: with an attached page, a failed listing proceeds: the page's own window already travels with the run
+ok 820 - with an attached page, a failed listing proceeds: the page's own window already travels with the run
+# Subtest: a follow-up runs where the pages attached a turn earlier are, without a card
+ok 821 - a follow-up runs where the pages attached a turn earlier are, without a card
+# Subtest: a remembered Space wins over an earlier attachment
+ok 822 - a remembered Space wins over an earlier attachment
+# Subtest: an attachment further back than the last three user messages does not count
+ok 823 - an attachment further back than the last three user messages does not count
+# Subtest: an earlier attachment in a Space the conversation may not use is ignored
+ok 824 - an earlier attachment in a Space the conversation may not use is ignored
+# Subtest: an earlier attachment whose Space is gone is ignored
+ok 825 - an earlier attachment whose Space is gone is ignored
+# Subtest: group and split-view members count as attachments too
+ok 826 - group and split-view members count as attachments too
+# Subtest: the attached page's own tab id is the answer, not a url lookup
+ok 827 - the attached page's own tab id is the answer, not a url lookup
+# Subtest: without an id, the attached page's window decides which same-url tab it is
+ok 828 - without an id, the attached page's window decides which same-url tab it is
+# Subtest: two same-url tabs in one window hand over no tab at all
+ok 829 - two same-url tabs in one window hand over no tab at all
+# Subtest: a tab that is gone takes no url guess with it
+ok 830 - a tab that is gone takes no url guess with it
+# Subtest: a tab id the workspace no longer holds is not passed on
+ok 831 - a tab id the workspace no longer holds is not passed on
+# Subtest: a conversation adopted by another profile is asked again, and told why
+ok 832 - a conversation adopted by another profile is asked again, and told why
+# Subtest: a remembered Space of another profile is not used when the listing fails either
+ok 833 - a remembered Space of another profile is not used when the listing fails either
+# Subtest: Cancel ends the delegation there and then
+ok 834 - Cancel ends the delegation there and then
+# Subtest: the card is a form: a Space select, a remember box ticked by default
+ok 835 - the card is a form: a Space select, a remember box ticked by default
+# Subtest: across profiles a Space's entry travels as a catalog message too
+ok 836 - across profiles a Space's entry travels as a catalog message too
+# Subtest: one Space is the answer: no card, and nothing remembered
+ok 837 - one Space is the answer: no card, and nothing remembered
+# Subtest: defer: where the card would go up, the answer is deferred and nothing is asked
+ok 838 - defer: where the card would go up, the answer is deferred and nothing is asked
+# Subtest: defer: whatever needs no question is still settled at once
+ok 839 - defer: whatever needs no question is still settled at once
+# Subtest: defer: no Space at all is deferred, and refused only once a tool needs one
+ok 840 - defer: no Space at all is deferred, and refused only once a tool needs one
+# Subtest: every message key has English text under one namespace
+ok 841 - every message key has English text under one namespace
+# Subtest: a space name is a parameter, never baked into the key
+ok 842 - a space name is a parameter, never baked into the key
+# Subtest: a placeholder with no value is left alone rather than printed empty
+ok 843 - a placeholder with no value is left alone rather than printed empty
+# Subtest: maps ok WorkerRunResult to { ok:true, summary }
+ok 844 - maps ok WorkerRunResult to { ok:true, summary }
+# Subtest: maps error WorkerRunResult to { ok:false, error:string } (object->message) and never surfaces skillUsed
+ok 845 - maps error WorkerRunResult to { ok:false, error:string } (object->message) and never surfaces skillUsed
+# Subtest: maps a question WorkerRunResult to { ok:false, question } (never a failure)
+ok 846 - maps a question WorkerRunResult to { ok:false, question } (never a failure)
+# Subtest: threads planSessionId onto the per-dispatch worker ctx
+ok 847 - threads planSessionId onto the per-dispatch worker ctx
+# Subtest: forwards worker onEvent to emitProgress under the owner runId
+ok 848 - forwards worker onEvent to emitProgress under the owner runId
+# Subtest: forwards the skill hint and grants its canonical id without replacing active skills
+ok 849 - forwards the skill hint and grants its canonical id without replacing active skills
+# Subtest: does not duplicate a router-matched skill that is already active
+ok 850 - does not duplicate a router-matched skill that is already active
+# Subtest: does not grant ACL access from a display-name hint without a canonical id
+ok 851 - does not grant ACL access from a display-name hint without a canonical id
+# Subtest: threads chat-provided task context into the worker task
+ok 852 - threads chat-provided task context into the worker task
+# Subtest: the files the user attached in this conversation ride in the worker's context
+ok 853 - the files the user attached in this conversation ride in the worker's context
+# Subtest: a file listing that fails leaves the worker's context as it was
+ok 854 - a file listing that fails leaves the worker's context as it was
+# Subtest: hands the chat's span to the worker, which opens worker.run itself
+ok 855 - hands the chat's span to the worker, which opens worker.run itself
+# Subtest: a direct memory-agent ask is a memory_agent.direct span under the chat's span, with the task in and the result out
+ok 856 - a direct memory-agent ask is a memory_agent.direct span under the chat's span, with the task in and the result out
+# Subtest: a direct memory-agent ask hands its span to the port, so the agent's own calls hang under it
+ok 857 - a direct memory-agent ask hands its span to the port, so the agent's own calls hang under it
+# Subtest: emits a run_started{objective} as the FIRST progress event at dispatch
+ok 858 - emits a run_started{objective} as the FIRST progress event at dispatch
+# Subtest: emits a run_result{ok:true,summary} terminal LAST on success
+ok 859 - emits a run_result{ok:true,summary} terminal LAST on success
+# Subtest: emits a run_result{ok:false,errorCode} terminal on a worker error
+ok 860 - emits a run_result{ok:false,errorCode} terminal on a worker error
+# Subtest: emits no lifecycle progress when no owner run is known (scoped)
+ok 861 - emits no lifecycle progress when no owner run is known (scoped)
+# Subtest: worker artifacts are mapped onto the TaskExecutionResult and emitted once
+ok 862 - worker artifacts are mapped onto the TaskExecutionResult and emitted once
+# Subtest: a run with no artifacts emits nothing and leaves the result field absent
+ok 863 - a run with no artifacts emits nothing and leaves the result field absent
+# Subtest: artifacts from a FAILED run are still emitted and reported
+ok 864 - artifacts from a FAILED run are still emitted and reported
+# Subtest: a failed run hands back the last successful tool result, flagged incomplete
+ok 865 - a failed run hands back the last successful tool result, flagged incomplete
+# Subtest: image delivery diagnostics do not claim that requested work was gathered
+ok 866 - image delivery diagnostics do not claim that requested work was gathered
+# Subtest: image delivery diagnostics accompany saved partial files
+ok 867 - image delivery diagnostics accompany saved partial files
+# Subtest: the worker's OWN last-round text wins over a raw tool result
+ok 868 - the worker's OWN last-round text wins over a raw tool result
+# Subtest: a failed run with nothing gathered reports a plain failure
+ok 869 - a failed run with nothing gathered reports a plain failure
+# Subtest: a USER cancel salvages nothing — a cancel is a decision, not a loss
+ok 870 - a USER cancel salvages nothing — a cancel is a decision, not a loss
+# Subtest: a TIMEOUT salvages too — the other way a finished piece of work is lost
+ok 871 - a TIMEOUT salvages too — the other way a finished piece of work is lost
+# Subtest: only a matched or hand-picked memory-agent skill makes a run memory-writable; availability never does
+ok 872 - only a matched or hand-picked memory-agent skill makes a run memory-writable; availability never does
+# Subtest: only a matched or hand-picked skill-library skill carries a library instruction
+ok 873 - only a matched or hand-picked skill-library skill carries a library instruction
+# Subtest: a run carrying the skill-library skill gets the library-changing tools; any other run does not
+ok 874 - a run carrying the skill-library skill gets the library-changing tools; any other run does not
+# Subtest: a memory-skill dispatch asks the memory agent, writable, never runs the worker, and hands its output back to chat
+ok 875 - a memory-skill dispatch asks the memory agent, writable, never runs the worker, and hands its output back to chat
+# Subtest: every memory-skill dispatch goes to the memory agent: beside another picked skill, and on a plan step
+ok 876 - every memory-skill dispatch goes to the memory agent: beside another picked skill, and on a plan step
+# Subtest: chat's follow-up dispatch carries no memory skill and reaches the worker, even with the memory skill picked for the run
+ok 877 - chat's follow-up dispatch carries no memory skill and reaches the worker, even with the memory skill picked for the run
+# Subtest: a memory answer with no recorded change says so, and a failed ask is a failed run with no memory answer
+ok 878 - a memory answer with no recorded change says so, and a failed ask is a failed run with no memory answer
+# Subtest: a memory-skill dispatch carries the chat's conversation window, so the fact 'I just gave you' is in the ask
+ok 879 - a memory-skill dispatch carries the chat's conversation window, so the fact 'I just gave you' is in the ask
+# Subtest: a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+ok 880 - a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+# Subtest: a memory ask that outlives the run timeout is a timeout
+ok 881 - a memory ask that outlives the run timeout is a timeout
+# Subtest: isMemoryAgentDispatch and memoryAgentSummary
+ok 882 - isMemoryAgentDispatch and memoryAgentSummary
+# Subtest: the execution target is settled before the run deadline is armed
+ok 883 - the execution target is settled before the run deadline is armed
+# Subtest: a refused target fails the delegation with the gate's words
+ok 884 - a refused target fails the delegation with the gate's words
+# Subtest: a chosen target lands on the run context
+ok 885 - a chosen target lands on the run context
+# Subtest: a Space with no window takes the client's window OFF the context
+ok 886 - a Space with no window takes the client's window OFF the context
+# Subtest: no gate wired leaves the run context untouched
+ok 887 - no gate wired leaves the run context untouched
+# Subtest: the attached page's own tab id goes to the gate, and only the gate's answer drives
+ok 888 - the attached page's own tab id goes to the gate, and only the gate's answer drives
+# Subtest: a deferred question is not asked before the run starts
+ok 889 - a deferred question is not asked before the run starts
+# Subtest: a tool that needs the Space asks once, and the answer lands on the run
+ok 890 - a tool that needs the Space asks once, and the answer lands on the run
+# Subtest: the deferred answer lands on the context the run is BOUND to, which is a copy
+ok 891 - the deferred answer lands on the context the run is BOUND to, which is a copy
+# Subtest: declining the deferred question is the asking tool's refusal
+ok 892 - declining the deferred question is the asking tool's refusal
+# Subtest: the deferred question's thinking time does not count against the run
+ok 893 - the deferred question's thinking time does not count against the run
+# Subtest: while deferred the forwarded window is off the run, and back if nobody can be asked
+ok 894 - while deferred the forwarded window is off the run, and back if nobody can be asked
+# Subtest: time the user spends answering does not count against the run
+ok 895 - time the user spends answering does not count against the run
+# Subtest: time the computer sleeps does not count against the run
+ok 896 - time the computer sleeps does not count against the run
+# Subtest: without a pause the run still times out on its budget
+ok 897 - without a pause the run still times out on its budget
+# Subtest: the tab question is on the run only when the host can ask it
+ok 898 - the tab question is on the run only when the host can ask it
+# Subtest: the tab is asked once, and lands on the context the run is bound to
+ok 899 - the tab is asked once, and lands on the context the run is bound to
+# Subtest: a run whose Space is already settled asks only about that Space's tabs
+ok 900 - a run whose Space is already settled asks only about that Space's tabs
+# Subtest: no tab from the question is the asking tool's refusal
+ok 901 - no tab from the question is the asking tool's refusal
+# Subtest: the tab question's thinking time does not count against the run
+ok 902 - the tab question's thinking time does not count against the run
+# Subtest: the tab question names the skill the user picked, not the internal one whose script runs
+ok 903 - the tab question names the skill the user picked, not the internal one whose script runs
+# Subtest: the run's language rides the dispatch onto the run's context
+ok 904 - the run's language rides the dispatch onto the run's context
+# Subtest: an interjection reaches the worker after its language is applied
+ok 905 - an interjection reaches the worker after its language is applied
+# Subtest: interjections keep their order, whichever read lands first
+ok 906 - interjections keep their order, whichever read lands first
+# Subtest: at the turn's end a held interjection is handed over unread
+ok 907 - at the turn's end a held interjection is handed over unread
+# Subtest: a hung observation delays an interjection by the bound only
+ok 908 - a hung observation delays an interjection by the bound only
+# Subtest: without a language an interjection is delivered at once
+ok 909 - without a language an interjection is delivered at once
+# Subtest: ready() waits for an interjection still being read, and only while one is
+ok 910 - ready() waits for an interjection still being read, and only while one is
+# Subtest: ready() is bounded by the read's wait
+ok 911 - ready() is bounded by the read's wait
+# Subtest: saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+ok 912 - saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+# Subtest: an unwired artifact host reports delivery failure instead of full success
+ok 913 - an unwired artifact host reports delivery failure instead of full success
+# Subtest: a memory-agent run becomes a run span, a round per model turn, and a tool span
+ok 914 - a memory-agent run becomes a run span, a round per model turn, and a tool span
+# Subtest: a tool still running when the run ends is closed with it
+ok 915 - a tool still running when the run ends is closed with it
+# Subtest: a round the worker reported as an llm_call is traced as that call, not a derived span
+ok 916 - a round the worker reported as an llm_call is traced as that call, not a derived span
+# Subtest: consecutive text deltas for one message leave as ONE merged frame
+ok 917 - consecutive text deltas for one message leave as ONE merged frame
+# Subtest: an interleaved non-text event flushes the buffer first, preserving order
+ok 918 - an interleaved non-text event flushes the buffer first, preserving order
+# Subtest: deltas for different messageIds never merge
+ok 919 - deltas for different messageIds never merge
+# Subtest: the buffer flushes on size once the merged delta passes the cap
+ok 920 - the buffer flushes on size once the merged delta passes the cap
+# Subtest: the flush timer alone releases the buffered text
+ok 921 - the flush timer alone releases the buffered text
+# Subtest: textDeltaCoalesceMs 0 disables coalescing (one frame per delta)
+ok 922 - textDeltaCoalesceMs 0 disables coalescing (one frame per delta)
+# Subtest: nothing is written after the connection closes
+ok 923 - nothing is written after the connection closes
+# Subtest: coalescing does not change what the persist sink records
+ok 924 - coalescing does not change what the persist sink records
+# Subtest: interject (chat-only, no worker mid-flight): routes to actor.interject and emits a bubble-boundary signal for the continuation; a stale runId does NOT interject
+ok 925 - interject (chat-only, no worker mid-flight): routes to actor.interject and emits a bubble-boundary signal for the continuation; a stale runId does NOT interject
+# Subtest: interject (worker mid-flight): lands in the running worker's interjection inbox, NOT the chat loop; after the worker returns the inbox is deactivated so a later interject routes to the chat
+ok 926 - interject (worker mid-flight): lands in the running worker's interjection inbox, NOT the chat loop; after the worker returns the inbox is deactivated so a later interject routes to the chat
+# Subtest: interject is graceful when there is no live run: an unknown thread and an ended run never throw and never interject
+ok 927 - interject is graceful when there is no live run: an unknown thread and an ended run never throw and never interject
+# Subtest: 1c synthesize-when-idle: a brand-new late session pushed while idle is delivered as a NEW run — full RUN_STARTED → TEXT_MESSAGE_CHUNK → RUN_FINISHED bracket
+ok 928 - 1c synthesize-when-idle: a brand-new late session pushed while idle is delivered as a NEW run — full RUN_STARTED → TEXT_MESSAGE_CHUNK → RUN_FINISHED bracket
+# Subtest: 1c defer-during-the-drain-gap: a brand-new late session whose frames arrive in the finalize drain-gap (current undefined, draining) is BUFFERED and promoted to its own synthetic run only after the gap drains
+ok 929 - 1c defer-during-the-drain-gap: a brand-new late session whose frames arrive in the finalize drain-gap (current undefined, draining) is BUFFERED and promoted to its own synthetic run only after the gap drains
+# Subtest: 1c user-turn priority: a queued user turn drains BEFORE a buffered late session — the late synthetic run never starts while the user run is in-flight
+ok 930 - 1c user-turn priority: a queued user turn drains BEFORE a buffered late session — the late synthetic run never starts while the user run is in-flight
+# Subtest: 1c multi-late FIFO: two late sessions buffered in the drain-gap promote as two sequential bracketed synthetic runs in FIFO order
+ok 931 - 1c multi-late FIFO: two late sessions buffered in the drain-gap promote as two sequential bracketed synthetic runs in FIFO order
+# Subtest: 1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+ok 932 - 1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+# Subtest: 1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+ok 933 - 1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+# Subtest: 1c dead-conn drop: a brand-new late session with a STALE delivery conn is dropped — no synthesized RUN_STARTED, no throw
+ok 934 - 1c dead-conn drop: a brand-new late session with a STALE delivery conn is dropped — no synthesized RUN_STARTED, no throw
+# Subtest: 1c straggler still dropped: a late frame whose session is in recentlyClosedSessions is STILL dropped — NOT delivered as a synthetic run (1b regression guard)
+ok 935 - 1c straggler still dropped: a late frame whose session is in recentlyClosedSessions is STILL dropped — NOT delivered as a synthetic run (1b regression guard)
+# Subtest: a late session that completes after the thread went idle still promotes, and the thread keeps taking turns
+ok 936 - a late session that completes after the thread went idle still promotes, and the thread keeps taking turns
+# Subtest: a card published on a synthetic run reaches the user: the delegate re-entry executes the worker there, and a change it makes asks first
+ok 937 - a card published on a synthetic run reaches the user: the delegate re-entry executes the worker there, and a change it makes asks first
+# Subtest: a card that cannot reach the user fails at once instead of waiting out its timeout
+ok 938 - a card that cannot reach the user fails at once instead of waiting out its timeout
+# Subtest: a late session buffered in the drain gap persists after its socket closes
+ok 939 - a late session buffered in the drain gap persists after its socket closes
+# Subtest: the worker's own round prose opens the progress log — and leaves the indicator alone
+ok 940 - the worker's own round prose opens the progress log — and leaves the indicator alone
+# Subtest: later lines append into the SAME part, separated, with no second start
+ok 941 - later lines append into the SAME part, separated, with no second start
+# Subtest: a per-step note goes to the log ONLY — the indicator is not a second copy of it
+ok 942 - a per-step note goes to the log ONLY — the indicator is not a second copy of it
+# Subtest: phi.narrate() goes to the indicator ONLY — unchanged from before the log existed
+ok 943 - phi.narrate() goes to the indicator ONLY — unchanged from before the log existed
+# Subtest: a run notice goes to the log, keeping the indicator on the run's own status
+ok 944 - a run notice goes to the log, keeping the indicator on the run's own status
+# Subtest: the run terminal closes the log so the part settles instead of animating forever
+ok 945 - the run terminal closes the log so the part settles instead of animating forever
+# Subtest: a run that never narrated emits no reasoning frames at all
+ok 946 - a run that never narrated emits no reasoning frames at all
+# Subtest: narration for a run that is no longer current is dropped
+ok 947 - narration for a run that is no longer current is dropped
+# Subtest: the progress log survives the Chat-traces gate being OFF — it is functional, not diagnostic
+ok 948 - the progress log survives the Chat-traces gate being OFF — it is functional, not diagnostic
+# Subtest: non-narrating worker progress produces no log line
+ok 949 - non-narrating worker progress produces no log line
+# Subtest: a silent worker run refreshes the status line rather than freezing
+ok 950 - a silent worker run refreshes the status line rather than freezing
+# Subtest: the heartbeat stops the moment the worker returns
+ok 951 - the heartbeat stops the moment the worker returns
+# Subtest: the run terminal kills the heartbeat
+ok 952 - the run terminal kills the heartbeat
+# Subtest: a synthetic run receives narration too — its fresh runId is registered
+ok 953 - a synthetic run receives narration too — its fresh runId is registered
+# Subtest: the worker's FIRST-round prose is not logged — the ack bubble already said it
+ok 954 - the worker's FIRST-round prose is not logged — the ack bubble already said it
+# Subtest: user message is persisted on receipt (chatId === threadId, role user)
+ok 955 - user message is persisted on receipt (chatId === threadId, role user)
+# Subtest: assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+ok 956 - assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+# Subtest: after RUN_FINISHED the stored assistant message has the COMPLETE text; ids are uuidv7 and monotonic (user < assistant)
+ok 957 - after RUN_FINISHED the stored assistant message has the COMPLETE text; ids are uuidv7 and monotonic (user < assistant)
+# Subtest: mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+ok 958 - mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+# Subtest: a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+ok 959 - a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+# Subtest: a plain cancel neither deletes the turn nor replaces the actor
+ok 960 - a plain cancel neither deletes the turn nor replaces the actor
+# Subtest: a persist failure does NOT crash the run — frames still flow and the run finishes
+ok 961 - a persist failure does NOT crash the run — frames still flow and the run finishes
+# Subtest: write ORDER: the user row survives even when the assistant write fires first and the user save is slow (no tail-guard row loss)
+ok 962 - write ORDER: the user row survives even when the assistant write fires first and the user save is slow (no tail-guard row loss)
+# Subtest: DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+ok 963 - DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+# Subtest: dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+ok 964 - dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+# Subtest: chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+ok 965 - chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+# Subtest: chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+ok 966 - chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+# Subtest: chat-interject: two interjections in one run chain to a 6-message split timeline
+ok 967 - chat-interject: two interjections in one run chain to a 6-message split timeline
+# Subtest: worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+ok 968 - worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+# Subtest: chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+ok 969 - chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+# Subtest: chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+ok 970 - chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+# Subtest: chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+ok 971 - chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+# Subtest: worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+ok 972 - worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+# Subtest: P2: a debounced write in flight across a boundary lands under the PRE id (id snapshot at call time)
+ok 973 - P2: a debounced write in flight across a boundary lands under the PRE id (id snapshot at call time)
+# Subtest: uplink parts + metadata are persisted verbatim on the user row
+ok 974 - uplink parts + metadata are persisted verbatim on the user row
+# Subtest: emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+ok 975 - emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+# Subtest: emitWorkerArtifacts drops frames that do not belong to the live run
+ok 976 - emitWorkerArtifacts drops frames that do not belong to the live run
+# Subtest: emitWorkerArtifacts emits nothing for an empty artifact list
+ok 977 - emitWorkerArtifacts emits nothing for an empty artifact list
+# Subtest: image artifacts use one stable quad per file across dispatches and persist online
+ok 978 - image artifacts use one stable quad per file across dispatches and persist online
+# Subtest: image artifacts use one stable quad per file across dispatches and persist offline
+ok 979 - image artifacts use one stable quad per file across dispatches and persist offline
+# Subtest: artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+ok 980 - artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+# Subtest: replay run drives the actor with the edited text (not empty) and seeds pre-edit history
+ok 981 - replay run drives the actor with the edited text (not empty) and seeds pre-edit history
+# Subtest: replay run forwards the resolver's rebuilt attachments to actor.send (image/PDF survive an edit)
+ok 982 - replay run forwards the resolver's rebuilt attachments to actor.send (image/PDF survive an edit)
+# Subtest: replay run without attachments still sends undefined (no empty-array envelope)
+ok 983 - replay run without attachments still sends undefined (no empty-array envelope)
+# Subtest: replay rebuilds an existing thread's actor with the truncated seed
+ok 984 - replay rebuilds an existing thread's actor with the truncated seed
+# Subtest: replay with no loader wired is refused with a terminal RUN_ERROR
+ok 985 - replay with no loader wired is refused with a terminal RUN_ERROR
+# Subtest: append run persists the user row under the client-provided id (so a later edit can delete it)
+ok 986 - append run persists the user row under the client-provided id (so a later edit can delete it)
+# Subtest: append run with no client id falls back to a minted id (unchanged default)
+ok 987 - append run with no client id falls back to a minted id (unchanged default)
+# Subtest: replay whose message is not found is refused with a terminal RUN_ERROR
+ok 988 - replay whose message is not found is refused with a terminal RUN_ERROR
+# Subtest: a report on an idle conversation is saved as its own reply, tagged as a task report
+ok 989 - a report on an idle conversation is saved as its own reply, tagged as a task report
+# Subtest: a Sidecar still on the conversation sees the report stream in
+ok 990 - a Sidecar still on the conversation sees the report stream in
+# Subtest: a report for the stored owner id reaches the conversation its Sidecar signed in to
+ok 991 - a report for the stored owner id reaches the conversation its Sidecar signed in to
+# Subtest: a report no Sidecar watches runs on the Sentinel runner's bearer
+ok 992 - a report no Sidecar watches runs on the Sentinel runner's bearer
+# Subtest: a report streamed to a Sidecar runs on that socket's bearer
+ok 993 - a report streamed to a Sidecar runs on that socket's bearer
+# Subtest: a report waits behind the conversation's running turn
+ok 994 - a report waits behind the conversation's running turn
+# Subtest: a message the user sends during a report runs after it
+ok 995 - a message the user sends during a report runs after it
+# Subtest: a report run never takes a session the engine opens for earlier work
+ok 996 - a report run never takes a session the engine opens for earlier work
+# Subtest: an interjection during a report continues the same report run
+ok 997 - an interjection during a report continues the same report run
+# Subtest: a conversation queues at most eight reports
+ok 998 - a conversation queues at most eight reports
+# Subtest: delivering the same run twice runs one report
+ok 999 - delivering the same run twice runs one report
+  ...
+# Subtest: a report the engine never finishes ends at the deadline, and its late close ends nothing
+not ok 1000 - a report the engine never finishes ends at the deadline, and its late close ends nothing
+  ---
+  duration_ms: 18.92775
+  type: 'test'
+  location: '<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:10828'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (<WORKDIR>/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: stopping a report that said nothing fails it, and the next queued report still runs
+not ok 1001 - stopping a report that said nothing fails it, and the next queued report still runs
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:11693'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (<WORKDIR>/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a conversation whose engine cannot take a report refuses it
+not ok 1002 - a conversation whose engine cannot take a report refuses it
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12561'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (<WORKDIR>/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a report's live status is written knowing the conversation's latest user message
+not ok 1003 - a report's live status is written knowing the conversation's latest user message
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12978'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (<WORKDIR>/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: with neither a reply language nor any user message, no status is guessed
+not ok 1004 - with neither a reply language nor any user message, no status is guessed
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:13759'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (<WORKDIR>/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a mode a variant serves reaches makeAssistant on the pool miss, and a pool hit never re-reads it
+ok 1005 - a mode a variant serves reaches makeAssistant on the pool miss, and a pool hit never re-reads it
+  ---
+  duration_ms: 36.166083
+  type: 'test'
+  ...
+# Subtest: a mode no variant serves is refused with <mode>_unavailable, before any actor is built
+ok 1006 - a mode no variant serves is refused with <mode>_unavailable, before any actor is built
+  ---
+  duration_ms: 12.318125
+  type: 'test'
+  ...
+# [sidecar-chat] actor assembly failed Error: the variant's row went away
+#     at Object.makeAssistant (<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-thread-variants.test.ts:279:15)
+#     at createEntry (<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:3796:30)
+#     at async handleUserMessage (<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:4763:15)
+#     at async dispatchAuthorized (<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:5104:7)
+#     at async dispatch (<WORKDIR>/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:5129:7)
+# Subtest: onboarding and the ordinary chat are not variants: no policy is asked for them
+ok 1007 - onboarding and the ordinary chat are not variants: no policy is asked for them
+  ---
+  duration_ms: 11.504792
+  type: 'test'
+# Subtest: an actor that cannot be assembled ends the run with thread_assembly_failed
+ok 1008 - an actor that cannot be assembled ends the run with thread_assembly_failed
+# Subtest: a replay on a mode no variant serves is refused the same way
+ok 1009 - a replay on a mode no variant serves is refused the same way
+# Subtest: a variant's functional frame leaves the server with the trace diagnostic off; on a chat thread it does not
+ok 1010 - a variant's functional frame leaves the server with the trace diagnostic off; on a chat thread it does not
+# Subtest: a functional frame for a run that is no longer current is dropped
+ok 1011 - a functional frame for a run that is no longer current is dropped
+# Subtest: a persisted functional frame marks the row dirty and lands in metadata under its key; the socket never creates a chat
+ok 1012 - a persisted functional frame marks the row dirty and lands in metadata under its key; the socket never creates a chat
+# Subtest: the engine's tool_call_delta streams as the variant's delta frame, verbatim
+ok 1013 - the engine's tool_call_delta streams as the variant's delta frame, verbatim
+# Subtest: a run past the tool budget is stopped with one terminal RUN_ERROR, and the call that tripped it never opens
+ok 1014 - a run past the tool budget is stopped with one terminal RUN_ERROR, and the call that tripped it never opens
+# Subtest: calls to tools outside the budget never consume it, and a chat thread has no budget
+ok 1015 - calls to tools outside the budget never consume it, and a chat thread has no budget
+# Subtest: a stopped run's late session_close never finalizes the run queued behind it
+ok 1016 - a stopped run's late session_close never finalizes the run queued behind it
+# Subtest: a run that outlives its deadline is interrupted and ended with <mode>_run_timeout
+ok 1017 - a run that outlives its deadline is interrupted and ended with <mode>_run_timeout
+# Subtest: a run that finishes inside its deadline never trips it, and a thread without one is never armed
+ok 1018 - a run that finishes inside its deadline never trips it, and a thread without one is never armed
+# Subtest: closing the connection interrupts a variant's run when its policy says so; a chat run and an idle variant thread are left alone
+ok 1019 - closing the connection interrupts a variant's run when its policy says so; a chat run and an idle variant thread are left alone
+# Subtest: gate OFF: panel-only trace CUSTOMs (diagnostics + llm_call) are DROPPED; functional frames still flow
+ok 1020 - gate OFF: panel-only trace CUSTOMs (diagnostics + llm_call) are DROPPED; functional frames still flow
+# Subtest: gate ON: panel-only diagnostics AND llm_call ALL emit, alongside the functional frames
+ok 1021 - gate ON: panel-only diagnostics AND llm_call ALL emit, alongside the functional frames
+# Subtest: gate OFF: assistant_bubble_boundary (interject) is a functional frame and still emits
+ok 1022 - gate OFF: assistant_bubble_boundary (interject) is a functional frame and still emits
+# Subtest: gate as a function: read per frame, so switching it mid-run takes effect on the next frame
+ok 1023 - gate as a function: read per frame, so switching it mid-run takes effect on the next frame
+# Subtest: the trace record hears every frame that passed the gate, tagged with its user, chat and run
+ok 1024 - the trace record hears every frame that passed the gate, tagged with its user, chat and run
+# Subtest: a trace record that throws never reaches the client
+ok 1025 - a trace record that throws never reaches the client
+# Subtest: Profile scope gates WS creation/control; global access uses the owner and move revocation does not interrupt work
+ok 1026 - Profile scope gates WS creation/control; global access uses the owner and move revocation does not interrupt work
+# Subtest: an unassigned chat follows each caller's run Profile without adopting or trusting forwarded identity
+ok 1027 - an unassigned chat follows each caller's run Profile without adopting or trusting forwarded identity
+# Subtest: a row-less widget thread runs under any declared scope, but widget mode never widens access to owned rows
+ok 1028 - a row-less widget thread runs under any declared scope, but widget mode never widens access to owned rows
+# Subtest: invariant 1: two user_messages on one thread reuse the SAME actor (history accumulates via send)
+ok 1029 - invariant 1: two user_messages on one thread reuse the SAME actor (history accumulates via send)
+# Subtest: actor pool isolates the same thread id across authenticated users
+ok 1030 - actor pool isolates the same thread id across authenticated users
+# Subtest: persona: agentName is applied to the actor before each user_message send
+ok 1031 - persona: agentName is applied to the actor before each user_message send
+# Subtest: successful onboarding completion retires the actor after the terminal frame
+ok 1032 - successful onboarding completion retires the actor after the terminal frame
+# Subtest: invariant 2 (superseded): a 2nd user_message while busy is QUEUED (no run_busy RUN_ERROR) and does NOT reach the actor while r1 is in-flight
+ok 1033 - invariant 2 (superseded): a 2nd user_message while busy is QUEUED (no run_busy RUN_ERROR) and does NOT reach the actor while r1 is in-flight
+# Subtest: invariant 3: RUN_STARTED reaches conn (current bound before emit) and carries this run's runId
+ok 1034 - invariant 3: RUN_STARTED reaches conn (current bound before emit) and carries this run's runId
+# Subtest: activity status narrator receives the owning WS authorization for concurrent runs
+ok 1035 - activity status narrator receives the owning WS authorization for concurrent runs
+# Subtest: activity status narrator writes in the actor's detected reply language
+ok 1036 - activity status narrator writes in the actor's detected reply language
+# Subtest: an actor is built knowing the run that creates it: nothing is bound yet, and work it does while built belongs to that run
+ok 1037 - an actor is built knowing the run that creates it: nothing is bound yet, and work it does while built belongs to that run
+# Subtest: activity status narration hangs under the actor's live turn
+ok 1038 - activity status narration hangs under the actor's live turn
+# Subtest: invariant 4: session_close emits orphan TOOL_CALL_RESULT(aborted) BEFORE exactly one RUN_FINISHED, then clears current
+ok 1039 - invariant 4: session_close emits orphan TOOL_CALL_RESULT(aborted) BEFORE exactly one RUN_FINISHED, then clears current
+# Subtest: invariant 5: a frame the pump maps AFTER session_close (trailing state_change) is dropped — nothing after RUN_FINISHED
+ok 1040 - invariant 5: a frame the pump maps AFTER session_close (trailing state_change) is dropped — nothing after RUN_FINISHED
+# Subtest: cancel during actor creation settles once and never sends the cancelled input
+ok 1041 - cancel during actor creation settles once and never sends the cancelled input
+# Subtest: invariant 6: cancel calls interrupt() and nothing else; the single RUN_FINISHED comes from the pump's session_close
+ok 1042 - invariant 6: cancel calls interrupt() and nothing else; the single RUN_FINISHED comes from the pump's session_close
+# Subtest: invariant 7: emitWorkerProgress routes to conn for the current run, and DROPS progress with a stale ownerRunId
+ok 1043 - invariant 7: emitWorkerProgress routes to conn for the current run, and DROPS progress with a stale ownerRunId
+# Subtest: openToolCalls: a matched tool_result removes the callId so session_close synthesizes NO orphan RESULT
+ok 1044 - openToolCalls: a matched tool_result removes the callId so session_close synthesizes NO orphan RESULT
+# Subtest: emitToRun guard: frames for an undefined/non-current runId are dropped
+ok 1045 - emitToRun guard: frames for an undefined/non-current runId are dropped
+# Subtest: getCurrentRunInput: returns the in-flight run's verbatim text + forwarded while busy, and the last user uplink once idle
+ok 1046 - getCurrentRunInput: returns the in-flight run's verbatim text + forwarded while busy, and the last user uplink once idle
+# Subtest: getCurrentRunInput: text-only uplink (no forwarded) exposes text with forwarded undefined
+ok 1047 - getCurrentRunInput: text-only uplink (no forwarded) exposes text with forwarded undefined
+# Subtest: getCurrentRunInput: a synthetic run (delegate re-entry) falls back to the LAST user uplink's text + forwarded browser ctx
+ok 1048 - getCurrentRunInput: a synthetic run (delegate re-entry) falls back to the LAST user uplink's text + forwarded browser ctx
+# Subtest: getCurrentRunInput: a NEW real user uplink supersedes the previous turn's fallback input
+ok 1049 - getCurrentRunInput: a NEW real user uplink supersedes the previous turn's fallback input
+# Subtest: getCurrentRunInput: exposes the uplink's message metadata (the attached tabs) while busy and after the run ends
+ok 1050 - getCurrentRunInput: exposes the uplink's message metadata (the attached tabs) while busy and after the run ends
+# Subtest: connection close (disconnect): does NOT interrupt the in-flight run (it continues server-side) but keeps the actor (reconnect continues history)
+ok 1051 - connection close (disconnect): does NOT interrupt the in-flight run (it continues server-side) but keeps the actor (reconnect continues history)
+# Subtest: LRU: exceeding maxActors evicts the least-recently-used actor via stop()
+ok 1052 - LRU: exceeding maxActors evicts the least-recently-used actor via stop()
+# Subtest: streaming: assistant_delta maps to TEXT_MESSAGE_CHUNK on the current run
+ok 1053 - streaming: assistant_delta maps to TEXT_MESSAGE_CHUNK on the current run
+# Subtest: FINDING 2: open tool_call → error → session_close ⇒ exactly ONE terminal (RUN_FINISHED); error is CUSTOM(chat_error), orphan aborted RESULT precedes it, current cleared
+ok 1054 - FINDING 2: open tool_call → error → session_close ⇒ exactly ONE terminal (RUN_FINISHED); error is CUSTOM(chat_error), orphan aborted RESULT precedes it, current cleared
+# Subtest: FINDING 2: a NON-terminal error mid-run (assess-failed shape) still lets the run finish ONCE — delta after the error reaches the wire, single RUN_FINISHED
+ok 1055 - FINDING 2: a NON-terminal error mid-run (assess-failed shape) still lets the run finish ONCE — delta after the error reaches the wire, single RUN_FINISHED
+# Subtest: FINDING 3: pool at maxActors with ALL actors BUSY ⇒ new thread's user_message is refused with a DIRECT RUN_ERROR(server_busy); no existing actor is evicted/stopped
+ok 1056 - FINDING 3: pool at maxActors with ALL actors BUSY ⇒ new thread's user_message is refused with a DIRECT RUN_ERROR(server_busy); no existing actor is evicted/stopped
+# Subtest: FINDING 3: an IDLE actor IS evicted when capacity is needed, even though a BUSY actor is older (LRU among IDLE only)
+ok 1057 - FINDING 3: an IDLE actor IS evicted when capacity is needed, even though a BUSY actor is older (LRU among IDLE only)
+# Subtest: RE-REVIEW [MAJOR]: a DRAINING/PENDING entry in the finalizeRun defer-gap is NOT evicted by a new-thread admission; its queued interjection still promotes
+ok 1058 - RE-REVIEW [MAJOR]: a DRAINING/PENDING entry in the finalizeRun defer-gap is NOT evicted by a new-thread admission; its queued interjection still promotes
+# Subtest: FINDING 1 (documented residual): the synchronous trailing state_change after session_close is dropped — current is undefined, nothing leaks past RUN_FINISHED
+ok 1059 - FINDING 1 (documented residual): the synchronous trailing state_change after session_close is dropped — current is undefined, nothing leaks past RUN_FINISHED
+# Subtest: interject-queue: a 2nd user_message during a busy run is QUEUED (no run_busy, no RUN_STARTED for it yet) and runs as the next turn after RUN_FINISHED(r1)
+ok 1060 - interject-queue: a 2nd user_message during a busy run is QUEUED (no run_busy, no RUN_STARTED for it yet) and runs as the next turn after RUN_FINISHED(r1)
+# Subtest: interject-queue: the pending queue is FIFO and depth-bounded — beyond MAX_PENDING one queue_full RUN_ERROR; queued interjections drain in FIFO order after r1
+ok 1061 - interject-queue: the pending queue is FIFO and depth-bounded — beyond MAX_PENDING one queue_full RUN_ERROR; queued interjections drain in FIFO order after r1
+# Subtest: interject-queue: an interjection does NOT abort the running task — r1 still completes normally (RUN_FINISHED, no interrupt)
+ok 1062 - interject-queue: an interjection does NOT abort the running task — r1 still completes normally (RUN_FINISHED, no interrupt)
+# Subtest: REVIEW [BLOCKER]: r1's trailing state_change (after session_close) is NEVER delivered under r2's runId — deferred drain drops it before r2 is promoted
+ok 1063 - REVIEW [BLOCKER]: r1's trailing state_change (after session_close) is NEVER delivered under r2's runId — deferred drain drops it before r2 is promoted
+# Subtest: REVIEW [MAJOR]: closing a connection drops its queued interjections — finalizing the running run does NOT start the dead-conn pending item
+ok 1064 - REVIEW [MAJOR]: closing a connection drops its queued interjections — finalizing the running run does NOT start the dead-conn pending item
+# Subtest: REVIEW [MAJOR]: a queued interjection preserves its attachments through the drain to the actor
+ok 1065 - REVIEW [MAJOR]: a queued interjection preserves its attachments through the drain to the actor
+# Subtest: REVIEW [MAJOR]: cancelling a QUEUED interjection removes it from pending — it never starts when the running run finalizes
+ok 1066 - REVIEW [MAJOR]: cancelling a QUEUED interjection removes it from pending — it never starts when the running run finalizes
+# Subtest: 1b OWNER-FENCE (decisive no-leak): run-1's post-terminal late frames (its own just-closed session utt-1) pushed AFTER run-2 binds are DROPPED — never stamped onto run-2
+ok 1067 - 1b OWNER-FENCE (decisive no-leak): run-1's post-terminal late frames (its own just-closed session utt-1) pushed AFTER run-2 binds are DROPPED — never stamped onto run-2
+# Subtest: 1b OWNER-FENCE (R4 multi-session adoption): two deltas same session, then a third with a NEW session (interject continuation, no terminal between) ALL reach the wire under run-1
+ok 1068 - 1b OWNER-FENCE (R4 multi-session adoption): two deltas same session, then a third with a NEW session (interject continuation, no terminal between) ALL reach the wire under run-1
+# Subtest: 1b OWNER-FENCE (trailing state_change dropped): session_close{utt-1} then the trailing state_change{→idle, sessionId:utt-1} ⇒ exactly one RUN_FINISHED, trailing frame NOT on the wire, run-2 unpolluted
+ok 1069 - 1b OWNER-FENCE (trailing state_change dropped): session_close{utt-1} then the trailing state_change{→idle, sessionId:utt-1} ⇒ exactly one RUN_FINISHED, trailing frame NOT on the wire, run-2 unpolluted
+# Subtest: 1b OWNER-FENCE (empty-sid bypass): a pre-session state_change{sessionId:""} while run-1 is current is STILL emitted (sid=="" bypasses the sessionId drop)
+ok 1070 - 1b OWNER-FENCE (empty-sid bypass): a pre-session state_change{sessionId:""} while run-1 is current is STILL emitted (sid=="" bypasses the sessionId drop)
+# Subtest: rehydration: pool-MISS awaits loadConversationHistory and forwards it as initialConversation
+ok 1071 - rehydration: pool-MISS awaits loadConversationHistory and forwards it as initialConversation
+# Subtest: rehydration: pool-HIT does NOT call loadConversationHistory (a live actor is never re-seeded)
+ok 1072 - rehydration: pool-HIT does NOT call loadConversationHistory (a live actor is never re-seeded)
+# Subtest: rehydration: no loader wired ⇒ empty seed ⇒ no crash (no-store degrade = today)
+ok 1073 - rehydration: no loader wired ⇒ empty seed ⇒ no crash (no-store degrade = today)
+# Subtest: phi-chat-selfcheck-trace-events
+ok 1074 - phi-chat-selfcheck-trace-events
+# Subtest: phi-chat-selfcheck-prompt-overrides
+ok 1075 - phi-chat-selfcheck-prompt-overrides
+# tests 1119
+# suites 10
+# pass 1113
+# fail 1
+# cancelled 5
+# skipped 0
+# duration_ms 14084.498417

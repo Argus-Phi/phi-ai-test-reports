@@ -1,0 +1,11 @@
+baseline bf679f4706d99c19106a0ae28cf1c64c2a58d628
+not ok 766 - the Sidecar's English catalog is this catalog, key for key
+not ok 988 - a report the engine never finishes ends at the deadline, and its late close ends nothing
+not ok 989 - stopping a report that said nothing fails it, and the next queued report still runs
+not ok 990 - a conversation whose engine cannot take a report refuses it
+not ok 991 - a report's live status is written knowing the conversation's latest user message
+not ok 992 - with neither a reply language nor any user message, no status is guessed
+# tests 1107
+# pass 1101
+# fail 1
+# cancelled 5

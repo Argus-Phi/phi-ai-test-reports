@@ -1,0 +1,1498 @@
+# Subtest: declares the services it needs
+ok 1 - declares the services it needs
+# Subtest: contributes phi's prompt as the complete prompt
+ok 2 - contributes phi's prompt as the complete prompt
+# Subtest: lists exactly the tools a run's surface carries
+ok 3 - lists exactly the tools a run's surface carries
+# Subtest: tells a task run it is one, and does not offer it the fork to the user
+ok 4 - tells a task run it is one, and does not offer it the fork to the user
+# Subtest: names a run's tab only when it is a web page, with its braces made safe
+ok 5 - names a run's tab only when it is a web page, with its braces made safe
+# Subtest: binds a run's identity, scope and prompt to its agent, and undoes all of it
+ok 6 - binds a run's identity, scope and prompt to its agent, and undoes all of it
+# Subtest: takes the prompt back when it goes
+ok 7 - takes the prompt back when it goes
+# Subtest: refuses a task run's questions without asking anyone, for as long as the run is bound
+ok 8 - refuses a task run's questions without asking anyone, for as long as the run is bound
+# Subtest: leaves a chat delegation's questions to the user
+ok 9 - leaves a chat delegation's questions to the user
+# Subtest: says when a run ends, with its id and context
+ok 10 - says when a run ends, with its id and context
+# Subtest: artifact.create stores the model-authored body and reports it as a run artifact
+ok 11 - artifact.create stores the model-authored body and reports it as a run artifact
+# Subtest: artifact.create strips a directory component from the filename
+ok 12 - artifact.create strips a directory component from the filename
+# Subtest: a store rejection becomes a non-retryable file_upload_failed, not a run crash
+ok 13 - a store rejection becomes a non-retryable file_upload_failed, not a run crash
+# Subtest: a rejected mimeType tells the model which types are accepted
+ok 14 - a rejected mimeType tells the model which types are accepted
+# Subtest: delivery without an execution binding fails without artifacts
+ok 15 - delivery without an execution binding fails without artifacts
+# Subtest: candidate registration, atomic validation, and confirmation are separate
+ok 16 - candidate registration, atomic validation, and confirmation are separate
+# Subtest: a failed decodable selection prevents fallback
+ok 17 - a failed decodable selection prevents fallback
+# Subtest: natural completion without selection accepts candidates in registration order
+ok 18 - natural completion without selection accepts candidates in registration order
+# Subtest: release or abort rejects selection and fallback while preserving confirmed files
+ok 19 - release or abort rejects selection and fallback while preserving confirmed files
+# Subtest: unrelated explicit files cannot become image candidates
+ok 20 - unrelated explicit files cannot become image candidates
+# Subtest: artifacts produced across rounds land on WorkerRunResult in order
+ok 21 - artifacts produced across rounds land on WorkerRunResult in order
+# Subtest: a run that produces no artifacts omits the field
+ok 22 - a run that produces no artifacts omits the field
+# Subtest: artifacts survive an aborted run
+ok 23 - artifacts survive an aborted run
+# Subtest: a read goes to raw.send with the method, its params and the tab in front
+ok 24 - a read goes to raw.send with the method, its params and the tab in front
+# Subtest: an explicit tab and expectedUrl travel with the call, and a task run is passed on as one
+ok 25 - an explicit tab and expectedUrl travel with the call, and a task run is passed on as one
+# Subtest: a page-level method with no tab is refused before anything is sent
+ok 26 - a page-level method with no tab is refused before anything is sent
+# Subtest: a browser-level method needs no tab
+ok 27 - a browser-level method needs no tab
+# Subtest: params that are not a JSON object are refused as the model's mistake
+ok 28 - params that are not a JSON object are refused as the model's mistake
+# Subtest: the service's refusal is reported with its own code and whether retrying is worth it
+ok 29 - the service's refusal is reported with its own code and whether retrying is worth it
+# Subtest: a json result over its budget is refused rather than spent on context
+ok 30 - a json result over its budget is refused rather than spent on context
+# Subtest: a base64 field becomes a chat file, and only its metadata is reported
+ok 31 - a base64 field becomes a chat file, and only its metadata is reported
+# Subtest: a stream sink asks for the stream and stores what came back
+ok 32 - a stream sink asks for the stream and stores what came back
+# Subtest: a stream over its size limit is refused rather than stored
+ok 33 - a stream over its size limit is refused rather than stored
+# Subtest: a file sink with nothing to store says so instead of attaching an empty file
+ok 34 - a file sink with nothing to store says so instead of attaching an empty file
+# Subtest: the run's scope goes with a raw call, so it cannot reach past what the other tools may
+ok 35 - the run's scope goes with a raw call, so it cannot reach past what the other tools may
+# Subtest: a run with no scope of its own sends none, as before
+ok 36 - a run with no scope of its own sends none, as before
+# Subtest: a stream sink's byte budget reaches both the read and the upload
+ok 37 - a stream sink's byte budget reaches both the read and the upload
+# Subtest: a read of the run's own tab refuses one that navigated since the user asked
+ok 38 - a read of the run's own tab refuses one that navigated since the user asked
+# Subtest: a tab the model named itself is not held to the run's page
+ok 39 - a tab the model named itself is not held to the run's page
+# Subtest: a json result is bounded even when nobody asked for a bound
+ok 40 - a json result is bounded even when nobody asked for a bound
+# Subtest: asking for more than the ceiling does not raise it, and bytes are UTF-8
+ok 41 - asking for more than the ceiling does not raise it, and bytes are UTF-8
+# Subtest: an ordinary reply still comes back whole
+ok 42 - an ordinary reply still comes back whole
+# Subtest: a fetch that answered with a page is not attached as a video
+ok 43 - a fetch that answered with a page is not attached as a video
+# Subtest: a real MP4 still goes through
+ok 44 - a real MP4 still goes through
+# Subtest: invalid_cdp_args before-browser is classified by production evidence rather than error code
+ok 45 - invalid_cdp_args before-browser is classified by production evidence rather than error code
+# Subtest: invalid_cdp_args after-browser is classified by production evidence rather than error code
+ok 46 - invalid_cdp_args after-browser is classified by production evidence rather than error code
+# Subtest: confirmed screenshot fileBase64Field empty bytes are a delivery failure
+ok 47 - confirmed screenshot fileBase64Field empty bytes are a delivery failure
+# Subtest: confirmed screenshot fileStream empty bytes are a delivery failure
+ok 48 - confirmed screenshot fileStream empty bytes are a delivery failure
+# Subtest: confirmed screenshot stream beyond its sink limit has a delivery marker while a json observation does not
+ok 49 - confirmed screenshot stream beyond its sink limit has a delivery marker while a json observation does not
+# Subtest: a browser refusal of an explicit screenshot sink does not claim that an image was produced
+ok 50 - a browser refusal of an explicit screenshot sink does not claim that an image was produced
+# Subtest: a chat run that may ask hands sonic a port that checks, pauses and asks
+ok 51 - a chat run that may ask hands sonic a port that checks, pauses and asks
+# Subtest: every answer kind reaches sonic with the time it took
+ok 52 - every answer kind reaches sonic with the time it took
+# Subtest: a task run, a hidden-window run or a run that may not ask gets no port
+ok 53 - a task run, a hidden-window run or a run that may not ask gets no port
+# Subtest: the tool's own timeout waits out a question sonic is asking
+ok 54 - the tool's own timeout waits out a question sonic is asking
+# Subtest: a question the user let go unanswered comes back as a refusal, not a retry
+ok 55 - a question the user let go unanswered comes back as a refusal, not a retry
+# Subtest: a refusal outlives every way the browser run can end
+ok 56 - a refusal outlives every way the browser run can end
+# Subtest: a failed run carries what the user was asked and what they said
+ok 57 - a failed run carries what the user was asked and what they said
+# Subtest: a run nobody refused anything in is unchanged
+ok 58 - a run nobody refused anything in is unchanged
+# Subtest: browser_task.execute ok: calls the port with the faithful execute input (objective + mode + language + messageId + activeTab + trace + signal), returns mapped JSON content (main:4088-4317)
+ok 59 - browser_task.execute ok: calls the port with the faithful execute input (objective + mode + language + messageId + activeTab + trace + signal), returns mapped JSON content (main:4088-4317)
+# Subtest: browser_task.execute ok: objective falls back to ctx.defaultObjective when args.objective is empty, mode forwarded unconditionally (main:4089)
+ok 60 - browser_task.execute ok: objective falls back to ctx.defaultObjective when args.objective is empty, mode forwarded unconditionally (main:4089)
+# Subtest: browser_task.execute current-tab: a MODEL-supplied args.activeTabId is used when the run context has none (main:4128 `forwardedProps.activeTabId ?? args.activeTabId`) — FIX 2
+ok 61 - browser_task.execute current-tab: a MODEL-supplied args.activeTabId is used when the run context has none (main:4128 `forwardedProps.activeTabId ?? args.activeTabId`) — FIX 2
+# Subtest: browser_task.execute current-tab: a run-context activeTabId WINS over the model-supplied args.activeTabId (main:4128 LHS precedence)
+ok 62 - browser_task.execute current-tab: a run-context activeTabId WINS over the model-supplied args.activeTabId (main:4128 LHS precedence)
+# Subtest: browser_task.execute in a task run: the model's mode is DISCARDED and shadow-window is forced
+ok 63 - browser_task.execute in a task run: the model's mode is DISCARDED and shadow-window is forced
+# Subtest: browser_task.execute in a task run: ctx.profileId picks the hidden window's profile
+ok 64 - browser_task.execute in a task run: ctx.profileId picks the hidden window's profile
+# Subtest: browser_task.execute in a chat run: the model's mode still rides through untouched (no foreground regression)
+ok 65 - browser_task.execute in a chat run: the model's mode still rides through untouched (no foreground regression)
+# Subtest: browser_task.execute taskResult error (failure): responses_error: <msg>, retryable=false (main:4283-4302)
+ok 66 - browser_task.execute taskResult error (failure): responses_error: <msg>, retryable=false (main:4283-4302)
+# Subtest: browser_task.execute taskResult error (abort + generic message): responses_error, retryable=true via code EXECUTION_ERROR (main:4285-4288)
+ok 67 - browser_task.execute taskResult error (abort + generic message): responses_error, retryable=true via code EXECUTION_ERROR (main:4285-4288)
+# Subtest: browser_task.execute taskResult error (abort + non-retryable code): retryable=false via classifyBrowserError SESSION_ABORTED (main:4283-4288)
+ok 68 - browser_task.execute taskResult error (abort + non-retryable code): retryable=false via classifyBrowserError SESSION_ABORTED (main:4283-4288)
+# Subtest: browser_task.execute timeout: a port that SETTLES on signal-abort yields tool_timeout (retryable) and the loop CONTINUES — the FIX 3 settle-on-abort contract proves the wrapper does NOT hang (main:4240-4256)
+ok 69 - browser_task.execute timeout: a port that SETTLES on signal-abort yields tool_timeout (retryable) and the loop CONTINUES — the FIX 3 settle-on-abort contract proves the wrapper does NOT hang (main:4240-4256)
+# Subtest: browser_task.execute operation error: a thrown port error yields responses_error carrying the shaped message (main:4257-4270)
+ok 70 - browser_task.execute operation error: a thrown port error yields responses_error carrying the shaped message (main:4257-4270)
+# Subtest: browser_task.execute aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:4232-4239, terminal main:1788/1674)
+ok 71 - browser_task.execute aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:4232-4239, terminal main:1788/1674)
+# Subtest: browser_task.execute aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+ok 72 - browser_task.execute aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+# Subtest: browser_task.execute ok: a clean run appends NOTHING — the content is exactly the mapped result
+ok 73 - browser_task.execute ok: a clean run appends NOTHING — the content is exactly the mapped result
+# Subtest: browser_task.execute ok: a run with NOTHING missing appends nothing even when evidence was truncated — a 4k step value is not a gap
+ok 74 - browser_task.execute ok: a run with NOTHING missing appends nothing even when evidence was truncated — a 4k step value is not a gap
+# Subtest: browser_task.execute ok: unverified gaps are named in an appended note so a follow-up asks for exactly those
+ok 75 - browser_task.execute ok: unverified gaps are named in an appended note so a follow-up asks for exactly those
+# Subtest: browser_task.execute ok: evidenceTruncated says it is a runtime limit and that re-running will not help
+ok 76 - browser_task.execute ok: evidenceTruncated says it is a runtime limit and that re-running will not help
+# Subtest: browser_task.execute ok: truncated but NOTHING kept never promises a continuation the next dispatch will not receive
+ok 77 - browser_task.execute ok: truncated but NOTHING kept never promises a continuation the next dispatch will not receive
+# Subtest: browser_task.execute ok: gap labels are bounded and sanitized — model-authored text cannot forge note lines
+ok 78 - browser_task.execute ok: gap labels are bounded and sanitized — model-authored text cannot forge note lines
+# Subtest: browser_task.execute: a run carrying only the connection bearer still dispatches with credentials
+ok 79 - browser_task.execute: a run carrying only the connection bearer still dispatches with credentials
+# Subtest: browser_task.execute: resolvedAuthorization wins over the connection bearer
+ok 80 - browser_task.execute: resolvedAuthorization wins over the connection bearer
+# Subtest: a chosen target keeps current-tab when the turn attached a tab
+ok 81 - a chosen target keeps current-tab when the turn attached a tab
+# Subtest: a chosen target degrades current-tab to new-tab with no attached tab
+ok 82 - a chosen target degrades current-tab to new-tab with no attached tab
+# Subtest: an attached page whose tab is gone is reopened in the new tab, not left blank
+ok 83 - an attached page whose tab is gone is reopened in the new tab, not left blank
+# Subtest: a new tab is only seeded when the attached page's tab is gone
+ok 84 - a new tab is only seeded when the attached page's tab is gone
+# Subtest: a chosen target leaves other modes alone and adds no profileId
+ok 85 - a chosen target leaves other modes alone and adds no profileId
+# Subtest: the chosen Space reaches the port, so no window lookup is needed
+ok 86 - the chosen Space reaches the port, so no window lookup is needed
+# Subtest: a deferred Space is asked when browser_task runs, and the page opens there
+ok 87 - a deferred Space is asked when browser_task runs, and the page opens there
+# Subtest: declining the deferred Space opens no page
+ok 88 - declining the deferred Space opens no page
+# Subtest: a global chat run with NO chosen target is untouched (IM)
+ok 89 - a global chat run with NO chosen target is untouched (IM)
+# Subtest: an objective that drives the browser's bookmarks page is refused before anything runs
+ok 90 - an objective that drives the browser's bookmarks page is refused before anything runs
+# Subtest: history and downloads pages are refused the same way, naming their tools
+ok 91 - history and downloads pages are refused the same way, naming their tools
+# Subtest: a web page that merely mentions bookmarks is not refused
+ok 92 - a web page that merely mentions bookmarks is not refused
+# Subtest: browser_task.execute writes in the user's language when the chat knows it, whatever the model passed
+ok 93 - browser_task.execute writes in the user's language when the chat knows it, whatever the model passed
+# Subtest: browser_task.execute reads the run's language at each dispatch
+ok 94 - browser_task.execute reads the run's language at each dispatch
+# Subtest: chat_category.list returns the user's categories (unfiltered) as { ok, categories:[{id,name,sortOrder}] } — main:3510-3523
+ok 95 - chat_category.list returns the user's categories (unfiltered) as { ok, categories:[{id,name,sortOrder}] } — main:3510-3523
+# Subtest: chat_category.list applies the optional case-insensitive substring filter on the trimmed query — main:3491-3494
+ok 96 - chat_category.list applies the optional case-insensitive substring filter on the trimmed query — main:3491-3494
+# Subtest: chat_category.list maps a store throw to a RETRYABLE responses_error carrying the message — main:3524-3544
+ok 97 - chat_category.list maps a store throw to a RETRYABLE responses_error carrying the message — main:3524-3544
+# Subtest: chat_category.ensure returns an EXISTING category with created:false (no create) — main:3585-3618
+ok 98 - chat_category.ensure returns an EXISTING category with created:false (no create) — main:3585-3618
+# Subtest: chat_category.ensure CREATES when none exists and returns created:true — main:3590-3591/3604-3618
+ok 99 - chat_category.ensure CREATES when none exists and returns created:true — main:3590-3591/3604-3618
+# Subtest: chat_category.ensure rejects an EMPTY trimmed name as NON-retryable invalid_arguments: empty_name (no store call) — main:3569-3584
+ok 100 - chat_category.ensure rejects an EMPTY trimmed name as NON-retryable invalid_arguments: empty_name (no store call) — main:3569-3584
+# Subtest: chat_category.ensure maps a chat_category_name_conflict to NON-retryable invalid_arguments — main:3619-3643
+ok 101 - chat_category.ensure maps a chat_category_name_conflict to NON-retryable invalid_arguments — main:3619-3643
+# Subtest: chat_category.ensure maps any OTHER store error to a RETRYABLE responses_error — main:3619-3643
+ok 102 - chat_category.ensure maps any OTHER store error to a RETRYABLE responses_error — main:3619-3643
+# Subtest: chat_category.assign adds the category to the ones the chat already has, returning { ok, chatId, categoryId, categoryIds }
+ok 103 - chat_category.assign adds the category to the ones the chat already has, returning { ok, chatId, categoryId, categoryIds }
+# Subtest: chat_category.assign requires a categoryId: a null is rejected before the handler by the null-stripping resolver — resolve.ts:46
+ok 104 - chat_category.assign requires a categoryId: a null is rejected before the handler by the null-stripping resolver — resolve.ts:46
+# Subtest: chat_category.assign rejects a missing category as NON-retryable invalid_arguments: chat_category_not_found (no write) — main:3675-3696
+ok 105 - chat_category.assign rejects a missing category as NON-retryable invalid_arguments: chat_category_not_found (no write) — main:3675-3696
+# Subtest: chat_category.assign rejects a missing chat as NON-retryable invalid_arguments: chat_not_found (no write)
+ok 106 - chat_category.assign rejects a missing chat as NON-retryable invalid_arguments: chat_not_found (no write)
+# Subtest: chat_category.assign maps the store refusing the category id to NON-retryable invalid_arguments
+ok 107 - chat_category.assign maps the store refusing the category id to NON-retryable invalid_arguments
+# Subtest: chat_category.assign maps any other write failure to a RETRYABLE responses_error carrying the message — main:3718-3746
+ok 108 - chat_category.assign maps any other write failure to a RETRYABLE responses_error carrying the message — main:3718-3746
+# Subtest: chat_category.unassign removes only that category, returning { ok, chatId, categoryId, categoryIds }
+ok 109 - chat_category.unassign removes only that category, returning { ok, chatId, categoryId, categoryIds }
+# Subtest: chat_category.unassign rejects a missing chat as NON-retryable invalid_arguments: chat_not_found (no write)
+ok 110 - chat_category.unassign rejects a missing chat as NON-retryable invalid_arguments: chat_not_found (no write)
+# Subtest: chat_category.unassign maps a write failure to a RETRYABLE responses_error carrying the message
+ok 111 - chat_category.unassign maps a write failure to a RETRYABLE responses_error carrying the message
+# Subtest: every sibling returns a RETRYABLE responses_error: chat_category_store_unavailable when the store is absent — main:3472/3554/3653
+ok 112 - every sibling returns a RETRYABLE responses_error: chat_category_store_unavailable when the store is absent — main:3472/3554/3653
+# Subtest: after the user shares, uploads the trace as a log and returns its file id and note
+ok 113 - after the user shares, uploads the trace as a log and returns its file id and note
+# Subtest: Don't share exports nothing, even with a note typed
+ok 114 - Don't share exports nothing, even with a note typed
+# Subtest: nobody to ask (IM, timeout) exports nothing
+ok 115 - nobody to ask (IM, timeout) exports nothing
+# Subtest: a run with no conversation is refused without asking
+ok 116 - a run with no conversation is refused without asking
+# Subtest: with recording off, or without the record's row, nobody is asked
+ok 117 - with recording off, or without the record's row, nobody is asked
+# Subtest: nothing recorded is chat_trace_empty, and nothing is uploaded
+ok 118 - nothing recorded is chat_trace_empty, and nothing is uploaded
+# Subtest: external_context.get returns greeting-context data and uses the run authorization
+ok 119 - external_context.get returns greeting-context data and uses the run authorization
+# Subtest: external_context.get reports missing run authorization as a non-retryable tool error
+ok 120 - external_context.get reports missing run authorization as a non-retryable tool error
+# Subtest: submits the description with the defaults filled in, on the run's bearer
+ok 121 - submits the description with the defaults filled in, on the run's bearer
+# Subtest: attaches stored files with their type, and a filename override
+ok 122 - attaches stored files with their type, and a filename override
+# Subtest: an unknown file id is refused before the feedback port is called
+ok 123 - an unknown file id is refused before the feedback port is called
+# Subtest: a file over 20 MB is refused before the feedback port is called
+ok 124 - a file over 20 MB is refused before the feedback port is called
+# Subtest: a refused submit is a tool error carrying the port's code and retryability
+ok 125 - a refused submit is a tool error carrying the port's code and retryability
+# Subtest: dropped attachments are reported on success
+ok 126 - dropped attachments are reported on success
+# Subtest: image_generation.generate: success — calls SearchAIPort.imageGenerate with the faithful { query } args + threaded opts, and JSON-stringifies the result as content (main:2620/2677)
+ok 127 - image_generation.generate: success — calls SearchAIPort.imageGenerate with the faithful { query } args + threaded opts, and JSON-stringifies the result as content (main:2620/2677)
+# Subtest: image_generation.generate: requestAuthorization falls back to connectionAuthorization when resolvedAuthorization is absent (main:2628-2629)
+ok 128 - image_generation.generate: requestAuthorization falls back to connectionAuthorization when resolvedAuthorization is absent (main:2628-2629)
+# Subtest: image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+ok 129 - image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+# Subtest: image_generation.generate: a timeout (operation never resolves before the per-call deadline) yields a tool_timeout outcome, loop continues (main:2641-2655)
+ok 130 - image_generation.generate: a timeout (operation never resolves before the per-call deadline) yields a tool_timeout outcome, loop continues (main:2641-2655)
+# Subtest: image_generation.generate: a MID-CALL abort (run signal fires during the port call) returns the 'aborted' sentinel → run status 'aborted' (main:2637-2640)
+ok 131 - image_generation.generate: a MID-CALL abort (run signal fires during the port call) returns the 'aborted' sentinel → run status 'aborted' (main:2637-2640)
+# Subtest: image_generation.generate: a signal already aborted before the call short-circuits to 'aborted' (runWithTimeout pre-check, main:2638)
+ok 132 - image_generation.generate: a signal already aborted before the call short-circuits to 'aborted' (runWithTimeout pre-check, main:2638)
+# Subtest: image_generation.generate: threads the run context's userId to the port so the host can store the image in-process
+ok 133 - image_generation.generate: threads the run context's userId to the port so the host can store the image in-process
+# Subtest: an ordinary run asks READ-ONLY, whatever the request says, and never sends the user's message as an instruction
+ok 134 - an ordinary run asks READ-ONLY, whatever the request says, and never sends the user's message as an instruction
+# Subtest: a run the host marked memoryWritable sends the person's verbatim message beside the request
+ok 135 - a run the host marked memoryWritable sends the person's verbatim message beside the request
+# Subtest: the answer's evidence rides the tool result beside it
+ok 136 - the answer's evidence rides the tool result beside it
+# Subtest: a memory agent that cannot be reached is a tool error that claims nothing was changed
+ok 137 - a memory agent that cannot be reached is a tool error that claims nothing was changed
+# Subtest: persona.get_avatar runs through the loop: ok status + toolTrace entry persona.get_avatar
+ok 138 - persona.get_avatar runs through the loop: ok status + toolTrace entry persona.get_avatar
+# Subtest: custom avatar but getFileDataUrl THROWS (file deleted) → swallowed: metadata only, NO note, NO input_image — main:3315-3323
+ok 139 - custom avatar but getFileDataUrl THROWS (file deleted) → swallowed: metadata only, NO note, NO input_image — main:3315-3323
+# Subtest: custom avatar with EMPTY fileId → file store NOT read, metadata only — main:3309 guard
+ok 140 - custom avatar with EMPTY fileId → file store NOT read, metadata only — main:3309 guard
+# Subtest: getState failure (Error) → faithful in-handler responses_error envelope: message `responses_error: <error.message>` (main:3369-3380 outer catch) — FIX 4
+ok 141 - getState failure (Error) → faithful in-handler responses_error envelope: message `responses_error: <error.message>` (main:3369-3380 outer catch) — FIX 4
+# Subtest: getState failure (non-Error throw) → faithful fallback message `responses_error: get_agent_avatar_failed` (main:3372 fallback) — FIX 4
+ok 142 - getState failure (non-Error throw) → faithful fallback message `responses_error: get_agent_avatar_failed` (main:3372 fallback) — FIX 4
+# Subtest: persona.set_name: calls PersonaPort.setName({ userId, name }) and returns JSON.stringify(result) success — main:3157/3162
+ok 143 - persona.set_name: calls PersonaPort.setName({ userId, name }) and returns JSON.stringify(result) success — main:3157/3162
+# Subtest: persona.set_name: a typed InvalidAgentNameError → NON-retryable invalid_arguments: invalid_name — main:3173-3189
+ok 144 - persona.set_name: a typed InvalidAgentNameError → NON-retryable invalid_arguments: invalid_name — main:3173-3189
+# Subtest: persona.set_name: a plain Error('invalid_name') ALSO maps to invalid_arguments (the message-guard arm) — main:3175
+ok 145 - persona.set_name: a plain Error('invalid_name') ALSO maps to invalid_arguments (the message-guard arm) — main:3175
+# Subtest: persona.set_name: any OTHER error → RETRYABLE responses_error carrying the message — main:3191-3202
+ok 146 - persona.set_name: any OTHER error → RETRYABLE responses_error carrying the message — main:3191-3202
+# Subtest: persona.set_avatar: calls PersonaPort.setAvatar({ userId, fileId, url, mimeType, filename }) and returns JSON.stringify(result) — main:3214/3222
+ok 147 - persona.set_avatar: calls PersonaPort.setAvatar({ userId, fileId, url, mimeType, filename }) and returns JSON.stringify(result) — main:3214/3222
+# Subtest: persona.set_avatar: a typed InvalidAgentPersonaStateError → NON-retryable invalid_arguments: invalid_avatar — main:3234-3250
+ok 148 - persona.set_avatar: a typed InvalidAgentPersonaStateError → NON-retryable invalid_arguments: invalid_avatar — main:3234-3250
+# Subtest: persona.set_avatar: a non-Error throw → responses_error with the set_agent_avatar_failed fallback message — main:3254
+ok 149 - persona.set_avatar: a non-Error throw → responses_error with the set_agent_avatar_failed fallback message — main:3254
+# Subtest: each persona handler reads ONLY PersonaPort — the other ports stay throwing stubs (an accidental extra call would surface)
+ok 150 - each persona handler reads ONLY PersonaPort — the other ports stay throwing stubs (an accidental extra call would surface)
+# Subtest: schedule.create calls ScheduledTaskPort.create with faithful args, finishes ok, feeds result back
+ok 151 - schedule.create calls ScheduledTaskPort.create with faithful args, finishes ok, feeds result back
+# Subtest: schedule.create forwards title/description and OMITS userOriginalMessage when ctx has none — main:3900
+ok 152 - schedule.create forwards title/description and OMITS userOriginalMessage when ctx has none — main:3900
+# Subtest: schedule.create maps an invalid_arguments-prefixed failure to invalid_arguments (non-retryable) — main:3924-3933
+ok 153 - schedule.create maps an invalid_arguments-prefixed failure to invalid_arguments (non-retryable) — main:3924-3933
+# Subtest: schedule.create maps a generic failure to responses_error (retryable) — main:3924-3933
+ok 154 - schedule.create maps a generic failure to responses_error (retryable) — main:3924-3933
+# Subtest: schedule.create records the issuing profile, so every run is the same user
+ok 155 - schedule.create records the issuing profile, so every run is the same user
+# Subtest: schedule.create links the task to the conversation and the turn's pages
+ok 156 - schedule.create links the task to the conversation and the turn's pages
+# Subtest: schedule.create passes on how the task reports, when it stops and when its schedule ends
+ok 157 - schedule.create passes on how the task reports, when it stops and when its schedule ends
+# Subtest: schedule.create refuses an end it cannot read, and creates nothing
+ok 158 - schedule.create refuses an end it cannot read, and creates nothing
+# Subtest: schedule.create stamps the language the run writes in on the task
+ok 159 - schedule.create stamps the language the run writes in on the task
+# Subtest: schedule.list calls port.list with userId + forwarded optionals, returns JSON content
+ok 160 - schedule.list calls port.list with userId + forwarded optionals, returns JSON content
+# Subtest: schedule.list omits taskId/enabledOnly when not supplied (conditional spread)
+ok 161 - schedule.list omits taskId/enabledOnly when not supplied (conditional spread)
+# Subtest: schedule.pause calls port.pause with userId + scheduleId + reason, returns JSON content
+ok 162 - schedule.pause calls port.pause with userId + scheduleId + reason, returns JSON content
+# Subtest: schedule.pause omits reason when not supplied
+ok 163 - schedule.pause omits reason when not supplied
+# Subtest: schedule.resume calls port.resume with userId + scheduleId, returns JSON content
+ok 164 - schedule.resume calls port.resume with userId + scheduleId, returns JSON content
+# Subtest: schedule.delete calls port.delete with userId + scheduleId, returns JSON content
+ok 165 - schedule.delete calls port.delete with userId + scheduleId, returns JSON content
+# Subtest: schedule.list port failure (Error with message) surfaces as a retryable responses_error carrying the message (run continues, then finishes)
+ok 166 - schedule.list port failure (Error with message) surfaces as a retryable responses_error carrying the message (run continues, then finishes)
+# Subtest: schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+ok 167 - schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+# Subtest: list: installed by default; clipped descriptions, display names, a turned-off flag
+ok 168 - list: installed by default; clipped descriptions, display names, a turned-off flag
+# Subtest: list: the include filter reaches the port
+ok 169 - list: the include filter reaches the port
+# Subtest: install: the name reaches the port; the result says what changed
+ok 170 - install: the name reaches the port; the result says what changed
+# Subtest: install / uninstall: a refusal is a structured, non-retryable error
+ok 171 - install / uninstall: a refusal is a structured, non-retryable error
+# Subtest: install: a throwing port is a retryable failure, never a thrown run
+ok 172 - install: a throwing port is a retryable failure, never a thrown run
+# Subtest: record: saves the recorded task under the model's name and description
+ok 173 - record: saves the recorded task under the model's name and description
+# Subtest: record: no recorded task, nothing written
+ok 174 - record: no recorded task, nothing written
+# Subtest: record: a name the library rejects is the model's to fix and retry
+ok 175 - record: a name the library rejects is the model's to fix and retry
+# Subtest: the four handlers carry their capability ids
+ok 176 - the four handlers carry their capability ids
+# Subtest: created → list-invalidated notify + faithful single-object write args + snake_case content (main:2862-2911)
+ok 177 - created → list-invalidated notify + faithful single-object write args + snake_case content (main:2862-2911)
+# Subtest: overwritten → detail-invalidated notify + passes conflictStrategy/expectedVersion + warnings passthrough (main:2862-2911)
+ok 178 - overwritten → detail-invalidated notify + passes conflictStrategy/expectedVersion + warnings passthrough (main:2862-2911)
+# Subtest: renamed → detail-invalidated notify (the non-created branch, main:2877-2880)
+ok 179 - renamed → detail-invalidated notify (the non-created branch, main:2877-2880)
+# Subtest: saved_with_warning → detail-invalidated notify + conflictResolution passed through (the 4th SkillWriteResultStatus member, FIX 6)
+ok 180 - saved_with_warning → detail-invalidated notify + conflictResolution passed through (the 4th SkillWriteResultStatus member, FIX 6)
+# Subtest: a NOTIFY throw is swallowed — the write still succeeds (main:2882-2889)
+ok 181 - a NOTIFY throw is swallowed — the write still succeeds (main:2882-2889)
+# Subtest: error: SkillValidationError → error.code, outer invalid_arguments (non-retryable) (main:2936)
+ok 182 - error: SkillValidationError → error.code, outer invalid_arguments (non-retryable) (main:2936)
+# Subtest: error: SkillNameConflictError (by name) → duplicate_skill_name, invalid_arguments (main:2937-2942)
+ok 183 - error: SkillNameConflictError (by name) → duplicate_skill_name, invalid_arguments (main:2937-2942)
+# Subtest: error: SkillVersionConflictError (by name) → skill_version_conflict, invalid_arguments (main:2943-2948)
+ok 184 - error: SkillVersionConflictError (by name) → skill_version_conflict, invalid_arguments (main:2943-2948)
+# Subtest: error: SkillBuiltInReadOnlyError (by name) → skill_builtin_readonly, invalid_arguments (main:2949-2951)
+ok 185 - error: SkillBuiltInReadOnlyError (by name) → skill_builtin_readonly, invalid_arguments (main:2949-2951)
+# Subtest: error: re-tagged StorageNotConfiguredError → storage_unavailable, outer responses_error (RETRYABLE) (main:2952-2954)
+ok 186 - error: re-tagged StorageNotConfiguredError → storage_unavailable, outer responses_error (RETRYABLE) (main:2952-2954)
+# Subtest: error: a generic Error → skill_write_failed, outer responses_error (RETRYABLE) (main:2955)
+ok 187 - error: a generic Error → skill_write_failed, outer responses_error (RETRYABLE) (main:2955)
+# Subtest: error: an un-retagged StorageNotConfiguredError-shaped Error (no name) falls through to skill_write_failed (deviation)
+ok 188 - error: an un-retagged StorageNotConfiguredError-shaped Error (no name) falls through to skill_write_failed (deviation)
+# Subtest: reads an on-disk built-in file: calls getSkillForExecution then readFile(storageRef) and returns { ok:true, path, content }
+ok 189 - reads an on-disk built-in file: calls getSkillForExecution then readFile(storageRef) and returns { ok:true, path, content }
+# Subtest: reads a user-skill SKILL.md from in-memory compiledSkillMd WITHOUT an fs read (rootDir empty → storageRef '')
+ok 190 - reads a user-skill SKILL.md from in-memory compiledSkillMd WITHOUT an fs read (rootDir empty → storageRef '')
+# Subtest: reads a built-in SKILL.md from disk: resolves storageRef rootDir/SKILL.md and reads via the port
+ok 191 - reads a built-in SKILL.md from disk: resolves storageRef rootDir/SKILL.md and reads via the port
+# Subtest: skill_not_active when the skill id is not in ctx.activeSkillIds — no skill lookup, faithful recovery hint
+ok 192 - skill_not_active when the skill id is not in ctx.activeSkillIds — no skill lookup, faithful recovery hint
+# Subtest: skill_not_active when getSkillForExecution returns null (skill resolved-but-absent)
+ok 193 - skill_not_active when getSkillForExecution returns null (skill resolved-but-absent)
+# Subtest: file_not_found when the requested path is not among the skill's files — no fs read
+ok 194 - file_not_found when the requested path is not among the skill's files — no fs read
+# Subtest: file_not_found for a malformed path (path traversal) — never looks the skill up
+ok 195 - file_not_found for a malformed path (path traversal) — never looks the skill up
+# Subtest: file_too_large when the file's declared size exceeds MAX_FILE_READ_BYTES — no fs read, faithful hint
+ok 196 - file_too_large when the file's declared size exceeds MAX_FILE_READ_BYTES — no fs read, faithful hint
+# Subtest: file_too_large for an oversized in-memory SKILL.md (user skill) — capped without an fs read
+ok 197 - file_too_large for an oversized in-memory SKILL.md (user skill) — capped without an fs read
+# Subtest: an fs read failure (port readFile not-ok) surfaces as file_not_found with the underlying detail — skill-scripts.ts:337-348
+ok 198 - an fs read failure (port readFile not-ok) surfaces as file_not_found with the underlying detail — skill-scripts.ts:337-348
+# Subtest: a STAT/size-cap failure (port readFile not-ok WITHOUT detail) surfaces as a BARE file_not_found — no spurious detail attached (FIX 7 minor B, skill-scripts.ts:291-296)
+ok 199 - a STAT/size-cap failure (port readFile not-ok WITHOUT detail) surfaces as a BARE file_not_found — no spurious detail attached (FIX 7 minor B, skill-scripts.ts:291-296)
+# Subtest: the read content is fed back to the next LLM round as a function_call_output
+ok 200 - the read content is fed back to the next LLM round as a function_call_output
+# Subtest: skill.run_script ok: calls the port with { skill, script, scriptArgs, activeSkillIds, signal } and returns the effectivePayload JSON content (skill-scripts.ts:135-166)
+ok 201 - skill.run_script ok: calls the port with { skill, script, scriptArgs, activeSkillIds, signal } and returns the effectivePayload JSON content (skill-scripts.ts:135-166)
+# Subtest: skill.run_script ok with NO scriptArgs: the scriptArgs key is omitted from the port call (faithful to the optional arg)
+ok 202 - skill.run_script ok with NO scriptArgs: the scriptArgs key is omitted from the port call (faithful to the optional arg)
+# Subtest: skill.run_script ok but payload.ok !== true: isError is true (buildOutcome's isError = payload.ok !== true, skill-scripts.ts:end)
+ok 203 - skill.run_script ok but payload.ok !== true: isError is true (buildOutcome's isError = payload.ok !== true, skill-scripts.ts:end)
+# Subtest: skill.run_script ACL: a skill NOT in ctx.activeSkillIds (and not name-resolvable) is rejected as skill_not_active WITHOUT calling runScript (worker-side ACL gate, skill-scripts.ts:217-219)
+ok 204 - skill.run_script ACL: a skill NOT in ctx.activeSkillIds (and not name-resolvable) is rejected as skill_not_active WITHOUT calling runScript (worker-side ACL gate, skill-scripts.ts:217-219)
+# Subtest: skill.run_script ACL: an EMPTY activeSkillIds (no ctx field) rejects every skill as skill_not_active (skill-scripts.ts:217 — `!activeSkillIds.includes`)
+ok 205 - skill.run_script ACL: an EMPTY activeSkillIds (no ctx field) rejects every skill as skill_not_active (skill-scripts.ts:217 — `!activeSkillIds.includes`)
+# Subtest: skill.run_script canonicalizes a name-like skill arg to its already-active id (resolveActiveSkillIdByName), then dispatches runScript on the CANONICAL id (faithful to index.ts:4036-4140)
+ok 206 - skill.run_script canonicalizes a name-like skill arg to its already-active id (resolveActiveSkillIdByName), then dispatches runScript on the CANONICAL id (faithful to index.ts:4036-4140)
+# Subtest: skill.run_script does NOT call resolveActiveSkillIdByName when the literal arg is already an active id (canonicalization is a miss-only fallback)
+ok 207 - skill.run_script does NOT call resolveActiveSkillIdByName when the literal arg is already an active id (canonicalization is a miss-only fallback)
+# Subtest: skill.run_script structured failure: a port { ok:false, reason:'kensington_unreachable' } yields the JSON error envelope WITH the describeFailure recovery hint (skill-scripts.ts:99-133)
+ok 208 - skill.run_script structured failure: a port { ok:false, reason:'kensington_unreachable' } yields the JSON error envelope WITH the describeFailure recovery hint (skill-scripts.ts:99-133)
+# Subtest: skill.run_script structured failure: a port-supplied `detail` is PRESERVED (not overwritten by the generic hint) — skill-scripts.ts:142-149
+ok 209 - skill.run_script structured failure: a port-supplied `detail` is PRESERVED (not overwritten by the generic hint) — skill-scripts.ts:142-149
+# Subtest: skill.run_script timeout: a port that SETTLES on signal-abort yields a `reason:'timeout'` error outcome and the loop CONTINUES (run_script returns a NORMAL outcome on tool_timeout, never the 'aborted' sentinel)
+ok 210 - skill.run_script timeout: a port that SETTLES on signal-abort yields a `reason:'timeout'` error outcome and the loop CONTINUES (run_script returns a NORMAL outcome on tool_timeout, never the 'aborted' sentinel)
+# Subtest: skill.run_script abort: an aborted operation maps to a `reason:'aborted'` HandlerResult (NOT the terminal 'aborted' sentinel) — run_script returns Promise<SkillScriptOutcome>, never 'aborted' (skill-scripts.ts dispatch-catch + main:2285-2304 no-guard branch)
+ok 211 - skill.run_script abort: an aborted operation maps to a `reason:'aborted'` HandlerResult (NOT the terminal 'aborted' sentinel) — run_script returns Promise<SkillScriptOutcome>, never 'aborted' (skill-scripts.ts dispatch-catch + main:2285-2304 no-guard branch)
+# Subtest: skill.run_script (loop): with a PRE-aborted run signal the loop's own guard terminates 'aborted' before dispatch — the handler's no-sentinel contract is independent of this shared-loop guard
+ok 212 - skill.run_script (loop): with a PRE-aborted run signal the loop's own guard terminates 'aborted' before dispatch — the handler's no-sentinel contract is independent of this shared-loop guard
+# Subtest: skill.run_script uploads declared artifacts and hides their contents from the model
+ok 213 - skill.run_script uploads declared artifacts and hides their contents from the model
+# Subtest: a script payload without artifacts is passed through untouched
+ok 214 - a script payload without artifacts is passed through untouched
+# Subtest: a script whose SECOND artifact fails to upload still reports the first
+ok 215 - a script whose SECOND artifact fails to upload still reports the first
+# Subtest: skill.run_script with no tab asks the host for one, then runs on the tab it settled
+ok 216 - skill.run_script with no tab asks the host for one, then runs on the tab it settled
+# Subtest: skill.run_script with no tab and a refusal from the host reports no_target_tab with its reason, and never runs
+ok 217 - skill.run_script with no tab and a refusal from the host reports no_target_tab with its reason, and never runs
+# Subtest: skill.run_script on a run that already has its tab never asks
+ok 218 - skill.run_script on a run that already has its tab never asks
+# Subtest: skill.run_script with no tab and no picker runs as before (the host reports no_target_tab)
+ok 219 - skill.run_script with no tab and no picker runs as before (the host reports no_target_tab)
+# Subtest: skill.run_script in a scheduled task run never puts a card up
+ok 220 - skill.run_script in a scheduled task run never puts a card up
+# Subtest: happy path: task_run context + taskId → queries with faithful default args and projects snake_case content (main:3800-3835)
+ok 221 - happy path: task_run context + taskId → queries with faithful default args and projects snake_case content (main:3800-3835)
+# Subtest: explicit sort/page/pageSize args override the defaults in the query (main:3803-3805)
+ok 222 - explicit sort/page/pageSize args override the defaults in the query (main:3803-3805)
+# Subtest: context gate: task_run context but NO taskId → the HANDLER gate returns tool_not_allowed, port NEVER called (main:3782)
+ok 223 - context gate: task_run context but NO taskId → the HANDLER gate returns tool_not_allowed, port NEVER called (main:3782)
+# Subtest: catch path: queryTaskRuns throws → responses_error (retryable) carrying the error message (main:3836-3852)
+ok 224 - catch path: queryTaskRuns throws → responses_error (retryable) carrying the error message (main:3836-3852)
+# Subtest: catch path: a non-Error throw falls back to task_run_query_failed (main:3841)
+ok 225 - catch path: a non-Error throw falls back to task_run_query_failed (main:3841)
+# Subtest: websearch.search ok: calls SearchAIPort.websearch with the faithful params + worker context, returns mapped JSON content (main:2424-2497)
+ok 226 - websearch.search ok: calls SearchAIPort.websearch with the faithful params + worker context, returns mapped JSON content (main:2424-2497)
+# Subtest: websearch.search threads the per-tool span as the op's trace (main:2060/2440)
+ok 227 - websearch.search threads the per-tool span as the op's trace (main:2060/2440)
+# Subtest: websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+ok 228 - websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+# Subtest: websearch.search error: a thrown port error yields responses_error carrying the message (main:2468-2481)
+ok 229 - websearch.search error: a thrown port error yields responses_error carrying the message (main:2468-2481)
+# Subtest: websearch.search aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:2444-2451, terminal main:1788/1674)
+ok 230 - websearch.search aborted: a MID-CALL abort returns the 'aborted' sentinel → run status 'aborted' (main:2444-2451, terminal main:1788/1674)
+# Subtest: websearch.search aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+ok 231 - websearch.search aborted: a PRE-aborted run never dispatches the handler but still terminates 'aborted' (loop guard)
+# Subtest: the launcher's tool span travels with the execution
+ok 232 - the launcher's tool span travels with the execution
+# Subtest: a hand-written capability hands its tool span on as `trace`
+ok 233 - a hand-written capability hands its tool span on as `trace`
+# Subtest: buildWorkerToolsRequest emits one function tool per toolId with name = toolId
+ok 234 - buildWorkerToolsRequest emits one function tool per toolId with name = toolId
+# Subtest: external_context has the requested English description and is default-context only
+ok 235 - external_context has the requested English description and is default-context only
+# Subtest: buildWorkerToolsRequest builds a discriminated action+input union for multi-action tools
+ok 236 - buildWorkerToolsRequest builds a discriminated action+input union for multi-action tools
+# Subtest: every union input branch opens with its own action, so input cannot belong to another action
+ok 237 - every union input branch opens with its own action, so input cannot belong to another action
+# Subtest: buildWorkerToolsRequest filters by allowedCapabilities
+ok 238 - buildWorkerToolsRequest filters by allowedCapabilities
+# Subtest: buildWorkerToolsRequest honours the task_run execution context gate
+ok 239 - buildWorkerToolsRequest honours the task_run execution context gate
+# Subtest: the task_run browser_task schema hides `mode` — the host pins it
+ok 240 - the task_run browser_task schema hides `mode` — the host pins it
+# Subtest: buildWorkerSystemPrompt embeds the task objective and constraints
+ok 241 - buildWorkerSystemPrompt embeds the task objective and constraints
+# Subtest: buildWorkerSystemPrompt includes the tool-policy section naming the tools
+ok 242 - buildWorkerSystemPrompt includes the tool-policy section naming the tools
+# Subtest: buildWorkerSystemPrompt routes targeted Split View browser work through browser_task before CDP artifacts on a named tab
+ok 243 - buildWorkerSystemPrompt routes targeted Split View browser work through browser_task before CDP artifacts on a named tab
+# Subtest: buildWorkerSystemPrompt renders the skill catalog from SkillsPort
+ok 244 - buildWorkerSystemPrompt renders the skill catalog from SkillsPort
+# Subtest: buildWorkerSystemPrompt omits the Available Skills section for an empty catalog
+ok 245 - buildWorkerSystemPrompt omits the Available Skills section for an empty catalog
+# Subtest: buildWorkerSystemPrompt renders the sites note when a skill is site-scoped
+ok 246 - buildWorkerSystemPrompt renders the sites note when a skill is site-scoped
+# Subtest: buildWorkerSystemPrompt returns a tools request consistent with allowedCapabilities
+ok 247 - buildWorkerSystemPrompt returns a tools request consistent with allowedCapabilities
+# Subtest: buildWorkerSystemPrompt injects the shadow execution-context instruction
+ok 248 - buildWorkerSystemPrompt injects the shadow execution-context instruction
+# Subtest: a task run given its earlier results is told to work from them
+ok 249 - a task run given its earlier results is told to work from them
+# Subtest: a task run's briefing lists its earlier results newest first; a chat run's never does
+ok 250 - a task run's briefing lists its earlier results newest first; a chat run's never does
+# Subtest: a task run is told where its final answer goes
+ok 251 - a task run is told where its final answer goes
+# Subtest: a task run that reports only changes is told its answer is judged after it finishes
+ok 252 - a task run that reports only changes is told its answer is judged after it finishes
+# Subtest: a task run is told to speak to its stop condition, and writes no marker
+ok 253 - a task run is told to speak to its stop condition, and writes no marker
+# Subtest: a task run's briefing carries its stop condition; a chat run's never does
+ok 254 - a task run's briefing carries its stop condition; a chat run's never does
+# Subtest: buildWorkerSystemPrompt renders the TRIMMED userDisplayName
+ok 255 - buildWorkerSystemPrompt renders the TRIMMED userDisplayName
+# Subtest: buildWorkerSystemPrompt renders a required skill description verbatim
+ok 256 - buildWorkerSystemPrompt renders a required skill description verbatim
+# Subtest: buildWorkerSystemPrompt includes a mid-flight redirect anti-deferral rule (re-run tools, never just ask)
+ok 257 - buildWorkerSystemPrompt includes a mid-flight redirect anti-deferral rule (re-run tools, never just ask)
+# Subtest: buildWorkerSystemPrompt inlines user-selected skill bodies with the skill over objective precedence rule
+ok 258 - buildWorkerSystemPrompt inlines user-selected skill bodies with the skill over objective precedence rule
+# Subtest: buildWorkerSystemPrompt omits Active Skills when the user selected none
+ok 259 - buildWorkerSystemPrompt omits Active Skills when the user selected none
+# Subtest: buildWorkerSystemPrompt states the user's current tab and points that work at current-tab
+ok 260 - buildWorkerSystemPrompt states the user's current tab and points that work at current-tab
+# Subtest: buildWorkerSystemPrompt omits the browser-tab section when no tab was forwarded
+ok 261 - buildWorkerSystemPrompt omits the browser-tab section when no tab was forwarded
+# Subtest: buildWorkerSystemPrompt omits the browser-tab section when the tab is not a web page
+ok 262 - buildWorkerSystemPrompt omits the browser-tab section when the tab is not a web page
+# Subtest: a real web page is still surfaced as the active tab, with its URL
+ok 263 - a real web page is still surfaced as the active tab, with its URL
+# Subtest: the chat's own new-tab page is never advertised as a page to work on
+ok 264 - the chat's own new-tab page is never advertised as a page to work on
+# Subtest: every non-web surface is treated the same way, not just the new-tab page
+ok 265 - every non-web surface is treated the same way, not just the new-tab page
+# Subtest: no forwarded tab at all still says nothing — absence is not a browser page
+ok 266 - no forwarded tab at all still says nothing — absence is not a browser page
+# Subtest: the tool policy forbids writing tab mechanics into an objective
+ok 267 - the tool policy forbids writing tab mechanics into an objective
+# Subtest: the tool policy keeps browser state off browser_task, and names the tool for each
+ok 268 - the tool policy keeps browser state off browser_task, and names the tool for each
+# Subtest: a task run's briefing lists every web page of the conversation it was created in
+ok 269 - a task run's briefing lists every web page of the conversation it was created in
+# Subtest: a task run with no origin pages keeps today's briefing, active tab line included
+ok 270 - a task run with no origin pages keeps today's briefing, active tab line included
+# Subtest: a chat run's briefing does not present the turn's pages as a task origin
+ok 271 - a chat run's briefing does not present the turn's pages as a task origin
+# Subtest: execute forwards the input verbatim to the executor and returns its BrowserAgentTaskResult
+ok 272 - execute forwards the input verbatim to the executor and returns its BrowserAgentTaskResult
+# Subtest: execute returns the host error result unchanged (e.g. no_connection failure) — the worker classifies it
+ok 273 - execute returns the host error result unchanged (e.g. no_connection failure) — the worker classifies it
+# Subtest: SETTLE-ON-ABORT: aborting input.signal settles the returned promise (does NOT hang) — the executor reacts to the signal
+ok 274 - SETTLE-ON-ABORT: aborting input.signal settles the returned promise (does NOT hang) — the executor reacts to the signal
+# Subtest: execute derives evidenceKept:true when the executor's result carries a non-empty ledger
+ok 275 - execute derives evidenceKept:true when the executor's result carries a non-empty ledger
+# Subtest: execute leaves evidenceKept ABSENT when the run banked nothing — truncation alone never implies a ledger
+ok 276 - execute leaves evidenceKept ABSENT when the run banked nothing — truncation alone never implies a ledger
+# Subtest: execute leaves evidenceKept ABSENT for an EMPTY ledger
+ok 277 - execute leaves evidenceKept ABSENT for an EMPTY ledger
+# Subtest: listChatCategories forwards {userId} verbatim and returns the raw array
+ok 278 - listChatCategories forwards {userId} verbatim and returns the raw array
+# Subtest: getChatCategoryByName forwards {userId, name} verbatim and returns the raw record
+ok 279 - getChatCategoryByName forwards {userId, name} verbatim and returns the raw record
+# Subtest: getChatCategory forwards {userId, categoryId} verbatim and returns the raw record
+ok 280 - getChatCategory forwards {userId, categoryId} verbatim and returns the raw record
+# Subtest: createChatCategory forwards {userId, name, sortOrder?} verbatim and returns the raw record
+ok 281 - createChatCategory forwards {userId, name, sortOrder?} verbatim and returns the raw record
+# Subtest: createChatCategory forwards the params object verbatim when sortOrder is omitted
+ok 282 - createChatCategory forwards the params object verbatim when sortOrder is omitted
+# Subtest: getChat forwards {userId, chatId} verbatim and returns the raw record
+ok 283 - getChat forwards {userId, chatId} verbatim and returns the raw record
+# Subtest: setChatCategories forwards {userId, chatId, categoryIds} verbatim and returns the raw record
+ok 284 - setChatCategories forwards {userId, chatId, categoryIds} verbatim and returns the raw record
+# Subtest: a thrown store method propagates (all six methods)
+ok 285 - a thrown store method propagates (all six methods)
+# Subtest: external-context port calls greeting-context with the current user bearer
+ok 286 - external-context port calls greeting-context with the current user bearer
+# Subtest: external-context port rejects missing authorization before network access
+ok 287 - external-context port rejects missing authorization before network access
+# Subtest: submits through the account service, and reads the browser and version per call
+ok 288 - submits through the account service, and reads the browser and version per call
+# Subtest: getFileDataUrl forwards the {userId, fileId} object verbatim and returns the raw result
+ok 289 - getFileDataUrl forwards the {userId, fileId} object verbatim and returns the raw result
+# Subtest: a thrown store method propagates
+ok 290 - a thrown store method propagates
+# Subtest: uploadFile decodes base64, forwards a File-like object, and maps UploadResult
+ok 291 - uploadFile decodes base64, forwards a File-like object, and maps UploadResult
+# Subtest: uploadFile reports the store's contentType when it overrides the requested mime
+ok 292 - uploadFile reports the store's contentType when it overrides the requested mime
+# Subtest: file store forwards an explicit generic size limit without changing defaults
+ok 293 - file store forwards an explicit generic size limit without changing defaults
+# Subtest: a thrown uploadFile propagates
+ok 294 - a thrown uploadFile propagates
+# Subtest: getFile hands back the stored bytes, scoped to the user
+ok 295 - getFile hands back the stored bytes, scoped to the user
+# Subtest: hostStartTask: forwards args (incl. originToolCallId) to the service + appends the dispatch log + returns the result
+ok 296 - hostStartTask: forwards args (incl. originToolCallId) to the service + appends the dispatch log + returns the result
+# Subtest: hostStartTask: no taskApplicationService → throws (worker maps to task_create_failed)
+ok 297 - hostStartTask: no taskApplicationService → throws (worker maps to task_create_failed)
+# Subtest: hostStartTask: forwards the conversation id and origin to the service
+ok 298 - hostStartTask: forwards the conversation id and origin to the service
+# Subtest: setName forwards the input verbatim and returns the raw result
+ok 299 - setName forwards the input verbatim and returns the raw result
+# Subtest: setAvatar forwards the full metadata verbatim and returns the raw result
+ok 300 - setAvatar forwards the full metadata verbatim and returns the raw result
+# Subtest: getState forwards the userId verbatim and returns the raw result
+ok 301 - getState forwards the userId verbatim and returns the raw result
+# Subtest: a thrown service method propagates (setName/setAvatar/getState)
+ok 302 - a thrown service method propagates (setName/setAvatar/getState)
+# Subtest: create forwards through runScheduledTaskRegistration → createTask + createJob and returns the shaped create DTO
+ok 303 - create forwards through runScheduledTaskRegistration → createTask + createJob and returns the shaped create DTO
+# Subtest: list forwards through runScheduledTaskList → listSchedules and returns the shaped list DTO
+ok 304 - list forwards through runScheduledTaskList → listSchedules and returns the shaped list DTO
+# Subtest: pause forwards through runScheduledTaskPause → pauseSchedule and returns the pause mutation DTO
+ok 305 - pause forwards through runScheduledTaskPause → pauseSchedule and returns the pause mutation DTO
+# Subtest: resume forwards through runScheduledTaskResume → resumeSchedule and returns the resume mutation DTO
+ok 306 - resume forwards through runScheduledTaskResume → resumeSchedule and returns the resume mutation DTO
+# Subtest: delete forwards through runScheduledTaskDelete → deleteSchedule and returns the delete mutation DTO
+ok 307 - delete forwards through runScheduledTaskDelete → deleteSchedule and returns the delete mutation DTO
+# Subtest: a thrown service method propagates (create/list/pause/resume/delete)
+ok 308 - a thrown service method propagates (create/list/pause/resume/delete)
+# Subtest: create carries the profile down to the task it creates
+ok 309 - create carries the profile down to the task it creates
+# Subtest: update forwards through runScheduledTaskUpdate → updateSchedule and returns the update mutation DTO
+ok 310 - update forwards through runScheduledTaskUpdate → updateSchedule and returns the update mutation DTO
+# Subtest: websearch forwards the worker params + bound deps + per-call deps verbatim and returns the raw result
+ok 311 - websearch forwards the worker params + bound deps + per-call deps verbatim and returns the raw result
+# Subtest: websearch tolerates absent per-call deps (legacy path: undefined auth/trace)
+ok 312 - websearch tolerates absent per-call deps (legacy path: undefined auth/trace)
+# Subtest: imageGenerate forwards {query} + bound deps (incl. imageUpload) + per-call deps and returns the raw result
+ok 313 - imageGenerate forwards {query} + bound deps (incl. imageUpload) + per-call deps and returns the raw result
+# Subtest: a thrown run-fn propagates (websearch + imageGenerate)
+ok 314 - a thrown run-fn propagates (websearch + imageGenerate)
+# Subtest: the port hands the run-fn its tracer, and the tool span as its trace
+ok 315 - the port hands the run-fn its tracer, and the tool span as its trace
+# Subtest: hostRunSkillScript rejects a skill WITHOUT a trustedJs manifest → script_not_allowed + detail:no_trusted_js (latch never set)
+ok 316 - hostRunSkillScript rejects a skill WITHOUT a trustedJs manifest → script_not_allowed + detail:no_trusted_js (latch never set)
+# Subtest: hostRunSkillScript rejects a script NOT on the trustedJs.scripts allow-list → script_not_allowed
+ok 317 - hostRunSkillScript rejects a script NOT on the trustedJs.scripts allow-list → script_not_allowed
+# Subtest: hostRunSkillScript SETS the latch on the FIRST trusted script and hands that runId to the bundle
+ok 318 - hostRunSkillScript SETS the latch on the FIRST trusted script and hands that runId to the bundle
+# Subtest: hostRunSkillScript READS the latch for a LATER script (state preserved across calls)
+ok 319 - hostRunSkillScript READS the latch for a LATER script (state preserved across calls)
+# Subtest: hostRunSkillScript returns state_lost when a LATER script of a PIPELINE has NO latched run id (latch read miss)
+ok 320 - hostRunSkillScript returns state_lost when a LATER script of a PIPELINE has NO latched run id (latch read miss)
+# Subtest: hostRunSkillScript MINTS a fresh run id for an ALTERNATIVES (`pipeline: false`) script, ignoring any existing latch
+ok 321 - hostRunSkillScript MINTS a fresh run id for an ALTERNATIVES (`pipeline: false`) script, ignoring any existing latch
+# Subtest: hostRunSkillScript does NOT clear the latch when the page script throws (faithful: clear only on final-script success)
+ok 322 - hostRunSkillScript does NOT clear the latch when the page script throws (faithful: clear only on final-script success)
+# Subtest: hostRunSkillScript evaluates the bundle in the page (tabId/code/scriptArgs/timeoutMs/signal) and unwraps lastValue
+ok 323 - hostRunSkillScript evaluates the bundle in the page (tabId/code/scriptArgs/timeoutMs/signal) and unwraps lastValue
+# Subtest: hostRunSkillScript enforces the 1 MB result size cap → result_too_large
+ok 324 - hostRunSkillScript enforces the 1 MB result size cap → result_too_large
+# Subtest: hostRunSkillScript returns no_target_tab when activeTabId is absent
+ok 325 - hostRunSkillScript returns no_target_tab when activeTabId is absent
+# Subtest: hostResolveActiveSkillIdByName resolves a name-like arg to the UNIQUE already-active skill id (strips trailing :segment, matches by name, requires the id be active)
+ok 326 - hostResolveActiveSkillIdByName resolves a name-like arg to the UNIQUE already-active skill id (strips trailing :segment, matches by name, requires the id be active)
+# Subtest: hostResolveActiveSkillIdByName returns null when the matched id is NOT in the active set (ACL whitelist preserved)
+ok 327 - hostResolveActiveSkillIdByName returns null when the matched id is NOT in the active set (ACL whitelist preserved)
+# Subtest: hostResolveActiveSkillIdByName returns null on an AMBIGUOUS match (two active skills share the name)
+ok 328 - hostResolveActiveSkillIdByName returns null on an AMBIGUOUS match (two active skills share the name)
+# Subtest: getSkillForExecution forwards { userId (from ctx), skillId } and returns the SkillDetail projection
+ok 329 - getSkillForExecution forwards { userId (from ctx), skillId } and returns the SkillDetail projection
+# Subtest: getSkillForExecution returns null for an unknown skill
+ok 330 - getSkillForExecution returns null for an unknown skill
+# Subtest: writeSkillFromMarkdown forwards the single params object and returns the write result
+ok 331 - writeSkillFromMarkdown forwards the single params object and returns the write result
+# Subtest: readFile stat-caps then reads the file → { ok:true, content }
+ok 332 - readFile stat-caps then reads the file → { ok:true, content }
+# Subtest: readFile honors the size cap → { ok:false, reason:'file_too_large' } with NO detail (stat/size-cap failure)
+ok 333 - readFile honors the size cap → { ok:false, reason:'file_too_large' } with NO detail (stat/size-cap failure)
+# Subtest: readFile maps a STAT failure to { ok:false, reason:'file_not_found' } with NO detail
+ok 334 - readFile maps a STAT failure to { ok:false, reason:'file_not_found' } with NO detail
+# Subtest: readFile maps a READ failure to { ok:false, reason:'file_not_found', detail } WITH the error message
+ok 335 - readFile maps a READ failure to { ok:false, reason:'file_not_found', detail } WITH the error message
+# Subtest: getSelectedSkills projects { skillId, name, source, compiledSkillMd } for each user-picked id
+ok 336 - getSelectedSkills projects { skillId, name, source, compiledSkillMd } for each user-picked id
+# Subtest: getSelectedSkills drops an unresolvable id, a body-less skill, and a throwing lookup
+ok 337 - getSelectedSkills drops an unresolvable id, a body-less skill, and a throwing lookup
+# Subtest: listCatalog derives { id, name, description, sites? } from listSkills, dropping enabled===false
+ok 338 - listCatalog derives { id, name, description, sites? } from listSkills, dropping enabled===false
+# Subtest: listCatalog UNIONS in an active-but-not-installed skill via getSkillForExecution (the try-first dispatch's skill appears in the worker catalog)
+ok 339 - listCatalog UNIONS in an active-but-not-installed skill via getSkillForExecution (the try-first dispatch's skill appears in the worker catalog)
+# Subtest: listCatalog union degrades gracefully: an active id that fails to resolve narrows back to the installed set
+ok 340 - listCatalog union degrades gracefully: an active id that fails to resolve narrows back to the installed set
+# Subtest: listCatalog queries listSkills with the PER-CALL userId — the activeSkillIds arg does not become the userId
+ok 341 - listCatalog queries listSkills with the PER-CALL userId — the activeSkillIds arg does not become the userId
+# Subtest: listCatalog scopes to the userId passed with EACH call, so back-to-back runs by different users never cross over (no shared catalog-owner ref)
+ok 342 - listCatalog scopes to the userId passed with EACH call, so back-to-back runs by different users never cross over (no shared catalog-owner ref)
+# Subtest: listCatalog forwards an 'anonymous' owner verbatim when the caller passes it (the host resolves the unauthenticated fallback before the call)
+ok 343 - listCatalog forwards an 'anonymous' owner verbatim when the caller passes it (the host resolves the unauthenticated fallback before the call)
+# Subtest: runScript maps the worker args + ctx run identity into hostRunSkillScript and forwards its result
+ok 344 - runScript maps the worker args + ctx run identity into hostRunSkillScript and forwards its result
+# Subtest: runScript forwards a STRUCTURED failure result from hostRunSkillScript unchanged
+ok 345 - runScript forwards a STRUCTURED failure result from hostRunSkillScript unchanged
+# Subtest: runScript omits activeTabId/scriptArgs when ctx/args do not provide them, and degrades absent auth to ''
+ok 346 - runScript omits activeTabId/scriptArgs when ctx/args do not provide them, and degrades absent auth to ''
+# Subtest: runScript throws when NO host WorkerHostBridge is wired (gated stub path)
+ok 347 - runScript throws when NO host WorkerHostBridge is wired (gated stub path)
+# Subtest: resolveActiveSkillIdByName delegates to hostResolveActiveSkillIdByName with ctx.userId + the requested name + active set, forwarding the resolved id
+ok 348 - resolveActiveSkillIdByName delegates to hostResolveActiveSkillIdByName with ctx.userId + the requested name + active set, forwarding the resolved id
+# Subtest: resolveActiveSkillIdByName forwards a null (no-match) from the host accessor unchanged
+ok 349 - resolveActiveSkillIdByName forwards a null (no-match) from the host accessor unchanged
+# Subtest: resolveActiveSkillIdByName returns null when NO host WorkerHostBridge is wired (the worker keeps the original arg → the literal ACL gate rejects)
+ok 350 - resolveActiveSkillIdByName returns null when NO host WorkerHostBridge is wired (the worker keeps the original arg → the literal ACL gate rejects)
+# Subtest: a thrown service method propagates (getSkillForExecution / writeSkillFromMarkdown / listCatalog)
+ok 351 - a thrown service method propagates (getSkillForExecution / writeSkillFromMarkdown / listCatalog)
+# Subtest: skillMutationNotify.notifySkillsMutation is a safe no-op that resolves (chat-path)
+ok 352 - skillMutationNotify.notifySkillsMutation is a safe no-op that resolves (chat-path)
+# Subtest: installSkill resolves by name or display name across the whole library, then installs
+ok 353 - installSkill resolves by name or display name across the whole library, then installs
+# Subtest: uninstallSkill: no match, a user skill, and a locked system skill come back as reasons
+ok 354 - uninstallSkill: no match, a user skill, and a locked system skill come back as reasons
+# Subtest: uninstallSkill: an unexpected service error rethrows
+ok 355 - uninstallSkill: an unexpected service error rethrows
+# Subtest: writeSkill is a passthrough to skillsService.writeSkill
+ok 356 - writeSkill is a passthrough to skillsService.writeSkill
+# Subtest: listLibrary: the Skills page's view — meta skills out, uninstalled only on request
+ok 357 - listLibrary: the Skills page's view — meta skills out, uninstalled only on request
+# Subtest: a stubbed port method throws the expected pending error
+ok 358 - a stubbed port method throws the expected pending error
+# Subtest: every stubbed port surfaces its own name in the throw
+ok 359 - every stubbed port surfaces its own name in the throw
+# Subtest: createStubPorts returns all 14 deferred ports
+ok 360 - createStubPorts returns all 14 deferred ports
+# Subtest: queryTaskRuns forwards the single params object verbatim and returns the raw result
+ok 361 - queryTaskRuns forwards the single params object verbatim and returns the raw result
+# Subtest: queryTaskRuns propagates a thrown service method
+ok 362 - queryTaskRuns propagates a thrown service method
+# Subtest: appendManagedRunLog is a no-op that resolves to undefined without touching the service
+ok 363 - appendManagedRunLog is a no-op that resolves to undefined without touching the service
+# Subtest: syncManagedRunProjection is a no-op that resolves to undefined without touching the service
+ok 364 - syncManagedRunProjection is a no-op that resolves to undefined without touching the service
+# Subtest: startTaskFromWorkerHost (workerHostBridge supplied) forwards args + ctx verbatim to hostStartTask, returning its result
+ok 365 - startTaskFromWorkerHost (workerHostBridge supplied) forwards args + ctx verbatim to hostStartTask, returning its result
+# Subtest: startTaskFromWorkerHost (workerHostBridge supplied) propagates a host-method reject (→ task_create_failed in the worker)
+ok 366 - startTaskFromWorkerHost (workerHostBridge supplied) propagates a host-method reject (→ task_create_failed in the worker)
+# Subtest: startTaskFromWorkerHost (workerHostBridge ABSENT) throws the loud not-wired guard
+ok 367 - startTaskFromWorkerHost (workerHostBridge ABSENT) throws the loud not-wired guard
+# Subtest: the task management methods forward to the task service, run_now as a main_agent trigger
+ok 368 - the task management methods forward to the task service, run_now as a main_agent trigger
+# Subtest: updateTask writes only the given fields and moves updatedAt
+ok 369 - updateTask writes only the given fields and moves updatedAt
+# Subtest: the task management methods reject loudly when their backend is not wired
+ok 370 - the task management methods reject loudly when their backend is not wired
+# Subtest: asks ctx.phiAskUser the envelope's question on the call's signal and budget
+ok 371 - asks ctx.phiAskUser the envelope's question on the call's signal and budget
+# Subtest: deny is confirmed:false; any other choice carries no confirmed flag
+ok 372 - deny is confirmed:false; any other choice carries no confirmed flag
+# Subtest: no answer comes back in the broker's no-answer shape, named by why
+ok 373 - no answer comes back in the broker's no-answer shape, named by why
+# Subtest: without ctx.phiAskUser nobody can be asked: unavailable
+ok 374 - without ctx.phiAskUser nobody can be asked: unavailable
+# Subtest: an envelope that is not a question is refused before anyone is asked
+ok 375 - an envelope that is not a question is refused before anyone is asked
+# Subtest: over the real service, a run whose policy is deny is refused without a card
+ok 376 - over the real service, a run whose policy is deny is refused without a card
+# Subtest: a card's fields, catalog messages and skipsFields reach the service, and its values come back
+ok 377 - a card's fields, catalog messages and skipsFields reach the service, and its values come back
+# Subtest: malformed fields or messages are refused before anyone is asked
+ok 378 - malformed fields or messages are refused before anyone is asked
+# Subtest: worker resolves+executes websearch.search through the REAL registry + real SearchAIPort (faked runWebSearch)
+ok 379 - worker resolves+executes websearch.search through the REAL registry + real SearchAIPort (faked runWebSearch)
+# Subtest: worker resolves+executes chat_category.list through the REAL registry + real ChatCategoryPort (faked store)
+ok 380 - worker resolves+executes chat_category.list through the REAL registry + real ChatCategoryPort (faked store)
+# Subtest: worker resolves+executes schedule.create through the REAL registry + real ScheduledTaskPort (faked service)
+ok 381 - worker resolves+executes schedule.create through the REAL registry + real ScheduledTaskPort (faked service)
+# Subtest: worker resolves+executes skill.read_file through the REAL registry + real SkillsPort (faked service, user skill via compiledSkillMd)
+ok 382 - worker resolves+executes skill.read_file through the REAL registry + real SkillsPort (faked service, user skill via compiledSkillMd)
+# Subtest: the REAL listCatalog feeds a non-empty \#\# Available Skills section into the default prompt builder
+ok 383 - the REAL listCatalog feeds a non-empty \#\# Available Skills section into the default prompt builder
+# Subtest: worker resolves+executes browser_task.execute through the REAL registry + real BrowserTaskPort (fake executor.execute)
+ok 384 - worker resolves+executes browser_task.execute through the REAL registry + real BrowserTaskPort (fake executor.execute)
+# Subtest: a browser task's step ledger reaches the tool call's progress channel through the real handler + port
+ok 385 - a browser task's step ledger reaches the tool call's progress channel through the real handler + port
+# Subtest: worker resolves+executes task.create through the REAL registry + real TaskPort (fake WorkerHostBridge.hostStartTask)
+ok 386 - worker resolves+executes task.create through the REAL registry + real TaskPort (fake WorkerHostBridge.hostStartTask)
+# Subtest: worker resolves+executes skill.run_script through the REAL registry + real SkillsPort.runScript (fake WorkerHostBridge.hostRunSkillScript)
+ok 387 - worker resolves+executes skill.run_script through the REAL registry + real SkillsPort.runScript (fake WorkerHostBridge.hostRunSkillScript)
+# Subtest: skill.run_script gated OFF (omitted from allowedCapabilities) is unreachable — never touches hostRunSkillScript
+ok 388 - skill.run_script gated OFF (omitted from allowedCapabilities) is unreachable — never touches hostRunSkillScript
+# Subtest: worker runs time.now through the real registry with a scripted llm + only stubbed non-minimal ports
+ok 389 - worker runs time.now through the real registry with a scripted llm + only stubbed non-minimal ports
+# Subtest: buildMinimalWorkerCtx defaults allowedCapabilities to {time.now} and leaves the trace to the caller
+ok 390 - buildMinimalWorkerCtx defaults allowedCapabilities to {time.now} and leaves the trace to the caller
+# Subtest: a capability NOT in allowedCapabilities is gated (loop returns tool error, no stub hit)
+ok 391 - a capability NOT in allowedCapabilities is gated (loop returns tool error, no stub hit)
+# Subtest: runScheduledTaskRegistration stores user original message in input_payload
+ok 392 - runScheduledTaskRegistration stores user original message in input_payload
+# Subtest: runScheduledTaskRegistration omits input_payload when no user message is provided
+ok 393 - runScheduledTaskRegistration omits input_payload when no user message is provided
+# Subtest: runScheduledTaskRegistration omits input_payload when user message is whitespace
+ok 394 - runScheduledTaskRegistration omits input_payload when user message is whitespace
+# Subtest: runScheduledTaskRegistration records the conversation and origin on the task
+ok 395 - runScheduledTaskRegistration records the conversation and origin on the task
+# Subtest: runScheduledTaskList keeps one conversation's schedules, with each task's mute and latest status
+ok 396 - runScheduledTaskList keeps one conversation's schedules, with each task's mute and latest status
+# Subtest: a list of every schedule, made for a conversation, marks that conversation's tasks and puts them first
+ok 397 - a list of every schedule, made for a conversation, marks that conversation's tasks and puts them first
+# Subtest: a deleted (archived) task's schedules are not listed
+ok 398 - a deleted (archived) task's schedules are not listed
+# Subtest: runScheduledTaskList without a conversation lists every schedule
+ok 399 - runScheduledTaskList without a conversation lists every schedule
+# Subtest: runScheduledTaskUpdate replaces the schedule and answers the updated item
+ok 400 - runScheduledTaskUpdate replaces the schedule and answers the updated item
+# Subtest: runScheduledTaskRegistration gives the task its report policy and stop condition, and the schedule its end
+ok 401 - runScheduledTaskRegistration gives the task its report policy and stop condition, and the schedule its end
+# Subtest: runScheduledTaskRegistration asks the service to check the schedule before creating anything
+ok 402 - runScheduledTaskRegistration asks the service to check the schedule before creating anything
+# Subtest: runScheduledTaskList shows what each task does, how it reports, when it stops and when its schedule ends
+ok 403 - runScheduledTaskList shows what each task does, how it reports, when it stops and when its schedule ends
+# Subtest: runScheduledTaskUpdate can change only the end
+ok 404 - runScheduledTaskUpdate can change only the end
+# Subtest: the tool's JSON Schema goes through UNCHANGED
+ok 405 - the tool's JSON Schema goes through UNCHANGED
+# Subtest: the handler's string is the canonical value and the rendered text
+ok 406 - the handler's string is the canonical value and the rendered text
+# Subtest: a capability failure THROWS instead of returning as success
+ok 407 - a capability failure THROWS instead of returning as success
+# Subtest: a capability's own failure text reaches the model verbatim
+ok 408 - a capability's own failure text reaches the model verbatim
+# Subtest: a failure the bridge did not author keeps the harness's wording
+ok 409 - a failure the bridge did not author keeps the harness's wording
+# Subtest: a successful call is passed through untouched
+ok 410 - a successful call is passed through untouched
+# Subtest: the loop's abort reaches the capability, but its reason object does not
+ok 411 - the loop's abort reaches the capability, but its reason object does not
+# Subtest: time answers with the payload shape the wire already carries
+ok 412 - time answers with the payload shape the wire already carries
+# Subtest: the time payload is a pure function of the instant it is given
+ok 413 - the time payload is a pure function of the instant it is given
+# Subtest: the row's dependencies reach the capability
+ok 414 - the row's dependencies reach the capability
+# Subtest: a produced image reaches the attachment store and becomes deferred context
+ok 415 - a produced image reaches the attachment store and becomes deferred context
+# Subtest: an image the store REFUSES is dropped; the text result survives
+ok 416 - an image the store REFUSES is dropped; the text result survives
+# Subtest: no attachment store at all still fails loudly
+ok 417 - no attachment store at all still fails loudly
+# Subtest: delivery failure and saved artifacts travel together in the execution report even when the capability throws
+ok 418 - delivery failure and saved artifacts travel together in the execution report even when the capability throws
+# Subtest: every action of the table has a capability, a schema, a handler and a place on its tool
+ok 419 - every action of the table has a capability, a schema, a handler and a place on its tool
+# Subtest: only the read-only actions are on a task run's surface
+ok 420 - only the read-only actions are on a task run's surface
+# Subtest: an action's schema takes what the browser takes and refuses the rest
+ok 421 - an action's schema takes what the browser takes and refuses the rest
+# Subtest: a handler sends the action's operation and the run's identity, and reports what came back
+ok 422 - a handler sends the action's operation and the run's identity, and reports what came back
+# Subtest: the run's window goes with the call, so a write lands in the Space the user is in
+ok 423 - the run's window goes with the call, so a write lands in the Space the user is in
+# Subtest: how far the run may reach goes with the call too
+ok 424 - how far the run may reach goes with the call too
+# Subtest: a refusal comes back as the tool error, with its code and whether it is worth retrying
+ok 425 - a refusal comes back as the tool error, with its code and whether it is worth retrying
+# Subtest: the port calls the service method the operation names, and passes the run as its context
+ok 426 - the port calls the service method the operation names, and passes the run as its context
+# Subtest: the port turns the service's error into a code the model can act on, and says so when there is no browser
+ok 427 - the port turns the service's error into a code the model can act on, and says so when there is no browser
+# Subtest: the fifteen tools are the ones of the tables, each with its actions
+ok 428 - the fifteen tools are the ones of the tables, each with its actions
+# Subtest: a screenshot is saved and the model is told what was saved, not the bytes
+ok 429 - a screenshot is saved and the model is told what was saved, not the bytes
+# Subtest: a page export the store refuses is a tool error, not a silent success
+ok 430 - a page export the store refuses is a tool error, not a silent success
+# Subtest: everything else still comes back as its own JSON
+ok 431 - everything else still comes back as its own JSON
+# Subtest: a page export's own byte budget reaches the store
+ok 432 - a page export's own byte budget reaches the store
+# Subtest: a whole-page accessibility tree is refused with the way to ask for less
+ok 433 - a whole-page accessibility tree is refused with the way to ask for less
+# Subtest: a tree that fits comes back whole
+ok 434 - a tree that fits comes back whole
+# Subtest: a bookmark tree is not bounded: there is no way to ask for less
+ok 435 - a bookmark tree is not bounded: there is no way to ask for less
+# Subtest: a task run's calls default to the Space its task was created in
+ok 436 - a task run's calls default to the Space its task was created in
+# Subtest: a deferred Phi Chat run hands the service a way to ask for its Space
+ok 437 - a deferred Phi Chat run hands the service a way to ask for its Space
+# Subtest: runCaller takes the run's resolved bearer, then its connection's, and its owner
+ok 438 - runCaller takes the run's resolved bearer, then its connection's, and its owner
+# Subtest: image_generation calls the model with the run's bearer
+ok 439 - image_generation calls the model with the run's bearer
+# Subtest: websearch calls the model with the run's bearer
+ok 440 - websearch calls the model with the run's bearer
+# Subtest: video_gist calls the model with the run's bearer
+ok 441 - video_gist calls the model with the run's bearer
+# Subtest: websearch records its model call under the tool span, even when it fails
+ok 442 - websearch records its model call under the tool span, even when it fails
+# Subtest: image_generation works with no static key: generated on the run's bearer, stored for the run's owner
+ok 443 - image_generation works with no static key: generated on the run's bearer, stored for the run's owner
+# Subtest: video_gist reads a bilibili audio track back for the run's owner, through the port's file store
+ok 444 - video_gist reads a bilibili audio track back for the run's owner, through the port's file store
+# Subtest: video_gist refuses rather than run without the port bundle
+ok 445 - video_gist refuses rather than run without the port bundle
+# Subtest: CAPABILITY_IDS has exactly the canonical 41 entries
+ok 446 - CAPABILITY_IDS has exactly the canonical 41 entries
+# Subtest: CAPABILITY_IDS matches the canonical phi-agent/agents/tools/ids.ts set (keys + values)
+ok 447 - CAPABILITY_IDS matches the canonical phi-agent/agents/tools/ids.ts set (keys + values)
+# Subtest: the local CapabilityId union equals the canonical value set
+ok 448 - the local CapabilityId union equals the canonical value set
+# Subtest: TOOL_IDS matches the canonical @phi-ai/shared-types PHI_AGENT_TOOL_IDS set
+ok 449 - TOOL_IDS matches the canonical @phi-ai/shared-types PHI_AGENT_TOOL_IDS set
+# Subtest: CapabilityId / ToolId are assignable from canonical members
+ok 450 - CapabilityId / ToolId are assignable from canonical members
+# Subtest: the card is a medium-risk confirm with a note prefilled, in English and as catalog keys
+ok 451 - the card is a medium-risk confirm with a note prefilled, in English and as catalog keys
+# Subtest: without a suggestion the note starts empty
+ok 452 - without a suggestion the note starts empty
+# Subtest: the Sidecar's English catalog is this card's catalog, key for key
+ok 453 - the Sidecar's English catalog is this card's catalog, key for key
+# Subtest: a model call is recorded with its prompt, text, tool calls and usage, and the chunks pass through
+ok 454 - a model call is recorded with its prompt, text, tool calls and usage, and the chunks pass through
+# Subtest: a failed call is recorded with the failure as its response
+ok 455 - a failed call is recorded with the failure as its response
+# Subtest: a stream that throws still reports its call, then rethrows
+ok 456 - a stream that throws still reports its call, then rethrows
+# Subtest: long messages are clipped
+ok 457 - long messages are clipped
+# Subtest: a run stopped at a ceiling is an error naming that ceiling, not a success
+ok 458 - a run stopped at a ceiling is an error naming that ceiling, not a success
+# Subtest: a wrap-up is still the ceiling, carrying the model's report as its summary
+ok 459 - a wrap-up is still the ceiling, carrying the model's report as its summary
+# Subtest: a wrap-up that wrote nothing is the bare ceiling
+ok 460 - a wrap-up that wrote nothing is the bare ceiling
+# Subtest: another run's wrap-up is not this run's
+ok 461 - another run's wrap-up is not this run's
+# Subtest: the tool budget keeps its own name
+ok 462 - the tool budget keeps its own name
+# Subtest: the deadline keeps the retryable shape phi's own halt gives it
+ok 463 - the deadline keeps the retryable shape phi's own halt gives it
+# Subtest: another run's refusal is not this run's
+ok 464 - another run's refusal is not this run's
+# Subtest: a ceiling keeps the artifacts and the tool output the run already produced
+ok 465 - a ceiling keeps the artifacts and the tool output the run already produced
+# Subtest: a turn cut off at the output cap is an error, keeping what the run produced
+ok 466 - a turn cut off at the output cap is an error, keeping what the run produced
+# Subtest: a model failure after a successful tool keeps that tool's output
+ok 467 - a model failure after a successful tool keeps that tool's output
+# Subtest: a browser task's step ledger rides the run's progress under its tool call
+ok 468 - a browser task's step ledger rides the run's progress under its tool call
+# Subtest: the memory agent's own tool calls ride the run's progress under its memory_agent call
+ok 469 - the memory agent's own tool calls ride the run's progress under its memory_agent call
+# Subtest: a run that asks for its model calls gets one llm_call per call of its own session
+ok 470 - a run that asks for its model calls gets one llm_call per call of its own session
+# Subtest: a run that does not ask for its model calls gets none
+ok 471 - a run that does not ask for its model calls gets none
+# Subtest: saved artifacts reach their original host before finish, with late callbacks fenced
+ok 472 - saved artifacts reach their original host before finish, with late callbacks fenced
+# Subtest: saved artifacts reach their original host before abort, with late callbacks fenced
+ok 473 - saved artifacts reach their original host before abort, with late callbacks fenced
+# Subtest: saved artifacts reach their original host before deadline, with late callbacks fenced
+ok 474 - saved artifacts reach their original host before deadline, with late callbacks fenced
+# Subtest: a marker starting a line ends the run on a question
+ok 475 - a marker starting a line ends the run on a question
+# Subtest: a marker written straight after the last sentence counts too
+ok 476 - a marker written straight after the last sentence counts too
+# Subtest: a marker in the middle of the text is prose, and a bare marker asks nothing
+ok 477 - a marker in the middle of the text is prose, and a bare marker asks nothing
+# Subtest: files the run's pause clock under the agent id, and drops it after
+ok 478 - files the run's pause clock under the agent id, and drops it after
+# Subtest: binds the child of the prepared parent, and nothing else
+ok 479 - binds the child of the prepared parent, and nothing else
+# Subtest: a second run on the same parent waits until the first one's child exists
+ok 480 - a second run on the same parent waits until the first one's child exists
+# Subtest: releasing a run whose child never came frees the parent
+ok 481 - releasing a run whose child never came frees the parent
+# Subtest: release unbinds, stops observing and aborts the start signal - once
+ok 482 - release unbinds, stops observing and aborts the start signal - once
+# Subtest: finish before the child exists says so
+ok 483 - finish before the child exists says so
+# Subtest: the prompt is the run's briefing
+ok 484 - the prompt is the run's briefing
+# Subtest: a caller that aborted before the child exists gets it cancelled as a user stop
+ok 485 - a caller that aborted before the child exists gets it cancelled as a user stop
+# Subtest: a run its skills settle is returned without a claim, and leaves its parent free
+ok 486 - a run its skills settle is returned without a claim, and leaves its parent free
+# Subtest: binds the child with the run's resolved context and skills, not the caller's
+ok 487 - binds the child with the run's resolved context and skills, not the caller's
+# Subtest: opens worker.run under the caller's span, and binds the run to it
+ok 488 - opens worker.run under the caller's span, and binds the run to it
+# Subtest: eli5-current-page: the run may read and run its hidden page-extraction helper, and only that run
+ok 489 - eli5-current-page: the run may read and run its hidden page-extraction helper, and only that run
+# Subtest: fact-check-current-page: the run may read and run its hidden page-extraction helper, and only that run
+ok 490 - fact-check-current-page: the run may read and run its hidden page-extraction helper, and only that run
+# Subtest: extract-action-items-current-page: the run may read and run its hidden page-extraction helper, and only that run
+ok 491 - extract-action-items-current-page: the run may read and run its hidden page-extraction helper, and only that run
+# Subtest: a dependency that cannot be resolved settles the run with a stable error
+ok 492 - a dependency that cannot be resolved settles the run with a stable error
+# Subtest: a run with no active skills is not expanded, and a selected skill that does not resolve is traced as unavailable
+ok 493 - a run with no active skills is not expanded, and a selected skill that does not resolve is traced as unavailable
+# Subtest: without a skills port the run keeps its context and carries no skills
+ok 494 - without a skills port the run keeps its context and carries no skills
+# Subtest: watch-page is listed for a conversation's run, installed by default, and never for a background task run
+ok 495 - watch-page is listed for a conversation's run, installed by default, and never for a background task run
+# Subtest: fetchGreetingContext returns data on {code:0} + 200, with the Bearer + Accept headers and the greeting-context URL
+ok 496 - fetchGreetingContext returns data on {code:0} + 200, with the Bearer + Accept headers and the greeting-context URL
+# Subtest: fetchGreetingContext accepts a connection Authorization bearer without double-prefixing it
+ok 497 - fetchGreetingContext accepts a connection Authorization bearer without double-prefixing it
+# Subtest: fetchGreetingContext strips a trailing slash from accountBaseUrl
+ok 498 - fetchGreetingContext strips a trailing slash from accountBaseUrl
+# Subtest: fetchGreetingContext returns null when code !== 0 (a non-OK envelope is degrade, not throw)
+ok 499 - fetchGreetingContext returns null when code !== 0 (a non-OK envelope is degrade, not throw)
+# Subtest: fetchGreetingContext returns null on a non-ok HTTP response
+ok 500 - fetchGreetingContext returns null on a non-ok HTTP response
+# Subtest: fetchGreetingContext returns null when fetch throws (network / timeout)
+ok 501 - fetchGreetingContext returns null when fetch throws (network / timeout)
+# Subtest: fetchGreetingContext returns null WITHOUT calling fetch when accountBaseUrl is empty (no connectors configured)
+ok 502 - fetchGreetingContext returns null WITHOUT calling fetch when accountBaseUrl is empty (no connectors configured)
+# Subtest: fetchGreetingContext returns null when getAuthToken throws (no auth ⇒ degrade)
+ok 503 - fetchGreetingContext returns null when getAuthToken throws (no auth ⇒ degrade)
+# Subtest: fetchGreetingContext returns null when getAuthToken resolves empty (no token ⇒ degrade)
+ok 504 - fetchGreetingContext returns null when getAuthToken resolves empty (no token ⇒ degrade)
+# Subtest: reads Phi's own version, channel and build, and the Chromium under it
+ok 505 - reads Phi's own version, channel and build, and the Chromium under it
+# Subtest: a browser without agentSpace.app.info keeps the endpoint channel, within the budget
+ok 506 - a browser without agentSpace.app.info keeps the endpoint channel, within the budget
+# Subtest: a refused or malformed app.info reply is ignored
+ok 507 - a refused or malformed app.info reply is ignored
+# Subtest: a development endpoint channel is not reported
+ok 508 - a development endpoint channel is not reported
+# Subtest: no browser rows, or no running browser, is empty and never connects
+ok 509 - no browser rows, or no running browser, is empty and never connects
+# Subtest: a connection that hangs or fails is empty, within the budget
+ok 510 - a connection that hangs or fails is empty, within the budget
+# Subtest: without attachments it submits once, with the bearer and the body as given
+ok 511 - without attachments it submits once, with the bearer and the body as given
+# Subtest: presigns every file, PUTs each with its returned headers, and submits the object keys
+ok 512 - presigns every file, PUTs each with its returned headers, and submits the object keys
+# Subtest: a PUT that keeps failing is retried, re-presigned once, then dropped while the rest is submitted
+ok 513 - a PUT that keeps failing is retried, re-presigned once, then dropped while the rest is submitted
+# Subtest: a 4xx on PUT is not retried on the same URL
+ok 514 - a 4xx on PUT is not retried on the same URL
+# Subtest: a presign that the server refuses as a bad request fails the whole call
+ok 515 - a presign that the server refuses as a bad request fails the whole call
+# Subtest: submit errors map to codes and retryability, keeping the server's message
+ok 516 - submit errors map to codes and retryability, keeping the server's message
+# Subtest: a non-zero envelope code on HTTP 200 is a retryable server error
+ok 517 - a non-zero envelope code on HTTP 200 is a retryable server error
+# Subtest: no token or no base URL is refused before any request
+ok 518 - no token or no base URL is refused before any request
+# Subtest: log lines never carry the signed URL or the token
+ok 519 - log lines never carry the signed URL or the token
+# Subtest: a reply whose body stalls is cut off by the request deadline
+ok 520 - a reply whose body stalls is cut off by the request deadline
+# Subtest: the caller's cancel reaches a reply whose body stalls
+ok 521 - the caller's cancel reaches a reply whose body stalls
+# Subtest: an abort of the caller's signal propagates instead of being retried
+ok 522 - an abort of the caller's signal propagates instead of being retried
+# Subtest: fills every default when the model passed nothing
+ok 523 - fills every default when the model passed nothing
+# Subtest: a field the model set wins over its default
+ok 524 - a field the model set wins over its default
+# Subtest: a blank string counts as left out, and a missing browser version reads unknown
+ok 525 - a blank string counts as left out, and a missing browser version reads unknown
+# Subtest: phi-agent is listed once, not when the model listed it, and never past the cap
+ok 526 - phi-agent is listed once, not when the model listed it, and never past the cap
+# Subtest: handler dispatch: unset overrides keep the five-minute default
+ok 527 - handler dispatch: unset overrides keep the five-minute default
+# Subtest: handler dispatch: browser override below the global default
+ok 528 - handler dispatch: browser override below the global default
+# Subtest: handler dispatch: browser override cannot exceed the global default
+ok 529 - handler dispatch: browser override cannot exceed the global default
+# Subtest: handler dispatch: global override caps the browser budget
+ok 530 - handler dispatch: global override caps the browser budget
+# Subtest: handler dispatch: both overrides allow a longer browser task
+ok 531 - handler dispatch: both overrides allow a longer browser task
+# Subtest: handler dispatch: invalid browser override falls back
+ok 532 - handler dispatch: invalid browser override falls back
+# Subtest: handler dispatch: nonpositive browser override falls back
+ok 533 - handler dispatch: nonpositive browser override falls back
+# Subtest: handler dispatch: invalid global override falls back
+ok 534 - handler dispatch: invalid global override falls back
+# Subtest: handler dispatch: global override retains its one-millisecond floor
+ok 535 - handler dispatch: global override retains its one-millisecond floor
+# Subtest: handler dispatch: other capabilities keep their own descriptor timeout
+ok 536 - handler dispatch: other capabilities keep their own descriptor timeout
+# Subtest: successful explicit screenshot without a usable file is a delivery failure
+ok 537 - successful explicit screenshot without a usable file is a delivery failure
+# Subtest: screenshot browser-error before confirmed production does not acquire a deliveryFailure marker
+ok 538 - screenshot browser-error before confirmed production does not acquire a deliveryFailure marker
+# Subtest: screenshot throw before confirmed production does not acquire a deliveryFailure marker
+ok 539 - screenshot throw before confirmed production does not acquire a deliveryFailure marker
+# Subtest: screenshot missing-handler before confirmed production does not acquire a deliveryFailure marker
+ok 540 - screenshot missing-handler before confirmed production does not acquire a deliveryFailure marker
+# Subtest: screenshot missing-ports before confirmed production does not acquire a deliveryFailure marker
+ok 541 - screenshot missing-ports before confirmed production does not acquire a deliveryFailure marker
+# Subtest: screenshot false-success zero metadata is fenced before the artifact report
+ok 542 - screenshot false-success zero metadata is fenced before the artifact report
+# Subtest: screenshot false-success missing-url metadata is fenced before the artifact report
+ok 543 - screenshot false-success missing-url metadata is fenced before the artifact report
+# Subtest: screenshot false-success not-image metadata is fenced before the artifact report
+ok 544 - screenshot false-success not-image metadata is fenced before the artifact report
+# Subtest: producer deliveryFailure preserves its original code and partial file metadata through the screenshot bridge
+ok 545 - producer deliveryFailure preserves its original code and partial file metadata through the screenshot bridge
+# Subtest: a non-image CDP export never promotes an unrelated producer marker to image delivery failure
+ok 546 - a non-image CDP export never promotes an unrelated producer marker to image delivery failure
+# Subtest: only what the user typed counts: picks and dates are not words
+ok 547 - only what the user typed counts: picks and dates are not words
+# Subtest: an answer comes back as the tool result, with identity set by code
+ok 548 - an answer comes back as the tool result, with identity set by code
+# Subtest: a field shown only for some answers of a list before it reaches the card as written
+ok 549 - a field shown only for some answers of a list before it reaches the card as written
+# Subtest: a date or a time of day is a picker field the model can ask with
+ok 550 - a date or a time of day is a picker field the model can ask with
+# Subtest: skipped, timeout and unavailable each tell the model what to do next
+ok 551 - skipped, timeout and unavailable each tell the model what to do next
+# Subtest: a cancelled question ends the run as aborted
+ok 552 - a cancelled question ends the run as aborted
+# Subtest: the run's clock is paused for exactly the wait
+ok 553 - the run's clock is paused for exactly the wait
+# Subtest: a malformed question is a retryable argument error listing every issue
+ok 554 - a malformed question is a retryable argument error listing every issue
+# Subtest: the fourth question in one run is refused
+ok 555 - the fourth question in one run is refused
+# Subtest: the rules say what ask_user is for, and what it is not
+ok 556 - the rules say what ask_user is for, and what it is not
+# Subtest: a fork is asked with the tool, not left as a question in the reply
+ok 557 - a fork is asked with the tool, not left as a question in the reply
+# Subtest: an open question becomes a one-answer card the user writes in, and waits longer
+ok 558 - an open question becomes a one-answer card the user writes in, and waits longer
+# Subtest: a form question stays a form
+ok 559 - a form question stays a form
+# Subtest: an open question longer than a card holds is refused before anyone sees it
+ok 560 - an open question longer than a card holds is refused before anyone sees it
+# Subtest: forms and open questions share one run's limit, which a setup skill raises to six
+ok 561 - forms and open questions share one run's limit, which a setup skill raises to six
+# Subtest: the rules say an open question is one question in plain words, and a choice is a form
+ok 562 - the rules say an open question is one question in plain words, and a choice is a form
+# Subtest: a typed answer is shown to the run's language before the model sees it
+ok 563 - a typed answer is shown to the run's language before the model sees it
+# Subtest: the tool result waits for the typed answer's language to be read
+ok 564 - the tool result waits for the typed answer's language to be read
+# Subtest: an answer with nothing typed is not shown to the run's language
+ok 565 - an answer with nothing typed is not shown to the run's language
+# Subtest: a failure with nothing committed says nothing was found or changed, and is retryable
+ok 566 - a failure with nothing committed says nothing was found or changed, and is retryable
+# Subtest: a failure after a committed write names the completed operations, denies a rollback, and is not retryable whole
+ok 567 - a failure after a committed write names the completed operations, denies a rollback, and is not retryable whole
+# Subtest: a result lost after the run started is reported as an unknown outcome, with the writes seen as a floor, and is not retryable
+ok 568 - a result lost after the run started is reported as an unknown outcome, with the writes seen as a floor, and is not retryable
+# Subtest: the ask carries the tool call's span, so the agent's own calls hang under it
+ok 569 - the ask carries the tool call's span, so the agent's own calls hang under it
+# Subtest: readEndsAt: a date alone ends at the end of that day, local time
+ok 570 - readEndsAt: a date alone ends at the end of that day, local time
+# Subtest: readEndsAt: a time with an offset is that instant; blank clears; absent is absent
+ok 571 - readEndsAt: a time with an offset is that instant; blank clears; absent is absent
+# Subtest: schedule.list defaults to the schedules of this conversation's tasks
+ok 572 - schedule.list defaults to the schedules of this conversation's tasks
+# Subtest: schedule.list lists every schedule for scope all, for a named task, and outside a conversation
+ok 573 - schedule.list lists every schedule for scope all, for a named task, and outside a conversation
+# Subtest: schedule.update forwards the schedule id and the new schedule
+ok 574 - schedule.update forwards the schedule id and the new schedule
+# Subtest: schedule.update moves the end on its own, or removes it
+ok 575 - schedule.update moves the end on its own, or removes it
+# Subtest: schedule.update refuses an end it cannot read, without calling the port
+ok 576 - schedule.update refuses an end it cannot read, without calling the port
+# Subtest: carries the issuing browser profile into the launched task
+ok 577 - carries the issuing browser profile into the launched task
+# Subtest: omits the profile entirely when the chat run had none
+ok 578 - omits the profile entirely when the chat run had none
+# Subtest: a deferred Space is asked first, and the task gets its Space and profile
+ok 579 - a deferred Space is asked first, and the task gets its Space and profile
+# Subtest: declining the deferred Space creates no task
+ok 580 - declining the deferred Space creates no task
+# Subtest: links the launched task to the conversation and the pages it was ordered from
+ok 581 - links the launched task to the conversation and the pages it was ordered from
+# Subtest: a run outside a conversation launches an unlinked task that still names its creating call
+ok 582 - a run outside a conversation launches an unlinked task that still names its creating call
+# Subtest: a task started in a conversation tells the model its result is reported there
+ok 583 - a task started in a conversation tells the model its result is reported there
+# Subtest: stamps the language the run writes in on the launched task
+ok 584 - stamps the language the run writes in on the launched task
+# Subtest: a run with no language stamps none
+ok 585 - a run with no language stamps none
+# Subtest: a run language outside the closed set stamps nothing; a regional one stamps its language
+ok 586 - a run language outside the closed set stamps nothing; a regional one stamps its language
+# Subtest: task.update writes the new objective and mute, and a description that repeated the objective follows it
+ok 587 - task.update writes the new objective and mute, and a description that repeated the objective follows it
+# Subtest: task.update switches how the task reports and clears its stop condition
+ok 588 - task.update switches how the task reports and clears its stop condition
+# Subtest: task.update leaves a description of its own alone, and says nothing about runs for a title change
+ok 589 - task.update leaves a description of its own alone, and says nothing about runs for a title change
+# Subtest: task.update refuses a blank title and an unknown task without writing, and retries a store failure
+ok 590 - task.update refuses a blank title and an unknown task without writing, and retries a store failure
+# Subtest: task.inspect_run reads the run in progress, with only the tail of its log
+ok 591 - task.inspect_run reads the run in progress, with only the tail of its log
+# Subtest: task.inspect_run reports a failed run's error, refuses another task's run, and says when a task has not run
+ok 592 - task.inspect_run reports a failed run's error, refuses another task's run, and says when a task has not run
+# Subtest: task.run_now queues a run with the chat's authorization and says the result comes back here
+ok 593 - task.run_now queues a run with the chat's authorization and says the result comes back here
+# Subtest: task.run_now for another conversation's task or a muted one points to the Scheduled Tasks page
+ok 594 - task.run_now for another conversation's task or a muted one points to the Scheduled Tasks page
+# Subtest: task.run_now turns the task domain's refusals into answers the model should not retry
+ok 595 - task.run_now turns the task domain's refusals into answers the model should not retry
+# Subtest: task.delete archives the task and says how many schedules stopped
+ok 596 - task.delete archives the task and says how many schedules stopped
+# Subtest: task.delete of a task that is gone, or already deleted, says so without deleting
+ok 597 - task.delete of a task that is gone, or already deleted, says so without deleting
+# Subtest: task.update changes the language the task's runs write in
+ok 598 - task.update changes the language the task's runs write in
+# Subtest: task.update accepts a language alone, and only a language in the set
+ok 599 - task.update accepts a language alone, and only a language in the set
+# Subtest: the Space picked for a Phi Chat delegation is the task's, with no lookup
+ok 600 - the Space picked for a Phi Chat delegation is the task's, with no lookup
+# Subtest: a sidebar's task takes the Space its window shows
+ok 601 - a sidebar's task takes the Space its window shows
+# Subtest: an unresolvable Space leaves the task without one
+ok 602 - an unresolvable Space leaves the task without one
+# Subtest: task.create and schedule.create both record the Space
+ok 603 - task.create and schedule.create both record the Space
+# Subtest: runImageGeneration rejects missing model configuration
+ok 604 - runImageGeneration rejects missing model configuration
+# Subtest: runImageGeneration uses env-backed image_config defaults when tool params are omitted
+ok 605 - runImageGeneration uses env-backed image_config defaults when tool params are omitted
+# Subtest: runImageGeneration keeps its phibrowser URL and request auth when fixed LLM credentials are configured
+ok 606 - runImageGeneration keeps its phibrowser URL and request auth when fixed LLM credentials are configured
+# Subtest: runImageGeneration sends a non-Phi fixed upstream its own key and User-Agent, never the user's bearer or the gateway header
+ok 607 - runImageGeneration sends a non-Phi fixed upstream its own key and User-Agent, never the user's bearer or the gateway header
+# Subtest: runImageGeneration hands the generated bytes to onGeneratedImage, and keeps them out of the result
+ok 608 - runImageGeneration hands the generated bytes to onGeneratedImage, and keeps them out of the result
+# Subtest: runImageGeneration forwards the run's userId to the image upload port
+ok 609 - runImageGeneration forwards the run's userId to the image upload port
+# Subtest: onGeneratedImage fires only after the upload the user's copy depends on
+ok 610 - onGeneratedImage fires only after the upload the user's copy depends on
+# Subtest: partial image saves are reported immediately and never regenerate the batch
+ok 611 - partial image saves are reported immediately and never regenerate the batch
+# Subtest: an upload returning after cancellation is never delivered or followed by another upload
+ok 612 - an upload returning after cancellation is never delivered or followed by another upload
+# Subtest: user delivery rejects incomplete upload metadata without publishing a fake card
+ok 613 - user delivery rejects incomplete upload metadata without publishing a fake card
+# Subtest: a ui upload is stored for its user, and nothing is fetched
+ok 614 - a ui upload is stored for its user, and nothing is fetched
+# Subtest: the requested mime type stands when the store reports none
+ok 615 - the requested mime type stands when the store reports none
+# Subtest: an upload without a user fails, and neither stores nor fetches
+ok 616 - an upload without a user fails, and neither stores nor fetches
+# Subtest: an llm-purpose upload is refused rather than stored where a provider cannot reach
+ok 617 - an llm-purpose upload is refused rather than stored where a provider cannot reach
+# Subtest: storeUserImageIn hands the store the decoded bytes as a file
+ok 618 - storeUserImageIn hands the store the decoded bytes as a file
+# Subtest: stored image metadata survives the in-process upload for user delivery
+ok 619 - stored image metadata survives the in-process upload for user delivery
+# Subtest: monotonicUuidV7 generates lexicographically increasing UUIDv7 values
+ok 620 - monotonicUuidV7 generates lexicographically increasing UUIDv7 values
+# Subtest: monotonicUuidV7 returns valid UUIDv7 values
+ok 621 - monotonicUuidV7 returns valid UUIDv7 values
+# Subtest: monotonicUuidV7 throws when a single millisecond overflows
+ok 622 - monotonicUuidV7 throws when a single millisecond overflows
+# Subtest: an avatar prompt always carries the full-bleed framing
+ok 623 - an avatar prompt always carries the full-bleed framing
+# Subtest: an avatar made outside a run is its own phi-agent.persona-avatar trace: the prompt in, the image out
+ok 624 - an avatar made outside a run is its own phi-agent.persona-avatar trace: the prompt in, the image out
+# Subtest: an avatar made inside a run hangs under the caller's span and opens no trace
+ok 625 - an avatar made inside a run hangs under the caller's span and opens no trace
+# Subtest: getState returns stable default when no persona exists
+ok 626 - getState returns stable default when no persona exists
+# Subtest: setName preserves template and non-name variables
+ok 627 - setName preserves template and non-name variables
+# Subtest: setAvatar preserves template and variables while updating avatar metadata
+ok 628 - setAvatar preserves template and variables while updating avatar metadata
+# Subtest: getState rewrites legacy absolute avatar URLs to relative paths
+ok 629 - getState rewrites legacy absolute avatar URLs to relative paths
+# Subtest: resetState clears custom name and avatar back to defaults
+ok 630 - resetState clears custom name and avatar back to defaults
+# Subtest: skip default avatar serves the optimized historical JPEG asset
+ok 631 - skip default avatar serves the optimized historical JPEG asset
+# Subtest: GET /api/v1/agent-persona/avatar returns resolved avatar metadata
+ok 632 - GET /api/v1/agent-persona/avatar returns resolved avatar metadata
+# Subtest: GET /api/v1/agent-persona/avatar requires authentication
+ok 633 - GET /api/v1/agent-persona/avatar requires authentication
+# Subtest: GET /api/v1/agent-persona returns persona state for authenticated users
+ok 634 - GET /api/v1/agent-persona returns persona state for authenticated users
+# Subtest: PATCH /api/v1/agent-persona reset returns server defaults
+ok 635 - PATCH /api/v1/agent-persona reset returns server defaults
+# Subtest: PATCH /api/v1/agent-persona rejects invalid mixed reset payload
+ok 636 - PATCH /api/v1/agent-persona rejects invalid mixed reset payload
+# Subtest: the browser_task policy carries its tab rules
+ok 637 - the browser_task policy carries its tab rules
+# Subtest: the browser_task policy no longer promises to bring a tab to the front
+ok 638 - the browser_task policy no longer promises to bring a tab to the front
+# Subtest: schedule.create says what an objective and a stop condition are
+ok 639 - schedule.create says what an objective and a stop condition are
+# Subtest: screenshot guidance locates a target before explicit export and never promotes observations
+ok 640 - screenshot guidance locates a target before explicit export and never promotes observations
+# Subtest: a chat run is told the language, every surface it writes, and that it may change
+ok 641 - a chat run is told the language, every surface it writes, and that it may change
+# Subtest: a task run with a language is told it, without the mid-run clause
+ok 642 - a task run with a language is told it, without the mid-run clause
+# Subtest: a task run with no language writes in its objective's language
+ok 643 - a task run with no language writes in its objective's language
+# Subtest: a chat run with no language gets no line
+ok 644 - a chat run with no language gets no line
+# Subtest: categories.ensure returns an existing category without creating one
+ok 645 - categories.ensure returns an existing category without creating one
+# Subtest: categories.ensure creates the category when none exists
+ok 646 - categories.ensure creates the category when none exists
+# Subtest: files.upload decodes base64 and binds the HOST's userId, not the page's
+ok 647 - files.upload decodes base64 and binds the HOST's userId, not the page's
+# Subtest: a store failure comes back as the store's own code, verbatim
+ok 648 - a store failure comes back as the store's own code, verbatim
+# Subtest: chats.import forwards the payload and answers with the new chat id
+ok 649 - chats.import forwards the payload and answers with the new chat id
+# Subtest: a message carrying another run's id is refused before any store call
+ok 650 - a message carrying another run's id is refused before any store call
+# Subtest: a method the manifest did not declare is refused
+ok 651 - a method the manifest did not declare is refused
+# Subtest: an unknown method is refused even when the allowlist names it
+ok 652 - an unknown method is refused even when the allowlist names it
+# Subtest: malformed input answers instead of throwing, so the page promise settles
+ok 653 - malformed input answers instead of throwing, so the page promise settles
+# Subtest: an oversize message is refused before it is parsed
+ok 654 - an oversize message is refused before it is parsed
+# Subtest: read_file rejects inactive skills
+ok 655 - read_file rejects inactive skills
+# Subtest: read_file rejects path outside scripts/references/assets
+ok 656 - read_file rejects path outside scripts/references/assets
+# Subtest: read_file failure detail points the LLM back to SKILL.md
+ok 657 - read_file failure detail points the LLM back to SKILL.md
+# Subtest: run_script failure detail nudges LLM to read SKILL.md
+ok 658 - run_script failure detail nudges LLM to read SKILL.md
+# Subtest: read_file rejects path traversal
+ok 659 - read_file rejects path traversal
+# Subtest: read_file returns scripts/ content
+ok 660 - read_file returns scripts/ content
+# Subtest: read_file returns references/ content
+ok 661 - read_file returns references/ content
+# Subtest: read_file returns SKILL.md from skill root
+ok 662 - read_file returns SKILL.md from skill root
+# Subtest: read_file returns assets/ content
+ok 663 - read_file returns assets/ content
+# Subtest: read_file rejects files larger than the cap
+ok 664 - read_file rejects files larger than the cap
+# Subtest: run_script installs a host RPC binding when the manifest declares hostCalls
+ok 665 - run_script installs a host RPC binding when the manifest declares hostCalls
+# Subtest: run_script installs no binding when the manifest declares no hostCalls
+ok 666 - run_script installs no binding when the manifest declares no hostCalls
+# Subtest: run_script installs no binding for a hostCall the dispatcher does not implement
+ok 667 - run_script installs no binding for a hostCall the dispatcher does not implement
+# Subtest: run_script installs no binding when the host has no storage wired
+ok 668 - run_script installs no binding when the host has no storage wired
+# Subtest: run_script runs the bundle in the page with the verbatim code, tab id and script args
+ok 669 - run_script runs the bundle in the page with the verbatim code, tab id and script args
+# Subtest: run_script withholds the phi-agent credential from a bundle whose manifest declares no CORS origins
+ok 670 - run_script withholds the phi-agent credential from a bundle whose manifest declares no CORS origins
+# Subtest: run_script refuses when manifest has no trustedJs block
+ok 671 - run_script refuses when manifest has no trustedJs block
+# Subtest: run_script enforces the result size cap
+ok 672 - run_script enforces the result size cap
+# Subtest: run_script uses the latch across fetch, transform, and import
+ok 673 - run_script uses the latch across fetch, transform, and import
+# Subtest: run_script starts latch from the first trusted script even when it is not fetch.js
+ok 674 - run_script starts latch from the first trusted script even when it is not fetch.js
+# Subtest: run_script maps the runner's own tool_timeout to timeout
+ok 675 - run_script maps the runner's own tool_timeout to timeout
+# Subtest: run_script maps a CDP evaluation that timed out to timeout
+ok 676 - run_script maps a CDP evaluation that timed out to timeout
+# Subtest: run_script maps an abort to aborted
+ok 677 - run_script maps an abort to aborted
+# Subtest: run_script maps a lowercase abort to aborted
+ok 678 - run_script maps a lowercase abort to aborted
+# Subtest: run_script maps anything else to execution_error
+ok 679 - run_script maps anything else to execution_error
+# Subtest: RunIdLatch returns the latest run id for a key
+ok 680 - RunIdLatch returns the latest run id for a key
+# Subtest: RunIdLatch isolates values by user and skill
+ok 681 - RunIdLatch isolates values by user and skill
+# Subtest: RunIdLatch clear removes a key
+ok 682 - RunIdLatch clear removes a key
+# Subtest: RunIdLatch expires entries after its TTL
+ok 683 - RunIdLatch expires entries after its TTL
+# Subtest: a pause while the operation runs moves the timeout
+ok 684 - a pause while the operation runs moves the timeout
+# Subtest: time paused before the operation started is not credited to it
+ok 685 - time paused before the operation started is not credited to it
+# Subtest: without a pause the timeout fires on time
+ok 686 - without a pause the timeout fires on time
+# Subtest: a task run reaches exactly these capabilities
+ok 687 - a task run reaches exactly these capabilities
+# Subtest: a task run cannot change anything in the browser
+ok 688 - a task run cannot change anything in the browser
+# Subtest: an unattended run cannot mutate the user's account state
+ok 689 - an unattended run cannot mutate the user's account state
+# Subtest: chat keeps everything a task run gives up
+ok 690 - chat keeps everything a task run gives up
+# Subtest: both task-creating tools carry the read-only rules
+ok 691 - both task-creating tools carry the read-only rules
+# Subtest: worker toolkit preserves the attachment cap and rejects values above 100 MiB
+ok 692 - worker toolkit preserves the attachment cap and rejects values above 100 MiB
+# Subtest: worker toolkit preserves the file-stream cap and rejects values above 100 MiB
+ok 693 - worker toolkit preserves the file-stream cap and rejects values above 100 MiB
+# Subtest: the download sinks went with the old transport
+ok 694 - the download sinks went with the old transport
+# Subtest: browser_task timeout resolves from BROWSER_TASK_TIMEOUT_MS
+ok 695 - browser_task timeout resolves from BROWSER_TASK_TIMEOUT_MS
+# Subtest: sentinel_task tool id normalizes to schedule (registry.ts:41-46)
+ok 696 - sentinel_task tool id normalizes to schedule (registry.ts:41-46)
+# Subtest: normalizeToolIdForRegistry passes through a non-aliased tool id
+ok 697 - normalizeToolIdForRegistry passes through a non-aliased tool id
+# Subtest: isToolAllowedByPolicy allows everything when allow-list is undefined
+ok 698 - isToolAllowedByPolicy allows everything when allow-list is undefined
+# Subtest: isToolAllowedByPolicy matches raw name or canonical id
+ok 699 - isToolAllowedByPolicy matches raw name or canonical id
+# Subtest: isToolAllowedByPolicy honors the sentinel_task→schedule alias (registry.ts:57-59)
+ok 700 - isToolAllowedByPolicy honors the sentinel_task→schedule alias (registry.ts:57-59)
+# Subtest: getAllowedToolIdsFromCapabilities collapses capability ids back to top-level tools
+ok 701 - getAllowedToolIdsFromCapabilities collapses capability ids back to top-level tools
+# Subtest: filterCapabilitiesForExecutionContext drops default-only caps in task_run
+ok 702 - filterCapabilitiesForExecutionContext drops default-only caps in task_run
+# Subtest: browser_task.execute survives the task_run filter (phase 6)
+ok 703 - browser_task.execute survives the task_run filter (phase 6)
+# Subtest: onboarding.complete is not a capability any more, and is refused as one
+ok 704 - onboarding.complete is not a capability any more, and is refused as one
+# Subtest: filterCapabilitiesForExecutionContext canonicalizes sentinel_task.create (registry.ts:30-33)
+ok 705 - filterCapabilitiesForExecutionContext canonicalizes sentinel_task.create (registry.ts:30-33)
+# Subtest: CAPABILITY_SCHEMA_DESCRIPTORS exposes the 40 capabilities plus every browser action
+ok 706 - CAPABILITY_SCHEMA_DESCRIPTORS exposes the 40 capabilities plus every browser action
+# Subtest: every schema descriptor exposes a parsable runtimeSchema + schema metadata
+ok 707 - every schema descriptor exposes a parsable runtimeSchema + schema metadata
+# Subtest: scheduledTaskCreateSchema maps the deprecated objective alias to runObjective
+ok 708 - scheduledTaskCreateSchema maps the deprecated objective alias to runObjective
+# Subtest: getCapabilitySchemaDescriptor throws on an unknown capability
+ok 709 - getCapabilitySchemaDescriptor throws on an unknown capability
+# Subtest: resolve rejects deprecated connectors tool id
+ok 710 - resolve rejects deprecated connectors tool id
+# Subtest: resolve rejects schedule but ALLOWS browser_task in task_run context (registry.test.ts:746)
+ok 711 - resolve rejects schedule but ALLOWS browser_task in task_run context (registry.test.ts:746)
+# Subtest: resolve resolves task.list_runs only in task_run context (registry.test.ts:824)
+ok 712 - resolve resolves task.list_runs only in task_run context (registry.test.ts:824)
+# Subtest: resolve maps the deprecated sentinel objective alias to runObjective (registry.test.ts:854)
+ok 713 - resolve maps the deprecated sentinel objective alias to runObjective (registry.test.ts:854)
+# Subtest: resolve normalizes the legacy sentinel_task tool id (registry.test.ts:882)
+ok 714 - resolve normalizes the legacy sentinel_task tool id (registry.test.ts:882)
+# Subtest: resolve disables browser_cdp.send when config flag is 'false' (runtime-descriptors.ts:557)
+ok 715 - resolve disables browser_cdp.send when config flag is 'false' (runtime-descriptors.ts:557)
+# Subtest: resolve rejects a tool id with no descriptor (registry.ts:1296)
+ok 716 - resolve rejects a tool id with no descriptor (registry.ts:1296)
+# Subtest: resolve rejects non-object rawArgs (registry.ts:1303)
+ok 717 - resolve rejects non-object rawArgs (registry.ts:1303)
+# Subtest: resolve normalizes browser_cdp paramsJson into params (registry.ts:1404 + 262)
+ok 718 - resolve normalizes browser_cdp paramsJson into params (registry.ts:1404 + 262)
+# Subtest: a validation error names the field, at the path the model wrote it
+ok 719 - a validation error names the field, at the path the model wrote it
+# Subtest: a single-action tool's error path has no input prefix
+ok 720 - a single-action tool's error path has no input prefix
+# Subtest: input.action repeating the action resolves as that action
+ok 721 - input.action repeating the action resolves as that action
+# Subtest: input.action that disagrees with action is refused, naming both
+ok 722 - input.action that disagrees with action is refused, naming both
+# Subtest: an update with nothing to change is refused, naming what it could change
+ok 723 - an update with nothing to change is refused, naming what it could change
+# Subtest: collapsing a group is a change, even though it is `false` to expand
+ok 724 - collapsing a group is a change, even though it is `false` to expand
+# Subtest: every browser update action needs something to change
+ok 725 - every browser update action needs something to change
+# Subtest: the task and schedule management schemas
+ok 726 - the task and schedule management schemas
+# Subtest: an article comes back for the caller, generated on their bearer with the article prompt
+ok 727 - an article comes back for the caller, generated on their bearer with the article prompt
+# Subtest: the request is refused before any generation: method, user, kill switch, payload
+ok 728 - the request is refused before any generation: method, user, kill switch, payload
+# Subtest: a re-save of the same video is served from the cache, even at another timestamp or playlist position
+ok 729 - a re-save of the same video is served from the cache, even at another timestamp or playlist position
+# Subtest: two racing saves of one video share one generation
+ok 730 - two racing saves of one video share one generation
+# Subtest: a user gets twenty generations an hour; the cache and other users are not counted against them
+ok 731 - a user gets twenty generations an hour; the cache and other users are not counted against them
+# Subtest: the tool's error codes map to the statuses the browser matches on
+ok 732 - the tool's error codes map to the statuses the browser matches on
+# Subtest: a generation that runs out of time is a 504, however the model call ends
+ok 733 - a generation that runs out of time is a 504, however the model call ends
+# Subtest: a failed generation is not cached: the next save tries again
+ok 734 - a failed generation is not cached: the next save tries again
+# Subtest: buildWebSearchRequestBody forces the web_search tool and omits domain filters
+ok 735 - buildWebSearchRequestBody forces the web_search tool and omits domain filters
+# Subtest: buildWebSearchRequestBody normalizes ISO country codes and drops invalid country names
+ok 736 - buildWebSearchRequestBody normalizes ISO country codes and drops invalid country names
+# Subtest: deriveWebSearchReason distinguishes no invocation from searched-without-sources
+ok 737 - deriveWebSearchReason distinguishes no invocation from searched-without-sources
+# Subtest: every registered capability handler is allowed by the host
+ok 738 - every registered capability handler is allowed by the host
+# Subtest: the allow-list contains no capability without a handler
+ok 739 - the allow-list contains no capability without a handler
+# Subtest: a call of a traced run becomes worker.llm under worker.run, raw in and shaped out
+ok 740 - a call of a traced run becomes worker.llm under worker.run, raw in and shaped out
+# Subtest: an incomplete response ends at WARNING, a failure at ERROR
+ok 741 - an incomplete response ends at WARNING, a failure at ERROR
+# Subtest: a call no traced run owns is not reported
+ok 742 - a call no traced run owns is not reported
+# Subtest: phi-ports registry
+ok 743 - phi-ports registry
+# Subtest: the six port rows
+ok 744 - the six port rows
+# Subtest: phi-ports-skills' chat importer
+ok 745 - phi-ports-skills' chat importer
+# Subtest: phi-tools: the registry
+ok 746 - phi-tools: the registry
+# Subtest: the seven tool rows
+ok 747 - the seven tool rows
+# tests 784
+# pass 784
+# fail 0
+# cancelled 0

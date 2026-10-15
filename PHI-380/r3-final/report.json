@@ -1,0 +1,3003 @@
+{
+ "key": "PHI-380",
+ "title": "修复图片生成与截图任务产物未返回对话的问题（反馈 #196）",
+ "work_type": "bugfix",
+ "round": 3,
+ "kind": "final",
+ "verdict": "fail",
+ "pr_allowed": false,
+ "sha": "d423531174f07850748fb9ea714ffb07ee90622d",
+ "branch": "PHI-380-deliver-requested-images",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/582",
+ "generated_at": "2026-10-15T19:49:25.024749+00:00",
+ "summary": "固定与回归r3相同的SHA，从头执行22条主用例及条件项，共27项：20通过、3失败、1阻塞、3不适用。B2-1/B2-2的真实断线与direct/native Plan回归结果详见用例；发现需求内未修复的major B3-2：明确禁止发送文件的视觉分析仍外发整页截图，最终又声称未发送。基线也复现，但FR-5/AC-9明确要求修复，仍计本轮major；三次有效观察与准备门禁限制已附。结论未通过，不放行PR评审。尺寸/多目标接受风险和既有测试失败单列，不冒充全绿。",
+ "environment": {
+  "machine": "macOS 26.6.2 (25G83), dedicated local QA machine",
+  "Canary": "2026.10.15.0207",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "tested_sha": "d423531174f07850748fb9ea714ffb07ee90622d",
+  "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+  "Sidecar": "direct 100.0.0; native 2026.10.16.0309",
+  "transport": "loopback 8788 and native UDS/broker; native HEAD unsupported",
+  "database / account": "Runner phi_agent, stage configuration, one test user, synthetic data only",
+  "Langfuse": "DEV project, queries by synthetic conversation/session, sanitized exports",
+  "restored": "Store Sidecar 1908; 406 file hashes match; no load-extension; packaged agent; test ports free",
+  "limits": "Natural quota/policy rejection not reached; accepted risks and failed attempts are explicit"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md@b20428ed9fa6621d22573130c090b2890debc51d",
+   "url": "https://github.com/phibrowser/phi-ai/blob/b20428ed9fa6621d22573130c090b2890debc51d/PHI-380/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/064475a5c2296b7d9c353640e0b7581f0c15436f/PHI-380/runbook.md"
+  },
+  {
+   "title": "回归r3（本轮未沿用其结果）",
+   "url": "https://argus-phi.github.io/phi-ai-test-reports/PHI-380/r3/"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "生成产物全链路",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2、AC-3、AC-5、AC-13",
+   "precondition": "设计 G1/G4 的生产生成入口回归已包含在被测分支，使用可解码 JPEG/PNG/WebP 合成字节。",
+   "steps": [
+    "依次输入单图、多图、附说明、只要图；保存真实实现输出，沿 worker→宿主→持久化→subscriber→组件核对。多图含同名不同文件；最后追加文字汇总，再恢复历史。"
+   ],
+   "expected": "全部应交付图位于对应回合且各一次，内容/类型一致，文字不覆盖图片；内部模型补图通道失败也不丢已交付用户图。生成接口重试可恢复，但保存失败不暗中整批重新生成。证据：各层真实输出、测试名与断言、T-1 截图。",
+   "status": "pass",
+   "actual": "本轮worker784、bundle215、宿主定向144、Sidecar定向97全部通过，真实生产loop的生成候选/选择、宿主交付、历史与subscriber/渲染断言通过。真机单图/多图/文字及历史另见T-12/13。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "worker-selected.txt",
+     "caption": "worker-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "host-selected.txt",
+     "caption": "host-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-selected.txt",
+     "caption": "sidecar-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-2",
+   "title": "慢任务和格式边界",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-6、AC-13",
+   "precondition": "外部生成依赖可受控返回，既有超时阈值已记录。",
+   "steps": [
+    "首个图片结果实际延迟至少5秒且小于阈值；在返回前检查消息状态，返回后检查真实交付和恢复；遍历支持 MIME、有效尺寸边界及无效/零字节图片输入。"
+   ],
+   "expected": "等待中不宣称已交付，返回后文件可用且不丢失；无效产物明确失败。记录实际延迟，受控格式通过不代替 T-16 的真实服务支持验证。证据：时间戳、消息/文件输出和 T-2 截图。",
+   "status": "pass",
+   "actual": "真实生产loop测试在外部生成HTTP依赖处实际延迟5100ms；完成前未发未保存图。PNG/JPEG/WebP、有效与无效/空字节边界断言通过。实际服务尺寸限制另见T-16。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "worker-selected.txt",
+     "caption": "worker-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-3",
+   "title": "流式顺序、重放和离线持久化",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-7、AC-8、AC-13",
+   "precondition": "G4 的真实 emit/持久化/subscriber 回归可控制传输。",
+   "steps": [
+    "独立执行图先于文字、图晚于文字、完成事件前断线、完成事件后断线、重复产物事件、流式与历史交错；两对话交错完成；同回合重复引用与新回合显式引用同图分别执行。覆盖相对文件引用与等价 loopback 引用、相同路径的不同外站 URL。"
+   ],
+   "expected": "每图在正确对话/回合只挂一次，新回合可再次引用；离线图仍持久化并恢复可读，文本不能替换文件，外站图不被错误合并，临时 blob URL 不是唯一历史依据。证据：事件序列、持久化/渲染列表和 T-3 截图。",
+   "status": "pass",
+   "actual": "顺序/插话分段/历史重放/同图等价引用/离线持久化自动化通过；本轮真实WS两图请求首段RUN_FINISHED即关闭后，历史仍2张1024²图与准确最终回复。基线同一步骤0文件。 编译后100.0.0的真实subscriber/store受控插话分段→历史水合→相对/等价loopback重放实际得到[1,0]，原附件不变；这是受控重放，不冒充真实断线。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "host-selected.txt",
+     "caption": "host-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-selected.txt",
+     "caption": "sidecar-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-ws.json",
+     "caption": "offline-generated-ws.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-final.json",
+     "caption": "offline-generated-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-offline-final.json",
+     "caption": "baseline-offline-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "compiled-replay.json",
+     "caption": "compiled-replay.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-03.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-04.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-05.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-2ccf7b4c-549a-43ba-8d10-76862ad66879.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "2ccf7b4c-549a-43ba-8d10-76862ad66879",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/2ccf7b4c-549a-43ba-8d10-76862ad66879"
+    },
+    {
+     "type": "trace",
+     "path": "trace-9bb72e55-0417-4157-b7a9-353c160f6a00.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "9bb72e55-0417-4157-b7a9-353c160f6a00",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/9bb72e55-0417-4157-b7a9-353c160f6a00"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-4",
+   "title": "失败、空结果、部分交付和读取失败",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-10、AC-13",
+   "precondition": "G5 的外部故障注入入口，交付各层保持真实实现。",
+   "steps": [
+    "分别输入工具错误、ok但空images、全上传失败、多图部分保存、已产图但返回无可用文件信息、404、网络错误、5xx、401/403、损坏图片字节；再重试可恢复故障。另执行生成错误/空images后同run重试完整成功，以及始终没有生成图两个分支。"
+   ],
+   "expected": "无图明确失败且无假卡片；部分图可打开并说明缺失，后续失败不删已有图；404指引重新生成/截图，网络/5xx可重试读取，授权失败提示准确，损坏图片不静默消失；重试完整成功不沿用已恢复的普通生成错误。证据：各子项状态、消息、文件及 T-4 截图。",
+   "status": "pass",
+   "actual": "生产工具/loop/宿主/渲染的失败、空images、全部/部分保存、404/网络/5xx/授权/坏字节与重试断言通过；chat878包含两种Plan continuation事实保留、失败报告和voice/语言/中断。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "worker-selected.txt",
+     "caption": "worker-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "host-selected.txt",
+     "caption": "host-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-selected.txt",
+     "caption": "sidecar-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "chat-engine-selected.txt",
+     "caption": "chat-engine-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-5",
+   "title": "截图失败恢复与已接受风险",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-4、AC-10、AC-13",
+   "precondition": "真实 page.screenshot 与 Page.captureScreenshot 文件sink handler，经真实loop和交付链；只替换浏览器/存储依赖。两个目标用固定A/B内容区分。",
+   "steps": [
+    "两个handler各测浏览器首次失败后同目标完整成功、浏览器始终失败但最终文字称完成、生成图/PDF成功而截图始终失败、产图后上传失败再有成功图、成功但无有效图片、取消/超时。CDP另测调用前参数错误纠正、先用fileStream无stream或错误field后改fileBase64Field/data完整交付。多目标另测 A成功+B失败不恢复、A成功+B失败后仅A再次成功，以及B同目标失败后真正补齐。"
+   ],
+   "expected": "同目标普通调用错误纠正且全部请求已交付可完整成功；始终失败不能靠完成文字、生成图或PDF抵充；产图后保存失败保留后续图并按design报部分结果；无有效图片不造卡片。A/B缺B的两例必须部分失败，只有真正补齐全部请求才能完整成功。",
+   "status": "fail",
+   "actual": "两种截图handler普通错误恢复/参数纠正/终止自动化通过；多目标同一探针当前和实际merge-base均6项2通过4失败，缺B仍ok的现象沿用PHI-422/S-2已接受风险。真实区域得到正确可用图，但早先CDP错误字段仍导致保守部分完成，沿用A-6；没有把接受风险记fixed。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "multi-target.log",
+     "caption": "multi-target.log",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "baseline-multi-target.log",
+     "caption": "baseline-multi-target.log",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "region-final.json",
+     "caption": "region-final.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-5-01.png",
+     "caption": "多目标缺图误报的实际失败；基线相同，沿用接受风险S-2",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-5-02.png",
+     "caption": "多目标缺图误报的实际失败；基线相同，沿用接受风险S-2",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "trace-04e96fa5-ce6b-48dc-b31a-0057f70cea00.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "04e96fa5-ce6b-48dc-b31a-0057f70cea00",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/04e96fa5-ce6b-48dc-b31a-0057f70cea00"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-6",
+   "title": "超时、取消、迟到和新尝试",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-11、AC-13",
+   "precondition": "G6 可控外部依赖、取消信号和时钟；使用现有终止行为。",
+   "steps": [
+    "无已交付图/已有可用图 × 超时/取消四组合；每组随后新run重试，再让旧上传/工具结果迟到。分别覆盖生成回调、page.screenshot及既有文件导出跨deadline但尚未abort/release，以及abort/release后才返回。补无宿主交付入口的有图任务。"
+   ],
+   "expected": "终止原因准确，已有图保留并注明部分结果；跨deadline但未终止的已保存图保留于timeout结果；已终止后的迟到产物不挂载、不进新run、不改成成功。新尝试新结果正确，缺交付入口不能报成功。证据：时钟/信号、文件与消息序列和 T-6 截图。",
+   "status": "pass",
+   "actual": "生成/page/CDP的pending/confirmed、deadline/abort、取消/timeout、迟到回调/新run归属与缺宿主交付入口生产链断言通过；按修订A-11异常不补发pending，confirmed保留。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "worker-selected.txt",
+     "caption": "worker-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "host-selected.txt",
+     "caption": "host-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-7",
+   "title": "内部数据边界与其他文件兼容",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-9、AC-13",
+   "precondition": "G2 包含真实内部观察、页面读取和显式截图/文件导出路径。",
+   "steps": [
+    "内部截图分析、只读页面、分析并导出截图三类任务分别完成并恢复历史；同时验证显式PDF/HTML文件导出。检查worker输出、用户消息、持久化附件、渲染结果，不只看UI是否隐藏。"
+   ],
+   "expected": "观察截图/protobuf不进入用户附件或历史；混合任务只有请求的导出图；明确导出的其他文件仍可使用。证据：脱敏附件清单及 T-7 截图，不提交内部页面原始数据。",
+   "status": "pass",
+   "actual": "生产worker/loop、宿主与Sidecar内部观察图/protobuf不交付、显式截图/其他文件导出断言通过；真机纯分析/只读标题0附件，混合1截图，PDF60092bytes。实际视觉观察另随T-21记录。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "worker-selected.txt",
+     "caption": "worker-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "host-selected.txt",
+     "caption": "host-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-selected.txt",
+     "caption": "sidecar-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-7-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-7-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-8",
+   "title": "单用户归属和旧加载响应",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-7、AC-8、AC-12",
+   "precondition": "同一测试用户的两对话和已有Profile/Space scope夹具，不创建第二用户。",
+   "steps": [
+    "交错请求两对话；切换scope、会话及加载revision，令上一请求迟到；卸载/重试后再返回旧文件读取。用实际routes、持久化和组件检查响应归属。"
+   ],
+   "expected": "图片/引用只进入发起回合；scope按现有契约处理，旧加载不进入当前对话；对象URL可释放且历史仍引用原文件。文件capability行为另由T-10验证。证据：scope矩阵、消息列表和 T-8 截图。",
+   "status": "pass",
+   "actual": "同用户跨conversation/run/profile scope、迟到加载/revision、卸载与重试边界，真实routes/持久化/组件断言通过；未创建第二用户。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "host-selected.txt",
+     "caption": "host-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-selected.txt",
+     "caption": "sidecar-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-8-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-8-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-9",
+   "title": "受影响套件、类型与构建",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-13",
+   "precondition": "被测SHA、依赖完整；真机服务尚未开启或已停止，避免watch重启干扰。",
+   "steps": [
+    "跑W/B/C/S，再跑 pnpm --filter @phi-ai/dsh-plugin-chat test、pnpm --filter @phi-ai/sidecar test、pnpm type-check、pnpm --filter @phi-ai/dsh exec tsc -b --emitDeclarationOnly --force、pnpm --filter @phi-ai/sidecar exec tsc -b --emitDeclarationOnly --force、pnpm --filter @phi-ai/sidecar build；读取被测diff后对变更TS/TSX跑 pnpm exec eslint --no-warn-ignored，对变更文件跑 pnpm exec prettier --check --ignore-unknown。按runbook进行PORT=0有界启动检查并停止自己PID。"
+   ],
+   "expected": "相关检查实际通过，locale完整性通过；基线失败须在基线重跑或提供可核对对照，不能仅引用作者自述。记录退出码/测试数/日志，缺构建输出即未执行；不运行格式自动修复。证据：checks.log、基线对照及 T-9 截图。",
+   "status": "pass",
+   "actual": "本轮全套worker784/784、bundle215/215、chat878/878、Sidecar1397/1397；宿主全套1119项1113通过/1失败/5取消，失败locale及deadline取消在merge-base复现；deadline独立两版各3次均11通过5取消，沿用PHI-415/416。定向宿主144/Sidecar97通过；repo type-check与linked/Sidecar force、lint/Prettier、本地build通过，普通Sidecar build exit0，PORT0实际启动/UDS/Gateway/CDP均ready并已停止；最终恢复证据见cleanup。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "checks.json",
+     "caption": "checks.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "lint-format.json",
+     "caption": "lint-format.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "host-full.log",
+     "caption": "host-full.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "baseline-host-summary.txt",
+     "caption": "baseline-host-summary.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "deadline-attempts.json",
+     "caption": "deadline-attempts.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "types.log",
+     "caption": "types.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "force-types.log",
+     "caption": "force-types.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-force.log",
+     "caption": "sidecar-force.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "build-local.log",
+     "caption": "build-local.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "build-native.log",
+     "caption": "build-native.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "runtime-port0.log",
+     "caption": "runtime-port0.log",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "source-identity.json",
+     "caption": "source-identity.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-source-identity.json",
+     "caption": "baseline-source-identity.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cleanup.json",
+     "caption": "cleanup.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-9-01.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-9-02.png",
+     "caption": "实际测试输出视图（非产品UI证明）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-10",
+   "title": "单用户文件 capability 与真实接口",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-3、AC-5、AC-8、AC-10、AC-12",
+   "precondition": "T-12/T-14的真实已交付合成图片及所属chat/fileId；runbook本次可访问服务地址或broker客户端，唯一用户token在内存中。",
+   "steps": [
+    "认证读取本用户chat/历史，核对回合与原始文件引用；以本用户和不带token分别GET/HEAD有效 /api/v1/files/<UUID>，保存GET字节解码并比较下载文件SHA-256；对确认不存在UUID重复GET/HEAD。分别在native和支持的direct传输执行；刷新后重取历史。对同用户其他Profile/Space按现有scope契约调用，检查归属，不以客户端scope冒充另一身份。"
+   ],
+   "expected": "有效文件两类请求均按既有契约成功；HEAD与GET的Content-Type/Content-Disposition一致且无正文，不要求Content-Length；不存在UUID为404。历史保持原文件身份、无重复、无串回合，scope读取结果符合现有规则。证据：脱敏状态/headers/hash、历史附件摘要和 T-10 截图；不可公开真实capability URL。",
+   "status": "pass",
+   "actual": "Direct真实16项HTTP断言通过：认证/匿名GET/HEAD、有效PNG元数据/正文与缺失UUID404，同用户Default历史200/不存在profile404。普通Sidecar/native broker实际GET两文件200、missing404，bytes/hash与direct一致；native HEAD实际unsupported_method，独立条件项skip，不冒称已通过。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "files-direct.json",
+     "caption": "files-direct.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "files-native.json",
+     "caption": "files-native.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-direct.json",
+     "caption": "downloads-direct.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-10-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-10-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-11",
+   "title": "修复前复现及前后对照",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1、AC-13",
+   "precondition": "",
+   "steps": [
+    "新建对话原文“生成一张彩色鸽子的图片”；再新建对话原文“请给我当前页面一张完整的截图”。各等实际终态并走通用证据步骤，单列工具、文件、消息与UI观测；随后恢复被测SHA并由T-12/T-14同步骤重验。至少一项缺陷回归须有实际RED/GREEN对照；使用Q已有证据仅作参考，不代本轮执行。"
+   ],
+   "expected": "准确记录生成缺图的修复前失败、缺失边界和修复后交付；截图可复现/未复现/受限独立记录。不能复现时不声明AC-1通过。失败样子：只文字、内部有fileId但对话无图，或下载/历史不可用。证据：版本、请求、脱敏链路、T-11全部关键/结束截图。",
+   "status": "pass",
+   "actual": "基线同原文彩色鸽子两次：首次Markdown图片DOM可解码但可视区空框/无结构化文件，第二次最终声称已生成而UI/历史均无图；分支同原文1张1024²，预览/实际下载打开与hash通过。基线截图独立成功1PNG，不声称截图缺图复现。额外首段断线基线0文件，分支2文件，RED/GREEN成立。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "baseline-generation.json",
+     "caption": "baseline-generation.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-generation2.json",
+     "caption": "baseline-generation2.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-screenshot.json",
+     "caption": "baseline-screenshot.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "pigeon.json",
+     "caption": "pigeon.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-offline-final.json",
+     "caption": "baseline-offline-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-final.json",
+     "caption": "offline-generated-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-05.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-06.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-a232f093-b344-4c35-9d38-a739257036e4.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "a232f093-b344-4c35-9d38-a739257036e4",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/a232f093-b344-4c35-9d38-a739257036e4"
+    },
+    {
+     "type": "trace",
+     "path": "trace-1c343b3c-a464-4bc4-b00c-35d30ed6de62.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "1c343b3c-a464-4bc4-b00c-35d30ed6de62",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/1c343b3c-a464-4bc4-b00c-35d30ed6de62"
+    },
+    {
+     "type": "trace",
+     "path": "trace-15e51449-1bcb-4cf4-b6f5-5f4f95c8c5bf.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "15e51449-1bcb-4cf4-b6f5-5f4f95c8c5bf",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/15e51449-1bcb-4cf4-b6f5-5f4f95c8c5bf"
+    },
+    {
+     "type": "trace",
+     "path": "trace-f9fcaaf6-ae3c-479e-9d29-48e08c1273b1.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "f9fcaaf6-ae3c-479e-9d29-48e08c1273b1",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/f9fcaaf6-ae3c-479e-9d29-48e08c1273b1"
+    },
+    {
+     "type": "trace",
+     "path": "trace-c91e12fa-ce5c-4a50-8524-405721dfa61a.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "c91e12fa-ce5c-4a50-8524-405721dfa61a",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/c91e12fa-ce5c-4a50-8524-405721dfa61a"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-12",
+   "title": "彩色鸽子真实生成",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-2",
+   "precondition": "",
+   "steps": [
+    "发送“生成一张彩色鸽子的图片”，等可用图与终态，再预览、下载、Preview打开并比较hash。"
+   ],
+   "expected": "本次彩色鸽子图在该回合可见，图片可解码、内容符合请求，文件和显示图一致。失败样子：只称完成、空白图卡、下载别的图或文件无法打开。证据：真实服务/运行/文件对应摘要，T-12请求、图卡、预览、下载打开和结束截图。图像主题可用视觉检查，本用例无人工豁免。",
+   "status": "pass",
+   "actual": "本次彩色鸽子PNG1024²/1778791bytes，可见图卡、真实原生预览、产品下载complete、系统Preview打开实测；下载=DOM=持久化SHA256。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "pigeon.json",
+     "caption": "pigeon.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "pigeon-dom.json",
+     "caption": "pigeon-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-12-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-12-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-12-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-12-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-f9fcaaf6-ae3c-479e-9d29-48e08c1273b1.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "f9fcaaf6-ae3c-479e-9d29-48e08c1273b1",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/f9fcaaf6-ae3c-479e-9d29-48e08c1273b1"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-13",
+   "title": "单图、多图和文字组合",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3",
+   "precondition": "",
+   "steps": [
+    "分别发送“一张红色纸船的图片，并附一句说明”“生成两张独立图片：一张红色纸船，一张蓝色风筝”“只给我一张黄色杯子的图片，不要文字说明”。每项终态后2秒核对图数/内容、预览下载及历史，再发“用一句话总结刚才的结果”。"
+   ],
+   "expected": "成功任务分别1/2/1张，各一次；文字不覆盖图，只要图不依赖最终Markdown链接。部分完成须清楚说明且按部分结果记录。失败样子：两图只出一图仍称全成功、重复/旧图或总结后图消失。证据：每子项工具产物/消息计数与T-13截图。",
+   "status": "pass",
+   "actual": "红纸船附说明1张、独立红船/蓝风筝2张、黄色杯子1张均真实保存；红船总结后原图hash不变，新蓝船进入新回合。生产loop候选选择幂等断言通过；后续Canary历史视图/下载证据归本用例补录。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "red-caption-final.json",
+     "caption": "red-caption-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-final.json",
+     "caption": "offline-generated-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cup-final.json",
+     "caption": "cup-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "red-summary-final.json",
+     "caption": "red-summary-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "multiround-blue.json",
+     "caption": "multiround-blue.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-05.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-06.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-6c9c2b34-d908-4458-9e5a-1bd28320d539.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "6c9c2b34-d908-4458-9e5a-1bd28320d539",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/6c9c2b34-d908-4458-9e5a-1bd28320d539"
+    },
+    {
+     "type": "trace",
+     "path": "trace-25f077a5-bc59-4ff8-ac6f-41531a979293.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "25f077a5-bc59-4ff8-ac6f-41531a979293",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/25f077a5-bc59-4ff8-ac6f-41531a979293"
+    },
+    {
+     "type": "trace",
+     "path": "trace-9bb72e55-0417-4157-b7a9-353c160f6a00.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "9bb72e55-0417-4157-b7a9-353c160f6a00",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/9bb72e55-0417-4157-b7a9-353c160f6a00"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-14",
+   "title": "用户要求截图的真实交付",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-4",
+   "precondition": "",
+   "steps": [
+    "独立请求“请把当前页面的可见区域截图发给我”“请把当前页面完整的整页截图发给我”“请打开 http://127.0.0.1:18938/b.html 并把完整页面截图发给我”“请分别给我 Page A 和 Page B 两张独立的完整截图”。每项等终态，核对答案表并走预览下载步骤。区域能力若支持，再发“请只截取页面A中REGION A的320×180矩形，不要整个页面”。"
+   ],
+   "expected": "当前页/指定页、视口/整页和多张均对应请求，独立可用；支持区域时范围准确。标准动作无区域参数不能算区域通过，记能力依据及skipped。失败样子：截图错误标签、缺页尾、观察图当导出、多张缺图却称完成。证据：页面前置、实际动作/范围、图像尺寸/hash、T-14每子项关键/结束截图。",
+   "status": "pass",
+   "actual": "当前整页1422×4800、视口1422×1512、明确浏览器API路径的A/B独立两截图1422×4800/2158×4800均实际交付；区域clip.scale0.5输出320×180，实际内容为REGION A。普通截图skill的指定B首次因自导航触发page changed为0文件，多目标两尝试只A并准确报告B未完成；这些失败尝试独立保留，未冒充API路径成功。区域最终保守部分完成沿用A-6。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "current-full.json",
+     "caption": "current-full.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "viewport.json",
+     "caption": "viewport.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "specified-page-failure.json",
+     "caption": "specified-page-failure.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "multi-screenshot-failure.json",
+     "caption": "multi-screenshot-failure.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "multi-screenshot-attempt2.json",
+     "caption": "multi-screenshot-attempt2.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "multi-screenshot-final.json",
+     "caption": "multi-screenshot-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "multi-screenshot-dom.json",
+     "caption": "multi-screenshot-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "region-final.json",
+     "caption": "region-final.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "region-dom.json",
+     "caption": "region-dom.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "screenshot-tool-inputs.json",
+     "caption": "screenshot-tool-inputs.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-direct.json",
+     "caption": "downloads-direct.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-01.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-02.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-03.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-04.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-05.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-06.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-07.png",
+     "caption": "普通skill路径未产出B；实际失败尝试单列",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-08.png",
+     "caption": "普通skill路径未产出B；实际失败尝试单列",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-09.png",
+     "caption": "普通skill路径未产出B；实际失败尝试单列",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-10.png",
+     "caption": "普通skill路径未产出B；实际失败尝试单列",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-11.png",
+     "caption": "普通skill路径未产出B；实际失败尝试单列",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-12.png",
+     "caption": "普通skill路径未产出B；实际失败尝试单列",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-13.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 5,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-14.png",
+     "caption": "实际图片交付、预览、下载或结束状态",
+     "attempt": 5,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-15.png",
+     "caption": "区域图片正确交付，但前序错误导致保守部分完成（A-6）",
+     "attempt": 6,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-14-16.png",
+     "caption": "区域图片正确交付，但前序错误导致保守部分完成（A-6）",
+     "attempt": 6,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "trace-04e96fa5-ce6b-48dc-b31a-0057f70cea00.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "04e96fa5-ce6b-48dc-b31a-0057f70cea00",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/04e96fa5-ce6b-48dc-b31a-0057f70cea00"
+    },
+    {
+     "type": "trace",
+     "path": "trace-499e95da-9364-4f9f-b833-d908e3bd272d.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "499e95da-9364-4f9f-b833-d908e3bd272d",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/499e95da-9364-4f9f-b833-d908e3bd272d"
+    },
+    {
+     "type": "trace",
+     "path": "trace-df321b0b-eaa6-4f37-b459-aef54db7be00.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "df321b0b-eaa6-4f37-b459-aef54db7be00",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/df321b0b-eaa6-4f37-b459-aef54db7be00"
+    },
+    {
+     "type": "trace",
+     "path": "trace-fe8e71a2-1c19-4379-ae17-eef41afc7ad7.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "fe8e71a2-1c19-4379-ae17-eef41afc7ad7",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/fe8e71a2-1c19-4379-ae17-eef41afc7ad7"
+    },
+    {
+     "type": "trace",
+     "path": "trace-fef2f200-dbbc-4eee-b690-9d146fbb9685.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "fef2f200-dbbc-4eee-b690-9d146fbb9685",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/fef2f200-dbbc-4eee-b690-9d146fbb9685"
+    },
+    {
+     "type": "trace",
+     "path": "trace-d3b7a282-1d1b-4fc8-b74b-e5b63170d1fe.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "d3b7a282-1d1b-4fc8-b74b-e5b63170d1fe",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/d3b7a282-1d1b-4fc8-b74b-e5b63170d1fe"
+    },
+    {
+     "type": "trace",
+     "path": "trace-d5221f68-4f59-4020-a28f-b93b3b57886d.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "d5221f68-4f59-4020-a28f-b93b3b57886d",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/d5221f68-4f59-4020-a28f-b93b3b57886d"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-15",
+   "title": "执行路径与transport矩阵",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-5",
+   "precondition": "",
+   "steps": [
+    "每个支持组合新对话各发“生成一张紫色热气球的图片”和“请把当前页面A完整截图发给我”；多步原文“先阅读页面A的标题，再生成一张以该标题为主题的图片，最后给我页面A的完整截图”。通过实际工具/宿主记录确认走的是该路径，不能只靠请求措辞；检查相对文件引用、图卡、下载和历史。"
+   ],
+   "expected": "每个适用组合生成/截图均正确交付；若模型未走目标路径，换现有受支持入口重跑，仍未走则记未验证，不计通过。不存在组合附依据记skipped。失败样子：仅某transport破图、委派图丢失、多步汇总覆盖。证据：组合清单、真实路径/transport和T-15截图。",
+   "status": "pass",
+   "actual": "Direct原文Plan尝试1执行前Paused（PHI-439），尝试2成功；普通Sidecar0309/native原文Plan1次成功。两传输各1主题图1024²+1整页截图1422×4800，terminal update_plan后的最终回复准确肯定两份已交付，无反向否认、无再次委派。两组合实际下载complete/解码/hash一致；native主题图原生预览及实际系统Preview打开。中间步骤“截图尚未生成”发生在截图执行前，未误记最终否认。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "plan-direct-attempt1.json",
+     "caption": "plan-direct-attempt1.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "plan-direct2-final.json",
+     "caption": "plan-direct2-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "plan-native-final.json",
+     "caption": "plan-native-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "plan-native-dom.json",
+     "caption": "plan-native-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-native.json",
+     "caption": "downloads-native.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-01.png",
+     "caption": "direct原文Plan执行前Paused，属于PHI-439",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-15-02.png",
+     "caption": "direct原文Plan执行前Paused，属于PHI-439",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-15-03.png",
+     "caption": "Plan的实际请求、执行和最终交付",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-04.png",
+     "caption": "Plan的实际请求、执行和最终交付",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-05.png",
+     "caption": "Plan的实际请求、执行和最终交付",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-06.png",
+     "caption": "Plan的实际请求、执行和最终交付",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-07.png",
+     "caption": "Plan的实际请求、执行和最终交付",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-08.png",
+     "caption": "Plan的实际请求、执行和最终交付",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-46feb3f6-041f-43ec-af6c-0dd830f91695.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "46feb3f6-041f-43ec-af6c-0dd830f91695",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/46feb3f6-041f-43ec-af6c-0dd830f91695"
+    },
+    {
+     "type": "trace",
+     "path": "trace-1be6e8a8-6ff5-4117-a2c4-8f17cd319c10.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "1be6e8a8-6ff5-4117-a2c4-8f17cd319c10",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/1be6e8a8-6ff5-4117-a2c4-8f17cd319c10"
+    },
+    {
+     "type": "trace",
+     "path": "trace-8d7301da-0ce2-4bc5-a559-ad56fd29cb37.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "fail",
+     "trace_id": "8d7301da-0ce2-4bc5-a559-ad56fd29cb37",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/8d7301da-0ce2-4bc5-a559-ad56fd29cb37"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-16",
+   "title": "真实支持格式、尺寸边界",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-6",
+   "precondition": "",
+   "steps": [
+    "按产品现有入口分别要求JPEG/PNG/WebP及最小/最大支持尺寸，内容固定“单个橙色方块，白色背景”；截图同样用页A分别执行支持格式。每项记录实际请求与返回MIME、魔数、尺寸、图卡/下载。没有用户入口可选择的参数用实际受支持API请求后在Canary查看本任务消息，不修改实现强行透传。"
+   ],
+   "expected": "支持参数实际生效且文件可打开；服务拒绝或忽略参数如实记录，不把错误尺寸算通过，不新增能力。慢任务精确时序由T-2证明。失败样子：MIME/字节矛盾、最大尺寸图丢失或错误成功。证据：支持依据、实际响应/尺寸和T-16截图。",
+   "status": "fail",
+   "actual": "真实浏览器API PNG/JPEG/WebP三文件分别116299/157816/74690bytes，均1422×4800并可解码。生成无MIME入口；真实工具imageSize=0.5k/4k、aspectRatio1:1均返回可用1024²，未达到请求尺寸。4k沿用PHI-421，0.5k本轮相同merge-base实际工具参数0.5k、保存字节同样1024²，基线历史缺图另行记录；不把枚举当实际支持。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "formats.json",
+     "caption": "formats.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "formats-dom.json",
+     "caption": "formats-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "formats-decoded.json",
+     "caption": "formats-decoded.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "size-min-final.json",
+     "caption": "size-min-final.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "size-max-final.json",
+     "caption": "size-max-final.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "baseline-size-min-decoded.json",
+     "caption": "baseline-size-min-decoded.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-16-01.png",
+     "caption": "支持格式的实际UI、字节与下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-02.png",
+     "caption": "支持格式的实际UI、字节与下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-03.png",
+     "caption": "请求0.5k/4k但实际1024²；基线尺寸限制",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-16-04.png",
+     "caption": "请求0.5k/4k但实际1024²；基线尺寸限制",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-16-05.png",
+     "caption": "请求0.5k/4k但实际1024²；基线尺寸限制",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-16-06.png",
+     "caption": "请求0.5k/4k但实际1024²；基线尺寸限制",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-16-07.png",
+     "caption": "支持格式的实际UI、字节与下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-08.png",
+     "caption": "支持格式的实际UI、字节与下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-09.png",
+     "caption": "支持格式的实际UI、字节与下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-10.png",
+     "caption": "支持格式的实际UI、字节与下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-53036a06-bce4-4c06-bbae-546d3a396aa7.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "53036a06-bce4-4c06-bbae-546d3a396aa7",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/53036a06-bce4-4c06-bbae-546d3a396aa7"
+    },
+    {
+     "type": "trace",
+     "path": "trace-ef9e0dad-28c0-45ee-90c7-ae46d6d0d89e.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "ef9e0dad-28c0-45ee-90c7-ae46d6d0d89e",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/ef9e0dad-28c0-45ee-90c7-ae46d6d0d89e"
+    },
+    {
+     "type": "trace",
+     "path": "trace-1cf768d4-8760-45bb-91ab-57d174ce5b16.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "1cf768d4-8760-45bb-91ab-57d174ce5b16",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/1cf768d4-8760-45bb-91ab-57d174ce5b16"
+    },
+    {
+     "type": "trace",
+     "path": "trace-93745959-06ba-48f8-bac1-b739b398b4fb.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "93745959-06ba-48f8-bac1-b739b398b4fb",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/93745959-06ba-48f8-bac1-b739b398b4fb"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-17",
+   "title": "多轮、多步与两个并发对话",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-3、AC-7",
+   "precondition": "",
+   "steps": [
+    "C1发“生成一张红色纸船的图片”，完成后发“再生成一张蓝色纸船的图片”（有修改能力时另测明确修改入口），再请求页A截图和一句总结；C2同时请求“生成一张绿色风筝的图片”，随后页B截图。交错发送和切换，记录每回合工具文件身份，终态后恢复各对话。"
+   ],
+   "expected": "旧图保留，新图属于新回合，C1/C2内容和文件不串、不丢、不重复，总结不覆盖。失败样子：C2出现C1文件、旧图冒充新图、切换后图消失。证据：两对话脱敏回合/文件映射及T-17关键/结束截图。",
+   "status": "pass",
+   "actual": "同一用户C1依次红船、说明/总结、蓝船、A整页截图，3文件正确分回合，旧红船hash不变；C2绿色风筝与B页截图归属C2，文件与C1不同。C1/C2生成任务交错完成，Canary实际切换/读取。额外过早Stop重试另按T-20失败尝试保留。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "multiround-c1-final.json",
+     "caption": "multiround-c1-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "multiround-c2-final.json",
+     "caption": "multiround-c2-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "multiround-c2-dom.json",
+     "caption": "multiround-c2-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-17-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-17-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-17-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-17-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-e8d0b6c7-0671-41fd-b8e6-b3aa7d5c5800.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "e8d0b6c7-0671-41fd-b8e6-b3aa7d5c5800",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/e8d0b6c7-0671-41fd-b8e6-b3aa7d5c5800"
+    },
+    {
+     "type": "trace",
+     "path": "trace-25f077a5-bc59-4ff8-ac6f-41531a979293.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "25f077a5-bc59-4ff8-ac6f-41531a979293",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/25f077a5-bc59-4ff8-ac6f-41531a979293"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-18",
+   "title": "生成图与截图各自恢复",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-8",
+   "precondition": "",
+   "steps": [
+    "两种图各独立进行连接断开并恢复、刷新、切另一会话再返回、正常退出重启Canary读历史。连接中断优先由测试客户端主动关闭实际WS或对Sidecar目标设置网络离线，持续3秒后恢复，核对请求失败/连接关闭事件；若native/broker不受目标离线控制，按runbook通过Runner暂时停止再启动本次源码组件，确认连接确实中断，不改全机网络。每次恢复后图数/自然尺寸/下载hash重核。"
+   ],
+   "expected": "真实断线重连及其余每种恢复后均原图原回合且各一次、可打开；暂时加载可区分失败。精确完成前后断线和重放由T-3补足。失败样子：只当前进程blob可用、重启后404/丢图、重连重复。证据：断开/恢复事件、每状态图卡和T-18关键/结束截图。",
+   "status": "pass",
+   "actual": "生成两图与截图各自真实在首段RUN_FINISHED关闭实际WS，后台最终文件/回复持久化。随后刷新、切会话、Canary重启及普通Sidecar0309/native恢复，生成2张1024²及截图1张1422×4800数量/原文件hash不变；direct生成/截图和native长截图原生预览、产品下载/系统打开实际验证。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "offline-generated-ws.json",
+     "caption": "offline-generated-ws.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-final.json",
+     "caption": "offline-generated-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-fault.json",
+     "caption": "offline-screenshot-fault.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-final.json",
+     "caption": "offline-screenshot-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-dom.json",
+     "caption": "offline-screenshot-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-generated-native-restore.json",
+     "caption": "offline-generated-native-restore.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "offline-screenshot-native-restore.json",
+     "caption": "offline-screenshot-native-restore.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "files-native.json",
+     "caption": "files-native.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-direct.json",
+     "caption": "downloads-direct.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-05.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-06.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-07.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-18-08.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-2ccf7b4c-549a-43ba-8d10-76862ad66879.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "2ccf7b4c-549a-43ba-8d10-76862ad66879",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/2ccf7b4c-549a-43ba-8d10-76862ad66879"
+    },
+    {
+     "type": "trace",
+     "path": "trace-9bb72e55-0417-4157-b7a9-353c160f6a00.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "9bb72e55-0417-4157-b7a9-353c160f6a00",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/9bb72e55-0417-4157-b7a9-353c160f6a00"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-19",
+   "title": "真机文件不存在提示与恢复",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-10",
+   "precondition": "",
+   "steps": [
+    "按runbook临时移开该合成文件，刷新原聊天使其重新读取，确认文件接口404后截图；检查UI提示，再恢复文件并刷新/重新进入对话，验证可读。另由T-10验证从未存在UUID；不删除原始用户文件，不伪造最终消息制造假卡片。"
+   ],
+   "expected": "图位保留准确“文件已不可用/重新生成或截图”提示，不静默消失、不承诺重试必恢复404；恢复真实文件后可读。读取重试按钮的网络/5xx分支由T-4覆盖。失败样子：无限loading、破图无说明、继续称文件可用或恢复后仍用旧错误态。证据：404、恢复响应和T-19关键/结束截图。",
+   "status": "pass",
+   "actual": "本轮合成鸽子blob临时移走→真实404→准确不可用/重新生成或截图提示→同文件hash恢复后刷新可读。真实invalid-model生成拒绝但截图成功：0生成图/1截图，最终及刷新历史准确保留模型不存在/无权访问、已交付1与先处理配置权限的指引。另用专用QA files root 0555触发真实mkdir EACCES，最终0图并保留权限拒绝和先处理权限的中文指引，刷新一致；目录已恢复0755。技术JSON/重复错误为既有minor B3-1。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "file-missing.json",
+     "caption": "file-missing.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "pigeon.json",
+     "caption": "pigeon.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "partial-failure-final.json",
+     "caption": "partial-failure-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "partial-failure-dom.json",
+     "caption": "partial-failure-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "eacces-fault-config.json",
+     "caption": "eacces-fault-config.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "save-eacces-final.json",
+     "caption": "save-eacces-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "save-eacces-dom.json",
+     "caption": "save-eacces-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "eacces-screenshot-redactions.json",
+     "caption": "eacces-screenshot-redactions.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-05.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-06.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-07.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-08.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-19-09.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-f9fcaaf6-ae3c-479e-9d29-48e08c1273b1.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "f9fcaaf6-ae3c-479e-9d29-48e08c1273b1",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/f9fcaaf6-ae3c-479e-9d29-48e08c1273b1"
+    },
+    {
+     "type": "trace",
+     "path": "trace-39d1110e-51fb-4437-95e9-7be115ad180f.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "39d1110e-51fb-4437-95e9-7be115ad180f",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/39d1110e-51fb-4437-95e9-7be115ad180f"
+    },
+    {
+     "type": "trace",
+     "path": "trace-8384909d-e355-40db-90e2-e13a70d8678b.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "8384909d-e355-40db-90e2-e13a70d8678b",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/8384909d-e355-40db-90e2-e13a70d8678b"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-20",
+   "title": "自然取消与重试",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-11",
+   "precondition": "",
+   "steps": [
+    "分别发“再生成一张紫色鸽子的图片”和“请再给我页面A完整截图”，出现实际运行/Stop后立即点击Stop，等取消终态；随后同对话发“重新执行刚才取消的请求”。等待新尝试完成，继续观察旧尝试到其既有超时上限或明确结束，核对所有回合。"
+   ],
+   "expected": "取消准确，旧成功图保留，新请求有对应新图；旧迟到结果不进入新回合、不重复、不把取消改成功。无法在进行中取消的快速任务重跑较慢支持路径，未观察到取消则未验证。指定产物阶段的四组合由T-6覆盖。失败样子：取消仍称完整成功、旧图当重试结果或已有图消失。证据：取消前/终态/新尝试与T-20截图。",
+   "status": "pass",
+   "actual": "最初两组Stop发生在路由/委派准备阶段，单独保留且不计进行中worker通过。随后截图和生成各等源码出现taskExecutor INVOKED再Stop，均SETTLED ok=false error=aborted；同对话准确原文“重新执行刚才取消的请求”后，截图/紫色鸽子各真实成功，旧鸽子hash不变，后续历史固定4文件无迟到新增。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "cancel-screenshot-worker.json",
+     "caption": "cancel-screenshot-worker.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cancel-generation-worker.json",
+     "caption": "cancel-generation-worker.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cancel-screenshot-retry-dom.json",
+     "caption": "cancel-screenshot-retry-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cancel-generation-retry-dom.json",
+     "caption": "cancel-generation-retry-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cancel-real-workers-final.json",
+     "caption": "cancel-real-workers-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cancel-no-late-files.json",
+     "caption": "cancel-no-late-files.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "cancel-screenshot-early-attempt.json",
+     "caption": "cancel-screenshot-early-attempt.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-01.png",
+     "caption": "过早Stop尚未进入worker；原文重试指向前一B请求，不作为进行中取消通过",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-02.png",
+     "caption": "过早Stop尚未进入worker；原文重试指向前一B请求，不作为进行中取消通过",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-03.png",
+     "caption": "过早Stop尚未进入worker；原文重试指向前一B请求，不作为进行中取消通过",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-04.png",
+     "caption": "过早Stop尚未进入worker；原文重试指向前一B请求，不作为进行中取消通过",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-05.png",
+     "caption": "委派准备阶段取消；独立保留，不代证实际worker取消",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-06.png",
+     "caption": "委派准备阶段取消；独立保留，不代证实际worker取消",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-07.png",
+     "caption": "委派准备阶段取消；独立保留，不代证实际worker取消",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-20-09.png",
+     "caption": "源码确认worker INVOKED后取消，随后原文重试",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-20-10.png",
+     "caption": "源码确认worker INVOKED后取消，随后原文重试",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-20-11.png",
+     "caption": "源码确认worker INVOKED后取消，随后原文重试",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-20-13.png",
+     "caption": "源码确认worker INVOKED后取消，随后原文重试",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-20-14.png",
+     "caption": "源码确认worker INVOKED后取消，随后原文重试",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-20-15.png",
+     "caption": "源码确认worker INVOKED后取消，随后原文重试",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-f9fcaaf6-ae3c-479e-9d29-48e08c1273b1.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "f9fcaaf6-ae3c-479e-9d29-48e08c1273b1",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/f9fcaaf6-ae3c-479e-9d29-48e08c1273b1"
+    },
+    {
+     "type": "trace",
+     "path": "trace-e8d0b6c7-0671-41fd-b8e6-b3aa7d5c5800.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "e8d0b6c7-0671-41fd-b8e6-b3aa7d5c5800",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/e8d0b6c7-0671-41fd-b8e6-b3aa7d5c5800"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-21",
+   "title": "内部分析、混合请求与显式其他导出",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-9",
+   "precondition": "",
+   "steps": [
+    "分别发“只分析当前页面的布局和颜色，不要发送图片或文件”“读取当前页面标题并告诉我，不要截图或导出文件”“分析当前页面的布局，并给我一张完整页面截图”。确认内部观察/页面读取实际发生；混合任务确认显式导出动作。再用当前产品现有保存PDF入口导出合成页。检查UI、最终消息、历史附件；内部数据完整边界另由T-7证明。"
+   ],
+   "expected": "前两类只有所请求文字、没有观察图/protobuf附件；混合任务只交付显式导出图；PDF仍可下载打开。失败样子：观察截图自动成图卡、protobuf外发、PDF被禁用。证据：脱敏动作和附件清单、T-21关键/结束截图。",
+   "status": "fail",
+   "actual": "纯分析/标题读取0文件，混合1截图、PDF60092bytes。明确要求真实视觉观察且禁止发图片/文件，当前1/1实际显示和持久化1张1422×4800整页截图，并最终声称没有发送图片或文件。基线三次完成视觉观察中1次同样持久化并在刷新后显示截图；另一次控制门禁拒绝不计有效样本。属于FR-5/AC-9明确要求修复的既有缺陷，仍记B3-2 major，不声称本PR新引入。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "analysis-final.json",
+     "caption": "analysis-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "title-final.json",
+     "caption": "title-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "mixed-final.json",
+     "caption": "mixed-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "pdf-final.json",
+     "caption": "pdf-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "visual-analysis-final.json",
+     "caption": "visual-analysis-final.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "visual-analysis-dom.json",
+     "caption": "visual-analysis-dom.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "baseline-visual-1.json",
+     "caption": "baseline-visual-1.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-visual-2.json",
+     "caption": "baseline-visual-2.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "baseline-visual-3.json",
+     "caption": "baseline-visual-3.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "baseline-visual-positive-dom.json",
+     "caption": "baseline-visual-positive-dom.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "baseline-visual-comparison.json",
+     "caption": "baseline-visual-comparison.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "B3-2-delivery-chain.json",
+     "caption": "B3-2-delivery-chain.json",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-01.png",
+     "caption": "内部分析、标题读取或显式混合截图的真实状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-02.png",
+     "caption": "内部分析、标题读取或显式混合截图的真实状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-03.png",
+     "caption": "内部分析、标题读取或显式混合截图的真实状态",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-04.png",
+     "caption": "内部分析、标题读取或显式混合截图的真实状态",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-05.png",
+     "caption": "内部分析、标题读取或显式混合截图的真实状态",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-06.png",
+     "caption": "内部分析、标题读取或显式混合截图的真实状态",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-07.png",
+     "caption": "显式PDF真实交付、产品下载和系统Preview实际打开",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-08.png",
+     "caption": "显式PDF真实交付、产品下载和系统Preview实际打开",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-09.png",
+     "caption": "明确不发送图片/文件，实际出现整页截图，并声称未发送",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-11.png",
+     "caption": "明确不发送图片/文件，实际出现整页截图，并声称未发送",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-12.png",
+     "caption": "显式PDF真实交付、产品下载和系统Preview实际打开",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-13.png",
+     "caption": "显式PDF真实交付、产品下载和系统Preview实际打开",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-14.png",
+     "caption": "系统Preview采集未选中PDF窗口；该图不证明PDF打开",
+     "attempt": 9,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-15.png",
+     "caption": "系统Preview采集未选中PDF窗口；该图不证明PDF打开",
+     "attempt": 9,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-16.png",
+     "caption": "显式PDF真实交付、产品下载和系统Preview实际打开",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-51.png",
+     "caption": "正式顺序基线同原文的请求与结束状态",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-52.png",
+     "caption": "正式顺序基线同原文的请求与结束状态",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-57.png",
+     "caption": "基线同样保存了未请求截图；任务自然ok=true，刷新后图片可见",
+     "attempt": 8,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-58.png",
+     "caption": "基线同样保存了未请求截图；任务自然ok=true，刷新后图片可见",
+     "attempt": 8,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-59.png",
+     "caption": "基线同样保存了未请求截图；任务自然ok=true，刷新后图片可见",
+     "attempt": 8,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-60.png",
+     "caption": "基线同样保存了未请求截图；任务自然ok=true，刷新后图片可见",
+     "attempt": 8,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-90.png",
+     "caption": "准备阶段同原文实际完成视觉观察，0附件；并发限制单列",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-91.png",
+     "caption": "并行准备导致控制器过早推进；未计入正式顺序基线三次",
+     "attempt": 10,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-92.png",
+     "caption": "并行准备导致控制器过早推进；未计入正式顺序基线三次",
+     "attempt": 10,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-21-94.png",
+     "caption": "准备阶段同原文实际完成视觉观察，0附件；并发限制单列",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-21-96.png",
+     "caption": "严格串行基线完整视觉观察，0附件",
+     "attempt": 7,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-b2f8de4a-280a-4a1b-8888-f3d1e91ed4ef.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 5,
+     "outcome": "fail",
+     "trace_id": "b2f8de4a-280a-4a1b-8888-f3d1e91ed4ef",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/b2f8de4a-280a-4a1b-8888-f3d1e91ed4ef"
+    },
+    {
+     "type": "trace",
+     "path": "trace-2adbdcc4-210d-46f8-987f-bd8668bc6fbb.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "2adbdcc4-210d-46f8-987f-bd8668bc6fbb",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/2adbdcc4-210d-46f8-987f-bd8668bc6fbb"
+    },
+    {
+     "type": "trace",
+     "path": "trace-c27681ba-086a-4687-863e-92d01ac74e4c.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "c27681ba-086a-4687-863e-92d01ac74e4c",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/c27681ba-086a-4687-863e-92d01ac74e4c"
+    },
+    {
+     "type": "trace",
+     "path": "trace-770e8433-720b-40da-baa9-bd7d7e446012.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "770e8433-720b-40da-baa9-bd7d7e446012",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/770e8433-720b-40da-baa9-bd7d7e446012"
+    },
+    {
+     "type": "trace",
+     "path": "trace-5e3367a1-3c72-404f-8d5b-a3fb408d6fc9.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 5,
+     "outcome": "fail",
+     "trace_id": "5e3367a1-3c72-404f-8d5b-a3fb408d6fc9",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/5e3367a1-3c72-404f-8d5b-a3fb408d6fc9"
+    },
+    {
+     "type": "trace",
+     "path": "trace-4e251bb1-ff86-4e55-ab13-1e8a4bd5729d.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "4e251bb1-ff86-4e55-ab13-1e8a4bd5729d",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/4e251bb1-ff86-4e55-ab13-1e8a4bd5729d"
+    },
+    {
+     "type": "trace",
+     "path": "trace-5a871c77-dae8-466a-96cf-3f0fdc2c0d7a.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "5a871c77-dae8-466a-96cf-3f0fdc2c0d7a",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/5a871c77-dae8-466a-96cf-3f0fdc2c0d7a"
+    },
+    {
+     "type": "trace",
+     "path": "trace-91145a18-a352-4b2f-bd24-21f2250a56b5.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "91145a18-a352-4b2f-bd24-21f2250a56b5",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/91145a18-a352-4b2f-bd24-21f2250a56b5"
+    }
+   ],
+   "bugs": [
+    "B3-2"
+   ],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-22",
+   "title": "单用户scope与会话切换",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-7、AC-12",
+   "precondition": "",
+   "steps": [
+    "在现有Profile/Space的对话生成合成图，加载中切到同用户另一对话/已有Space，再返回；切换期间发第二任务；按产品既有会话范围规则进入历史，对照T-8/T-10的接口归属。最后在原对话预览下载。无需第二用户、退出登录或账户切换。"
+   ],
+   "expected": "新消息、引用和迟到加载都属于原请求回合；现有可见/隔离规则不变，原图恢复可用，匿名持fileId读取的成功不记为越权。失败样子：旧图闪入当前对话或数据写到错误scope。证据：单用户scope/会话映射与T-22关键/结束截图。",
+   "status": "pass",
+   "actual": "唯一用户/Default profile，在Default发紫色热气球后切到既有QA Space并发绿色风筝。两次均真实生成1张1024²，各自Canary视图/历史/文件/下载hash独立且一致，返回Default仍原气球，未闪入另一对话图片。两个Space同Profile按既有profile scope读取，不制造第二用户或宣称跨账户验证；QA临时打开的窗口已关闭，Space本身未删除。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "scope-default-start.json",
+     "caption": "scope-default-start.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "scope-other-start.json",
+     "caption": "scope-other-start.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "scope-default-final.json",
+     "caption": "scope-default-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "scope-other-final.json",
+     "caption": "scope-other-final.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "scope-default-dom.json",
+     "caption": "scope-default-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "scope-other-dom.json",
+     "caption": "scope-other-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-native.json",
+     "caption": "downloads-native.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-22-01.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-22-02.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-22-03.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-22-04.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-22-05.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-22-06.png",
+     "caption": "本轮真实Canary关键步骤或结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-3e13e98b-b4f8-4f79-8d10-0e528c18c635.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "3e13e98b-b4f8-4f79-8d10-0e528c18c635",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/3e13e98b-b4f8-4f79-8d10-0e528c18c635"
+    },
+    {
+     "type": "trace",
+     "path": "trace-6909425d-621a-4e24-b20c-405daf9a2deb.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "6909425d-621a-4e24-b20c-405daf9a2deb",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/6909425d-621a-4e24-b20c-405daf9a2deb"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-10-H",
+   "title": "native broker HEAD组合",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-12",
+   "precondition": "所属主用例的条件子项",
+   "steps": [
+    "检查当前入口与本轮实际可达条件，按所属主用例验证该组合"
+   ],
+   "expected": "支持且可达时实际验证；否则明确未执行原因",
+   "status": "skipped",
+   "actual": "native broker实际HEAD返回unsupported_method；direct文件接口HEAD已真实通过。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "files-native.json",
+     "caption": "files-native.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "files-direct.json",
+     "caption": "files-direct.json",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "当前Canary原生broker不支持HEAD，只跳过此组合，不把GET代作HEAD。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-15-L",
+   "title": "已退役工具名的独立生产执行路径",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-5",
+   "precondition": "所属主用例的条件子项",
+   "steps": [
+    "检查当前入口与本轮实际可达条件，按所属主用例验证该组合"
+   ],
+   "expected": "支持且可达时实际验证；否则明确未执行原因",
+   "status": "skipped",
+   "actual": "按本轮实际能力清单不恢复退役旧执行入口；native/UDS及静态loopback direct已实测。未声称把Sentinel运行模式强切legacy。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "source-identity.json",
+     "caption": "source-identity.json",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "旧执行入口退役；当前Canary声明UDS，适用的direct/native路径分别记录。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-16-G",
+   "title": "真实生成服务JPEG/WebP输出选择",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-6",
+   "precondition": "所属主用例的条件子项",
+   "steps": [
+    "检查当前入口与本轮实际可达条件，按所属主用例验证该组合"
+   ],
+   "expected": "支持且可达时实际验证；否则明确未执行原因",
+   "status": "skipped",
+   "actual": "生成工具支持aspectRatio/imageSize，没有MIME选择入口；实际服务本轮返回PNG。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "formats-decoded.json",
+     "caption": "formats-decoded.json",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "无产品入口或受支持参数，不能将PNG产物称成JPEG/WebP生成。截图三格式另已实际通过。",
+   "uses_chat": false
+  },
+  {
+   "id": "T-16-S",
+   "title": "截图JPEG/WebP真机格式分支",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-6",
+   "precondition": "所属主用例的条件子项",
+   "steps": [
+    "检查当前入口与本轮实际可达条件，按所属主用例验证该组合"
+   ],
+   "expected": "支持且可达时实际验证；否则明确未执行原因",
+   "status": "pass",
+   "actual": "本轮真实浏览器API已生成、解码并在Canary显示PNG/JPEG/WebP，JPEG/WebP实际下载并在系统Preview选择打开，hash与对应DOM及历史文件一致。",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "formats.json",
+     "caption": "formats.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "formats-dom.json",
+     "caption": "formats-dom.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "formats-decoded.json",
+     "caption": "formats-decoded.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "downloads-all.json",
+     "caption": "downloads-all.json",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-02.png",
+     "caption": "共享本次真实格式矩阵的截图",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-09.png",
+     "caption": "共享本次真实格式矩阵的截图",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-16-10.png",
+     "caption": "共享本次真实格式矩阵的截图",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "trace-1cf768d4-8760-45bb-91ab-57d174ce5b16.json",
+     "caption": "DEV真实trace；用户标识、凭据、无关个人上下文、推理载荷及文件capability已脱敏",
+     "attempt": 1,
+     "outcome": "pass",
+     "trace_id": "1cf768d4-8760-45bb-91ab-57d174ce5b16",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/1cf768d4-8760-45bb-91ab-57d174ce5b16"
+    }
+   ],
+   "bugs": [],
+   "notes": "本轮独立执行；失败尝试、条件项和基线限制分别记录。",
+   "uses_chat": true
+  },
+  {
+   "id": "T-19-Q",
+   "title": "自然配额/内容策略拒绝",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-10",
+   "precondition": "所属主用例的条件子项",
+   "steps": [
+    "检查当前入口与本轮实际可达条件，按所属主用例验证该组合"
+   ],
+   "expected": "支持且可达时实际验证；否则明确未执行原因",
+   "status": "blocked",
+   "actual": "本轮真实服务未自然触发quota exhausted或content policy拒绝；未消耗额度人为造耗尽。429/policy原因与适用指引在T-4真实生产链受控依赖中通过，不能代称自然真机分支已执行。",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "bundle-selected.txt",
+     "caption": "bundle-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "chat-engine-selected.txt",
+     "caption": "chat-engine-selected.txt",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "外部服务的自然拒绝条件本轮不可达；此条件项未通过、不计通过。",
+   "uses_chat": false
+  }
+ ],
+ "bugs": [
+  {
+   "id": "B3-2",
+   "severity": "major",
+   "title": "明确禁止发送图片的视觉分析外发截图，并在最终回复中否认发送",
+   "case_ids": [
+    "T-21"
+   ],
+   "status": "open",
+   "repro": "1. 按runbook检出被测SHA，加载匹配Sidecar并启动stag源码服务。\n2. 打开本机测试站 /a.html，原生Cmd+Shift+S打开sidebar。\n3. 输入：请用浏览器视觉观察当前页面，分析布局与颜色，不要发送任何图片或文件。\n4. 等真实任务结束；核对图卡、GET历史与文件。\n5. 当前1/1出现1422×4800整页截图，最终仍称没有发送图片或文件。触发路径：worker为观察调用browser_page.screenshot，产物进入最终用户消息。模型路径有随机性；基线三次有效观察中也复现1次，因此不声称本PR新引入；FR-5/AC-9明确要求修复，仍为范围内major。准备门禁/模型路径限制见baseline-visual-comparison.json。"
+  },
+  {
+   "id": "B3-1",
+   "severity": "minor",
+   "title": "部分失败事实尾段带出重复错误与技术JSON，影响可读性",
+   "case_ids": [
+    "T-5",
+    "T-14",
+    "T-19"
+   ],
+   "status": "open",
+   "repro": "查看本轮region-final及真实失败报告；事实和文件数正确，但重复错误/准备JSON。沿用回归r3已登记minor。"
+  }
+ ],
+ "known_issues": [
+  {
+   "id": "PHI-415",
+   "title": "Sidecar英文tabInSpace词条与后端目录不一致",
+   "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+   "case_ids": [
+    "T-9"
+   ],
+   "evidence": "baseline-host-failures.log"
+  },
+  {
+   "id": "PHI-416",
+   "title": "Task report deadline无ref句柄时取消后续用例",
+   "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+   "case_ids": [
+    "T-9"
+   ],
+   "evidence": "deadline-attempts.json"
+  },
+  {
+   "id": "PHI-421",
+   "title": "生成尺寸参数未按请求生效（本轮另实测0.5k基线）",
+   "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+   "case_ids": [
+    "T-16"
+   ],
+   "evidence": "baseline-size-min-decoded.json"
+  },
+  {
+   "id": "PHI-422",
+   "title": "缺B截图被A图成功掩盖（S-2已接受风险）",
+   "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+   "case_ids": [
+    "T-5"
+   ],
+   "evidence": "baseline-multi-target.log"
+  },
+  {
+   "id": "PHI-439",
+   "title": "Plan执行前Paused；本轮direct尝试1再现",
+   "baseline_sha": "bf679f4706d99c19106a0ae28cf1c64c2a58d628",
+   "case_ids": [
+    "T-15"
+   ],
+   "evidence": "plan-direct-attempt1.json"
+  }
+ ]
+}

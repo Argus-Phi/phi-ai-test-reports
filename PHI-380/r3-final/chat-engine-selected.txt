@@ -1,0 +1,1742 @@
+# Subtest: fenced artifact splits correctly at chunk size 1
+ok 1 - fenced artifact splits correctly at chunk size 1
+# Subtest: fenced artifact splits correctly at chunk size 3
+ok 2 - fenced artifact splits correctly at chunk size 3
+# Subtest: fenced artifact splits correctly at chunk size 7
+ok 3 - fenced artifact splits correctly at chunk size 7
+# Subtest: fenced artifact splits correctly at chunk size 126
+ok 4 - fenced artifact splits correctly at chunk size 126
+# Subtest: ordinary code fences pass through as visible text untouched
+ok 5 - ordinary code fences pass through as visible text untouched
+# Subtest: backticks mid-line and lone backtick runs stay visible
+ok 6 - backticks mid-line and lone backtick runs stay visible
+# Subtest: bare fence (no meta) gets the default title; malformed meta tolerated
+ok 7 - bare fence (no meta) gets the default title; malformed meta tolerated
+# Subtest: stream ending inside an artifact completes it as truncated
+ok 8 - stream ending inside an artifact completes it as truncated
+# Subtest: close fence at end-of-stream (no trailing newline) completes cleanly
+ok 9 - close fence at end-of-stream (no trailing newline) completes cleanly
+# Subtest: close-fence lookalikes inside the artifact stay in the html
+ok 10 - close-fence lookalikes inside the artifact stay in the html
+# Subtest: size cap truncates html and marks the completion
+ok 11 - size cap truncates html and marks the completion
+# Subtest: two artifacts in one reply get sequential ids and placeholders
+ok 12 - two artifacts in one reply get sequential ids and placeholders
+# Subtest: buildArtifactSrcDoc wraps fragments in the structural shell (no design system)
+ok 13 - buildArtifactSrcDoc wraps fragments in the structural shell (no design system)
+# Subtest: resolveArtifactMedia: resolved slots substitute, unresolved imgs vanish
+ok 14 - resolveArtifactMedia: resolved slots substitute, unresolved imgs vanish
+# Subtest: resolveArtifactCites: cite hrefs resolve positionally; unknown cites unlink but keep the text
+ok 15 - resolveArtifactCites: cite hrefs resolve positionally; unknown cites unlink but keep the text
+# Subtest: ARTIFACT_SHELL_CSS is structural only, shared by both render paths
+ok 16 - ARTIFACT_SHELL_CSS is structural only, shared by both render paths
+# Subtest: buildArtifactSrcDoc shell carries the new-tab link base
+ok 17 - buildArtifactSrcDoc shell carries the new-tab link base
+# Subtest: buildArtifactSrcDoc shell closes img-src to local schemes (meta CSP — no remote declarative fetches)
+ok 18 - buildArtifactSrcDoc shell closes img-src to local schemes (meta CSP — no remote declarative fetches)
+# Subtest: buildArtifactSrcDoc: a legacy FULL document gets the meta CSP injected, not served raw
+ok 19 - buildArtifactSrcDoc: a legacy FULL document gets the meta CSP injected, not served raw
+# Subtest: resolveArtifactMedia: a host-inlined data:image URI substitutes (the closed-CSP delivery form)
+ok 20 - resolveArtifactMedia: a host-inlined data:image URI substitutes (the closed-CSP delivery form)
+# Subtest: guides carry the always-on interactive contract (progressive enhancement)
+ok 21 - guides carry the always-on interactive contract (progressive enhancement)
+# Subtest: guides warn that form submission never fires in the sandbox
+ok 22 - guides warn that form submission never fires in the sandbox
+# Subtest: guides make a revision re-emit the complete corrected card
+ok 23 - guides make a revision re-emit the complete corrected card
+# Subtest: buildArtifactSrcDoc keeps an already-full document unwrapped (legacy tolerance), CSP aside
+ok 24 - buildArtifactSrcDoc keeps an already-full document unwrapped (legacy tolerance), CSP aside
+# Subtest: finalize flushes a dangling partial fence marker as literal text
+ok 25 - finalize flushes a dangling partial fence marker as literal text
+# Subtest: the window keeps the newest 20 spoken turns with their tool results
+ok 26 - the window keeps the newest 20 spoken turns with their tool results
+# Subtest: evicted turns are summarized and the summary leads the next prompt
+ok 27 - evicted turns are summarized and the summary leads the next prompt
+# Subtest: the first turn is folded before the message that would evict it
+ok 28 - the first turn is folded before the message that would evict it
+# Subtest: a conversation inside the window is never compacted
+ok 29 - a conversation inside the window is never compacted
+# Subtest: seeded history reaches the first turn's recall context, in order, ahead of the new message
+ok 30 - seeded history reaches the first turn's recall context, in order, ahead of the new message
+# Subtest: seeding alone emits nothing and persists nothing (pure prime — seed is not replay)
+ok 31 - seeding alone emits nothing and persists nothing (pure prime — seed is not replay)
+# Subtest: absent initialConversation ⇒ recentMessages carries only the new message (unchanged behaviour)
+ok 32 - absent initialConversation ⇒ recentMessages carries only the new message (unchanged behaviour)
+# Subtest: a held answer is a fresh first segment: the hold line is a status, not a transcript turn
+ok 33 - a held answer is a fresh first segment: the hold line is a status, not a transcript turn
+# Subtest: hold rider tells it the attached page IS visible (no paste/screenshot refusal)
+ok 34 - hold rider tells it the attached page IS visible (no paste/screenshot refusal)
+# Subtest: hold lines are code-clamped to one sentence before ungrounded answer text can leak
+ok 35 - hold lines are code-clamped to one sentence before ungrounded answer text can leak
+# Subtest: profileProvider blurb is injected into the answering model's system prompt
+ok 36 - profileProvider blurb is injected into the answering model's system prompt
+# Subtest: no profile section is added when no profileProvider is configured
+ok 37 - no profile section is added when no profileProvider is configured
+# Subtest: agentName is injected as an identity line in the system prompt
+ok 38 - agentName is injected as an identity line in the system prompt
+# Subtest: no identity line is added when no agentName is configured
+ok 39 - no identity line is added when no agentName is configured
+# Subtest: setAgentName updates the identity line on the next turn
+ok 40 - setAgentName updates the identity line on the next turn
+# Subtest: first-burst hit wins -> context_hit emitted before assistant_delta
+ok 41 - first-burst hit wins -> context_hit emitted before assistant_delta
+# Subtest: the decision model reranks the first burst before it enters the reply prompt
+ok 42 - the decision model reranks the first burst before it enters the reply prompt
+# Subtest: episodic memory candidates ship to the scratchpad unfiltered
+ok 43 - episodic memory candidates ship to the scratchpad unfiltered
+# Subtest: a hold line covers the recall wait, then the grounded answer (no premature guess)
+ok 44 - a hold line covers the recall wait, then the grounded answer (no premature guess)
+# Subtest: backbone in hand + only recall pending at the gate -> ANSWER NOW, then a memory beat (no hold)
+ok 45 - backbone in hand + only recall pending at the gate -> ANSWER NOW, then a memory beat (no hold)
+# Subtest: user activity memory questions hold for recall instead of generic browser-history facts
+ok 46 - user activity memory questions hold for recall instead of generic browser-history facts
+# Subtest: entity-recognition turns hold for recall even with objective facts in hand (recall is backbone, not a deferred beat)
+ok 47 - entity-recognition turns hold for recall even with objective facts in hand (recall is backbone, not a deferred beat)
+# Subtest: a slow turn verdict still governs the gate inside its bounded await
+ok 48 - a slow turn verdict still governs the gate inside its bounded await
+# Subtest: recommendation turns wait for recall and use memory as primary selection evidence
+ok 49 - recommendation turns wait for recall and use memory as primary selection evidence
+# Subtest: beats path: when the planner declines to voice the recalled memory, the answer stands alone (no tacked-on memory beat)
+ok 50 - beats path: when the planner declines to voice the recalled memory, the answer stands alone (no tacked-on memory beat)
+# Subtest: tail: the answer never closes with the ask — it streams as a separate FINAL segment
+ok 51 - tail: the answer never closes with the ask — it streams as a separate FINAL segment
+# Subtest: tail rides LAST — after a recall beat, never before it
+ok 52 - tail rides LAST — after a recall beat, never before it
+# Subtest: one solicitation per turn: a later replan round cannot schedule a second offer
+ok 53 - one solicitation per turn: a later replan round cannot schedule a second offer
+# Subtest: legacy personal flag no longer suppresses a closing ask
+ok 54 - legacy personal flag no longer suppresses a closing ask
+# Subtest: first ceiling elapses, then a WAITING line replaces the hold line; recall lands within the hard ceiling -> grounded answer (no timeout narration)
+ok 55 - first ceiling elapses, then a WAITING line replaces the hold line; recall lands within the hard ceiling -> grounded answer (no timeout narration)
+# Subtest: a held answer that STILL times out past the HARD ceiling tells the user the lookup timed out
+ok 56 - a held answer that STILL times out past the HARD ceiling tells the user the lookup timed out
+# Subtest: legacy planner clarify ask is ignored on the normal answer path
+ok 57 - legacy planner clarify ask is ignored on the normal answer path
+# Subtest: replan schedules a follow-up -> second streaming message with kind 'follow_up'
+ok 58 - replan schedules a follow-up -> second streaming message with kind 'follow_up'
+# Subtest: replan done:true ends the turn — a committed offer does not re-plan into a duplicate
+ok 59 - replan done:true ends the turn — a committed offer does not re-plan into a duplicate
+# Subtest: additive replan: recall beat streams first, then the follow-on action
+ok 60 - additive replan: recall beat streams first, then the follow-on action
+# Subtest: follow-up yield window: user message arrives mid-yield -> follow-up cancelled
+ok 61 - follow-up yield window: user message arrives mid-yield -> follow-up cancelled
+# Subtest: respond budget (depth cap): chained follow-ups are forced silent past max depth
+ok 62 - respond budget (depth cap): chained follow-ups are forced silent past max depth
+# Subtest: replan stays silent -> hits stored as future context, no second message
+ok 63 - replan stays silent -> hits stored as future context, no second message
+# Subtest: reflectReplanTrigger:new_context_only skips the empty post-answer replan when no new context arrived
+ok 64 - reflectReplanTrigger:new_context_only skips the empty post-answer replan when no new context arrived
+# Subtest: segmentDirective rides the answer prompt AFTER the per-segment rider
+ok 65 - segmentDirective rides the answer prompt AFTER the per-segment rider
+# Subtest: reflectReplanTrigger:new_context_only still replans when post-answer recall adds new context
+ok 66 - reflectReplanTrigger:new_context_only still replans when post-answer recall adds new context
+# Subtest: reflectReplanTrigger:new_context_only does not replan on first-burst hits the scratchpad cap evicted before the reply
+ok 67 - reflectReplanTrigger:new_context_only does not replan on first-burst hits the scratchpad cap evicted before the reply
+# Subtest: a web verdict hints the answering segment to call web_search; nothing is searched ahead of the reply
+ok 68 - a web verdict hints the answering segment to call web_search; nothing is searched ahead of the reply
+# Subtest: no web hint without a web verdict, or without the web_search tool
+ok 69 - no web hint without a web verdict, or without the web_search tool
+# Subtest: reflect consults the planner WITHOUT an agent_message replenish recall
+ok 70 - reflect consults the planner WITHOUT an agent_message replenish recall
+# Subtest: late context after session close -> planner schedules a correction follow-up
+ok 71 - late context after session close -> planner schedules a correction follow-up
+# Subtest: interrupt: cancels stream and routes to Perceiving
+ok 72 - interrupt: cancels stream and routes to Perceiving
+# Subtest: idle SelfPrompt fires after idleAfterMs
+ok 73 - idle SelfPrompt fires after idleAfterMs
+# Subtest: intent change emits intent_updated and re-fires retrieval
+ok 74 - intent change emits intent_updated and re-fires retrieval
+# Subtest: scratchpad tool turns accumulate across turns (append, not replace)
+ok 75 - scratchpad tool turns accumulate across turns (append, not replace)
+# Subtest: selfModelProvider blurb is injected as a <self> block with inverse framing
+ok 76 - selfModelProvider blurb is injected as a <self> block with inverse framing
+# Subtest: no <self> block is added when no selfModelProvider is configured
+ok 77 - no <self> block is added when no selfModelProvider is configured
+# Subtest: the default base prompt is dropped when a <self> soul leads the head
+ok 78 - the default base prompt is dropped when a <self> soul leads the head
+# Subtest: the default base prompt remains as the fallback when no <self> soul is wired
+ok 79 - the default base prompt remains as the fallback when no <self> soul is wired
+# Subtest: a host-provided base system prompt leads the head even with a soul
+ok 80 - a host-provided base system prompt leads the head even with a soul
+# Subtest: <self> precedes the name line which precedes <user_profile> (no identity confusion)
+ok 81 - <self> precedes the name line which precedes <user_profile> (no identity confusion)
+# Subtest: the <self> head stays byte-identical across the hold line and the answer
+ok 82 - the <self> head stays byte-identical across the hold line and the answer
+# Subtest: knowledge_lookup: the reply consults the KB mid-segment and answers grounded
+ok 83 - knowledge_lookup: the reply consults the KB mid-segment and answers grounded
+# Subtest: knowledge_lookup: an empty result steers to a Help Center dispatch and the model delegates
+ok 84 - knowledge_lookup: an empty result steers to a Help Center dispatch and the model delegates
+# Subtest: knowledge_lookup: a repeated query is refused without re-running the retrieval
+ok 85 - knowledge_lookup: a repeated query is refused without re-running the retrieval
+# Subtest: knowledge_lookup: per-turn call cap refuses further lookups
+ok 86 - knowledge_lookup: per-turn call cap refuses further lookups
+# Subtest: web_search: the reply searches the live web mid-segment and answers from the sources
+ok 87 - web_search: the reply searches the live web mid-segment and answers from the sources
+# Subtest: web_search: each call ends with a trace header row, and a reply without image slots says so
+ok 88 - web_search: each call ends with a trace header row, and a reply without image slots says so
+# Subtest: web_search: a slow bare search is covered by a hold line status the answer clears
+ok 89 - web_search: a slow bare search is covered by a hold line status the answer clears
+# Subtest: web_search: a search that lands first cancels the hold line and never waits on it
+ok 90 - web_search: a search that lands first cancels the hold line and never waits on it
+# Subtest: web_search: a fast bare search never pays the hold beat
+ok 91 - web_search: a fast bare search never pays the hold beat
+# Subtest: web_search: the rich seam returns the search model's answer text with the sources
+ok 92 - web_search: the rich seam returns the search model's answer text with the sources
+# Subtest: web_search: a later search lists only the sources it added, under continuing ids
+ok 93 - web_search: a later search lists only the sources it added, under continuing ids
+# Subtest: transcript: a turn's own tool results never push the user's question out of the prompt
+ok 94 - transcript: a turn's own tool results never push the user's question out of the prompt
+# Subtest: web_search: an unrelated event mid-wait defers — the wait holds and one search lands
+ok 95 - web_search: an unrelated event mid-wait defers — the wait holds and one search lands
+# Subtest: web_search: a repeated query is refused without re-searching
+ok 96 - web_search: a repeated query is refused without re-searching
+# Subtest: web_search: per-turn call cap refuses further searches
+ok 97 - web_search: per-turn call cap refuses further searches
+# Subtest: formatPromptClock renders weekday, local date, minute time, and UTC offset
+ok 98 - formatPromptClock renders weekday, local date, minute time, and UTC offset
+# Subtest: reply prompt carries the volatile Current-time clock line in the tail
+ok 99 - reply prompt carries the volatile Current-time clock line in the tail
+# Subtest: web_search: a failed search un-admits the query so an identical retry runs
+ok 100 - web_search: a failed search un-admits the query so an identical retry runs
+# Subtest: web_search: repeating a clean-empty search gets an honest empty refusal
+ok 101 - web_search: repeating a clean-empty search gets an honest empty refusal
+# Subtest: web_search: not registered without a wired provider
+ok 102 - web_search: not registered without a wired provider
+# Subtest: the KB prefetch fires speculatively at message arrival and its facts lead the answer
+ok 103 - the KB prefetch fires speculatively at message arrival and its facts lead the answer
+# Subtest: legacy planner ask is ignored while landed grounding still reaches the reply
+ok 104 - legacy planner ask is ignored while landed grounding still reaches the reply
+# Subtest: legacy planner ask is ignored even when grounding returns no facts
+ok 105 - legacy planner ask is ignored even when grounding returns no facts
+# Subtest: legacy personal flag does not suppress grounding or switch the rider
+ok 106 - legacy personal flag does not suppress grounding or switch the rider
+# Subtest: with no objective facts in hand the memory-led rider rides the answer
+ok 107 - with no objective facts in hand the memory-led rider rides the answer
+# Subtest: task router OWNS the decision: it flags the task and its matched skill reaches the executor when the model delegates
+ok 108 - task router OWNS the decision: it flags the task and its matched skill reaches the executor when the model delegates
+# Subtest: hand-picked skill: recall, grounding and the router are skipped and the pick reaches the decision segment and the executor
+ok 109 - hand-picked skill: recall, grounding and the router are skipped and the pick reaches the decision segment and the executor
+# Subtest: hand-picked skill: an empty or failing pick is an ordinary routed turn
+ok 110 - hand-picked skill: an empty or failing pick is an ordinary routed turn
+# Subtest: confirm-intent route: the answering segment gets the confirm-intent note, nothing is delegated
+ok 111 - confirm-intent route: the answering segment gets the confirm-intent note, nothing is delegated
+# Subtest: the journey card reaches the answering model, never the router's transcript
+ok 112 - the journey card reaches the answering model, never the router's transcript
+# Subtest: install offer threads: a routed listing becomes the NEXT route's offeredInstallables, even past the trivial pre-filter
+ok 113 - install offer threads: a routed listing becomes the NEXT route's offeredInstallables, even past the trivial pre-filter
+# Subtest: routesTrivialMessages: a router that asks for them is consulted on pleasantries, marked trivial
+ok 114 - routesTrivialMessages: a router that asks for them is consulted on pleasantries, marked trivial
+# Subtest: replyOnly: a route the host settled gets a reply with no tool channel and no web hint
+ok 115 - replyOnly: a route the host settled gets a reply with no tool channel and no web hint
+# Subtest: decision segment delegates: reflect is SKIPPED so late context can't stream a follow-up that contradicts the pending task
+ok 116 - decision segment delegates: reflect is SKIPPED so late context can't stream a follow-up that contradicts the pending task
+# Subtest: task router OWNS the decision: a not-a-task verdict routes to the plain answer path — no decision segment, nothing delegated
+ok 117 - task router OWNS the decision: a not-a-task verdict routes to the plain answer path — no decision segment, nothing delegated
+# Subtest: no task router wired: a fresh turn is answered, but the model can still delegate in-band via control_delegate_task
+ok 118 - no task router wired: a fresh turn is answered, but the model can still delegate in-band via control_delegate_task
+# Subtest: a control-only delegate call (no prose) routes without an empty bubble
+ok 119 - a control-only delegate call (no prose) routes without an empty bubble
+# Subtest: task turn acknowledges, delegates to taskExecutor, then reports the outcome
+ok 120 - task turn acknowledges, delegates to taskExecutor, then reports the outcome
+# Subtest: save-as-skill offer is suppressed when the run was dispatched with a router-matched skill
+ok 121 - save-as-skill offer is suppressed when the run was dispatched with a router-matched skill
+# Subtest: install recommendation: a successful run on a NOT-installed skill offers the install; a failed run stays silent
+ok 122 - install recommendation: a successful run on a NOT-installed skill offers the install; a failed run stays silent
+# Subtest: install pin arms on the SHOWN recommendation only: a failed try-first run leaves no pin for the next bare 'ok'; a successful one threads the offer
+ok 123 - install pin arms on the SHOWN recommendation only: a failed try-first run leaves no pin for the next bare 'ok'; a successful one threads the offer
+# Subtest: delegation hint on a tab-attached turn: tells the model the page is already in context so it can ANSWER instead of delegating
+ok 124 - delegation hint on a tab-attached turn: tells the model the page is already in context so it can ANSWER instead of delegating
+# Subtest: delegation hint forbids invented deliverables and navigating to the page already in hand
+ok 125 - delegation hint forbids invented deliverables and navigating to the page already in hand
+# Subtest: delegation hint without tab context carries no already-in-context note
+ok 126 - delegation hint without tab context carries no already-in-context note
+# Subtest: task turn forwards the frozen live context snapshot to taskExecutor
+ok 127 - task turn forwards the frozen live context snapshot to taskExecutor
+# Subtest: interrupting a failed task report prevents its factual footer from streaming or persisting
+ok 128 - interrupting a failed task report prevents its factual footer from streaming or persisting
+# Subtest: blocking delegation: the run's conversation stops before its own acknowledgment
+ok 129 - blocking delegation: the run's conversation stops before its own acknowledgment
+# Subtest: background delegation: the run's conversation stops before its own acknowledgment
+ok 130 - background delegation: the run's conversation stops before its own acknowledgment
+# Subtest: blocking delegation: the executor is told the language the user writes in
+ok 131 - blocking delegation: the executor is told the language the user writes in
+# Subtest: background delegation: the executor is told the language the user writes in
+ok 132 - background delegation: the executor is told the language the user writes in
+# Subtest: voice-only ack: a control_delegate_task on the acknowledge segment is ignored and the ack is voiced (no double delegation)
+ok 133 - voice-only ack: a control_delegate_task on the acknowledge segment is ignored and the ack is voiced (no double delegation)
+# Subtest: artifact turn: a control_delegate_task is refused and the nudged retry authors the card with the guide in context
+ok 134 - artifact turn: a control_delegate_task is refused and the nudged retry authors the card with the guide in context
+# Subtest: prepare_artifact: the reply loads the design guide mid-segment and authors the card
+ok 135 - prepare_artifact: the reply loads the design guide mid-segment and authors the card
+# Subtest: prepare_artifact: a repeat load the same turn is refused — the guide is a fixed text
+ok 136 - prepare_artifact: a repeat load the same turn is refused — the guide is a fixed text
+# Subtest: prepare_artifact: not advertised without a wired artifacts config
+ok 137 - prepare_artifact: not advertised without a wired artifacts config
+# Subtest: prepare_artifact: not advertised while the router's design-guide note rides the turn
+ok 138 - prepare_artifact: not advertised while the router's design-guide note rides the turn
+# Subtest: a failed task is reported honestly
+ok 139 - a failed task is reported honestly
+# Subtest: CONTENT task: the report presents the worker's FULL deliverable (all sections incl. ES), NOT a one-line status
+ok 140 - CONTENT task: the report presents the worker's FULL deliverable (all sections incl. ES), NOT a one-line status
+# Subtest: ACTION task: the report carries the worker's result text and lets the model choose the shape
+ok 141 - ACTION task: the report carries the worker's result text and lets the model choose the shape
+# Subtest: blockingTaskExecution: AWAITS the executor in-turn — no session_close until it settles, then ack→report→one close in ONE session
+ok 142 - blockingTaskExecution: AWAITS the executor in-turn — no session_close until it settles, then ack→report→one close in ONE session
+# Subtest: injectInterjectionContext: folds a worker-routed interjection into the report's CONTEXT WITHOUT minting a new turn — the in-turn report prompt carries it (so it isn't dropped)
+ok 143 - injectInterjectionContext: folds a worker-routed interjection into the report's CONTEXT WITHOUT minting a new turn — the in-turn report prompt carries it (so it isn't dropped)
+# Subtest: injectInterjectionContext while idle: appends context but does NOT start a turn (no assistant output)
+ok 144 - injectInterjectionContext while idle: appends context but does NOT start a turn (no assistant output)
+# Subtest: blockingTaskExecution=false keeps the DEFAULT background path (detached, report via SIGNAL_TASK_RESULT)
+ok 145 - blockingTaskExecution=false keeps the DEFAULT background path (detached, report via SIGNAL_TASK_RESULT)
+# Subtest: task decision is grounded by the speculative burst; committed delegation clears it — ack/report never see its facts
+ok 146 - task decision is grounded by the speculative burst; committed delegation clears it — ack/report never see its facts
+# Subtest: task decision on an activity-verdict turn keeps the recall burst: an inline ANSWER stands on the user's recalled record
+ok 147 - task decision on an activity-verdict turn keeps the recall burst: an inline ANSWER stands on the user's recalled record
+# Subtest: ACTION task does NOT lead with a brief answer (no self-contradiction) — decision then ack then report
+ok 148 - ACTION task does NOT lead with a brief answer (no self-contradiction) — decision then ack then report
+# Subtest: the acknowledgment asks for its first message only; the decision and the report do not
+ok 149 - the acknowledgment asks for its first message only; the decision and the report do not
+# Subtest: task flag is ignored when no taskExecutor is wired (falls back to answering)
+ok 150 - task flag is ignored when no taskExecutor is wired (falls back to answering)
+# Subtest: a delegated task still running surfaces in the NEXT turn's pending-context block
+ok 151 - a delegated task still running surfaces in the NEXT turn's pending-context block
+# Subtest: live context injects into the cacheable system head, not a per-turn tool turn
+ok 152 - live context injects into the cacheable system head, not a per-turn tool turn
+# Subtest: live context is captured once per conversation and reused in every later turn
+ok 153 - live context is captured once per conversation and reused in every later turn
+# Subtest: live context retries on an initial empty provider result instead of freezing the conversation empty
+ok 154 - live context retries on an initial empty provider result instead of freezing the conversation empty
+# Subtest: live context is captured before the first segment, so its head carries it
+ok 155 - live context is captured before the first segment, so its head carries it
+# Subtest: interrupting a delegated task drops it from the NEXT turn's pending block
+ok 156 - interrupting a delegated task drops it from the NEXT turn's pending block
+# Subtest: interject mid-turn: the run continues and the continuation is a NEW bubble carrying the interjection in context
+ok 157 - interject mid-turn: the run continues and the continuation is a NEW bubble carrying the interjection in context
+# Subtest: interject while the hold line shows: the one answer takes it in, no duplicate and no extra bubble
+ok 158 - interject while the hold line shows: the one answer takes it in, no duplicate and no extra bubble
+# Subtest: interject between turns: arriving while idle opens a fresh continuation bubble
+ok 159 - interject between turns: arriving while idle opens a fresh continuation bubble
+# Subtest: no interject: a plain turn streams ONE bubble exactly as before
+ok 160 - no interject: a plain turn streams ONE bubble exactly as before
+# Subtest: sessionId: in-turn diagnostics carry the LIVE in-flight session
+ok 161 - sessionId: in-turn diagnostics carry the LIVE in-flight session
+# Subtest: sessionId: the trailing state_change(→idle) carries the JUST-CLOSED session
+ok 162 - sessionId: the trailing state_change(→idle) carries the JUST-CLOSED session
+# Subtest: sessionId: late-recall diagnostics carry the NEW late session, distinct from the first
+ok 163 - sessionId: late-recall diagnostics carry the NEW late session, distinct from the first
+# Subtest: sessionId: every ChatOutputEvent variant in a full turn carries a non-undefined sessionId
+ok 164 - sessionId: every ChatOutputEvent variant in a full turn carries a non-undefined sessionId
+# Subtest: image + text-file attachments ride in the user turn
+ok 165 - image + text-file attachments ride in the user turn
+# Subtest: source identities remain scoped to their user turn on subsequent live replies
+ok 166 - source identities remain scoped to their user turn on subsequent live replies
+# Subtest: text-selection attachments ride in the user turn as an untrusted context block
+ok 167 - text-selection attachments ride in the user turn as an untrusted context block
+# Subtest: binary file attachments ride in the user turn as file items
+ok 168 - binary file attachments ride in the user turn as file items
+# Subtest: memory agent: chat reads its output and answers, with no report beat
+ok 169 - memory agent: chat reads its output and answers, with no report beat
+# Subtest: memory agent: chat delegates the rest, which reaches the executor with no memory skill and no second acknowledgment
+ok 170 - memory agent: chat delegates the rest, which reaches the executor with no memory skill and no second acknowledgment
+# Subtest: memory agent: a continuation that neither speaks nor delegates falls back to reporting the output
+ok 171 - memory agent: a continuation that neither speaks nor delegates falls back to reporting the output
+# Subtest: control: leak guard — a control call ALONGSIDE a real answer is ignored
+ok 172 - control: leak guard — a control call ALONGSIDE a real answer is ignored
+# Subtest: control_delegate_task hands the turn to the executor (no second assess)
+ok 173 - control_delegate_task hands the turn to the executor (no second assess)
+# Subtest: a delegate objective with leaked control tokens is sent again, cleanly
+ok 174 - a delegate objective with leaked control tokens is sent again, cleanly
+# Subtest: a delegate objective garbled twice is never started
+ok 175 - a delegate objective garbled twice is never started
+# Subtest: control_delegate_task with no executor wired falls through to a direct answer
+ok 176 - control_delegate_task with no executor wired falls through to a direct answer
+# Subtest: control: the per-turn delegation budget caps delegate re-routes
+ok 177 - control: the per-turn delegation budget caps delegate re-routes
+# Subtest: control: a queued re-entry is dropped when a new user message arrives
+ok 178 - control: a queued re-entry is dropped when a new user message arrives
+# Subtest: control tools ride the tool-bearing segments' head (byte-stable), and are OMITTED from voice-only beats
+ok 179 - control tools ride the tool-bearing segments' head (byte-stable), and are OMITTED from voice-only beats
+# Subtest: selfReview: off by default — no self-review call is made
+ok 180 - selfReview: off by default — no self-review call is made
+# Subtest: selfReview: control_done leaves the answer untouched
+ok 181 - selfReview: control_done leaves the answer untouched
+# Subtest: selfReview detached: the review runs AFTER session_close — the finish signal never waits on it
+ok 182 - selfReview detached: the review runs AFTER session_close — the finish signal never waits on it
+# Subtest: selfReview detached: a control_close tail streams as a LATE bubble after the answer closed
+ok 183 - selfReview detached: a control_close tail streams as a LATE bubble after the answer closed
+# Subtest: selfReview: the corrective vocabulary is not offered — a leaked verdict leaves the reply standing
+ok 184 - selfReview: the corrective vocabulary is not offered — a leaked verdict leaves the reply standing
+# Subtest: legacy personal flag does not switch the reply onto the voice key
+ok 185 - legacy personal flag does not switch the reply onto the voice key
+# Subtest: the hold line streams on the voice key while the answer keeps chatResponse
+ok 186 - the hold line streams on the voice key while the answer keeps chatResponse
+# Subtest: speculative recall: no assess directives -> the raw-message burst IS the first burst (no second search) and still grounds the answer
+ok 187 - speculative recall: no assess directives -> the raw-message burst IS the first burst (no second search) and still grounds the answer
+# Subtest: speculative recall: assess recallText directives are inert — the burst is the whole first burst, no refined top-up runs
+ok 188 - speculative recall: assess recallText directives are inert — the burst is the whole first burst, no refined top-up runs
+# Subtest: speculative recall: assess's memory decline is inert — burst hits ride as background context
+ok 189 - speculative recall: assess's memory decline is inert — burst hits ride as background context
+# Subtest: speculative grounding: assess opens no brief/KB lane -> the pre-assess tab prep IS the turn's grounding (no LLM call)
+ok 190 - speculative grounding: assess opens no brief/KB lane -> the pre-assess tab prep IS the turn's grounding (no LLM call)
+# Subtest: speculative grounding: a tab-attached turn ships the page raw and searches nothing ahead of the reply
+ok 191 - speculative grounding: a tab-attached turn ships the page raw and searches nothing ahead of the reply
+# Subtest: speculative grounding: the KB prefetch is retired — assess's needsKnowledgeBase is inert, the inline knowledge_lookup tool owns product truth
+ok 192 - speculative grounding: the KB prefetch is retired — assess's needsKnowledgeBase is inert, the inline knowledge_lookup tool owns product truth
+# Subtest: the dedicated language detector pins the tail reminder to the detected language
+ok 193 - the dedicated language detector pins the tail reminder to the detected language
+# Subtest: a detector that returns no language falls back to the generic tail branch
+ok 194 - a detector that returns no language falls back to the generic tail branch
+# Subtest: malformed detector output degrades to the generic tail branch
+ok 195 - malformed detector output degrades to the generic tail branch
+# Subtest: an explicit no-language detection pins the user's PREFERRED language
+ok 196 - an explicit no-language detection pins the user's PREFERRED language
+# Subtest: a failed detection keeps the generic branch with the preferred language as its no-words fallback
+ok 197 - a failed detection keeps the generic branch with the preferred language as its no-words fallback
+# Subtest: a detected message language outranks the preferred language
+ok 198 - a detected message language outranks the preferred language
+# Subtest: a throwing preferred-language provider degrades to the plain generic branch
+ok 199 - a throwing preferred-language provider degrades to the plain generic branch
+# Subtest: the pin is re-derived per turn — a language switch is never mis-pinned
+ok 200 - the pin is re-derived per turn — a language switch is never mis-pinned
+# Subtest: the reply-language rule appears ONLY in the volatile tail, never the cacheable head
+ok 201 - the reply-language rule appears ONLY in the volatile tail, never the cacheable head
+# Subtest: a slow detector times out at the gate instead of stalling the reply
+ok 202 - a slow detector times out at the gate instead of stalling the reply
+# Subtest: replyLanguage() exposes the turn's detected language, and the preferred one for a wordless message
+ok 203 - replyLanguage() exposes the turn's detected language, and the preferred one for a wordless message
+# Subtest: a wired decision model decides the reply language instead of the LLM detector
+ok 204 - a wired decision model decides the reply language instead of the LLM detector
+# Subtest: the language pin survives the delegate re-entry: ack and report keep the named language
+ok 205 - the language pin survives the delegate re-entry: ack and report keep the named language
+# Subtest: tab-only grounding past the gate ceiling holds, then answers with the page facts
+ok 206 - tab-only grounding past the gate ceiling holds, then answers with the page facts
+# Subtest: grounding that misses even the extended ceilings re-enters via the inbox fallback
+ok 207 - grounding that misses even the extended ceilings re-enters via the inbox fallback
+# Subtest: typed inline web_search results reach the continuation as typed source cards
+ok 208 - typed inline web_search results reach the continuation as typed source cards
+# Subtest: inline web_search sources are ALSO emitted as a functional web_sources event
+ok 209 - inline web_search sources are ALSO emitted as a functional web_sources event
+# Subtest: the web_sources flush flags every source the reply never referenced as stripHidden
+ok 210 - the web_sources flush flags every source the reply never referenced as stripHidden
+# Subtest: untyped (API-shaped) inline web_search results ship as plain link cards
+ok 211 - untyped (API-shaped) inline web_search results ship as plain link cards
+# Subtest: a task result with artifacts tells the report model what files were produced
+ok 212 - a task result with artifacts tells the report model what files were produced
+# Subtest: a task result without artifacts adds no artifact line
+ok 213 - a task result without artifacts adds no artifact line
+# Subtest: a delegated task receives the prior exchange as context, verbatim
+ok 214 - a delegated task receives the prior exchange as context, verbatim
+# Subtest: plan mode: full loop — plan recorded, two chained steps, plan-aware carry-over context, wrap-up clears the plan
+ok 215 - plan mode: full loop — plan recorded, two chained steps, plan-aware carry-over context, wrap-up clears the plan
+# Subtest: plan mode: each step re-runs the task router on its own objective and its run carries the step's skill
+ok 216 - plan mode: each step re-runs the task router on its own objective and its run carries the step's skill
+# Subtest: plan mode: a step the router cannot judge falls back to the stashed skill
+ok 217 - plan mode: a step the router cannot judge falls back to the stashed skill
+# Subtest: plan mode: save-as-skill offer is withheld on a mid-plan step report (background path)
+ok 218 - plan mode: save-as-skill offer is withheld on a mid-plan step report (background path)
+# Subtest: plan mode: save-as-skill offer is withheld on a mid-plan step report (blocking path)
+ok 219 - plan mode: save-as-skill offer is withheld on a mid-plan step report (blocking path)
+# Subtest: plan mode: blocking executor path — the continuation segment runs in-turn and the wrap-up closes the session once
+ok 220 - plan mode: blocking executor path — the continuation segment runs in-turn and the wrap-up closes the session once
+# Subtest: plan mode: onPlanEnded fires once, with the plan's session id, when the model clears the plan
+ok 221 - plan mode: onPlanEnded fires once, with the plan's session id, when the model clears the plan
+# Subtest: plan mode: onPlanEnded fires when a replacement settles every step (terminal settle, no explicit clear)
+ok 222 - plan mode: onPlanEnded fires when a replacement settles every step (terminal settle, no explicit clear)
+# Subtest: plan mode: initialPlan seed — a restored plan's delegated step carries the PERSISTED planSessionId, and its clear releases that id
+ok 223 - plan mode: initialPlan seed — a restored plan's delegated step carries the PERSISTED planSessionId, and its clear releases that id
+# Subtest: plan mode: runaway-chain cap — a delegate past maxStepsPerTurn is refused (plan_cap) and the nudged retry voices a check-in
+ok 224 - plan mode: runaway-chain cap — a delegate past maxStepsPerTurn is refused (plan_cap) and the nudged retry voices a check-in
+# Subtest: plan mode: no-progress guard — after maxConsecutiveStepFailures the next delegate is refused
+ok 225 - plan mode: no-progress guard — after maxConsecutiveStepFailures the next delegate is refused
+# Subtest: plan mode: a continuation that only revises the plan (no delegate, no prose) gets ONE nudged retry instead of stranding the plan
+ok 226 - plan mode: a continuation that only revises the plan (no delegate, no prose) gets ONE nudged retry instead of stranding the plan
+# Subtest: plan mode: the delegate-now nudge quotes the ACTIVE step verbatim, so the model delegates THAT step (observed live: it delegated a later step's unresolvable objective)
+ok 227 - plan mode: the delegate-now nudge quotes the ACTIVE step verbatim, so the model delegates THAT step (observed live: it delegated a later step's unresolvable objective)
+# Subtest: plan mode: a second non-empty update_plan in the same segment is suppressed (duplicate) — the churned rewrite never lands — while a CLEAR still passes
+ok 228 - plan mode: a second non-empty update_plan in the same segment is suppressed (duplicate) — the churned rewrite never lands — while a CLEAR still passes
+# Subtest: plan mode: deterministic auto-settle — a continuation that delegates WITHOUT update_plan still leaves the finished step marked done (observed live: the plan card froze at [active] forever)
+ok 229 - plan mode: deterministic auto-settle — a continuation that delegates WITHOUT update_plan still leaves the finished step marked done (observed live: the plan card froze at [active] forever)
+# Subtest: plan mode: prose-only wrap-up — a fully-settled plan whose continuation never calls update_plan still ends via the backstop
+ok 230 - plan mode: prose-only wrap-up — a fully-settled plan whose continuation never calls update_plan still ends via the backstop
+# Subtest: plan mode: a continuation that stalls TWICE forces a voice-only check-in — the user hears the plan is paused instead of silence
+ok 231 - plan mode: a continuation that stalls TWICE forces a voice-only check-in — the user hears the plan is paused instead of silence
+# Subtest: plan mode: a wrap-up with EVERY step settled is terminal — the settled snapshot is the card's final record, then the engine emits the clear itself
+ok 232 - plan mode: a wrap-up with EVERY step settled is terminal — the settled snapshot is the card's final record, then the engine emits the clear itself
+# Subtest: plan mode disabled: an update_plan call is suppressed (plan_disabled) and no plan_updated is emitted
+ok 233 - plan mode disabled: an update_plan call is suppressed (plan_disabled) and no plan_updated is emitted
+# Subtest: plan mode: a live plan rides ordinary turns as a <task_plan> note, so the user can steer mid-iteration
+ok 234 - plan mode: a live plan rides ordinary turns as a <task_plan> note, so the user can steer mid-iteration
+# Subtest: a terse follow-up inherits the thread's subject through the fold
+ok 235 - a terse follow-up inherits the thread's subject through the fold
+# Subtest: a real recall TOC DOES spend the path-plan LLM call (the positive half of the skip assertion)
+ok 236 - a real recall TOC DOES spend the path-plan LLM call (the positive half of the skip assertion)
+# Subtest: an EMPTY recall TOC skips the path-plan LLM call but leaves the memory_recall tool registered
+ok 237 - an EMPTY recall TOC skips the path-plan LLM call but leaves the memory_recall tool registered
+# Subtest: no memory tool is ever advertised; the memory_changes block rides with an executor
+ok 238 - no memory tool is ever advertised; the memory_changes block rides with an executor
+# Subtest: no memory tool is ever advertised; the memory_changes block rides only with an executor (absent without one)
+ok 239 - no memory tool is ever advertised; the memory_changes block rides only with an executor (absent without one)
+# Subtest: classifier unavailable: a delegation naming a system skill dispatches with that skill; unmarked, or on a judged turn, it does not
+ok 240 - classifier unavailable: a delegation naming a system skill dispatches with that skill; unmarked, or on a judged turn, it does not
+# Subtest: classifier unavailable without the named skill wired: system_skill is a plain delegation
+ok 241 - classifier unavailable without the named skill wired: system_skill is a plain delegation
+# Subtest: memory agent: a direct dispatch carries the conversation window, so a fact given in an earlier message reaches the agent
+ok 242 - memory agent: a direct dispatch carries the conversation window, so a fact given in an earlier message reaches the agent
+# Subtest: a from-now-on request holds when the next message is in another language
+ok 243 - a from-now-on request holds when the next message is in another language
+# Subtest: an interjection asking for a language from now on moves the chat to it
+ok 244 - an interjection asking for a language from now on moves the chat to it
+# Subtest: an interjection in another language moves the run and the chat to it
+ok 245 - an interjection in another language moves the run and the chat to it
+# Subtest: a card answer in another language changes nothing unless it asks
+ok 246 - a card answer in another language changes nothing unless it asks
+# Subtest: a card answer asking for a language from now on moves the run and the conversation, and is saved
+ok 247 - a card answer asking for a language from now on moves the run and the conversation, and is saved
+# Subtest: a card answer asking for this reply only moves the run, not the conversation
+ok 248 - a card answer asking for this reply only moves the run, not the conversation
+# Subtest: an interjection with no words changes nothing
+ok 249 - an interjection with no words changes nothing
+# Subtest: a later from-now-on in a card wins over one the dispatching message made
+ok 250 - a later from-now-on in a card wins over one the dispatching message made
+# Subtest: a from-now-on in an interjection is kept even when a newer interjection lands first
+ok 251 - a from-now-on in an interjection is kept even when a newer interjection lands first
+# Subtest: a card answer read while an interjection is still being read does not drop the interjection
+ok 252 - a card answer read while an interjection is still being read does not drop the interjection
+# Subtest: failed task report retains its cause in Chinese and history: blocking/normal
+ok 253 - failed task report retains its cause in Chinese and history: blocking/normal
+# Subtest: failed task report retains its cause in Chinese and history: blocking/empty
+ok 254 - failed task report retains its cause in Chinese and history: blocking/empty
+# Subtest: failed task report retains its cause in Chinese and history: blocking/error
+ok 255 - failed task report retains its cause in Chinese and history: blocking/error
+# Subtest: failed task report retains its cause in Chinese and history: blocking/partial-error
+ok 256 - failed task report retains its cause in Chinese and history: blocking/partial-error
+# Subtest: failed task report retains its cause in Chinese and history: blocking/missing
+ok 257 - failed task report retains its cause in Chinese and history: blocking/missing
+# Subtest: failed task report retains its cause in Chinese and history: background/normal
+ok 258 - failed task report retains its cause in Chinese and history: background/normal
+# Subtest: failed task report retains its cause in Chinese and history: background/empty
+ok 259 - failed task report retains its cause in Chinese and history: background/empty
+# Subtest: failed task report retains its cause in Chinese and history: background/error
+ok 260 - failed task report retains its cause in Chinese and history: background/error
+# Subtest: failed task report retains its cause in Chinese and history: background/partial-error
+ok 261 - failed task report retains its cause in Chinese and history: background/partial-error
+# Subtest: failed task report retains its cause in Chinese and history: background/missing
+ok 262 - failed task report retains its cause in Chinese and history: background/missing
+# Subtest: plan completion preserves result facts after update_plan before the final reply (background)
+ok 263 - plan completion preserves result facts after update_plan before the final reply (background)
+# Subtest: plan completion preserves result facts after update_plan before the final reply (blocking)
+ok 264 - plan completion preserves result facts after update_plan before the final reply (blocking)
+# Subtest: readImageAttachments keeps only image-kind entries with content
+ok 265 - readImageAttachments keeps only image-kind entries with content
+# Subtest: readImageAttachments trims content and tolerates missing optionals
+ok 266 - readImageAttachments trims content and tolerates missing optionals
+# Subtest: readImageAttachments returns [] for undefined
+ok 267 - readImageAttachments returns [] for undefined
+# Subtest: buildImageMessageItems maps to image LLM items
+ok 268 - buildImageMessageItems maps to image LLM items
+# Subtest: readTextFileAttachments keeps text-file entries and defaults filename
+ok 269 - readTextFileAttachments keeps text-file entries and defaults filename
+# Subtest: formatTextFilesForPrompt returns '' when there are no files
+ok 270 - formatTextFilesForPrompt returns '' when there are no files
+# Subtest: formatTextFilesForPrompt fences each file with its name
+ok 271 - formatTextFilesForPrompt fences each file with its name
+# Subtest: formatTextFilesForPrompt truncates very large files
+ok 272 - formatTextFilesForPrompt truncates very large files
+# Subtest: readTextSelectionAttachments keeps only text_selection entries with text
+ok 273 - readTextSelectionAttachments keeps only text_selection entries with text
+# Subtest: formatTextSelectionsForPrompt wraps selections in the untrusted context envelope
+ok 274 - formatTextSelectionsForPrompt wraps selections in the untrusted context envelope
+# Subtest: formatTextSelectionsForPrompt returns empty string for no selections
+ok 275 - formatTextSelectionsForPrompt returns empty string for no selections
+# Subtest: readFileAttachments keeps only file-kind entries with content
+ok 276 - readFileAttachments keeps only file-kind entries with content
+# Subtest: buildFileMessageItems maps read files to file LLM message items
+ok 277 - buildFileMessageItems maps read files to file LLM message items
+# Subtest: readJourneyContextAttachment reads the first journey_context with a labeled card
+ok 278 - readJourneyContextAttachment reads the first journey_context with a labeled card
+# Subtest: formatJourneyContextForPrompt renders doing and working toward in an untrusted context block
+ok 279 - formatJourneyContextForPrompt renders doing and working toward in an untrusted context block
+# Subtest: formatJourneyContextLines renders the plain one-line cards the task router shares
+ok 280 - formatJourneyContextLines renders the plain one-line cards the task router shares
+# Subtest: isJourneyContextBlock recognizes only the rendered journey block
+ok 281 - isJourneyContextBlock recognizes only the rendered journey block
+# Subtest: the window starts at the oldest of the newest N spoken turns
+ok 282 - the window starts at the oldest of the newest N spoken turns
+# Subtest: bookkeeping between spoken turns rides along, never takes a slot
+ok 283 - bookkeeping between spoken turns rides along, never takes a slot
+# Subtest: a short conversation starts at zero
+ok 284 - a short conversation starts at zero
+# Subtest: the turns to fold are the unfolded spoken turns ahead of the boundary
+ok 285 - the turns to fold are the unfolded spoken turns ahead of the boundary
+# Subtest: no compaction while the next message would evict nothing
+ok 286 - no compaction while the next message would evict nothing
+# Subtest: the turn the next message would evict is folded before it leaves
+ok 287 - the turn the next message would evict is folded before it leaves
+# Subtest: a batch folded ahead covers the next exchange's eviction
+ok 288 - a batch folded ahead covers the next exchange's eviction
+# Subtest: the summarizer sees the rubric first, then the prior summary and turns
+ok 289 - the summarizer sees the rubric first, then the prior summary and turns
+# Subtest: the summary rides as a tool turn marked as a record
+ok 290 - the summary rides as a tool turn marked as a record
+# Subtest: an ordinary delegation tells the model to resolve memory references with its own recall
+ok 291 - an ordinary delegation tells the model to resolve memory references with its own recall
+# Subtest: a language from the message keeps today's wording
+ok 292 - a language from the message keeps today's wording
+# Subtest: a standing request says it holds whatever the latest message is written in
+ok 293 - a standing request says it holds whatever the latest message is written in
+# Subtest: a request in the message says the user asked for it
+ok 294 - a request in the message says the user asked for it
+# Subtest: mergeObjectiveFacts
+ok 295 - mergeObjectiveFacts
+# Subtest: plan mode's delegate rule keeps a scheduled task to one step
+ok 296 - plan mode's delegate rule keeps a scheduled task to one step
+# Subtest: plan mode tells reporting only changes apart from muting and stopping
+ok 297 - plan mode tells reporting only changes apart from muting and stopping
+# Subtest: update_plan says never to add a step that waits for a scheduled task
+ok 298 - update_plan says never to add a step that waits for a scheduled task
+# Subtest: a discovered question is asked with what it rests on
+ok 299 - a discovered question is asked with what it rests on
+# Subtest: the request carries the user's message alone under its own task key
+ok 300 - the request carries the user's message alone under its own task key
+# Subtest: a confident language choice pins its English name
+ok 301 - a confident language choice pins its English name
+# Subtest: no natural-language words is the explicit empty verdict
+ok 302 - no natural-language words is the explicit empty verdict
+# Subtest: an unlisted language, a weak choice or no answer leaves the pin unsettled
+ok 303 - an unlisted language, a weak choice or no answer leaves the pin unsettled
+# Subtest: the request also asks whether the message asks for a language, and for how long
+ok 304 - the request also asks whether the message asks for a language, and for how long
+# Subtest: a confident request choice stands; anything else is no request
+ok 305 - a confident request choice stands; anything else is no request
+# Subtest: the request also asks which language the replies are asked to be in
+ok 306 - the request also asks which language the replies are asked to be in
+# Subtest: a from-now-on persists the language it asks for, not the one it is written in
+ok 307 - a from-now-on persists the language it asks for, not the one it is written in
+# Subtest: a lasting request for something other than the replies is no request
+ok 308 - a lasting request for something other than the replies is no request
+# Subtest: a from-now-on for a language outside the set names none
+ok 309 - a from-now-on for a language outside the set names none
+# Subtest: an unsure read of the language asked for changes nothing
+ok 310 - an unsure read of the language asked for changes nothing
+# Subtest: only a from-now-on reads the language asked for
+ok 311 - only a from-now-on reads the language asked for
+# Subtest: a detect-text provider replaces WHAT the detector classifies
+ok 312 - a detect-text provider replaces WHAT the detector classifies
+# Subtest: an absent, declining or throwing provider leaves the detector on the message
+ok 313 - an absent, declining or throwing provider leaves the detector on the message
+# Subtest: a provider that resolves to empty skips the LLM call and reports the no-words verdict
+ok 314 - a provider that resolves to empty skips the LLM call and reports the no-words verdict
+# Subtest: the no-words verdict is what lets a caller pin the preferred language
+ok 315 - the no-words verdict is what lets a caller pin the preferred language
+# Subtest: a wired decision model replaces the LLM detector
+ok 316 - a wired decision model replaces the LLM detector
+# Subtest: the language decision carries the turn's trace
+ok 317 - the language decision carries the turn's trace
+# Subtest: the decision model classifies the detect-text override, not the scaffold
+ok 318 - the decision model classifies the detect-text override, not the scaffold
+# Subtest: a failed decision leaves the pin unsettled without falling back to the LLM
+ok 319 - a failed decision leaves the pin unsettled without falling back to the LLM
+# Subtest: a from-now-on request sets the standing language and saves it
+ok 320 - a from-now-on request sets the standing language and saves it
+# Subtest: asking to be followed again removes the standing language and saves the removal
+ok 321 - asking to be followed again removes the standing language and saves the removal
+# Subtest: a request for this reply only leaves the standing language alone
+ok 322 - a request for this reply only leaves the standing language alone
+# Subtest: a request for an unnamed language clears the standing language instead of keeping the old one
+ok 323 - a request for an unnamed language clears the standing language instead of keeping the old one
+# Subtest: a request made before a slow load is not undone by the load
+ok 324 - a request made before a slow load is not undone by the load
+# Subtest: asking to be followed again before the stored language has loaded still removes it
+ok 325 - asking to be followed again before the stored language has loaded still removes it
+# Subtest: a failed load is tried again on the next call
+ok 326 - a failed load is tried again on the next call
+# Subtest: a load that outlasts one wait is not waited for again
+ok 327 - a load that outlasts one wait is not waited for again
+# Subtest: a failed save keeps the request for the live conversation
+ok 328 - a failed save keeps the request for the live conversation
+# Subtest: settle pins the standing language over the message's, and says why
+ok 329 - settle pins the standing language over the message's, and says why
+# Subtest: settle applies the standing language to a turn with no message (a report)
+ok 330 - settle applies the standing language to a turn with no message (a report)
+# Subtest: a failed decision keeps the standing language and the pin
+ok 331 - a failed decision keeps the standing language and the pin
+# Subtest: a from-now-on written in one language sets the language it asks for
+ok 332 - a from-now-on written in one language sets the language it asks for
+# Subtest: a lasting request about something other than the replies leaves the standing language alone
+ok 333 - a lasting request about something other than the replies leaves the standing language alone
+# Subtest: with no standing request the message's language is the pin
+ok 334 - with no standing request the message's language is the pin
+# Subtest: a standing request outranks the language the message is written in
+ok 335 - a standing request outranks the language the message is written in
+# Subtest: a request for this reply outranks the standing request
+ok 336 - a request for this reply outranks the standing request
+# Subtest: an older from-now-on or follow-me never outranks a newer standing request
+ok 337 - an older from-now-on or follow-me never outranks a newer standing request
+# Subtest: a message with no words falls to the standing request, else reports no words
+ok 338 - a message with no words falls to the standing request, else reports no words
+# Subtest: an unsettled read keeps the standing request, else leaves no pin
+ok 339 - an unsettled read keeps the standing request, else leaves no pin
+# Subtest: a request for a language that could not be named leaves no pin
+ok 340 - a request for a language that could not be named leaves no pin
+# Subtest: memory_recall advertises a single query argument
+ok 341 - memory_recall advertises a single query argument
+# Subtest: memory_recall requires a non-empty query
+ok 342 - memory_recall requires a non-empty query
+# Subtest: memory_recall dispatches its query to the path planner and returns the evidence
+ok 343 - memory_recall dispatches its query to the path planner and returns the evidence
+# Subtest: control_delegate_task carries system_skill only when the model named a known route
+ok 344 - control_delegate_task carries system_skill only when the model named a known route
+# Subtest: hasLeakedControlTokens spots chat-format tokens written into an argument
+ok 345 - hasLeakedControlTokens spots chat-format tokens written into an argument
+# Subtest: a later batch in the same turn cannot evict an earlier batch's best records
+ok 346 - a later batch in the same turn cannot evict an earlier batch's best records
+# Subtest: an oversized batch keeps its head and refuses its tail
+ok 347 - an oversized batch keeps its head and refuses its tail
+# Subtest: a new turn makes room by evicting earlier turns' hits, oldest first
+ok 348 - a new turn makes room by evicting earlier turns' hits, oldest first
+# Subtest: an already-held hit is neither re-added nor evicted by a re-merge
+ok 349 - an already-held hit is neither re-added nor evicted by a re-merge
+# Subtest: renders source cards with link + thumbnail + snippet in classic mode
+ok 350 - renders source cards with link + thumbnail + snippet in classic mode
+# Subtest: source cards render WITHOUT knowledge facts — the selector already gated
+ok 351 - source cards render WITHOUT knowledge facts — the selector already gated
+# Subtest: delta marker suppresses an unchanged source block on re-render
+ok 352 - delta marker suppresses an unchanged source block on re-render
+# Subtest: a later search in the same turn adds only its new cards, under their own ids
+ok 353 - a later search in the same turn adds only its new cards, under their own ids
+# Subtest: a new turn, or the first typed media card, renders the full briefing again
+ok 354 - a new turn, or the first typed media card, renders the full briefing again
+# Subtest: a new user message clears the previous turn's sources
+ok 355 - a new user message clears the previous turn's sources
+# Subtest: scraped page content outranks the SERP snippet as the card's quote
+ok 356 - scraped page content outranks the SERP snippet as the card's quote
+# Subtest: url-less sources are dropped at the setter
+ok 357 - url-less sources are dropped at the setter
+# Subtest: typed sources render kind markers and the typed legend
+ok 358 - typed sources render kind markers and the typed legend
+# Subtest: typed media sources render fact-less with the media lead
+ok 359 - typed media sources render fact-less with the media lead
+# Subtest: untyped sources render without kind markers or the typed legend
+ok 360 - untyped sources render without kind markers or the typed legend
+# Subtest: snippets are clamped, flattened, and envelope tags defused
+ok 361 - snippets are clamped, flattened, and envelope tags defused
+# Subtest: media-slot mode: id-keyed cards, cite-based links, no raw URLs
+ok 362 - media-slot mode: id-keyed cards, cite-based links, no raw URLs
+# Subtest: image cards: classic carries page url + thumbnail, slot mode stays id-keyed
+ok 363 - image cards: classic carries page url + thumbnail, slot mode stays id-keyed
+# Subtest: the AI Overview summary card renders id-less and url-less in slot mode
+ok 364 - the AI Overview summary card renders id-less and url-less in slot mode
+# Subtest: the AI Overview summary card renders url-less in classic mode too
+ok 365 - the AI Overview summary card renders url-less in classic mode too
+# Subtest: classic mode is byte-identical with mediaSlots unset vs false
+ok 366 - classic mode is byte-identical with mediaSlots unset vs false
+# Subtest: the web lead hands relevance judgment to the reply model
+ok 367 - the web lead hands relevance judgment to the reply model
+# Subtest: raw tab context renders inside its untrusted envelope and delta-dedupes
+ok 368 - raw tab context renders inside its untrusted envelope and delta-dedupes
+# Subtest: the recalled-evidence coda shows the literal recall query
+ok 369 - the recalled-evidence coda shows the literal recall query
+# Subtest: no recall-query line without memory-sourced hits or without a query
+ok 370 - no recall-query line without memory-sourced hits or without a query
+# Subtest: segment rider matches the golden snapshot for every branch
+ok 371 - segment rider matches the golden snapshot for every branch
+# Subtest: golden fixture and grid cover exactly the same combos
+ok 372 - golden fixture and grid cover exactly the same combos
+# Subtest: rider invariants: registers are shaped as expected
+ok 373 - rider invariants: registers are shaped as expected
+# Subtest: rider invariants: save-as-skill offer is flag-gated on both report shapes
+ok 374 - rider invariants: save-as-skill offer is flag-gated on both report shapes
+# Subtest: media-slot mode swaps the [live web] media guidance, classic stays put
+ok 375 - media-slot mode swaps the [live web] media guidance, classic stays put
+# Subtest: rider invariants: a CUT-SHORT run still presents its text, framed honestly
+ok 376 - rider invariants: a CUT-SHORT run still presents its text, framed honestly
+# Subtest: rider invariants: a confirmation of settings the user chose keeps every setting
+ok 377 - rider invariants: a confirmation of settings the user chose keeps every setting
+# Subtest: holding-beat clamp: keeps the first spoken sentence
+ok 378 - holding-beat clamp: keeps the first spoken sentence
+# Subtest: holding-beat clamp: a beat that opens with markup is dropped, not shipped
+ok 379 - holding-beat clamp: a beat that opens with markup is dropped, not shipped
+# Subtest: the acknowledgment of a request for LATER promises only the setting up
+ok 380 - the acknowledgment of a request for LATER promises only the setting up
+# Subtest: Perceiving routes UserMessage to Assessing
+ok 381 - Perceiving routes UserMessage to Assessing
+# Subtest: Perceiving routes SelfPrompt to Assessing
+ok 382 - Perceiving routes SelfPrompt to Assessing
+# Subtest: Perceiving absorbs context_hits without an LLM turn (back to Idle)
+ok 383 - Perceiving absorbs context_hits without an LLM turn (back to Idle)
+# Subtest: Perceiving routes other external signals to Idle
+ok 384 - Perceiving routes other external signals to Idle
+# Subtest: Assessing -> Thinking on recognized intent
+ok 385 - Assessing -> Thinking on recognized intent
+# Subtest: Assessing -> Thinking on null intent (trivial acknowledge)
+ok 386 - Assessing -> Thinking on null intent (trivial acknowledge)
+# Subtest: LLM turn end with text -> Responding
+ok 387 - LLM turn end with text -> Responding
+# Subtest: LLM turn end with tool calls -> Acting
+ok 388 - LLM turn end with tool calls -> Acting
+# Subtest: Responding done -> Reflecting
+ok 389 - Responding done -> Reflecting
+# Subtest: Reflect done with volunteer -> Perceiving
+ok 390 - Reflect done with volunteer -> Perceiving
+# Subtest: Reflect done with stay_silent -> Idle
+ok 391 - Reflect done with stay_silent -> Idle
+# Subtest: Tool dispatch 'await' -> Waiting
+ok 392 - Tool dispatch 'await' -> Waiting
+# Subtest: Tool dispatch 'background' -> Thinking
+ok 393 - Tool dispatch 'background' -> Thinking
+# Subtest: Awaited tool result -> Thinking
+ok 394 - Awaited tool result -> Thinking
+# Subtest: Interrupt always routes to Perceiving
+ok 395 - Interrupt always routes to Perceiving
+# Subtest: the window spans the last three user turns, oldest first
+ok 396 - the window spans the last three user turns, oldest first
+# Subtest: both segments of a multi-segment assistant turn are kept
+ok 397 - both segments of a multi-segment assistant turn are kept
+# Subtest: internal machinery never reaches the worker
+ok 398 - internal machinery never reaches the worker
+# Subtest: an empty or answer-only conversation yields no block
+ok 399 - an empty or answer-only conversation yields no block
+# Subtest: the newest turn is preserved intact and the oldest is dropped first
+ok 400 - the newest turn is preserved intact and the oldest is dropped first
+# Subtest: an oversized newest message is truncated visibly rather than silently
+ok 401 - an oversized newest message is truncated visibly rather than silently
+# Subtest: the block frames itself as background material, not as instructions
+ok 402 - the block frames itself as background material, not as instructions
+# Subtest: the window constant matches the documented three interactions
+ok 403 - the window constant matches the documented three interactions
+# Subtest: failure facts and distinct recovery templates exist for English
+ok 404 - failure facts and distinct recovery templates exist for English
+# Subtest: failure facts and distinct recovery templates exist for Chinese
+ok 405 - failure facts and distinct recovery templates exist for Chinese
+# Subtest: failure facts and distinct recovery templates exist for Japanese
+ok 406 - failure facts and distinct recovery templates exist for Japanese
+# Subtest: failure facts and distinct recovery templates exist for Korean
+ok 407 - failure facts and distinct recovery templates exist for Korean
+# Subtest: failure facts and distinct recovery templates exist for Spanish
+ok 408 - failure facts and distinct recovery templates exist for Spanish
+# Subtest: failure facts and distinct recovery templates exist for French
+ok 409 - failure facts and distinct recovery templates exist for French
+# Subtest: failure facts and distinct recovery templates exist for German
+ok 410 - failure facts and distinct recovery templates exist for German
+# Subtest: failure facts and distinct recovery templates exist for Dutch
+ok 411 - failure facts and distinct recovery templates exist for Dutch
+# Subtest: failure facts and distinct recovery templates exist for Portuguese
+ok 412 - failure facts and distinct recovery templates exist for Portuguese
+# Subtest: failure facts and distinct recovery templates exist for Italian
+ok 413 - failure facts and distinct recovery templates exist for Italian
+# Subtest: failure facts and distinct recovery templates exist for Russian
+ok 414 - failure facts and distinct recovery templates exist for Russian
+# Subtest: failure facts and distinct recovery templates exist for Arabic
+ok 415 - failure facts and distinct recovery templates exist for Arabic
+# Subtest: failure facts and distinct recovery templates exist for Hindi
+ok 416 - failure facts and distinct recovery templates exist for Hindi
+# Subtest: failure facts and distinct recovery templates exist for Vietnamese
+ok 417 - failure facts and distinct recovery templates exist for Vietnamese
+# Subtest: failure facts and distinct recovery templates exist for Thai
+ok 418 - failure facts and distinct recovery templates exist for Thai
+# Subtest: failure facts and distinct recovery templates exist for Indonesian
+ok 419 - failure facts and distinct recovery templates exist for Indonesian
+# Subtest: failure facts and distinct recovery templates exist for Turkish
+ok 420 - failure facts and distinct recovery templates exist for Turkish
+# Subtest: failure facts and distinct recovery templates exist for Polish
+ok 421 - failure facts and distinct recovery templates exist for Polish
+# Subtest: regional Chinese remains traditional before normalization
+ok 422 - regional Chinese remains traditional before normalization
+# Subtest: unknown or absent language always falls back to English without retaining a prior language
+ok 423 - unknown or absent language always falls back to English without retaining a prior language
+# Subtest: success and discovered questions do not become failed reports
+ok 424 - success and discovered questions do not become failed reports
+# Subtest: missing reason stays unknown and does not invent a retry
+ok 425 - missing reason stays unknown and does not invent a retry
+# Subtest: public producer messages exclude response metadata and stack traces
+ok 426 - public producer messages exclude response metadata and stack traces
+# Subtest: real partial text remains available if the voice cannot hand it over
+ok 427 - real partial text remains available if the voice cannot hand it over
+# Subtest: a task run report streams a fresh bubble under the session the host named
+ok 428 - a task run report streams a fresh bubble under the session the host named
+# Subtest: a failed run's report explains the failure and offers help
+ok 429 - a failed run's report explains the failure and offers help
+# Subtest: a run that stopped on a question asks it
+ok 430 - a run that stopped on a question asks it
+# Subtest: the files a run saved are named, not claimed as attached
+ok 431 - the files a run saved are named, not claimed as attached
+# Subtest: a run that met the stop condition says the task stopped, only when it did
+ok 432 - a run that met the stop condition says the task stopped, only when it did
+# Subtest: a run sent because it was judged worth a look says why
+ok 433 - a run sent because it was judged worth a look says why
+# Subtest: a finished run's report never reads as a message that was not sent
+ok 434 - a finished run's report never reads as a message that was not sent
+# Subtest: a task run report leaves a task delegated from this conversation running
+ok 435 - a task run report leaves a task delegated from this conversation running
+# Subtest: a task run report is its own chat.turn in the trace
+ok 436 - a task run report is its own chat.turn in the trace
+# Subtest: a missed run asks whether to run it now, saying when and why it did not run
+ok 437 - a missed run asks whether to run it now, saying when and why it did not run
+# Subtest: several missed firings are counted, and a cut-off run says it was cut off, twice when it was
+ok 438 - several missed firings are counted, and a cut-off run says it was cut off, twice when it was
+# Subtest: a late run, or the first run after an unchecked gap, says so in one clause
+ok 439 - a late run, or the first run after an unchecked gap, says so in one clause
+# Subtest: plain prose turn: deltas share one session/turn and close cleanly
+ok 440 - plain prose turn: deltas share one session/turn and close cleanly
+# Subtest: tool segment: call executes, result and call marker reach the next prompt
+ok 441 - tool segment: call executes, result and call marker reach the next prompt
+# Subtest: first call advertises tools; the capped final call advertises none
+ok 442 - first call advertises tools; the capped final call advertises none
+# Subtest: a runaway tool loop terminates at the cap even if the model never stops
+ok 443 - a runaway tool loop terminates at the cap even if the model never stops
+# Subtest: empty completion with no tool calls gets exactly ONE nudged retry
+ok 444 - empty completion with no tool calls gets exactly ONE nudged retry
+# Subtest: a tool result the model answers with silence gets exactly ONE nudged retry
+ok 445 - a tool result the model answers with silence gets exactly ONE nudged retry
+# Subtest: a persistently silent continuation finalizes after one retry (no infinite loop)
+ok 446 - a persistently silent continuation finalizes after one retry (no infinite loop)
+# Subtest: a persistently empty model finalizes after one retry (no infinite loop)
+ok 447 - a persistently empty model finalizes after one retry (no infinite loop)
+# Subtest: unknown tool call surfaces an error result and the loop continues
+ok 448 - unknown tool call surfaces an error result and the loop continues
+# Subtest: interrupt mid-stream closes the session with reason interrupt
+ok 449 - interrupt mid-stream closes the session with reason interrupt
+# Subtest: initialConversation seeds the transcript and the system head leads
+ok 450 - initialConversation seeds the transcript and the system head leads
+# Subtest: endTurnAfterTool ends the turn with no further continuation
+ok 451 - endTurnAfterTool ends the turn with no further continuation
+# Subtest: endTurnAfterTool returning false keeps the loop going (tool-first reply)
+ok 452 - endTurnAfterTool returning false keeps the loop going (tool-first reply)
+# Subtest: bubbleCompleteNudge retries once with tools still advertised
+ok 453 - bubbleCompleteNudge retries once with tools still advertised
+# Subtest: bubbleCompleteNudge returning null accepts the bubble as-is
+ok 454 - bubbleCompleteNudge returning null accepts the bubble as-is
+# Subtest: bubbleCompleteNudge is skipped when the segment budget is exhausted
+ok 455 - bubbleCompleteNudge is skipped when the segment budget is exhausted
+# Subtest: injectInterjectionContext folds context without minting a turn
+ok 456 - injectInterjectionContext folds context without minting a turn
+# Subtest: requireVisibleReply: false — an empty completion ends the turn without a nudge
+ok 457 - requireVisibleReply: false — an empty completion ends the turn without a nudge
+# Subtest: requireVisibleReply: false — silence after a tool result ends the turn too
+ok 458 - requireVisibleReply: false — silence after a tool result ends the turn too
+# Subtest: requireVisibleReply defaults to true: chat keeps its empty-bubble retry
+ok 459 - requireVisibleReply defaults to true: chat keeps its empty-bubble retry
+# Subtest: replan parses a bare correction action with no recall beat
+ok 460 - replan parses a bare correction action with no recall beat
+# Subtest: replan emits an additive recall step when new substance surfaces
+ok 461 - replan emits an additive recall step when new substance surfaces
+# Subtest: replan emits recall THEN action in order (additive, not exclusive)
+ok 462 - replan emits recall THEN action in order (additive, not exclusive)
+# Subtest: replan: no recall + stay_silent yields no respond step
+ok 463 - replan: no recall + stay_silent yields no respond step
+# Subtest: replan gate drops recall + offer when the open ask is not settled
+ok 464 - replan gate drops recall + offer when the open ask is not settled
+# Subtest: replan gate lets a settling recall through and keeps corrections
+ok 465 - replan gate lets a settling recall through and keeps corrections
+# Subtest: replan gate keeps a correction even when the ask is not settled
+ok 466 - replan gate keeps a correction even when the ask is not settled
+# Subtest: replan gate drops all steps when new context is classified an absence
+ok 467 - replan gate drops all steps when new context is classified an absence
+# Subtest: replan gate passes steps through on a fact classification
+ok 468 - replan gate passes steps through on a fact classification
+# Subtest: replan gate fails open when newContext is missing or malformed
+ok 469 - replan gate fails open when newContext is missing or malformed
+# Subtest: extractTrailingQuestion pulls only the trailing question
+ok 470 - extractTrailingQuestion pulls only the trailing question
+# Subtest: extractTrailingQuestion catches statement-form floor-handbacks
+ok 471 - extractTrailingQuestion catches statement-form floor-handbacks
+# Subtest: buildEntityRecall: plain entity vs time-windowed
+ok 472 - buildEntityRecall: plain entity vs time-windowed
+# Subtest: intentChanged detects label/description changes
+ok 473 - intentChanged detects label/description changes
+# Subtest: the request asks three closed questions about the turn, never the TOC
+ok 474 - the request asks three closed questions about the turn, never the TOC
+# Subtest: resolveTurnVerdict applies the thresholds
+ok 475 - resolveTurnVerdict applies the thresholds
+# Subtest: decideTurnVerdict: an unanswered question reads as its fail-open value
+ok 476 - decideTurnVerdict: an unanswered question reads as its fail-open value
+# Subtest: decideTurnVerdict carries the caller's trace on its request
+ok 477 - decideTurnVerdict carries the caller's trace on its request
+# Subtest: decideTurnVerdict fails open: no answers, a throw, an abort, an empty message
+ok 478 - decideTurnVerdict fails open: no answers, a throw, an abort, an empty message
+# Subtest: a tool schema built with the exported zod is advertised with all its fields
+ok 479 - a tool schema built with the exported zod is advertised with all its fields
+# Subtest: action lane: a task on the user's own words, with the matched skill
+ok 480 - action lane: a task on the user's own words, with the matched skill
+# Subtest: every routing decision carries the caller's trace: the lane and each skill batch
+ok 481 - every routing decision carries the caller's trace: the lane and each skill batch
+# Subtest: answer lane: not a task, and no skill rides it
+ok 482 - answer lane: not a task, and no skill rides it
+# Subtest: binding lanes: persona, memory and video bind at p >= 0.6, an ordinary hint below
+ok 483 - binding lanes: persona, memory and video bind at p >= 0.6, an ordinary hint below
+# Subtest: the memory lane picks its skill at the lower lane-backed bar
+ok 484 - the memory lane picks its skill at the lower lane-backed bar
+# Subtest: an answer the memory skill claims above 0.7 goes to that skill first, bindingly
+ok 485 - an answer the memory skill claims above 0.7 goes to that skill first, bindingly
+# Subtest: an answer another skill matches strongly stays an answer
+ok 486 - an answer another skill matches strongly stays an answer
+# Subtest: reusable stamps an action only
+ok 487 - reusable stamps an action only
+# Subtest: a not-installed match dispatches try-first and pins the install offer
+ok 488 - a not-installed match dispatches try-first and pins the install offer
+# Subtest: the highest skill above the bar wins
+ok 489 - the highest skill above the bar wins
+# Subtest: unclear lane: confirm intent, reason obscure
+ok 490 - unclear lane: confirm intent, reason obscure
+# Subtest: a weak unclear reading falls through to the next lane
+ok 491 - a weak unclear reading falls through to the next lane
+# Subtest: an action hinging on the user's choice confirms instead of dispatching
+ok 492 - an action hinging on the user's choice confirms instead of dispatching
+# Subtest: a slash token naming a skill picks it and makes an answer an action
+ok 493 - a slash token naming a skill picks it and makes an answer an action
+# Subtest: slashInvokedSkill: URLs, paths and unknown tokens match nothing
+ok 494 - slashInvokedSkill: URLs, paths and unknown tokens match nothing
+# Subtest: the lane state carries the transcript tail, the page, images and the pending offer
+ok 495 - the lane state carries the transcript tail, the page, images and the pending offer
+# Subtest: the artifact question is asked only when the guide is wired
+ok 496 - the artifact question is asked only when the guide is wired
+# Subtest: the catalogue rides batches of MAX_SKILLS_PER_REQUEST, one yes/no per skill
+ok 497 - the catalogue rides batches of MAX_SKILLS_PER_REQUEST, one yes/no per skill
+# Subtest: no catalogue: the lane request alone
+ok 498 - no catalogue: the lane request alone
+# Subtest: no decision model: every route is degraded
+ok 499 - no decision model: every route is degraded
+# Subtest: a failed or unanswered lane request degrades, never throws
+ok 500 - a failed or unanswered lane request degrades, never throws
+# Subtest: a failed skill request only drops its skills
+ok 501 - a failed skill request only drops its skills
+# Subtest: a throwing catalogue provider degrades to no catalogue
+ok 502 - a throwing catalogue provider degrades to no catalogue
+# Subtest: a pre-aborted turn returns not-a-task without deciding
+ok 503 - a pre-aborted turn returns not-a-task without deciding
+# Subtest: library lane: a binding dispatch to the meta skill, naming the pinned skill
+ok 504 - library lane: a binding dispatch to the meta skill, naming the pinned skill
+# Subtest: library lane: an inventory question dispatches the list on the user's words
+ok 505 - library lane: an inventory question dispatches the list on the user's words
+# Subtest: an answer the library question reads as a list request is the library's
+ok 506 - an answer the library question reads as a list request is the library's
+# Subtest: library lane: uninstall pins only an installed skill
+ok 507 - library lane: uninstall pins only an installed skill
+# Subtest: library lane: with no pinned skill, or a record, the user's words run
+ok 508 - library lane: with no pinned skill, or a record, the user's words run
+# Subtest: library lane: a weak reading dispatches without binding
+ok 509 - library lane: a weak reading dispatches without binding
+# Subtest: library lane without the meta skill wired is an ordinary answer
+ok 510 - library lane without the meta skill wired is an ordinary answer
+# Subtest: artifact: an answer-lane card turn loads the guide
+ok 511 - artifact: an answer-lane card turn loads the guide
+# Subtest: artifact: a chain with an action step dispatches, and the card waits for the report
+ok 512 - artifact: a chain with an action step dispatches, and the card waits for the report
+# Subtest: artifact: a failing guide provider degrades to no guidance
+ok 513 - artifact: a failing guide provider degrades to no guidance
+# Subtest: emitTrace: one task_route record with the verdict, the library action and its target
+ok 514 - emitTrace: one task_route record with the verdict, the library action and its target
+# Subtest: emitTrace: a binding route's record carries mustDelegate and the skill
+ok 515 - emitTrace: a binding route's record carries mustDelegate and the skill
+# Subtest: tab ships raw (capped), episodic candidates become hits, KB docs become per-doc entries
+ok 516 - tab ships raw (capped), episodic candidates become hits, KB docs become per-doc entries
+# Subtest: an episode of several messages is stamped with its whole span, not its last moment
+ok 517 - an episode of several messages is stamped with its whole span, not its last moment
+# Subtest: nothing prepared returns the empty result
+ok 518 - nothing prepared returns the empty result
+# Subtest: episodic candidates dedupe by content and cap at 12
+ok 519 - episodic candidates dedupe by content and cap at 12
+# Subtest: capRawTabContext: caps each webpage body, then the total
+ok 520 - capRawTabContext: caps each webpage body, then the total
+# Subtest: capRawTabContext: every attached page keeps its head, however many there are
+ok 521 - capRawTabContext: every attached page keeps its head, however many there are
+# Subtest: capRawTabContext: a short page leaves its unused share to the long ones
+ok 522 - capRawTabContext: a short page leaves its unused share to the long ones
+# Subtest: neutralizeBoundaryTags defuses trust-envelope tags
+ok 523 - neutralizeBoundaryTags defuses trust-envelope tags
+# Subtest: resolveJinaProxyBaseUrl strips a trailing /v1 and trailing slashes
+ok 524 - resolveJinaProxyBaseUrl strips a trailing /v1 and trailing slashes
+# Subtest: jinaSearch POSTs the proxy endpoint at the service root
+ok 525 - jinaSearch POSTs the proxy endpoint at the service root
+# Subtest: jinaSearch keeps an existing Bearer [REDACTED] un-doubled
+ok 526 - jinaSearch keeps an existing Bearer [REDACTED] un-doubled
+# Subtest: jinaSearch omits Authorization when no token is given (auth-injecting fetch)
+ok 527 - jinaSearch omits Authorization when no token is given (auth-injecting fetch)
+# Subtest: jinaSearch maps site / locale / freshness to X-* body headers
+ok 528 - jinaSearch maps site / locale / freshness to X-* body headers
+# Subtest: jinaSearch scrapeContent omits X-Respond-With so the reader scrapes pages
+ok 529 - jinaSearch scrapeContent omits X-Respond-With so the reader scrapes pages
+# Subtest: jinaSearch trims and caps the query at 500 chars
+ok 530 - jinaSearch trims and caps the query at 500 chars
+# Subtest: jinaSearch parses the Jina envelope into WebSearchResults
+ok 531 - jinaSearch parses the Jina envelope into WebSearchResults
+# Subtest: jinaSearch applies limit client-side and skips url-less entries
+ok 532 - jinaSearch applies limit client-side and skips url-less entries
+# Subtest: jinaSearch splits favicons from preview thumbnails
+ok 533 - jinaSearch splits favicons from preview thumbnails
+# Subtest: jinaSearch scrapeContent carries each page's content, flattened and clamped
+ok 534 - jinaSearch scrapeContent carries each page's content, flattened and clamped
+# Subtest: jinaSearch ignores upstream content when scrapeContent is off
+ok 535 - jinaSearch ignores upstream content when scrapeContent is off
+# Subtest: jinaSearch returns [] when the envelope has no data array
+ok 536 - jinaSearch returns [] when the envelope has no data array
+# Subtest: jinaSearch throws on a missing base URL
+ok 537 - jinaSearch throws on a missing base URL
+# Subtest: jinaSearch throws on an empty query
+ok 538 - jinaSearch throws on an empty query
+# Subtest: jinaSearch throws with status + body detail on non-2xx
+ok 539 - jinaSearch throws with status + body detail on non-2xx
+# Subtest: jinaSearch wraps transport failures
+ok 540 - jinaSearch wraps transport failures
+# Subtest: provider resolves the token per search and returns results
+ok 541 - provider resolves the token per search and returns results
+# Subtest: provider no-ops to [] without a base URL
+ok 542 - provider no-ops to [] without a base URL
+# Subtest: provider no-ops to [] when the token seam resolves empty
+ok 543 - provider no-ops to [] when the token seam resolves empty
+# Subtest: provider works token-less with an auth-injecting fetchImpl
+ok 544 - provider works token-less with an auth-injecting fetchImpl
+# Subtest: provider passes scrapeContent through to the search call
+ok 545 - provider passes scrapeContent through to the search call
+# Subtest: provider swallows API errors to []
+ok 546 - provider swallows API errors to []
+# Subtest: provider swallows a throwing token seam to []
+ok 547 - provider swallows a throwing token seam to []
+# Subtest: provider returns [] for an already-aborted signal without fetching
+ok 548 - provider returns [] for an already-aborted signal without fetching
+# Subtest: adaptKnowledgeBaseOutput: preserves rank order and trims
+ok 549 - adaptKnowledgeBaseOutput: preserves rank order and trims
+# Subtest: adaptKnowledgeBaseOutput: dedupes case-insensitively, drops blanks
+ok 550 - adaptKnowledgeBaseOutput: dedupes case-insensitively, drops blanks
+# Subtest: adaptKnowledgeBaseOutput: enforces top-K cap, keeping the top-ranked
+ok 551 - adaptKnowledgeBaseOutput: enforces top-K cap, keeping the top-ranked
+# Subtest: adaptKnowledgeBaseOutput: empty facts array passes through
+ok 552 - adaptKnowledgeBaseOutput: empty facts array passes through
+# Subtest: adaptKnowledgeBaseOutput: tolerates ```json fences
+ok 553 - adaptKnowledgeBaseOutput: tolerates ```json fences
+# Subtest: adaptKnowledgeBaseOutput: non-JSON yields an empty result
+ok 554 - adaptKnowledgeBaseOutput: non-JSON yields an empty result
+# Subtest: adaptKnowledgeBaseOutput: missing facts field yields an empty result
+ok 555 - adaptKnowledgeBaseOutput: missing facts field yields an empty result
+# Subtest: retrieveFromKnowledgeBase: routes under the knowledge-base task key
+ok 556 - retrieveFromKnowledgeBase: routes under the knowledge-base task key
+# Subtest: retrieveFromKnowledgeBase: respects the maxFacts cap
+ok 557 - retrieveFromKnowledgeBase: respects the maxFacts cap
+# Subtest: retrieveFromKnowledgeBase: empty message short-circuits without an LLM call
+ok 558 - retrieveFromKnowledgeBase: empty message short-circuits without an LLM call
+# Subtest: retrieveFromKnowledgeBase: no usable docs short-circuits without an LLM call
+ok 559 - retrieveFromKnowledgeBase: no usable docs short-circuits without an LLM call
+# Subtest: retrieveFromKnowledgeBase: pre-aborted signal short-circuits
+ok 560 - retrieveFromKnowledgeBase: pre-aborted signal short-circuits
+# Subtest: retrieveFromKnowledgeBase: a thrown provider error resolves to an empty result
+ok 561 - retrieveFromKnowledgeBase: a thrown provider error resolves to an empty result
+# Subtest: retrieveFromKnowledgeBase: places docs, transcript, tab content, and query in the prompt
+ok 562 - retrieveFromKnowledgeBase: places docs, transcript, tab content, and query in the prompt
+# Subtest: buildSkillsKnowledgeDoc renders a titled doc listing name + description
+ok 563 - buildSkillsKnowledgeDoc renders a titled doc listing name + description
+# Subtest: buildSkillsKnowledgeDoc returns undefined for an empty or all-blank catalogue
+ok 564 - buildSkillsKnowledgeDoc returns undefined for an empty or all-blank catalogue
+# Subtest: buildSkillsKnowledgeDoc drops blank-named entries and tolerates a missing description
+ok 565 - buildSkillsKnowledgeDoc drops blank-named entries and tolerates a missing description
+# Subtest: BUILTIN_KNOWLEDGE_BASE: exposes the Phi Browser Help and capability-manifest docs with the expected ids/titles
+ok 566 - BUILTIN_KNOWLEDGE_BASE: exposes the Phi Browser Help and capability-manifest docs with the expected ids/titles
+# Subtest: BUILTIN_KNOWLEDGE_BASE: the inlined FAQ content is substantial (not an empty/truncated literal)
+ok 567 - BUILTIN_KNOWLEDGE_BASE: the inlined FAQ content is substantial (not an empty/truncated literal)
+# Subtest: BUILTIN_KNOWLEDGE_BASE: the inlined FAQ still carries distinctive headings and product terms
+ok 568 - BUILTIN_KNOWLEDGE_BASE: the inlined FAQ still carries distinctive headings and product terms
+# Subtest: BUILTIN_KNOWLEDGE_BASE: the escaped backtick spans survived the template-literal conversion
+ok 569 - BUILTIN_KNOWLEDGE_BASE: the escaped backtick spans survived the template-literal conversion
+# Subtest: BUILTIN_KNOWLEDGE_BASE: the generated region is closed and the tail is intact (no truncation)
+ok 570 - BUILTIN_KNOWLEDGE_BASE: the generated region is closed and the tail is intact (no truncation)
+# Subtest: BUILTIN_KNOWLEDGE_BASE_SUMMARY: is a non-empty gate description naming the key features
+ok 571 - BUILTIN_KNOWLEDGE_BASE_SUMMARY: is a non-empty gate description naming the key features
+# Subtest: decodeMediaSlotQuery: plus and percent encodings; malformed falls back raw
+ok 572 - decodeMediaSlotQuery: plus and percent encodings; malformed falls back raw
+# Subtest: slot session: a slot split across chunks resolves once, with source
+ok 573 - slot session: a slot split across chunks resolves once, with source
+# Subtest: slot session: resolver miss and resolver throw both end unresolved
+ok 574 - slot session: resolver miss and resolver throw both end unresolved
+# Subtest: slot session: a resolver-reported diagnostic becomes the unresolved reason
+ok 575 - slot session: a resolver-reported diagnostic becomes the unresolved reason
+# Subtest: slot session: a source without thumbnail is not displayable → unresolved
+ok 576 - slot session: a source without thumbnail is not displayable → unresolved
+# Subtest: slot session: cap ignores later slots; duplicates dedupe by pseudo-URL
+ok 577 - slot session: cap ignores later slots; duplicates dedupe by pseudo-URL
+# Subtest: slot session: empty query goes straight to unresolved without a resolver call
+ok 578 - slot session: empty query goes straight to unresolved without a resolver call
+# Subtest: slot session: aborted signal stops scanning and late emissions
+ok 579 - slot session: aborted signal stops scanning and late emissions
+# Subtest: slot session: emissions are snapshots, not live references
+ok 580 - slot session: emissions are snapshots, not live references
+# Subtest: slot session: a duplicate result retries with exclusions and uses another image
+ok 581 - slot session: a duplicate result retries with exclusions and uses another image
+# Subtest: slot session: duplicate retries stop when the resolver has no unused image
+ok 582 - slot session: duplicate retries stop when the resolver has no unused image
+# Subtest: slot session: drain waits for an in-flight resolution to land in this turn
+ok 583 - slot session: drain waits for an in-flight resolution to land in this turn
+# Subtest: slot session: drain closes out still-pending slots and discards their late results
+ok 584 - slot session: drain closes out still-pending slots and discards their late results
+# Subtest: slot session: drain with nothing pending returns without emitting
+ok 585 - slot session: drain with nothing pending returns without emitting
+# Subtest: slot session: dispose aborts in-flight resolvers so nothing emits later
+ok 586 - slot session: dispose aborts in-flight resolvers so nothing emits later
+# Subtest: matchMediaSlotFromPool: term overlap, image-kind tiebreak, no-overlap miss
+ok 587 - matchMediaSlotFromPool: term overlap, image-kind tiebreak, no-overlap miss
+# Subtest: matchMediaSlotFromPool: rejects a generic one-term overlap in a specific query
+ok 588 - matchMediaSlotFromPool: rejects a generic one-term overlap in a specific query
+# Subtest: matchMediaSlotFromPool: accepts strong coverage and exact single-term matches
+ok 589 - matchMediaSlotFromPool: accepts strong coverage and exact single-term matches
+# Subtest: onText also admits the HTML img form (artifact fragments)
+ok 590 - onText also admits the HTML img form (artifact fragments)
+# Subtest: intent and capped reply context retain both source identities before large page bodies
+ok 591 - intent and capped reply context retain both source identities before large page bodies
+# Subtest: unavailable page content does not discard the identity manifest
+ok 592 - unavailable page content does not discard the identity manifest
+# Subtest: legacy tab contexts keep their previous summary format
+ok 593 - legacy tab contexts keep their previous summary format
+# Subtest: summarizeTabContextForIntent: one bullet per page with title + snippet
+ok 594 - summarizeTabContextForIntent: one bullet per page with title + snippet
+# Subtest: summarizeTabContextForIntent: truncates long content with an ellipsis
+ok 595 - summarizeTabContextForIntent: truncates long content with an ellipsis
+# Subtest: summarizeTabContextForIntent: falls back to a snippet without <webpage> blocks
+ok 596 - summarizeTabContextForIntent: falls back to a snippet without <webpage> blocks
+# Subtest: summarizeTabContextForIntent: empty input yields empty string
+ok 597 - summarizeTabContextForIntent: empty input yields empty string
+# Subtest: summarizeTabContextForIntent: untitled page falls back to the url
+ok 598 - summarizeTabContextForIntent: untitled page falls back to the url
+# Subtest: readTabContextText concatenates every tab_context attachment
+ok 599 - readTabContextText concatenates every tab_context attachment
+# Subtest: webGroundingTextOf: scraped content wins with its larger budget, else the snippet
+ok 600 - webGroundingTextOf: scraped content wins with its larger budget, else the snippet
+# Subtest: dedupeWebResultsByHost: drops non-http(s) urls before cite ids are assigned
+ok 601 - dedupeWebResultsByHost: drops non-http(s) urls before cite ids are assigned
+# Subtest: dedupeWebResultsByHost: one plain link per host, first titled entry wins
+ok 602 - dedupeWebResultsByHost: one plain link per host, first titled entry wins
+# Subtest: dedupeWebResultsByHost: a titled holder keeps its slot over later same-host entries
+ok 603 - dedupeWebResultsByHost: a titled holder keeps its slot over later same-host entries
+# Subtest: dedupeWebResultsByHost: an upgraded slot keeps the holder's AI Overview bypass
+ok 604 - dedupeWebResultsByHost: an upgraded slot keeps the holder's AI Overview bypass
+# Subtest: dedupeWebResultsByHost: typed media dedupes by exact url only
+ok 605 - dedupeWebResultsByHost: typed media dedupes by exact url only
+# Subtest: dedupeWebResultsByHost: the same video at a timestamped and a canonical anchor collapses to the canonical one
+ok 606 - dedupeWebResultsByHost: the same video at a timestamped and a canonical anchor collapses to the canonical one
+# Subtest: videoIdentityOf: YouTube anchors reduce to the video id, other hosts drop time offsets
+ok 607 - videoIdentityOf: YouTube anchors reduce to the video id, other hosts drop time offsets
+# Subtest: formatWebResultsForBrief: numbered title — url with description
+ok 608 - formatWebResultsForBrief: numbered title — url with description
+# Subtest: formatWebResultsForBrief: clamps a long description with an ellipsis
+ok 609 - formatWebResultsForBrief: clamps a long description with an ellipsis
+# Subtest: formatWebResultsForBrief: empty list → empty string
+ok 610 - formatWebResultsForBrief: empty list → empty string
+# Subtest: AI Overview summary cards keep their long description in both formats
+ok 611 - AI Overview summary cards keep their long description in both formats
+# Subtest: formatWebResultsForBrief: image results list their source page url
+ok 612 - formatWebResultsForBrief: image results list their source page url
+# Subtest: isSerpSelfUrl: true only for Google search-results pages
+ok 613 - isSerpSelfUrl: true only for Google search-results pages
+# Subtest: formatWebResultKind: annotates typed results, empty for plain links
+ok 614 - formatWebResultKind: annotates typed results, empty for plain links
+# Subtest: formatWebResultsForBrief: typed entries carry the kind annotation
+ok 615 - formatWebResultsForBrief: typed entries carry the kind annotation
+# Subtest: race: fast non-empty primary wins even when fallback is instant
+ok 616 - race: fast non-empty primary wins even when fallback is instant
+# Subtest: race: slow primary past the window loses to the fallback
+ok 617 - race: slow primary past the window loses to the fallback
+# Subtest: race: empty primary defers to the fallback
+ok 618 - race: empty primary defers to the fallback
+# Subtest: race: throwing primary degrades to the fallback, never throws
+ok 619 - race: throwing primary degrades to the fallback, never throws
+# Subtest: race: empty fallback post-window still waits for a late rich primary
+ok 620 - race: empty fallback post-window still waits for a late rich primary
+# Subtest: race: both empty → []
+ok 621 - race: both empty → []
+# Subtest: race: reports serve/degrade lane diagnostics with configured labels
+ok 622 - race: reports serve/degrade lane diagnostics with configured labels
+# Subtest: race: throwing primary reports an error diagnostic and serves fallback
+ok 623 - race: throwing primary reports an error diagnostic and serves fallback
+# Subtest: race: a throwing diagnostic sink never sinks the search
+ok 624 - race: a throwing diagnostic sink never sinks the search
+# Subtest: race: pre-aborted signal → [] without calling providers
+ok 625 - race: pre-aborted signal → [] without calling providers
+# Subtest: collectReferencedSourceIndices resolves cite refs positionally, tolerant of variants
+ok 626 - collectReferencedSourceIndices resolves cite refs positionally, tolerant of variants
+# Subtest: collectReferencedSourceIndices matches verbatim page and thumbnail urls; out-of-range cites don't count
+ok 627 - collectReferencedSourceIndices matches verbatim page and thumbnail urls; out-of-range cites don't count
+# Subtest: collectReferencedSourceIndices returns empty for a reply with no links
+ok 628 - collectReferencedSourceIndices returns empty for a reply with no links
+# Subtest: keepWebSourcesOverviewFirst: host-dedupes, leads with AI Overview citations, caps at the keep cap
+ok 629 - keepWebSourcesOverviewFirst: host-dedupes, leads with AI Overview citations, caps at the keep cap
+# Subtest: buildChatConfigFromContext names the missing required services
+ok 630 - buildChatConfigFromContext names the missing required services
+# Subtest: folds every provided slice into the config by the SAME reference
+ok 631 - folds every provided slice into the config by the SAME reference
+# Subtest: chat-core waits for required services, then provides chatAssistant; dispose unregisters it
+ok 632 - chat-core waits for required services, then provides chatAssistant; dispose unregisters it
+# Subtest: followup maps to send with text and attachments
+ok 633 - followup maps to send with text and attachments
+# Subtest: steer maps to interject alone; inject maps to context-only lane alone
+ok 634 - steer maps to interject alone; inject maps to context-only lane alone
+# Subtest: cancel defaults to keepInbox: interrupt only, queue untouched
+ok 635 - cancel defaults to keepInbox: interrupt only, queue untouched
+# Subtest: cancel keepInbox:false drops queued input BEFORE the interrupt
+ok 636 - cancel keepInbox:false drops queued input BEFORE the interrupt
+# Subtest: dispose stops the spine once, is idempotent, and pins status/cancel afterwards
+ok 637 - dispose stops the spine once, is idempotent, and pins status/cancel afterwards
+# Subtest: status maps ChatState idle→idle and any busy state→active
+ok 638 - status maps ChatState idle→idle and any busy state→active
+# Subtest: whenIdle resolves only after a sent turn fully processes
+ok 639 - whenIdle resolves only after a sent turn fully processes
+# Subtest: cancel keepInbox:false drops queued-but-undequeued input
+ok 640 - cancel keepInbox:false drops queued-but-undequeued input
+# Subtest: a disposed agent is permanently quiescent
+ok 641 - a disposed agent is permanently quiescent
+# Subtest: BASE_SOUL: the inlined soul content is substantial (not an empty/truncated literal)
+ok 642 - BASE_SOUL: the inlined soul content is substantial (not an empty/truncated literal)
+# Subtest: BASE_SOUL: opens with the canonical first line (literal not truncated at the head)
+ok 643 - BASE_SOUL: opens with the canonical first line (literal not truncated at the head)
+# Subtest: BASE_SOUL: still carries the six section headings
+ok 644 - BASE_SOUL: still carries the six section headings
+# Subtest: BASE_SOUL: preserves the two non-negotiable safety rules verbatim
+ok 645 - BASE_SOUL: preserves the two non-negotiable safety rules verbatim
+# Subtest: BASE_SOUL: ends with the soul's trailing content + newline (no truncation at the tail)
+ok 646 - BASE_SOUL: ends with the soul's trailing content + newline (no truncation at the tail)
+# Subtest: bridge: streamed text yields block-start → deltas → block-end → stop finish
+ok 647 - bridge: streamed text yields block-start → deltas → block-end → stop finish
+# Subtest: bridge: authoritative final response EXTENDING the stream ships the missing tail; divergent text is left as-is
+ok 648 - bridge: authoritative final response EXTENDING the stream ships the missing tail; divergent text is left as-is
+# Subtest: bridge: tool calls surface as structured blocks and a tool-calls finish
+ok 649 - bridge: tool calls surface as structured blocks and a tool-calls finish
+# Subtest: bridge: a thrown provider error normalizes to a terminal error finish with a classified code
+ok 650 - bridge: a thrown provider error normalizes to a terminal error finish with a classified code
+# Subtest: runner: parity — text + reconciliation tail + finish mapping
+ok 651 - runner: parity — text + reconciliation tail + finish mapping
+# Subtest: runner: parity — in-band error keeps text and tool calls, finishes error
+ok 652 - runner: parity — in-band error keeps text and tool calls, finishes error
+# Subtest: runner: default policy never retries (historical no-retry behavior)
+ok 653 - runner: default policy never retries (historical no-retry behavior)
+# Subtest: runner: opt-in retry re-requests a retryable code and succeeds
+ok 654 - runner: opt-in retry re-requests a retryable code and succeeds
+# Subtest: runner: a reply that ran away is asked again when the policy retries RUNAWAY
+ok 655 - runner: a reply that ran away is asked again when the policy retries RUNAWAY
+# Subtest: runner: retry never fires after visible text streamed, and not for non-retryable codes
+ok 656 - runner: retry never fires after visible text streamed, and not for non-retryable codes
+# Subtest: runner: abort keeps streamed text and drops tool calls
+ok 657 - runner: abort keeps streamed text and drops tool calls
+# Subtest: bridge: stop ends the stream while the provider call has not settled
+ok 658 - bridge: stop ends the stream while the provider call has not settled
+# Subtest: runner: abort settles before a stalled provider and forwards its signal
+ok 659 - runner: abort settles before a stalled provider and forwards its signal
+# Subtest: classifyLlmFailure names a reply that ran away
+ok 660 - classifyLlmFailure names a reply that ran away
+# Subtest: classifyLlmFailure maps provider wording to stable codes
+ok 661 - classifyLlmFailure maps provider wording to stable codes
+# Subtest: an error finish carries the classified failure so the engine can route on its code
+ok 662 - an error finish carries the classified failure so the engine can route on its code
+# Subtest: toParsedToolCalls parses a well-formed arguments object
+ok 663 - toParsedToolCalls parses a well-formed arguments object
+# Subtest: toParsedToolCalls treats an empty arguments string as {}
+ok 664 - toParsedToolCalls treats an empty arguments string as {}
+# Subtest: toParsedToolCalls recovers a balanced object from a body with trailing garbage
+ok 665 - toParsedToolCalls recovers a balanced object from a body with trailing garbage
+# Subtest: toParsedToolCalls surfaces a non-JSON body as the raw string
+ok 666 - toParsedToolCalls surfaces a non-JSON body as the raw string
+# Subtest: toParsedToolCalls returns [] for absent input
+ok 667 - toParsedToolCalls returns [] for absent input
+# Subtest: streams text verbatim with no tool calls
+ok 668 - streams text verbatim with no tool calls
+# Subtest: surfaces a native control call alongside streamed text
+ok 669 - surfaces a native control call alongside streamed text
+# Subtest: a control-only turn streams no text but carries the call
+ok 670 - a control-only turn streams no text but carries the call
+# Subtest: adopts the reconciled final text when NO deltas streamed
+ok 671 - adopts the reconciled final text when NO deltas streamed
+# Subtest: carries a native control call even when text was reconciled
+ok 672 - carries a native control call even when text was reconciled
+# Subtest: streams only the missing tail when the reconciled text extends the deltas
+ok 673 - streams only the missing tail when the reconciled text extends the deltas
+# Subtest: recall maps a found entity to a ContextHit and posts the params
+ok 674 - recall maps a found entity to a ContextHit and posts the params
+# Subtest: getProfileId sets the x-profile-id header, resolved fresh per call
+ok 675 - getProfileId sets the x-profile-id header, resolved fresh per call
+# Subtest: no getProfileId ⇒ no x-profile-id header (unchanged behavior)
+ok 676 - no getProfileId ⇒ no x-profile-id header (unchanged behavior)
+# Subtest: scope: "user" sends x-memory-scope on every request, alongside x-profile-id
+ok 677 - scope: "user" sends x-memory-scope on every request, alongside x-profile-id
+# Subtest: scope: "user" works without getProfileId; default/profile scope sends no ambient header
+ok 678 - scope: "user" works without getProfileId; default/profile scope sends no ambient header
+# Subtest: recall returns [] on a not-ok envelope and on a thrown fetch
+ok 679 - recall returns [] on a not-ok envelope and on a thrown fetch
+# Subtest: the seam executor reports why a recall came back empty
+ok 680 - the seam executor reports why a recall came back empty
+# Subtest: recall short-circuits to [] when the caller signal is already aborted
+ok 681 - recall short-circuits to [] when the caller signal is already aborted
+# Subtest: describe returns the recall index TOC, '' on failure
+ok 682 - describe returns the recall index TOC, '' on failure
+# Subtest: profile formats a UserProfile, '' when absent
+ok 683 - profile formats a UserProfile, '' when absent
+# Subtest: recentBrowserMemories maps activity entries to `label: description` lines and GETs ?mode=recent&limit=N
+ok 684 - recentBrowserMemories maps activity entries to `label: description` lines and GETs ?mode=recent&limit=N
+# Subtest: recentBrowserMemories collapses label/description echoes and dates entries with their timestamp
+ok 685 - recentBrowserMemories collapses label/description echoes and dates entries with their timestamp
+# Subtest: recentBrowserMemories drops entries whose label and description are both empty
+ok 686 - recentBrowserMemories drops entries whose label and description are both empty
+# Subtest: recentBrowserMemories returns [] on a not-ok envelope and on a thrown fetch
+ok 687 - recentBrowserMemories returns [] on a not-ok envelope and on a thrown fetch
+# Subtest: seams.browserMemoriesProvider reads the most recent activities (limit 3)
+ok 688 - seams.browserMemoriesProvider reads the most recent activities (limit 3)
+# Subtest: the adapter is read-only: its seams carry no durable-write seam
+ok 689 - the adapter is read-only: its seams carry no durable-write seam
+# Subtest: health parses status + connectivity and trims a trailing slash from baseUrl
+ok 690 - health parses status + connectivity and trims a trailing slash from baseUrl
+# Subtest: journeyNow() returns the doing and working-toward cards
+ok 691 - journeyNow() returns the doing and working-toward cards
+# Subtest: journeyNow() is null when the route is missing or not ok; the episodic feed never reads the journey
+ok 692 - journeyNow() is null when the route is missing or not ok; the episodic feed never reads the journey
+# Subtest: buildRecallQuery combines intent description and user message
+ok 693 - buildRecallQuery combines intent description and user message
+# Subtest: buildRecallQuery folds recent user turns into a terse follow-up when no intent yet
+ok 694 - buildRecallQuery folds recent user turns into a terse follow-up when no intent yet
+# Subtest: buildRecallQuery uses a host-declared query text VERBATIM — no terse-follow-up fold
+ok 695 - buildRecallQuery uses a host-declared query text VERBATIM — no terse-follow-up fold
+# Subtest: buildRecallQuery folds the attached-tab anchor in whenever one is present
+ok 696 - buildRecallQuery folds the attached-tab anchor in whenever one is present
+# Subtest: buildRecallQuery flattens and caps a multi-page tab anchor
+ok 697 - buildRecallQuery flattens and caps a multi-page tab anchor
+# Subtest: buildRecallQuery leaves the query untouched without a tab anchor
+ok 698 - buildRecallQuery leaves the query untouched without a tab anchor
+# Subtest: buildRecallQuery keeps a terse message verbatim under an intent (no double resolution)
+ok 699 - buildRecallQuery keeps a terse message verbatim under an intent (no double resolution)
+# Subtest: retriever skips recall when assess gated memory off (recallMemory false)
+ok 700 - retriever skips recall when assess gated memory off (recallMemory false)
+# Subtest: retriever runs a direct text search from assess directives — no planner LLM
+ok 701 - retriever runs a direct text search from assess directives — no planner LLM
+# Subtest: retriever applies the assess time window to the direct search
+ok 702 - retriever applies the assess time window to the direct search
+# Subtest: text + time window emits a companion pure-time request (rank recent) alongside the text search
+ok 703 - text + time window emits a companion pure-time request (rank recent) alongside the text search
+# Subtest: replenish pass (planPaths) does not re-emit the pure-time companion
+ok 704 - replenish pass (planPaths) does not re-emit the pure-time companion
+# Subtest: a memoized plan skips a second planner LLM call
+ok 705 - a memoized plan skips a second planner LLM call
+# Subtest: plan prompt carries the profile and browser-activity sections
+ok 706 - plan prompt carries the profile and browser-activity sections
+# Subtest: plan prompt ships only the INDEX slice of the tool description
+ok 707 - plan prompt ships only the INDEX slice of the tool description
+# Subtest: retriever falls back to the intent query when assess provides no recallText
+ok 708 - retriever falls back to the intent query when assess provides no recallText
+# Subtest: initial pass runs no planner LLM (planPaths unset)
+ok 709 - initial pass runs no planner LLM (planPaths unset)
+# Subtest: reflect (planPaths) fans out a TOC branch alongside the direct text search
+ok 710 - reflect (planPaths) fans out a TOC branch alongside the direct text search
+# Subtest: pathsOnly (speculative TOC lane) runs the planner but no direct text search
+ok 711 - pathsOnly (speculative TOC lane) runs the planner but no direct text search
+# Subtest: path planner's own start/end bounds land on the path request
+ok 712 - path planner's own start/end bounds land on the path request
+# Subtest: a bare timeline path derives the week window for the pure-time companion
+ok 713 - a bare timeline path derives the week window for the pure-time companion
+# Subtest: the legacy timeline/weeks/<week> path form also derives the companion window
+ok 714 - the legacy timeline/weeks/<week> path form also derives the companion window
+# Subtest: a bare non-timeline path adds no companion
+ok 715 - a bare non-timeline path adds no companion
+# Subtest: a malformed planner time bound is dropped, the branch still runs unbounded
+ok 716 - a malformed planner time bound is dropped, the branch still runs unbounded
+# Subtest: pathsOnly skips with no_path_match when the planner matches no TOC branch
+ok 717 - pathsOnly skips with no_path_match when the planner matches no TOC branch
+# Subtest: path planner tolerates literal `undefined` in the model's JSON
+ok 718 - path planner tolerates literal `undefined` in the model's JSON
+# Subtest: path planner tolerates leaked reasoning prose ahead of the JSON
+ok 719 - path planner tolerates leaked reasoning prose ahead of the JSON
+# Subtest: path planner dedupes identical branches
+ok 720 - path planner dedupes identical branches
+# Subtest: direct text still runs when path planning has no TOC
+ok 721 - direct text still runs when path planning has no TOC
+# Subtest: turn cache dedupes the executor for a repeated direct search
+ok 722 - turn cache dedupes the executor for a repeated direct search
+# Subtest: direct RecallParams bypass retriever planning
+ok 723 - direct RecallParams bypass retriever planning
+# Subtest: adaptRecallToolOutput surfaces bound agent activity as a distinct agent_memory hit
+ok 724 - adaptRecallToolOutput surfaces bound agent activity as a distinct agent_memory hit
+# Subtest: adaptRecallExecution carries why a recall came back empty
+ok 725 - adaptRecallExecution carries why a recall came back empty
+# Subtest: retriever passes the executor's emptyReason through, including on a cache hit
+ok 726 - retriever passes the executor's emptyReason through, including on a cache hit
+# Subtest: a throwing executor reports emptyReason 'error' on its request
+ok 727 - a throwing executor reports emptyReason 'error' on its request
+# Subtest: parseRecallIndexBranches lists every copyable path once
+ok 728 - parseRecallIndexBranches lists every copyable path once
+# Subtest: lexicalBranchCandidates matches slug tokens and the fused slug
+ok 729 - lexicalBranchCandidates matches slug tokens and the fused slug
+# Subtest: the state carries the turn and never the TOC
+ok 730 - the state carries the turn and never the TOC
+# Subtest: a terse follow-up widens candidates to earlier user messages
+ok 731 - a terse follow-up widens candidates to earlier user messages
+# Subtest: timeScopeWindow computes the host's calendar periods from the stated clock
+ok 732 - timeScopeWindow computes the host's calendar periods from the stated clock
+# Subtest: timeScopeWindow: an evening west of UTC is still today, not the next UTC day
+ok 733 - timeScopeWindow: an evening west of UTC is still today, not the next UTC day
+# Subtest: resolve: a period picks its own timeline week and bounds every pick
+ok 734 - resolve: a period picks its own timeline week and bounds every pick
+# Subtest: retriever: decided branches run with no generative call
+ok 735 - retriever: decided branches run with no generative call
+# Subtest: retriever: the branch decision carries the recall stage's trace
+ok 736 - retriever: the branch decision carries the recall stage's trace
+# Subtest: retriever: a turn that needs no memory spends no generative call
+ok 737 - retriever: a turn that needs no memory spends no generative call
+# Subtest: retriever: about the person with no listed branch defers to the generative planner
+ok 738 - retriever: about the person with no listed branch defers to the generative planner
+# Subtest: retriever: a failing or partial decision falls back to the generative planner
+ok 739 - retriever: a failing or partial decision falls back to the generative planner
+# Subtest: adaptRecallExecution renders evidence entities as one hit each
+ok 740 - adaptRecallExecution renders evidence entities as one hit each
+# Subtest: orders the recalled memories by p(helpful) and keeps other hits in their slots
+ok 741 - orders the recalled memories by p(helpful) and keeps other hits in their slots
+# Subtest: every rerank batch carries the caller's trace
+ok 742 - every rerank batch carries the caller's trace
+# Subtest: keeps the search order among equally helpful records and, under the budget, drops nothing
+ok 743 - keeps the search order among equally helpful records and, under the budget, drops nothing
+# Subtest: fails open to the search order
+ok 744 - fails open to the search order
+# Subtest: asks nothing with fewer than two recalled memories or after an abort
+ok 745 - asks nothing with fewer than two recalled memories or after an abort
+# Subtest: splits a large set into parallel requests and ranks across them
+ok 746 - splits a large set into parallel requests and ranks across them
+# Subtest: keeps only the budget's most helpful records, other hits untouched
+ok 747 - keeps only the budget's most helpful records, other hits untouched
+# Subtest: applies the budget in search order when the rerank is unavailable
+ok 748 - applies the budget in search order when the rerank is unavailable
+# Subtest: in-turn self-review is a chat.self_review stage under the turn: the reply in, the verdict out
+ok 749 - in-turn self-review is a chat.self_review stage under the turn: the reply in, the verdict out
+# Subtest: detached self-review runs after the turn: a chat.self_review span at the root of the request's trace, its model call under it
+ok 750 - detached self-review runs after the turn: a chat.self_review span at the root of the request's trace, its model call under it
+# Subtest: late recall hits after the answer: a chat.late_context span at the root of the request's trace; the re-plan and the correction hang under it
+ok 751 - late recall hits after the answer: a chat.late_context span at the root of the request's trace; the re-plan and the correction hang under it
+# Subtest: a seed-time compaction hangs on the request that reopened the conversation
+ok 752 - a seed-time compaction hangs on the request that reopened the conversation
+# Subtest: the tool loop's currentTraceParent is its live turn, and nothing between turns
+ok 753 - the tool loop's currentTraceParent is its live turn, and nothing between turns
+# Subtest: currentTraceParent is the live turn, and nothing between turns
+ok 754 - currentTraceParent is the live turn, and nothing between turns
+# Subtest: the turn verdict hangs on the turn, the reply-language decision under chat.assess
+ok 755 - the turn verdict hangs on the turn, the reply-language decision under chat.assess
+# Subtest: the task route is asked under chat.assess
+ok 756 - the task route is asked under chat.assess
+# Subtest: the recall rerank is asked under chat.recall
+ok 757 - the recall rerank is asked under chat.recall
+# Subtest: a turn that answers on recalled memory records its verdict on chat.respond too
+ok 758 - a turn that answers on recalled memory records its verdict on chat.respond too
+# Subtest: a turn the router reads as a task, answered in band, records its verdict on chat.respond
+ok 759 - a turn the router reads as a task, answered in band, records its verdict on chat.respond
+# Subtest: chat.respond records the verdict the answer used
+ok 760 - chat.respond records the verdict the answer used
+# Subtest: a verdict that missed its ceiling is on chat.respond: no verdict, and why
+ok 761 - a verdict that missed its ceiling is on chat.respond: no verdict, and why
+# Subtest: state changes become the turn's state path, not events
+ok 762 - state changes become the turn's state path, not events
+# Subtest: only gate_hold and thought stay events, with their full text
+ok 763 - only gate_hold and thought stay events, with their full text
+# Subtest: recall frames become the recall stage's input and output, untruncated
+ok 764 - recall frames become the recall stage's input and output, untruncated
+# Subtest: routing frames become the assess stage's output, a control becomes the decision
+ok 765 - routing frames become the assess stage's output, a control becomes the decision
+# Subtest: a recall skip and each use of recalled hits fold into the recall stage's output
+ok 766 - a recall skip and each use of recalled hits fold into the recall stage's output
+# Subtest: the recognized intent is the assess stage's output
+ok 767 - the recognized intent is the assess stage's output
+# Subtest: knowledge-base frames become the knowledge_base stage's input and output
+ok 768 - knowledge-base frames become the knowledge_base stage's input and output
+# Subtest: live-context frames become the live_context stage's output
+ok 769 - live-context frames become the live_context stage's output
+# Subtest: the follow-up decision is the follow_up stage's output, with its hint when given
+ok 770 - the follow-up decision is the follow_up stage's output, with its hint when given
+# Subtest: a plan update is part of chat.respond's output, every revision kept
+ok 771 - a plan update is part of chat.respond's output, every revision kept
+# Subtest: frames that are not diagnostics fold to nothing (text, tools, session, errors)
+ok 772 - frames that are not diagnostics fold to nothing (text, tools, session, errors)
+# Subtest: web-search lanes are not folded here: the web_search tool records them as spans
+ok 773 - web-search lanes are not folded here: the web_search tool records them as spans
+# Subtest: web_sources without origins still reads the serp lane off typed results
+ok 774 - web_sources without origins still reads the serp lane off typed results
+# Subtest: web_sources with untyped results reads as the jina lane
+ok 775 - web_sources with untyped results reads as the jina lane
+# Subtest: web_sources lists what the reply cited first, with each source's origin, and counts the origins
+ok 776 - web_sources lists what the reply cited first, with each source's origin, and counts the origins
+# Subtest: web_search_call heads each search: which of the turn, how it ended, what it added
+ok 777 - web_search_call heads each search: which of the turn, how it ended, what it added
+# Subtest: web_search_lane shows a lane's longer detail when expanded
+ok 778 - web_search_lane shows a lane's longer detail when expanded
+# Subtest: web_search_lane summarizes the lane outcome with its reason
+ok 779 - web_search_lane summarizes the lane outcome with its reason
+# Subtest: web_search_lane surfaces the actually-searched query in the detail
+ok 780 - web_search_lane surfaces the actually-searched query in the detail
+# Subtest: media_slots summarizes resolution progress per slot
+ok 781 - media_slots summarizes resolution progress per slot
+# Subtest: knowledge_base_request summarizes with a query-aware label
+ok 782 - knowledge_base_request summarizes with a query-aware label
+# Subtest: knowledge_base_result summarizes with the fact count
+ok 783 - knowledge_base_result summarizes with the fact count
+# Subtest: knowledge_base_skipped surfaces the skip reason
+ok 784 - knowledge_base_skipped surfaces the skip reason
+# Subtest: task_route (delegate + skill match) summarizes with the matched skill
+ok 785 - task_route (delegate + skill match) summarizes with the matched skill
+# Subtest: task_route (delegate, no skill match) reads as a no-skill delegation
+ok 786 - task_route (delegate, no skill match) reads as a no-skill delegation
+# Subtest: task_route (answer) reads as a non-task verdict
+ok 787 - task_route (answer) reads as a non-task verdict
+# Subtest: gate_hold (abandoned) names the give-up and the sources it dropped
+ok 788 - gate_hold (abandoned) names the give-up and the sources it dropped
+# Subtest: gate_hold (deferred) reads as answered-now, not held
+ok 789 - gate_hold (deferred) reads as answered-now, not held
+# Subtest: every chat model call has a distinct generation name
+ok 790 - every chat model call has a distinct generation name
+# Subtest: every decision task has its own chat.decision.* generation name
+ok 791 - every decision task has its own chat.decision.* generation name
+# Subtest: chatDecisionTrace fills a decision request's trace fields from one parent
+ok 792 - chatDecisionTrace fills a decision request's trace fields from one parent
+# Subtest: an unknown name is kept visible, never collapsed to chat.llm
+ok 793 - an unknown name is kept visible, never collapsed to chat.llm
+# Subtest: chatLlmTrace is the only way a call gets its trace fields
+ok 794 - chatLlmTrace is the only way a call gets its trace fields
+# Subtest: seam 1: the recall search executor opens a chat.recall.search span under chat.recall, with the search params as input and the hits as output
+ok 795 - seam 1: the recall search executor opens a chat.recall.search span under chat.recall, with the search params as input and the hits as output
+# Subtest: seam 1 no-op: with NO telemetry port, NO chat.recall.search span exists and the executor runs identically (Lexington-safe)
+ok 796 - seam 1 no-op: with NO telemetry port, NO chat.recall.search span exists and the executor runs identically (Lexington-safe)
+# Subtest: seam 1 error: an executor throw propagates and the chat.recall.search span ends at ERROR (engine recall path swallows it to [] as before)
+ok 797 - seam 1 error: an executor throw propagates and the chat.recall.search span ends at ERROR (engine recall path swallows it to [] as before)
+# Subtest: seam 2: an inline raw web search opens a chat.web_search.raw span under the web_search tool call, with the query as input and the results as output
+ok 798 - seam 2: an inline raw web search opens a chat.web_search.raw span under the web_search tool call, with the query as input and the results as output
+# Subtest: seam 2 no-op: with NO telemetry port, NO websearch span exists and the search runs identically
+ok 799 - seam 2 no-op: with NO telemetry port, NO websearch span exists and the search runs identically
+# Subtest: seam 4: the profile fetch opens a chat.profile span under chat.assess, with the profile text as output
+ok 800 - seam 4: the profile fetch opens a chat.profile span under chat.assess, with the profile text as output
+# Subtest: seam 4 no-op: with NO telemetry port, NO chat.profile span exists and the provider runs identically
+ok 801 - seam 4 no-op: with NO telemetry port, NO chat.profile span exists and the provider runs identically
+# Subtest: seam 5: the agent-activity fetch opens a chat.agent_activity span under chat.recall, with the query as input and the hits as output
+ok 802 - seam 5: the agent-activity fetch opens a chat.agent_activity span under chat.recall, with the query as input and the hits as output
+# Subtest: seam 5 no-op: with NO telemetry port, NO chat.agent_activity span exists and the provider runs identically
+ok 803 - seam 5 no-op: with NO telemetry port, NO chat.agent_activity span exists and the provider runs identically
+# Subtest: seam 7: the live-context fetch opens a chat.live_context.fetch span under chat.live_context, with the block as output
+ok 804 - seam 7: the live-context fetch opens a chat.live_context.fetch span under chat.live_context, with the block as output
+# Subtest: seam 7 no-op: with NO telemetry port, NO chat.live_context.fetch span exists and the provider runs identically
+ok 805 - seam 7 no-op: with NO telemetry port, NO chat.live_context.fetch span exists and the provider runs identically
+# Subtest: diagnostics fold into their stage's output instead of becoming events
+ok 806 - diagnostics fold into their stage's output instead of becoming events
+# Subtest: Part A: the answer-in-beats gate_hold { decision: deferred } is a chat.gate_hold event under chat.respond
+ok 807 - Part A: the answer-in-beats gate_hold { decision: deferred } is a chat.gate_hold event under chat.respond
+# Subtest: a recall turn opens chat.assess / chat.recall / chat.respond under chat.turn, each with input and output
+ok 808 - a recall turn opens chat.assess / chat.recall / chat.respond under chat.turn, each with input and output
+# Subtest: recall: the recall request is the stage's input, and the recall plan hangs under chat.recall
+ok 809 - recall: the recall request is the stage's input, and the recall plan hangs under chat.recall
+# Subtest: respond: the reply generation nests under chat.respond
+ok 810 - respond: the reply generation nests under chat.respond
+# Subtest: reflect: the replan hangs under chat.reflect; the follow-up decision folds into chat.follow_up
+ok 811 - reflect: the replan hangs under chat.reflect; the follow-up decision folds into chat.follow_up
+# Subtest: a stage closes with what it handed on, in full (reversed rule: counts and capped paths)
+ok 812 - a stage closes with what it handed on, in full (reversed rule: counts and capped paths)
+# Subtest: no-op: with NO telemetry, the recall / reply calls carry no trace fields and the turn is unchanged
+ok 813 - no-op: with NO telemetry, the recall / reply calls carry no trace fields and the turn is unchanged
+# Subtest: memory_recall_path_plan: threads the turn telemetry onto the plan call when the context carries it
+ok 814 - memory_recall_path_plan: threads the turn telemetry onto the plan call when the context carries it
+# Subtest: memory_recall_path_plan: NO telemetry fields when the context carries none (no-op)
+ok 815 - memory_recall_path_plan: NO telemetry fields when the context carries none (no-op)
+# Subtest: knowledge_base: threads the turn telemetry onto the retrieval call when supplied
+ok 816 - knowledge_base: threads the turn telemetry onto the retrieval call when supplied
+# Subtest: knowledge_base: NO telemetry fields when none supplied (no-op)
+ok 817 - knowledge_base: NO telemetry fields when none supplied (no-op)
+# Subtest: a stage span has input and ends with what its diagnostics folded in
+ok 818 - a stage span has input and ends with what its diagnostics folded in
+# Subtest: a reply-loop tool call is a chat.tool span under chat.respond, closed by its result
+ok 819 - a reply-loop tool call is a chat.tool span under chat.respond, closed by its result
+# Subtest: an intercepted control opens no tool span and becomes the turn's decision
+ok 820 - an intercepted control opens no tool span and becomes the turn's decision
+# Subtest: state changes are turn metadata; visible text is the turn and trace output
+ok 821 - state changes are turn metadata; visible text is the turn and trace output
+# Subtest: the delegated run's parent is chat.respond; background work hangs at the trace root
+ok 822 - the delegated run's parent is chat.respond; background work hangs at the trace root
+# Subtest: a tool still open when the turn ends is closed at WARNING
+ok 823 - a tool still open when the turn ends is closed at WARNING
+# Subtest: a seam span records its full input and output
+ok 824 - a seam span records its full input and output
+# Subtest: with no port the rig does nothing
+ok 825 - with no port the rig does nothing
+# Subtest: ANSWER turn: the routing stage records what it read, and the reply hangs under chat.respond
+ok 826 - ANSWER turn: the routing stage records what it read, and the reply hangs under chat.respond
+# Subtest: chat.turn is a user turn with the prompt as input, and the spoken text as its and the trace's output
+ok 827 - chat.turn is a user turn with the prompt as input, and the spoken text as its and the trace's output
+# Subtest: ACTION turn: the delegation rejoins the request's trace, and the worker hangs under its chat.respond
+ok 828 - ACTION turn: the delegation rejoins the request's trace, and the worker hangs under its chat.respond
+# Subtest: back-compat: without a telemetry port the calls carry no trace fields and the executor gets none
+ok 829 - back-compat: without a telemetry port the calls carry no trace fields and the executor gets none
+# Subtest: between-turns interjection: the continuation is an interject turn, and its reply hangs under its own chat.respond
+ok 830 - between-turns interjection: the continuation is an interject turn, and its reply hangs under its own chat.respond
+# Subtest: chat-route interjection: a chat.interjection span under the current turn, with the text as input and output
+ok 831 - chat-route interjection: a chat.interjection span under the current turn, with the text as input and output
+# Subtest: back-compat: without a telemetry port, a chat-route interjection still streams and opens nothing
+ok 832 - back-compat: without a telemetry port, a chat-route interjection still streams and opens nothing
+# Subtest: an answer turn: a user turn, stages with input and output, the reply under chat.respond
+ok 833 - an answer turn: a user turn, stages with input and output, the reply under chat.respond
+# Subtest: a delegation: the routing turn records its decision, the delegated run hangs under chat.respond
+ok 834 - a delegation: the routing turn records its decision, the delegated run hangs under chat.respond
+# Subtest: a reply-loop tool call is a chat.tool span handed to the tool as its trace
+ok 835 - a reply-loop tool call is a chat.tool span handed to the tool as its trace
+# Subtest: the tool loop: each tool call is a chat.tool span under the turn, handed to the tool as its trace
+ok 836 - the tool loop: each tool call is a chat.tool span under the turn, handed to the tool as its trace
+# Subtest: a tool-loop turn that answers with a tool and no words: the call it ended on is the turn's and the trace's output
+ok 837 - a tool-loop turn that answers with a tool and no words: the call it ended on is the turn's and the trace's output
+# Subtest: a replay keeps the time each frame was sent
+ok 838 - a replay keeps the time each frame was sent
+# Subtest: a replayed turn ends at the time its idle frame was sent
+ok 839 - a replayed turn ends at the time its idle frame was sent
+# Subtest: a replayed LLM call without its own start is placed by the frame's time
+ok 840 - a replayed LLM call without its own start is placed by the frame's time
+# Subtest: worker tools take the injected label, else the display name, else the capability
+ok 841 - worker tools take the injected label, else the display name, else the capability
+# Subtest: isAguiTraceFrame keeps exactly the frames the folding acts on
+ok 842 - isAguiTraceFrame keeps exactly the frames the folding acts on
+# Subtest: the default scope describes the panel's in-memory trace
+ok 843 - the default scope describes the panel's in-memory trace
+# Subtest: a caller may restate the scope and add notes
+ok 844 - a caller may restate the scope and add notes
+# Subtest: the router's decision requests and its verdict record all land in the Task-router lane
+ok 845 - the router's decision requests and its verdict record all land in the Task-router lane
+# Subtest: cacheHitStat: reported cache read → pct of the full prompt; absence → undefined
+ok 846 - cacheHitStat: reported cache read → pct of the full prompt; absence → undefined
+# Subtest: copied logs carry ttft and the cache-hit stat on calls that report them
+ok 847 - copied logs carry ttft and the cache-hit stat on calls that report them
+# Subtest: token cost: per-call, summed, and compact formatting
+ok 848 - token cost: per-call, summed, and compact formatting
+# Subtest: copied logs lead each turn with its whole token cost
+ok 849 - copied logs lead each turn with its whole token cost
+# Subtest: buildWaterfall lays positioned calls on the turn's shared timeline
+ok 850 - buildWaterfall lays positioned calls on the turn's shared timeline
+# Subtest: waterfallTicks picks a nice step with at most ~6 labeled ticks from 0
+ok 851 - waterfallTicks picks a nice step with at most ~6 labeled ticks from 0
+# Subtest: web_search_fetch spans land in the Web search lane
+ok 852 - web_search_fetch spans land in the Web search lane
+# Subtest: memory_recall_fetch spans land in the Recall lane
+ok 853 - memory_recall_fetch spans land in the Recall lane
+# Subtest: chat_transcript_compaction calls land in the Reflect lane, not Respond
+ok 854 - chat_transcript_compaction calls land in the Reflect lane, not Respond
+# Subtest: ingestLLMCall backfills startedAt from arrival time minus duration
+ok 855 - ingestLLMCall backfills startedAt from arrival time minus duration
+# Subtest: ingestPageContext opens the pending turn and records the untruncated content
+ok 856 - ingestPageContext opens the pending turn and records the untruncated content
+# Subtest: formatChatTraceSection copies a section's steps and calls with tool results
+ok 857 - formatChatTraceSection copies a section's steps and calls with tool results
+# Subtest: the decision transcript keeps the corrected request and drops tool results
+ok 858 - the decision transcript keeps the corrected request and drops tool results
+# Subtest: the decision transcript tail holds ten spoken turns
+ok 859 - the decision transcript tail holds ten spoken turns
+# Subtest: earlier user messages never include a tool result
+ok 860 - earlier user messages never include a tool result
+# Subtest: a terse follow-up folds only what the user said
+ok 861 - a terse follow-up folds only what the user said
+# Subtest: stripFences returns the fenced body when present
+ok 862 - stripFences returns the fenced body when present
+# Subtest: extractJsonObject parses a clean JSON reply unchanged
+ok 863 - extractJsonObject parses a clean JSON reply unchanged
+# Subtest: extractJsonObject recovers JSON preceded by leaked reasoning prose
+ok 864 - extractJsonObject recovers JSON preceded by leaked reasoning prose
+# Subtest: extractJsonObject returns the LAST object when prose contains brace snippets
+ok 865 - extractJsonObject returns the LAST object when prose contains brace snippets
+# Subtest: extractJsonObject ignores braces inside JSON strings
+ok 866 - extractJsonObject ignores braces inside JSON strings
+# Subtest: extractJsonObject recovers the answer when reasoning quotes a fenced schema
+ok 867 - extractJsonObject recovers the answer when reasoning quotes a fenced schema
+# Subtest: extractJsonObject still prefers a valid FIRST fenced block over trailing prose
+ok 868 - extractJsonObject still prefers a valid FIRST fenced block over trailing prose
+# Subtest: extractJsonObject throws when no object parses
+ok 869 - extractJsonObject throws when no object parses
+# tests 878
+# pass 878
+# fail 0
+# cancelled 0

@@ -1,0 +1,292 @@
+# Subtest: persists commentary phase on assistant text parts
+ok 1 - persists commentary phase on assistant text parts
+# Subtest: persists generic file content from tool results as assistant file parts
+ok 2 - persists generic file content from tool results as assistant file parts
+# Subtest: replayed rich files persist once while later text and new runs retain the file
+ok 3 - replayed rich files persist once while later text and new runs retain the file
+# Subtest: createPersistSink stamps the runId into persisted assistant metadata
+ok 4 - createPersistSink stamps the runId into persisted assistant metadata
+# Subtest: toToolCallResult stamps metadata.rawEvent when the result carries a content array
+ok 5 - toToolCallResult stamps metadata.rawEvent when the result carries a content array
+# Subtest: toToolCallResult leaves metadata.rawEvent absent for an ordinary result
+ok 6 - toToolCallResult leaves metadata.rawEvent absent for an ordinary result
+# Subtest: persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+ok 7 - persist sink deduplicates repeated image RESULT frames and later calls for the same file without losing narration
+# Subtest: POST /chats stores validated metadata and resolves the window's Space
+ok 8 - POST /chats stores validated metadata and resolves the window's Space
+# Subtest: POST /chats keeps windowId only when Space resolution fails
+ok 9 - POST /chats keeps windowId only when Space resolution fails
+# Subtest: POST /chats rejects unknown namespaces and invalid payloads
+ok 10 - POST /chats rejects unknown namespaces and invalid payloads
+# Subtest: the retired tasks namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+ok 11 - the retired tasks namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+# Subtest: the workerTarget namespace is closed to clients although it is mutable
+ok 12 - the workerTarget namespace is closed to clients although it is mutable
+# Subtest: metadata routes: GET map, PUT/DELETE mutable namespace, origin immutable
+ok 13 - metadata routes: GET map, PUT/DELETE mutable namespace, origin immutable
+# Subtest: the retired kickoff namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+ok 14 - the retired kickoff namespace is unknown: create, PUT and DELETE answer invalid_metadata_namespace
+# Subtest: retired routes are gone: PATCH metadata / visibility / category return 404
+ok 15 - retired routes are gone: PATCH metadata / visibility / category return 404
+# Subtest: GET /chats forwards the paging, search and category filters
+ok 16 - GET /chats forwards the paging, search and category filters
+# Subtest: GET /chats defaults the limit to 20 and leaves absent filters unset
+ok 17 - GET /chats defaults the limit to 20 and leaves absent filters unset
+# Subtest: GET /chats falls back to the default limit for a non-numeric value
+ok 18 - GET /chats falls back to the default limit for a non-numeric value
+# Subtest: GET /chats treats an empty category_id as no filter
+ok 19 - GET /chats treats an empty category_id as no filter
+# Subtest: GET /chats forwards has_tasks only when it is exactly true
+ok 20 - GET /chats forwards has_tasks only when it is exactly true
+# Subtest: GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+ok 21 - GET /chats/tasks_view_count counts the Tasks view in the caller's scope
+# Subtest: GET /chats sends each chat as chat JSON, metadata included
+ok 22 - GET /chats sends each chat as chat JSON, metadata included
+# Subtest: POST /chats/batch_delete accepts a bare array and a { chatIds } object
+ok 23 - POST /chats/batch_delete accepts a bare array and a { chatIds } object
+# Subtest: POST /chats/batch_delete treats a missing body as an empty list
+ok 24 - POST /chats/batch_delete treats a missing body as an empty list
+# Subtest: POST /chats/batch_categories forwards the de-duplicated ids and both lists
+ok 25 - POST /chats/batch_categories forwards the de-duplicated ids and both lists
+# Subtest: POST /chats/batch_categories rejects a malformed body without touching the store
+ok 26 - POST /chats/batch_categories rejects a malformed body without touching the store
+# Subtest: POST /chats/batch_categories answers 404 for an unknown category
+ok 27 - POST /chats/batch_categories answers 404 for an unknown category
+# Subtest: chat JSON carries categoryIds, lastActivityAt, taskCount and an unread flag, never categoryId or unreadAt
+ok 28 - chat JSON carries categoryIds, lastActivityAt, taskCount and an unread flag, never categoryId or unreadAt
+# Subtest: POST /chats answers 400 for a categoryIds that is not a list of ids and 404 for an unknown category
+ok 29 - POST /chats answers 400 for a categoryIds that is not a list of ids and 404 for an unknown category
+# Subtest: PUT /chats/:id/categories replaces the set under the chat's current owner and answers the chat
+ok 30 - PUT /chats/:id/categories replaces the set under the chat's current owner and answers the chat
+# Subtest: PUT /chats/:id/categories answers 400 for a bad body and 404 for an unknown category or chat
+ok 31 - PUT /chats/:id/categories answers 400 for a bad body and 404 for an unknown category or chat
+# Subtest: POST /chats/:id/read clears unread and answers 204 with no body
+ok 32 - POST /chats/:id/read clears unread and answers 204 with no body
+# Subtest: GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+ok 33 - GET /chats/:id/tasks sends the chat's live tasks oldest first, with their schedules and latest run
+# Subtest: GET /chats/:id/tasks answers an empty list for a chat without tasks, and 404 for a chat it cannot reach
+ok 34 - GET /chats/:id/tasks answers an empty list for a chat without tasks, and 404 for a chat it cannot reach
+# Subtest: another account cannot obtain an image-bearing chat even by declaring the owner's profile
+ok 35 - another account cannot obtain an image-bearing chat even by declaring the owner's profile
+# Subtest: fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+ok 36 - fileId capability retains anonymous and cross-account GET/HEAD without leaking through chat scope
+# Subtest: maps ok WorkerRunResult to { ok:true, summary }
+ok 37 - maps ok WorkerRunResult to { ok:true, summary }
+# Subtest: maps error WorkerRunResult to { ok:false, error:string } (object->message) and never surfaces skillUsed
+ok 38 - maps error WorkerRunResult to { ok:false, error:string } (object->message) and never surfaces skillUsed
+# Subtest: maps a question WorkerRunResult to { ok:false, question } (never a failure)
+ok 39 - maps a question WorkerRunResult to { ok:false, question } (never a failure)
+# Subtest: threads planSessionId onto the per-dispatch worker ctx
+ok 40 - threads planSessionId onto the per-dispatch worker ctx
+# Subtest: forwards worker onEvent to emitProgress under the owner runId
+ok 41 - forwards worker onEvent to emitProgress under the owner runId
+# Subtest: forwards the skill hint and grants its canonical id without replacing active skills
+ok 42 - forwards the skill hint and grants its canonical id without replacing active skills
+# Subtest: does not duplicate a router-matched skill that is already active
+ok 43 - does not duplicate a router-matched skill that is already active
+# Subtest: does not grant ACL access from a display-name hint without a canonical id
+ok 44 - does not grant ACL access from a display-name hint without a canonical id
+# Subtest: threads chat-provided task context into the worker task
+ok 45 - threads chat-provided task context into the worker task
+# Subtest: the files the user attached in this conversation ride in the worker's context
+ok 46 - the files the user attached in this conversation ride in the worker's context
+# Subtest: a file listing that fails leaves the worker's context as it was
+ok 47 - a file listing that fails leaves the worker's context as it was
+# Subtest: hands the chat's span to the worker, which opens worker.run itself
+ok 48 - hands the chat's span to the worker, which opens worker.run itself
+# Subtest: a direct memory-agent ask is a memory_agent.direct span under the chat's span, with the task in and the result out
+ok 49 - a direct memory-agent ask is a memory_agent.direct span under the chat's span, with the task in and the result out
+# Subtest: a direct memory-agent ask hands its span to the port, so the agent's own calls hang under it
+ok 50 - a direct memory-agent ask hands its span to the port, so the agent's own calls hang under it
+# Subtest: emits a run_started{objective} as the FIRST progress event at dispatch
+ok 51 - emits a run_started{objective} as the FIRST progress event at dispatch
+# Subtest: emits a run_result{ok:true,summary} terminal LAST on success
+ok 52 - emits a run_result{ok:true,summary} terminal LAST on success
+# Subtest: emits a run_result{ok:false,errorCode} terminal on a worker error
+ok 53 - emits a run_result{ok:false,errorCode} terminal on a worker error
+# Subtest: emits no lifecycle progress when no owner run is known (scoped)
+ok 54 - emits no lifecycle progress when no owner run is known (scoped)
+# Subtest: worker artifacts are mapped onto the TaskExecutionResult and emitted once
+ok 55 - worker artifacts are mapped onto the TaskExecutionResult and emitted once
+# Subtest: a run with no artifacts emits nothing and leaves the result field absent
+ok 56 - a run with no artifacts emits nothing and leaves the result field absent
+# Subtest: artifacts from a FAILED run are still emitted and reported
+ok 57 - artifacts from a FAILED run are still emitted and reported
+# Subtest: a failed run hands back the last successful tool result, flagged incomplete
+ok 58 - a failed run hands back the last successful tool result, flagged incomplete
+# Subtest: image delivery diagnostics do not claim that requested work was gathered
+ok 59 - image delivery diagnostics do not claim that requested work was gathered
+# Subtest: image delivery diagnostics accompany saved partial files
+ok 60 - image delivery diagnostics accompany saved partial files
+# Subtest: the worker's OWN last-round text wins over a raw tool result
+ok 61 - the worker's OWN last-round text wins over a raw tool result
+# Subtest: a failed run with nothing gathered reports a plain failure
+ok 62 - a failed run with nothing gathered reports a plain failure
+# Subtest: a USER cancel salvages nothing — a cancel is a decision, not a loss
+ok 63 - a USER cancel salvages nothing — a cancel is a decision, not a loss
+# Subtest: a TIMEOUT salvages too — the other way a finished piece of work is lost
+ok 64 - a TIMEOUT salvages too — the other way a finished piece of work is lost
+# Subtest: only a matched or hand-picked memory-agent skill makes a run memory-writable; availability never does
+ok 65 - only a matched or hand-picked memory-agent skill makes a run memory-writable; availability never does
+# Subtest: only a matched or hand-picked skill-library skill carries a library instruction
+ok 66 - only a matched or hand-picked skill-library skill carries a library instruction
+# Subtest: a run carrying the skill-library skill gets the library-changing tools; any other run does not
+ok 67 - a run carrying the skill-library skill gets the library-changing tools; any other run does not
+# Subtest: a memory-skill dispatch asks the memory agent, writable, never runs the worker, and hands its output back to chat
+ok 68 - a memory-skill dispatch asks the memory agent, writable, never runs the worker, and hands its output back to chat
+# Subtest: every memory-skill dispatch goes to the memory agent: beside another picked skill, and on a plan step
+ok 69 - every memory-skill dispatch goes to the memory agent: beside another picked skill, and on a plan step
+# Subtest: chat's follow-up dispatch carries no memory skill and reaches the worker, even with the memory skill picked for the run
+ok 70 - chat's follow-up dispatch carries no memory skill and reaches the worker, even with the memory skill picked for the run
+# Subtest: a memory answer with no recorded change says so, and a failed ask is a failed run with no memory answer
+ok 71 - a memory answer with no recorded change says so, and a failed ask is a failed run with no memory answer
+# Subtest: a memory-skill dispatch carries the chat's conversation window, so the fact 'I just gave you' is in the ask
+ok 72 - a memory-skill dispatch carries the chat's conversation window, so the fact 'I just gave you' is in the ask
+# Subtest: a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+ok 73 - a direct ask whose result was lost, or that timed out, is reported as an unknown outcome, never as nothing changed
+# Subtest: a memory ask that outlives the run timeout is a timeout
+ok 74 - a memory ask that outlives the run timeout is a timeout
+# Subtest: isMemoryAgentDispatch and memoryAgentSummary
+ok 75 - isMemoryAgentDispatch and memoryAgentSummary
+# Subtest: the execution target is settled before the run deadline is armed
+ok 76 - the execution target is settled before the run deadline is armed
+# Subtest: a refused target fails the delegation with the gate's words
+ok 77 - a refused target fails the delegation with the gate's words
+# Subtest: a chosen target lands on the run context
+ok 78 - a chosen target lands on the run context
+# Subtest: a Space with no window takes the client's window OFF the context
+ok 79 - a Space with no window takes the client's window OFF the context
+# Subtest: no gate wired leaves the run context untouched
+ok 80 - no gate wired leaves the run context untouched
+# Subtest: the attached page's own tab id goes to the gate, and only the gate's answer drives
+ok 81 - the attached page's own tab id goes to the gate, and only the gate's answer drives
+# Subtest: a deferred question is not asked before the run starts
+ok 82 - a deferred question is not asked before the run starts
+# Subtest: a tool that needs the Space asks once, and the answer lands on the run
+ok 83 - a tool that needs the Space asks once, and the answer lands on the run
+# Subtest: the deferred answer lands on the context the run is BOUND to, which is a copy
+ok 84 - the deferred answer lands on the context the run is BOUND to, which is a copy
+# Subtest: declining the deferred question is the asking tool's refusal
+ok 85 - declining the deferred question is the asking tool's refusal
+# Subtest: the deferred question's thinking time does not count against the run
+ok 86 - the deferred question's thinking time does not count against the run
+# Subtest: while deferred the forwarded window is off the run, and back if nobody can be asked
+ok 87 - while deferred the forwarded window is off the run, and back if nobody can be asked
+# Subtest: time the user spends answering does not count against the run
+ok 88 - time the user spends answering does not count against the run
+# Subtest: time the computer sleeps does not count against the run
+ok 89 - time the computer sleeps does not count against the run
+# Subtest: without a pause the run still times out on its budget
+ok 90 - without a pause the run still times out on its budget
+# Subtest: the tab question is on the run only when the host can ask it
+ok 91 - the tab question is on the run only when the host can ask it
+# Subtest: the tab is asked once, and lands on the context the run is bound to
+ok 92 - the tab is asked once, and lands on the context the run is bound to
+# Subtest: a run whose Space is already settled asks only about that Space's tabs
+ok 93 - a run whose Space is already settled asks only about that Space's tabs
+# Subtest: no tab from the question is the asking tool's refusal
+ok 94 - no tab from the question is the asking tool's refusal
+# Subtest: the tab question's thinking time does not count against the run
+ok 95 - the tab question's thinking time does not count against the run
+# Subtest: the tab question names the skill the user picked, not the internal one whose script runs
+ok 96 - the tab question names the skill the user picked, not the internal one whose script runs
+# Subtest: the run's language rides the dispatch onto the run's context
+ok 97 - the run's language rides the dispatch onto the run's context
+# Subtest: an interjection reaches the worker after its language is applied
+ok 98 - an interjection reaches the worker after its language is applied
+# Subtest: interjections keep their order, whichever read lands first
+ok 99 - interjections keep their order, whichever read lands first
+# Subtest: at the turn's end a held interjection is handed over unread
+ok 100 - at the turn's end a held interjection is handed over unread
+# Subtest: a hung observation delays an interjection by the bound only
+ok 101 - a hung observation delays an interjection by the bound only
+# Subtest: without a language an interjection is delivered at once
+ok 102 - without a language an interjection is delivered at once
+# Subtest: ready() waits for an interjection still being read, and only while one is
+ok 103 - ready() waits for an interjection still being read, and only while one is
+# Subtest: ready() is bounded by the read's wait
+ok 104 - ready() is bounded by the read's wait
+# Subtest: saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+ok 105 - saved files stream immediately, survive a thrown worker, and late files stay with their dispatch
+# Subtest: an unwired artifact host reports delivery failure instead of full success
+ok 106 - an unwired artifact host reports delivery failure instead of full success
+# Subtest: 1c synthesize-when-idle: a brand-new late session pushed while idle is delivered as a NEW run — full RUN_STARTED → TEXT_MESSAGE_CHUNK → RUN_FINISHED bracket
+ok 107 - 1c synthesize-when-idle: a brand-new late session pushed while idle is delivered as a NEW run — full RUN_STARTED → TEXT_MESSAGE_CHUNK → RUN_FINISHED bracket
+# Subtest: 1c defer-during-the-drain-gap: a brand-new late session whose frames arrive in the finalize drain-gap (current undefined, draining) is BUFFERED and promoted to its own synthetic run only after the gap drains
+ok 108 - 1c defer-during-the-drain-gap: a brand-new late session whose frames arrive in the finalize drain-gap (current undefined, draining) is BUFFERED and promoted to its own synthetic run only after the gap drains
+# Subtest: 1c user-turn priority: a queued user turn drains BEFORE a buffered late session — the late synthetic run never starts while the user run is in-flight
+ok 109 - 1c user-turn priority: a queued user turn drains BEFORE a buffered late session — the late synthetic run never starts while the user run is in-flight
+# Subtest: 1c multi-late FIFO: two late sessions buffered in the drain-gap promote as two sequential bracketed synthetic runs in FIFO order
+ok 110 - 1c multi-late FIFO: two late sessions buffered in the drain-gap promote as two sequential bracketed synthetic runs in FIFO order
+# Subtest: 1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+ok 111 - 1c persist: the synthetic late run writes its OWN assistant row (distinct id sorting after the original, no user row) — and a mid-late disconnect keeps the partial
+# Subtest: 1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+ok 112 - 1c persist mid-late disconnect: a disconnect mid-late keeps the already-persisted partial and does not crash the synthetic run
+# Subtest: 1c dead-conn drop: a brand-new late session with a STALE delivery conn is dropped — no synthesized RUN_STARTED, no throw
+ok 113 - 1c dead-conn drop: a brand-new late session with a STALE delivery conn is dropped — no synthesized RUN_STARTED, no throw
+# Subtest: 1c straggler still dropped: a late frame whose session is in recentlyClosedSessions is STILL dropped — NOT delivered as a synthetic run (1b regression guard)
+ok 114 - 1c straggler still dropped: a late frame whose session is in recentlyClosedSessions is STILL dropped — NOT delivered as a synthetic run (1b regression guard)
+# Subtest: a late session that completes after the thread went idle still promotes, and the thread keeps taking turns
+ok 115 - a late session that completes after the thread went idle still promotes, and the thread keeps taking turns
+# Subtest: a card published on a synthetic run reaches the user: the delegate re-entry executes the worker there, and a change it makes asks first
+ok 116 - a card published on a synthetic run reaches the user: the delegate re-entry executes the worker there, and a change it makes asks first
+# Subtest: a card that cannot reach the user fails at once instead of waiting out its timeout
+ok 117 - a card that cannot reach the user fails at once instead of waiting out its timeout
+# Subtest: a late session buffered in the drain gap persists after its socket closes
+ok 118 - a late session buffered in the drain gap persists after its socket closes
+# Subtest: user message is persisted on receipt (chatId === threadId, role user)
+ok 119 - user message is persisted on receipt (chatId === threadId, role user)
+# Subtest: assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+ok 120 - assistant message is persisted INCREMENTALLY mid-stream (partial text saved before RUN_FINISHED), then upserted with more text
+# Subtest: after RUN_FINISHED the stored assistant message has the COMPLETE text; ids are uuidv7 and monotonic (user < assistant)
+ok 121 - after RUN_FINISHED the stored assistant message has the COMPLETE text; ids are uuidv7 and monotonic (user < assistant)
+# Subtest: mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+ok 122 - mid-stream cancel keeps the PARTIAL assistant message persisted (refresh shows the half)
+# Subtest: a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+ok 123 - a retracting cancel deletes the turn from the user row and the next turn rehydrates without it
+# Subtest: a plain cancel neither deletes the turn nor replaces the actor
+ok 124 - a plain cancel neither deletes the turn nor replaces the actor
+# Subtest: a persist failure does NOT crash the run — frames still flow and the run finishes
+ok 125 - a persist failure does NOT crash the run — frames still flow and the run finishes
+# Subtest: write ORDER: the user row survives even when the assistant write fires first and the user save is slow (no tail-guard row loss)
+ok 126 - write ORDER: the user row survives even when the assistant write fires first and the user save is slow (no tail-guard row loss)
+# Subtest: DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+ok 127 - DISCONNECT (socket close, not Stop) lets the run finish — the FULL assistant text is persisted, run NOT interrupted
+# Subtest: dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+ok 128 - dead-conn: a queued interjection on a closed connection never starts when the continuing run finishes (isConnStale + pending-prune hold without interrupt-on-close)
+# Subtest: chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+ok 129 - chat-interject persists 4 messages, split + ordered (user/assistant(pre)/user(interject)/assistant(post))
+# Subtest: chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+ok 130 - chat-interject: the post-interjection assistant row is upserted incrementally (partial before final)
+# Subtest: chat-interject: two interjections in one run chain to a 6-message split timeline
+ok 131 - chat-interject: two interjections in one run chain to a 6-message split timeline
+# Subtest: worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+ok 132 - worker-interject: the interjection is persisted as a user message in the timeline (worker route, no wire boundary)
+# Subtest: chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+ok 133 - chat-interject: TWO interjections folded into ONE boundary persist BOTH user rows (5-row split, none dropped)
+# Subtest: chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+ok 134 - chat-interject: A,B folded into one boundary then C at a later boundary → C correct, no stale-B leak
+# Subtest: chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+ok 135 - chat-interject: a single interjection still persists the 4-row split (back-compat under splice-all)
+# Subtest: worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+ok 136 - worker-interject: a single recorded text per dispatch still drains 1:1 (one user row, splice-all is a no-op for one)
+# Subtest: P2: a debounced write in flight across a boundary lands under the PRE id (id snapshot at call time)
+ok 137 - P2: a debounced write in flight across a boundary lands under the PRE id (id snapshot at call time)
+# Subtest: uplink parts + metadata are persisted verbatim on the user row
+ok 138 - uplink parts + metadata are persisted verbatim on the user row
+# Subtest: emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+ok 139 - emitWorkerArtifacts emits the atomic tool-call quad the Sidecar renders as a file card
+# Subtest: emitWorkerArtifacts drops frames that do not belong to the live run
+ok 140 - emitWorkerArtifacts drops frames that do not belong to the live run
+# Subtest: emitWorkerArtifacts emits nothing for an empty artifact list
+ok 141 - emitWorkerArtifacts emits nothing for an empty artifact list
+# Subtest: image artifacts use one stable quad per file across dispatches and persist online
+ok 142 - image artifacts use one stable quad per file across dispatches and persist online
+# Subtest: image artifacts use one stable quad per file across dispatches and persist offline
+ok 143 - image artifacts use one stable quad per file across dispatches and persist offline
+# Subtest: artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+ok 144 - artifact dedup resets for a new run while old callbacks cannot leak into that run or another conversation
+# tests 144
+# pass 144
+# fail 0
+# cancelled 0

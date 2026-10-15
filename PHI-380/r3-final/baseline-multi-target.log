@@ -1,0 +1,119 @@
+TAP version 13
+# OBSERVED page none {"status":"ok","summary":"All requested images are complete.","files":1}
+# OBSERVED page A-only {"status":"ok","summary":"All requested images are complete.","files":2}
+# Subtest: T-5 page A succeeds B fails recovery=none
+not ok 1 - T-5 page A succeeds B fails recovery=none
+  ---
+  duration_ms: 226.412459
+  type: 'test'
+  location: '<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:1:2817'
+  failureType: 'testCodeFailure'
+  error: |-
+    FR-6 must not claim full success while page B is missing
+
+    'ok' !== 'error'
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'error'
+  actual: 'ok'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:140:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# OBSERVED page B-filled {"status":"ok","summary":"All requested images are complete.","files":2}
+# Subtest: T-5 page A succeeds B fails recovery=A-only
+not ok 2 - T-5 page A succeeds B fails recovery=A-only
+  ---
+  duration_ms: 83.032125
+  type: 'test'
+  location: '<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:1:2817'
+  failureType: 'testCodeFailure'
+  error: |-
+    FR-6 must not claim full success while page B is missing
+
+    'ok' !== 'error'
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'error'
+  actual: 'ok'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:140:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# OBSERVED cdp none {"status":"ok","summary":"All requested images are complete.","files":1}
+# Subtest: T-5 page A succeeds B fails recovery=B-filled
+ok 3 - T-5 page A succeeds B fails recovery=B-filled
+  ---
+  duration_ms: 68.02475
+  type: 'test'
+  ...
+# OBSERVED cdp A-only {"status":"ok","summary":"All requested images are complete.","files":2}
+# Subtest: T-5 cdp A succeeds B fails recovery=none
+not ok 4 - T-5 cdp A succeeds B fails recovery=none
+  ---
+  duration_ms: 64.132417
+  type: 'test'
+  location: '<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:1:2817'
+  failureType: 'testCodeFailure'
+  error: |-
+    FR-6 must not claim full success while page B is missing
+
+    'ok' !== 'error'
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'error'
+  actual: 'ok'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:140:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# OBSERVED cdp B-filled {"status":"ok","summary":"All requested images are complete.","files":2}
+# Subtest: T-5 cdp A succeeds B fails recovery=A-only
+not ok 5 - T-5 cdp A succeeds B fails recovery=A-only
+  ---
+  duration_ms: 60.418125
+  type: 'test'
+  location: '<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:1:2817'
+  failureType: 'testCodeFailure'
+  error: |-
+    FR-6 must not claim full success while page B is missing
+
+    'ok' !== 'error'
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'error'
+  actual: 'ok'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (<WORKDIR>/artifacts-wt/PHI-380/qa-scripts/multi-target.mts:140:16)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: T-5 cdp A succeeds B fails recovery=B-filled
+ok 6 - T-5 cdp A succeeds B fails recovery=B-filled
+  ---
+  duration_ms: 54.17275
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 2
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4144.900875
+undefined
+<WORKDIR>/baseline-wt/phi-agent-dsh/bundle:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsx --test <WORKDIR>/baseline-wt/../artifacts-wt/PHI-380/qa-scripts/multi-target.mts

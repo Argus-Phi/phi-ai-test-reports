@@ -1,0 +1,316 @@
+# Subtest: assembly row resolution
+ok 1 - assembly row resolution
+# Subtest: the boot check on patch rows
+ok 2 - the boot check on patch rows
+# Subtest: upstream log lines
+ok 3 - upstream log lines
+# Subtest: config layering
+ok 4 - config layering
+# Subtest: two delegations from one thread's anchor each get their own child, and leave nothing behind
+ok 5 - two delegations from one thread's anchor each get their own child, and leave nothing behind
+# Subtest: production image capability naturally accepts unselected saved images and deduplicates its result
+ok 6 - production image capability naturally accepts unselected saved images and deduplicates its result
+# Subtest: a model completion claim cannot hide failSave
+ok 7 - a model completion claim cannot hide failSave
+# Subtest: a model completion claim cannot hide empty
+ok 8 - a model completion claim cannot hide empty
+# Subtest: generation HTTP 429 retains its reason when no image is delivered
+ok 9 - generation HTTP 429 retains its reason when no image is delivered
+# Subtest: generation HTTP 400 retains its reason when no image is delivered
+ok 10 - generation HTTP 400 retains its reason when no image is delivered
+# Subtest: generation HTTP 503 retains its reason when no image is delivered
+ok 11 - generation HTTP 503 retains its reason when no image is delivered
+# Subtest: a permanent screenshot error retains the handler's reason and retry decision
+ok 12 - a permanent screenshot error retains the handler's reason and retry decision
+# Subtest: page screenshot browser failure recovers through the real loop
+ok 13 - page screenshot browser failure recovers through the real loop
+# Subtest: page screenshot browser failure cannot be hidden by narration through the real loop
+ok 14 - page screenshot browser failure cannot be hidden by narration through the real loop
+# Subtest: page screenshot save failure remains partial after the same screenshot retries successfully
+ok 15 - page screenshot save failure remains partial after the same screenshot retries successfully
+# Subtest: page screenshot failure is not satisfied by an independently delivered generated image
+ok 16 - page screenshot failure is not satisfied by an independently delivered generated image
+# Subtest: page screenshot browser success with missing file metadata cannot claim complete delivery
+ok 17 - page screenshot browser success with missing file metadata cannot claim complete delivery
+# Subtest: page screenshot browser success with empty file metadata cannot claim complete delivery
+ok 18 - page screenshot browser success with empty file metadata cannot claim complete delivery
+# Subtest: page screenshot browser success with zero file metadata cannot claim complete delivery
+ok 19 - page screenshot browser success with zero file metadata cannot claim complete delivery
+# Subtest: cdp screenshot browser failure recovers through the real loop
+ok 20 - cdp screenshot browser failure recovers through the real loop
+# Subtest: cdp screenshot browser failure cannot be hidden by narration through the real loop
+ok 21 - cdp screenshot browser failure cannot be hidden by narration through the real loop
+# Subtest: cdp screenshot save failure remains partial after the same screenshot retries successfully
+ok 22 - cdp screenshot save failure remains partial after the same screenshot retries successfully
+# Subtest: cdp screenshot failure is not satisfied by an independently delivered generated image
+ok 23 - cdp screenshot failure is not satisfied by an independently delivered generated image
+# Subtest: cdp screenshot browser success with missing file metadata cannot claim complete delivery
+ok 24 - cdp screenshot browser success with missing file metadata cannot claim complete delivery
+# Subtest: cdp screenshot browser success with empty file metadata cannot claim complete delivery
+ok 25 - cdp screenshot browser success with empty file metadata cannot claim complete delivery
+# Subtest: cdp screenshot browser success with zero file metadata cannot claim complete delivery
+ok 26 - cdp screenshot browser success with zero file metadata cannot claim complete delivery
+# Subtest: generation empty failure followed by full delivery has the accepted recovery classification
+ok 27 - generation empty failure followed by full delivery has the accepted recovery classification
+# Subtest: generation service failure followed by full delivery has the accepted recovery classification
+ok 28 - generation service failure followed by full delivery has the accepted recovery classification
+# Subtest: generation save failure followed by full delivery has the accepted recovery classification
+ok 29 - generation save failure followed by full delivery has the accepted recovery classification
+# Subtest: generation partial upload naturally accepts the usable image and reports incomplete output
+ok 30 - generation partial upload naturally accepts the usable image and reports incomplete output
+# Subtest: a generation HTTP dependency delayed at least five seconds never emits an unsaved image
+ok 31 - a generation HTTP dependency delayed at least five seconds never emits an unsaved image
+# Subtest: generation file saved across deadline is retained only when confirmed before abort
+ok 32 - generation file saved across deadline is retained only when confirmed before abort
+# Subtest: generation file saved across deadline is retained only when confirmed before abort
+ok 33 - generation file saved across deadline is retained only when confirmed before abort
+# Subtest: generation abort before a confirmed file fences a late upload and isolates the next run
+ok 34 - generation abort before a confirmed file fences a late upload and isolates the next run
+# Subtest: generation abort after a confirmed file fences a late upload and isolates the next run
+ok 35 - generation abort after a confirmed file fences a late upload and isolates the next run
+# Subtest: page file saved across deadline is retained only when confirmed before abort
+ok 36 - page file saved across deadline is retained only when confirmed before abort
+# Subtest: page file saved across deadline is retained only when confirmed before abort
+ok 37 - page file saved across deadline is retained only when confirmed before abort
+# Subtest: page abort before a confirmed file fences a late upload and isolates the next run
+ok 38 - page abort before a confirmed file fences a late upload and isolates the next run
+# Subtest: page abort after a confirmed file fences a late upload and isolates the next run
+ok 39 - page abort after a confirmed file fences a late upload and isolates the next run
+# Subtest: cdp file saved across deadline is retained only when confirmed before abort
+ok 40 - cdp file saved across deadline is retained only when confirmed before abort
+# Subtest: cdp file saved across deadline is retained only when confirmed before abort
+ok 41 - cdp file saved across deadline is retained only when confirmed before abort
+# Subtest: cdp abort before a confirmed file fences a late upload and isolates the next run
+ok 42 - cdp abort before a confirmed file fences a late upload and isolates the next run
+# Subtest: cdp abort after a confirmed file fences a late upload and isolates the next run
+ok 43 - cdp abort after a confirmed file fences a late upload and isolates the next run
+# Subtest: image/png generation carries the original bytes through saving and host notification
+ok 44 - image/png generation carries the original bytes through saving and host notification
+# Subtest: image/jpeg generation carries the original bytes through saving and host notification
+ok 45 - image/jpeg generation carries the original bytes through saving and host notification
+# Subtest: image/webp generation carries the original bytes through saving and host notification
+ok 46 - image/webp generation carries the original bytes through saving and host notification
+# Subtest: CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+ok 47 - CDP screenshot invalid-params followed by successful retry respects production versus pre-production failure semantics
+# Subtest: CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+ok 48 - CDP screenshot no-target followed by successful retry respects production versus pre-production failure semantics
+# Subtest: CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+ok 49 - CDP screenshot exception followed by successful retry respects production versus pre-production failure semantics
+# Subtest: CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+ok 50 - CDP screenshot oversized-stream followed by successful retry respects production versus pre-production failure semantics
+# Subtest: a saved PDF does not satisfy a requested screenshot that the browser never produced
+ok 51 - a saved PDF does not satisfy a requested screenshot that the browser never produced
+# Subtest: an internal CDP screenshot observation never becomes an artifact
+ok 52 - an internal CDP screenshot observation never becomes an artifact
+# Subtest: an internal CDP screenshot observation accompanies only the explicit exported artifact
+ok 53 - an internal CDP screenshot observation accompanies only the explicit exported artifact
+# Subtest: final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 54 - final image selection delivers only validated files: ["final-boat","final-kite"]
+# Subtest: final image selection delivers only validated files: ["final-boat","outside-run"]
+ok 55 - final image selection delivers only validated files: ["final-boat","outside-run"]
+# Subtest: final image selection delivers only validated files: []
+ok 56 - final image selection delivers only validated files: []
+# Subtest: final image selection delivers only validated files: ["final-boat","final-kite"]
+ok 57 - final image selection delivers only validated files: ["final-boat","final-kite"]
+# Subtest: page screenshot selection discards a saved candidate and confirms only the final export
+ok 58 - page screenshot selection discards a saved candidate and confirms only the final export
+# Subtest: cdp screenshot selection discards a saved candidate and confirms only the final export
+ok 59 - cdp screenshot selection discards a saved candidate and confirms only the final export
+# Subtest: saved image failure preserves structured recovery facts: EACCES
+ok 60 - saved image failure preserves structured recovery facts: EACCES
+# Subtest: saved image failure preserves structured recovery facts: EPERM+ETIMEDOUT
+ok 61 - saved image failure preserves structured recovery facts: EPERM+ETIMEDOUT
+# Subtest: saved image failure preserves structured recovery facts: UNKNOWN_STORE
+ok 62 - saved image failure preserves structured recovery facts: UNKNOWN_STORE
+# Subtest: generation cancellation with only a saved candidate never delivers it
+ok 63 - generation cancellation with only a saved candidate never delivers it
+# Subtest: page cancellation with only a saved candidate never delivers it
+ok 64 - page cancellation with only a saved candidate never delivers it
+# Subtest: cdp cancellation with only a saved candidate never delivers it
+ok 65 - cdp cancellation with only a saved candidate never delivers it
+# Subtest: final image selection persists only confirmed files through the real executor and host
+ok 66 - final image selection persists only confirmed files through the real executor and host
+# Subtest: structured EACCES crosses real worker/executor/chat reporting and persistence
+ok 67 - structured EACCES crosses real worker/executor/chat reporting and persistence
+# Subtest: structured temporary_store_error crosses real worker/executor/chat reporting and persistence
+ok 68 - structured temporary_store_error crosses real worker/executor/chat reporting and persistence
+# Subtest: structured unknown_store_error crosses real worker/executor/chat reporting and persistence
+ok 69 - structured unknown_store_error crosses real worker/executor/chat reporting and persistence
+# Subtest: delegated images and the final report persist when the first run finishes on a disconnected socket
+ok 70 - delegated images and the final report persist when the first run finishes on a disconnected socket
+# Subtest: a run whose answer hit the output cap is reported as cut off, not completed
+ok 71 - a run whose answer hit the output cap is reported as cut off, not completed
+# Subtest: any other incomplete carries the provider's own reason into the failure
+ok 72 - any other incomplete carries the provider's own reason into the failure
+# Subtest: every kernel row applies and provides its service
+ok 73 - every kernel row applies and provides its service
+# Subtest: the agent loop really applied — it installed the agent factory
+ok 74 - the agent loop really applied — it installed the agent factory
+# Subtest: an unmet inject is SILENT — which is why the assertion above exists
+ok 75 - an unmet inject is SILENT — which is why the assertion above exists
+# Subtest: the mount order satisfies every plugin's declared inject
+ok 76 - the mount order satisfies every plugin's declared inject
+# Subtest: Chat and the agent loop resolve distinct UDS purposes and observe changed default/override settings
+ok 77 - Chat and the agent loop resolve distinct UDS purposes and observe changed default/override settings
+# Subtest: phi-agent dependency
+ok 78 - phi-agent dependency
+# Subtest: catch-all carve-out
+ok 79 - catch-all carve-out
+# Subtest: generated row table
+ok 80 - generated row table
+# Subtest: a web page: the prompt states it and the briefing names it
+ok 81 - a web page: the prompt states it and the briefing names it
+# Subtest: the new-tab page: no page to act on, and the briefing says so
+ok 82 - the new-tab page: no page to act on, and the briefing says so
+# Subtest: a URL with braces: the run still goes out, the briefing keeps it verbatim
+ok 83 - a URL with braces: the run still goes out, the briefing keeps it verbatim
+# Subtest: the chat's context and constraints reach the worker, as the legacy briefing had them
+ok 84 - the chat's context and constraints reach the worker, as the legacy briefing had them
+# Subtest: no tab: the default prompt and the bare objective, byte for byte
+ok 85 - no tab: the default prompt and the bare objective, byte for byte
+# Subtest: a task run from a conversation: the briefing lists that conversation's pages
+ok 86 - a task run from a conversation: the briefing lists that conversation's pages
+# Subtest: task run: the prompt lists exactly the tools on the wire, in their order
+ok 87 - task run: the prompt lists exactly the tools on the wire, in their order
+# Subtest: chat delegation: the prompt lists exactly the tools on the wire, in their order
+ok 88 - chat delegation: the prompt lists exactly the tools on the wire, in their order
+# Subtest: two capabilities: the prompt lists exactly the tools on the wire, in their order
+ok 89 - two capabilities: the prompt lists exactly the tools on the wire, in their order
+# Subtest: no surface named: the prompt lists exactly the tools on the wire, in their order
+ok 90 - no surface named: the prompt lists exactly the tools on the wire, in their order
+# Subtest: a task run is told it is one, and is not offered the fork to the user
+ok 91 - a task run is told it is one, and is not offered the fork to the user
+# Subtest: a narrowed run lists only what it may reach
+ok 92 - a narrowed run lists only what it may reach
+# Subtest: a run that names no surface keeps the default prompt, byte for byte
+ok 93 - a run that names no surface keeps the default prompt, byte for byte
+# Subtest: a run's first request carries its catalog, expanded, and the picked skill's body verbatim
+ok 94 - a run's first request carries its catalog, expanded, and the picked skill's body verbatim
+# Subtest: a run whose internal dependencies cannot be resolved ends before the model is called
+ok 95 - a run whose internal dependencies cannot be resolved ends before the model is called
+# Subtest: a run with no skills keeps the default prompt, byte for byte
+ok 96 - a run with no skills keeps the default prompt, byte for byte
+# Subtest: a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+ok 97 - a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+# Subtest: a stop condition with {{…}} groups reaches the run verbatim and does not break the prompt
+ok 98 - a stop condition with {{…}} groups reaches the run verbatim and does not break the prompt
+# Subtest: a task run without them keeps the task-page answer line and no markers
+ok 99 - a task run without them keeps the task-page answer line and no markers
+# Subtest: the run is told the user's language, and told again when it changes
+ok 100 - the run is told the user's language, and told again when it changes
+# Subtest: an unchanged language adds no snapshot
+ok 101 - an unchanged language adds no snapshot
+# Subtest: a run with no language is told none
+ok 102 - a run with no language is told none
+# Subtest: a task run with no language writes in its objective's language
+ok 103 - a task run with no language writes in its objective's language
+# Subtest: e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+ok 104 - e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+# Subtest: e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+ok 105 - e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+# Subtest: a worker run the memory continuation delegates streams its progress
+ok 106 - a worker run the memory continuation delegates streams its progress
+# Subtest: e2e (production path, memory route B): MCP recall grounds a substantive reply over the WS hub
+ok 107 - e2e (production path, memory route B): MCP recall grounds a substantive reply over the WS hub
+# Subtest: Stop closes the assembled pipeline while model is stalled
+ok 108 - Stop closes the assembled pipeline while model is stalled
+# Subtest: Stop closes the assembled pipeline while profile is stalled
+ok 109 - Stop closes the assembled pipeline while profile is stalled
+# Subtest: real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+ok 110 - real worker cancel without an accepted screenshot preserves exactly the host's persisted files
+# Subtest: real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+ok 111 - real worker cancel with an accepted screenshot preserves exactly the host's persisted files
+# Subtest: real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+ok 112 - real worker timeout without an accepted screenshot preserves exactly the host's persisted files
+# Subtest: real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+ok 113 - real worker timeout with an accepted screenshot preserves exactly the host's persisted files
+# Subtest: real worker cancel without an accepted generation preserves exactly the host's persisted files
+ok 114 - real worker cancel without an accepted generation preserves exactly the host's persisted files
+# Subtest: real worker cancel with an accepted generation preserves exactly the host's persisted files
+ok 115 - real worker cancel with an accepted generation preserves exactly the host's persisted files
+# Subtest: real worker timeout without an accepted generation preserves exactly the host's persisted files
+ok 116 - real worker timeout without an accepted generation preserves exactly the host's persisted files
+# Subtest: real worker timeout with an accepted generation preserves exactly the host's persisted files
+ok 117 - real worker timeout with an accepted generation preserves exactly the host's persisted files
+# Subtest: a cancelled pending upload can finish after a new run without changing either run's files or terminal
+ok 118 - a cancelled pending upload can finish after a new run without changing either run's files or terminal
+# Subtest: browser_task's internal screenshot and page protobuf never create user or persisted files
+ok 119 - browser_task's internal screenshot and page protobuf never create user or persisted files
+# Subtest: browser_task's internal screenshot and page protobuf stay internal beside an explicit screenshot export
+ok 120 - browser_task's internal screenshot and page protobuf stay internal beside an explicit screenshot export
+# Subtest: TASK turn: one trace — a user turn that records its routing decision, a delegation turn that rejoins it, worker.run under the delegation's chat.respond with its model rounds and tool under it
+ok 121 - TASK turn: one trace — a user turn that records its routing decision, a delegation turn that rejoins it, worker.run under the delegation's chat.respond with its model rounds and tool under it
+# Subtest: ANSWER turn (no worker): one user turn, the reply under chat.respond, NO worker.run — one trace
+ok 122 - ANSWER turn (no worker): one user turn, the reply under chat.respond, NO worker.run — one trace
+# Subtest: a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+ok 123 - a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+# Subtest: no telemetry row: without phi-chat-telemetry the chat records no chat.turn and worker.run is untraced — TASK turn completes unchanged
+ok 124 - no telemetry row: without phi-chat-telemetry the chat records no chat.turn and worker.run is untraced — TASK turn completes unchanged
+# Subtest: turn 1: the full recall pipeline surfaces its diagnostics on the wire (recall_context_request/result, gate_hold) through the real owner-fence
+ok 125 - turn 1: the full recall pipeline surfaces its diagnostics on the wire (recall_context_request/result, gate_hold) through the real owner-fence
+# Subtest: turn 2: the SECOND recall turn on the same actor STILL surfaces every diagnostic on r2 (owner-fence does NOT drop the run's own session)
+ok 126 - turn 2: the SECOND recall turn on the same actor STILL surfaces every diagnostic on r2 (owner-fence does NOT drop the run's own session)
+# Subtest: stopped during the model request, the turn still records its end
+ok 127 - stopped during the model request, the turn still records its end
+# Subtest: stopped during a tool's own request, the turn still records its end
+ok 128 - stopped during a tool's own request, the turn still records its end
+# Subtest: structure: rows (design section 9)
+ok 129 - structure: rows (design section 9)
+# Subtest: structure: packages (design section 9)
+ok 130 - structure: packages (design section 9)
+# Subtest: structure: bundle/src holds configuration, not services
+ok 131 - structure: bundle/src holds configuration, not services
+# Subtest: structure: every top-level plugin source file is a row (10.2)
+ok 132 - structure: every top-level plugin source file is a row (10.2)
+# Subtest: structure: no plugin value-imports another plugin (section 8)
+ok 133 - structure: no plugin value-imports another plugin (section 8)
+# Subtest: structure: the default bundle suite
+ok 134 - structure: the default bundle suite
+# Subtest: a scripted round drives the upstream loop and its text becomes the summary
+ok 135 - a scripted round drives the upstream loop and its text becomes the summary
+# Subtest: a turn that ENDS IN ERROR is reported as an error, not an empty success
+ok 136 - a turn that ENDS IN ERROR is reported as an error, not an empty success
+# Subtest: a capability's produced files reach WorkerRunResult.artifacts
+ok 137 - a capability's produced files reach WorkerRunResult.artifacts
+# Subtest: tool_call_result carries every field the Sidecar renders from
+ok 138 - tool_call_result carries every field the Sidecar renders from
+# Subtest: two runs at once never narrate each other
+ok 139 - two runs at once never narrate each other
+# Subtest: a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+ok 140 - a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+# Subtest: a correction during the only round runs before success
+ok 141 - a correction during the only round runs before success
+# Subtest: a correction during the final round after a tool runs before success
+ok 142 - a correction during the final round after a tool runs before success
+# Subtest: an empty finish-boundary inbox does not add a model request
+ok 143 - an empty finish-boundary inbox does not add a model request
+# Subtest: persistent late corrections stop at the existing round limit
+ok 144 - persistent late corrections stop at the existing round limit
+# Subtest: a late correction cannot continue past the run deadline
+ok 145 - a late correction cannot continue past the run deadline
+# Subtest: a late correction cannot continue a cancelled run
+ok 146 - a late correction cannot continue a cancelled run
+# Subtest: an interjection still being read is handed over when the turn ends
+ok 147 - an interjection still being read is handed over when the turn ends
+# Subtest: a step waits for an interjection still being read
+ok 148 - a step waits for an interjection still being read
+# Subtest: each model call of a traced run is reported with its prompt, output and round
+ok 149 - each model call of a traced run is reported with its prompt, output and round
+# Subtest: a run that does not ask reports no model calls
+ok 150 - a run that does not ask reports no model calls
+# Subtest: a two-round run records worker.run with a raw generation per round and the tool between
+ok 151 - a two-round run records worker.run with a raw generation per round and the tool between
+# Subtest: a run at its round ceiling reports what it did, still as the ceiling
+ok 152 - a run at its round ceiling reports what it did, still as the ceiling
+# Subtest: a wrap-up that only reaches for a tool is still the round ceiling
+ok 153 - a wrap-up that only reaches for a tool is still the round ceiling
+# Subtest: a run that finishes inside its ceiling never sees the wrap-up
+ok 154 - a run that finishes inside its ceiling never sees the wrap-up
+# Subtest: a run the computer slept through keeps its budget
+ok 155 - a run the computer slept through keeps its budget
+# Subtest: a run that ran past its budget awake loses its budget
+ok 156 - a run that ran past its budget awake loses its budget
+# tests 215
+# pass 215
+# fail 0
+# cancelled 0

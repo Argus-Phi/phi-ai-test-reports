@@ -1,0 +1,198 @@
+# Subtest: an image remains visible with its name while loading
+ok 1 - an image remains visible with its name while loading
+# Subtest: native preview uses the service address http://127.0.0.1:8788/api/v1/files/image while the image renders a blob
+ok 2 - native preview uses the service address http://127.0.0.1:8788/api/v1/files/image while the image renders a blob
+# Subtest: native preview uses the service address /api/v1/files/image while the image renders a blob
+ok 3 - native preview uses the service address /api/v1/files/image while the image renders a blob
+# Subtest: HTTP 404 renders unavailable with appropriate recovery
+ok 4 - HTTP 404 renders unavailable with appropriate recovery
+# Subtest: HTTP 401 renders authorization with appropriate recovery
+ok 5 - HTTP 401 renders authorization with appropriate recovery
+# Subtest: HTTP 403 renders authorization with appropriate recovery
+ok 6 - HTTP 403 renders authorization with appropriate recovery
+# Subtest: HTTP 503 renders loadError with appropriate recovery
+ok 7 - HTTP 503 renders loadError with appropriate recovery
+# Subtest: network retry re-reads the original file and successful image downloads original identity
+ok 8 - network retry re-reads the original file and successful image downloads original identity
+# Subtest: image decoding failure is visible and isolated from the next file request
+ok 9 - image decoding failure is visible and isolated from the next file request
+# Subtest: an external image decoding failure is visible
+ok 10 - an external image decoding failure is visible
+# Subtest: download failure has an explicit image error
+ok 11 - download failure has an explicit image error
+# Subtest: a late error from an external image cannot hide its replacement
+ok 12 - a late error from an external image cannot hide its replacement
+# Subtest: loads broker-backed object URLs for history, avatar, upload, and message file paths
+ok 13 - loads broker-backed object URLs for history, avatar, upload, and message file paths
+# Subtest: never publishes or leaks a stale object URL when the source changes during loading
+ok 14 - never publishes or leaks a stale object URL when the source changes during loading
+# Subtest: same source and loader identity are reloaded and revoked when auth scope changes
+ok 15 - same source and loader identity are reloaded and revoked when auth scope changes
+# Subtest: status tells a load in flight from one that failed
+ok 16 - status tells a load in flight from one that failed
+# Subtest: retry preserves the original reference, exposes the error, and releases prior attempts
+ok 17 - retry preserves the original reference, exposes the error, and releases prior attempts
+# Subtest: retry releases an older in-flight response and account changes reject its completion
+ok 18 - retry releases an older in-flight response and account changes reject its completion
+# Subtest: a resolved file is hidden when its loader auth scope is invalidated
+ok 19 - a resolved file is hidden when its loader auth scope is invalidated
+# Subtest: tool result file content is uploaded and converted into a generic file part
+ok 20 - tool result file content is uploaded and converted into a generic file part
+# Subtest: tool result file content without mime type defaults to a generic binary artifact
+ok 21 - tool result file content without mime type defaults to a generic binary artifact
+# Subtest: default (merge) joins two wire messageIds into ONE bubble separated by a blank line
+ok 22 - default (merge) joins two wire messageIds into ONE bubble separated by a blank line
+# Subtest: default (merge) keeps a single wire messageId in one bubble with no separator
+ok 23 - default (merge) keeps a single wire messageId in one bubble with no separator
+# Subtest: default (merge) without a wire messageId still produces one bubble (no separator)
+ok 24 - default (merge) without a wire messageId still produces one bubble (no separator)
+# Subtest: default (merge) injects exactly one separator across THREE wire messageIds
+ok 25 - default (merge) injects exactly one separator across THREE wire messageIds
+# Subtest: merge mode: assistant_bubble_boundary forces post-boundary text into a NEW bubble
+ok 26 - merge mode: assistant_bubble_boundary forces post-boundary text into a NEW bubble
+# Subtest: merge mode control: WITHOUT a boundary the two segments merge into ONE bubble
+ok 27 - merge mode control: WITHOUT a boundary the two segments merge into ONE bubble
+# Subtest: merge mode: boundary still splits even when both segments share a wire messageId
+ok 28 - merge mode: boundary still splits even when both segments share a wire messageId
+# Subtest: split mode routes two wire messageIds in one run to two assistant bubbles
+ok 29 - split mode routes two wire messageIds in one run to two assistant bubbles
+# Subtest: split mode keeps a single wire messageId in one bubble (no regression)
+ok 30 - split mode keeps a single wire messageId in one bubble (no regression)
+# Subtest: split mode without a wire messageId still produces one bubble per run
+ok 31 - split mode without a wire messageId still produces one bubble per run
+# Subtest: [merge (default)] RUN_STARTED immediately shows an English activity fallback before any text
+ok 32 - [merge (default)] RUN_STARTED immediately shows an English activity fallback before any text
+# Subtest: [merge (default)] activity_status set replaces the fallback with the LLM narrator label
+ok 33 - [merge (default)] activity_status set replaces the fallback with the LLM narrator label
+# Subtest: [merge (default)] streaming a new text segment does not clear the activity label
+ok 34 - [merge (default)] streaming a new text segment does not clear the activity label
+# Subtest: [merge (default)] hold_line shows as run metadata until clear, never as reply text
+ok 35 - [merge (default)] hold_line shows as run metadata until clear, never as reply text
+# Subtest: [merge (default)] the answer's first text or the run ending clears a hold_line left set
+ok 36 - [merge (default)] the answer's first text or the run ending clears a hold_line left set
+# Subtest: [merge (default)] worker_progress does not directly replace the narrator activity label
+ok 37 - [merge (default)] worker_progress does not directly replace the narrator activity label
+# Subtest: [merge (default)] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+ok 38 - [merge (default)] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+# Subtest: [merge (default)] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+ok 39 - [merge (default)] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+# Subtest: [merge (default)] RUN_FINISHED clears the activity label
+ok 40 - [merge (default)] RUN_FINISHED clears the activity label
+# Subtest: [merge (default)] RUN_FINISHED after text does not leave an empty assistant bubble
+ok 41 - [merge (default)] RUN_FINISHED after text does not leave an empty assistant bubble
+# Subtest: [merge (default)] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+ok 42 - [merge (default)] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+# Subtest: [merge (default)] trace-only synthetic run does not mint an empty assistant bubble
+ok 43 - [merge (default)] trace-only synthetic run does not mint an empty assistant bubble
+# Subtest: [merge (default)] unrelated CUSTOM events leave the activity label alone
+ok 44 - [merge (default)] unrelated CUSTOM events leave the activity label alone
+# Subtest: [split] RUN_STARTED immediately shows an English activity fallback before any text
+ok 45 - [split] RUN_STARTED immediately shows an English activity fallback before any text
+# Subtest: [split] activity_status set replaces the fallback with the LLM narrator label
+ok 46 - [split] activity_status set replaces the fallback with the LLM narrator label
+# Subtest: [split] streaming a new text segment does not clear the activity label
+ok 47 - [split] streaming a new text segment does not clear the activity label
+# Subtest: [split] hold_line shows as run metadata until clear, never as reply text
+ok 48 - [split] hold_line shows as run metadata until clear, never as reply text
+# Subtest: [split] the answer's first text or the run ending clears a hold_line left set
+ok 49 - [split] the answer's first text or the run ending clears a hold_line left set
+# Subtest: [split] worker_progress does not directly replace the narrator activity label
+ok 50 - [split] worker_progress does not directly replace the narrator activity label
+# Subtest: [split] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+ok 51 - [split] assistant_bubble_boundary for interjection immediately shows a fresh fallback
+# Subtest: [split] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+ok 52 - [split] interjection boundary moves the activity label from the pre-interjection bubble to the post-interjection bubble
+# Subtest: [split] RUN_FINISHED clears the activity label
+ok 53 - [split] RUN_FINISHED clears the activity label
+# Subtest: [split] RUN_FINISHED after text does not leave an empty assistant bubble
+ok 54 - [split] RUN_FINISHED after text does not leave an empty assistant bubble
+# Subtest: [split] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+ok 55 - [split] late activity_status after RUN_FINISHED cannot mint an empty assistant bubble
+# Subtest: [split] trace-only synthetic run does not mint an empty assistant bubble
+ok 56 - [split] trace-only synthetic run does not mint an empty assistant bubble
+# Subtest: [split] unrelated CUSTOM events leave the activity label alone
+ok 57 - [split] unrelated CUSTOM events leave the activity label alone
+# Subtest: worker-route interjection: ack → user(interjection) → report renders the report as a NEW bubble positioned AFTER the interjection (merge default)
+ok 58 - worker-route interjection: ack → user(interjection) → report renders the report as a NEW bubble positioned AFTER the interjection (merge default)
+# Subtest: worker-route control: WITHOUT a boundary a normal multi-segment run still merges into ONE bubble (merge flag not regressed)
+ok 59 - worker-route control: WITHOUT a boundary a normal multi-segment run still merges into ONE bubble (merge flag not regressed)
+# Subtest: B2: an unsolicited run renders a NEW bubble keyed to the SERVER runId via the shared store
+ok 60 - B2: an unsolicited run renders a NEW bubble keyed to the SERVER runId via the shared store
+# Subtest: B2: a normal run and a concurrent unsolicited run do not cross-contaminate the store
+ok 61 - B2: a normal run and a concurrent unsolicited run do not cross-contaminate the store
+# Subtest: the per-run subscriber forwards EVERY raw frame to onChatTraceEvent before filtering
+ok 62 - the per-run subscriber forwards EVERY raw frame to onChatTraceEvent before filtering
+# Subtest: an onChatTraceEvent tap throw cannot break the run
+ok 63 - an onChatTraceEvent tap throw cannot break the run
+# Subtest: isPersonaMutationWorkerProgress accepts successful persona set_name/set_avatar results
+ok 64 - isPersonaMutationWorkerProgress accepts successful persona set_name/set_avatar results
+# Subtest: isPersonaMutationWorkerProgress rejects errors, other capabilities, and non-result frames
+ok 65 - isPersonaMutationWorkerProgress rejects errors, other capabilities, and non-result frames
+# Subtest: metrics recorder is stamped synchronously on run start, chunk deltas, and finish
+ok 66 - metrics recorder is stamped synchronously on run start, chunk deltas, and finish
+# Subtest: metrics recorder is stamped on TEXT_MESSAGE_CONTENT deltas and error terminals
+ok 67 - metrics recorder is stamped on TEXT_MESSAGE_CONTENT deltas and error terminals
+# Subtest: a blank-line-prefixed progress line renders as soon as it arrives
+ok 68 - a blank-line-prefixed progress line renders as soon as it arrives
+# Subtest: progress lines accumulate into ONE part rather than stacking per step
+ok 69 - progress lines accumulate into ONE part rather than stacking per step
+# Subtest: chat_error frames reach onChatError with their code and leave the run open
+ok 70 - chat_error frames reach onChatError with their code and leave the run open
+# Subtest: a card reaches the handler with the run that asked, whatever run the subscriber is keyed to
+ok 71 - a card reaches the handler with the run that asked, whatever run the subscriber is keyed to
+# Subtest: a question that ended unanswered reaches the handler, so its card can retire
+ok 72 - a question that ended unanswered reaches the handler, so its card can retire
+# Subtest: a subscriber with nobody to show a card says so instead of dropping it
+ok 73 - a subscriber with nobody to show a card says so instead of dropping it
+# Subtest: a form card's origin, fields and allowSkip reach the handler as sent
+ok 74 - a form card's origin, fields and allowSkip reach the handler as sent
+# Subtest: an open question's style reaches the handler; any other style is dropped
+ok 75 - an open question's style reaches the handler; any other style is dropped
+# Subtest: a task report frame tags the reply it precedes (merge mode)
+ok 76 - a task report frame tags the reply it precedes (merge mode)
+# Subtest: a task report frame tags the reply it precedes (split mode)
+ok 77 - a task report frame tags the reply it precedes (split mode)
+# Subtest: a malformed task report frame changes nothing
+ok 78 - a malformed task report frame changes nothing
+# Subtest: internal screenshot observations are not promoted, while explicit exports survive replay
+ok 79 - internal screenshot observations are not promoted, while explicit exports survive replay
+# Subtest: assistant file identity preserves external origins, distinct IDs, conversations and new runs
+ok 80 - assistant file identity preserves external origins, distinct IDs, conversations and new runs
+# Subtest: artifact replay after an interjection and history reload preserves its original run segment
+ok 81 - artifact replay after an interjection and history reload preserves its original run segment
+# Subtest: real artifact mapping persists, streams, reloads and renders one downloadable image
+ok 82 - real artifact mapping persists, streams, reloads and renders one downloadable image
+# Subtest: direct image loads preserve HTTP 401
+ok 83 - direct image loads preserve HTTP 401
+# Subtest: direct image loads preserve HTTP 403
+ok 84 - direct image loads preserve HTTP 403
+# Subtest: direct image loads preserve HTTP 404
+ok 85 - direct image loads preserve HTTP 404
+# Subtest: direct image loads preserve HTTP 503
+ok 86 - direct image loads preserve HTTP 503
+# Subtest: direct image loads fetch normalized bytes and release the object URL once
+ok 87 - direct image loads fetch normalized bytes and release the object URL once
+# Subtest: external image URLs do not fetch or receive Phi credentials
+ok 88 - external image URLs do not fetch or receive Phi credentials
+# Subtest: finishAssistantMessage marks running tool parts as aborted for aborted runs
+ok 89 - finishAssistantMessage marks running tool parts as aborted for aborted runs
+# Subtest: a run with two wire messageIds renders two assistant bubbles with activity between
+ok 90 - a run with two wire messageIds renders two assistant bubbles with activity between
+# Subtest: a run with a single wire messageId still renders exactly one bubble
+ok 91 - a run with a single wire messageId still renders exactly one bubble
+# Subtest: absent wireMessageId falls back to one assistant bubble per run
+ok 92 - absent wireMessageId falls back to one assistant bubble per run
+# Subtest: a single wire messageId spanning a real tool call stays one bubble
+ok 93 - a single wire messageId spanning a real tool call stays one bubble
+# Subtest: interleaved deltas (A, B, A) append the late A to the existing bubble
+ok 94 - interleaved deltas (A, B, A) append the late A to the existing bubble
+# Subtest: two-bubble run persists and reloads as two assistant messages
+ok 95 - two-bubble run persists and reloads as two assistant messages
+# Subtest: replacing a sent user message keeps its place before the reply
+ok 96 - replacing a sent user message keeps its place before the reply
+# Subtest: untimed history is not stamped later than the load
+ok 97 - untimed history is not stamped later than the load
+# tests 97
+# pass 97
+# fail 0
+# cancelled 0

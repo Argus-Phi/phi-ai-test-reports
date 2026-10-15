@@ -1,0 +1,4 @@
+[2026-10-16 03:09:27] Starting phi-agent server on 127.0.0.1:0
+[2026-10-16 03:09:27] Starting phi-agent server on UDS /tmp/phi-sentinel-e6a5c39ae13a5489/sockets/phi-agent.sock
+[2026-10-16 03:09:27] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-16 03:09:27] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-501.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
