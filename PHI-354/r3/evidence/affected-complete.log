@@ -1,0 +1,344 @@
+QA excerpt: suite totals, failures and immediate context from actual command output.
+phi-agent-dsh/plugins/phi-cdp test: #   windowId: 9,
+phi-agent-dsh/plugins/phi-cdp test: #   error: Error: window 9 not found
+phi-agent-dsh/plugins/phi-cdp test: #       at Object.tabs.list (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:147:37)
+phi-agent-dsh/plugins/phi-cdp test: #   profileId: 'Profile 15',
+phi-agent-dsh/plugins/phi-cdp test: #   error: Error: no extension could be woken
+phi-agent-dsh/plugins/phi-cdp test: #       at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/phi-cdp/src/lib/api/workspace-inventory.test.ts:271:13)
+phi-agent-dsh/plugins/phi-cdp test:   ...
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # Subtest: a live browser is reused, never re-launched
+phi-agent-dsh/plugins/phi-cdp test:   ...
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer {
+phi-agent-dsh/plugins/phi-cdp test: #   outcome: 'unusable',
+phi-agent-dsh/plugins/phi-cdp test: #   error: 'Phi did not answer /json/version'
+phi-agent-dsh/plugins/phi-cdp test: # }
+phi-agent-dsh/plugins/phi-cdp test: #   outcome: 'unusable',
+phi-agent-dsh/plugins/phi-cdp test: #   error: 'Phi denied CDP access to this agent (403). Ask the user to allow it.'
+phi-agent-dsh/plugins/phi-cdp test: # }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer {
+phi-agent-dsh/plugins/phi-cdp test: #   outcome: 'unusable',
+phi-agent-dsh/plugins/phi-cdp test: #   error: 'consent prompt pending'
+phi-agent-dsh/plugins/phi-cdp test: # }
+phi-agent-dsh/plugins/phi-cdp test: #   outcome: 'unusable',
+phi-agent-dsh/plugins/phi-cdp test: #   error: 'consent prompt pending'
+phi-agent-dsh/plugins/phi-cdp test: # }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer { channel: 'canary', outcome: 'absent', error: 'connect ECONNREFUSED' }
+phi-agent-dsh/plugins/phi-cdp test: # [browser-launcher] endpoint did not answer {
+phi-agent-dsh/plugins/phi-cdp test: #   outcome: 'unusable',
+phi-agent-dsh/plugins/phi-cdp test: #   error: 'Phi denied CDP access to this agent (403).'
+phi-agent-dsh/plugins/phi-cdp test: # }
+phi-agent-dsh/plugins/phi-cdp test: #   outcome: 'unusable',
+phi-agent-dsh/plugins/phi-cdp test: #   error: 'EACCES: permission denied, connect'
+phi-agent-dsh/plugins/phi-cdp test: # }
+phi-agent-dsh/plugins/phi-cdp test:   ...
+phi-agent-dsh/plugins/phi-cdp test: # [phi-cdp] manage: reading back after a write failed { operation: 'bookmarks.update', error: 'slow' }
+phi-agent-dsh/plugins/phi-cdp test: # [phi-cdp] manage: keeping the change record failed { operation: 'bookmarks.update', error: 'db down' }
+phi-agent-dsh/plugins/phi-cdp test: # Subtest: every management method phi-cdp exposes is classified, and nothing else
+phi-agent-dsh/plugins/phi-cdp test: 1..578
+phi-agent-dsh/plugins/phi-cdp test: # tests 578
+phi-agent-dsh/plugins/phi-cdp test: # suites 0
+phi-agent-dsh/plugins/phi-cdp test: # pass 578
+phi-agent-dsh/plugins/phi-cdp test: # fail 0
+phi-agent-dsh/plugins/phi-cdp test: # cancelled 0
+phi-agent-dsh/plugins/phi-cdp test: # skipped 0
+phi-agent-dsh/plugins/phi-cdp test: # todo 0
+phi-agent-dsh/plugins/phi-cdp test: # duration_ms 12541.252959
+phi-agent-dsh/plugins/phi-cdp test: Done
+phi-agent-dsh/plugins/browser test$ tsx --test "src/**/*.test.ts"
+phi-agent-dsh/plugins/browser test: 1..158
+phi-agent-dsh/plugins/browser test: # tests 167
+phi-agent-dsh/plugins/browser test: # suites 2
+phi-agent-dsh/plugins/browser test: # pass 167
+phi-agent-dsh/plugins/browser test: # fail 0
+phi-agent-dsh/plugins/browser test: # cancelled 0
+phi-agent-dsh/plugins/browser test: # skipped 0
+phi-agent-dsh/plugins/browser test: # todo 0
+phi-agent-dsh/plugins/browser test: # duration_ms 1746.471292
+phi-agent-dsh/plugins/browser test: Done
+phi-agent-dsh/plugins/tasks test$ tsx --test "src/**/*.test.ts"
+phi-agent-dsh/plugins/tasks test: #   taskId: 't1',
+phi-agent-dsh/plugins/tasks test: #   error: 'this.deps.store.listOfferedTaskRuns is not a function'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [phi-tasks] heartbeat not written { error: 'heartbeat table unavailable' }
+phi-agent-dsh/plugins/tasks test: # [phi-tasks] heartbeat not written { error: 'heartbeat table unavailable' }
+phi-agent-dsh/plugins/tasks test: # [phi-tasks] outage audited {
+phi-agent-dsh/plugins/tasks test: #   taskId: 'task-1',
+phi-agent-dsh/plugins/tasks test: #   error: 'this.deps.store.getTaskExternalOutboxRecord is not a function'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   runId: '01a13f7a-ac9e-7644-a18f-013d4ae15514',
+phi-agent-dsh/plugins/tasks test: #   error: 'offers unavailable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test:   ...
+phi-agent-dsh/plugins/tasks test: # [outage-audit] auditing a task failed { taskId: 'task-a', error: 'database hiccup' }
+phi-agent-dsh/plugins/tasks test: # Subtest: row 4: a daily firing missed by three hours becomes a missed run with an offer
+phi-agent-dsh/plugins/tasks test: #   scheduleKind: 'every',
+phi-agent-dsh/plugins/tasks test: #   error: 'schedule_interval_too_small',
+phi-agent-dsh/plugins/tasks test: #   message: 'schedule.everyMs must be at least 30000 (30 seconds); got 5000'
+phi-agent-dsh/plugins/tasks test: #   durationMs: 0,
+phi-agent-dsh/plugins/tasks test: #   error: 'schedule_invalid'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   durationMs: 1,
+phi-agent-dsh/plugins/tasks test: #   error: 'task_not_found'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   durationMs: 33,
+phi-agent-dsh/plugins/tasks test: #   error: 'task_not_ready'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   durationMs: 0,
+phi-agent-dsh/plugins/tasks test: #   error: 'unauthorized'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   durationMs: 0,
+phi-agent-dsh/plugins/tasks test: #   error: 'schedule_not_found'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   durationMs: 0,
+phi-agent-dsh/plugins/tasks test: #   error: 'schedule_invalid'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   scheduleKind: 'every',
+phi-agent-dsh/plugins/tasks test: #   error: 'schedule_interval_too_small',
+phi-agent-dsh/plugins/tasks test: #   message: 'schedule.everyMs must be at least 30000 (30 seconds); got 5000'
+phi-agent-dsh/plugins/tasks test: #   scheduleId: 's1',
+phi-agent-dsh/plugins/tasks test: #   error: 'simulated crash AFTER advance'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   scheduleId: 's1',
+phi-agent-dsh/plugins/tasks test: #   error: 'task_missing_at_start'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test:   ...
+phi-agent-dsh/plugins/tasks test: # [task-run] writing a log line failed { runId: 'run-1', category: 'run_started', error: 'log table down' }
+phi-agent-dsh/plugins/tasks test: # [task-run] writing a log line failed { runId: 'run-1', category: 'agent_note', error: 'log table down' }
+phi-agent-dsh/plugins/tasks test: # [task-run] writing a log line failed { runId: 'run-1', category: 'run_completed', error: 'log table down' }
+phi-agent-dsh/plugins/tasks test: # [task-run] run failed {
+phi-agent-dsh/plugins/tasks test: #   runStatus: 'running',
+phi-agent-dsh/plugins/tasks test: #   error: 'external sync exploded'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: #   runStatus: 'completed',
+phi-agent-dsh/plugins/tasks test: #   error: 'external sync exploded'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: # [schedule-migration] failed to construct Sentinel runner client {
+phi-agent-dsh/plugins/tasks test: #   error: 'Socket path required: set options.socketPath or RUNNER_SOCKET environment variable'
+phi-agent-dsh/plugins/tasks test: # }
+phi-agent-dsh/plugins/tasks test: 1..375
+phi-agent-dsh/plugins/tasks test: # tests 384
+phi-agent-dsh/plugins/tasks test: # suites 4
+phi-agent-dsh/plugins/tasks test: # pass 384
+phi-agent-dsh/plugins/tasks test: # fail 0
+phi-agent-dsh/plugins/tasks test: # cancelled 0
+phi-agent-dsh/plugins/tasks test: # skipped 0
+phi-agent-dsh/plugins/tasks test: # todo 0
+phi-agent-dsh/plugins/tasks test: # duration_ms 1646.750542
+phi-agent-dsh/plugins/tasks test: Done
+phi-agent-dsh/plugins/worker test$ tsx --test "src/**/*.test.ts"
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: browser_task.execute taskResult error (failure): responses_error: <msg>, retryable=false (main:4283-4302)
+phi-agent-dsh/plugins/worker test: ok 54 - browser_task.execute taskResult error (failure): responses_error: <msg>, retryable=false (main:4283-4302)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: browser_task.execute operation error: a thrown port error yields responses_error carrying the shaped message (main:4257-4270)
+phi-agent-dsh/plugins/worker test: ok 58 - browser_task.execute operation error: a thrown port error yields responses_error carrying the shaped message (main:4257-4270)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: every sibling returns a RETRYABLE responses_error: chat_category_store_unavailable when the store is absent — main:3472/3554/3653
+phi-agent-dsh/plugins/worker test: ok 100 - every sibling returns a RETRYABLE responses_error: chat_category_store_unavailable when the store is absent — main:3472/3554/3653
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: getState failure (Error) → faithful in-handler responses_error envelope: message `responses_error: <error.message>` (main:3369-3380 outer catch) — FIX 4
+phi-agent-dsh/plugins/worker test: ok 129 - getState failure (Error) → faithful in-handler responses_error envelope: message `responses_error: <error.message>` (main:3369-3380 outer catch) — FIX 4
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: getState failure (non-Error throw) → faithful fallback message `responses_error: get_agent_avatar_failed` (main:3372 fallback) — FIX 4
+phi-agent-dsh/plugins/worker test: ok 130 - getState failure (non-Error throw) → faithful fallback message `responses_error: get_agent_avatar_failed` (main:3372 fallback) — FIX 4
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+phi-agent-dsh/plugins/worker test: ok 155 - schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: SkillValidationError → error.code, outer invalid_arguments (non-retryable) (main:2936)
+phi-agent-dsh/plugins/worker test: ok 170 - error: SkillValidationError → error.code, outer invalid_arguments (non-retryable) (main:2936)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: SkillNameConflictError (by name) → duplicate_skill_name, invalid_arguments (main:2937-2942)
+phi-agent-dsh/plugins/worker test: ok 171 - error: SkillNameConflictError (by name) → duplicate_skill_name, invalid_arguments (main:2937-2942)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: SkillVersionConflictError (by name) → skill_version_conflict, invalid_arguments (main:2943-2948)
+phi-agent-dsh/plugins/worker test: ok 172 - error: SkillVersionConflictError (by name) → skill_version_conflict, invalid_arguments (main:2943-2948)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: SkillBuiltInReadOnlyError (by name) → skill_builtin_readonly, invalid_arguments (main:2949-2951)
+phi-agent-dsh/plugins/worker test: ok 173 - error: SkillBuiltInReadOnlyError (by name) → skill_builtin_readonly, invalid_arguments (main:2949-2951)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: re-tagged StorageNotConfiguredError → storage_unavailable, outer responses_error (RETRYABLE) (main:2952-2954)
+phi-agent-dsh/plugins/worker test: ok 174 - error: re-tagged StorageNotConfiguredError → storage_unavailable, outer responses_error (RETRYABLE) (main:2952-2954)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: a generic Error → skill_write_failed, outer responses_error (RETRYABLE) (main:2955)
+phi-agent-dsh/plugins/worker test: ok 175 - error: a generic Error → skill_write_failed, outer responses_error (RETRYABLE) (main:2955)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: error: an un-retagged StorageNotConfiguredError-shaped Error (no name) falls through to skill_write_failed (deviation)
+phi-agent-dsh/plugins/worker test: ok 176 - error: an un-retagged StorageNotConfiguredError-shaped Error (no name) falls through to skill_write_failed (deviation)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test:   ...
+phi-agent-dsh/plugins/worker test: # Subtest: websearch.search error: a thrown port error yields responses_error carrying the message (main:2468-2481)
+phi-agent-dsh/plugins/worker test: ok 217 - websearch.search error: a thrown port error yields responses_error carrying the message (main:2468-2481)
+phi-agent-dsh/plugins/worker test:   ---
+phi-agent-dsh/plugins/worker test: #   bytes: 3,
+phi-agent-dsh/plugins/worker test: #   error: 'Image is 4096x4096, over the 4194304-pixel limit.'
+phi-agent-dsh/plugins/worker test: # }
+phi-agent-dsh/plugins/worker test: #   userId: 'user-1',
+phi-agent-dsh/plugins/worker test: #   error: Error: upstream exploded
+phi-agent-dsh/plugins/worker test: #       at Object.videoGist (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/worker/src/lib/video-gist/routes.test.ts:229:15)
+phi-agent-dsh/plugins/worker test: #   userId: 'user-1',
+phi-agent-dsh/plugins/worker test: #   error: Error: upstream exploded
+phi-agent-dsh/plugins/worker test: #       at Object.videoGist (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/worker/src/lib/video-gist/routes.test.ts:269:33)
+phi-agent-dsh/plugins/worker test: #   userId: 'user-1',
+phi-agent-dsh/plugins/worker test: #   error: Error: fake upstream refused
+phi-agent-dsh/plugins/worker test: #       at Object.featureUpstream (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/plugins/worker/src/ports.test.ts:78:13)
+phi-agent-dsh/plugins/worker test: 1..722
+phi-agent-dsh/plugins/worker test: # tests 759
+phi-agent-dsh/plugins/worker test: # suites 5
+phi-agent-dsh/plugins/worker test: # pass 759
+phi-agent-dsh/plugins/worker test: # fail 0
+phi-agent-dsh/plugins/worker test: # cancelled 0
+phi-agent-dsh/plugins/worker test: # skipped 0
+phi-agent-dsh/plugins/worker test: # todo 0
+phi-agent-dsh/plugins/worker test: # duration_ms 5098.0005
+phi-agent-dsh/plugins/worker test: Done
+phi-agent-dsh/bundle test$ node ../scripts/generate-rows.mjs && tsx --test "src/**/*.test.ts" "tests/*.test.ts" "tests/support/**/*.test.ts"
+phi-agent-dsh/bundle test: #   file: '/nonexistent/machine.yml',
+phi-agent-dsh/bundle test: #   error: Error: ENOENT: no such file or directory, open '/nonexistent/machine.yml'
+phi-agent-dsh/bundle test: #       at readFileSync (node:fs:440:20)
+phi-agent-dsh/bundle test: #   runId: 'run-2',
+phi-agent-dsh/bundle test: #   error: 'store.appendTaskRunLogEntries is not a function'
+phi-agent-dsh/bundle test: # }
+phi-agent-dsh/bundle test: 1..109
+phi-agent-dsh/bundle test: # tests 168
+phi-agent-dsh/bundle test: # suites 14
+phi-agent-dsh/bundle test: # pass 168
+phi-agent-dsh/bundle test: # fail 0
+phi-agent-dsh/bundle test: # cancelled 0
+phi-agent-dsh/bundle test: # skipped 0
+phi-agent-dsh/bundle test: # todo 0
+phi-agent-dsh/bundle test: # duration_ms 20162.873042
+phi-agent-dsh/bundle test: Done

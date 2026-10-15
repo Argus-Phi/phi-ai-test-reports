@@ -1,0 +1,918 @@
+
+> @phi-ai/dsh-lib-shared@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/lib/shared
+> tsx --test "src/**/*.test.ts"
+
+TAP version 13
+# Subtest: isolateAbortReason
+    # Subtest: aborts with an equal copy of the source's reason, never the object itself
+    ok 1 - aborts with an equal copy of the source's reason, never the object itself
+      ---
+      duration_ms: 1.372042
+      type: 'test'
+      ...
+    # Subtest: is already aborted when the source already was
+    ok 2 - is already aborted when the source already was
+      ---
+      duration_ms: 0.298084
+      type: 'test'
+      ...
+    # Subtest: stops following the source once released
+    ok 3 - stops following the source once released
+      ---
+      duration_ms: 0.32875
+      type: 'test'
+      ...
+    # Subtest: passes a primitive reason through, and replaces one that cannot be cloned
+    ok 4 - passes a primitive reason through, and replaces one that cannot be cloned
+      ---
+      duration_ms: 0.589625
+      type: 'test'
+      ...
+    # Subtest: against Node's real fetch
+        # Subtest: leaves the source's reason exactly as the loop wrote it
+        ok 1 - leaves the source's reason exactly as the loop wrote it
+          ---
+          duration_ms: 70.261541
+          type: 'test'
+          ...
+        # Subtest: (the fault it guards) handing fetch the source signal writes onto its reason
+        ok 2 - (the fault it guards) handing fetch the source signal writes onto its reason
+          ---
+          duration_ms: 58.459333
+          type: 'test'
+          ...
+        1..2
+    ok 5 - against Node's real fetch
+      ---
+      duration_ms: 226.221667
+      type: 'suite'
+      ...
+    1..5
+ok 1 - isolateAbortReason
+  ---
+  duration_ms: 231.579083
+  type: 'suite'
+  ...
+# Subtest: valid values come back normalised to the declared fields
+ok 2 - valid values come back normalised to the declared fields
+  ---
+  duration_ms: 20.645125
+  type: 'test'
+  ...
+# Subtest: a missing checkbox takes its default, and a missing optional field is left out
+ok 3 - a missing checkbox takes its default, and a missing optional field is left out
+  ---
+  duration_ms: 0.484375
+  type: 'test'
+  ...
+# Subtest: every way an answer can be wrong is refused with the field named
+ok 4 - every way an answer can be wrong is refused with the field named
+  ---
+  duration_ms: 12.950375
+  type: 'test'
+  ...
+# Subtest: a required text field must carry more than whitespace
+ok 5 - a required text field must carry more than whitespace
+  ---
+  duration_ms: 0.085625
+  type: 'test'
+  ...
+# Subtest: a field shown only for some answers is required, and kept, only when shown
+ok 6 - a field shown only for some answers is required, and kept, only when shown
+  ---
+  duration_ms: 0.524834
+  type: 'test'
+  ...
+# Subtest: a field is hidden with the field it depends on, a list shows it on any chosen value, and a hidden checkbox takes no default
+ok 7 - a field is hidden with the field it depends on, a list shows it on any chosen value, and a hidden checkbox takes no default
+  ---
+  duration_ms: 0.12975
+  type: 'test'
+  ...
+# Subtest: a question may show a field only for some answers of a list before it
+ok 8 - a question may show a field only for some answers of a list before it
+  ---
+  duration_ms: 0.589041
+  type: 'test'
+  ...
+# Subtest: a date, a time of day and a moment come back in the user's local time, as written
+ok 9 - a date, a time of day and a moment come back in the user's local time, as written
+  ---
+  duration_ms: 0.240958
+  type: 'test'
+  ...
+# Subtest: a question's date or time field names its mode, and a default in it
+ok 10 - a question's date or time field names its mode, and a default in it
+  ---
+  duration_ms: 14.509625
+  type: 'test'
+  ...
+# Subtest: a well-formed question passes, with allowSkip defaulting to true
+ok 11 - a well-formed question passes, with allowSkip defaulting to true
+  ---
+  duration_ms: 0.958375
+  type: 'test'
+  ...
+# Subtest: each limit of a model's question is enforced and named
+ok 12 - each limit of a model's question is enforced and named
+  ---
+  duration_ms: 0.959333
+  type: 'test'
+  ...
+# Subtest: the committed list is Phi 152's 665 commands, sorted and unique
+ok 13 - the committed list is Phi 152's 665 commands, sorted and unique
+  ---
+  duration_ms: 1.990625
+  type: 'test'
+  ...
+# Subtest: every listed command has an explicit entry, and the table has nothing else
+ok 14 - every listed command has an explicit entry, and the table has nothing else
+  ---
+  duration_ms: 0.408
+  type: 'test'
+  ...
+# Subtest: an unlisted method is deny, never undefined
+ok 15 - an unlisted method is deny, never undefined
+  ---
+  duration_ms: 0.284625
+  type: 'test'
+  ...
+# Subtest: the class counts are the reviewed ones
+ok 16 - the class counts are the reviewed ones
+  ---
+  duration_ms: 0.795208
+  type: 'test'
+  ...
+# Subtest: only these methods change a page or the browser
+ok 17 - only these methods change a page or the browser
+  ---
+  duration_ms: 0.995792
+  type: 'test'
+  ...
+# Subtest: the built-in skills' four methods are read
+ok 18 - the built-in skills' four methods are read
+  ---
+  duration_ms: 0.132125
+  type: 'test'
+  ...
+# Subtest: a denied capability names what replaces it
+ok 19 - a denied capability names what replaces it
+  ---
+  duration_ms: 0.482166
+  type: 'test'
+  ...
+# Subtest: enable and disable are never callable; the reads that need them say so
+ok 20 - enable and disable are never callable; the reads that need them say so
+  ---
+  duration_ms: 56.65425
+  type: 'test'
+  ...
+# Subtest: the table and its entries are frozen
+ok 21 - the table and its entries are frozen
+  ---
+  duration_ms: 1.02775
+  type: 'test'
+  ...
+# Subtest: the watch-page skill is chat-only
+ok 22 - the watch-page skill is chat-only
+  ---
+  duration_ms: 0.685084
+  type: 'test'
+  ...
+# Subtest: report-chat-trace is chat-only: a background run has no card to ask on
+ok 23 - report-chat-trace is chat-only: a background run has no card to ask on
+  ---
+  duration_ms: 0.14325
+  type: 'test'
+  ...
+# Subtest: formatConsoleTimestamp formats local time without milliseconds
+ok 24 - formatConsoleTimestamp formats local time without milliseconds
+  ---
+  duration_ms: 2.314334
+  type: 'test'
+  ...
+# Subtest: installConsoleTimestamps prefixes every console method and preserves arguments
+ok 25 - installConsoleTimestamps prefixes every console method and preserves arguments
+  ---
+  duration_ms: 1.079791
+  type: 'test'
+  ...
+# Subtest: installConsoleTimestamps does not wrap a console twice
+ok 26 - installConsoleTimestamps does not wrap a console twice
+  ---
+  duration_ms: 0.246375
+  type: 'test'
+  ...
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] preflight emitted {
+#   pathname: '/api/v1/files/upload',
+#   origin: 'https://chatgpt.com',
+#   requestedHeaders: 'authorization, content-type'
+# }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] preflight emitted {
+#   pathname: '/api/v1/chats/import',
+#   origin: 'https://chatgpt.com',
+#   requestedHeaders: 'Authorization, Content-Type'
+# }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] preflight skipped (origin not allowed) {
+#   pathname: '/api/v1/files/upload',
+#   origin: 'https://evil.example',
+#   knownOrigins: [ 'https://chatgpt.com' ]
+# }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] response wrapped with CORS headers {
+#   pathname: '/api/v1/files/upload',
+#   origin: 'https://chatgpt.com',
+#   status: 200
+# }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com', 'https://example.com' ] }
+# [phi:cors] preflight emitted {
+#   pathname: '/api/v1/files/upload',
+#   origin: 'https://example.com',
+#   requestedHeaders: 'Authorization, Content-Type'
+# }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] allowed origins set { origins: [ 'https://other.example' ] }
+# [phi:cors] preflight skipped (origin not allowed) {
+#   pathname: '/api/v1/files/upload',
+#   origin: 'https://chatgpt.com',
+#   knownOrigins: [ 'https://other.example' ]
+# }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] extra origins set { origins: [ 'http://192.168.66.104:18082' ] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] preflight emitted {
+#   pathname: '/api/v1/browser-evals/hosted-runs',
+#   origin: 'http://192.168.66.104:18082',
+#   requestedHeaders: 'Authorization, Content-Type'
+# }
+# [phi:cors] extra origins set { origins: [] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] extra origins set { origins: [ 'http://192.168.66.104:18082' ] }
+# [phi:cors] preflight emitted {
+#   pathname: '/api/v1/browser-evals/hosted-runs',
+#   origin: 'http://192.168.66.104:18082',
+#   requestedHeaders: 'Authorization, Content-Type'
+# }
+# [phi:cors] extra origins set { origins: [] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] extra origins set { origins: [ 'http://192.168.66.104:18082' ] }
+# [phi:cors] preflight emitted {
+#   pathname: '/api/v1/browser-evals/hosted-runs',
+#   origin: 'http://192.168.66.104:18082',
+#   requestedHeaders: 'Authorization, Content-Type'
+# }
+# [phi:cors] extra origins set { origins: [] }
+# [phi:cors] allowed origins set { origins: [ 'https://chatgpt.com' ] }
+# [phi:cors] extra origins set { origins: [ 'http://192.168.66.104:18082' ] }
+# [phi:cors] preflight skipped (origin not allowed) {
+#   pathname: '/api/v1/browser-evals/hosted-runs',
+#   origin: 'http://evil.invalid',
+#   knownOrigins: [ 'https://chatgpt.com' ]
+# }
+# [phi:cors] extra origins set { origins: [] }
+# Subtest: preflight: 204 with CORS headers for upload from chatgpt.com
+ok 27 - preflight: 204 with CORS headers for upload from chatgpt.com
+  ---
+  duration_ms: 146.197542
+  type: 'test'
+  ...
+# Subtest: preflight: 204 for chats/import from chatgpt.com
+ok 28 - preflight: 204 for chats/import from chatgpt.com
+  ---
+  duration_ms: 2.203375
+  type: 'test'
+  ...
+# Subtest: preflight: skipped for unallowed route
+ok 29 - preflight: skipped for unallowed route
+  ---
+  duration_ms: 0.390708
+  type: 'test'
+  ...
+# Subtest: preflight: skipped for unallowed origin
+ok 30 - preflight: skipped for unallowed origin
+  ---
+  duration_ms: 0.262209
+  type: 'test'
+  ...
+# Subtest: preflight: skipped for non-OPTIONS request
+ok 31 - preflight: skipped for non-OPTIONS request
+  ---
+  duration_ms: 0.423709
+  type: 'test'
+  ...
+# Subtest: addCorsHeaders: appends ACAO for upload from chatgpt.com
+ok 32 - addCorsHeaders: appends ACAO for upload from chatgpt.com
+  ---
+  duration_ms: 0.97675
+  type: 'test'
+  ...
+# Subtest: addCorsHeaders: leaves response unchanged for other routes
+ok 33 - addCorsHeaders: leaves response unchanged for other routes
+  ---
+  duration_ms: 0.228333
+  type: 'test'
+  ...
+# Subtest: preflight: extra origin from setCorsAllowedOrigins is allowed
+ok 34 - preflight: extra origin from setCorsAllowedOrigins is allowed
+  ---
+  duration_ms: 0.205792
+  type: 'test'
+  ...
+# Subtest: preflight: previously-allowed origin rejected after allowlist replaced
+ok 35 - preflight: previously-allowed origin rejected after allowlist replaced
+  ---
+  duration_ms: 1.460666
+  type: 'test'
+  ...
+# Subtest: extra origins survive a skills-allowlist refresh
+ok 36 - extra origins survive a skills-allowlist refresh
+  ---
+  duration_ms: 0.479583
+  type: 'test'
+  ...
+# Subtest: a private-network preflight is answered for the eval origin
+ok 37 - a private-network preflight is answered for the eval origin
+  ---
+  duration_ms: 0.161542
+  type: 'test'
+  ...
+# Subtest: the private-network header is not volunteered when unasked
+ok 38 - the private-network header is not volunteered when unasked
+  ---
+  duration_ms: 0.230458
+  type: 'test'
+  ...
+# Subtest: an unregistered origin gets no preflight on the hosted route
+ok 39 - an unregistered origin gets no preflight on the hosted route
+  ---
+  duration_ms: 0.098542
+  type: 'test'
+  ...
+# Subtest: formatUnknownError
+    # Subtest: prefers an Error's message
+    ok 1 - prefers an Error's message
+      ---
+      duration_ms: 0.371417
+      type: 'test'
+      ...
+    # Subtest: falls back to the Error's name when the message is empty
+    ok 2 - falls back to the Error's name when the message is empty
+      ---
+      duration_ms: 0.08325
+      type: 'test'
+      ...
+    # Subtest: passes a string through
+    ok 3 - passes a string through
+      ---
+      duration_ms: 0.04025
+      type: 'test'
+      ...
+    # Subtest: serialises anything else
+    ok 4 - serialises anything else
+      ---
+      duration_ms: 0.096834
+      type: 'test'
+      ...
+    # Subtest: never throws on a circular value
+    ok 5 - never throws on a circular value
+      ---
+      duration_ms: 0.057708
+      type: 'test'
+      ...
+    1..5
+ok 40 - formatUnknownError
+  ---
+  duration_ms: 1.182292
+  type: 'suite'
+  ...
+# Subtest: jsonResponse preserves headers supplied via HeadersInit
+ok 41 - jsonResponse preserves headers supplied via HeadersInit
+  ---
+  duration_ms: 145.36475
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition keeps ASCII filenames intact
+ok 42 - buildContentDisposition keeps ASCII filenames intact
+  ---
+  duration_ms: 0.363125
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition encodes non-ASCII filenames per RFC 5987
+ok 43 - buildContentDisposition encodes non-ASCII filenames per RFC 5987
+  ---
+  duration_ms: 0.449708
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition strips quotes and backslashes from the ASCII fallback
+ok 44 - buildContentDisposition strips quotes and backslashes from the ASCII fallback
+  ---
+  duration_ms: 2.261417
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition percent-encodes RFC 5987 reserved characters
+ok 45 - buildContentDisposition percent-encodes RFC 5987 reserved characters
+  ---
+  duration_ms: 0.322917
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition produces only ByteString-safe characters
+ok 46 - buildContentDisposition produces only ByteString-safe characters
+  ---
+  duration_ms: 0.166209
+  type: 'test'
+  ...
+# Subtest: PNG: reads IHDR
+ok 47 - PNG: reads IHDR
+  ---
+  duration_ms: 0.576167
+  type: 'test'
+  ...
+# Subtest: JPEG: walks past APPn segments to the frame header
+ok 48 - JPEG: walks past APPn segments to the frame header
+  ---
+  duration_ms: 0.100542
+  type: 'test'
+  ...
+# Subtest: JPEG: the real persona avatar, whose SOF is not the first marker
+ok 49 - JPEG: the real persona avatar, whose SOF is not the first marker
+  ---
+  duration_ms: 0.541958
+  type: 'test'
+  ...
+# Subtest: GIF: little-endian screen descriptor
+ok 50 - GIF: little-endian screen descriptor
+  ---
+  duration_ms: 0.130208
+  type: 'test'
+  ...
+# Subtest: WebP: all three chunk layouts
+ok 51 - WebP: all three chunk layouts
+  ---
+  duration_ms: 0.31025
+  type: 'test'
+  ...
+# Subtest: refuses anything that is not one of the four formats
+ok 52 - refuses anything that is not one of the four formats
+  ---
+  duration_ms: 0.133291
+  type: 'test'
+  ...
+# Subtest: refuses a zero dimension rather than reporting it
+ok 53 - refuses a zero dimension rather than reporting it
+  ---
+  duration_ms: 0.0985
+  type: 'test'
+  ...
+# Subtest: the input is the wire request
+ok 54 - the input is the wire request
+  ---
+  duration_ms: 0.607208
+  type: 'test'
+  ...
+# Subtest: the output drops the request the response echoes and keeps what the model did
+ok 55 - the output drops the request the response echoes and keeps what the model did
+  ---
+  duration_ms: 0.233958
+  type: 'test'
+  ...
+# Subtest: usage becomes Langfuse usage details
+ok 56 - usage becomes Langfuse usage details
+  ---
+  duration_ms: 0.126
+  type: 'test'
+  ...
+# Subtest: attempts are metadata only when there was more than one, and never carry the payload
+ok 57 - attempts are metadata only when there was more than one, and never carry the payload
+  ---
+  duration_ms: 0.1485
+  type: 'test'
+  ...
+# Subtest: an incomplete response says why, and a missing response keeps the id and items
+ok 58 - an incomplete response says why, and a missing response keeps the id and items
+  ---
+  duration_ms: 0.119417
+  type: 'test'
+  ...
+# Subtest: OpenAI Responses: cached_tokens is subtracted from input (additive)
+ok 59 - OpenAI Responses: cached_tokens is subtracted from input (additive)
+  ---
+  duration_ms: 0.774375
+  type: 'test'
+  ...
+# Subtest: OpenRouter: cache_write_tokens maps to cacheCreationInputTokens
+ok 60 - OpenRouter: cache_write_tokens maps to cacheCreationInputTokens
+  ---
+  duration_ms: 0.091791
+  type: 'test'
+  ...
+# Subtest: Anthropic-native cache fields are additive, input_tokens NOT reduced
+ok 61 - Anthropic-native cache fields are additive, input_tokens NOT reduced
+  ---
+  duration_ms: 0.056792
+  type: 'test'
+  ...
+# Subtest: reasoning_tokens is excluded from Langfuse usageDetails
+ok 62 - reasoning_tokens is excluded from Langfuse usageDetails
+  ---
+  duration_ms: 0.053709
+  type: 'test'
+  ...
+# Subtest: empty / malformed usage returns undefined
+ok 63 - empty / malformed usage returns undefined
+  ---
+  duration_ms: 0.051625
+  type: 'test'
+  ...
+# Subtest: camelCase field names are also accepted (backward compat)
+ok 64 - camelCase field names are also accepted (backward compat)
+  ---
+  duration_ms: 0.043291
+  type: 'test'
+  ...
+# Subtest: createMethodDispatcher
+    # Subtest: picks by method when two routes share a path
+    ok 1 - picks by method when two routes share a path
+      ---
+      duration_ms: 175.273833
+      type: 'test'
+      ...
+    # Subtest: picks by path when two routes share a method
+    ok 2 - picks by path when two routes share a method
+      ---
+      duration_ms: 0.224625
+      type: 'test'
+      ...
+    # Subtest: matches a path parameter through a predicate
+    ok 3 - matches a path parameter through a predicate
+      ---
+      duration_ms: 0.130666
+      type: 'test'
+      ...
+    # Subtest: a known path with the wrong method is 405, not the wrong handler
+    ok 4 - a known path with the wrong method is 405, not the wrong handler
+      ---
+      duration_ms: 0.311791
+      type: 'test'
+      ...
+    # Subtest: an unknown path is 404
+    ok 5 - an unknown path is 404
+      ---
+      duration_ms: 0.089666
+      type: 'test'
+      ...
+    # Subtest: a bare string path does not match a longer one
+    ok 6 - a bare string path does not match a longer one
+      ---
+      duration_ms: 0.083
+      type: 'test'
+      ...
+    # Subtest: the FIRST matching entry wins, so order is the caller's decision
+    ok 7 - the FIRST matching entry wins, so order is the caller's decision
+      ---
+      duration_ms: 57.759167
+      type: 'test'
+      ...
+    1..7
+ok 65 - createMethodDispatcher
+  ---
+  duration_ms: 234.787542
+  type: 'suite'
+  ...
+# Subtest: paramRoute
+    # Subtest: captures each `:name` segment in pattern order
+    ok 1 - captures each `:name` segment in pattern order
+      ---
+      duration_ms: 0.701667
+      type: 'test'
+      ...
+    # Subtest: a `:name` matches one segment, never a slash
+    ok 2 - a `:name` matches one segment, never a slash
+      ---
+      duration_ms: 1.068333
+      type: 'test'
+      ...
+    # Subtest: the two orderings agree, which is what makes the order free
+    ok 3 - the two orderings agree, which is what makes the order free
+      ---
+      duration_ms: 10.892625
+      type: 'test'
+      ...
+    # Subtest: an empty segment is a miss, not an empty capture
+    ok 4 - an empty segment is a miss, not an empty capture
+      ---
+      duration_ms: 0.143625
+      type: 'test'
+      ...
+    # Subtest: a longer or shorter pathname is a miss
+    ok 5 - a longer or shorter pathname is a miss
+      ---
+      duration_ms: 0.116166
+      type: 'test'
+      ...
+    # Subtest: still answers 405 when the path is known and the method is not
+    ok 6 - still answers 405 when the path is known and the method is not
+      ---
+      duration_ms: 0.897792
+      type: 'test'
+      ...
+    1..6
+ok 66 - paramRoute
+  ---
+  duration_ms: 14.975084
+  type: 'suite'
+  ...
+# Subtest: trace names are the ones dashboards and the audit rely on
+ok 67 - trace names are the ones dashboards and the audit rely on
+  ---
+  duration_ms: 0.342292
+  type: 'test'
+  ...
+# Subtest: tool observations are named tool.<toolId>
+ok 68 - tool observations are named tool.<toolId>
+  ---
+  duration_ms: 0.060792
+  type: 'test'
+  ...
+# [phi-channel] PHI_BROWSER_CHANNEL="beta" is not a Phi channel (expected canary or stable); falling back to "canary"
+# Subtest: nothing configured pins canary, not whatever answers first
+ok 69 - nothing configured pins canary, not whatever answers first
+  ---
+  duration_ms: 0.334709
+  type: 'test'
+  ...
+# Subtest: both channels are selectable by name, case-insensitively
+ok 70 - both channels are selectable by name, case-insensitively
+  ---
+  duration_ms: 0.054917
+  type: 'test'
+  ...
+# Subtest: an unrecognized value degrades to the default instead of throwing
+ok 71 - an unrecognized value degrades to the default instead of throwing
+  ---
+  duration_ms: 0.268375
+  type: 'test'
+  ...
+# Subtest: an explicit user-data dir outranks the channel name
+ok 72 - an explicit user-data dir outranks the channel name
+  ---
+  duration_ms: 0.047375
+  type: 'test'
+  ...
+# Subtest: an empty value is treated as unset
+ok 73 - an empty value is treated as unset
+  ---
+  duration_ms: 0.045125
+  type: 'test'
+  ...
+# Subtest: the table holds exactly the M2 and M2b codes
+ok 74 - the table holds exactly the M2 and M2b codes
+  ---
+  duration_ms: 1.356
+  type: 'test'
+  ...
+# Subtest: page content has a 64 KiB envelope budget and an honest empty-content error
+ok 75 - page content has a 64 KiB envelope budget and an honest empty-content error
+  ---
+  duration_ms: 0.125458
+  type: 'test'
+  ...
+# Subtest: only a channel fault is retryable
+ok 76 - only a channel fault is retryable
+  ---
+  duration_ms: 0.113167
+  type: 'test'
+  ...
+# Subtest: isPhiCdpErrorCode accepts the table's own keys and nothing else
+ok 77 - isPhiCdpErrorCode accepts the table's own keys and nothing else
+  ---
+  duration_ms: 0.044
+  type: 'test'
+  ...
+# Subtest: reads the Janus code from raw text or a parsed body, and the legacy type
+ok 78 - reads the Janus code from raw text or a parsed body, and the legacy type
+  ---
+  duration_ms: 0.335125
+  type: 'test'
+  ...
+# Subtest: only a 429 with a quota body becomes the typed error, keeping Retry-After
+ok 79 - only a 429 with a quota body becomes the typed error, keeping Retry-After
+  ---
+  duration_ms: 74.69375
+  type: 'test'
+  ...
+# Subtest: the response hands the gateway body back unchanged
+ok 80 - the response hands the gateway body back unchanged
+  ---
+  duration_ms: 2.49775
+  type: 'test'
+  ...
+# Subtest: recognises the verdict on the typed error and on status-carrying errors
+ok 81 - recognises the verdict on the typed error and on status-carrying errors
+  ---
+  duration_ms: 0.261875
+  type: 'test'
+  ...
+# Subtest: it records the tree by parent id and flags parentless observations
+ok 82 - it records the tree by parent id and flags parentless observations
+  ---
+  duration_ms: 0.724625
+  type: 'test'
+  ...
+# Subtest: browser-internal pages and the Web Store are restricted
+ok 83 - browser-internal pages and the Web Store are restricted
+  ---
+  duration_ms: 0.983791
+  type: 'test'
+  ...
+# Subtest: ordinary pages, and what is not a URL, are not
+ok 84 - ordinary pages, and what is not a URL, are not
+  ---
+  duration_ms: 0.145458
+  type: 'test'
+  ...
+# Subtest: a fixed language never changes, and ignores what it is shown
+ok 85 - a fixed language never changes, and ignores what it is shown
+  ---
+  duration_ms: 0.51275
+  type: 'test'
+  ...
+# Subtest: a fixed language outside the closed set reads as none
+ok 86 - a fixed language outside the closed set reads as none
+  ---
+  duration_ms: 0.075625
+  type: 'test'
+  ...
+# Subtest: observeWithin waits for the observation
+ok 87 - observeWithin waits for the observation
+  ---
+  duration_ms: 12.309625
+  type: 'test'
+  ...
+# Subtest: observeWithin gives up after the bound, and never throws
+ok 88 - observeWithin gives up after the bound, and never throws
+  ---
+  duration_ms: 22.844833
+  type: 'test'
+  ...
+# Subtest: observeWithin skips blank text and a missing language
+ok 89 - observeWithin skips blank text and a missing language
+  ---
+  duration_ms: 0.122791
+  type: 'test'
+  ...
+# Subtest: paused time adds up, an open pause counts as it goes, and resume is idempotent
+ok 90 - paused time adds up, an open pause counts as it goes, and resume is idempotent
+  ---
+  duration_ms: 0.995708
+  type: 'test'
+  ...
+# Subtest: the registry answers for the run it holds, and for nobody else
+ok 91 - the registry answers for the run it holds, and for nobody else
+  ---
+  duration_ms: 0.113625
+  type: 'test'
+  ...
+# Subtest: a run with no clock is tracked as nothing, and forgetting it is safe
+ok 92 - a run with no clock is tracked as nothing, and forgetting it is safe
+  ---
+  duration_ms: 0.048792
+  type: 'test'
+  ...
+# Subtest: a re-tracked agent id keeps the newer run's clock
+ok 93 - a re-tracked agent id keeps the newer run's clock
+  ---
+  duration_ms: 1.105584
+  type: 'test'
+  ...
+# Subtest: overlapping pauses count once
+ok 94 - overlapping pauses count once
+  ---
+  duration_ms: 0.198
+  type: 'test'
+  ...
+# Subtest: time the computer slept since the clock started counts as paused
+ok 95 - time the computer slept since the clock started counts as paused
+  ---
+  duration_ms: 0.903291
+  type: 'test'
+  ...
+# Subtest: a sleep counts only from when the clock started, and not at all before
+ok 96 - a sleep counts only from when the clock started, and not at all before
+  ---
+  duration_ms: 0.446542
+  type: 'test'
+  ...
+# Subtest: a sleep while the run waited on the user counts once
+ok 97 - a sleep while the run waited on the user counts once
+  ---
+  duration_ms: 1.115167
+  type: 'test'
+  ...
+# Subtest: the constant hands authority to the request's own system messages
+ok 98 - the constant hands authority to the request's own system messages
+  ---
+  duration_ms: 0.349875
+  type: 'test'
+  ...
+# Subtest: withRuntimeInstructions fills an empty slot and leaves the rest of the payload alone
+ok 99 - withRuntimeInstructions fills an empty slot and leaves the rest of the payload alone
+  ---
+  duration_ms: 0.160209
+  type: 'test'
+  ...
+# Subtest: withRuntimeInstructions never overwrites what a caller already stated
+ok 100 - withRuntimeInstructions never overwrites what a caller already stated
+  ---
+  duration_ms: 0.045125
+  type: 'test'
+  ...
+# Subtest: stopOnSignal
+    # Subtest: stops a started process and exits 143 on SIGTERM
+    ok 1 - stops a started process and exits 143 on SIGTERM
+      ---
+      duration_ms: 1.918792
+      type: 'test'
+      ...
+    # Subtest: exits 130 on SIGINT
+    ok 2 - exits 130 on SIGINT
+      ---
+      duration_ms: 0.164209
+      type: 'test'
+      ...
+    # Subtest: a signal during startup waits for startup, then stops what it started
+    ok 3 - a signal during startup waits for startup, then stops what it started
+      ---
+      duration_ms: 34.208708
+      type: 'test'
+      ...
+    # Subtest: a startup that never finishes still exits once the grace runs out
+    not ok 4 - a startup that never finishes still exits once the grace runs out
+      ---
+      duration_ms: 16.423125
+      type: 'test'
+      location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:1782'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+        process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+      ...
+    # Subtest: a stop that fails still exits
+    not ok 5 - a stop that fails still exits
+      ---
+      duration_ms: 0
+      type: 'test'
+      location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:2019'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+        process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+      ...
+    # Subtest: stops once, however many signals arrive
+    not ok 6 - stops once, however many signals arrive
+      ---
+      duration_ms: 0
+      type: 'test'
+      location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:2261'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+        process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+      ...
+    1..6
+not ok 101 - stopOnSignal
+  ---
+  duration_ms: 53.31125
+  type: 'suite'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:812'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+1..101
+# tests 126
+# suites 6
+# pass 123
+# fail 0
+# cancelled 3
+# skipped 0
+# todo 0
+# duration_ms 1303.382
+/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-420-cb5468db2350/workdir/phi-ai/phi-agent-dsh/lib/shared:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @phi-ai/dsh-lib-shared@0.1.0 test: `tsx --test "src/**/*.test.ts"`
+Exit status 1

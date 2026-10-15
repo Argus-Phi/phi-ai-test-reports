@@ -61,6 +61,21 @@
     "skipped": 0,
     "total": 25
    }
+  },
+  {
+   "round": 3,
+   "kind": "regression",
+   "verdict": "fail",
+   "title": "网页读取返回可用正文，避免内部文件进入聊天与任务附件",
+   "sha": "f140bc2597ff2ea0ea116d512663e078d41ba748",
+   "generated_at": "2026-10-15T12:37:44.549476+00:00",
+   "counts": {
+    "pass": 10,
+    "fail": 1,
+    "blocked": 0,
+    "skipped": 14,
+    "total": 25
+   }
   }
  ],
  "PHI-380": [
