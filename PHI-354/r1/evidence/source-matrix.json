@@ -1,0 +1,232 @@
+[
+  {
+    "target": {
+      "name": "index",
+      "id": "T-11",
+      "tabId": 1005727071,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html"
+    },
+    "selector": null,
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      556
+    ],
+    "files": [],
+    "text": "I’m checking that page now and will report the exact text or error.> Commits\n>\n> abc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)  \n> Fix example\n>\n> Public synthetic fixture. 中文边界。\n>\n> Large page · Empty page · Coverage page · Workload page · Navigation page",
+    "calls": [
+      {
+        "callId": "fc_0c6d89c7ed4aa951006acff9815d5487d2b492b9a6f28ab238",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727071,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "id": "T-11",
+      "tabId": 1005727079,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html"
+    },
+    "selector": null,
+    "expected": "result_too_large",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "result_too_large",
+          "message": "Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\"content\", the same tabId, and selector:\"main\" or a smaller section selector.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      257
+    ],
+    "files": [],
+    "text": "I’m checking that page’s content now and will report exactly what the browser returns.The browser returned this exact error:\n\n```text\nPage content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\"content\", the same tabId, and selector:\"main\" or a smaller section selector.\n```",
+    "calls": [
+      {
+        "callId": "fc_09c21e76b44ee5bd006acff98f6fdc87d2ae9409afd94f83ab",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727079,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "id": "T-11",
+      "tabId": 1005727079,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html"
+    },
+    "selector": "#commit-list",
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      475
+    ],
+    "files": [],
+    "text": "I’m checking that page section now and will report exactly what the browser returns.Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)  \nFix example\n\nPublic synthetic fixture. 中文边界.",
+    "calls": [
+      {
+        "callId": "fc_0880c5feb719c267006acff99ee64487d2b257ed64da29a121",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727079,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html\",\"selector\":\"#commit-list\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "empty",
+      "id": "T-12",
+      "tabId": 1005727080,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/empty.html"
+    },
+    "selector": null,
+    "expected": "no_readable_content",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "no_readable_content",
+          "message": "The selected root has no readable text. Choose another loaded text section.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      157
+    ],
+    "files": [],
+    "text": "I’m checking that page once and will give you the exact result.`no_readable_content` — “The selected root has no readable text. Choose another loaded text section.” (`retryable: false`)",
+    "calls": [
+      {
+        "callId": "fc_0b2b790ae1fede2e006acffa21971087d2948f1505599e524c",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727080,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/empty.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "coverage",
+      "id": "T-12",
+      "tabId": 1005727081,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/coverage.html"
+    },
+    "selector": "#hidden-child",
+    "expected": "no_readable_content",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "no_readable_content",
+          "message": "The selected root has no readable text. Choose another loaded text section.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      157
+    ],
+    "files": [],
+    "text": "I’m checking that page and selector now, without changing anything.The tool returned: `The selected root has no readable text. Choose another loaded text section.`",
+    "calls": [
+      {
+        "callId": "fc_09dc8612a84c3097006acffa336d2887d2935157b345dc3bab",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727081,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/coverage.html\",\"selector\":\"#hidden-child\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "index",
+      "id": "T-11",
+      "tabId": 1005727071,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html"
+    },
+    "selector": "#missing-qa-element",
+    "expected": "resource_not_found",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "resource_not_found",
+          "message": "The tab or selected element was not found. Check the tabId and choose an existing selector.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      172
+    ],
+    "files": [],
+    "text": "I’m checking that page with the selector you specified and will report exactly what the browser returns.The tab or selected element was not found. Check the tabId and choose an existing selector.",
+    "calls": [
+      {
+        "callId": "fc_0055201c6eb35d53006acffa43bf2487d293c9334dea874978",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727071,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html\",\"selector\":\"#missing-qa-element\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "index",
+      "id": "T-11",
+      "tabId": 1005727071,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html"
+    },
+    "selector": "[",
+    "expected": "invalid_argument",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "invalid_argument",
+          "message": "Use a nonempty valid CSS selector of at most 1,024 characters.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      141
+    ],
+    "files": [],
+    "text": "I’m checking that page with the selector you specified and will report the tool’s exact response.Use a nonempty valid CSS selector of at most 1,024 characters.",
+    "calls": [
+      {
+        "callId": "fc_0a721d9c8cb20049006acffa53214487d28632aba687ad384b",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727071,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html\",\"selector\":\"[\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  }
+]

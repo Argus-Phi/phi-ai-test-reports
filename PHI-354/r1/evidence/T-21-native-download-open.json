@@ -1,0 +1,23 @@
+[
+  {
+    "case": "pdf",
+    "title": "",
+    "url": "file:///Users/phi/Downloads/phi-354-synthetic-commits.pdf",
+    "text": "",
+    "embedded": false
+  },
+  {
+    "case": "mhtml",
+    "title": "PHI-354 synthetic commits",
+    "url": "file:///Users/phi/Downloads/page.mhtml",
+    "text": "Commits\nabc1234\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page",
+    "embedded": false
+  },
+  {
+    "case": "mixed",
+    "title": "",
+    "url": "file:///Users/phi/Downloads/phi-354-synthetic-commits%20(1).pdf",
+    "text": "",
+    "embedded": false
+  }
+]

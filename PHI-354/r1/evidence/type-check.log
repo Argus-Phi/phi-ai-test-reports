@@ -1,0 +1,46 @@
+command: pnpm type-check --force
+
+> @phi-ai/root@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai
+> turbo run type-check --force
+
+[unrelated build output omitted]
+@phi-ai/dsh-plugin-worker:type-check: 
+@phi-ai/dsh-plugin-worker:type-check: > @phi-ai/dsh-plugin-worker@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/plugins/worker
+@phi-ai/dsh-plugin-worker:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-worker:type-check: 
+@phi-ai/dsh-plugin-im:type-check: cache bypass, force executing 8d4e932aafc04ffa
+@phi-ai/dsh-plugin-im:type-check: 
+@phi-ai/dsh-plugin-im:type-check: > @phi-ai/dsh-plugin-im@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/plugins/im
+@phi-ai/dsh-plugin-im:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-im:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: cache bypass, force executing 29b0deab7ecf8a46
+@phi-ai/sidecar:type-check: cache bypass, force executing fd947b81f1831aef
+@phi-ai/phi-agent-devtools:type-check: cache bypass, force executing af3ed1616e5aee5c
+@phi-ai/dsh-bundle:type-check: cache bypass, force executing 42fdbed0f7508bbc
+@phi-ai/dsh:type-check: cache bypass, force executing 8e57bf68dce08556
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh:type-check: > @phi-ai/dsh@0.5.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: > @phi-ai/dsh-plugin-chat@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/plugins/chat
+@phi-ai/dsh-plugin-chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/phi-agent-devtools:type-check: > @phi-ai/phi-agent-devtools@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-devtools
+@phi-ai/phi-agent-devtools:type-check: > tsc --noEmit
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: > @phi-ai/dsh-bundle@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle
+@phi-ai/dsh-bundle:type-check: > node ../scripts/generate-rows.mjs && tsc -b --emitDeclarationOnly
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/sidecar:type-check: 
+@phi-ai/sidecar:type-check: > @phi-ai/sidecar@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/ai-extension/sidecar
+@phi-ai/sidecar:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sidecar:type-check: 
+@phi-ai/dsh-bundle:type-check: [generate-rows] wrote 51 rows to src/rows.generated.ts
+
+ Tasks:    56 successful, 56 total
+Cached:    0 cached, 56 total
+  Time:    48.284s 
+

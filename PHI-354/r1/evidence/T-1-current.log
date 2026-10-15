@@ -1,0 +1,33 @@
+TAP version 13
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Read the latest commits)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Read the latest commits)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=24 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Read the latest commits
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: content then complete
+ok 1 - Chat file parts: content then complete
+  ---
+  duration_ms: 185.2555
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3916.10375

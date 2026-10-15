@@ -1,0 +1,43 @@
+{
+  "status": 200,
+  "body": {
+    "task_id": "01a13dbe-0d10-7725-ae51-f58b139ba89b",
+    "title": "监控 octocat/Hello-World 最新提交",
+    "description": "每天检查仓库最新提交；发现新提交时报告标识、标题和时间。",
+    "objective": "打开 https://github.com/octocat/Hello-World/commits/master；查看 octocat/Hello-World 的最新提交及其提交标识、标题和提交时间；用户希望在出现新的最新提交时收到通知；报告采用简短清晰格式，说明新提交的标识、标题和时间；每次都写明本次观察到的具体值，并与本次运行提供的此前结果比较；只读取页面，仅在查看目标信息所必需的范围内与页面交互，不购买、登录、提交任何内容或更改任何内容；只从该页面读取这些信息——如果无法读取，请说明原因，不要从搜索结果或其他网站获取。",
+    "input_payload": {
+      "kind": "skills_run_v1",
+      "initial_user_message": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "每天北京时间 11:00 检查 octocat/Hello-World 最新提交。",
+            "type": "text"
+          }
+        ]
+      }
+    },
+    "profile_id": "Default",
+    "chat_id": "01a13dbc-d06d-7325-97c6-a1a830dcd0a6",
+    "origin": {
+      "pages": [
+        {
+          "url": "https://github.com/octocat/Hello-World/commit/7fd1a60b01f91b314f59955a4e4d4e80d8edf11d",
+          "title": "Merge pull request #6 from Spaceghost/patch-1 · octocat/Hello-World@7fd1a60 · GitHub",
+          "favicon": "https://github.githubassets.com/favicons/favicon.svg"
+        }
+      ]
+    },
+    "report_muted": true,
+    "report_policy": "on_change",
+    "stop_condition": null,
+    "task_status": "disabled",
+    "display_status": "not_started",
+    "concurrency_policy": "single_active_run",
+    "next_run_index": 1,
+    "recent_logs": [],
+    "recent_artifacts": [],
+    "created_at": 1792037227792,
+    "updated_at": 1792037237918
+  }
+}

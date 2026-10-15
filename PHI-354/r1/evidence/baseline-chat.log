@@ -1,0 +1,99 @@
+TAP version 13
+# Subtest: a tab title and a space name are parameters, never baked into the key
+ok 1 - a tab title and a space name are parameters, never baked into the key
+  ---
+  duration_ms: 0.640542
+# Subtest: the Sidecar's English catalog is this catalog, key for key
+not ok 2 - the Sidecar's English catalog is this catalog, key for key
+  ---
+  duration_ms: 2.300084
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:1:555'
+  failureType: 'testCodeFailure'
+  error: |-
+    tabInSpace
+    + actual - expected
+    
+    + '{{title}} ({{space}})'
+    - '{{title}} — {{space}}'
+                 ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+# Subtest: a report the engine never finishes ends at the deadline, and its late close ends nothing
+not ok 14 - a report the engine never finishes ends at the deadline, and its late close ends nothing
+  ---
+  duration_ms: 16.361625
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:10828'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: stopping a report that said nothing fails it, and the next queued report still runs
+not ok 15 - stopping a report that said nothing fails it, and the next queued report still runs
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:11693'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a conversation whose engine cannot take a report refuses it
+not ok 16 - a conversation whose engine cannot take a report refuses it
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12561'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a report's live status is written knowing the conversation's latest user message
+not ok 17 - a report's live status is written knowing the conversation's latest user message
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12978'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: with neither a reply language nor any user message, no status is guessed
+not ok 18 - with neither a reply language nor any user message, no status is guessed
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:13759'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 12
+# fail 1
+# cancelled 5
+# skipped 0
+# todo 0
+# duration_ms 1817.355042
+undefined
+/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/plugins/chat:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsx --test src/lib/worker-tab-messages.test.ts src/lib/ws-tests/sidecar-chat-task-report.test.ts

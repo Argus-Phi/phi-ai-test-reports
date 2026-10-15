@@ -1,0 +1,1 @@
+本轮动态 depth 夹具在读取前即发生 Page.enable 40000ms 超时，直接 Runtime.evaluate(window.fixtureReady) 亦在3000ms超时；4000/1000/256层动态准备尝试均未形成可用读取前置，没有把它当成 content 产品失败。最终改用 r1-depth-static.html 的256层静态DOM，真实 content 在2ms内返回 DEPTH_SENTINEL 与提交证据；31000节点场景在27ms内返回 result_too_large，selector缩小后2ms成功。最终结果见 T-5-T-7-real-boundaries.json；不声称4000层动态DOM已通过。

@@ -1,0 +1,26 @@
+{
+  "status": 200,
+  "body": {
+    "items": [
+      {
+        "schedule_id": "01a13dbe-0d19-7611-95c3-21ca6d613eba",
+        "task_id": "01a13dbe-0d10-7725-ae51-f58b139ba89b",
+        "name": "监控 octocat/Hello-World 最新提交",
+        "description": "每天检查仓库最新提交；发现新提交时报告标识、标题和时间。",
+        "enabled": false,
+        "state": "paused",
+        "schedule": {
+          "tz": "Asia/Shanghai",
+          "expr": "0 11 * * *",
+          "kind": "cron"
+        },
+        "next_run_at": 1792119600000,
+        "paused_at": 1792037237928,
+        "paused_reason": "task_disabled",
+        "source": "agent_tool",
+        "created_at": 1792037227800,
+        "updated_at": 1792037237928
+      }
+    ]
+  }
+}

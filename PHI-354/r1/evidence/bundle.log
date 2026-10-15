@@ -1,0 +1,360 @@
+command: pnpm --filter @phi-ai/dsh-bundle test
+
+> @phi-ai/dsh-bundle@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle
+> node ../scripts/generate-rows.mjs && tsx --test "src/**/*.test.ts" "tests/*.test.ts" "tests/support/**/*.test.ts"
+
+  ...
+# Subtest: content handler preserves the manage service's cross-Space refusal
+ok 5 - content handler preserves the manage service's cross-Space refusal
+  ---
+  duration_ms: 39.488333
+  type: 'test'
+  ...
+# Subtest: task_run delivery: content then complete
+ok 6 - task_run delivery: content then complete
+  ---
+  duration_ms: 576.605417
+  type: 'test'
+  ...
+# Subtest: task_run delivery: pdf then complete
+ok 7 - task_run delivery: pdf then complete
+  ---
+  duration_ms: 200.807333
+  type: 'test'
+  ...
+# Subtest: task_run delivery: screenshot then complete
+ok 8 - task_run delivery: screenshot then complete
+  ---
+  duration_ms: 138.984167
+  type: 'test'
+  ...
+# Subtest: task_run delivery: mhtml then complete
+ok 9 - task_run delivery: mhtml then complete
+  ---
+  duration_ms: 155.322208
+  type: 'test'
+  ...
+# Subtest: task_run delivery: resource then complete
+ok 10 - task_run delivery: resource then complete
+  ---
+  duration_ms: 100.823792
+  type: 'test'
+  ...
+# [task-run] run failed {
+#   taskId: 'task-1',
+#   runId: 'run-1',
+#   errorCode: 'UNKNOWN',
+#   errorMessage: 'synthetic model failure after page read'
+# }
+# Subtest: task_run delivery: content+pdf then complete
+ok 11 - task_run delivery: content+pdf then complete
+  ---
+  duration_ms: 123.981583
+  type: 'test'
+  ...
+# [task-run] run failed {
+#   taskId: 'task-1',
+#   runId: 'run-1',
+#   errorCode: 'UNKNOWN',
+#   errorMessage: 'synthetic model failure after page read'
+# }
+# Subtest: task_run delivery: content then failure
+ok 12 - task_run delivery: content then failure
+  ---
+  duration_ms: 125.071042
+  type: 'test'
+  ...
+# Subtest: task_run delivery: content+pdf then failure
+ok 13 - task_run delivery: content+pdf then failure
+  ---
+  duration_ms: 147.513833
+  type: 'test'
+  ...
+# [task-run] run failed {
+#   taskId: 'task-1',
+#   runId: 'run-1',
+#   errorCode: 'responses_error',
+#   errorMessage: 'max_run_timeout_exceeded'
+# }
+# Subtest: task_run delivery: content then timeout
+ok 14 - task_run delivery: content then timeout
+  ---
+  duration_ms: 356.574291
+  type: 'test'
+  ...
+# [task-run] run failed {
+#   taskId: 'task-1',
+#   runId: 'run-1',
+#   errorCode: 'responses_error',
+#   errorMessage: 'max_run_timeout_exceeded'
+# }
+# Subtest: task_run delivery: content+pdf then timeout
+ok 15 - task_run delivery: content+pdf then timeout
+  ---
+  duration_ms: 339.268
+  type: 'test'
+  ...
+# Subtest: task_run delivery: content then cancel
+ok 16 - task_run delivery: content then cancel
+  ---
+  duration_ms: 73.80375
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: task_run delivery: content+pdf then cancel
+ok 17 - task_run delivery: content+pdf then cancel
+  ---
+  duration_ms: 124.183625
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: content then complete
+ok 18 - Chat file parts: content then complete
+  ---
+  duration_ms: 114.300208
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: pdf then complete
+ok 19 - Chat file parts: pdf then complete
+  ---
+  duration_ms: 160.991083
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: screenshot then complete
+ok 20 - Chat file parts: screenshot then complete
+  ---
+  duration_ms: 120.090458
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Read the latest commits)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Read the latest commits)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=24 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Read the latest commits
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: mhtml then complete
+ok 21 - Chat file parts: mhtml then complete
+  ---
+  duration_ms: 104.530292
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: resource then complete
+ok 22 - Chat file parts: resource then complete
+  ---
+  duration_ms: 99.438209
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: content+pdf then complete
+ok 23 - Chat file parts: content+pdf then complete
+  ---
+  duration_ms: 117.376458
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: content then failure
+ok 24 - Chat file parts: content then failure
+  ---
+  duration_ms: 111.36275
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# Subtest: Chat file parts: content+pdf then failure
+ok 25 - Chat file parts: content+pdf then failure
+  ---
+  duration_ms: 130.637625
+  type: 'test'
+  ...
+# [chat] blocking taskExecutor SETTLED → ok=false error=max_run_timeout_exceeded
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Read the latest commits)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Read the latest commits)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=24 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Read the latest commits
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# Subtest: Chat file parts: content then timeout
+ok 26 - Chat file parts: content then timeout
+  ---
+  duration_ms: 401.466541
+  type: 'test'
+  ...
+# [chat] blocking taskExecutor SETTLED → ok=false error=max_run_timeout_exceeded
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# Subtest: Chat file parts: content+pdf then timeout
+ok 27 - Chat file parts: content+pdf then timeout
+  ---
+  duration_ms: 397.734375
+  type: 'test'
+  ...
+# [chat] blocking taskExecutor SETTLED → ok=false error=aborted
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# Subtest: Chat file parts: content then cancel
+ok 28 - Chat file parts: content then cancel
+  ---
+  duration_ms: 96.52625
+  type: 'test'
+  ...
+# [chat] blocking taskExecutor SETTLED → ok=false error=aborted
+# [schedule-service] created {
+#   userId: 'user-1',
+#   taskId: '01a13c64-046d-73ff-a088-193ce7018a22',
+#   scheduleId: '01a13c64-046d-73ff-a088-1fec250c1b9e',
+#   source: 'agent_tool',
+#   scheduleKind: 'cron',
+#   enabled: true,
+#   state: 'scheduled',
+#   nextRunAt: 1792033200000,
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Chat file parts: content+pdf then cancel
+ok 29 - Chat file parts: content+pdf then cancel
+  ---
+  duration_ms: 161.98825
+  type: 'test'
+  ...
+# Subtest: read then create the daily Beijing 11:00 schedule through real task services
+ok 30 - read then create the daily Beijing 11:00 schedule through real task services
+  ---
+  duration_ms: 100.080208
+  type: 'test'
+  ...
+# Subtest: model guidance describes content as an internal bounded read: default
+ok 31 - model guidance describes content as an internal bounded read: default
+  ---
+  duration_ms: 88.175667
+  type: 'test'
+  ...
+# Subtest: model guidance describes content as an internal bounded read: task_run
+ok 32 - model guidance describes content as an internal bounded read: task_run
+  ---
+  duration_ms: 66.127792
+  type: 'test'
+  ...
+# Subtest: two delegations from one thread's anchor each get their own child, and leave nothing behind
+ok 33 - two delegations from one thread's anchor each get their own child, and leave nothing behind
+  ---
+  duration_ms: 600.557333
+  type: 'test'
+  ...
+# Subtest: a run whose answer hit the output cap is reported as cut off, not completed
+ok 34 - a run whose answer hit the output cap is reported as cut off, not completed
+  ---
+  duration_ms: 529.822917
+1..108
+# tests 167
+# suites 14
+# pass 167
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19838.523166

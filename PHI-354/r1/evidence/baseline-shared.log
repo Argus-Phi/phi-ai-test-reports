@@ -1,0 +1,127 @@
+
+> @phi-ai/dsh-lib-shared@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared
+> tsx --test "src/**/*.test.ts"
+
+TAP version 13
+  ...
+# Subtest: buildContentDisposition keeps ASCII filenames intact
+ok 42 - buildContentDisposition keeps ASCII filenames intact
+  ---
+  duration_ms: 0.612291
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition encodes non-ASCII filenames per RFC 5987
+ok 43 - buildContentDisposition encodes non-ASCII filenames per RFC 5987
+  ---
+  duration_ms: 0.285375
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition strips quotes and backslashes from the ASCII fallback
+ok 44 - buildContentDisposition strips quotes and backslashes from the ASCII fallback
+  ---
+  duration_ms: 0.369375
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition percent-encodes RFC 5987 reserved characters
+ok 45 - buildContentDisposition percent-encodes RFC 5987 reserved characters
+  ---
+  duration_ms: 0.358208
+  type: 'test'
+  ...
+# Subtest: buildContentDisposition produces only ByteString-safe characters
+ok 46 - buildContentDisposition produces only ByteString-safe characters
+  ---
+  duration_ms: 0.15925
+  type: 'test'
+  ...
+# Subtest: PNG: reads IHDR
+ok 47 - PNG: reads IHDR
+  ---
+  duration_ms: 0.644208
+  type: 'test'
+  ...
+# Subtest: JPEG: walks past APPn segments to the frame header
+ok 48 - JPEG: walks past APPn segments to the frame header
+  ---
+  duration_ms: 0.09475
+# Subtest: the table holds exactly the M2 and M2b codes
+not ok 74 - the table holds exactly the M2 and M2b codes
+  ---
+  duration_ms: 1.471833
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared/src/phi-cdp-types.test.ts:1:206'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    ... Skipped lines
+    
+      [
+        'aborted',
+        'active_tab_changed',
+        'browser_capability_unavailable',
+        'browser_consent_denied',
+    # Subtest: a startup that never finishes still exits once the grace runs out
+    not ok 4 - a startup that never finishes still exits once the grace runs out
+      ---
+      duration_ms: 0.837
+      type: 'test'
+      location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:1782'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+        process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+      ...
+    # Subtest: a stop that fails still exits
+    not ok 5 - a stop that fails still exits
+      ---
+      duration_ms: 0
+      type: 'test'
+      location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:2019'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+        process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+      ...
+    # Subtest: stops once, however many signals arrive
+    not ok 6 - stops once, however many signals arrive
+      ---
+      duration_ms: 0
+      type: 'test'
+      location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:2261'
+      failureType: 'cancelledByParent'
+      error: 'Promise resolution is still pending but the event loop has already resolved'
+      code: 'ERR_TEST_FAILURE'
+      stack: |-
+        process.emit (node:events:519:28)
+        process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+      ...
+    1..6
+not ok 100 - stopOnSignal
+  ---
+  duration_ms: 23.803292
+  type: 'suite'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared/src/stop-on-signal.test.ts:1:812'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+1..100
+# tests 125
+# suites 6
+# pass 121
+# fail 1
+# cancelled 3
+# skipped 0
+# todo 0
+# duration_ms 616.818709
+/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/lib/shared:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @phi-ai/dsh-lib-shared@0.1.0 test: `tsx --test "src/**/*.test.ts"`
+Exit status 1

@@ -1,0 +1,161 @@
+{
+  "kind": "timeout",
+  "readSeen": true,
+  "cancelled": false,
+  "timeline": [
+    {
+      "event": "read_success",
+      "at": 1792031964858,
+      "tool": {
+        "log_id": "2b0251aa-8619-4810-bbf1-b15b2784a11e",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792031964508,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.content returned after 10ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+        "payload": {
+          "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+          "duration_ms": 10,
+          "tool_call_id": "fc_03608e7e8c8b6ad5006ad03cdc3a6c87d2a119672cf3160ac4",
+          "capability_id": "browser_page.content"
+        }
+      }
+    },
+    {
+      "event": "terminal",
+      "at": 1792032089069,
+      "status": "failed"
+    }
+  ],
+  "run": {
+    "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+    "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+    "run_index": 1,
+    "trigger_source": "sidebar",
+    "tool_call_count": 0,
+    "run_status": "failed",
+    "progress_message": "failed",
+    "progress_updated_at": 1792032088817,
+    "task_snapshot": {
+      "title": "PHI-354 QA T-13 timeout",
+      "description": "One-off isolated QA termination test. No external notification.",
+      "objective": "PHI354_TERMINATE_task_timeout: Execute browser_page action content on tabId 1005727167, expectedUrl http://127.0.0.1:18970/index.html exactly once. Actually invoke browser_page.content and report the commit identifier, title and link. Do not navigate or export files.",
+      "input_payload": {
+        "activeTabUrl": "http://127.0.0.1:18970/index.html"
+      },
+      "profile_id": "Default"
+    },
+    "error": {
+      "code": "responses_error",
+      "message": "max_run_timeout_exceeded"
+    },
+    "tabs": [],
+    "started_at": 1792031961254,
+    "finished_at": 1792032088817,
+    "chat_report": null,
+    "created_at": 1792031961245,
+    "updated_at": 1792032088817,
+    "logs": [
+      {
+        "log_id": "01a13d6d-b0a1-72be-91b2-1e8c776664ce",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792031961245,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_queued",
+        "message": "Run #1 queued from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "run_status": "queued",
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "cb18fdc7-c082-46dc-b164-1ae5edda0eaa",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792031961256,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_started",
+        "message": "Run #1 started from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "0a189010-86df-4470-b063-8aca3e7e92fe",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792031964495,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "agent_note",
+        "message": "Agent: I’ll read the already-open page once to identify its commit identifier, title, and link.",
+        "payload": {
+          "text": "I’ll read the already-open page once to identify its commit identifier, title, and link.",
+          "round": 1
+        }
+      },
+      {
+        "log_id": "1c4c806b-bc9f-483c-b88a-452312b97282",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792031964498,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_call",
+        "message": "Calling browser_page.content: action: \"content\", input: {\"action\":\"content\",\"tabId\":1005727167,\"expectedUrl\":\"http://127.0.0.1:18970/in…",
+        "payload": {
+          "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727167,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}",
+          "tool_id": "browser_page",
+          "tool_call_id": "fc_03608e7e8c8b6ad5006ad03cdc3a6c87d2a119672cf3160ac4",
+          "capability_id": "browser_page.content"
+        }
+      },
+      {
+        "log_id": "2b0251aa-8619-4810-bbf1-b15b2784a11e",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792031964508,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.content returned after 10ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+        "payload": {
+          "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+          "duration_ms": 10,
+          "tool_call_id": "fc_03608e7e8c8b6ad5006ad03cdc3a6c87d2a119672cf3160ac4",
+          "capability_id": "browser_page.content"
+        }
+      },
+      {
+        "log_id": "92f70a4d-325f-49df-9caa-03351758b307",
+        "task_id": "01a13d6d-b097-77bd-a9cc-b72a3fabcd8f",
+        "scope": "run",
+        "run_id": "01a13d6d-b09d-74aa-b2fc-8dece9b4995e",
+        "ts": 1792032088817,
+        "level": "error",
+        "source": "phi_agent",
+        "category": "run_failed",
+        "message": "Failed after 2m 08s (responses_error): max_run_timeout_exceeded",
+        "payload": {
+          "error_code": "responses_error",
+          "duration_ms": 127563,
+          "error_message": "max_run_timeout_exceeded"
+        }
+      }
+    ],
+    "artifacts": []
+  }
+}

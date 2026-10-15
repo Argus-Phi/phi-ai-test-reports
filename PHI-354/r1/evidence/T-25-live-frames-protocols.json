@@ -1,0 +1,60 @@
+[
+  {
+    "name": "empty-frame",
+    "expected": "no_readable_content",
+    "actual": "no_readable_content",
+    "pass": true,
+    "result": {
+      "ok": false,
+      "error": {
+        "code": "no_readable_content"
+      }
+    }
+  },
+  {
+    "name": "hidden-frame",
+    "expected": "no_readable_content",
+    "actual": "no_readable_content",
+    "pass": true,
+    "result": {
+      "ok": false,
+      "error": {
+        "code": "no_readable_content"
+      }
+    }
+  },
+  {
+    "name": "readable-frame",
+    "expected": "ok",
+    "actual": "ok",
+    "pass": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "source": "live_dom",
+        "title": "PHI-354 frame QA",
+        "url": "http://127.0.0.1:18970/r1-readable-frame.html",
+        "content": "[Frame: about:srcdoc]\n\nabc1234 Fix example\ncommit link (https://github.com/phibrowser/phi-ai/commit/abc1234)",
+        "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+        "warnings": []
+      }
+    }
+  },
+  {
+    "name": "data",
+    "expected": "ok",
+    "actual": "ok",
+    "pass": true,
+    "result": {
+      "ok": true,
+      "data": {
+        "source": "live_dom",
+        "title": "PHI354 data QA",
+        "url": "data:text/html,%3Ctitle%3EPHI354%20data%20QA%3C%2Ftitle%3E%3Cp%3Eabc1234%20Fix%20example%3C%2Fp%3E",
+        "content": "abc1234 Fix example",
+        "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+        "warnings": []
+      }
+    }
+  }
+]

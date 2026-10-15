@@ -1,0 +1,30 @@
+[
+  {
+    "file": "T-22-mixed.pdf",
+    "pages": 1,
+    "containsCommit": true,
+    "containsTitle": true,
+    "preservesCommitLinkAnnotation": true
+  },
+  {
+    "file": "T-21-mixed.pdf",
+    "pages": 1,
+    "containsCommit": true,
+    "containsTitle": true,
+    "preservesCommitLinkAnnotation": true
+  },
+  {
+    "file": "T-22-pdf.pdf",
+    "pages": 1,
+    "containsCommit": true,
+    "containsTitle": true,
+    "preservesCommitLinkAnnotation": true
+  },
+  {
+    "file": "T-21-pdf-ready.pdf",
+    "pages": 1,
+    "containsCommit": true,
+    "containsTitle": true,
+    "preservesCommitLinkAnnotation": true
+  }
+]

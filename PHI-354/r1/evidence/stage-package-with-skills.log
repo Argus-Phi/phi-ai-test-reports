@@ -1,0 +1,72 @@
+
+> @phi-ai/dsh@0.5.0 package:bundle-js-stage /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh
+> PHI_AGENT_EMBED_ENV_FILE=./env/package.env.stage bash scripts/package-ncc-js.sh
+
+[package-ncc-js] root: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai
+[package-ncc-js] entry: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/phi-agent-dsh/bundle/src/boot.js
+[package-ncc-js] out: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/phi-agent.bundle.js
+[package-ncc-js] work: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/ncc-bundle
+[package-ncc-js] embed env: ./env/package.env.stage
+[generate-rows] wrote 51 rows to bundle/src/rows.generated.ts
+• turbo 2.9.4
+
+   • Packages in scope: @phi-ai/agent-protocol, @phi-ai/auth, @phi-ai/browser-use-sonic, @phi-ai/chat, @phi-ai/dsh, @phi-ai/dsh-lib-shared, @phi-ai/dsh-lib-storage, @phi-ai/dsh-plugin-ask-user, @phi-ai/dsh-plugin-browser, @phi-ai/dsh-plugin-chat, @phi-ai/dsh-plugin-im, @phi-ai/dsh-plugin-llm, @phi-ai/dsh-plugin-phi-cdp, @phi-ai/dsh-plugin-skills, @phi-ai/dsh-plugin-storage-pg, @phi-ai/dsh-plugin-tasks, @phi-ai/dsh-plugin-telemetry, @phi-ai/dsh-plugin-transport, @phi-ai/dsh-plugin-worker, @phi-ai/memory, @phi-ai/onboarding, @phi-ai/sentinel-sdk, @phi-ai/shared-types, @phi-ai/widget
+   • Running build in 24 packages
+   • Remote caching enabled, using shared worktree cache
+
+@phi-ai/auth:build: cache hit, replaying logs 2fa104c94e3d6277
+@phi-ai/auth:build: 
+@phi-ai/auth:build: > @phi-ai/auth@0.0.1 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/auth
+@phi-ai/auth:build: > tsc
+@phi-ai/auth:build: 
+@phi-ai/memory:build: cache hit, replaying logs e9789dc398f9f93b
+@phi-ai/memory:build: 
+@phi-ai/memory:build: > @phi-ai/memory@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/memory
+@phi-ai/memory:build: > tsc
+@phi-ai/memory:build: 
+@phi-ai/widget:build: cache hit, replaying logs 670538e553f75d1c
+@phi-ai/widget:build: 
+@phi-ai/widget:build: > @phi-ai/widget@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/modules/widget
+@phi-ai/widget:build: > tsc
+@phi-ai/widget:build: 
+@phi-ai/chat:build: cache hit, replaying logs 611b875f3bae1ebb
+@phi-ai/chat:build: 
+@phi-ai/chat:build: > @phi-ai/chat@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/chat
+@phi-ai/chat:build: > tsc
+@phi-ai/chat:build: 
+@phi-ai/onboarding:build: cache hit, replaying logs 7c7bc43669033adc
+@phi-ai/onboarding:build: 
+@phi-ai/onboarding:build: > @phi-ai/onboarding@0.1.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/onboarding
+@phi-ai/onboarding:build: > tsc
+@phi-ai/onboarding:build: 
+@phi-ai/dsh:build: cache hit, replaying logs 6d515b39cba1bfe2
+@phi-ai/dsh:build: 
+@phi-ai/dsh:build: > @phi-ai/dsh@0.5.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-360-513dbb224ebf/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:build: > pnpm run generate:rows && pnpm run build:runtime
+@phi-ai/dsh:build: 
+@phi-ai/dsh:build: 
+@phi-ai/dsh:build: > @phi-ai/dsh@0.5.0 generate:rows /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-360-513dbb224ebf/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:build: > node scripts/generate-rows.mjs
+@phi-ai/dsh:build: 
+@phi-ai/dsh:build: [generate-rows] wrote 51 rows to bundle/src/rows.generated.ts
+@phi-ai/dsh:build: 
+@phi-ai/dsh:build: > @phi-ai/dsh@0.5.0 build:runtime /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-360-513dbb224ebf/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:build: > tsc -p tsconfig.build.json
+@phi-ai/dsh:build: 
+
+ Tasks:    6 successful, 6 total
+Cached:    6 cached, 6 total
+  Time:    321ms >>> FULL TURBO
+
+[package-ncc-js] dsh aliases: 287
+[package-ncc-js] embedded env keys: 67
+
+[javascript-obfuscator-cli] Obfuscating file: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/ncc-bundle/index.min.js... 
+[package-ncc-js] stamped /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/package.json as module
+[package-ncc-js] no external packages; the bundle is self-contained
+[package-ncc-js] copied built-in skills to: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/skills/built-in
+[package-ncc-js] copied persona assets to: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/assets
+[package-ncc-js] copied quickjs wasm to: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/assets/quickjs-ng-asyncify.wasm
+[package-ncc-js] done.
+[package-ncc-js] bundle: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/phi-agent.bundle.js
+ 16021443 /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/dist/artifacts/phi-agent.bundle.js

@@ -1,0 +1,23 @@
+{
+  "id": "B1-1",
+  "severity": "major",
+  "case": "T-21",
+  "sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+  "chat_id": "01a13d48-027d-710c-befc-f68590c903ed",
+  "file_id": "01a13d48-5363-738f-a24d-834c21856cbf",
+  "repro_rate": "1/1（重新打开已生成的 PNG）",
+  "observed": [
+    "普通 Phi Chat 的 PNG 附件点击后打开原生图片预览，显示 abc1234 和 Fix example。",
+    "本次原生预览可见缩小、放大控制，未发现下载/保存入口。",
+    "原生 File 菜单的页面存储为不可用；聊天缩略图右键仅显示通用页面菜单。",
+    "该 PNG 的真实 HTTP 回读及文件内容有效；任务结果同类 PNG 可通过打开后的图片存储为保存。"
+  ],
+  "expected": "明确请求可下载 PNG 后，普通聊天的用户入口应能下载保存该文件。",
+  "bounded_conclusion": "本次测试的普通聊天卡片、原生预览及上述菜单路径未能完成保存；不声称已穷尽任何可能的系统快捷键。",
+  "source_anchors": [
+    "ai-extension/sidecar/src/components/message-parts/file-part.tsx:50",
+    "ai-extension/shared-ui/src/message-parts/file-part.tsx:92"
+  ],
+  "baseline": "上述两个文件在 75f5868d52957d5e23a39b3e4299dafdbe3fb369 与被测 head 间 diff 为空；未进行基线真机复测，不认定由本 PR 引入。",
+  "evidence": ["T-21-png-native-01.png", "T-21-png-native-02.png", "T-14-export-downloads.json"]
+}

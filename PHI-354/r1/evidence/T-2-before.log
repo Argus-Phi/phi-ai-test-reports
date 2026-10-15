@@ -1,0 +1,29 @@
+TAP version 13
+# [schedule-service] created {
+#   userId: 'user-1',
+#   taskId: '01a1385a-3798-730e-a4ad-a7893b3bd7f5',
+#   scheduleId: '01a1385a-3798-730e-a4ad-ab851954cd6b',
+#   source: 'agent_tool',
+#   scheduleKind: 'cron',
+#   enabled: true,
+#   state: 'scheduled',
+#   nextRunAt: 1791946800000,
+#   endsAt: undefined
+# }
+# (node:63627) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: read then create the daily Beijing 11:00 schedule through real task services
+ok 1 - read then create the daily Beijing 11:00 schedule through real task services
+  ---
+  duration_ms: 178.425125
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2832.345833

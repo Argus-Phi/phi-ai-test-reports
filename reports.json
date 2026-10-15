@@ -15,5 +15,22 @@
     "total": 30
    }
   }
+ ],
+ "PHI-354": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "fail",
+   "title": "修复创建定时任务时将内部页面 protobuf 作为用户附件发送的问题",
+   "sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+   "generated_at": "2026-10-15T04:49:42.935341+00:00",
+   "counts": {
+    "pass": 24,
+    "fail": 1,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 25
+   }
+  }
  ]
 }

@@ -1,0 +1,161 @@
+{
+  "kind": "failure",
+  "readSeen": true,
+  "cancelled": false,
+  "timeline": [
+    {
+      "event": "read_success",
+      "at": 1792031959201,
+      "tool": {
+        "log_id": "f128ebbf-4bbc-44bd-aa3c-64af87e543e5",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031959061,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.content returned after 13ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+        "payload": {
+          "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+          "duration_ms": 13,
+          "tool_call_id": "fc_0809344e1394b15c006ad03cd6e77c87d2963668a2f741c8ee",
+          "capability_id": "browser_page.content"
+        }
+      }
+    },
+    {
+      "event": "terminal",
+      "at": 1792031959201,
+      "status": "failed"
+    }
+  ],
+  "run": {
+    "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+    "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+    "run_index": 1,
+    "trigger_source": "sidebar",
+    "tool_call_count": 0,
+    "run_status": "failed",
+    "progress_message": "failed",
+    "progress_updated_at": 1792031959080,
+    "task_snapshot": {
+      "title": "PHI-354 QA T-13 failure",
+      "description": "One-off isolated QA termination test. No external notification.",
+      "objective": "PHI354_TERMINATE_task_failure: Execute browser_page action content on tabId 1005727167, expectedUrl http://127.0.0.1:18970/index.html exactly once. Actually invoke browser_page.content and report the commit identifier, title and link. Do not navigate or export files.",
+      "input_payload": {
+        "activeTabUrl": "http://127.0.0.1:18970/index.html"
+      },
+      "profile_id": "Default"
+    },
+    "error": {
+      "code": "UNKNOWN",
+      "message": "phi-responses-adapter: upstream returned 400: {\"error\":{\"type\":\"invalid_request_error\",\"message\":\"PHI-354 controlled upstream failure after a real browser_page.content result\"}}"
+    },
+    "tabs": [],
+    "started_at": 1792031955080,
+    "finished_at": 1792031959080,
+    "chat_report": null,
+    "created_at": 1792031955072,
+    "updated_at": 1792031959080,
+    "logs": [
+      {
+        "log_id": "01a13d6d-9884-7778-9bd2-7adc0009591d",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031955072,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_queued",
+        "message": "Run #1 queued from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "run_status": "queued",
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "0c291739-964a-44de-8dff-3e6fd408797b",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031955082,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_started",
+        "message": "Run #1 started from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "54043ecd-8cd6-496d-962e-a3060566ba5c",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031959045,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "agent_note",
+        "message": "Agent: I’ll read the already-open page once and extract its commit identifier, title, and link without navigating or exporting anything.",
+        "payload": {
+          "text": "I’ll read the already-open page once and extract its commit identifier, title, and link without navigating or exporting anything.",
+          "round": 1
+        }
+      },
+      {
+        "log_id": "83334807-12a1-44e0-8a1c-adc603daa6c8",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031959048,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_call",
+        "message": "Calling browser_page.content: action: \"content\", input: {\"action\":\"content\",\"tabId\":1005727167,\"expectedUrl\":\"http://127.0.0.1:18970/in…",
+        "payload": {
+          "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727167,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}",
+          "tool_id": "browser_page",
+          "tool_call_id": "fc_0809344e1394b15c006ad03cd6e77c87d2963668a2f741c8ee",
+          "capability_id": "browser_page.content"
+        }
+      },
+      {
+        "log_id": "f128ebbf-4bbc-44bd-aa3c-64af87e543e5",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031959061,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.content returned after 13ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+        "payload": {
+          "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+          "duration_ms": 13,
+          "tool_call_id": "fc_0809344e1394b15c006ad03cd6e77c87d2963668a2f741c8ee",
+          "capability_id": "browser_page.content"
+        }
+      },
+      {
+        "log_id": "5292777b-aafa-4aa3-b6b8-99c7fa130ba2",
+        "task_id": "01a13d6d-987b-753f-9cf5-45ff15f853b7",
+        "scope": "run",
+        "run_id": "01a13d6d-9880-70fb-b67c-bf01041d7707",
+        "ts": 1792031959080,
+        "level": "error",
+        "source": "phi_agent",
+        "category": "run_failed",
+        "message": "Failed after 4.0s (UNKNOWN): phi-responses-adapter: upstream returned 400: {\"error\":{\"type\":\"invalid_request_error\",\"message\":\"PHI-354 controlled upstream failure after a real browser_page.content result\"}}",
+        "payload": {
+          "error_code": "UNKNOWN",
+          "duration_ms": 4000,
+          "error_message": "phi-responses-adapter: upstream returned 400: {\"error\":{\"type\":\"invalid_request_error\",\"message\":\"PHI-354 controlled upstream failure after a real browser_page.content result\"}}"
+        }
+      }
+    ],
+    "artifacts": []
+  }
+}

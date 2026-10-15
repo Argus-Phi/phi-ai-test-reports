@@ -1,0 +1,201 @@
+{
+  "uploadedFiles": [
+    {
+      "filename": "page.mhtml",
+      "mime_type": "multipart/related",
+      "size": "3919",
+      "sha256": "6873e8fba10461f303016a3ea0513259920c029aad43acc624d7658c3928d429"
+    },
+    {
+      "filename": "phi-354-synthetic-commits.pdf",
+      "mime_type": "application/pdf",
+      "size": "74293",
+      "sha256": "c02514830ee9affc636e185bee8b1d44135ede40d37bb06e86491c222ad789ff"
+    },
+    {
+      "filename": "phi-354-synthetic-commits.pdf",
+      "mime_type": "application/pdf",
+      "size": "74293",
+      "sha256": "9d5f49229ec3ddbe4f05045215f981b7f1a6f2d11a4fe93c0d8b9484f5d0aa5f"
+    },
+    {
+      "filename": "phi-354-synthetic-commits.png",
+      "mime_type": "image/png",
+      "size": "108009",
+      "sha256": "346823ef3008198d59bb4e22e7695f0dd02ad0c314ee6f537b7e5b7953781a62"
+    },
+    {
+      "filename": "page.pdf",
+      "mime_type": "application/pdf",
+      "size": "74293",
+      "sha256": "fd5d380f541d3f2b2ebd4406eca31712e6c270185c1b2ea3def67510d65c4ad0"
+    },
+    {
+      "filename": "screenshot.png",
+      "mime_type": "image/png",
+      "size": "56602",
+      "sha256": "c2831351e1c3ec5c5616de624d1b90f8d9c6e3c6e4ca42f88919aef793db051f"
+    },
+    {
+      "filename": "page.mhtml",
+      "mime_type": "multipart/related",
+      "size": "3919",
+      "sha256": "874cd598a286d962f27f3251a810f08187e03129f3b24c16e579834f15256a90"
+    },
+    {
+      "filename": "page.pdf",
+      "mime_type": "application/pdf",
+      "size": "74293",
+      "sha256": "f5e0dce5a804ad9883bfcc09373f595b01f8d9e8f1fbf5b3c05230ec077e20dd"
+    },
+    {
+      "filename": "page.pdf",
+      "mime_type": "application/pdf",
+      "size": "74214",
+      "sha256": "b6e468d5f83039d5d404402ede2eb714d89da61d66d262c38d61fdfc5ea75cef"
+    }
+  ],
+  "chats": [
+    {
+      "kind": "failure",
+      "chatId": "01a13dc6-bd07-7382-871c-274c9edbafee",
+      "persisted": {
+        "messages": [
+          {
+            "id": "01a13dc7-a9f3-75e2-ae22-5376e7c777f0",
+            "chatId": "01a13dc6-bd07-7382-871c-274c9edbafee",
+            "role": "user",
+            "parts": [
+              {
+                "text": "PHI354_TERMINATE_resume_chat_failure: Use a worker to actually invoke browser_page content on tabId 1005727576 expectedUrl http://127.0.0.1:18970/index.html exactly once. Then report the commit identifier, title and link. Do not export files.",
+                "type": "text"
+              }
+            ],
+            "attachments": [],
+            "metadata": {
+              "timelineSeq": 1,
+              "timelineTimestamp": 1792037857779
+            },
+            "createdAt": "2026-10-15T04:17:39.063Z"
+          },
+          {
+            "id": "01a13dc7-bd5b-71a7-afd9-dac84b9b0a5c",
+            "chatId": "01a13dc6-bd07-7382-871c-274c9edbafee",
+            "role": "assistant",
+            "parts": [
+              {
+                "text": "I’m checking the page now and will bring back its commit identifier, title, and link.The run was cut short before it could finish, but it returned these details:\n\n- Commit: `abc1234`\n- Title: “Fix example”\n- Link: https://github.com/phibrowser/phi-ai/commit/abc1234\n\nI can run it again if you’d like.",
+                "type": "text",
+                "state": "done",
+                "providerMetadata": {
+                  "partKey": "main-response:0",
+                  "partSeq": 1,
+                  "segmentType": "main-response"
+                }
+              }
+            ],
+            "attachments": [],
+            "metadata": {
+              "runId": "01a13dc7-bd5b-71a7-afd9-d39c0682fae9"
+            },
+            "createdAt": "2026-10-15T04:17:42.747Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "timeout",
+      "chatId": "01a13dc8-90a6-7107-b3ef-4c0ea8423193",
+      "persisted": {
+        "messages": [
+          {
+            "id": "01a13dc8-91e2-761e-8433-0d4e9074254a",
+            "chatId": "01a13dc8-90a6-7107-b3ef-4c0ea8423193",
+            "role": "user",
+            "parts": [
+              {
+                "text": "PHI354_TERMINATE_resume_chat_timeout: Use a worker to actually invoke browser_page content on tabId 1005727576 expectedUrl http://127.0.0.1:18970/index.html exactly once. Then report the commit identifier, title and link. Do not export files.",
+                "type": "text"
+              }
+            ],
+            "attachments": [],
+            "metadata": {
+              "timelineSeq": 1,
+              "timelineTimestamp": 1792037917154
+            },
+            "createdAt": "2026-10-15T04:18:37.302Z"
+          },
+          {
+            "id": "01a13dc8-9f92-738c-a3e7-82ac4099eb5f",
+            "chatId": "01a13dc8-90a6-7107-b3ef-4c0ea8423193",
+            "role": "assistant",
+            "parts": [
+              {
+                "text": "I’m checking the page now and will bring back the commit identifier, title, and link.The run was cut short before it could finish, but it had gathered these details:\n\n- Commit: `abc1234`\n- Title: “Fix example”\n- Link: https://github.com/phibrowser/phi-ai/commit/abc1234\n\nI can run it again if you’d like.",
+                "type": "text",
+                "state": "done",
+                "providerMetadata": {
+                  "partKey": "main-response:0",
+                  "partSeq": 1,
+                  "segmentType": "main-response"
+                }
+              }
+            ],
+            "attachments": [],
+            "metadata": {
+              "runId": "01a13dc8-9f92-738c-a3e7-7bb4f5e471f3"
+            },
+            "createdAt": "2026-10-15T04:18:40.658Z"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "cancel",
+      "chatId": "01a13dca-1fc1-72eb-ab2d-5268de4b4cf6",
+      "persisted": {
+        "messages": [
+          {
+            "id": "01a13dca-2112-7375-9a48-ae846f16a787",
+            "chatId": "01a13dca-1fc1-72eb-ab2d-5268de4b4cf6",
+            "role": "user",
+            "parts": [
+              {
+                "text": "PHI354_TERMINATE_resume_chat_cancel: Use a worker to actually invoke browser_page content on tabId 1005727576 expectedUrl http://127.0.0.1:18970/index.html exactly once. Then report the commit identifier, title and link. Do not export files.",
+                "type": "text"
+              }
+            ],
+            "attachments": [],
+            "metadata": {
+              "timelineSeq": 1,
+              "timelineTimestamp": 1792038019346
+            },
+            "createdAt": "2026-10-15T04:20:19.443Z"
+          },
+          {
+            "id": "01a13dca-2e7a-7147-8953-97d0b2a5ad3c",
+            "chatId": "01a13dca-1fc1-72eb-ab2d-5268de4b4cf6",
+            "role": "assistant",
+            "parts": [
+              {
+                "text": "I’m checking the page now and will bring back the commit identifier, title, and link.",
+                "type": "text",
+                "state": "done",
+                "providerMetadata": {
+                  "partKey": "main-response:0",
+                  "partSeq": 1,
+                  "segmentType": "main-response"
+                }
+              }
+            ],
+            "attachments": [],
+            "metadata": {
+              "runId": "01a13dca-2e7a-7147-8953-8d51b1257b91"
+            },
+            "createdAt": "2026-10-15T04:20:22.778Z"
+          }
+        ]
+      }
+    }
+  ]
+}

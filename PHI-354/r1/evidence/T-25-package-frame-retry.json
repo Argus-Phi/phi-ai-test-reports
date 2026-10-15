@@ -1,0 +1,28 @@
+{
+  "chatId": "382cc665-8577-4515-870d-bf88f32ab7b3",
+  "calls": [
+    {
+      "callId": "fc_03d77ad9ee10148f006ad0548f51a887d281f1292fe41e289d",
+      "capability": "browser_page.content",
+      "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727585,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+    },
+    {
+      "callId": "fc_03d77ad9ee10148f006ad05494e01087d2862f3be9233a726d",
+      "capability": "browser_page.content",
+      "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727586,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+    }
+  ],
+  "results": [
+    {
+      "capability": "browser_page.content",
+      "content": "{\"ok\":false,\"error\":{\"code\":\"no_readable_content\",\"message\":\"The selected root has no readable text. Choose another loaded text section.\",\"retryable\":false}}"
+    },
+    {
+      "capability": "browser_page.content",
+      "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 frame QA\",\"url\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/r1-readable-frame.html\",\"content\":\"[Frame: about:srcdoc]\\n\\nabc1234 Fix example\\ncommit link (https://github.com/phibrowser/phi-ai/commit/abc1234)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}"
+    }
+  ],
+  "files": [],
+  "text": "I’m checking both current tabs now and will report exactly what each content call returns.Tab `1005727585`:\n```json\n{\"ok\":false,\"error\":{\"code\":\"no_readable_content\",\"message\":\"The selected root has no readable text. Choose another loaded text section.\",\"retryable\":false}}\n```\n\nTab `1005727586`:\n```json\n{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 frame QA\",\"url\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/r1-readable-frame.html\",\"content\":\"[Frame: about:srcdoc]\\n\\nabc1234 Fix example\\ncommit link (https://github.com/phibrowser/phi-ai/commit/abc1234)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}\n```",
+  "terminalCount": 2
+}

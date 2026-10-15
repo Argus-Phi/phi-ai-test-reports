@@ -1,0 +1,104 @@
+[
+  {
+    "target": {
+      "name": "index",
+      "id": "T-11",
+      "tabId": 1005727071,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html"
+    },
+    "selector": null,
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      556
+    ],
+    "files": [],
+    "text": "I’m checking that page’s content now and will pass along the exact result.Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)  \nFix example\n\nPublic synthetic fixture. 中文边界。\n\nLarge page · Empty page · Coverage page · Workload page · Navigation page",
+    "calls": [
+      {
+        "callId": "fc_044ec375727eb9d6006acffa71715c87d2bd4b51c32f5ee23b",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727071,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/index.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "id": "T-11",
+      "tabId": 1005727079,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html"
+    },
+    "selector": null,
+    "expected": "result_too_large",
+    "content": [
+      {
+        "ok": false,
+        "error": {
+          "code": "result_too_large",
+          "message": "Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\"content\", the same tabId, and selector:\"main\" or a smaller section selector.",
+          "retryable": false
+        }
+      }
+    ],
+    "bytes": [
+      257
+    ],
+    "files": [],
+    "text": "I’m checking that page’s content once and will give you the tool’s exact response.{\"ok\":false,\"error\":{\"code\":\"result_too_large\",\"message\":\"Page content exceeds the 65,536-byte response or traversal budget. Call browser_page with action:\\\"content\\\", the same tabId, and selector:\\\"main\\\" or a smaller section selector.\",\"retryable\":false}}",
+    "calls": [
+      {
+        "callId": "fc_04c160377362c584006acffa81430087d29b34d7bb2929a9c0",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727079,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html\",\"selector\":null,\"includeActionableInformation\":null}}"
+      }
+    ]
+  },
+  {
+    "target": {
+      "name": "large",
+      "id": "T-11",
+      "tabId": 1005727079,
+      "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html"
+    },
+    "selector": "#commit-list",
+    "expected": "ok",
+    "content": [
+      {
+        "ok": true,
+        "data": {
+          "source": "live_dom",
+          "title": "PHI-354 synthetic commits",
+          "url": "file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html",
+          "content": "Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\nFix example\n\nPublic synthetic fixture. 中文边界。",
+          "coverage": "Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.",
+          "warnings": []
+        }
+      }
+    ],
+    "bytes": [
+      475
+    ],
+    "files": [],
+    "text": "I’m checking that page section now and will give you the tool’s exact result.Commits\n\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)  \nFix example\n\nPublic synthetic fixture. 中文边界.",
+    "calls": [
+      {
+        "callId": "fc_084d9d4d4b078d8f006acffa913fe487d290e51899feed2543",
+        "capability": "browser_page.content",
+        "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727079,\"expectedUrl\":\"file:///Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/test-site/large.html\",\"selector\":\"#commit-list\",\"includeActionableInformation\":null}}"
+      }
+    ]
+  }
+]

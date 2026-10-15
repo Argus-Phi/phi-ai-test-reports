@@ -1,0 +1,20 @@
+command: pnpm --filter @phi-ai/dsh build
+
+> @phi-ai/dsh@0.5.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh
+> pnpm run generate:rows && pnpm run build:runtime
+
+[unrelated build output omitted]
+command: pnpm --filter @phi-ai/dsh build
+
+> @phi-ai/dsh@0.5.0 build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh
+> pnpm run generate:rows && pnpm run build:runtime
+
+
+> @phi-ai/dsh@0.5.0 generate:rows /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh
+> node scripts/generate-rows.mjs
+
+[generate-rows] wrote 51 rows to bundle/src/rows.generated.ts
+
+> @phi-ai/dsh@0.5.0 build:runtime /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh
+> tsc -p tsconfig.build.json
+

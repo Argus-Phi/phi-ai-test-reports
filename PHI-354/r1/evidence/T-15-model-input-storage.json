@@ -1,0 +1,15 @@
+{
+  "uploadedFileRows": 0,
+  "modelInputs": [
+    {
+      "name": "task_round",
+      "startedAt": 1792028813728,
+      "messages": [
+        {
+          "type": "tool",
+          "content": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}"
+        }
+      ]
+    }
+  ]
+}

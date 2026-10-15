@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-15T04:44:53.042Z",
+  "live": [],
+  "preferences": [
+    {
+      "profile": "Default",
+      "file": "Preferences",
+      "location": null,
+      "version": null
+    },
+    {
+      "profile": "Default",
+      "file": "Secure Preferences",
+      "location": 1,
+      "version": "2026.10.15.1146"
+    },
+    {
+      "profile": "PhiChat",
+      "file": "Preferences",
+      "location": null,
+      "version": null
+    },
+    {
+      "profile": "PhiChat",
+      "file": "Secure Preferences",
+      "location": null,
+      "version": null
+    }
+  ],
+  "listeners": {
+    "18798": null,
+    "18956": null,
+    "18970": null,
+    "18972": null
+  },
+  "managedAgentAlive": true,
+  "codeSha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+  "codeStatus": "",
+  "canaryHasLoadOverride": false
+}

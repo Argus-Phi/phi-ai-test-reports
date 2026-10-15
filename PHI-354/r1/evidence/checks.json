@@ -1,0 +1,109 @@
+[
+  {
+    "name": "shared",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh-lib-shared",
+      "test"
+    ],
+    "exit_code": 1,
+    "seconds": 4.6,
+    "log": "shared.log"
+  },
+  {
+    "name": "phi-cdp",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh-plugin-phi-cdp",
+      "test"
+    ],
+    "exit_code": 0,
+    "seconds": 15.64,
+    "log": "phi-cdp.log"
+  },
+  {
+    "name": "worker",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh-plugin-worker",
+      "test"
+    ],
+    "exit_code": 0,
+    "seconds": 12.69,
+    "log": "worker.log"
+  },
+  {
+    "name": "chat",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh-plugin-chat",
+      "test"
+    ],
+    "exit_code": 1,
+    "seconds": 26.02,
+    "log": "chat.log"
+  },
+  {
+    "name": "tasks",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh-plugin-tasks",
+      "test"
+    ],
+    "exit_code": 0,
+    "seconds": 4.24,
+    "log": "tasks.log"
+  },
+  {
+    "name": "bundle",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh-bundle",
+      "test"
+    ],
+    "exit_code": 0,
+    "seconds": 21.1,
+    "log": "bundle.log"
+  },
+  {
+    "name": "type-check",
+    "command": [
+      "pnpm",
+      "type-check",
+      "--force"
+    ],
+    "exit_code": 0,
+    "seconds": 49.55,
+    "log": "type-check.log"
+  },
+  {
+    "name": "build",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh",
+      "build"
+    ],
+    "exit_code": 0,
+    "seconds": 10.66,
+    "log": "build.log"
+  },
+  {
+    "name": "stage-package",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@phi-ai/dsh",
+      "package:bundle-js-stage"
+    ],
+    "exit_code": 0,
+    "seconds": 45.88,
+    "log": "stage-package.log"
+  }
+]

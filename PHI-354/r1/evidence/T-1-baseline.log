@@ -1,0 +1,53 @@
+TAP version 13
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/chat/src/engine/turn-verdict.ts:140:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/chat/src/engine/assistant.ts:2349:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/chat/src/engine/assistant.ts:1980:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/chat/src/engine/assistant.ts:1822:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, objective=Read the latest commits)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Read the latest commits)
+# [chat] reply segment parsed (kind=reply role=acknowledge): control=none textLen=24 toolCalls=[]
+# [chat] blocking taskExecutor INVOKED → Read the latest commits
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=24 toolCalls=[]
+# Subtest: Chat file parts: content then complete
+not ok 1 - Chat file parts: content then complete
+  ---
+  duration_ms: 138.324459
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/qa-scripts/r1-baseline-delivery.test.mts:5:3947'
+  failureType: 'testCodeFailure'
+  error: |-
+    only explicitly exported bytes were uploaded
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    assertDelivery (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/qa-scripts/r1-baseline-delivery.test.mts:392:10)
+    TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/artifacts-wt/PHI-354/qa-scripts/r1-baseline-delivery.test.mts:623:7)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3579.477583
+undefined
+/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/baseline-wt/phi-agent-dsh/bundle:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsx --test --test-name-pattern Chat file parts: content then complete ../../../artifacts-wt/PHI-354/qa-scripts/r1-baseline-delivery.test.mts

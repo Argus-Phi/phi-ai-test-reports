@@ -1,0 +1,347 @@
+command: pnpm --filter @phi-ai/dsh-plugin-worker test
+
+> @phi-ai/dsh-plugin-worker@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-359-3575be328e55/workdir/phi-ai/phi-agent-dsh/plugins/worker
+> tsx --test "src/**/*.test.ts"
+
+# }
+# Subtest: browser_task.execute ok: calls the port with the faithful execute input (objective + mode + language + messageId + activeTab + trace + signal), returns mapped JSON content (main:4088-4317)
+ok 47 - browser_task.execute ok: calls the port with the faithful execute input (objective + mode + language + messageId + activeTab + trace + signal), returns mapped JSON content (main:4088-4317)
+  ---
+  duration_ms: 53.423875
+  type: 'test'
+  ...
+# Subtest: browser_task.execute ok: objective falls back to ctx.defaultObjective when args.objective is empty, mode forwarded unconditionally (main:4089)
+ok 48 - browser_task.execute ok: objective falls back to ctx.defaultObjective when args.objective is empty, mode forwarded unconditionally (main:4089)
+  ---
+  duration_ms: 66.116542
+  type: 'test'
+  ...
+# Subtest: browser_task.execute current-tab: a MODEL-supplied args.activeTabId is used when the run context has none (main:4128 `forwardedProps.activeTabId ?? args.activeTabId`) — FIX 2
+ok 49 - browser_task.execute current-tab: a MODEL-supplied args.activeTabId is used when the run context has none (main:4128 `forwardedProps.activeTabId ?? args.activeTabId`) — FIX 2
+  ---
+  duration_ms: 1.164666
+  ...
+# Subtest: browser_task.execute ok: a clean run appends NOTHING — the content is exactly the mapped result
+ok 61 - browser_task.execute ok: a clean run appends NOTHING — the content is exactly the mapped result
+  ---
+  duration_ms: 0.5745
+  type: 'test'
+  ...
+# Subtest: browser_task.execute ok: a run with NOTHING missing appends nothing even when evidence was truncated — a 4k step value is not a gap
+ok 62 - browser_task.execute ok: a run with NOTHING missing appends nothing even when evidence was truncated — a 4k step value is not a gap
+  ---
+  duration_ms: 0.160292
+  type: 'test'
+  ...
+# Subtest: browser_task.execute ok: unverified gaps are named in an appended note so a follow-up asks for exactly those
+ok 63 - browser_task.execute ok: unverified gaps are named in an appended note so a follow-up asks for exactly those
+  ---
+  duration_ms: 0.19175
+  ...
+# Subtest: image_generation.generate: success — calls SearchAIPort.imageGenerate with the faithful { query } args + threaded opts, and JSON-stringifies the result as content (main:2620/2677)
+ok 115 - image_generation.generate: success — calls SearchAIPort.imageGenerate with the faithful { query } args + threaded opts, and JSON-stringifies the result as content (main:2620/2677)
+  ---
+  duration_ms: 33.26525
+  type: 'test'
+  ...
+# Subtest: image_generation.generate: requestAuthorization falls back to connectionAuthorization when resolvedAuthorization is absent (main:2628-2629)
+ok 116 - image_generation.generate: requestAuthorization falls back to connectionAuthorization when resolvedAuthorization is absent (main:2628-2629)
+  ---
+  duration_ms: 0.461791
+  type: 'test'
+  ...
+# Subtest: image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+ok 117 - image_generation.generate: the port operation throwing (non-abort) yields a responses_error outcome carrying the message, loop continues (main:2656-2670)
+  ---
+  duration_ms: 0.396167
+  ...
+# Subtest: schedule.list calls port.list with userId + forwarded optionals, returns JSON content
+ok 148 - schedule.list calls port.list with userId + forwarded optionals, returns JSON content
+  ---
+  duration_ms: 37.271167
+  type: 'test'
+  ...
+# Subtest: schedule.list omits taskId/enabledOnly when not supplied (conditional spread)
+ok 149 - schedule.list omits taskId/enabledOnly when not supplied (conditional spread)
+  ---
+  duration_ms: 0.384541
+  type: 'test'
+  ...
+# Subtest: schedule.pause calls port.pause with userId + scheduleId + reason, returns JSON content
+ok 150 - schedule.pause calls port.pause with userId + scheduleId + reason, returns JSON content
+  ---
+  duration_ms: 22.580417
+  type: 'test'
+  ...
+# Subtest: schedule.pause omits reason when not supplied
+ok 151 - schedule.pause omits reason when not supplied
+  ---
+  duration_ms: 1.659833
+  type: 'test'
+  ...
+# Subtest: schedule.resume calls port.resume with userId + scheduleId, returns JSON content
+ok 152 - schedule.resume calls port.resume with userId + scheduleId, returns JSON content
+  ---
+  duration_ms: 1.679583
+  type: 'test'
+  ...
+# Subtest: schedule.delete calls port.delete with userId + scheduleId, returns JSON content
+ok 153 - schedule.delete calls port.delete with userId + scheduleId, returns JSON content
+  ---
+  duration_ms: 0.396667
+  type: 'test'
+  ...
+# Subtest: schedule.list port failure (Error with message) surfaces as a retryable responses_error carrying the message (run continues, then finishes)
+ok 154 - schedule.list port failure (Error with message) surfaces as a retryable responses_error carrying the message (run continues, then finishes)
+  ---
+  duration_ms: 0.333833
+  type: 'test'
+  ...
+# Subtest: schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+ok 155 - schedule.delete port failure (non-Error throw) uses the bespoke fallback `responses_error: schedule_manage_failed` (main:4036-4038) — FIX 5
+  ---
+  duration_ms: 0.191125
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+# Subtest: created → list-invalidated notify + faithful single-object write args + snake_case content (main:2862-2911)
+ok 165 - created → list-invalidated notify + faithful single-object write args + snake_case content (main:2862-2911)
+  ---
+  duration_ms: 31.66725
+  type: 'test'
+  ...
+# Subtest: overwritten → detail-invalidated notify + passes conflictStrategy/expectedVersion + warnings passthrough (main:2862-2911)
+ok 166 - overwritten → detail-invalidated notify + passes conflictStrategy/expectedVersion + warnings passthrough (main:2862-2911)
+  ---
+  duration_ms: 4.809917
+  type: 'test'
+  ...
+# Subtest: renamed → detail-invalidated notify (the non-created branch, main:2877-2880)
+ok 167 - renamed → detail-invalidated notify (the non-created branch, main:2877-2880)
+  ---
+  duration_ms: 0.275708
+  ...
+# Subtest: reads an on-disk built-in file: calls getSkillForExecution then readFile(storageRef) and returns { ok:true, path, content }
+ok 177 - reads an on-disk built-in file: calls getSkillForExecution then readFile(storageRef) and returns { ok:true, path, content }
+  ---
+  duration_ms: 51.169209
+  type: 'test'
+  ...
+# Subtest: reads a user-skill SKILL.md from in-memory compiledSkillMd WITHOUT an fs read (rootDir empty → storageRef '')
+ok 178 - reads a user-skill SKILL.md from in-memory compiledSkillMd WITHOUT an fs read (rootDir empty → storageRef '')
+  ---
+  duration_ms: 0.598333
+  type: 'test'
+  ...
+# Subtest: reads a built-in SKILL.md from disk: resolves storageRef rootDir/SKILL.md and reads via the port
+ok 179 - reads a built-in SKILL.md from disk: resolves storageRef rootDir/SKILL.md and reads via the port
+  ---
+  duration_ms: 0.330167
+  ...
+# Subtest: the read content is fed back to the next LLM round as a function_call_output
+ok 188 - the read content is fed back to the next LLM round as a function_call_output
+  ---
+  duration_ms: 0.992208
+  type: 'test'
+  ...
+# [agent-worker] skill.run_script returning outcome {
+#   toolId: 'skill',
+#   script: 'stage-1.js',
+#   ok: true,
+#   isError: false,
+#   artifactCount: 0
+# }
+# [agent-worker] skill.run_script returning outcome {
+#   toolId: 'skill',
+#   script: 'stage-1.js',
+# [agent-worker] skill.run_script structured failure { toolId: 'skill', reason: 'execution_error' }
+# Subtest: skill.run_script ok: calls the port with { skill, script, scriptArgs, activeSkillIds, signal } and returns the effectivePayload JSON content (skill-scripts.ts:135-166)
+ok 189 - skill.run_script ok: calls the port with { skill, script, scriptArgs, activeSkillIds, signal } and returns the effectivePayload JSON content (skill-scripts.ts:135-166)
+  ---
+  duration_ms: 4.97725
+  type: 'test'
+  ...
+# Subtest: skill.run_script ok with NO scriptArgs: the scriptArgs key is omitted from the port call (faithful to the optional arg)
+ok 190 - skill.run_script ok with NO scriptArgs: the scriptArgs key is omitted from the port call (faithful to the optional arg)
+  ---
+  duration_ms: 5.337917
+  type: 'test'
+  ...
+# Subtest: skill.run_script ok but payload.ok !== true: isError is true (buildOutcome's isError = payload.ok !== true, skill-scripts.ts:end)
+ok 191 - skill.run_script ok but payload.ok !== true: isError is true (buildOutcome's isError = payload.ok !== true, skill-scripts.ts:end)
+  ---
+  duration_ms: 0.724375
+  ...
+# Subtest: skill.run_script uploads declared artifacts and hides their contents from the model
+ok 201 - skill.run_script uploads declared artifacts and hides their contents from the model
+  ---
+  duration_ms: 11.146583
+  type: 'test'
+  ...
+# Subtest: a script payload without artifacts is passed through untouched
+ok 202 - a script payload without artifacts is passed through untouched
+  ---
+  duration_ms: 3.085459
+  type: 'test'
+  ...
+# Subtest: a script whose SECOND artifact fails to upload still reports the first
+ok 203 - a script whose SECOND artifact fails to upload still reports the first
+  ---
+  duration_ms: 1.31725
+  ...
+# Subtest: happy path: task_run context + taskId → queries with faithful default args and projects snake_case content (main:3800-3835)
+ok 209 - happy path: task_run context + taskId → queries with faithful default args and projects snake_case content (main:3800-3835)
+  ---
+  duration_ms: 14.087584
+  type: 'test'
+  ...
+# Subtest: explicit sort/page/pageSize args override the defaults in the query (main:3803-3805)
+ok 210 - explicit sort/page/pageSize args override the defaults in the query (main:3803-3805)
+  ---
+  duration_ms: 0.707541
+  type: 'test'
+  ...
+# Subtest: context gate: task_run context but NO taskId → the HANDLER gate returns tool_not_allowed, port NEVER called (main:3782)
+ok 211 - context gate: task_run context but NO taskId → the HANDLER gate returns tool_not_allowed, port NEVER called (main:3782)
+  ---
+  duration_ms: 0.269959
+# [agent-worker] tool call completed { toolCallId: 'websearch', toolName: 'websearch', isError: false }
+# Subtest: websearch.search ok: calls SearchAIPort.websearch with the faithful params + worker context, returns mapped JSON content (main:2424-2497)
+ok 214 - websearch.search ok: calls SearchAIPort.websearch with the faithful params + worker context, returns mapped JSON content (main:2424-2497)
+  ---
+  duration_ms: 12.90325
+  type: 'test'
+  ...
+# Subtest: websearch.search threads the per-tool span as the op's trace (main:2060/2440)
+ok 215 - websearch.search threads the per-tool span as the op's trace (main:2060/2440)
+  ---
+  duration_ms: 5.893292
+  type: 'test'
+  ...
+# Subtest: websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+ok 216 - websearch.search timeout: a port call that outlives the deadline yields tool_timeout (retryable) and the loop CONTINUES (main:2453-2467)
+  ---
+  duration_ms: 38.083208
+  ...
+# Subtest: uploadFile reports the store's contentType when it overrides the requested mime
+ok 280 - uploadFile reports the store's contentType when it overrides the requested mime
+  ---
+  duration_ms: 0.711458
+  type: 'test'
+  ...
+# Subtest: file store forwards an explicit generic size limit without changing defaults
+ok 281 - file store forwards an explicit generic size limit without changing defaults
+  ---
+  duration_ms: 2.200958
+  type: 'test'
+  ...
+# Subtest: a thrown uploadFile propagates
+ok 282 - a thrown uploadFile propagates
+  ---
+  duration_ms: 0.138917
+  ...
+# Subtest: readFile stat-caps then reads the file → { ok:true, content }
+ok 320 - readFile stat-caps then reads the file → { ok:true, content }
+  ---
+  duration_ms: 1.584792
+  type: 'test'
+  ...
+# Subtest: readFile honors the size cap → { ok:false, reason:'file_too_large' } with NO detail (stat/size-cap failure)
+ok 321 - readFile honors the size cap → { ok:false, reason:'file_too_large' } with NO detail (stat/size-cap failure)
+  ---
+  duration_ms: 0.531
+  type: 'test'
+  ...
+# Subtest: readFile maps a STAT failure to { ok:false, reason:'file_not_found' } with NO detail
+ok 322 - readFile maps a STAT failure to { ok:false, reason:'file_not_found' } with NO detail
+  ---
+  duration_ms: 18.801083
+  ...
+# Subtest: content rejects legacy protobuf without uploading or forwarding an artifact
+ok 406 - content rejects legacy protobuf without uploading or forwarding an artifact
+  ---
+  duration_ms: 1.142959
+  type: 'test'
+  ...
+# Subtest: content copies only its readable fields and refuses an unexpected artifact
+ok 407 - content copies only its readable fields and refuses an unexpected artifact
+  ---
+  duration_ms: 40.533834
+  type: 'test'
+  ...
+# Subtest: content limits the complete UTF-8 JSON envelope, including metadata and escaping
+ok 408 - content limits the complete UTF-8 JSON envelope, including metadata and escaping
+  ---
+  duration_ms: 16.709083
+  type: 'test'
+  ...
+# Subtest: content failures keep their code and retry class but bound remote messages
+ok 409 - content failures keep their code and retry class but bound remote messages
+  ---
+  duration_ms: 1.004708
+  type: 'test'
+  ...
+# Subtest: content preserves policy refusal explanations within the UTF-8 JSON budget
+ok 410 - content preserves policy refusal explanations within the UTF-8 JSON budget
+  ---
+  duration_ms: 49.04875
+  type: 'test'
+  ...
+# Subtest: content schema accepts a bounded selector and its description explains reading and exports
+ok 411 - content schema accepts a bounded selector and its description explains reading and exports
+  ---
+  duration_ms: 1.452625
+  type: 'test'
+  ...
+# Subtest: every action of the table has a capability, a schema, a handler and a place on its tool
+ok 412 - every action of the table has a capability, a schema, a handler and a place on its tool
+  ---
+  duration_ms: 85.847541
+  type: 'test'
+  ...
+# Subtest: only the read-only actions are on a task run's surface
+ok 413 - only the read-only actions are on a task run's surface
+  ---
+  duration_ms: 4.311541
+  ...
+# Subtest: read_file returns scripts/ content
+ok 635 - read_file returns scripts/ content
+  ---
+  duration_ms: 5.512083
+  type: 'test'
+  ...
+# Subtest: read_file returns references/ content
+ok 636 - read_file returns references/ content
+  ---
+  duration_ms: 2.790083
+  type: 'test'
+  ...
+# Subtest: read_file returns SKILL.md from skill root
+ok 637 - read_file returns SKILL.md from skill root
+  ---
+  duration_ms: 4.977667
+  type: 'test'
+  ...
+# Subtest: read_file returns assets/ content
+ok 638 - read_file returns assets/ content
+  ---
+  duration_ms: 2.9645
+  type: 'test'
+  ...
+# [exp-cgpt][phi:skill-script] run_script enter {
+#   userId: 'user-1',
+#   runId: 'outer-run',
+#   skill: 'built_in:export-chatgpt-conversation',
+#   script: 'fetch.js',
+#   activeSkillIds: [ 'built_in:export-chatgpt-conversation' ],
+#   activeTabIdFromForwarded: 123,
+#   hasScriptArgs: false,
+#   scriptArgs: undefined,
+#   scriptArgsKeys: [],
+1..722
+# tests 759
+# suites 5
+# pass 759
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10328.034917

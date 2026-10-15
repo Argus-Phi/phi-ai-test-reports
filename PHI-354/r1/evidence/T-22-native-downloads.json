@@ -1,0 +1,20 @@
+[
+  {
+    "case": "T-22-pdf",
+    "nativeSave": true,
+    "bytes": 74293,
+    "sha256": "fd5d380f541d3f2b2ebd4406eca31712e6c270185c1b2ea3def67510d65c4ad0"
+  },
+  {
+    "case": "T-22-png",
+    "nativeSave": true,
+    "bytes": 56602,
+    "sha256": "c2831351e1c3ec5c5616de624d1b90f8d9c6e3c6e4ca42f88919aef793db051f"
+  },
+  {
+    "case": "T-22-mixed",
+    "nativeSave": true,
+    "bytes": 74293,
+    "sha256": "f5e0dce5a804ad9883bfcc09373f595b01f8d9e8f1fbf5b3c05230ec077e20dd"
+  }
+]

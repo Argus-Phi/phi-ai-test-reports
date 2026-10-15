@@ -1,0 +1,295 @@
+{
+  "issue": "PHI-354",
+  "based_on": "test-plan.md and actual suite TAP logs at 7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+  "scope": "Index of executed TAP test groups; not proof of all planned variants or GUI cases",
+  "cases": {
+    "T-3": [
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 6 - task_run delivery: content then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 7 - task_run delivery: pdf then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 8 - task_run delivery: screenshot then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 9 - task_run delivery: mhtml then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 10 - task_run delivery: resource then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 11 - task_run delivery: content+pdf then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 12 - task_run delivery: content then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 13 - task_run delivery: content+pdf then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 14 - task_run delivery: content then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 15 - task_run delivery: content+pdf then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 16 - task_run delivery: content then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 17 - task_run delivery: content+pdf then cancel"
+      }
+    ],
+    "T-4": [
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 186 - content expression bounds UTF-8 JSON and gives a successful smaller subtree retry"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 195 - content: checks full serialized bytes and malformed selectors without reading"
+      },
+      {
+        "log": "worker.log",
+        "actualTapResult": "ok 408 - content limits the complete UTF-8 JSON envelope, including metadata and escaping"
+      },
+      {
+        "log": "worker.log",
+        "actualTapResult": "ok 410 - content preserves policy refusal explanations within the UTF-8 JSON budget"
+      }
+    ],
+    "T-5": [
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 140 - the page's title survives the pruning of hidden content"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 141 - hidden body content is still left out"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 181 - content expression rejects frames containing only metadata, hidden text or form values"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 182 - content expression omits hidden text and form values even with a selected descendant"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 183 - content expression reads open shadows, slots and accessible frames without duplicate light DOM"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 185 - content expression rejects empty pages, oversized metadata and traversal budgets"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 192 - content: evaluates readable DOM in the checked tab and never calls protobuf"
+      }
+    ],
+    "T-6": [
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 185 - content expression rejects empty pages, oversized metadata and traversal budgets"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 195 - content: checks full serialized bytes and malformed selectors without reading"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 196 - content: CDP cancellation, timeout and missing capability still detach"
+      },
+      {
+        "log": "worker.log",
+        "actualTapResult": "ok 406 - content rejects legacy protobuf without uploading or forwarding an artifact"
+      }
+    ],
+    "T-7": [
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 184 - content expression validates selector as data and checks normalized target URL"
+      },
+      {
+        "log": "phi-cdp.log",
+        "actualTapResult": "ok 195 - content: checks full serialized bytes and malformed selectors without reading"
+      },
+      {
+        "log": "worker.log",
+        "actualTapResult": "ok 410 - content preserves policy refusal explanations within the UTF-8 JSON budget"
+      },
+      {
+        "log": "worker.log",
+        "actualTapResult": "ok 411 - content schema accepts a bounded selector and its description explains reading and exports"
+      }
+    ],
+    "T-8": [
+      {
+        "log": "worker.log",
+        "actualTapResult": "ok 411 - content schema accepts a bounded selector and its description explains reading and exports"
+      }
+    ],
+    "T-9": [
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 12 - task_run delivery: content then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 13 - task_run delivery: content+pdf then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 14 - task_run delivery: content then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 15 - task_run delivery: content+pdf then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 16 - task_run delivery: content then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 17 - task_run delivery: content+pdf then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 24 - Chat file parts: content then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 25 - Chat file parts: content+pdf then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 26 - Chat file parts: content then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 27 - Chat file parts: content+pdf then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 28 - Chat file parts: content then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 29 - Chat file parts: content+pdf then cancel"
+      }
+    ],
+    "T-10": [
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 6 - task_run delivery: content then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 7 - task_run delivery: pdf then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 8 - task_run delivery: screenshot then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 9 - task_run delivery: mhtml then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 10 - task_run delivery: resource then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 11 - task_run delivery: content+pdf then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 12 - task_run delivery: content then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 13 - task_run delivery: content+pdf then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 14 - task_run delivery: content then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 15 - task_run delivery: content+pdf then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 16 - task_run delivery: content then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 17 - task_run delivery: content+pdf then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 18 - Chat file parts: content then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 19 - Chat file parts: pdf then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 20 - Chat file parts: screenshot then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 21 - Chat file parts: mhtml then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 22 - Chat file parts: resource then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 23 - Chat file parts: content+pdf then complete"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 24 - Chat file parts: content then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 25 - Chat file parts: content+pdf then failure"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 26 - Chat file parts: content then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 27 - Chat file parts: content+pdf then timeout"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 28 - Chat file parts: content then cancel"
+      },
+      {
+        "log": "bundle.log",
+        "actualTapResult": "ok 29 - Chat file parts: content+pdf then cancel"
+      }
+    ]
+  }
+}

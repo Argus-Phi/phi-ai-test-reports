@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "state": "complete",
+    "filename": "/Users/phi/Downloads/phi-354-synthetic-commits.pdf",
+    "startTime": "2026-10-15T02:11:35.645Z",
+    "fileSize": 74293,
+    "mime": "application/pdf",
+    "bytesReceived": 74293,
+    "case": "T-21-pdf-ready"
+  },
+  {
+    "case": "T-21-mhtml",
+    "id": 2,
+    "state": "complete",
+    "filename": "/Users/phi/Downloads/page.mhtml",
+    "fileSize": 3919,
+    "bytesReceived": 3919,
+    "mime": "multipart/related"
+  },
+  {
+    "case": "T-21-mixed",
+    "id": 3,
+    "state": "complete",
+    "filename": "/Users/phi/Downloads/phi-354-synthetic-commits (1).pdf",
+    "fileSize": 74293,
+    "bytesReceived": 74293,
+    "mime": "application/pdf"
+  }
+]

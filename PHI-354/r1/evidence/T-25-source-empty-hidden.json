@@ -1,0 +1,28 @@
+{
+  "chatId": "5a1a7863-642e-4308-97e8-4a5d0ef2a18a",
+  "calls": [
+    {
+      "callId": "fc_0ddfb8d8112dd7fb006ad057003d5487d2818e6a60dc3805ef",
+      "capability": "browser_page.content",
+      "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727584,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+    },
+    {
+      "callId": "fc_0ddfb8d8112dd7fb006ad05708e20087d28ac1bd44959d9596",
+      "capability": "browser_page.content",
+      "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727585,\"expectedUrl\":null,\"selector\":null,\"includeActionableInformation\":null}}"
+    }
+  ],
+  "results": [
+    {
+      "capability": "browser_page.content",
+      "content": "{\"ok\":false,\"error\":{\"code\":\"no_readable_content\",\"message\":\"The selected root has no readable text. Choose another loaded text section.\",\"retryable\":false}}"
+    },
+    {
+      "capability": "browser_page.content",
+      "content": "{\"ok\":false,\"error\":{\"code\":\"no_readable_content\",\"message\":\"The selected root has no readable text. Choose another loaded text section.\",\"retryable\":false}}"
+    }
+  ],
+  "files": [],
+  "text": "I’m checking both tabs directly and will report what each one returns.Tab `1005727584` returned `no_readable_content` — the selected root has no readable text. Tab `1005727585` returned the same result.",
+  "terminalCount": 2
+}

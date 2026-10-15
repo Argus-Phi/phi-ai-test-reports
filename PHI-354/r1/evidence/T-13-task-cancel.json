@@ -1,0 +1,183 @@
+{
+  "kind": "cancel",
+  "readSeen": true,
+  "cancelled": true,
+  "timeline": [
+    {
+      "event": "read_success",
+      "at": 1792032094715,
+      "tool": {
+        "log_id": "41f39e6a-0a88-444b-a75f-a01f0d8919a1",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032094390,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.content returned after 9ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+        "payload": {
+          "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+          "duration_ms": 9,
+          "tool_call_id": "fc_0df0c28d88e397d8006ad03d5e30fc87d2ab198fa031de6908",
+          "capability_id": "browser_page.content"
+        }
+      }
+    },
+    {
+      "event": "cancel_request",
+      "at": 1792032094715,
+      "response": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "noop": false,
+          "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+          "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+          "status": "cancelled"
+        }
+      }
+    },
+    {
+      "event": "terminal",
+      "at": 1792032095306,
+      "status": "cancelled"
+    }
+  ],
+  "run": {
+    "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+    "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+    "run_index": 1,
+    "trigger_source": "sidebar",
+    "tool_call_count": 0,
+    "run_status": "cancelled",
+    "progress_message": "cancelled",
+    "progress_updated_at": 1792032094731,
+    "task_snapshot": {
+      "title": "PHI-354 QA T-13 cancel",
+      "description": "One-off isolated QA termination test. No external notification.",
+      "objective": "PHI354_TERMINATE_task_cancel: Execute browser_page action content on tabId 1005727167, expectedUrl http://127.0.0.1:18970/index.html exactly once. Actually invoke browser_page.content and report the commit identifier, title and link. Do not navigate or export files.",
+      "input_payload": {
+        "activeTabUrl": "http://127.0.0.1:18970/index.html"
+      },
+      "profile_id": "Default"
+    },
+    "tabs": [],
+    "started_at": 1792032091121,
+    "finished_at": 1792032094731,
+    "chat_report": null,
+    "created_at": 1792032091112,
+    "updated_at": 1792032094731,
+    "logs": [
+      {
+        "log_id": "01a13d6f-abed-73cc-bf26-672bea20f00c",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032091112,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_queued",
+        "message": "Run #1 queued from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "run_status": "queued",
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "fc83a30e-ebdb-450e-bf8d-91198ccee238",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032091124,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_started",
+        "message": "Run #1 started from the sidebar",
+        "payload": {
+          "run_index": 1,
+          "trigger_source": "sidebar"
+        }
+      },
+      {
+        "log_id": "def4a1eb-f645-408b-ac4b-59e3adcfb088",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032094378,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "agent_note",
+        "message": "Agent: I’ll read the current page once to identify its commit, title, and link.",
+        "payload": {
+          "text": "I’ll read the current page once to identify its commit, title, and link.",
+          "round": 1
+        }
+      },
+      {
+        "log_id": "36813229-12b5-4c22-a192-c7f3a11667a1",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032094380,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_call",
+        "message": "Calling browser_page.content: action: \"content\", input: {\"action\":\"content\",\"tabId\":1005727167,\"expectedUrl\":\"http://127.0.0.1:18970/in…",
+        "payload": {
+          "args": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":1005727167,\"expectedUrl\":\"http://127.0.0.1:18970/index.html\",\"selector\":null,\"includeActionableInformation\":null}}",
+          "tool_id": "browser_page",
+          "tool_call_id": "fc_0df0c28d88e397d8006ad03d5e30fc87d2ab198fa031de6908",
+          "capability_id": "browser_page.content"
+        }
+      },
+      {
+        "log_id": "41f39e6a-0a88-444b-a75f-a01f0d8919a1",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032094390,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "tool_result",
+        "message": "browser_page.content returned after 9ms: {\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http…",
+        "payload": {
+          "result": "{\"ok\":true,\"data\":{\"source\":\"live_dom\",\"title\":\"PHI-354 synthetic commits\",\"url\":\"http://127.0.0.1:18970/index.html\",\"content\":\"Commits\\n\\nabc1234 (https://github.com/phibrowser/phi-ai/commit/abc1234)\\nFix example\\n\\nPublic synthetic fixture. 中文边界。\\n\\nLarge page (http://127.0.0.1:18970/large.html) · Empty page (http://127.0.0.1:18970/empty.html) · Coverage page (http://127.0.0.1:18970/coverage.html) · Workload page (http://127.0.0.1:18970/workload.html) · Navigation page (http://127.0.0.1:18970/navigate.html)\",\"coverage\":\"Loaded rendered DOM within the selected root; open shadow roots and accessible frames only.\",\"warnings\":[]}}",
+          "duration_ms": 9,
+          "tool_call_id": "fc_0df0c28d88e397d8006ad03d5e30fc87d2ab198fa031de6908",
+          "capability_id": "browser_page.content"
+        }
+      },
+      {
+        "log_id": "55f2f283-5294-44cc-9296-677ca5e2da40",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032094728,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "cancel_requested",
+        "message": "Cancel requested: stopping the run",
+        "payload": {
+          "run_aborted": true
+        }
+      },
+      {
+        "log_id": "bfeb9569-5930-43a4-8ed8-c3cdf3858ad7",
+        "task_id": "01a13d6f-abe0-76af-a5e7-43e89fdfd9d0",
+        "scope": "run",
+        "run_id": "01a13d6f-abe8-760c-8630-e2e0f48d4b8e",
+        "ts": 1792032094731,
+        "level": "info",
+        "source": "phi_agent",
+        "category": "run_cancelled",
+        "message": "Cancelled after 3.6s",
+        "payload": {
+          "duration_ms": 3610
+        }
+      }
+    ],
+    "artifacts": []
+  }
+}
