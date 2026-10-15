@@ -1,0 +1,103 @@
+{
+  "issue": "PHI-354",
+  "generated_at": "2026-10-15T05:08:49.408582+00:00",
+  "code_sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+  "kind": "regression",
+  "checks": [
+    {
+      "name": "checkout_head",
+      "pass": true,
+      "detail": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6"
+    },
+    {
+      "name": "product_tree_clean",
+      "pass": true,
+      "detail": "no tracked or untracked changes"
+    },
+    {
+      "name": "remote_pr_head",
+      "pass": true,
+      "detail": {
+        "baseRefName": "staging",
+        "headRefName": "PHI-354-readable-page-content",
+        "headRefOid": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+        "isDraft": true,
+        "state": "OPEN",
+        "url": "https://github.com/phibrowser/phi-ai/pull/578"
+      }
+    },
+    {
+      "name": "remote_pr_base",
+      "pass": true,
+      "detail": "OPEN draft to staging"
+    },
+    {
+      "name": "zero_delta_from_r1",
+      "pass": true,
+      "detail": "same SHA as r1; no fix commit"
+    },
+    {
+      "name": "extension_ui_unchanged_from_base",
+      "pass": true,
+      "detail": "entire extension UI tree unchanged; not a baseline GUI test"
+    },
+    {
+      "name": "diff_check",
+      "pass": true,
+      "detail": "exit 0"
+    },
+    {
+      "name": "input_immutable:fix-notes-r2.md",
+      "pass": true,
+      "detail": "7a72da1b8eb12f845f4aa88d9a48b7b8750a60c8"
+    },
+    {
+      "name": "input_immutable:reviews/fix-r2-spock.md",
+      "pass": true,
+      "detail": "dfad9d0a862ff1c95786dcaab949aa92a18e0c49"
+    },
+    {
+      "name": "input_immutable:test-report-r1.md",
+      "pass": true,
+      "detail": "066b68188850ce5e409a5623c91d0a32fe67d670"
+    },
+    {
+      "name": "r1_sha_and_verdict",
+      "pass": true,
+      "detail": "r1 unchanged; not copied as new results"
+    },
+    {
+      "name": "r1_bug_inventory",
+      "pass": true,
+      "detail": "only B1-1/B1-2 in r1"
+    },
+    {
+      "name": "r1_evidence_exists",
+      "pass": true,
+      "detail": {
+        "references": 129,
+        "missing": []
+      }
+    },
+    {
+      "name": "declined_not_fixed",
+      "pass": true,
+      "detail": "both product issues unresolved"
+    },
+    {
+      "name": "fix_review_approved",
+      "pass": true,
+      "detail": "disposition approval only"
+    },
+    {
+      "name": "deferred_verify_mapped",
+      "pass": true,
+      "detail": "native save VERIFY mapped to T-21"
+    }
+  ],
+  "runtime_tests_run": false,
+  "unit_tests_run": false,
+  "build_run": false,
+  "gui_tests_run": false,
+  "limitation": "Material/scope verification only. No native save repair or baseline GUI claim."
+}

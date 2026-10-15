@@ -1,0 +1,536 @@
+{
+ "key": "PHI-354",
+ "title": "修复创建定时任务时将内部页面 protobuf 作为用户附件发送的问题",
+ "work_type": "bugfix",
+ "round": 2,
+ "kind": "regression",
+ "verdict": "pass",
+ "pr_allowed": false,
+ "summary": "回归 r2 的缺陷处置与零代码增量核验通过：本轮 25 条计划记录，1 条材料核验子项通过、0 失败、0 阻塞、24 条按定向回归范围未执行；16 项材料/Git 检查通过。已纳入 Wood 的验收边界，B1-1/B1-2 接受 declined，仅关闭本 PR 阻断，不代表产品问题修复。未执行新的单元、API、GUI、类型检查或构建，不沿用 r1 运行结果冒充本轮通过。允许进入同 SHA 完整终测；终测尚未完成，目前不允许放行 PR review/merge。",
+ "sha": "7fd3addea3337ea9109e78aaf2251da5f5bc95a6",
+ "branch": "PHI-354-readable-page-content",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/578",
+ "generated_at": "2026-10-15T05:09:58.997408+00:00",
+ "environment": {
+  "机器": "独立 macOS QA",
+  "Canary": "2026.10.15.0207；只读查看状态，未操作/替换",
+  "Runner": "2026.10.14.2c370b06；未 dev attach",
+  "执行层级": "仅 Git/产物/平台评论材料核验；无新增产品运行结果",
+  "代码": "7fd3addea；工作区 clean；r1 至 r2 无增量",
+  "数据库与服务": "本轮未启动、未写入、未修改",
+  "未验证边界": "未重跑 baseline/head 原生 GUI；PNG 保存未修复；终测需从头完整执行"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含 r2 范围、手测方案）@cc3bf0aec182e17a131003810f1ad47d50320dcd",
+   "url": "https://github.com/phibrowser/phi-ai/blob/cc3bf0aec182e17a131003810f1ad47d50320dcd/PHI-354/test-plan.md"
+  },
+  {
+   "title": "fix-notes-r2.md@7a72da1b8",
+   "url": "https://github.com/phibrowser/phi-ai/blob/7a72da1b8eb12f845f4aa88d9a48b7b8750a60c8/PHI-354/fix-notes-r2.md"
+  },
+  {
+   "title": "fix-r2-spock.md@dfad9d0a8",
+   "url": "https://github.com/phibrowser/phi-ai/blob/dfad9d0a862ff1c95786dcaab949aa92a18e0c49/PHI-354/reviews/fix-r2-spock.md"
+  },
+  {
+   "title": "runbook.md@16ab997bd",
+   "url": "https://github.com/phibrowser/phi-ai/blob/16ab997bde7855eb3b9af22eab88d94cb1e851a3/PHI-354/runbook.md"
+  },
+  {
+   "title": "上一轮报告（历史结果，未沿用）",
+   "url": "https://argus-phi.github.io/phi-ai-test-reports/PHI-354/r1/"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "普通读取贯通边界",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1,AC-9",
+   "precondition": "合成提交页，真实 handler/worker/Chat 交付链，末端 CDP 可同时支持旧 protobuf 与新读取；文件存储记录上传字节并可回读。",
+   "steps": [
+    "执行 `pnpm --filter @phi-ai/dsh-bundle test` 中 content delivery 场景；令 worker 实际读取并完成；检查模型下一轮请求、上传调用、worker 结果、Sidecar hub 帧。对隔离基线跑同一行为断言，再对修复 SHA 跑；适配只能处理测试框架导入，不移除失败断言。"
+   ],
+   "expected": "修复前因真实内部上传/文件交付或只有元数据失败，不能因缺模块/方法失败；修复后三项页面证据可见、无二进制正文、无内部附件。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-2",
+   "title": "固定时钟创建任务",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2",
+   "precondition": "隔离任务存储、真实调度服务；时钟 `2026-10-14T03:28:00Z`，合成页面。",
+   "steps": [
+    "bundle 套件中先读取，再模拟原文“每天北京时间 11:00 检查 octocat/Hello-World 最新提交”；通过真实创建调用获取任务记录及交付。另分别固定在当天 `02:59:59Z`、`03:00:01Z` 创建同类任务，独立存储。"
+   ],
+   "expected": "主例 cron `0 11 * * *`、tz `Asia/Shanghai`、nextRunAt `2026-10-15T03:00:00.000Z`；前一秒是当日03:00，后一秒是次日03:00；无内部附件。不 mock nextRunAt，也不更改系统时钟。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-3",
+   "title": "task_run 贯通边界",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-3",
+   "precondition": "相同真实 worker 接任务 executor，测试结果存储。",
+   "steps": [
+    "bundle 套件执行一次 task_run 读取并完成；检查下一轮模型输入和实际持久化结果，再重新读取任务结果。"
+   ],
+   "expected": "三项证据到达模型，存储中的 resultPayload.artifacts 无内部读取附件；报告文本不将读取描述为导出。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-4",
+   "title": "UTF-8 完整响应边界",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-4",
+   "precondition": "含中文、emoji、引号、反斜杠、换行的可读数据；最终完整成功 JSON 可精确构造为 65,535/65,536/65,537 字节。",
+   "steps": [
+    "执行 phi-cdp 与 worker 套件；分别测量工具实际返回的完整 JSON 的 `Buffer.byteLength(JSON.stringify(response),'utf8')`，不是正文字符数；对超限按提示改 selector 重试；对异常长失败 message 也测量完整错误响应。"
+   ],
+   "expected": "前两个允许成功，65,537 必须 result_too_large，错误含限制及可调用缩小建议、无部分正文和附件；成功/失败均 ≤65,536；中文不被按字符数误判，重试成功。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-5",
+   "title": "有界遍历与覆盖",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-4",
+   "precondition": "节点与字符预算上下界、深 DOM、长标题/URL/链接、coverage 页面等价 DOM。",
+   "steps": [
+    "phi-cdp 套件分别运行预算以内、达到设计工作量上限、超过上限及深层 DOM；检查链接/alt/pre/shadow/slot/可访问 frame；检查隐藏祖先、表单、关闭 shadow 和不可访问 frame；selector 缩小到提交区再读。"
+   ],
+   "expected": "预算触发明确 result_too_large，不静默截断成功、无堆栈溢出；元数据也不能绕过预算。可读字段保留、省略字段不泄漏，warnings/coverage 如答案表，不宣称未加载内容完整；缩小读取恢复。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-6",
+   "title": "空内容、损坏与能力故障",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5",
+   "precondition": "空正文；底层分别返回缺字段、错误字段类型、旧 base64 对象、远程异常、未知失败码、超长异常消息、能力不可用、断连。",
+   "steps": [
+    "phi-cdp/worker 套件逐个输入；再经 bundle 的 worker/Chat 链传播结果，检查最终交付和模型实际收到的失败。"
+   ],
+   "expected": "空正文 no_readable_content；损坏/旧二进制/异常为可识别 browser_error，能力不可用和断连保留对应原因及 retryable；不假装成功、不过度回显异常正文、无内部附件；完整响应有界。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-7",
+   "title": "selector 输入与页面目标",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-5",
+   "precondition": "提交页及目标 URL 变化/受限页/不可访问 tab、普通与 task_run 权限上下文。",
+   "steps": [
+    "phi-cdp/worker 套件调用 content，selector 依次为缺省、`#commit-list`、空串、非字符串、1,024/1,025 UTF-16 单元的合法 selector、非法 CSS、不存在 selector、含引号/反斜杠/代码样式的字符串；检查其未产生页面副作用。另切 URL，传旧 expectedUrl；尝试既有策略禁止的 tab/Space、受限页。"
+   ],
+   "expected": "合法范围工作；无匹配 resource_not_found，输入错误 invalid_argument；边界按 UTF-16 单元；字符串不能执行代码；URL 变化 active_tab_changed；禁止目标维持既有拒绝，不读到非授权正文、不泄漏异常/附件。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-8",
+   "title": "实际模型工具契约",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-8,AC-5",
+   "precondition": "实际 worker 注册的工具与模型请求记录，不只文档字符串。",
+   "steps": [
+    "worker/bundle 套件读取模型实际收到的 browser_page schema/描述；调用缺省与 selector 读取，分别带/不带旧 includeActionableInformation；再触发超限和空内容。"
+   ],
+   "expected": "描述说明可读正文、selector、65,536 字节与失败/缩小方式；不承诺自动附文件，导出操作仍可用；旧参数可接受但不改变读取语义；实际结果符合说明。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-9",
+   "title": "读取后终止与导出保留",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-6,AC-7",
+   "precondition": "普通 Chat 与 task_run 两上下文，真实交付链，终止控制在成功读取后的下一阶段；完成基线也记录。",
+   "steps": [
+    "bundle 套件对两上下文分别造成后续失败、worker 超时、用户取消；各子例先只读，再各重复一次“已显式生成 PDF 后再读取”。等待终止后重读 Chat/任务结果。"
+   ],
+   "expected": "六种只读终止结果无内部附件；混合子例保留已实际生成的 PDF，不新增读取附件；终止状态正确，无晚到 file part。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-10",
+   "title": "显式导出贯通矩阵",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1,AC-7",
+   "precondition": "真实上传适配器及可回读存储，普通与 task_run。",
+   "steps": [
+    "worker/bundle 套件在两上下文分别运行 PDF、PNG、MHTML、现有 resource 导出和“读取+PDF”；回读实际存储字节并校验交付链接对应文件；另验证用户明确提供的合法 protobuf 文件仍按既有能力交付。"
+   ],
+   "expected": "各导出类型/内容正确、对应 Chat file part 或任务附件；混合仅交付请求导出；不是禁全部 artifact/二进制/MIME/文件名。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-11",
+   "title": "源码与 stage 单文件包真实读取",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1,AC-4",
+   "precondition": "同一 stag 测试配置，真实 Canary 打开 index/large，分别启动被测源码与 stage 单文件包且能确认 SHA/哈希。",
+   "steps": [
+    "模拟 Chat 客户端发“读取当前测试页，列出提交标识、标题和链接，不导出文件”；观察真实 browser_page.content 调用及下一轮模型输入；对 large 发同类请求，强制一次完整读取，再根据错误建议用 #commit-list 重试。对源码与包各跑一次。"
+   ],
+   "expected": "小页三项正确；大页有界错误和可执行重试建议，缩小成功；无内部上传/附件/保存文件声明，打包后表达式可运行。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-12",
+   "title": "真实空页、拒绝与超时取消",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-5",
+   "precondition": "empty/coverage/navigate 页面，以及实际策略禁止的受限页面；真实浏览器/CDP。",
+   "steps": [
+    "调用 empty；对 coverage 读取隐藏子树、无匹配与非法 selector；读前导航后用旧 expectedUrl；请求受限页面；通过本地测试客户端的 timeout/AbortSignal 制造读取期间超时/取消（不可只中断取日志）。随后立即新请求读取 index。"
+   ],
+   "expected": "分别明确 no_readable_content、相应 selector 错误、active_tab_changed、既有受限码、超时/aborted；无内部附件，下一次正常读取可恢复，session 未泄漏。能力不可用/损坏响应由 T-6 确定性覆盖，不破坏用户浏览器安装来模拟。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-13",
+   "title": "真实双上下文终止",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-6",
+   "precondition": "新隔离 Chat/任务，已记录读取完成；runbook 提供可恢复的隔离超时设置与失败触发方法。",
+   "steps": [
+    "普通与 task_run 各执行读取后后续失败、超时、取消；失败可用无效后续目标触发并确认 worker 实际以失败结束，超时按隔离 worker 时限，取消通过当前客户端/任务取消接口；若模型恢复失败则该子例不算已覆盖。每次重读持久结果。"
+   ],
+   "expected": "六子例终态真实发生，无内部附件/晚到 file part；T-9 不能代替本条。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-14",
+   "title": "真实文件存储回读",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-7",
+   "precondition": "真实 stag 导出链及 index 页、普通与 task_run。",
+   "steps": [
+    "两上下文分别请求 PDF、PNG、MHTML及读取+PDF；经实际交付 URL 下载到本轮证据目录，校验 magic/MIME、大小和哈希；PDF 打开/渲染看到 Fix example，PNG 打开看到提交区，MHTML 在浏览器打开看到提交区。"
+   ],
+   "expected": "均可下载打开，混合仅有 PDF；文件元数据/链接与实际内容一致，无 page.xprotobuf 或其他内部附件。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-15",
+   "title": "普通读取及重新打开会话",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1,AC-8",
+   "precondition": "index 页，清空新对话中的旧附件。",
+   "steps": [
+    "“请使用 browser_page 的 content 读取当前测试页，告诉我提交标识、标题和提交链接。不要导出文件。”发送后以真实 content 完成事件为关键截图点；到终态后等2秒，检查三项答案、全部回复与附件，再重新打开本 QA 会话检查一次。"
+   ],
+   "expected": "abc1234 / Fix example / 指定 commit URL；无附件卡/隐藏 file part、无“已保存/生成文件”声明，持久化后也无。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-16",
+   "title": "原始创建场景与当前时间",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-2",
+   "precondition": "测试 Profile 可匿名访问公开 octocat/Hello-World 提交页；记录服务 UTC 时间，禁止改系统时钟；创建前拍现有 QA 任务清单，区分线上任务。",
+   "steps": [
+    "“每天北京时间 11:00 检查 octocat/Hello-World 最新提交。”在新 QA 对话发送；确认当前交互实际发生页面 content 读取，未发生则记录该事实并另用明确读取请求补测，不以补测替代原场景。等任务创建成功文字后2秒，打开新任务/通过API读记录并拍终态。"
+   ],
+   "expected": "新任务成功，Asia/Shanghai 每天11:00；nextRunAt 为创建时刻之后下一次 UTC03:00（精确历史时钟由T-2验证）；回复没有内部附件和保存文件声明。真实 GitHub 内容按当时页面核对，不套合成答案。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-17",
+   "title": "真正执行一次定时任务",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3",
+   "precondition": "隔离任务内容为读取合成 index；任务描述显式使用测试站，不发 Slack/邮件等通知。",
+   "steps": [
+    "“创建一个测试任务：读取 https://argus-phi.github.io/phi-qa-fixtures/PHI-354/index.html，报告提交标识、标题和提交链接，不导出文件，不发送外部通知。”创建后使用当前任务页“运行”入口执行一次（S9按runbook补控件名称/定位），确认后端执行上下文为 task_run；见运行中状态截图，收到完成后2秒打开结果。"
+   ],
+   "expected": "任务报告三项答案，无内部附件/保存文件声明，持久化结果与界面一致。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-18",
+   "title": "大页错误及缩小读取",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-4,AC-8",
+   "precondition": "large 页完成加载，新对话。",
+   "steps": [
+    "“请用 browser_page content 完整读取当前页面，不设置 selector；报告是否成功，不导出文件。”收到 result_too_large 后2秒截图；随后发送“按照错误提示，使用 content 的 selector #commit-list 重试，只告诉我提交标识、标题和链接，不导出文件。”"
+   ],
+   "expected": "首读明确超限与可操作建议，无静默完整成功；次读三项正确，完整工具响应均≤65,536字节，界面无附件。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-19",
+   "title": "空页与覆盖范围",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-5",
+   "precondition": "分别新开 empty 与 coverage 页，后者等 window.fixtureReady=true 且同源 frame 加载完成。",
+   "steps": [
+    "“用 browser_page content 读取当前页，说明是否有可读正文，不导出文件。”终态2秒截图。coverage 新对话发：“用 browser_page content 读取当前页，列出实际可读的 SENTINEL 标记和覆盖限制，不导出文件。”另发“只读取 selector #hidden-child，报告结果，不导出文件。”每次关键步骤/终态截图。"
+   ],
+   "expected": "empty 诚实无可读内容、不编造提交；coverage 按答案表保留和省略，warnings/coverage存在，隐藏子树不能绕过；无内部附件。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-20",
+   "title": "用户取消与任务终止界面",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-6",
+   "precondition": "T-13 的六种真实终态场景，读取完成事件是触发门槛；同轮可复用对应 API run，但在 Canary 实际显示。",
+   "steps": [
+    "普通聊天取消子例在读成功后立即点击当前 Stop；任务取消子例在读成功后点任务取消。失败/超时子例按T-13控制，期间打开对应聊天/任务结果；每例终态2秒截图，重新打开检查持久结果。"
+   ],
+   "expected": "停止、失败或超时状态可见且与后端一致；无内部附件和迟到文件卡。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [
+    "B1-2"
+   ],
+   "notes": "B1-2 接受 declined：未修改任务 UI 的 minor；产品问题继续记录，未声称已修复。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-21",
+   "title": "显式导出与混合请求（普通交互）",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-7",
+   "precondition": "index 页，四个独立新对话。",
+   "steps": [
+    "“请把当前页面导出为 PDF，给我可下载文件。”；“请把当前页面截图为 PNG，给我可下载文件。”；“请把当前页面保存为 MHTML 归档，给我可下载文件。”；“请先用 browser_page content 阅读当前页并告诉我提交标题，再把当前页面导出为 PDF，给我可下载文件。”终态2秒后拍文件卡；通过用户入口下载并打开，每例再拍打开状态。"
+   ],
+   "expected": "PDF/PNG/MHTML 可打开且包含提交区，混合回复标题正确且仅交付PDF；没有内部读取文件，现有下载入口可用。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [
+    "B1-1"
+   ],
+   "notes": "B1-1 接受 declined：原生预览归浏览器团队且扩展 UI 与基线无差异。问题未修复，未声称 PNG 原生保存通过。浏览器修复后依原步骤真机复验。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-22",
+   "title": "显式导出与混合请求（task_run）",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-7",
+   "precondition": "四个独立QA任务，以T-17方式创建/运行；任务使用合成index、不发外部通知。",
+   "steps": [
+    "将T-21四条动作中的“当前页面”替换为公开index URL作为任务内容，逐个运行。到完成后2秒打开任务结果并拍附件；逐个下载/打开再截图。"
+   ],
+   "expected": "任务渠道分别有可用PDF/PNG/MHTML；读取+PDF仅有PDF且提交标题正确。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-23",
+   "title": "回归证据及验收材料",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-9",
+   "precondition": "回归 r2，无生产代码改动；Wood 已明确本次验收边界。",
+   "steps": [
+    "读取 fix-notes、修复评审、r1 报告和 Wood 的补充评论。",
+    "运行 python3 ../artifacts-wt/PHI-354/qa-scripts/r2-verify.py . ../artifacts-wt。",
+    "核对 declined 理由、未改动 UI 归属、r1 缺陷清单与证据，以及外部 VERIFY 映射 T-21。"
+   ],
+   "expected": "PR head 与 r1 一致，生产代码增量为空，输入/证据真实存在；两项 declined 有可核对理由，未修复状态不改写；无额外本轮阻断项。",
+   "actual": "16/16 材料/Git 检查通过；PR OPEN/draft/base staging；整个 ai-extension 与基线 diff 为空；r1 报告及引用证据存在；仅 B1-1 major、B1-2 minor，按 Wood 的边界接受 declined。本条只执行材料子项，未执行产品运行校验。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-23-checks.json",
+     "caption": "本轮真实执行：16 项只读核验及运行边界"
+    },
+    {
+     "type": "text",
+     "content": "Wood 2026-10-15T05:00:46Z，PHI-376 comment 01a13def-2b1d-7b91-b1db-273224782e53：非本次修复引起的问题，在没有其他阻断项的情况下允许通过本次测试。前一条 comment 01a13deb-707d-78b3-a005-d0f9903da734 将原生图片预览归浏览器团队。",
+     "caption": "已读取原评论；验收边界及外部归属"
+    }
+   ],
+   "bugs": [],
+   "notes": "回归处置核验通过；不代表 AC-1～AC-9 在 r2 再次通过。完整运行验收留给终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-24",
+   "title": "Turbo/pushState 后的真实读取",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-5",
+   "precondition": "stag 测试 Profile 可匿名访问公开 octocat/Hello-World 提交页，真实被测服务；新 QA tab，不改用户已有 tab。",
+   "steps": [
+    "打开 `https://github.com/octocat/Hello-World/commits/master/`；点击一条可见提交链接进行站内 Turbo 跳转，记录 CDP target URL、浏览器 location 与提交标识。用跳转后的实际 URL 调用 browser_page content，核对模型工具结果；再在合成 navigate 页用 `history.pushState` 变更路径，重复记录和读取。每种场景留关键/终态图。"
+   ],
+   "expected": "当前目标页面可读且提供实际页面证据；不能因过期 target URL 误报 active_tab_changed。用真正旧 expectedUrl 调用时仍必须拒绝。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  },
+  {
+   "id": "T-25",
+   "title": "授权协议、frame 空正文与跨 Space 拒绝",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1,AC-5",
+   "precondition": "源码/包分别运行；自己的合成 file HTML、空 iframe、仅隐藏/表单 iframe、真实正文 iframe；自己的 QA Space；只操作本次创建的数据。",
+   "steps": [
+    "对四类页面分别让真实 Chat 调用 content；本地 HTML 应含三项提交证据。对 phi://、chrome:// 内部页发同类读取请求。再在 Space 受限会话请求另一 QA Space 的 tab，一次拒绝后不重试/改 Space。每个变体记录读取完成或拒绝事件，截图关键与终态。"
+   ],
+   "expected": "file HTML 可读；空/隐藏/表单 frame 为 no_readable_content，只有来源标签不能成功；正文 frame 保留文本、有效绝对链接；内部页保持受限；跨 Space 返回 operation_not_allowed，保留 another Space/standalone Phi Chat 的实际策略说明。全部不产生内部附件。",
+   "actual": "本轮未执行；r1 的运行结果保留于上一轮报告，不计本轮通过。",
+   "status": "skipped",
+   "evidence": [],
+   "bugs": [],
+   "notes": "无生产代码改动，不在本轮定向回归执行范围；完整用例留给同 SHA 终测。",
+   "duration_s": 0
+  }
+ ],
+ "bugs": [
+  {
+   "id": "B1-1",
+   "severity": "major",
+   "title": "普通聊天 PNG 附件原生入口仅能预览，已测用户路径无法下载保存（已接受本 PR 范围外 declined；产品未修复）",
+   "case_ids": [
+    "T-21"
+   ],
+   "repro": "在本 SHA 的 local Sidecar/Phi Chat，打开合成提交页并发送“请把当前页面截图为 PNG，给我可下载文件。”；完成后点击 PNG 图片卡，原生图片预览只有缩放；检查 File→页面存储为（不可用）及聊天缩略图右键（通用页面菜单），无法完成保存。已有生成图重新打开复现1/1；预览正文正确、HTTP文件有效。相关Sidecar/shared-ui两文件对基线diff为空，未做基线真机复测，不归因于本PR。",
+   "status": "closed_for_this_pr_accepted_declined; product_issue_unfixed"
+  },
+  {
+   "id": "B1-2",
+   "severity": "minor",
+   "title": "任务详情摘要显示未翻译的 shadowTasks.sections.taskReady（已接受本 PR 范围外 declined；产品未修复）",
+   "case_ids": [
+    "T-20"
+   ],
+   "repro": "打开本轮正常浏览器任务详情，任务状态摘要显示 shadowTasks.sections.taskReady；运行历史与终态实际正常。不影响取消/附件验证，属于本次未修改的任务UI范围。",
+   "status": "closed_for_this_pr_accepted_declined; product_issue_unfixed"
+  }
+ ]
+}
