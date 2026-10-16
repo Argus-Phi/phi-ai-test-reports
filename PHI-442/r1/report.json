@@ -20,7 +20,8 @@
   "Node / pnpm": "22.23.3 / 10.17.1",
   "数据库": "phi_agent_phi442（隔离；收尾删除）",
   "服务": "127.0.0.1:8788，package.env.stage；收尾停止",
-  "Langfuse": "未发送 chat，无本轮 chat trace"
+  "Langfuse": "未发送 chat，无本轮 chat trace",
+  "恢复核验": "原注册版本 2026.10.16.1444，406 个文件 SHA256 与备份一致；测试库已删，端口释放"
  },
  "plan_docs": [
   {
@@ -157,6 +158,13 @@
      "path": "T-2-02.png",
      "caption": "门禁实际输出",
      "attempt": 1
+    },
+    {
+     "type": "text",
+     "path": "cleanup.json",
+     "caption": "收尾核验：隔离库/服务已清理，注册的原版 Sidecar 406 个文件与备份逐一一致",
+     "attempt": 1,
+     "outcome": "pass"
     }
    ],
    "bugs": [],
