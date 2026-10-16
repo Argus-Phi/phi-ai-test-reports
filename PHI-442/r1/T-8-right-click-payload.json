@@ -1,0 +1,30 @@
+{
+  "source": "actual buildWatchPageSend; actual HTTP detail; observed Canary tab id",
+  "effectiveState": {
+    "installed": true,
+    "enabled": true
+  },
+  "payload": {
+    "text": "/watch-page Keep an eye on this page for me: http://127.0.0.1:18949/",
+    "skills": [
+      {
+        "skillId": "built_in:watch-page",
+        "name": "watch-page",
+        "friendlyName": "Watch This Page",
+        "source": "built_in",
+        "version": 1
+      }
+    ],
+    "initialTabs": [
+      {
+        "url": "http://127.0.0.1:18949/",
+        "title": "PHI-442 Watch Fixture",
+        "hostname": "127.0.0.1",
+        "tabId": 1005742450
+      }
+    ],
+    "turnSource": "context_menu_watch_page"
+  },
+  "turnSourceSource": "ai-extension/sidecar/src/hooks/use-watch-page-requests.ts:64",
+  "status": "pass"
+}

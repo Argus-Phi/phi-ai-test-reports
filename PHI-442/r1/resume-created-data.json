@@ -1,0 +1,51 @@
+{
+  "taskCount": 0,
+  "feedbackSubmitsObserved": 0,
+  "qaChats": [
+    {
+      "id": "01a143bb-a211-701f-9fba-a377f24abff2",
+      "title": "监控页面变化"
+    },
+    {
+      "id": "78ee9cb5-1bbb-4b41-a244-e59299d5509b",
+      "title": "PHI-442 T-4 P3 watch smoke"
+    },
+    {
+      "id": "cd07661d-b8fa-4517-9f1f-a143acf9f6b3",
+      "title": "PHI-442 T-4 P3 report smoke"
+    },
+    {
+      "id": "5fa5224b-a105-4df5-b51a-6a4cef19c3ba",
+      "title": "PHI-442 T-4 P2 watch smoke"
+    },
+    {
+      "id": "4a9ee263-9d78-4c8c-b017-19d1c3a8d977",
+      "title": "PHI-442 T-4 P2 report smoke"
+    },
+    {
+      "id": "76199ce0-31c6-4c32-9694-e9bceaeb5444",
+      "title": "PHI-442 T-4 P1 watch smoke"
+    },
+    {
+      "id": "01a143b9-f8d0-7653-9331-c2c4fad745e3",
+      "title": "向 Phi 团队发送对话追踪日志"
+    },
+    {
+      "id": "88c3c808-1a21-4b52-8080-f3deb3aa2ea3",
+      "title": "PHI-442 T-4 P1 watch smoke"
+    },
+    {
+      "id": "08158cb2-318d-4aea-8608-05558a9f8255",
+      "title": "PHI-442 T-4 P1 report smoke"
+    },
+    {
+      "id": "42c49d58-805f-458f-b3ee-b48f81269b32",
+      "title": "PHI-442 T-4 P0 watch smoke"
+    },
+    {
+      "id": "dc1d8be4-9775-4b30-9038-7e44c8810c71",
+      "title": "PHI-442 T-4 P0 report smoke"
+    }
+  ],
+  "qaChatCount": 11
+}

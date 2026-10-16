@@ -1,0 +1,32 @@
+{
+  "managementLabels": [
+    "Ask Memory 已添加 Reads and changes what Phi remembers about the user, and the surfaces Phi builds from that memory. Use whenever the user asks an open q",
+    "Detect Page Tech Stack 添加 Detects which web technologies the user's current page uses — frameworks, web servers, runtimes, analytics, CDNs, edge netwo",
+    "从你的 Skill 库移除 Ask Memory",
+    "禁用 Ask Memory",
+    "删除 PHI-442 QA Control",
+    "编辑 PHI-442 QA Control",
+    "禁用 PHI-442 QA Control"
+  ],
+  "ordinaryDetailReached": true,
+  "refreshHidden": true,
+  "pickerAfterRefresh": [
+    "Phi Browser Help",
+    "Report Chat Trace",
+    "Watch This Page",
+    "Ask Memory",
+    "PHI-442 QA Control"
+  ],
+  "detailAfterRefresh": [
+    {
+      "skill_id": "built_in:report-chat-trace",
+      "installed": true,
+      "enabled": true
+    },
+    {
+      "skill_id": "built_in:watch-page",
+      "installed": true,
+      "enabled": true
+    }
+  ]
+}

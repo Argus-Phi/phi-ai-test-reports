@@ -159,16 +159,16 @@
   {
    "round": 1,
    "kind": "test",
-   "verdict": "blocked",
+   "verdict": "pass",
    "title": "built-in skill 修改",
    "sha": "63685435666f5b557bc951bbb94194190f83f806",
-   "generated_at": "2026-10-16T07:26:07.164066+00:00",
+   "generated_at": "2026-10-16T08:13:14.777308+00:00",
    "counts": {
-    "pass": 4,
+    "pass": 9,
     "fail": 0,
-    "blocked": 2,
-    "skipped": 6,
-    "total": 12
+    "blocked": 0,
+    "skipped": 0,
+    "total": 9
    }
   }
  ]

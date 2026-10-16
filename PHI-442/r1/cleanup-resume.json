@@ -1,0 +1,23 @@
+{
+  "issue": "PHI-442",
+  "based_on": "phi-ai@63685435666f5b557bc951bbb94194190f83f806",
+  "testDatabasesRemaining": 0,
+  "processRecordsRemoved": true,
+  "portsAvailable": {
+    "8788": true,
+    "8789": true,
+    "18949": true,
+    "18950": true
+  },
+  "restoredRegisteredVersion": "2026.10.16.1504",
+  "backupRegisteredVersion": "2026.10.16.1444",
+  "normalUpdaterNote": "After restoring 1444 and launching, normal updater activated pre-existing cached 1504; active files match the pre-test 1504 backup exactly",
+  "registeredFilesChecked": 406,
+  "allRegisteredFilesMatch": true,
+  "productWorktreeClean": true,
+  "testTaskCountBeforeCleanup": 0,
+  "qaChatsRemovedWithDatabase": 11,
+  "nativeTestTabsClosed": true,
+  "agentSpaceClosed": true,
+  "canaryNoLoadExtension": true
+}

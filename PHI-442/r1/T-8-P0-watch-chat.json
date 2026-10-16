@@ -1,0 +1,345 @@
+{
+  "caseId": "T-8",
+  "preference": "P0",
+  "skillId": "built_in:watch-page",
+  "natural": true,
+  "chatId": "01a143bb-a211-701f-9fba-a377f24abff2",
+  "startedAt": "2026-10-16T08:06:55.460Z",
+  "events": [
+    {
+      "event": "task_route",
+      "sessionId": "utt-l",
+      "type": "task_route",
+      "isTask": true,
+      "skill": "watch-page",
+      "skillId": "built_in:watch-page",
+      "objective": "监控这个页面的变化"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "run_started",
+      "objective": "Run the watch-page skill on the current browser tab."
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_start",
+      "round": 1
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_text",
+      "round": 1,
+      "text": "我先读取“页面监控”技能的流程，再按它的步骤为当前页面设置监控。"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba0de5487d29243cafba23e203e",
+      "toolId": "skill",
+      "capabilityId": "skill.read_file",
+      "sidecarDisplayName": "Skill"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_args",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba0de5487d29243cafba23e203e",
+      "delta": "{\"action\":\"read_file\",\"input\":{\"skill\":\"built_in:watch-page\",\"path\":\"SKILL.md\"}}"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_end",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba0de5487d29243cafba23e203e"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba0de5487d29243cafba23e203e",
+      "content": "{\"ok\":true,\"path\":\"SKILL.md\",\"content\":\"---\\nname: watch-page\\nfriendly-name: Watch This Page\\ndescription: Sets up a scheduled task that keeps checking a web page and reports back into this conversation when something the user cares about changes (a price, new articles, stock, an announcement). Use it when the user asks you to watch, monitor, track or keep an eye on a page, including equivalent requests in any language. It asks the user a few short questions first, then creates the schedule. For setting up only; never run it inside a background task run.\\n---\\n\\n## Changing a watch that exists\\n\\nThis skill sets a watch up. When the user wants to change one that exists (how often, how reports are written, what it watches or the page, when it stops, whether it reports every run or only changes, pausing, resuming, deleting), do not run the steps below and do not ask the setup questions again: change it directly. Find it with `schedule.list` (in this conversation, the task it created is the one marked `inThisConversation: true`), then use `task.update` (objective, title, report policy, stop condition, muting) or `schedule.update` / `schedule.pause` / `schedule.resume` (frequency, end, pausing), or `task.delete` to delete it.\\n\\n## Goal\\n\\nTurn \\\"watch this page\\\" into a scheduled task that checks the page, compares with earlier checks, and tells the user only what they care about. This run sets the task up; every later check is done by the task itself.\\n\\n## Steps\\n\\n1. **Read the page.** The page to watch is the tab attached to the message, or the URL in it. Read it and work out what kind of page it is: a product page, a news or list page, an announcement or status page, something else. You use this for the examples and defaults below. If the page cannot be read, say why and stop; create nothing.\\n\\n2. **Ask, one question at a time, in this order.** Skip a question the user already answered or that the page makes obvious. Ask at most 5 questions in all.\\n   1. **Purpose** — `ask_user.question`. Offer 2 or 3 concrete examples taken from the page (\\\"the price of this laptop dropping\\\", \\\"new articles in this list\\\", \\\"it coming back in stock\\\").\\n   2. **What to watch, and what is worth telling** — `ask_user.question`: which part of the page, and what counts (a price threshold, a keyword, any new item). Skip it when the purpose already says it.\\n   3. **How often** — `ask_user.ask` with one `select` field: every 30 minutes, every hour, every 3 hours, once a day, custom. Preselect every hour for a price or stock, every 3 hours for news or lists, otherwise every hour. Add a field for the time of day, a `datetime` field with `mode` `time` and default 09:00, with `showWhen` naming the frequency field and its once-a-day value, so it appears only when the user picks once a day. Add a `text` field for the custom frequency, with `showWhen` naming the frequency field and its custom value, and a placeholder showing that both plain words and a cron expression work, written in the user's language like the rest of the card: translate the plain-words examples, keep the cron expression as it is (in English: \\\"every 15 minutes\\\", \\\"weekdays at 9:00\\\" or `0 9 * * 1-5`).\\n   4. **Report format** — `ask_user.question`, skippable: how the user wants each report written. Skipped means you choose a short, clear format.\\n   5. **How long** — `ask_user.question`, skippable: until a date, until something happens, or until they stop it. A date becomes `endsAt` and nothing else; \\\"until X happens\\\" becomes `stopCondition`; give both only when the user named a date and an event; skipped means until the user stops it.\\n\\n3. **Create the schedule** with `schedule.create`:\\n   - `schedule`: every 30 minutes is `{\\\"kind\\\":\\\"every\\\",\\\"everyMs\\\":1800000}`, every hour `3600000`, every 3 hours `10800000`; once a day is a `cron` at the chosen local time (follow the `schedule.create` rules for the time zone).\\n   - A custom frequency is the user's own words: a fixed interval (\\\"every 15 minutes\\\", \\\"twice an hour\\\") is `every` with its milliseconds; calendar times (\\\"weekdays at 9:00\\\", \\\"every Monday morning\\\") are a `cron` at local time; a cron expression the user typed is used as written, as a `cron`. If the words do not name a frequency, or name one shorter than 30 seconds (the shortest `schedule.create` takes), ask that question again in a plain message, saying why.\\n   - `reportPolicy: \\\"on_change\\\"`, plus `endsAt` (ISO 8601 with its offset; call `time.now` first for a relative date) and `stopCondition` when the user gave them.\\n   - `runObjective`, written from this template: open <URL>; look at <what to watch>; the user wants to hear when <what is worth telling>; write the report as <format>; always state the concrete values observed this time; compare with the earlier results the run is given; only read the page — interact with it only as far as it takes to see what is watched, never to buy, sign in, submit anything or change anything; read the values only from that page — if it cannot be read, say so and never take them from a search or another site.\\n   - Name what is watched the way the user would, not by the codes or labels the page shows for it: a redesign or a new version of the page can change those.\\n   - A short `title` naming the page and what is watched.\\n\\n4. **Confirm** in one short reply: a list with one line per setting — what you watch and why, what counts as worth telling, how often, how each report is written, and when it stops — naming the default you picked for any skipped question. Then say the first check reports the page as it is now, as the baseline, and later checks report only changes; and that the user can change any of it by asking here, or from this conversation's task panel.\\n\\n## When something goes wrong\\n\\n- **A question was skipped:** use the default and say so in the confirmation.\\n- **A question timed out, or its card was lost:** stop here. Say what you already know and what is still missing; the user's next reply continues from there, and you ask only what is missing.\\n- **`ask_user` is not available:** ask the remaining questions together in one plain message and stop.\\n- **`schedule.create` refused the end or the schedule:** fix what it names and try once more; if it fails again, tell the user what went wrong.\\n\"}",
+      "isError": false,
+      "toolId": "skill",
+      "capabilityId": "skill.read_file",
+      "sidecarDisplayName": "Skill",
+      "emitter": "skill.read_file"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_end",
+      "round": 1
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_start",
+      "round": 2
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_text",
+      "round": 2,
+      "text": "我先查看当前页面的内容，确认适合监控哪些变化。"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba4bcc887d2b0c80fde51efc182",
+      "toolId": "browser_page",
+      "capabilityId": "browser_page.content",
+      "sidecarDisplayName": "Browser page"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_args",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba4bcc887d2b0c80fde51efc182",
+      "delta": "{\"action\":\"content\",\"input\":{\"action\":\"content\",\"tabId\":0,\"expectedUrl\":\"http://127.0.0.1:18949/\",\"includeActionableInformation\":false}}"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_end",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba4bcc887d2b0c80fde51efc182"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba4bcc887d2b0c80fde51efc182",
+      "content": "{\"ok\":false,\"error\":{\"code\":\"resource_not_found\",\"message\":\"tab 0 has no live page target\",\"retryable\":false}}",
+      "isError": true,
+      "toolId": "browser_page",
+      "capabilityId": "browser_page.content",
+      "sidecarDisplayName": "Browser page",
+      "emitter": "browser_page.content",
+      "errorCode": "resource_not_found",
+      "error": {
+        "code": "resource_not_found"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_end",
+      "round": 2
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_start",
+      "round": 3
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_text",
+      "round": 3,
+      "text": "我来从当前页面读取监控项及其当前值，以便把监控目标说具体。"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute",
+      "sidecarDisplayName": "Browser Task"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_args",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "delta": "{\"action\":\"execute\",\"objective\":\"读取当前页面 PHI-442 Watch Fixture 的可见内容，确认页面类型、当前状态和可监控的具体项目/数值。\",\"language\":\"Chinese\",\"mode\":\"current-tab\",\"activeTabId\":null,\"messageId\":null}"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_end",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "browser_session_progress",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "payload": {
+        "type": "step_started",
+        "step": 1,
+        "note": "先看看当前页面显示的监控内容和页面状态。"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "browser_session_progress",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "payload": {
+        "type": "step_finished",
+        "step": 1,
+        "ok": true,
+        "durationMs": 28,
+        "note": "先看看当前页面显示的监控内容和页面状态。",
+        "code": "const p = phi.observe({maxElements:120}); return {url:p.url,title:p.title,viewport:p.viewport,total:p.total,nodes:p.nodes,text:p.text};",
+        "url": "http://127.0.0.1:18949/",
+        "result": "{\"url\":\"http://127.0.0.1:18949/\",\"title\":\"PHI-442 Watch Fixture\",\"viewport\":{\"w\":711,\"h\":756,\"scrollY\":0,\"pageH\":259,\"offscreen\":0},\"total\":1,\"nodes\":[{\"ref\":1,\"backendNodeId\":3,\"role\":\"heading\",\"name\":\"PHI-442 Watch Fixture\"}],\"text\":\"PHI-442 Watch Fixture Status: unchanged Price: 100 QA credits Public synthetic content for automated browser tests. No account required.\"}"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "browser_session_progress",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "payload": {
+        "type": "step_started",
+        "step": 2,
+        "note": "页面文字显示状态为 unchanged、价格为 100 QA credits；再看一眼可见区域，确认这是哪类监控页面。"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "browser_session_progress",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "payload": {
+        "type": "step_finished",
+        "step": 2,
+        "ok": false,
+        "durationMs": 3047,
+        "note": "页面文字显示状态为 unchanged、价格为 100 QA credits；再看一眼可见区域，确认这是哪类监控页面。",
+        "code": "const visible = phi.readImage(undefined, \"请读取页面上可见的文字，并说明它呈现的是哪类页面、当前状态，以及可监控的项目和值。\"); phi.keep(\"phi442\", {url:\"http://127.0.0.1:18949/\", title:\"PHI-442 Watch Fixture\", pageText:\"PHI-442 Watch Fixture; Status: unchanged; Price: 100 QA credits; Public synthetic content for automated browser tests. No account required.\", visualRead:visible}); return {visible};",
+        "url": "http://127.0.0.1:18949/",
+        "errorKind": "sandbox_error",
+        "error": "target not found: null"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "browser_session_progress",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "payload": {
+        "type": "step_started",
+        "step": 3,
+        "note": "页面可见文字已说明状态和价格；再整理页面类型及可监控项目。"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "browser_session_progress",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "payload": {
+        "type": "step_finished",
+        "step": 3,
+        "ok": true,
+        "durationMs": 15,
+        "note": "页面可见文字已说明状态和价格；再整理页面类型及可监控项目。",
+        "code": "const p=phi.observe({maxElements:120}); const evidence={url:p.url,title:p.title,pageText:p.text,nodes:p.nodes.map(n=>({role:n.role,name:n.name})),viewport:p.viewport}; phi.keep(\"phi442\",evidence); return evidence;",
+        "url": "http://127.0.0.1:18949/",
+        "result": "{\"url\":\"http://127.0.0.1:18949/\",\"title\":\"PHI-442 Watch Fixture\",\"pageText\":\"PHI-442 Watch Fixture Status: unchanged Price: 100 QA credits Public synthetic content for automated browser tests. No account required.\",\"nodes\":[{\"role\":\"heading\",\"name\":\"PHI-442 Watch Fixture\"}],\"viewport\":{\"w\":711,\"h\":756,\"scrollY\":0,\"pageH\":259,\"offscreen\":0}}"
+      }
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dba8e6d487d28e23a6a6d0d37ae5",
+      "content": "当前页面是 **PHI-442 Watch Fixture**，页面说明其为供自动化浏览器测试使用的公开合成内容。当前状态为 **unchanged**。可监控项目为 **Price**，数值为 **100 QA credits**。页面注明无需账户。",
+      "isError": false,
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute",
+      "sidecarDisplayName": "Browser Task",
+      "emitter": "browser_task.execute"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_end",
+      "round": 3
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_start",
+      "round": 4
+    },
+    {
+      "event": "worker_progress",
+      "kind": "round_text",
+      "round": 4,
+      "text": "页面有“状态”和“价格”两项；想重点留意哪类变化？例如价格从 100 QA credits 下跌、状态不再是 unchanged，或任一数值变化。"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dbcdd80887d291825d4ab49e87f6",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question",
+      "sidecarDisplayName": "Ask user"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_args",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dbcdd80887d291825d4ab49e87f6",
+      "delta": "{\"action\":\"question\",\"input\":{\"action\":\"question\",\"question\":\"你希望我重点留意页面的哪类变化？例如价格从 100 QA credits 下跌、状态从 unchanged 改变，或两者任一变化。\",\"placeholder\":\"例如：监控价格变化；或：价格低于 90 时告诉我\",\"allowSkip\":true}}"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_end",
+      "toolCallId": "fc_0f921e2e1460f09f006ad1dbcdd80887d291825d4ab49e87f6"
+    },
+    {
+      "event": "user_action_request",
+      "runId": "01a143c1-dd67-7768-b3a9-741d80404a6a",
+      "requestId": "ask-user-afad4c50-28d8-4ca3-a722-d8dea1b63be0",
+      "origin": "model",
+      "kind": "select",
+      "title": "你希望我重点留意页面的哪类变化？",
+      "description": "你希望我重点留意页面的哪类变化？例如价格从 100 QA credits 下跌、状态从 unchanged 改变，或两者任一变化。",
+      "options": [
+        {
+          "id": "skip",
+          "label": "Skip",
+          "variant": "outline",
+          "skipsFields": true
+        },
+        {
+          "id": "submit",
+          "label": "Submit",
+          "variant": "default"
+        }
+      ],
+      "fields": [
+        {
+          "id": "answer",
+          "type": "text",
+          "label": "Your answer",
+          "multiline": true,
+          "required": true,
+          "placeholder": "例如：监控价格变化；或：价格低于 90 时告诉我"
+        }
+      ],
+      "allowSkip": true,
+      "style": "question"
+    }
+  ],
+  "card": {
+    "runId": "01a143c1-dd67-7768-b3a9-741d80404a6a",
+    "requestId": "ask-user-afad4c50-28d8-4ca3-a722-d8dea1b63be0",
+    "origin": "model",
+    "kind": "select",
+    "title": "你希望我重点留意页面的哪类变化？",
+    "description": "你希望我重点留意页面的哪类变化？例如价格从 100 QA credits 下跌、状态从 unchanged 改变，或两者任一变化。",
+    "options": [
+      {
+        "id": "skip",
+        "label": "Skip",
+        "variant": "outline",
+        "skipsFields": true
+      },
+      {
+        "id": "submit",
+        "label": "Submit",
+        "variant": "default"
+      }
+    ],
+    "fields": [
+      {
+        "id": "answer",
+        "type": "text",
+        "label": "Your answer",
+        "multiline": true,
+        "required": true,
+        "placeholder": "例如：监控价格变化；或：价格低于 90 时告诉我"
+      }
+    ],
+    "allowSkip": true,
+    "style": "question"
+  },
+  "runIds": [
+    "a0388432-db4c-4f6e-b119-f6d8e9dce0f7",
+    "01a143c1-dd67-7768-b3a9-741d80404a6a"
+  ],
+  "surface": "native sidebar",
+  "cardOutcome": "cancelled"
+}

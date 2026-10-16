@@ -1,0 +1,94 @@
+{
+  "caseId": "T-4",
+  "preference": "P2",
+  "skillId": "built_in:report-chat-trace",
+  "natural": false,
+  "chatId": "4a9ee263-9d78-4c8c-b017-19d1c3a8d977",
+  "clientRunId": "374daa9d-5854-48f5-9998-4d975b6cb6ed",
+  "startedAt": "2026-10-16T08:03:19.810Z",
+  "events": [
+    {
+      "event": "worker_progress",
+      "kind": "skill_load",
+      "skillId": "built_in:report-chat-trace",
+      "name": "report-chat-trace",
+      "status": "loaded"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "chat_trace",
+      "capabilityId": "chat_trace.export"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "chat_trace",
+      "capabilityId": "chat_trace.export",
+      "isError": true
+    }
+  ],
+  "runIds": [
+    "374daa9d-5854-48f5-9998-4d975b6cb6ed",
+    "01a143bc-b775-7289-b36c-6118e099946c"
+  ],
+  "card": {
+    "runId": "01a143bc-b775-7289-b36c-6118e099946c",
+    "requestId": "ask-user-fd5b787f-39ce-48d1-93d3-51ae43a282cc",
+    "kind": "confirm",
+    "title": "Share this conversation's trace?",
+    "description": "Phi will save this conversation's trace (your messages, the replies, page content and tool results) as a log file and send it to the Phi team with your feedback.",
+    "risk": "medium",
+    "options": [
+      {
+        "id": "confirm",
+        "label": "Share",
+        "variant": "default"
+      },
+      {
+        "id": "deny",
+        "label": "Don't share",
+        "variant": "outline",
+        "skipsFields": true
+      }
+    ],
+    "fields": [
+      {
+        "id": "note",
+        "type": "text",
+        "label": "Anything you want to add? (optional)",
+        "multiline": true,
+        "maxLength": 2000,
+        "default": "把这段对话的追踪日志发给 Phi 团队"
+      }
+    ],
+    "messages": {
+      "title": {
+        "key": "chatTrace.consent.title"
+      },
+      "description": [
+        {
+          "key": "chatTrace.consent.body"
+        }
+      ],
+      "options": {
+        "confirm": {
+          "key": "chatTrace.consent.share"
+        },
+        "deny": {
+          "key": "chatTrace.consent.dontShare"
+        }
+      },
+      "fields": {
+        "note": {
+          "label": {
+            "key": "chatTrace.consent.noteLabel"
+          }
+        }
+      }
+    }
+  },
+  "cardAt": "2026-10-16T08:03:28.445Z",
+  "finishedAt": "2026-10-16T08:03:30.447Z",
+  "cardOutcome": "denied"
+}

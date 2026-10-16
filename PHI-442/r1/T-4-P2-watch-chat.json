@@ -1,0 +1,88 @@
+{
+  "caseId": "T-4",
+  "preference": "P2",
+  "skillId": "built_in:watch-page",
+  "natural": false,
+  "chatId": "5fa5224b-a105-4df5-b51a-6a4cef19c3ba",
+  "clientRunId": "3c2d4e9b-f2c8-407e-832b-346f029af85f",
+  "startedAt": "2026-10-16T08:03:30.529Z",
+  "events": [
+    {
+      "event": "worker_progress",
+      "kind": "skill_load",
+      "skillId": "built_in:watch-page",
+      "name": "watch-page",
+      "status": "loaded"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute",
+      "isError": false
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question",
+      "isError": true
+    },
+    {
+      "event": "worker_progress",
+      "kind": "run_result"
+    }
+  ],
+  "runIds": [
+    "3c2d4e9b-f2c8-407e-832b-346f029af85f",
+    "01a143bc-e048-756b-853b-aa8a64c0cb05"
+  ],
+  "card": {
+    "runId": "01a143bc-e048-756b-853b-aa8a64c0cb05",
+    "requestId": "ask-user-dcec0f85-b772-4e79-bead-7f945cd21814",
+    "origin": "model",
+    "kind": "select",
+    "title": "你希望我重点监控页面的哪些变化、什么情况值得通知？",
+    "description": "你希望我重点监控页面的哪些变化、什么情况值得通知？例如状态从 unchanged 变为其他值、价格 100 QA credits 改变，或页面上任何新增/变更内容。",
+    "options": [
+      {
+        "id": "skip",
+        "label": "Skip",
+        "variant": "outline",
+        "skipsFields": true
+      },
+      {
+        "id": "submit",
+        "label": "Submit",
+        "variant": "default"
+      }
+    ],
+    "fields": [
+      {
+        "id": "answer",
+        "type": "text",
+        "label": "Your answer",
+        "multiline": true,
+        "required": true,
+        "placeholder": "例如：状态变化或价格变化都通知我"
+      }
+    ],
+    "allowSkip": true,
+    "style": "question"
+  },
+  "cardAt": "2026-10-16T08:04:02.416Z",
+  "finishedAt": "2026-10-16T08:04:04.418Z",
+  "cardOutcome": "cancelled"
+}

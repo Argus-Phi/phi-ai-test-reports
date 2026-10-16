@@ -1,0 +1,80 @@
+{
+  "summary": [
+    {
+      "version": "head",
+      "entries": [
+        {
+          "skill_id": "built_in:phi-browser-help",
+          "source": "built_in",
+          "name": "phi-browser-help",
+          "installed": true,
+          "enabled": true,
+          "readStatus": 200
+        },
+        {
+          "skill_id": "built_in:memory-agent",
+          "source": "built_in",
+          "name": "memory-agent",
+          "installed": true,
+          "enabled": true,
+          "readStatus": 200
+        },
+        {
+          "skill_id": "built_in:show-page-tech-stack",
+          "source": "built_in",
+          "name": "show-page-tech-stack",
+          "installed": false,
+          "enabled": true,
+          "readStatus": 200
+        },
+        {
+          "skill_id": "user_disk:6b5f0b3a719a85307f0528862f205906",
+          "source": "user",
+          "name": "phi442-qa-control",
+          "installed": true,
+          "enabled": true,
+          "readStatus": 200
+        }
+      ]
+    },
+    {
+      "version": "merge-base",
+      "entries": [
+        {
+          "skill_id": "built_in:phi-browser-help",
+          "source": "built_in",
+          "name": "phi-browser-help",
+          "installed": true,
+          "enabled": true,
+          "readStatus": 200
+        },
+        {
+          "skill_id": "built_in:memory-agent",
+          "source": "built_in",
+          "name": "memory-agent",
+          "installed": true,
+          "enabled": true,
+          "readStatus": 200
+        },
+        {
+          "skill_id": "built_in:show-page-tech-stack",
+          "source": "built_in",
+          "name": "show-page-tech-stack",
+          "installed": false,
+          "enabled": true,
+          "readStatus": 200
+        },
+        {
+          "skill_id": "user_disk:6b5f0b3a719a85307f0528862f205906",
+          "source": "user",
+          "name": "phi442-qa-control",
+          "installed": true,
+          "enabled": true,
+          "readStatus": 200
+        }
+      ]
+    }
+  ],
+  "equivalent": true,
+  "baseline_sha": "a1339e14c031e51a5b2e095d1237abd7b5ec2ddb"
+}

@@ -1,0 +1,40 @@
+{
+  "caseId": "T-4",
+  "preference": "P1",
+  "skillId": "built_in:watch-page",
+  "natural": false,
+  "chatId": "88c3c808-1a21-4b52-8080-f3deb3aa2ea3",
+  "clientRunId": "22ac2a2d-026f-4ba7-8a3d-de6e69a4537d",
+  "startedAt": "2026-10-16T07:57:13.967Z",
+  "events": [
+    {
+      "event": "worker_progress",
+      "kind": "skill_load",
+      "skillId": "built_in:watch-page",
+      "name": "watch-page",
+      "status": "loaded"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute",
+      "isError": false
+    },
+    {
+      "event": "worker_progress",
+      "kind": "run_result",
+      "summary": "我没能读取当前页面：浏览器显示当前标签是空白页，因此无法判断要监控哪些变化，也没有创建监控。请打开你要监控的页面后再告诉我，或直接发来页面链接。"
+    }
+  ],
+  "runIds": [
+    "22ac2a2d-026f-4ba7-8a3d-de6e69a4537d",
+    "01a143b7-248c-75df-98ed-f0c0fc6a400d"
+  ]
+}

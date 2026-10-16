@@ -1,50 +1,55 @@
 {
  "issue": "PHI-442",
- "based_on": "PHI-442/runbook.md@5f9e98a482bc715693b60529e87d96c9e1f4c3e4, phi-ai@63685435666f5b557bc951bbb94194190f83f806",
+ "based_on": "PHI-442/spec.md@0e71ab959f333d456d383bd4562f2115b99e3263, PHI-442/runbook.md@97262e2f825acb56376fe6c669d7cfaf4029b06b, phi-ai@63685435666f5b557bc951bbb94194190f83f806",
  "key": "PHI-442",
  "title": "built-in skill 修改",
  "work_type": "feature",
  "round": 1,
  "kind": "test",
- "verdict": "blocked",
- "pr_allowed": false,
- "summary": "本轮未完成：12 条计划中 4 条通过（T-1 扣除已核实的范围外基线问题）、2 条阻塞、6 条未执行。已完成自动化门禁、真实 API 与 Canary 管理页验证；P0～P3 状态和管理锁的 API 部分符合预期。runbook 缺少真实 stag 反馈接收端禁用通知的配置及核验方法，T-7 无法满足前置条件；未执行的聊天、右键与后台用例不能判通过，AI 测试和审查不允许提交 PR。",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "已纳入 Wood 的补充，按修订 spec 收敛为 9 条用例，全部完成并通过，无本 PR 新增 blocker/major。管理隐藏、72 组真实 API、P0～P3 八次显式加载、两个自然语言入口、后台静态边界及普通技能冒烟均有实际证据。chat 套件的既有 PHI-415/416 已做 merge-base 对照并单列；失败的前置/脚本尝试分组保留。AI 测试和审查允许提交 PR。",
  "sha": "63685435666f5b557bc951bbb94194190f83f806",
  "branch": "PHI-442-hide-built-in-skills",
  "pr_url": "https://github.com/phibrowser/phi-ai/pull/590",
- "generated_at": "2026-10-16T07:26:07.164066+00:00",
+ "generated_at": "2026-10-16T08:13:14.777308+00:00",
  "environment": {
   "机器": "专用 macOS 26.6.2 测试机",
   "Phi Canary": "2026.10.16.0208",
   "Sidecar": "build:local / 100.0.0 / 同 SHA 快照",
   "Node / pnpm": "22.23.3 / 10.17.1",
-  "数据库": "phi_agent_phi442（隔离；收尾删除）",
-  "服务": "127.0.0.1:8788，package.env.stage；收尾停止",
-  "Langfuse": "未发送 chat，无本轮 chat trace",
-  "恢复核验": "原注册版本 2026.10.16.1444，406 个文件 SHA256 与备份一致；测试库已删，端口释放"
+  "数据库": "phi_agent_phi442 与 phi_agent_phi442_baseline（独立测试库，收尾删除）",
+  "服务": "被测 8788 / 基线 8789，均 stag 配置",
+  "Langfuse": "已确认 Phi Agent - dev；11 条脱敏 trace，含 1 次失败尝试",
+  "恢复核验": "原包注册恢复后启动正常自动激活开工前已缓存 1504；活动版本 406 个文件与开工备份一致，无本地加载参数；两个库删除、四端口释放",
+  "续测依据": "spec r2 0e71ab959 / runbook 97262e2f8；代码 SHA 未变"
  },
  "plan_docs": [
   {
-   "title": "test-plan.md（含手测方案及本轮校准）",
+   "title": "test-plan.md（修订后 9 条，含手测方案）",
    "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-442/test-plan.md"
   },
   {
-   "title": "runbook.md@5f9e98a482bc",
-   "url": "https://github.com/phibrowser/phi-ai/blob/5f9e98a482bc715693b60529e87d96c9e1f4c3e4/PHI-442/runbook.md"
+   "title": "spec.md@0e71ab959",
+   "url": "https://github.com/phibrowser/phi-ai/blob/0e71ab959f333d456d383bd4562f2115b99e3263/PHI-442/spec.md"
+  },
+  {
+   "title": "runbook.md@97262e2f8",
+   "url": "https://github.com/phibrowser/phi-ai/blob/97262e2f825acb56376fe6c669d7cfaf4029b06b/PHI-442/runbook.md"
   }
  ],
  "cases": [
   {
    "id": "T-1",
-   "title": "自动化行为与执行边界回归",
+   "title": "自动化行为回归",
    "priority": "P1",
    "mode": "auto",
    "ac": "AC-1～8",
-   "precondition": "- 对应：AC-1～8；mode: auto；前置：精确 SHA、依赖已安装。",
+   "precondition": "- 对应 AC-1～8；mode: auto。前置：精确 SHA 和依赖。",
    "steps": [
-    "仓库根依次运行 `pnpm --filter @phi-ai/dsh-plugin-skills test` 和 `pnpm --filter @phi-ai/dsh-plugin-chat test`；在 `ai-extension/sidecar` 运行 `pnpm exec tsx --test src/lib/skill-meta.drift.test.ts src/components/skill-selection.test.ts src/lib/watch-page-send.test.ts`；在 `phi-agent-dsh/plugins/worker` 运行 `pnpm exec tsx --test src/lib/backends/__tests__/skills-port.test.ts src/lib/delegated-run/run-skills.test.ts`。"
+    "运行 skills/chat 插件完整 test；Sidecar 的 skill-meta.drift、skill-selection、watch-page-send；worker 的 skills-port、run-skills 定向套件（命令见 runbook）。"
    ],
-   "expected": "已有相关行为套件通过，无失败或意外跳过；真实 service→provider/router 的新增集成断言按评审确认存在。该结果只证明套件，不能代替 T-3～12；auto-trigger 的内部一致性不作为 AC-3/4 调用证据（S6 Anton A-1）。",
+   "expected": "本次范围无新增失败；已有失败须实际 merge-base 对照并引用 PBL，不隐藏非零退出。保存命令/计数/异常片段和摘要截图。",
    "actual": "skills 316/316、Sidecar 定向 12/12、worker 40/40。chat 全套 1161 项：1155 pass、1 fail、5 cancelled，非全绿。基线 chat 1160 项：1158 pass、2 fail；位置均为既有 tabInSpace / report deadline。deadline 定向在分支与基线各重复 3 次，均 11 pass / 5 cancelled。引用 PHI-415、PHI-416，未发现本 PR 新增失败；本用例按排除范围外既有问题后通过。",
    "status": "pass",
    "uses_chat": false,
@@ -92,15 +97,15 @@
   },
   {
    "id": "T-2",
-   "title": "类型、构建和真实启动门禁",
+   "title": "类型、构建与启动",
    "priority": "P1",
    "mode": "auto",
    "ac": "AC-3、AC-8",
-   "precondition": "- 对应：AC-3、AC-8；mode: auto；前置：T-1 同一 SHA。",
+   "precondition": "- 对应 AC-3、AC-8；mode: auto。前置：T-1 同 SHA。",
    "steps": [
-    "根运行 `pnpm type-check`；若 linked 包受影响按仓库说明强制 `tsc -b --force` 后再查。对本 PR 改动 TS 跑 `pnpm exec eslint --no-warn-ignored <文件>`，全部改动文件跑 `pnpm exec prettier --check --ignore-unknown <文件>`。运行 `pnpm --filter @phi-ai/sidecar build`；在 `phi-agent-dsh` 有界运行 `PORT=0 pnpm dev:self-hosted`，取到 `Starting phi-agent server on 127.0.0.1:0` 对应 ready 日志后停止该进程树。"
+    "根 pnpm type-check；chat 引用链 tsc -b --force --emitDeclarationOnly；改动 TS ESLint、全部改动文件 Prettier；Sidecar 普通 build；隔离库 PORT=0 dev:self-hosted，ready 后停止。GUI 另用 build:local。"
    ],
-   "expected": "检查与构建通过，真实服务可 ready；语法启动不算调用通过。不执行格式化、自动修复或修改产品代码。之后 GUI 使用重新构建的 build:local，不误装普通 build。",
+   "expected": "门禁和构建成功，服务真实 ready。只读检查，不运行格式化/修复。证据为门禁结果、ready/清理日志及截图。",
    "actual": "根 type-check 56/56（缓存），chat 引用链 tsc -b --force --emitDeclarationOnly 成功；ESLint 0 errors / 39 warnings；Prettier 成功。Sidecar 普通 build 与 build:local 成功。独立隔离库 PORT=0 实际 ready，随后已停止。8788 同 SHA 实际 ready，认证 API 200。",
    "status": "pass",
    "uses_chat": false,
@@ -161,26 +166,26 @@
     },
     {
      "type": "text",
-     "path": "cleanup.json",
-     "caption": "收尾核验：隔离库/服务已清理，注册的原版 Sidecar 406 个文件与备份逐一一致",
-     "attempt": 1,
+     "path": "cleanup-resume.json",
+     "caption": "续测收尾：两个库删除、四端口释放、本地快照撤下；正常 updater 激活开工前已缓存 1504，406 个文件与备份一致",
+     "attempt": 2,
      "outcome": "pass"
     }
    ],
    "bugs": [],
-   "notes": ""
+   "notes": "沿用同一 S9 r1、同一代码 SHA 已执行门禁；本次额外重新 build:local 并实际启动本分支与独立基线服务。"
   },
   {
    "id": "T-3",
-   "title": "管理过滤在计数和分页前生效",
+   "title": "管理过滤、搜索和分页",
    "priority": "P0",
    "mode": "api",
-   "ac": "AC-1、AC-2、AC-8",
-   "precondition": "- 对应：AC-1、AC-2、AC-8；mode: api；前置：本地真实服务、普通 built-in 和用户 skill 控制项存在。",
+   "ac": "AC-1、AC-2",
+   "precondition": "- 对应 AC-1、AC-2；mode: api。前置：隔离服务有普通 built-in 和合成用户控制 skill。",
    "steps": [
-    "读取未排除系统项的完整目录；以现有隐藏系统项及两个目标 ID 为排除集，在客户端计算普通期望集合。对管理页实际查询分别请求推荐、All、Built-in、My skills；搜索四个显示名/slug，并补一个普通控制项搜索。使用 `GET /api/skills`、`exclude_meta=true` 和管理页实际 query 参数；分别 page_size=1、2，遍历到 has_more=false，另请求末页后一页。记录服务实际支持的参数和响应原文，S9 先据 handler/runbook 校准，不猜参数。"
+    "客户端以完整目录计算排除五个管理系统 ID 的期望集合；对 include_uninstalled 两值、all/built_in/user、四目标查询和普通控制查询，page_size=1/2 遍历及请求越界页；推荐目录用 built_in/include_uninstalled=true。使用 `qa-scripts/api-r1.cjs`，其管理锁部分同时取证 T-4。"
    ],
-   "expected": "目标 ID 从 items、推荐和匹配总数移除；total=N，total_pages/has_more 与 N 和页容量一致；拼接结果与普通期望集合按原顺序完全一致，无重复、漏项或隐藏空位；无匹配搜索为零且无卡片。尾页/越界页沿用基线规则。默认不排除的聊天目录仍有两个目标。",
+   "expected": "items/total/total_pages/has_more、容量和顺序均匹配，无隐藏空位、重复或漏项；四目标查询为零，普通控制可搜。接口零结果 total_pages=0 沿用基线。证据为响应摘要/差异和截图。",
    "actual": "真实服务覆盖 include_uninstalled=true/false、All/Built-in/User、6 种搜索、page_size=1/2，共 72 组分页；客户端从未过滤目录计算期望集合，逐页内容、顺序、total、total_pages、has_more、越界页完全一致。推荐目录 13 个普通 built-in，含用户控制项时 All 全目录 14；默认已安装目录 All=3 / Built-in=2 / User=1。四种目标名称/slug 查询均无目标。未隐藏的聊天目录含两目标。",
    "status": "pass",
    "uses_chat": false,
@@ -208,59 +213,217 @@
     }
    ],
    "bugs": [],
-   "notes": ""
+   "notes": "本次续测再次执行 72 组实际 API 断言；截图保留同 SHA 同轮已有摘要。"
   },
   {
    "id": "T-4",
-   "title": "无偏好及历史负偏好的状态与管理锁",
+   "title": "P0～P3 默认有效状态、管理锁与显式调用",
    "priority": "P0",
    "mode": "api",
    "ac": "AC-3、AC-4",
-   "precondition": "- 对应：AC-3、AC-4；mode: api；前置：P0～P3 可读回的独立测试库偏好，服务已 ready。",
+   "precondition": "- 对应 AC-3、AC-4；mode: api；uses_chat: true。前置：隔离库，两个真实 skill ID 随包存在。",
    "steps": [
-    "每种 P 状态依次对两个目标 ID 读取 GET 详情与聊天列表；调用 `POST /api/skills/<URL编码ID>/install`、同路径 DELETE、`PATCH /api/skills/<ID>/enabled` body=`{\"enabled\":false}`。每次立即重读有效详情和原始偏好，比较前后；最后单独测试 enabled=true 沿用允许重新启用的规则。P1～P3 的每次准备及锁后各通过聊天显式选择目标并发起调用：Report 请求到确认卡后拒绝；Watch 完成一次设置后暂停任务（使用 T-8 的答案）。"
+    "P0～P3 各写入读回；每 ID GET 详情/聊天目录，POST/DELETE install、PATCH enabled=false 后重读原始偏好和有效状态，另核对 enabled=true。每状态显式选择两个 ID 发起真实聊天：Report 原文 `把这段对话的追踪日志发给 Phi 团队`，Watch 原文 `监控这个页面的变化`，附测试页上下文。到 Report 分享卡或 Watch 设置卡即取证，拒绝/取消后结束；不继续设置。"
    ],
-   "expected": "所有状态的有效 installed/enabled 均 true；安装/卸载为 HTTP 403 + `system_skill_install_locked`，停用为 HTTP 403 + `system_skill_cannot_be_disabled`；被拒操作不改变原始记录，有效状态也不变。重启服务后 P3 仍可调用。每次实际 skill 加载成功，无安装要求；不能只拿 listAutoTriggerCandidates 或 provider 单测证明。",
-   "actual": "仅 API 部分完成：P0～P3 独立库实写读回；两 ID 详情/聊天目录均 installed=true、enabled=true；每状态 6 个拒绝管理请求均 403，错误码准确；原始偏好在拒绝前后不变。enabled=true 均 200。实际聊天加载、负偏好下 Watch 任务及重启调用未执行；本轮因 T-7 前置缺口阻断中止，不能标整条通过。",
-   "status": "blocked",
-   "uses_chat": false,
+   "expected": "详情/聊天目录始终 true/true；install 两操作 403 system_skill_install_locked，停用 403 system_skill_cannot_be_disabled，原始偏好不变，enable=true 200。八次显式调用实际加载对应 ID，出现既有流程，不要求安装。",
+   "actual": "P0～P3 真实 API 的有效状态均 true/true；管理拒绝为预期 403、原始偏好不变。八次显式调用均实际 skill_load=loaded，并到达对应分享确认/监控设置卡；Report 拒绝、Watch 取消。P1 Watch 首次读到空白页，前置状态不正确；保留失败组后将真实测试页置为活动标签，重跑该子项通过。未创建任务或提交反馈。",
+   "status": "pass",
+   "uses_chat": true,
    "evidence": [
     {
      "type": "text",
      "path": "T-4-api.json",
-     "caption": "已执行 API 子步骤；未证明聊天分支",
+     "caption": "本次续测 API 状态和管理锁",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P1-watch-error.json",
+     "caption": "首次错误活动页的实际失败尝试",
      "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-4-30.png",
+     "caption": "首次 Watch 实际反馈空白页",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-4-resume-summary.json",
+     "caption": "八项实际加载/卡片/取消结果",
+     "attempt": 3,
      "outcome": "pass"
     },
     {
      "type": "image",
-     "path": "T-4-01.png",
-     "caption": "已执行 API 子步骤；未证明聊天分支",
-     "attempt": 2,
+     "path": "T-4-31.png",
+     "caption": "完整矩阵摘要关键状态",
+     "attempt": 3,
      "outcome": "pass"
     },
     {
      "type": "image",
-     "path": "T-4-02.png",
-     "caption": "已执行 API 子步骤；未证明聊天分支",
+     "path": "T-4-32.png",
+     "caption": "管理锁/矩阵摘要结束状态",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P0-report-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P0-watch-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P1-report-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P1-watch-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P2-report-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P2-watch-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P3-report-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-4-P3-watch-chat.json",
+     "caption": "实际显式调用事件与卡片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "273b5dc9-e130-4bef-820f-c6b648283dee",
+     "path": "T-4-P0-report-trace-273b5dc9-e130-4bef-820f-c6b648283dee.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/273b5dc9-e130-4bef-820f-c6b648283dee",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "074a18c7-51d5-479c-be84-8a4486fc6bd9",
+     "path": "T-4-P0-watch-trace-074a18c7-51d5-479c-be84-8a4486fc6bd9.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/074a18c7-51d5-479c-be84-8a4486fc6bd9",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "533db239-e68f-4f6b-b6f4-70ee9b784e4b",
+     "path": "T-4-P1-report-trace-533db239-e68f-4f6b-b6f4-70ee9b784e4b.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/533db239-e68f-4f6b-b6f4-70ee9b784e4b",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "aafc526b-eb32-4a9d-b262-56c19c154e90",
+     "path": "T-4-P1-watch-trace-aafc526b-eb32-4a9d-b262-56c19c154e90.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/aafc526b-eb32-4a9d-b262-56c19c154e90",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "7aea54bc-58a4-4978-9054-9eec27a6ab38",
+     "path": "T-4-P1-watch-trace-7aea54bc-58a4-4978-9054-9eec27a6ab38.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/7aea54bc-58a4-4978-9054-9eec27a6ab38",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
      "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "trace_id": "5c310540-3887-403a-bdc5-c9982c89c569",
+     "path": "T-4-P2-report-trace-5c310540-3887-403a-bdc5-c9982c89c569.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/5c310540-3887-403a-bdc5-c9982c89c569",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "9e195240-7f18-4cf6-88b1-3e3e59bd7470",
+     "path": "T-4-P2-watch-trace-9e195240-7f18-4cf6-88b1-3e3e59bd7470.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/9e195240-7f18-4cf6-88b1-3e3e59bd7470",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "ec6a82f2-4577-47f3-93e4-6d669efacaa1",
+     "path": "T-4-P3-report-trace-ec6a82f2-4577-47f3-93e4-6d669efacaa1.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/ec6a82f2-4577-47f3-93e4-6d669efacaa1",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+     "path": "T-4-P3-watch-trace-0bc8f2cf-b1b5-4583-9348-cedaeef8a731.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 3,
      "outcome": "pass"
     }
    ],
    "bugs": [],
-   "notes": "未调用 chat；无 trace 不是聊天验收通过。"
+   "notes": "attempt 1 为 API；attempt 2 为错误页面前置下的 Watch 失败尝试；attempt 3 为完成后的八项调用矩阵（已通过子项沿用本次 S9 的原始记录）。截图 31/32 是真实 API/WS 结果摘要，不伪称 UI 卡片。"
   },
   {
    "id": "T-5",
-   "title": "Skills 管理页的可见性",
+   "title": "Canary 管理页隐藏",
    "priority": "P0",
    "mode": "gui",
    "ac": "AC-1、AC-2",
-   "precondition": "- 对应：AC-1、AC-2；mode: gui；前置：P0，本机 Canary 已加载被测版本。",
+   "precondition": "- 对应 AC-1、AC-2；mode: gui。前置：P0，真实 Canary 同 SHA 本地 Sidecar。",
    "steps": [
-    "Cmd+T → NTP 右上菜单 → Skills（或已验证 `phi://newtab/?view=skills`）；等待标题 Skills 和列表加载完成。查看推荐区、All、Built-in，遍历当前所有页；逐个输入 `Report Chat Trace`、`report-chat-trace`、`Watch This Page`、`watch-page`，每次等待网络返回和列表更新再截图；清空搜索后用普通控制项名搜索。记录对应网络分页并与 T-3 比较。"
+    "打开 `phi://newtab/?view=skills`；检查推荐、“全部/内置/用户创建”列表并遍历实际页；逐一搜索两个显示名和 slug，再搜用户控制。每次等网络空闲及目标 DOM 稳定，保存关键/结束图。"
    ],
-   "expected": "所有目标卡片消失，搜索无目标；普通卡片可见且列表与真实 API 一致，无因隐藏导致的分页空位。单独查看 My skills，控制项仍在。",
+   "expected": "所有区域均无两目标卡片；普通/用户项可见可搜，列表与 T-3 一致。失败样子：卡片重现、加载错误、普通项丢失、计数错。证据：分类/搜索截图、页面断言。",
    "actual": "Canary 实际加载 manifest 100.0.0 的同 SHA Sidecar。推荐 13 项、全部/内置/用户创建和四种名称/slug 搜索均无两目标/Help 卡；用户控制项可见且可搜。UI 全部已安装 3 项、内置 2 项、用户 1 项，只有一页；小页分页由 T-3 实际 API 覆盖。首轮脚本未等待异步列表导致提前断言；等待 DOM 与网络稳定后重跑通过，属于测试脚本竞态，非产品 bug。",
    "status": "pass",
    "uses_chat": false,
@@ -362,148 +525,230 @@
   },
   {
    "id": "T-6",
-   "title": "Report Chat Trace 自然语言拒绝分享",
+   "title": "Report Chat Trace 自然语言入口冒烟",
    "priority": "P0",
    "mode": "gui",
-   "ac": "AC-3、AC-5",
-   "precondition": "- 对应：AC-3、AC-5；mode: gui；uses_chat: true；前置：P0，独立新 QA 会话、未选择 skill。",
+   "ac": "AC-5",
+   "precondition": "- 对应 AC-5；mode: gui；uses_chat: true。前置：P0，独立合成 QA 聊天，未选择 skill。",
    "steps": [
-    "发送 `这是 PHI-442 的合成测试对话，请只回复 PHI442_TRACE_SEED。`，等待完成并确认有可导出 trace；发送 `把这段对话的追踪日志发给 Phi 团队`。出现分享卡后截图，选择拒绝/Cancel；等回合完成，再观察 5 秒并保存完整工具事件窗口。"
+    "在 Canary 聊天输入并发送 `把这段对话的追踪日志发给 Phi 团队`；等真实分享确认卡（最多 300 秒），取证后选择拒绝/取消并结束。"
    ],
-   "expected": "实际路由并加载 `built_in:report-chat-trace`，出现现有分享确认；拒绝后 `consent_declined`，没有生成 trace 导出文件、附件上传或 feedback.submit；不得以后台请求偷偷分享。",
-   "actual": "未执行：本轮在反馈接收端前置核对后阻断中止，没有发送合成对话或拒绝分享回合。",
-   "status": "skipped",
-   "uses_chat": false,
-   "evidence": [],
+   "expected": "实际路由并加载 built_in:report-chat-trace，出现既有分享确认卡即可；不同意、不提交，不要求反馈编号。失败样子：普通聊天代答、安装要求、未加载或无卡片。",
+   "actual": "真实 Canary 聊天输入并发送指定自然语言；task_route 指向 built_in:report-chat-trace，实际 skill.read_file 成功，出现分享确认卡。点击“不分享”后正常结束，无导出/上传/反馈提交。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-6-P0-report-chat.json",
+     "caption": "实际自然语言路由/读取与分享卡",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-21.png",
+     "caption": "Canary 分享确认卡",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-22.png",
+     "caption": "拒绝分享后结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "2b18ce40-f8d6-44ed-b76d-9c74ab99eeb8",
+     "path": "T-6-P0-report-trace-2b18ce40-f8d6-44ed-b76d-9c74ab99eeb8.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/2b18ce40-f8d6-44ed-b76d-9c74ab99eeb8",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
    "bugs": [],
-   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+   "notes": ""
   },
   {
-   "id": "T-7",
-   "title": "Report Chat Trace 同意和显式选择",
+   "id": "T-8",
+   "title": "Watch This Page 自然语言及右键 payload 冒烟",
    "priority": "P0",
    "mode": "gui",
-   "ac": "AC-3、AC-5、AC-8",
-   "precondition": "- 对应：AC-3、AC-5、AC-8；mode: gui；uses_chat: true；前置：P0、已验证的 stag 测试反馈接收路径；合成会话有 trace。",
+   "ac": "AC-6",
+   "precondition": "- 对应 AC-6；mode: gui；uses_chat: true。前置：P0，测试页为当前页，Canary 原生 sidebar 打开。",
    "steps": [
-    "先在未选 skill 的新会话发与 T-6 相同原文，同意分享卡，备注 `PHI-442 QA synthetic trace`，等待实际提交完成。另建合成会话，从聊天 skill picker 搜索并选中 Report Chat Trace，发送同样请求，出现卡先拒绝；再发同样请求并同意。选中 chip 出现后点击一次，核对与 Help 一致不可跳到普通可管理详情。"
+    "新 QA 会话保留页面上下文，发送 `监控这个页面的变化`；首次设置提问/卡片出现即取证并取消，不填写条件/频率。另用现有 watch-page-send 套件与实际 buildWatchPageSend 输出核对右键请求的 skill ID、原页面 URL/标题/tabId；不要求右键各创建任务。"
    ],
-   "expected": "两条入口均实际加载正确 skill；每次同意恰好一次 chat_trace.export 成功和一次真实 stag feedback.submit 成功，返回可核对反馈编号并与本轮 trace/file_id 对应；提交发生在确认之后。显式分支拒绝也无导出/上传/提交。chip 不导致普通停用/卸载入口。",
-   "actual": "前置核对未通过：runbook:64 仅给 account.stag.phibrowser.com，未给真实反馈接收端禁用通知的设置与核验命令。检查本地 helper、反馈客户端与 API 文档，客户端只执行 presign/R2 PUT/submit，无 silent/dry-run 参数，不能证明外部 account 服务不会通知真实团队。Canary picker 可见 Report、Watch、Help；Report 可插入 composer。未发送消息、未导出、未上传、未提交，不能据 picker 判调用通过。",
-   "status": "blocked",
+   "expected": "实际加载 built_in:watch-page 并进入既有设置流程；右键 payload skills 中包含该 ID，initialTabs 是原测试页及对应 tabId。失败样子：安装要求、普通聊天代答、skill 丢失或上下文错误。",
+   "actual": "真实 Canary 原生侧栏发送指定自然语言；task_route 指向 built_in:watch-page，实际 skill.read_file 成功，读取测试页后出现监控设置问题。停止后回到输入状态；真实任务列表为 0。右键构造函数使用实际 skill 详情与观测到的 tabId，输出正确 skill ID、页面 URL/标题/tabId；turnSource 静态锚点正确。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-8-P0-watch-chat.json",
+     "caption": "原生侧栏实际自然语言事件与设置卡",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-8-21.png",
+     "caption": "原生侧栏设置问题；从桌面截图裁切为被测窗口",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-8-22.png",
+     "caption": "取消后原生侧栏结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-8-right-click-payload.json",
+     "caption": "实际构造函数输出与源代码 turnSource 锚点",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "resume-created-data.json",
+     "caption": "隔离库真实任务数为 0",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "3e1dd273-10e9-4aa7-bdb3-ab83293a6c18",
+     "path": "T-8-P0-watch-trace-3e1dd273-10e9-4aa7-bdb3-ab83293a6c18.json",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/3e1dd273-10e9-4aa7-bdb3-ab83293a6c18",
+     "caption": "DEV 实际 trace 脱敏导出（生成模型正文为隐私最小化省略）",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "原生 sidebar 的新建按钮 CDP 命中受限，使用现有空白会话；输入由 CDP 对已聚焦编辑器发送，原生截图留证。未发送额外问答、未配置或创建任务。"
+  },
+  {
+   "id": "T-10",
+   "title": "后台目录静态边界",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-7",
+   "precondition": "- 对应 AC-7；mode: auto。前置：被测 SHA。",
+   "steps": [
+    "读 `lib/shared/src/chat-only-skills.ts` 的两个常量与集合、`plugins/worker/src/lib/delegated-run/run-skills.ts` 的 task_run 过滤分支；运行既有 run-skills.test.ts。保存准确文件行号及片段。"
+   ],
+   "expected": "CHAT_ONLY_SKILL_IDS 包含两目标 ID，task_run 目录排除集合。只做静态核对和既有回归，不创建任务/真实后台运行。证据：代码锚点、既有套件结果、摘要截图。",
+   "actual": "精确 SHA 的 CHAT_ONLY_SKILL_IDS 含两目标；task_run 分支按集合排除目录。既有 run-skills 套件 10/10，未创建任务或真实后台 run。",
+   "status": "pass",
    "uses_chat": false,
    "evidence": [
     {
      "type": "text",
-     "path": "feedback-preflight.json",
-     "caption": "真实接收端前置缺口",
-     "attempt": 1
+     "path": "T-10-static.json",
+     "caption": "常量与过滤分支准确行号",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-10-suite.log",
+     "caption": "既有 10 项回归输出",
+     "attempt": 1,
+     "outcome": "pass"
     },
     {
      "type": "image",
-     "path": "T-7-01.png",
-     "caption": "picker 可见目标及 Help；仅局部验证",
-     "attempt": 1
+     "path": "T-10-21.png",
+     "caption": "静态边界摘要",
+     "attempt": 1,
+     "outcome": "pass"
     },
     {
      "type": "image",
-     "path": "T-7-02.png",
-     "caption": "Report 插入输入框；未发送消息",
-     "attempt": 1
+     "path": "T-10-22.png",
+     "caption": "定向测试结束摘要",
+     "attempt": 1,
+     "outcome": "pass"
     }
    ],
    "bugs": [],
-   "notes": "未调用 chat；无 trace 不是聊天验收通过。"
-  },
-  {
-   "id": "T-8",
-   "title": "Watch This Page 自然语言和显式选择",
-   "priority": "P0",
-   "mode": "gui",
-   "ac": "AC-3、AC-6",
-   "precondition": "- 对应：AC-3、AC-6；mode: gui；uses_chat: true；前置：P0，打开本机测试页，确认标题和答案表文字。",
-   "steps": [
-    "Cmd+Shift+S 开 sidebar，新建会话并保留页面上下文，发送 `监控这个页面的变化`。按现有提问卡填写 `只监控页面中 Price: 100 QA credits 这一行的价格；只有价格变化才报告。`；频率选一次一天（或原文 `每天上午九点`），其他确认按现有卡片提交。等待任务创建成功，立刻读取任务并暂停计划。另建会话，从 picker 选择 Watch This Page，发送相同原文，完成相同设置；给两条任务各加可识别的 PHI-442 标记（如系统要求任务标题）。"
-   ],
-   "expected": "两入口各加载 `built_in:watch-page` 且各创建一个不同任务；页面 URL/标题、价格条件、每日频率与仅变化报告均可从任务持久化记录核对，无需安装/启用；没有只发口头成功而缺少任务。显式消息 chip 与 Help 一致不可管理跳转。",
-   "actual": "未执行：本轮因 T-7 前置缺口阻断中止；未发送 Watch 请求或创建任务，未沿用作者自测结果。",
-   "status": "skipped",
-   "uses_chat": false,
-   "evidence": [],
-   "bugs": [],
-   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
-  },
-  {
-   "id": "T-9",
-   "title": "Watch This Page 原生右键与页面上下文",
-   "priority": "P0",
-   "mode": "gui",
-   "ac": "AC-4、AC-6",
-   "precondition": "- 对应：AC-4、AC-6；mode: gui；uses_chat: true；前置：P3，测试页为当前页，sidebar 已有空闲 QA 会话。",
-   "steps": [
-    "在页面正文空白位置真实右键，选择 `Have <agentName> watch this page` 对应当前语言菜单项，等待新会话和设置卡。记录自动发送原文、选中 ID、附件和 turnSource；按 T-8 的答案完成设置，取得任务后暂停计划。观察完成后 5 秒，查询这次入口的任务数。"
-   ],
-   "expected": "P3 下仍携带 `built_in:watch-page`、原页面 tab/URL/标题，turnSource=`context_menu_watch_page`；实际加载 skill 并仅创建一个指向测试页的任务，已打开的旧会话未被当作目标。此处只测普通单页入口，不扩展到跨 Profile/多实例。",
-   "actual": "未执行：本轮因 T-7 前置缺口阻断中止；未操作原生右键 Watch 入口。",
-   "status": "skipped",
-   "uses_chat": false,
-   "evidence": [],
-   "bugs": [],
-   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
-  },
-  {
-   "id": "T-10",
-   "title": "后台普通任务和监控任务的真实执行目录",
-   "priority": "P0",
-   "mode": "api",
-   "ac": "AC-7",
-   "precondition": "- 对应：AC-7；mode: api；uses_chat: true（包括监控创建和实际后台 run）；前置：T-8 已创建并暂停的监控任务，无外部通知渠道。",
-   "steps": [
-    "用现有任务 API 创建只读取本机测试页并返回标题的普通后台 QA 任务，关闭对外报告；按 runbook 的现有 run-now 命令分别触发普通任务、一个监控任务各一次，等终态。对这两个实际 run 从执行 trace/worker 日志提取提供给 agent 的完整 skill 目录，不能只查询全局 GET /api/skills。取监控首次检查的结果，不改变页面或触发真实变化通知。"
-   ],
-   "expected": "两次目录均无两个 chat-only ID；普通任务读取正确标题，监控按已保存条件执行并结束，不重新询问监控对象/条件/频率；后台目录中的其他正常 skill 不被清空。执行完成本身不能证明目录断言。",
-   "actual": "未执行：本轮因 T-7 前置缺口阻断中止，未创建或触发任何后台任务，未取得真实执行目录；worker 单元不替代本用例。",
-   "status": "skipped",
-   "uses_chat": false,
-   "evidence": [],
-   "bugs": [],
-   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+   "notes": ""
   },
   {
    "id": "T-11",
-   "title": "Help 与普通 skill 管理回归",
+   "title": "Help、普通技能与刷新回归冒烟",
    "priority": "P1",
    "mode": "gui",
    "ac": "AC-8",
-   "precondition": "- 对应：AC-8；mode: gui；前置：普通已安装/未安装 built-in 与用户控制项，各自原始状态已备份。",
+   "precondition": "- 对应 AC-8；mode: gui。前置：普通已安装 Ask Memory、未安装 Detect Page Tech Stack、合成用户控制项，记录基线有效状态。",
    "steps": [
-    "Skills 查看推荐/分类、控制项搜索和页码；Help 在管理页应隐藏。聊天 picker 搜索 Help 和普通项，核对 Help 可见及现有独立帮助入口可用。对普通已安装 built-in 依次停用、刷新、启用、卸载、重装，逐次读取详情和 picker；对用户控制项做同等管理操作，再恢复最初状态；未安装普通项先核对未安装显示与现有 try-first 行为。与 merge-base 基线的相同操作记录对照，不借本 PR 要求扩大 Help 的通用路由/显式选择范围。"
+    "查看管理页、搜索、picker；Help 管理隐藏且 picker 可见；普通三项各读一次详情并检查管理入口。和 merge-base 相同 P0 状态对照。刷新管理与聊天页，复查两目标隐藏、picker 可选和详情 true/true。"
    ],
-   "expected": "普通项每步安装/启用状态与既有规则一致，停用仍有效、卸载不会被错误系统锁；用户项可见/可搜索，Help 管理隐藏且默认可用。原三个路由排除 ID 的边界由 T-1 配合验证。",
-   "actual": "未执行完整管理回归或真实 skill_library 工具。T-5 附带观察 Help 管理隐藏、用户控制可见；T-7 picker 附带观察 Help 可见，不将这些局部证据提升为本条通过。",
-   "status": "skipped",
+   "expected": "普通项和入口可达、详情读取成功且状态与基线一致，Help 隐藏且有效可用；刷新不改变两目标可见性/有效状态。无需执行卸载重装或额外聊天工具调用。",
+   "actual": "本分支与独立 merge-base 服务各读取 Help、已安装 Ask Memory、未安装 Detect Page Tech Stack 和合成用户 skill 详情，状态完全一致。普通项管理入口和详情可达；刷新后管理仍隐藏 Help/两目标，picker 仍可见 Help/两目标/普通控制项。刷新后的目标详情有效 true/true。未执行卸载重装。",
+   "status": "pass",
    "uses_chat": false,
-   "evidence": [],
-   "bugs": [],
-   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
-  },
-  {
-   "id": "T-12",
-   "title": "重启后的隐藏和实际可调用",
-   "priority": "P0",
-   "mode": "gui",
-   "ac": "AC-4、AC-8",
-   "precondition": "- 对应：AC-4、AC-8；mode: gui；uses_chat: true；前置：保留 P3，目标任务已暂停、无生成中回合。",
-   "steps": [
-    "先刷新 Skills 与聊天页；再按既有加载脚本重启 Canary，并重启本次本地服务，核对仍为被测 SHA/manifest。重走 T-5 的 All/Built-in/四个搜索；在 picker 选择两个目标，各发 T-6/T-8 的原文。Report 在卡片拒绝；Watch 完成设置取得任务后暂停。"
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-11-api-baseline.json",
+     "caption": "当前/基线普通状态与详情实际读取",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-11-ui.json",
+     "caption": "管理入口及刷新断言",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-21.png",
+     "caption": "首次管理页面；脚本随后异步等待不足",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-11-22.png",
+     "caption": "首次刷新页面；脚本随后等待条件序列化错误",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-11-24.png",
+     "caption": "稳定等待后的普通管理入口",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-25.png",
+     "caption": "普通未安装技能详情入口",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-26.png",
+     "caption": "刷新后 picker：Help 与两目标均可见",
+     "attempt": 2,
+     "outcome": "pass"
+    }
    ],
-   "expected": "刷新与重启不恢复卡片、不因旧偏好丢失选择或能力；两次实际加载成功，Watch 有准确任务，Report 仍按确认边界工作。不能仅凭进程重启成功判通过。",
-   "actual": "未执行：未进行 P3 下的服务/Canary 重启调用验收。收尾恢复原扩展属于环境清理，不算本条测试。",
-   "status": "skipped",
-   "uses_chat": false,
-   "evidence": [],
    "bugs": [],
-   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+   "notes": "首轮脚本在推荐列表尚未就绪时读目标，后一次等待返回 DOM 节点导致序列化错误；改为布尔条件且等待网络空闲后完成，均为测试脚本问题，不记产品缺陷。"
   }
  ],
  "bugs": [],

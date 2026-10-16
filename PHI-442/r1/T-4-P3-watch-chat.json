@@ -1,0 +1,82 @@
+{
+  "caseId": "T-4",
+  "preference": "P3",
+  "skillId": "built_in:watch-page",
+  "natural": false,
+  "chatId": "78ee9cb5-1bbb-4b41-a244-e59299d5509b",
+  "clientRunId": "5ae65eb1-332d-4104-807f-f677ccfaa4da",
+  "startedAt": "2026-10-16T08:04:19.565Z",
+  "events": [
+    {
+      "event": "worker_progress",
+      "kind": "skill_load",
+      "skillId": "built_in:watch-page",
+      "name": "watch-page",
+      "status": "loaded"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute",
+      "isError": false
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question",
+      "isError": true
+    },
+    {
+      "event": "worker_progress",
+      "kind": "run_result"
+    }
+  ],
+  "runIds": [
+    "5ae65eb1-332d-4104-807f-f677ccfaa4da",
+    "01a143bd-a1cc-7733-b266-5aef2e7cbe6e"
+  ],
+  "card": {
+    "runId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+    "requestId": "ask-user-a6b48c2d-3cb6-47a5-b7a1-84cfad01254c",
+    "origin": "model",
+    "kind": "select",
+    "title": "你希望这页出现什么变化时通知你？",
+    "description": "你希望这页出现什么变化时通知你？例如状态不再是“unchanged”、价格不再是“100 QA credits”，或任何页面内容变化。",
+    "options": [
+      {
+        "id": "submit",
+        "label": "Submit",
+        "variant": "default"
+      }
+    ],
+    "fields": [
+      {
+        "id": "answer",
+        "type": "text",
+        "label": "Your answer",
+        "multiline": true,
+        "required": true,
+        "placeholder": "例如：状态或价格有任何变化时通知我"
+      }
+    ],
+    "allowSkip": false,
+    "style": "question"
+  },
+  "cardAt": "2026-10-16T08:04:55.720Z",
+  "finishedAt": "2026-10-16T08:04:57.722Z",
+  "cardOutcome": "cancelled"
+}

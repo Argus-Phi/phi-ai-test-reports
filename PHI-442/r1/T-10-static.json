@@ -1,0 +1,38 @@
+{
+  "sha": "63685435666f5b557bc951bbb94194190f83f806",
+  "constant_file": "phi-agent-dsh/lib/shared/src/chat-only-skills.ts",
+  "constant_lines": [
+    {
+      "line": 7,
+      "text": "export const WATCH_PAGE_SKILL_ID = \"built_in:watch-page\";"
+    },
+    {
+      "line": 10,
+      "text": "export const REPORT_CHAT_TRACE_SKILL_ID = \"built_in:report-chat-trace\";"
+    },
+    {
+      "line": 17,
+      "text": "export const CHAT_ONLY_SKILL_IDS: ReadonlySet<string> = new Set(["
+    },
+    {
+      "line": 18,
+      "text": "  WATCH_PAGE_SKILL_ID,"
+    },
+    {
+      "line": 19,
+      "text": "  REPORT_CHAT_TRACE_SKILL_ID,"
+    }
+  ],
+  "filter_file": "phi-agent-dsh/plugins/worker/src/lib/delegated-run/run-skills.ts",
+  "filter_lines": [
+    {
+      "line": 142,
+      "text": "    return context.executionContext === \"task_run\""
+    },
+    {
+      "line": 143,
+      "text": "      ? catalog.filter((entry) => !CHAT_ONLY_SKILL_IDS.has(entry.id))"
+    }
+  ],
+  "static_result": "pass"
+}

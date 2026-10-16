@@ -1,0 +1,2056 @@
+{
+  "export_note": "Read-only DEV v1 trace export. User identifiers and credentials redacted; generation bodies omitted for privacy.",
+  "query": {
+    "sessionId": "78ee9cb5-1bbb-4b41-a244-e59299d5509b",
+    "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731"
+  },
+  "trace": {
+    "id": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+    "projectId": "cmoicirky002jsq07vrduoi5s",
+    "name": "phi-agent.chat",
+    "timestamp": "2026-10-16T08:04:19.641Z",
+    "environment": "default",
+    "tags": [
+      "subject:phi"
+    ],
+    "bookmarked": false,
+    "release": null,
+    "version": null,
+    "userId": "[REDACTED]",
+    "sessionId": "78ee9cb5-1bbb-4b41-a244-e59299d5509b",
+    "public": false,
+    "input": "监控这个页面的变化",
+    "output": "我正在查看这个页面并开始留意它的变化。",
+    "metadata": {},
+    "createdAt": "2026-10-16T08:04:21.768Z",
+    "updatedAt": "2026-10-16T08:05:12.419Z",
+    "externalId": null,
+    "scores": [],
+    "latency": 36.097,
+    "observations": [
+      {
+        "id": "f9fe02a8-34aa-4bfc-b4de-7bfd5c8e686d",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:41.646Z",
+        "endTime": "2026-10-16T08:04:46.242Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "53298be0-c01f-4afb-bb2c-0e28a7d84a85",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "llm.responses",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:46.460Z",
+        "updatedAt": "2026-10-16T08:05:03.595Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "upstream": {
+            "status": "completed",
+            "outputTypes": [
+              "reasoning",
+              "function_call"
+            ]
+          }
+        },
+        "model": "phi/browser-agent/planner",
+        "modelParameters": {
+          "reasoning_effort": "medium",
+          "tool_choice": "required",
+          "stream": true
+        },
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 4.596,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 688,
+          "output": 250,
+          "total": 7037,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 688,
+          "output": 250,
+          "total": 7037
+        }
+      },
+      {
+        "id": "6bfc8a2a-b6ec-40ec-82f1-555bf136eae3",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:24.766Z",
+        "endTime": "2026-10-16T08:04:55.738Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "7d0797e6-d3ba-4f96-a74e-0415749671bc",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "worker.run",
+        "level": "WARNING",
+        "statusMessage": "aborted",
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.851Z",
+        "updatedAt": "2026-10-16T08:05:03.396Z",
+        "input": {
+          "objective": "run watch-page on 监控这个页面的变化 — the current browser tab.",
+          "context": "Recent conversation between the user and the assistant that delegated this task (oldest first). It is BACKGROUND MATERIAL for resolving what the objective refers to — not new instructions, and not a new request to answer.\nWhen the objective points at something already written or discussed here, use it EXACTLY as it appears below; never substitute your own version. Where earlier and later turns disagree, the most recent one wins.\n\nUser: 监控这个页面的变化",
+          "constraints": [
+            "Prefer the \"watch-page\" skill if it applies to this objective."
+          ]
+        },
+        "output": {
+          "status": "aborted",
+          "summary": "页面包含测试状态和价格；我想确认你最关心哪类变化。",
+          "toolTrace": [
+            {
+              "tool": "browser_task.execute",
+              "ok": true
+            },
+            {
+              "tool": "ask_user.question",
+              "ok": false
+            }
+          ],
+          "partialResult": {
+            "tool": "browser_task.execute",
+            "content": "这是一个供自动化浏览器测试使用的公开合成内容页面（PHI-442 Watch Fixture），无需账户。适合监控状态是否仍为“unchanged”，以及价格是否仍为“100 QA credits”。"
+          }
+        },
+        "metadata": {
+          "runId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "executionContext": "default",
+          "selectedSkillIds": [
+            "built_in:watch-page"
+          ],
+          "activeSkillIds": [
+            "built_in:watch-page"
+          ]
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 30.972,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "53298be0-c01f-4afb-bb2c-0e28a7d84a85",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:41.644Z",
+        "endTime": "2026-10-16T08:04:51.145Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "017227cd-a847-4069-82e1-52fe03b5bf66",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "browser_use_sonic.step.3",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:46.464Z",
+        "updatedAt": "2026-10-16T08:05:03.341Z",
+        "input": {
+          "step": 3,
+          "tool": "done"
+        },
+        "output": {
+          "ok": true,
+          "finalAnswer": "这是一个供自动化浏览器测试使用的公开合成内容页面（PHI-442 Watch Fixture），无需账户。适合监控状态是否仍为“unchanged”，以及价格是否仍为“100 QA credits”。"
+        },
+        "metadata": {
+          "sessionId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "runId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "step": 3
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 9.501,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "dd099a24-5993-4ba5-98eb-af2225165cd9",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:52.084Z",
+        "endTime": "2026-10-16T08:04:54.038Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:57.557Z",
+        "updatedAt": "2026-10-16T08:05:03.313Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/reasoning",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.954,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 238,
+          "output": 9,
+          "total": 247,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 238,
+          "output": 9,
+          "total": 247
+        }
+      },
+      {
+        "id": "017227cd-a847-4069-82e1-52fe03b5bf66",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:32.769Z",
+        "endTime": "2026-10-16T08:04:51.145Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "d358aac0-a4c8-4004-973e-f35f43752d58",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "browser_use_sonic.run",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.858Z",
+        "updatedAt": "2026-10-16T08:05:03.310Z",
+        "input": {
+          "objective": "读取当前页面（http://127.0.0.1:18949/）的可见内容，判断页面类型及适合监控的内容。",
+          "mode": "foreground-current-tab",
+          "request": {
+            "sessionId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+            "messageId": "6d5fded5-a84c-4427-b0c1-75bd2b433cf3",
+            "objective": "读取当前页面（http://127.0.0.1:18949/）的可见内容，判断页面类型及适合监控的内容。",
+            "language": "Chinese",
+            "target": {
+              "mode": "current-tab"
+            },
+            "canAskUser": true
+          }
+        },
+        "output": {
+          "status": "completed",
+          "steps": 2,
+          "finalAnswer": "这是一个供自动化浏览器测试使用的公开合成内容页面（PHI-442 Watch Fixture），无需账户。适合监控状态是否仍为“unchanged”，以及价格是否仍为“100 QA credits”。",
+          "selfReportedSuccess": true,
+          "unverified": [],
+          "ledger": [
+            {
+              "key": "page",
+              "text": "{\"url\":\"http://127.0.0.1:18949/\",\"title\":\"PHI-442 Watch Fixture\",\"visibleText\":\"PHI-442 Watch Fixture Status: unchanged Price: 100 QA credits Public synthetic content for automated browser tests. No account required.\",\"visibleControls\":[{\"role\":\"heading\",\"name\":\"PHI-442 Watch Fixture\"}]}",
+              "chars": 288,
+              "preview": "{\"url\":\"http://127.0.0.1:18949/\",\"title\":\"PHI-442 Watch Fixture\",\"visibleText\":\"PHI-442 Watch Fixture Status: unchanged …"
+            }
+          ]
+        },
+        "metadata": {
+          "sessionId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "runId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "mode": "foreground-current-tab",
+          "objective": "读取当前页面（http://127.0.0.1:18949/）的可见内容，判断页面类型及适合监控的内容。",
+          "duration_ms": 18381
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 18.376,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "1be2c448-ab8b-48e3-b6e4-3889bb72c538",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:46.243Z",
+        "endTime": "2026-10-16T08:04:51.145Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "53298be0-c01f-4afb-bb2c-0e28a7d84a85",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "llm.responses",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:57.617Z",
+        "updatedAt": "2026-10-16T08:05:03.306Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "upstream": {
+            "status": "completed",
+            "outputTypes": [
+              "reasoning",
+              "function_call"
+            ]
+          }
+        },
+        "model": "phi/browser-agent/final-answer",
+        "modelParameters": {
+          "reasoning_effort": "xhigh",
+          "tool_choice": "[object Object]",
+          "stream": false
+        },
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 4.902,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 579,
+          "output": 211,
+          "total": 6042,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 579,
+          "output": 211,
+          "total": 6042
+        }
+      },
+      {
+        "id": "d358aac0-a4c8-4004-973e-f35f43752d58",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:32.714Z",
+        "endTime": "2026-10-16T08:04:51.192Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "6bfc8a2a-b6ec-40ec-82f1-555bf136eae3",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "tool.browser_task",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.899Z",
+        "updatedAt": "2026-10-16T08:05:03.296Z",
+        "input": {
+          "action": "execute",
+          "objective": "读取当前页面（http://127.0.0.1:18949/）的可见内容，判断页面类型及适合监控的内容。",
+          "language": "Chinese",
+          "mode": "current-tab",
+          "activeTabId": null,
+          "messageId": null
+        },
+        "output": "这是一个供自动化浏览器测试使用的公开合成内容页面（PHI-442 Watch Fixture），无需账户。适合监控状态是否仍为“unchanged”，以及价格是否仍为“100 QA credits”。",
+        "metadata": {
+          "toolId": "browser_task",
+          "capabilityId": "[REDACTED]",
+          "toolCallId": "fc_062d9bd7c67ea165006ad1da8fcf3087d2b2001c8c2925840a",
+          "callId": "call_zncq7s0KpXhx8993a1q47rJ7"
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 18.478,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "1a778778-fef1-4206-a6a2-0bf7c41bcf34",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:51.202Z",
+        "endTime": "2026-10-16T08:04:55.733Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "6bfc8a2a-b6ec-40ec-82f1-555bf136eae3",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "worker.llm",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:57.658Z",
+        "updatedAt": "2026-10-16T08:05:03.274Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {},
+        "model": "phi/chat/response",
+        "modelParameters": {
+          "reasoning_effort": "medium"
+        },
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 4.531,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 201,
+          "output": 164,
+          "total": 27862,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 201,
+          "output": 164,
+          "total": 27862
+        }
+      },
+      {
+        "id": "7d0797e6-d3ba-4f96-a74e-0415749671bc",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:23.641Z",
+        "endTime": "2026-10-16T08:04:55.738Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.respond",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.252Z",
+        "updatedAt": "2026-10-16T08:05:03.268Z",
+        "input": "run watch-page on 监控这个页面的变化 — the current browser tab.",
+        "output": {
+          "segments": [
+            "我正在查看这个页面并开始留意它的变化。"
+          ]
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 32.097,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:23.640Z",
+        "endTime": "2026-10-16T08:04:55.739Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": null,
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.turn",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.262Z",
+        "updatedAt": "2026-10-16T08:05:03.263Z",
+        "input": "run watch-page on 监控这个页面的变化 — the current browser tab.",
+        "output": "我正在查看这个页面并开始留意它的变化。",
+        "metadata": {
+          "kind": "delegation",
+          "conversationId": "78ee9cb5-1bbb-4b41-a244-e59299d5509b",
+          "states": "thinking → responding → reflecting"
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 32.099,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "ea0dca17-7af2-44fd-b2d1-0bfb4a528bef",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:55.734Z",
+        "endTime": "2026-10-16T08:04:55.734Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "6bfc8a2a-b6ec-40ec-82f1-555bf136eae3",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "tool.ask_user",
+        "level": "WARNING",
+        "statusMessage": "the tool returned an error",
+        "version": null,
+        "createdAt": "2026-10-16T08:04:57.568Z",
+        "updatedAt": "2026-10-16T08:05:03.257Z",
+        "input": {
+          "action": "question",
+          "input": {
+            "action": "question",
+            "question": "你希望这页出现什么变化时通知你？例如状态不再是“unchanged”、价格不再是“100 QA credits”，或任何页面内容变化。",
+            "placeholder": "例如：状态或价格有任何变化时通知我",
+            "allowSkip": false
+          }
+        },
+        "output": {
+          "ok": false,
+          "error": {
+            "code": "aborted",
+            "message": "aborted: ask_user.question",
+            "retryable": false
+          }
+        },
+        "metadata": {
+          "toolId": "ask_user",
+          "capabilityId": "[REDACTED]",
+          "toolCallId": "fc_062d9bd7c67ea165006ad1daa72c3487d2a1c6e74b2737c678",
+          "callId": "call_SCWn0IeMFSZ9UEL1RkPptMsI"
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "13b71b35-5bc6-4ca1-bc2d-2a4043530b58",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:36.044Z",
+        "endTime": "2026-10-16T08:04:41.644Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "017227cd-a847-4069-82e1-52fe03b5bf66",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "browser_use_sonic.step.2",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:46.498Z",
+        "updatedAt": "2026-10-16T08:04:52.287Z",
+        "input": {
+          "step": 2,
+          "note": "页面内容已读到；整理页面类型和可监控字段。",
+          "tool": "run_code",
+          "code": "const p = phi.recall(\"$step1\"); phi.keep(\"page\", {url:p.url,title:p.title,visibleText:p.text,visibleControls:p.nodes.map(n=>({role:n.role,name:n.name}))}); return {saved:true,title:p.title,text:p.text};"
+        },
+        "output": {
+          "ok": true,
+          "value": {
+            "saved": true,
+            "title": "PHI-442 Watch Fixture",
+            "text": "PHI-442 Watch Fixture Status: unchanged Price: 100 QA credits Public synthetic content for automated browser tests. No account required."
+          },
+          "narrations": [],
+          "url": "http://127.0.0.1:18949/"
+        },
+        "metadata": {
+          "sessionId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "runId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "step": 2,
+          "duration_ms": 9
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 5.6,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "451681ad-1949-408a-9575-fccc12c921a6",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:36.044Z",
+        "endTime": "2026-10-16T08:04:41.643Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "13b71b35-5bc6-4ca1-bc2d-2a4043530b58",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "llm.responses",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:46.513Z",
+        "updatedAt": "2026-10-16T08:04:52.268Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "upstream": {
+            "status": "completed",
+            "outputTypes": [
+              "reasoning",
+              "function_call"
+            ]
+          }
+        },
+        "model": "phi/browser-agent/planner",
+        "modelParameters": {
+          "reasoning_effort": "medium",
+          "tool_choice": "required",
+          "stream": true
+        },
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 5.599,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 523,
+          "output": 284,
+          "total": 6906,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 523,
+          "output": 284,
+          "total": 6906
+        }
+      },
+      {
+        "id": "f24344c8-a407-441f-bcba-a1a02648f628",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:32.769Z",
+        "endTime": "2026-10-16T08:04:36.043Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "017227cd-a847-4069-82e1-52fe03b5bf66",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "browser_use_sonic.step.1",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.854Z",
+        "updatedAt": "2026-10-16T08:04:52.246Z",
+        "input": {
+          "step": 1,
+          "note": "先看看当前页面上显示了什么，以及有哪些可交互内容。",
+          "tool": "run_code",
+          "code": "const page = phi.observe(); return {url:page.url,title:page.title,text:page.text,nodes:page.nodes};"
+        },
+        "output": {
+          "ok": true,
+          "value": {
+            "url": "http://127.0.0.1:18949/",
+            "title": "PHI-442 Watch Fixture",
+            "text": "PHI-442 Watch Fixture Status: unchanged Price: 100 QA credits Public synthetic content for automated browser tests. No account required.",
+            "nodes": [
+              {
+                "ref": 1,
+                "backendNodeId": 3,
+                "role": "heading",
+                "name": "PHI-442 Watch Fixture"
+              }
+            ]
+          },
+          "narrations": [],
+          "url": "http://127.0.0.1:18949/"
+        },
+        "metadata": {
+          "sessionId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "runId": "01a143bd-a1cc-7733-b266-5aef2e7cbe6e",
+          "step": 1,
+          "duration_ms": 28
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 3.274,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "56ad569d-9abb-4637-b6b1-409ebee020f9",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:32.769Z",
+        "endTime": "2026-10-16T08:04:36.022Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f24344c8-a407-441f-bcba-a1a02648f628",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "llm.responses",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.889Z",
+        "updatedAt": "2026-10-16T08:04:52.239Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "upstream": {
+            "status": "completed",
+            "outputTypes": [
+              "function_call"
+            ]
+          }
+        },
+        "model": "phi/browser-agent/planner",
+        "modelParameters": {
+          "reasoning_effort": "medium",
+          "tool_choice": "required",
+          "stream": true
+        },
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 3.253,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 355,
+          "output": 61,
+          "total": 6515,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 355,
+          "output": 61,
+          "total": 6515
+        }
+      },
+      {
+        "id": "ee251688-082b-4a3c-8f4e-0db5c11f3e92",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:33.618Z",
+        "endTime": "2026-10-16T08:04:34.874Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.905Z",
+        "updatedAt": "2026-10-16T08:04:52.186Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/reasoning",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.256,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 236,
+          "output": 9,
+          "total": 245,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 236,
+          "output": 9,
+          "total": 245
+        }
+      },
+      {
+        "id": "180c0572-7d5a-4b5f-ba9a-1db97ea66576",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:26.449Z",
+        "endTime": "2026-10-16T08:04:27.820Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.921Z",
+        "updatedAt": "2026-10-16T08:04:42.835Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/reasoning",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.371,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 230,
+          "output": 9,
+          "total": 239,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 230,
+          "output": 9,
+          "total": 239
+        }
+      },
+      {
+        "id": "0dbce7b7-7c22-4133-adfc-1e8a40729b16",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:24.873Z",
+        "endTime": "2026-10-16T08:04:32.713Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "6bfc8a2a-b6ec-40ec-82f1-555bf136eae3",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "worker.llm",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:36.867Z",
+        "updatedAt": "2026-10-16T08:04:42.634Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {},
+        "model": "phi/chat/response",
+        "modelParameters": {
+          "reasoning_effort": "medium"
+        },
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 7.84,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 345,
+          "output": 139,
+          "total": 27639,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 345,
+          "output": 139,
+          "total": 27639
+        }
+      },
+      {
+        "id": "fa10ccd5-3638-4009-8f39-5126259ad93e",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:24.544Z",
+        "endTime": "2026-10-16T08:04:25.544Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.474Z",
+        "updatedAt": "2026-10-16T08:04:42.492Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/reasoning",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 234,
+          "output": 9,
+          "total": 243,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 234,
+          "output": 9,
+          "total": 243
+        }
+      },
+      {
+        "id": "a3fa643d-1927-470f-93c8-ff9011b4ab1d",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:23.642Z",
+        "endTime": "2026-10-16T08:04:24.765Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "7d0797e6-d3ba-4f96-a74e-0415749671bc",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.reply",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.290Z",
+        "updatedAt": "2026-10-16T08:04:42.482Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/response",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.123,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 1527,
+          "output": 17,
+          "total": 3389,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 1527,
+          "output": 17,
+          "total": 3389
+        }
+      },
+      {
+        "id": "693697b0-5310-4ed5-9e40-1d862aba4f53",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:23.641Z",
+        "endTime": "2026-10-16T08:04:23.641Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "d36e6217-ed7d-4fbc-bcfd-5cdfa1ba15f4",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.profile",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.282Z",
+        "updatedAt": "2026-10-16T08:04:31.923Z",
+        "input": {
+          "provider": "user_profile"
+        },
+        "output": {},
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "c300e6e6-c0af-44eb-9c5e-3508bad14c05",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:20.843Z",
+        "endTime": "2026-10-16T08:04:23.640Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.respond",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:22.706Z",
+        "updatedAt": "2026-10-16T08:04:31.576Z",
+        "input": "监控这个页面的变化",
+        "output": {
+          "controls": [
+            {
+              "action": "control_delegate_task",
+              "routed": true
+            }
+          ],
+          "segments": []
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 2.797,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "8061956f-4ea3-453f-9a2f-2432dd8604b2",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:23.126Z",
+        "endTime": "2026-10-16T08:04:24.150Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.367Z",
+        "updatedAt": "2026-10-16T08:04:31.540Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/reasoning",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.024,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 230,
+          "output": 9,
+          "total": 239,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 230,
+          "output": 9,
+          "total": 239
+        }
+      },
+      {
+        "id": "d36e6217-ed7d-4fbc-bcfd-5cdfa1ba15f4",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:23.640Z",
+        "endTime": "2026-10-16T08:04:23.641Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f760c4ab-bd71-4751-8a00-9d018b0b0761",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.assess",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:25.489Z",
+        "updatedAt": "2026-10-16T08:04:31.523Z",
+        "input": {
+          "text": "监控这个页面的变化",
+          "selfPrompt": {
+            "reason": "delegate",
+            "hint": "run watch-page on 监控这个页面的变化 — the current browser tab."
+          }
+        },
+        "output": {
+          "intent": {
+            "label": "conversation_turn",
+            "description": "监控这个页面的变化"
+          },
+          "task": {
+            "objective": "run watch-page on 监控这个页面的变化 — the current browser tab."
+          },
+          "skillId": "built_in:watch-page"
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.001,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.642Z",
+        "endTime": "2026-10-16T08:04:23.640Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": null,
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.turn",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:21.649Z",
+        "updatedAt": "2026-10-16T08:04:31.458Z",
+        "input": "监控这个页面的变化",
+        "output": {
+          "action": "control_delegate_task",
+          "routed": true
+        },
+        "metadata": {
+          "kind": "user",
+          "conversationId": "78ee9cb5-1bbb-4b41-a244-e59299d5509b",
+          "states": "thinking"
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 3.998,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "38a82701-bf48-4e57-8410-b882a11a435e",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:20.541Z",
+        "endTime": "2026-10-16T08:04:22.223Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:22.727Z",
+        "updatedAt": "2026-10-16T08:04:31.448Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/reasoning",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.682,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 205,
+          "output": 9,
+          "total": 214,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 205,
+          "output": 9,
+          "total": 214
+        }
+      },
+      {
+        "id": "f429066b-e7ad-4fbd-9640-7aa3822dcd58",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:20.845Z",
+        "endTime": "2026-10-16T08:04:23.639Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "c300e6e6-c0af-44eb-9c5e-3508bad14c05",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.reply",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:22.711Z",
+        "updatedAt": "2026-10-16T08:04:31.400Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "phi/chat/response",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 2.794,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 4864,
+          "output": 42,
+          "total": 11533,
+          "cache_read_input_tokens": "[REDACTED]",
+          "cache_creation_input_tokens": "[REDACTED]"
+        },
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 4864,
+          "output": 42,
+          "total": 11533
+        }
+      },
+      {
+        "id": "b051f5d9-a023-441d-a504-315e5107fb6a",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.642Z",
+        "endTime": "2026-10-16T08:04:20.843Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.assess",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:21.666Z",
+        "updatedAt": "2026-10-16T08:04:29.175Z",
+        "input": {
+          "text": "监控这个页面的变化"
+        },
+        "output": {
+          "intent": {
+            "label": "conversation_turn",
+            "description": "监控这个页面的变化"
+          },
+          "task": {
+            "objective": "监控这个页面的变化"
+          },
+          "skillId": "built_in:watch-page"
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.201,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "fc40948b-412c-4776-9c0f-1aed79dda79f",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.642Z",
+        "endTime": "2026-10-16T08:04:20.842Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.live_context",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:21.658Z",
+        "updatedAt": "2026-10-16T08:04:28.966Z",
+        "input": {
+          "source": "conversation_live_context"
+        },
+        "output": {
+          "skipped": "empty",
+          "applied": false
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.2,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "a5332fd3-c65b-42e3-afed-d8d28da194a8",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.643Z",
+        "endTime": "2026-10-16T08:04:20.842Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "fc40948b-412c-4776-9c0f-1aed79dda79f",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.live_context.fetch",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:21.657Z",
+        "updatedAt": "2026-10-16T08:04:28.859Z",
+        "input": {
+          "provider": "live_context"
+        },
+        "output": {
+          "applied": false,
+          "block": ""
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.199,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "d3b3924c-4661-49c8-97b7-e80180724600",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.643Z",
+        "endTime": "2026-10-16T08:04:19.966Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "b051f5d9-a023-441d-a504-315e5107fb6a",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.decision.reply_language",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:21.677Z",
+        "updatedAt": "2026-10-16T08:04:28.852Z",
+        "input": {
+          "redacted": "Model request body omitted to exclude unrelated browser/profile context"
+        },
+        "output": {
+          "redacted": "Provider response body omitted; observation status/model/usage retained"
+        },
+        "metadata": {
+          "latencyMs": 328
+        },
+        "model": "typesafe/jev-1.13-20260917",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.323,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {
+          "input": 1338,
+          "output": 413,
+          "total": 1751
+        },
+        "costDetails": {
+          "total": 0.000056196
+        },
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0.000056196,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 1338,
+          "output": 413,
+          "total": 1751
+        }
+      },
+      {
+        "id": "825d8146-9360-49b4-86e9-d0cbcb1d392b",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.645Z",
+        "endTime": "2026-10-16T08:04:19.645Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "b051f5d9-a023-441d-a504-315e5107fb6a",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.profile",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:22.833Z",
+        "updatedAt": "2026-10-16T08:04:28.735Z",
+        "input": {
+          "provider": "user_profile"
+        },
+        "output": {},
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "a3745eab-8011-4d1a-9fb7-99bdb8a07f12",
+        "traceId": "0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+        "startTime": "2026-10-16T08:04:19.643Z",
+        "endTime": null,
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "f314a31b-c24a-40c5-b8c3-c1276410c634",
+        "type": "EVENT",
+        "environment": "default",
+        "name": "chat.thought",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-10-16T08:04:22.731Z",
+        "updatedAt": "2026-10-16T08:04:28.727Z",
+        "input": null,
+        "output": {
+          "text": "skill picked by the user: watch-page — recall, grounding and the task router are skipped"
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": null,
+        "timeToFirstToken": "[REDACTED]",
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": "[REDACTED]",
+        "completionTokens": "[REDACTED]",
+        "totalTokens": "[REDACTED]",
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      }
+    ],
+    "htmlPath": "/project/cmoicirky002jsq07vrduoi5s/traces/0bc8f2cf-b1b5-4583-9348-cedaeef8a731",
+    "totalCost": 0.000056196
+  }
+}

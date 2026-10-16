@@ -1,0 +1,7 @@
+pnpm --filter @phi-ai/dsh-plugin-worker exec tsx --test src/lib/delegated-run/run-skills.test.ts
+exit_code=0
+# tests 10
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0

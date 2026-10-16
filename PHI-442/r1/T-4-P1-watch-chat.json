@@ -1,0 +1,88 @@
+{
+  "caseId": "T-4",
+  "preference": "P1",
+  "skillId": "built_in:watch-page",
+  "natural": false,
+  "chatId": "76199ce0-31c6-4c32-9694-e9bceaeb5444",
+  "clientRunId": "fe77fdd6-799a-4129-9e35-9b65b40ebfca",
+  "startedAt": "2026-10-16T08:02:37.242Z",
+  "events": [
+    {
+      "event": "worker_progress",
+      "kind": "skill_load",
+      "skillId": "built_in:watch-page",
+      "name": "watch-page",
+      "status": "loaded"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "browser_task",
+      "capabilityId": "browser_task.execute",
+      "isError": false
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_start",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question"
+    },
+    {
+      "event": "worker_progress",
+      "kind": "tool_call_result",
+      "toolId": "ask_user",
+      "capabilityId": "ask_user.question",
+      "isError": true
+    },
+    {
+      "event": "worker_progress",
+      "kind": "run_result"
+    }
+  ],
+  "runIds": [
+    "fe77fdd6-799a-4129-9e35-9b65b40ebfca",
+    "01a143bc-131d-75f7-81c2-53f128e339c3"
+  ],
+  "card": {
+    "runId": "01a143bc-131d-75f7-81c2-53f128e339c3",
+    "requestId": "ask-user-00d48ba2-9747-4668-82e2-20d7404d43c0",
+    "origin": "model",
+    "kind": "select",
+    "title": "你希望我重点监控页面上的哪类变化？",
+    "description": "你希望我重点监控页面上的哪类变化？例如 #status 状态文字变化、#price 价格变化，或两者都监控。",
+    "options": [
+      {
+        "id": "skip",
+        "label": "Skip",
+        "variant": "outline",
+        "skipsFields": true
+      },
+      {
+        "id": "submit",
+        "label": "Submit",
+        "variant": "default"
+      }
+    ],
+    "fields": [
+      {
+        "id": "answer",
+        "type": "text",
+        "label": "Your answer",
+        "multiline": true,
+        "required": true,
+        "placeholder": "例如：监控价格变化，价格低于 90 时告诉我"
+      }
+    ],
+    "allowSkip": true,
+    "style": "question"
+  },
+  "cardAt": "2026-10-16T08:03:17.588Z",
+  "finishedAt": "2026-10-16T08:03:19.590Z",
+  "cardOutcome": "cancelled"
+}
