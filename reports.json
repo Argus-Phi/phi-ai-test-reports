@@ -154,5 +154,22 @@
     "total": 27
    }
   }
+ ],
+ "PHI-442": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "blocked",
+   "title": "built-in skill 修改",
+   "sha": "63685435666f5b557bc951bbb94194190f83f806",
+   "generated_at": "2026-10-16T07:26:07.164066+00:00",
+   "counts": {
+    "pass": 4,
+    "fail": 0,
+    "blocked": 2,
+    "skipped": 6,
+    "total": 12
+   }
+  }
  ]
 }

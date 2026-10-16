@@ -1,0 +1,27 @@
+[
+  {
+    "command": "pnpm type-check",
+    "exit_code": 0,
+    "seconds": 0.45
+  },
+  {
+    "command": "pnpm exec tsc -b --force --emitDeclarationOnly",
+    "exit_code": 0,
+    "seconds": 5.53
+  },
+  {
+    "command": "pnpm exec eslint --no-warn-ignored ai-extension/sidecar/src/lib/skill-meta.drift.test.ts ai-extension/sidecar/src/lib/skill-meta.ts phi-agent-dsh/plugins/chat/src/lib/skill-candidates.test.ts phi-agent-dsh/plugins/chat/src/lib/skill-candidates.ts phi-agent-dsh/plugins/skills/src/lib/routes-skills.test.ts phi-agent-dsh/plugins/skills/src/lib/service.test.ts phi-agent-dsh/plugins/skills/src/lib/service.ts",
+    "exit_code": 0,
+    "seconds": 5.56
+  },
+  {
+    "command": "pnpm exec prettier --check --ignore-unknown ai-extension/sidecar/src/lib/skill-meta.drift.test.ts ai-extension/sidecar/src/lib/skill-meta.ts phi-agent-dsh/plugins/chat/src/lib/skill-candidates.test.ts phi-agent-dsh/plugins/chat/src/lib/skill-candidates.ts phi-agent-dsh/plugins/skills/built-in/DEVELOPER_GUIDE.md phi-agent-dsh/plugins/skills/src/lib/routes-skills.test.ts phi-agent-dsh/plugins/skills/src/lib/service.test.ts phi-agent-dsh/plugins/skills/src/lib/service.ts",
+    "exit_code": 0,
+    "seconds": 1.04
+  },
+  {
+    "command": "pnpm --filter @phi-ai/sidecar build",
+    "exit_code": 0,
+    "seconds": 17.43
+  }
+]

@@ -1,0 +1,732 @@
+{
+  "hidden": [
+    "built_in:watch-page",
+    "built_in:report-chat-trace",
+    "built_in:skill-creator",
+    "built_in:phi-browser-help",
+    "built_in:skill-library"
+  ],
+  "pages": [
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "",
+      "page_size": 1,
+      "total": 14,
+      "total_pages": 14,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "",
+      "page_size": 2,
+      "total": 14,
+      "total_pages": 7,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "Report Chat Trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "Report Chat Trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "report-chat-trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "report-chat-trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "Watch This Page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "Watch This Page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "watch-page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "watch-page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "phi442-qa-control",
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "all",
+      "query": "phi442-qa-control",
+      "page_size": 2,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "",
+      "page_size": 1,
+      "total": 13,
+      "total_pages": 13,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "",
+      "page_size": 2,
+      "total": 13,
+      "total_pages": 7,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "Report Chat Trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "Report Chat Trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "report-chat-trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "report-chat-trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "Watch This Page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "Watch This Page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "watch-page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "watch-page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "phi442-qa-control",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "built_in",
+      "query": "phi442-qa-control",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "",
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "",
+      "page_size": 2,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "Report Chat Trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "Report Chat Trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "report-chat-trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "report-chat-trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "Watch This Page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "Watch This Page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "watch-page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "watch-page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "phi442-qa-control",
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": true,
+      "filter": "user",
+      "query": "phi442-qa-control",
+      "page_size": 2,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "",
+      "page_size": 1,
+      "total": 14,
+      "total_pages": 14,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "",
+      "page_size": 2,
+      "total": 14,
+      "total_pages": 7,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "Report Chat Trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "Report Chat Trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "report-chat-trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "report-chat-trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "Watch This Page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "Watch This Page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "watch-page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "watch-page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "phi442-qa-control",
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "all",
+      "query": "phi442-qa-control",
+      "page_size": 2,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "",
+      "page_size": 1,
+      "total": 13,
+      "total_pages": 13,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "",
+      "page_size": 2,
+      "total": 13,
+      "total_pages": 7,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "Report Chat Trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "Report Chat Trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "report-chat-trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "report-chat-trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "Watch This Page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "Watch This Page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "watch-page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "watch-page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "phi442-qa-control",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "built_in",
+      "query": "phi442-qa-control",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "",
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "",
+      "page_size": 2,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "Report Chat Trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "Report Chat Trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "report-chat-trace",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "report-chat-trace",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "Watch This Page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "Watch This Page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "watch-page",
+      "page_size": 1,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "watch-page",
+      "page_size": 2,
+      "total": 0,
+      "total_pages": 0,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "phi442-qa-control",
+      "page_size": 1,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    },
+    {
+      "include_uninstalled": false,
+      "filter": "user",
+      "query": "phi442-qa-control",
+      "page_size": 2,
+      "total": 1,
+      "total_pages": 1,
+      "past_last_empty": true,
+      "ordered": true
+    }
+  ],
+  "user_control": "user_disk:6b5f0b3a719a85307f0528862f205906"
+}

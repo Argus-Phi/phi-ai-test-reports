@@ -1,0 +1,351 @@
+{
+  "states": [
+    {
+      "state": "P0",
+      "before": {
+        "state": "P0",
+        "rows": []
+      },
+      "raw_after_denials": [],
+      "raw_unchanged": true,
+      "chatContainsBoth": true,
+      "enableTrueStatus": [
+        200,
+        200
+      ],
+      "checks": [
+        {
+          "id": "built_in:watch-page",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        }
+      ]
+    },
+    {
+      "state": "P1",
+      "before": {
+        "state": "P1",
+        "rows": [
+          {
+            "skill_id": "built_in:report-chat-trace",
+            "installed": false,
+            "enabled": true
+          },
+          {
+            "skill_id": "built_in:watch-page",
+            "installed": false,
+            "enabled": true
+          }
+        ]
+      },
+      "raw_after_denials": [
+        {
+          "skill_id": "built_in:report-chat-trace",
+          "installed": false,
+          "enabled": true
+        },
+        {
+          "skill_id": "built_in:watch-page",
+          "installed": false,
+          "enabled": true
+        }
+      ],
+      "raw_unchanged": true,
+      "chatContainsBoth": true,
+      "enableTrueStatus": [
+        200,
+        200
+      ],
+      "checks": [
+        {
+          "id": "built_in:watch-page",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        }
+      ]
+    },
+    {
+      "state": "P2",
+      "before": {
+        "state": "P2",
+        "rows": [
+          {
+            "skill_id": "built_in:report-chat-trace",
+            "installed": true,
+            "enabled": false
+          },
+          {
+            "skill_id": "built_in:watch-page",
+            "installed": true,
+            "enabled": false
+          }
+        ]
+      },
+      "raw_after_denials": [
+        {
+          "skill_id": "built_in:report-chat-trace",
+          "installed": true,
+          "enabled": false
+        },
+        {
+          "skill_id": "built_in:watch-page",
+          "installed": true,
+          "enabled": false
+        }
+      ],
+      "raw_unchanged": true,
+      "chatContainsBoth": true,
+      "enableTrueStatus": [
+        200,
+        200
+      ],
+      "checks": [
+        {
+          "id": "built_in:watch-page",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        }
+      ]
+    },
+    {
+      "state": "P3",
+      "before": {
+        "state": "P3",
+        "rows": [
+          {
+            "skill_id": "built_in:report-chat-trace",
+            "installed": false,
+            "enabled": false
+          },
+          {
+            "skill_id": "built_in:watch-page",
+            "installed": false,
+            "enabled": false
+          }
+        ]
+      },
+      "raw_after_denials": [
+        {
+          "skill_id": "built_in:report-chat-trace",
+          "installed": false,
+          "enabled": false
+        },
+        {
+          "skill_id": "built_in:watch-page",
+          "installed": false,
+          "enabled": false
+        }
+      ],
+      "raw_unchanged": true,
+      "chatContainsBoth": true,
+      "enableTrueStatus": [
+        200,
+        200
+      ],
+      "checks": [
+        {
+          "id": "built_in:watch-page",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:watch-page",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "GET",
+          "installed": true,
+          "enabled": true
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "POST",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "DELETE",
+          "path": "/install",
+          "status": 403,
+          "error": "system_skill_install_locked"
+        },
+        {
+          "id": "built_in:report-chat-trace",
+          "method": "PATCH",
+          "path": "/enabled",
+          "status": 403,
+          "error": "system_skill_cannot_be_disabled"
+        }
+      ]
+    }
+  ],
+  "chat_execution": "not executed"
+}

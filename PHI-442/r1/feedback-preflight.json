@@ -1,0 +1,23 @@
+{
+  "issue": "PHI-442",
+  "sha": "63685435666f5b557bc951bbb94194190f83f806",
+  "status": "blocked",
+  "account_base_url": "https://account.stag.phibrowser.com",
+  "submit_path": "/api/auth/feedback/v2/submit",
+  "presign_path": "/api/auth/feedback/v2/attachments/presign",
+  "runbook_reference": "PHI-442/runbook.md:64@5f9e98a482bc715693b60529e87d96c9e1f4c3e4",
+  "plan_reference": "PHI-442/test-plan.md:25@d74bb0e953b16a0e44764ce6efde81b839222cbe",
+  "examined": [
+    "runbook specifies stag base URL but delegates the actual test receiver check to S9",
+    "docs/api_documentation.md:856-878 documents presign, R2 upload and real submit only",
+    "phi-agent-dsh/plugins/worker/src/lib/backends/feedback-port.ts:13-35 forwards ACCOUNT_BASE_URL and fetch implementation",
+    "phi-agent-dsh/plugins/worker/src/lib/feedback/feedback-client.ts:114-176 executes presign/upload/submit; no notification suppression parameter",
+    "local-fixture.cjs uses package.env.stage without a notification-suppression override",
+    "No notification-free receiver setup or verification command is documented in this repository"
+  ],
+  "conclusion": "Stag hostname alone does not establish that feedback submission avoids real team notifications. Notification delivery settings belong to the external account service and are not proven by the local client's behavior.",
+  "required_input": "Provide a real stag feedback receiver with notifications disabled and a read-only verification method for that setting, including attachment origin and feedback-id lookup. Do not replace real submission with a mock or request interception.",
+  "feedback_submit_attempted": false,
+  "attachments_uploaded": false,
+  "real_notifications_triggered_by_qa": false
+}

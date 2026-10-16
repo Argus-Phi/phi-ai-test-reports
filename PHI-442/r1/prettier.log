@@ -1,0 +1,7 @@
+{
+  "command": "pnpm exec prettier --check --ignore-unknown ai-extension/sidecar/src/lib/skill-meta.drift.test.ts ai-extension/sidecar/src/lib/skill-meta.ts phi-agent-dsh/plugins/chat/src/lib/skill-candidates.test.ts phi-agent-dsh/plugins/chat/src/lib/skill-candidates.ts phi-agent-dsh/plugins/skills/built-in/DEVELOPER_GUIDE.md phi-agent-dsh/plugins/skills/src/lib/routes-skills.test.ts phi-agent-dsh/plugins/skills/src/lib/service.test.ts phi-agent-dsh/plugins/skills/src/lib/service.ts",
+  "exit_code": 0,
+  "seconds": 1.04
+}
+Checking formatting...
+All matched files use Prettier code style!

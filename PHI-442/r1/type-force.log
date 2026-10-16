@@ -1,0 +1,5 @@
+{
+  "command": "pnpm exec tsc -b --force --emitDeclarationOnly",
+  "exit_code": 0,
+  "seconds": 5.53
+}

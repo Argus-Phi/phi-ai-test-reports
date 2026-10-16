@@ -1,0 +1,524 @@
+{
+ "issue": "PHI-442",
+ "based_on": "PHI-442/runbook.md@5f9e98a482bc715693b60529e87d96c9e1f4c3e4, phi-ai@63685435666f5b557bc951bbb94194190f83f806",
+ "key": "PHI-442",
+ "title": "built-in skill 修改",
+ "work_type": "feature",
+ "round": 1,
+ "kind": "test",
+ "verdict": "blocked",
+ "pr_allowed": false,
+ "summary": "本轮未完成：12 条计划中 4 条通过（T-1 扣除已核实的范围外基线问题）、2 条阻塞、6 条未执行。已完成自动化门禁、真实 API 与 Canary 管理页验证；P0～P3 状态和管理锁的 API 部分符合预期。runbook 缺少真实 stag 反馈接收端禁用通知的配置及核验方法，T-7 无法满足前置条件；未执行的聊天、右键与后台用例不能判通过，AI 测试和审查不允许提交 PR。",
+ "sha": "63685435666f5b557bc951bbb94194190f83f806",
+ "branch": "PHI-442-hide-built-in-skills",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/590",
+ "generated_at": "2026-10-16T07:26:07.164066+00:00",
+ "environment": {
+  "机器": "专用 macOS 26.6.2 测试机",
+  "Phi Canary": "2026.10.16.0208",
+  "Sidecar": "build:local / 100.0.0 / 同 SHA 快照",
+  "Node / pnpm": "22.23.3 / 10.17.1",
+  "数据库": "phi_agent_phi442（隔离；收尾删除）",
+  "服务": "127.0.0.1:8788，package.env.stage；收尾停止",
+  "Langfuse": "未发送 chat，无本轮 chat trace"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含手测方案及本轮校准）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-442/test-plan.md"
+  },
+  {
+   "title": "runbook.md@5f9e98a482bc",
+   "url": "https://github.com/phibrowser/phi-ai/blob/5f9e98a482bc715693b60529e87d96c9e1f4c3e4/PHI-442/runbook.md"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "自动化行为与执行边界回归",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1～8",
+   "precondition": "- 对应：AC-1～8；mode: auto；前置：精确 SHA、依赖已安装。",
+   "steps": [
+    "仓库根依次运行 `pnpm --filter @phi-ai/dsh-plugin-skills test` 和 `pnpm --filter @phi-ai/dsh-plugin-chat test`；在 `ai-extension/sidecar` 运行 `pnpm exec tsx --test src/lib/skill-meta.drift.test.ts src/components/skill-selection.test.ts src/lib/watch-page-send.test.ts`；在 `phi-agent-dsh/plugins/worker` 运行 `pnpm exec tsx --test src/lib/backends/__tests__/skills-port.test.ts src/lib/delegated-run/run-skills.test.ts`。"
+   ],
+   "expected": "已有相关行为套件通过，无失败或意外跳过；真实 service→provider/router 的新增集成断言按评审确认存在。该结果只证明套件，不能代替 T-3～12；auto-trigger 的内部一致性不作为 AC-3/4 调用证据（S6 Anton A-1）。",
+   "actual": "skills 316/316、Sidecar 定向 12/12、worker 40/40。chat 全套 1161 项：1155 pass、1 fail、5 cancelled，非全绿。基线 chat 1160 项：1158 pass、2 fail；位置均为既有 tabInSpace / report deadline。deadline 定向在分支与基线各重复 3 次，均 11 pass / 5 cancelled。引用 PHI-415、PHI-416，未发现本 PR 新增失败；本用例按排除范围外既有问题后通过。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-1-results.json",
+     "caption": "本分支各套件实际退出码与计数",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "chat.log",
+     "caption": "本分支既有失败与取消片段",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "baseline-chat.log",
+     "caption": "merge-base 全套同位置异常对照",
+     "attempt": 1
+    },
+    {
+     "type": "text",
+     "path": "T-1-deadline-comparison.json",
+     "caption": "分支与基线各 3 次 deadline 对照",
+     "attempt": 1
+    },
+    {
+     "type": "image",
+     "path": "T-1-01.png",
+     "caption": "实际执行摘要截图：起始汇总",
+     "attempt": 1
+    },
+    {
+     "type": "image",
+     "path": "T-1-02.png",
+     "caption": "实际执行摘要截图：对照结束",
+     "attempt": 1
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-2",
+   "title": "类型、构建和真实启动门禁",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-3、AC-8",
+   "precondition": "- 对应：AC-3、AC-8；mode: auto；前置：T-1 同一 SHA。",
+   "steps": [
+    "根运行 `pnpm type-check`；若 linked 包受影响按仓库说明强制 `tsc -b --force` 后再查。对本 PR 改动 TS 跑 `pnpm exec eslint --no-warn-ignored <文件>`，全部改动文件跑 `pnpm exec prettier --check --ignore-unknown <文件>`。运行 `pnpm --filter @phi-ai/sidecar build`；在 `phi-agent-dsh` 有界运行 `PORT=0 pnpm dev:self-hosted`，取到 `Starting phi-agent server on 127.0.0.1:0` 对应 ready 日志后停止该进程树。"
+   ],
+   "expected": "检查与构建通过，真实服务可 ready；语法启动不算调用通过。不执行格式化、自动修复或修改产品代码。之后 GUI 使用重新构建的 build:local，不误装普通 build。",
+   "actual": "根 type-check 56/56（缓存），chat 引用链 tsc -b --force --emitDeclarationOnly 成功；ESLint 0 errors / 39 warnings；Prettier 成功。Sidecar 普通 build 与 build:local 成功。独立隔离库 PORT=0 实际 ready，随后已停止。8788 同 SHA 实际 ready，认证 API 200。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-2-results.json",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "type-check.log",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "type-force.log",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "eslint.log",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "prettier.log",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "build-sidecar.log",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "log",
+     "path": "boot-port0.log",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "image",
+     "path": "T-2-01.png",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    },
+    {
+     "type": "image",
+     "path": "T-2-02.png",
+     "caption": "门禁实际输出",
+     "attempt": 1
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-3",
+   "title": "管理过滤在计数和分页前生效",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-1、AC-2、AC-8",
+   "precondition": "- 对应：AC-1、AC-2、AC-8；mode: api；前置：本地真实服务、普通 built-in 和用户 skill 控制项存在。",
+   "steps": [
+    "读取未排除系统项的完整目录；以现有隐藏系统项及两个目标 ID 为排除集，在客户端计算普通期望集合。对管理页实际查询分别请求推荐、All、Built-in、My skills；搜索四个显示名/slug，并补一个普通控制项搜索。使用 `GET /api/skills`、`exclude_meta=true` 和管理页实际 query 参数；分别 page_size=1、2，遍历到 has_more=false，另请求末页后一页。记录服务实际支持的参数和响应原文，S9 先据 handler/runbook 校准，不猜参数。"
+   ],
+   "expected": "目标 ID 从 items、推荐和匹配总数移除；total=N，total_pages/has_more 与 N 和页容量一致；拼接结果与普通期望集合按原顺序完全一致，无重复、漏项或隐藏空位；无匹配搜索为零且无卡片。尾页/越界页沿用基线规则。默认不排除的聊天目录仍有两个目标。",
+   "actual": "真实服务覆盖 include_uninstalled=true/false、All/Built-in/User、6 种搜索、page_size=1/2，共 72 组分页；客户端从未过滤目录计算期望集合，逐页内容、顺序、total、total_pages、has_more、越界页完全一致。推荐目录 13 个普通 built-in，含用户控制项时 All 全目录 14；默认已安装目录 All=3 / Built-in=2 / User=1。四种目标名称/slug 查询均无目标。未隐藏的聊天目录含两目标。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-3-api.json",
+     "caption": "真实 API 分页断言与执行摘要",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-01.png",
+     "caption": "真实 API 分页断言与执行摘要",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-02.png",
+     "caption": "真实 API 分页断言与执行摘要",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-4",
+   "title": "无偏好及历史负偏好的状态与管理锁",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-3、AC-4",
+   "precondition": "- 对应：AC-3、AC-4；mode: api；前置：P0～P3 可读回的独立测试库偏好，服务已 ready。",
+   "steps": [
+    "每种 P 状态依次对两个目标 ID 读取 GET 详情与聊天列表；调用 `POST /api/skills/<URL编码ID>/install`、同路径 DELETE、`PATCH /api/skills/<ID>/enabled` body=`{\"enabled\":false}`。每次立即重读有效详情和原始偏好，比较前后；最后单独测试 enabled=true 沿用允许重新启用的规则。P1～P3 的每次准备及锁后各通过聊天显式选择目标并发起调用：Report 请求到确认卡后拒绝；Watch 完成一次设置后暂停任务（使用 T-8 的答案）。"
+   ],
+   "expected": "所有状态的有效 installed/enabled 均 true；安装/卸载为 HTTP 403 + `system_skill_install_locked`，停用为 HTTP 403 + `system_skill_cannot_be_disabled`；被拒操作不改变原始记录，有效状态也不变。重启服务后 P3 仍可调用。每次实际 skill 加载成功，无安装要求；不能只拿 listAutoTriggerCandidates 或 provider 单测证明。",
+   "actual": "仅 API 部分完成：P0～P3 独立库实写读回；两 ID 详情/聊天目录均 installed=true、enabled=true；每状态 6 个拒绝管理请求均 403，错误码准确；原始偏好在拒绝前后不变。enabled=true 均 200。实际聊天加载、负偏好下 Watch 任务及重启调用未执行；本轮因 T-7 前置缺口阻断中止，不能标整条通过。",
+   "status": "blocked",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-4-api.json",
+     "caption": "已执行 API 子步骤；未证明聊天分支",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-01.png",
+     "caption": "已执行 API 子步骤；未证明聊天分支",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-02.png",
+     "caption": "已执行 API 子步骤；未证明聊天分支",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "未调用 chat；无 trace 不是聊天验收通过。"
+  },
+  {
+   "id": "T-5",
+   "title": "Skills 管理页的可见性",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1、AC-2",
+   "precondition": "- 对应：AC-1、AC-2；mode: gui；前置：P0，本机 Canary 已加载被测版本。",
+   "steps": [
+    "Cmd+T → NTP 右上菜单 → Skills（或已验证 `phi://newtab/?view=skills`）；等待标题 Skills 和列表加载完成。查看推荐区、All、Built-in，遍历当前所有页；逐个输入 `Report Chat Trace`、`report-chat-trace`、`Watch This Page`、`watch-page`，每次等待网络返回和列表更新再截图；清空搜索后用普通控制项名搜索。记录对应网络分页并与 T-3 比较。"
+   ],
+   "expected": "所有目标卡片消失，搜索无目标；普通卡片可见且列表与真实 API 一致，无因隐藏导致的分页空位。单独查看 My skills，控制项仍在。",
+   "actual": "Canary 实际加载 manifest 100.0.0 的同 SHA Sidecar。推荐 13 项、全部/内置/用户创建和四种名称/slug 搜索均无两目标/Help 卡；用户控制项可见且可搜。UI 全部已安装 3 项、内置 2 项、用户 1 项，只有一页；小页分页由 T-3 实际 API 覆盖。首轮脚本未等待异步列表导致提前断言；等待 DOM 与网络稳定后重跑通过，属于测试脚本竞态，非产品 bug。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-5-01.png",
+     "caption": "首轮 All 状态；脚本随后因异步等待不足中止",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-5-02.png",
+     "caption": "首轮 Built-in 状态",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-5-attempt1-state.png",
+     "caption": "提前断言后的回读显示用户控制已加载；脚本竞态",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-5-10.png",
+     "caption": "全部与推荐",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-11.png",
+     "caption": "内置与推荐",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-12.png",
+     "caption": "用户创建",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-13.png",
+     "caption": "Report Chat Trace 搜索",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-14.png",
+     "caption": "report-chat-trace 搜索",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-15.png",
+     "caption": "Watch This Page 搜索",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-16.png",
+     "caption": "watch-page 搜索",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-17.png",
+     "caption": "普通用户控制搜索",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-18.png",
+     "caption": "清空搜索的结束状态",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-5-ui.json",
+     "caption": "第二次稳定等待后的界面断言",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-6",
+   "title": "Report Chat Trace 自然语言拒绝分享",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3、AC-5",
+   "precondition": "- 对应：AC-3、AC-5；mode: gui；uses_chat: true；前置：P0，独立新 QA 会话、未选择 skill。",
+   "steps": [
+    "发送 `这是 PHI-442 的合成测试对话，请只回复 PHI442_TRACE_SEED。`，等待完成并确认有可导出 trace；发送 `把这段对话的追踪日志发给 Phi 团队`。出现分享卡后截图，选择拒绝/Cancel；等回合完成，再观察 5 秒并保存完整工具事件窗口。"
+   ],
+   "expected": "实际路由并加载 `built_in:report-chat-trace`，出现现有分享确认；拒绝后 `consent_declined`，没有生成 trace 导出文件、附件上传或 feedback.submit；不得以后台请求偷偷分享。",
+   "actual": "未执行：本轮在反馈接收端前置核对后阻断中止，没有发送合成对话或拒绝分享回合。",
+   "status": "skipped",
+   "uses_chat": false,
+   "evidence": [],
+   "bugs": [],
+   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+  },
+  {
+   "id": "T-7",
+   "title": "Report Chat Trace 同意和显式选择",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3、AC-5、AC-8",
+   "precondition": "- 对应：AC-3、AC-5、AC-8；mode: gui；uses_chat: true；前置：P0、已验证的 stag 测试反馈接收路径；合成会话有 trace。",
+   "steps": [
+    "先在未选 skill 的新会话发与 T-6 相同原文，同意分享卡，备注 `PHI-442 QA synthetic trace`，等待实际提交完成。另建合成会话，从聊天 skill picker 搜索并选中 Report Chat Trace，发送同样请求，出现卡先拒绝；再发同样请求并同意。选中 chip 出现后点击一次，核对与 Help 一致不可跳到普通可管理详情。"
+   ],
+   "expected": "两条入口均实际加载正确 skill；每次同意恰好一次 chat_trace.export 成功和一次真实 stag feedback.submit 成功，返回可核对反馈编号并与本轮 trace/file_id 对应；提交发生在确认之后。显式分支拒绝也无导出/上传/提交。chip 不导致普通停用/卸载入口。",
+   "actual": "前置核对未通过：runbook:64 仅给 account.stag.phibrowser.com，未给真实反馈接收端禁用通知的设置与核验命令。检查本地 helper、反馈客户端与 API 文档，客户端只执行 presign/R2 PUT/submit，无 silent/dry-run 参数，不能证明外部 account 服务不会通知真实团队。Canary picker 可见 Report、Watch、Help；Report 可插入 composer。未发送消息、未导出、未上传、未提交，不能据 picker 判调用通过。",
+   "status": "blocked",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "feedback-preflight.json",
+     "caption": "真实接收端前置缺口",
+     "attempt": 1
+    },
+    {
+     "type": "image",
+     "path": "T-7-01.png",
+     "caption": "picker 可见目标及 Help；仅局部验证",
+     "attempt": 1
+    },
+    {
+     "type": "image",
+     "path": "T-7-02.png",
+     "caption": "Report 插入输入框；未发送消息",
+     "attempt": 1
+    }
+   ],
+   "bugs": [],
+   "notes": "未调用 chat；无 trace 不是聊天验收通过。"
+  },
+  {
+   "id": "T-8",
+   "title": "Watch This Page 自然语言和显式选择",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3、AC-6",
+   "precondition": "- 对应：AC-3、AC-6；mode: gui；uses_chat: true；前置：P0，打开本机测试页，确认标题和答案表文字。",
+   "steps": [
+    "Cmd+Shift+S 开 sidebar，新建会话并保留页面上下文，发送 `监控这个页面的变化`。按现有提问卡填写 `只监控页面中 Price: 100 QA credits 这一行的价格；只有价格变化才报告。`；频率选一次一天（或原文 `每天上午九点`），其他确认按现有卡片提交。等待任务创建成功，立刻读取任务并暂停计划。另建会话，从 picker 选择 Watch This Page，发送相同原文，完成相同设置；给两条任务各加可识别的 PHI-442 标记（如系统要求任务标题）。"
+   ],
+   "expected": "两入口各加载 `built_in:watch-page` 且各创建一个不同任务；页面 URL/标题、价格条件、每日频率与仅变化报告均可从任务持久化记录核对，无需安装/启用；没有只发口头成功而缺少任务。显式消息 chip 与 Help 一致不可管理跳转。",
+   "actual": "未执行：本轮因 T-7 前置缺口阻断中止；未发送 Watch 请求或创建任务，未沿用作者自测结果。",
+   "status": "skipped",
+   "uses_chat": false,
+   "evidence": [],
+   "bugs": [],
+   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+  },
+  {
+   "id": "T-9",
+   "title": "Watch This Page 原生右键与页面上下文",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-4、AC-6",
+   "precondition": "- 对应：AC-4、AC-6；mode: gui；uses_chat: true；前置：P3，测试页为当前页，sidebar 已有空闲 QA 会话。",
+   "steps": [
+    "在页面正文空白位置真实右键，选择 `Have <agentName> watch this page` 对应当前语言菜单项，等待新会话和设置卡。记录自动发送原文、选中 ID、附件和 turnSource；按 T-8 的答案完成设置，取得任务后暂停计划。观察完成后 5 秒，查询这次入口的任务数。"
+   ],
+   "expected": "P3 下仍携带 `built_in:watch-page`、原页面 tab/URL/标题，turnSource=`context_menu_watch_page`；实际加载 skill 并仅创建一个指向测试页的任务，已打开的旧会话未被当作目标。此处只测普通单页入口，不扩展到跨 Profile/多实例。",
+   "actual": "未执行：本轮因 T-7 前置缺口阻断中止；未操作原生右键 Watch 入口。",
+   "status": "skipped",
+   "uses_chat": false,
+   "evidence": [],
+   "bugs": [],
+   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+  },
+  {
+   "id": "T-10",
+   "title": "后台普通任务和监控任务的真实执行目录",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-7",
+   "precondition": "- 对应：AC-7；mode: api；uses_chat: true（包括监控创建和实际后台 run）；前置：T-8 已创建并暂停的监控任务，无外部通知渠道。",
+   "steps": [
+    "用现有任务 API 创建只读取本机测试页并返回标题的普通后台 QA 任务，关闭对外报告；按 runbook 的现有 run-now 命令分别触发普通任务、一个监控任务各一次，等终态。对这两个实际 run 从执行 trace/worker 日志提取提供给 agent 的完整 skill 目录，不能只查询全局 GET /api/skills。取监控首次检查的结果，不改变页面或触发真实变化通知。"
+   ],
+   "expected": "两次目录均无两个 chat-only ID；普通任务读取正确标题，监控按已保存条件执行并结束，不重新询问监控对象/条件/频率；后台目录中的其他正常 skill 不被清空。执行完成本身不能证明目录断言。",
+   "actual": "未执行：本轮因 T-7 前置缺口阻断中止，未创建或触发任何后台任务，未取得真实执行目录；worker 单元不替代本用例。",
+   "status": "skipped",
+   "uses_chat": false,
+   "evidence": [],
+   "bugs": [],
+   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+  },
+  {
+   "id": "T-11",
+   "title": "Help 与普通 skill 管理回归",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-8",
+   "precondition": "- 对应：AC-8；mode: gui；前置：普通已安装/未安装 built-in 与用户控制项，各自原始状态已备份。",
+   "steps": [
+    "Skills 查看推荐/分类、控制项搜索和页码；Help 在管理页应隐藏。聊天 picker 搜索 Help 和普通项，核对 Help 可见及现有独立帮助入口可用。对普通已安装 built-in 依次停用、刷新、启用、卸载、重装，逐次读取详情和 picker；对用户控制项做同等管理操作，再恢复最初状态；未安装普通项先核对未安装显示与现有 try-first 行为。与 merge-base 基线的相同操作记录对照，不借本 PR 要求扩大 Help 的通用路由/显式选择范围。"
+   ],
+   "expected": "普通项每步安装/启用状态与既有规则一致，停用仍有效、卸载不会被错误系统锁；用户项可见/可搜索，Help 管理隐藏且默认可用。原三个路由排除 ID 的边界由 T-1 配合验证。",
+   "actual": "未执行完整管理回归或真实 skill_library 工具。T-5 附带观察 Help 管理隐藏、用户控制可见；T-7 picker 附带观察 Help 可见，不将这些局部证据提升为本条通过。",
+   "status": "skipped",
+   "uses_chat": false,
+   "evidence": [],
+   "bugs": [],
+   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+  },
+  {
+   "id": "T-12",
+   "title": "重启后的隐藏和实际可调用",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-4、AC-8",
+   "precondition": "- 对应：AC-4、AC-8；mode: gui；uses_chat: true；前置：保留 P3，目标任务已暂停、无生成中回合。",
+   "steps": [
+    "先刷新 Skills 与聊天页；再按既有加载脚本重启 Canary，并重启本次本地服务，核对仍为被测 SHA/manifest。重走 T-5 的 All/Built-in/四个搜索；在 picker 选择两个目标，各发 T-6/T-8 的原文。Report 在卡片拒绝；Watch 完成设置取得任务后暂停。"
+   ],
+   "expected": "刷新与重启不恢复卡片、不因旧偏好丢失选择或能力；两次实际加载成功，Watch 有准确任务，Report 仍按确认边界工作。不能仅凭进程重启成功判通过。",
+   "actual": "未执行：未进行 P3 下的服务/Canary 重启调用验收。收尾恢复原扩展属于环境清理，不算本条测试。",
+   "status": "skipped",
+   "uses_chat": false,
+   "evidence": [],
+   "bugs": [],
+   "notes": "本轮在 T-7 接收端前置缺口处阻断中止；未执行，不计通过；解除阻断后按计划执行。"
+  }
+ ],
+ "bugs": [],
+ "known_issues": [
+  {
+   "id": "PHI-415",
+   "title": "Sidecar 英文 tabInSpace 词条与后端目录不一致",
+   "baseline_sha": "a1339e14c031e51a5b2e095d1237abd7b5ec2ddb",
+   "url": "https://mca.bj1.r.v2c.link:39000/issues/01a13ef5-b250-7592-8fec-7f897411fc09",
+   "case_ids": [
+    "T-1"
+   ],
+   "evidence": "baseline-chat.log 与 chat.log；同一 tabInSpace 断言失败。"
+  },
+  {
+   "id": "PHI-416",
+   "title": "Task report deadline 无 ref 句柄时取消后续测试；全套也可能表现为 report_timeout",
+   "baseline_sha": "a1339e14c031e51a5b2e095d1237abd7b5ec2ddb",
+   "url": "https://mca.bj1.r.v2c.link:39000/issues/01a13ef5-b314-78b3-8114-2bf3b2bb1136",
+   "case_ids": [
+    "T-1"
+   ],
+   "evidence": "T-1-deadline-comparison.json：当前/基线定向各 3/3 同现 5 cancelled。全套 baseline-chat.log 同位置 report_timeout。"
+  }
+ ]
+}

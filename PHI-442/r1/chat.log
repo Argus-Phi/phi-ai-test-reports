@@ -1,0 +1,163 @@
+{
+  "command": "pnpm --filter @phi-ai/dsh-plugin-chat test",
+  "exit_code": 1,
+  "seconds": 15.7,
+  "summary": [
+    "not ok 820 - the Sidecar's English catalog is this catalog, key for key",
+    "not ok 1044 - a report the engine never finishes ends at the deadline, and its late close ends nothing",
+    "not ok 1045 - stopping a report that said nothing fails it, and the next queued report still runs",
+    "not ok 1046 - a conversation whose engine cannot take a report refuses it",
+    "not ok 1047 - a report's live status is written knowing the conversation's latest user message",
+    "not ok 1048 - with neither a reply language nor any user message, no status is guessed",
+    "# tests 1161",
+    "# pass 1155",
+    "# fail 1",
+    "# cancelled 5",
+    "# skipped 0",
+    "# duration_ms 12604.305958"
+  ]
+}
+  ...
+# Subtest: the Sidecar's English catalog is this catalog, key for key
+not ok 820 - the Sidecar's English catalog is this catalog, key for key
+  ---
+  duration_ms: 1.567
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:1:555'
+  failureType: 'testCodeFailure'
+  error: |-
+    tabInSpace
+    + actual - expected
+    
+    + '{{title}} ({{space}})'
+    - '{{title}} — {{space}}'
+                 ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '{{title}} — {{space}}'
+  actual: '{{title}} ({{space}})'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:40:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+  ...
+# Subtest: a report the engine never finishes ends at the deadline, and its late close ends nothing
+not ok 1044 - a report the engine never finishes ends at the deadline, and its late close ends nothing
+  ---
+  duration_ms: 15.732875
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:10828'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: stopping a report that said nothing fails it, and the next queued report still runs
+not ok 1045 - stopping a report that said nothing fails it, and the next queued report still runs
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:11693'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+  ...
+# Subtest: stopping a report that said nothing fails it, and the next queued report still runs
+not ok 1045 - stopping a report that said nothing fails it, and the next queued report still runs
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:11693'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a conversation whose engine cannot take a report refuses it
+not ok 1046 - a conversation whose engine cannot take a report refuses it
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12561'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+  ...
+# Subtest: a conversation whose engine cannot take a report refuses it
+not ok 1046 - a conversation whose engine cannot take a report refuses it
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12561'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a report's live status is written knowing the conversation's latest user message
+not ok 1047 - a report's live status is written knowing the conversation's latest user message
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12978'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+  ...
+# Subtest: a report's live status is written knowing the conversation's latest user message
+not ok 1047 - a report's live status is written knowing the conversation's latest user message
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:12978'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: with neither a reply language nor any user message, no status is guessed
+not ok 1048 - with neither a reply language nor any user message, no status is guessed
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:13759'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+  ...
+# Subtest: with neither a reply language nor any user message, no status is guessed
+not ok 1048 - with neither a reply language nor any user message, no status is guessed
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:13759'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: a mode a variant serves reaches makeAssistant on the pool miss, and a pool hit never re-reads it
+ok 1049 - a mode a variant serves reaches makeAssistant on the pool miss, and a pool hit never re-reads it
+  ---
+  duration_ms: 33.561209
+  type: 'test'
+  ...
+# Subtest: a mode no variant serves is refused with <mode>_unavailable, before any actor is built
+ok 1050 - a mode no variant serves is refused with <mode>_unavailable, before any actor is built
+  ---
+  duration_ms: 11.217125

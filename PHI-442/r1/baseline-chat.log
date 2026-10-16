@@ -1,0 +1,63 @@
+{
+  "sha": "a1339e14c031e51a5b2e095d1237abd7b5ec2ddb",
+  "command": "pnpm --filter @phi-ai/dsh-plugin-chat test",
+  "exit_code": 1,
+  "summary": [
+    "not ok 819 - the Sidecar's English catalog is this catalog, key for key",
+    "not ok 1043 - a report the engine never finishes ends at the deadline, and its late close ends nothing",
+    "# tests 1160",
+    "# pass 1158",
+    "# fail 2",
+    "# cancelled 0",
+    "# skipped 0",
+    "# duration_ms 10937.122541"
+  ]
+}
+  ...
+# Subtest: the Sidecar's English catalog is this catalog, key for key
+not ok 819 - the Sidecar's English catalog is this catalog, key for key
+  ---
+  duration_ms: 6.436917
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:1:555'
+  failureType: 'testCodeFailure'
+  error: |-
+    tabInSpace
+    + actual - expected
+    
+    + '{{title}} ({{space}})'
+    - '{{title}} — {{space}}'
+                 ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '{{title}} — {{space}}'
+  actual: '{{title}} ({{space}})'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/worker-tab-messages.test.ts:40:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+# [sidecar-chat] task report run timed out; ending it { runId: '01a14393-f53a-76a4-98ad-a46042d5c02b', taskRunId: 'run-1' }
+# Subtest: a report the engine never finishes ends at the deadline, and its late close ends nothing
+not ok 1043 - a report the engine never finishes ends at the deadline, and its late close ends nothing
+  ---
+  duration_ms: 21.308167
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/ws-tests/sidecar-chat-task-report.test.ts:1:10828'
+  failureType: 'unhandledRejection'
+  error: 'report_timeout'
+  code: 'report_timeout'
+  name: 'TaskRunReportError'
+  stack: |-
+    <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-451-647086df7494/workdir/baseline-wt/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:4499:9)
+    processTicksAndRejections (node:internal/process/task_queues:103:5)
+    runNextTicks (node:internal/process/task_queues:68:3)
+    process.processTimers (node:internal/timers:518:9)
+  ...
+# (node:15137) PromiseRejectionHandledWarning: Promise rejection was handled asynchronously (rejection id: 5)
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: stopping a report that said nothing fails it, and the next queued report still runs
+ok 1044 - stopping a report that said nothing fails it, and the next queued report still runs
+  ---
+  duration_ms: 80.585792
+  type: 'test'

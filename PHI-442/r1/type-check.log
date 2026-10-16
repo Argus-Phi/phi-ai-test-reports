@@ -1,0 +1,49 @@
+{
+  "command": "pnpm type-check",
+  "exit_code": 0,
+  "seconds": 0.45
+}
+@phi-ai/eval:type-check: 
+@phi-ai/eval:type-check: > @phi-ai/eval@1.0.0 type-check /Users/phi/Documents/project/phi-ai/.claude/worktrees/fix-phi-1419/eval
+@phi-ai/eval:type-check: > tsc --noEmit
+@phi-ai/eval:type-check: 
+@phi-ai/onboarding:type-check: cache hit, replaying logs dfaa7117dec973c3
+@phi-ai/onboarding:type-check: 
+@phi-ai/onboarding:type-check: > @phi-ai/onboarding@0.1.0 type-check /Users/phi/Documents/project/phi-ai/.claude/worktrees/fix-phi-1419/onboarding
+@phi-ai/onboarding:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/onboarding:type-check: 
+@phi-ai/onboarding:build: cache hit, replaying logs a92e0eda6a937a51
+@phi-ai/onboarding:build: 
+@phi-ai/onboarding:build: > @phi-ai/onboarding@0.1.0 build /Users/fydeos/actions-runner-phi-ai/_work/phi-ai/phi-ai/onboarding
+@phi-ai/onboarding:build: > tsc
+@phi-ai/onboarding:build: 
+@phi-ai/phi-agent-devtools:type-check: cache hit, replaying logs c35a9cd5fba9f5a8
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/phi-agent-devtools:type-check: > @phi-ai/phi-agent-devtools@0.0.1 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-448-e373d773ef03/workdir/phi-ai/phi-agent-devtools
+@phi-ai/phi-agent-devtools:type-check: > tsc --noEmit
+@phi-ai/phi-agent-devtools:type-check: 
+@phi-ai/sidecar:type-check: cache hit, replaying logs 566f49f691eef103
+@phi-ai/sidecar:type-check: 
+@phi-ai/sidecar:type-check: > @phi-ai/sidecar@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-448-e373d773ef03/workdir/phi-ai/ai-extension/sidecar
+@phi-ai/sidecar:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sidecar:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: cache hit, replaying logs 57181a37e88e4edd
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: > @phi-ai/dsh-plugin-chat@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-448-e373d773ef03/workdir/phi-ai/phi-agent-dsh/plugins/chat
+@phi-ai/dsh-plugin-chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-bundle:type-check: cache hit, replaying logs 85146a397514843f
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: > @phi-ai/dsh-bundle@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-448-e373d773ef03/workdir/phi-ai/phi-agent-dsh/bundle
+@phi-ai/dsh-bundle:type-check: > node ../scripts/generate-rows.mjs && tsc -b --emitDeclarationOnly
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: [generate-rows] wrote 51 rows to src/rows.generated.ts
+@phi-ai/dsh:type-check: cache hit, replaying logs a6447b639b14b0cb
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh:type-check: > @phi-ai/dsh@0.5.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-448-e373d773ef03/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh:type-check: 
+
+ Tasks:    56 successful, 56 total
+Cached:    56 cached, 56 total
+  Time:    303ms >>> FULL TURBO
