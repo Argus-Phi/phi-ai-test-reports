@@ -1,0 +1,19 @@
+Related command output (tail; exit 0 verified in execution session)
+  duration_ms: 0.242291
+  type: 'test'
+  ...
+# Subtest: dark cards keep their translucent lift rather than following the light card
+ok 1482 - dark cards keep their translucent lift rather than following the light card
+  ---
+  duration_ms: 0.201333
+  type: 'test'
+  ...
+1..1482
+# tests 1482
+# suites 0
+# pass 1482
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 103167.043375

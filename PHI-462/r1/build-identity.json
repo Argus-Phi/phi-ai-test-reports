@@ -1,0 +1,12 @@
+{
+  "expected_head": "26536358c51e4690d5879ab01354e65e902746aa",
+  "manifest_version": "2026.10.20.1744",
+  "snapshot_version": "2026.10.20.1744",
+  "dist_matches_snapshot": true,
+  "dist_files": 406,
+  "source_sha256": {
+    "ai-extension/sidecar/src/components/message.tsx": "5389e4ded9f4823624b5301b862e2a42cb9b0bd3eea17a19fb1fe431b74da2e7",
+    "ai-extension/sidecar/src/components/message-parts/index.ts": "e711059840a356e261ff65e5d9fe2bae386116be5cbdcd2d54abcc0b859e3854",
+    "ai-extension/sidecar/src/components/message-tool-visibility.test.tsx": "58ebe26d1c32157618ea60b01b2bfd991c5d84b5d1ca97239417b221a69a9654"
+  }
+}

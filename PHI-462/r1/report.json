@@ -1,0 +1,610 @@
+{
+ "key": "PHI-462",
+ "title": "修复 Sidecar 输出过程中重复出现的状态指示器",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮4条计划用例的本PR验收目标通过：定向30/30、Sidecar全量1482/1482、真实Message两卡2/2；类型检查与构建成功。Canary真实普通工具在修复/恢复构建均无旧灰点，基线可复现3灰点和空竖线；sidebar worker完成三个检查点。暗色完整会话的点击任务未完成，已在基线复现并登记PHI-474，不影响本PR verdict。无本PR新增blocker/major，AI测试和审查允许提交PR。",
+ "sha": "26536358c51e4690d5879ab01354e65e902746aa",
+ "branch": "PHI-462-remove-legacy-output-loader",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/603",
+ "generated_at": "2026-10-20T10:08:01.129877+00:00",
+ "environment": {
+  "机器": "e2e-vm；独立e2e02，会话已归还",
+  "Phi Canary": "2026.10.20.1010",
+  "Sidecar": "修复2026.10.20.1744；基线2026.10.20.1747（构建时钟）",
+  "托管phi-agent": "通过broker真实连通；具体发布版本未独立核对",
+  "Node / pnpm": "本地v22.23.3 /10.17.1；会话login shell v24.19.0",
+  "模式": "普通build→Canary broker→托管服务；无selfhosted/独立测试库",
+  "Langfuse": "STAGE已核实为Phi Agent - staging；八条脱敏chat trace",
+  "证据": "33张≤1280截图；总证据约13.3MiB；各失败/中断尝试独立分组"
+ },
+ "plan_docs": [
+  {
+   "title": "本轮test-plan.md（含手测方案与S8补充）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/75fea6d285dbbc994868f5e9a56d1c250efcac14/PHI-462/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/2a1398965809e783c3e7b5fac1be15c656398bca/PHI-462/runbook.md"
+  },
+  {
+   "title": "自动化本地测试站源码（会话服务已结束）",
+   "url": "https://github.com/phibrowser/phi-ai/tree/agent-artifacts/PHI-462/test-site"
+  }
+ ],
+ "cases": [
+  {
+   "precondition": "代码头 26536358c；依赖已安装。真机为独立 e2e02 / Canary 2026.10.20.1010 / 普通 Sidecar 经 broker 连接托管服务；完成后已归还。",
+   "bugs": [],
+   "id": "T-1",
+   "title": "触发链、四态与通用删除边界",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1、AC-3",
+   "steps": [
+    "核对原图与 staging 基线工具分流、四种运行态和旧组件。",
+    "核对头 SHA 的删除 diff、引用搜索、两份说明和 dev-notes 的事实边界。"
+   ],
+   "expected": "列明 input-streaming/input-available/approval-requested/approval-responded；不限定 worker；保留两张专用卡片。通用渲染入口及旧实现被删除，静态结论与历史事件区分。",
+   "actual": "触发链和分流说明与基线一致；普通工具直接 return acc；两个旧组件及唯一消费链删除，引用搜索退出 1（无命中）；未使用 CSS 隐藏。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-1-source-audit.txt",
+     "caption": "基线与头 SHA 的实际定位/diff/语义核对",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-01.png",
+     "caption": "需求附图：头像下旧灰点与合法活动提示同时存在",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ]
+  },
+  {
+   "precondition": "代码头 26536358c；依赖已安装。真机为独立 e2e02 / Canary 2026.10.20.1010 / 普通 Sidecar 经 broker 连接托管服务；完成后已归还。",
+   "bugs": [],
+   "id": "T-2",
+   "title": "真实 Message 四态、终态与空布局保护",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2、AC-3",
+   "steps": [
+    "运行 design 定向四套件；逐项核对 worker.execute / set_assistant_name × 四态及成功/错误/中止终态。",
+    "核对相邻工具、交错正文/DOM 身份、reasoning 正常竖线、submitted 及空消息抑制。",
+    "运行 Sidecar 全量、根类型检查、强制 Sidecar tsc 及构建。"
+   ],
+   "expected": "旧节点、空 rail、工具专属空容器不存在；合法头像状态与真实内容保持。所需门禁成功。",
+   "actual": "定向 30/30（新增12项+既有18项）；全量1482/1482；根类型56/56（缓存），强制Sidecar tsc退出0；构建成功。四态、三终态、正文DOM/有效rail断言均实际执行。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-2-tests.txt",
+     "caption": "定向30项真实执行日志",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-test.log",
+     "caption": "全量1482/1482，失败0",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "type-check.log",
+     "caption": "根类型检查56个任务成功",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-type-check.log",
+     "caption": "强制Sidecar编译退出0，无诊断输出",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "build.log",
+     "caption": "Sidecar构建成功，末尾摘要",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ]
+  },
+  {
+   "precondition": "代码头 26536358c；依赖已安装。真机为独立 e2e02 / Canary 2026.10.20.1010 / 普通 Sidecar 经 broker 连接托管服务；完成后已归还。",
+   "bugs": [],
+   "id": "T-3",
+   "title": "Canary 真实流程、主题、历史与基线对照",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-3；AC-2 真机布局冒烟",
+   "uses_chat": true,
+   "steps": [
+    "在明亮 sidebar 发计划原文，worker依次执行三检查点，观察等待/正文/活动提示。",
+    "暗色完整Phi Chat发计划原文，两次遇到点击无效后停止；在merge-base基线上同输入对照。",
+    "真实onboarding普通工具从开始、等待到后续正文；基线复现旧点，恢复修复后复验。",
+    "重载完成会话确认历史内容；所有截图/DOM/trace拉回、恢复待测构建并归还lane。"
+   ],
+   "expected": "普通工具真实全过程无旧灰点、专属rail/空布局，工具正常完成且正文可见；worker实际执行，合法状态/活动提示保留；历史重开正常。基线回退用于证明旧入口。",
+   "actual": "目标行为通过：修复native及restored普通工具均完成，旧点/空rail为0；基线complete_onboarding input-available观察到3灰点+空rail，T-3-02清晰可见。sidebar worker完成37/42/59，总和138；历史重载旧节点0。暗色完整会话两次点击未生效，主动停止，三检查点任务没有完成；基线同样复现，已建PHI-474，非本PR新增，不计入BUG。",
+   "notes": "worker只产生进度事件，无普通工具part；普通入口覆盖由native/restored承担。暗色未完成尝试独立标红，不沿用sidebar完成结果。审批/仅工具四态由T-2覆盖，未声称全部自然真机可达。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-3-native.json",
+     "caption": "T-3-native：实际执行样本",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "c5eb4f39-c54c-4792-9029-99a1fe7d3592",
+     "path": "T-3-native-trace.json",
+     "caption": "T-3-native：STAGE 项目脱敏完整 trace",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-23.png",
+     "caption": "T-3-native：T-3-23.png",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-24.png",
+     "caption": "T-3-native：T-3-24.png",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-22.png",
+     "caption": "T-3-native：T-3-22.png",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-sidebar.json",
+     "caption": "T-3-sidebar：实际执行样本",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "0e606a82-64b2-4b95-8107-19d2ae38ac38",
+     "path": "T-3-sidebar-trace.json",
+     "caption": "T-3-sidebar：STAGE 项目脱敏完整 trace",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-29.png",
+     "caption": "T-3-sidebar：T-3-29.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-30.png",
+     "caption": "T-3-sidebar：T-3-30.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-31.png",
+     "caption": "T-3-sidebar：T-3-31.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-32.png",
+     "caption": "T-3-sidebar：T-3-32.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-28.png",
+     "caption": "T-3-sidebar：T-3-28.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-21.png",
+     "caption": "T-3-sidebar：T-3-21.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-dark.json",
+     "caption": "T-3-dark：连续DOM/parts/状态记录；完整会话点击任务中断标红独立展示",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "trace_id": "4574e3c9-8ec2-4ce1-a6b5-40abe07cd275",
+     "path": "T-3-dark-trace.json",
+     "caption": "T-3-dark：STAGE 项目脱敏完整 trace",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-20.png",
+     "caption": "T-3-dark：T-3-20.png",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-14.png",
+     "caption": "T-3-dark：T-3-14.png",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-19.png",
+     "caption": "T-3-dark：T-3-19.png",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-13.png",
+     "caption": "T-3-dark：T-3-13.png",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-3-dark-retry.json",
+     "caption": "T-3-dark-retry：连续DOM/parts/状态记录；完整会话点击任务中断标红独立展示",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "trace_id": "44a28476-7a62-42de-9a93-771429074b26",
+     "path": "T-3-dark-retry-trace.json",
+     "caption": "T-3-dark-retry：STAGE 项目脱敏完整 trace",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-17.png",
+     "caption": "T-3-dark-retry：T-3-17.png",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-18.png",
+     "caption": "T-3-dark-retry：T-3-18.png",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-16.png",
+     "caption": "T-3-dark-retry：T-3-16.png",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-15.png",
+     "caption": "T-3-dark-retry：T-3-15.png",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-3-baseline-dark.json",
+     "caption": "T-3-baseline-dark：连续DOM/parts/状态记录；完整会话点击任务中断标红独立展示",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "trace_id": "87a0cee5-2027-43c6-97db-83f515ceadea",
+     "path": "T-3-baseline-dark-trace.json",
+     "caption": "T-3-baseline-dark：STAGE 项目脱敏完整 trace",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-08.png",
+     "caption": "T-3-baseline-dark：T-3-08.png",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-06.png",
+     "caption": "T-3-baseline-dark：T-3-06.png",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-12.png",
+     "caption": "T-3-baseline-dark：T-3-12.png",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-07.png",
+     "caption": "T-3-baseline-dark：T-3-07.png",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-05.png",
+     "caption": "T-3-baseline-dark：T-3-05.png",
+     "attempt": 5,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-3-baseline-native.json",
+     "caption": "T-3-baseline-native：实际执行样本",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "b23663b3-7da3-4804-a9ab-3d628ea5d215",
+     "path": "T-3-baseline-native-trace.json",
+     "caption": "T-3-baseline-native：STAGE 项目脱敏完整 trace",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-10.png",
+     "caption": "T-3-baseline-native：T-3-10.png",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-11.png",
+     "caption": "T-3-baseline-native：T-3-11.png",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-09.png",
+     "caption": "T-3-baseline-native：T-3-09.png",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-restored.json",
+     "caption": "T-3-restored：实际执行样本",
+     "attempt": 7,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "d9c6373c-4c22-41e4-a48d-6c46c0b090f0",
+     "path": "T-3-restored-trace.json",
+     "caption": "T-3-restored：STAGE 项目脱敏完整 trace",
+     "attempt": 7,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-26.png",
+     "caption": "T-3-restored：T-3-26.png",
+     "attempt": 7,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-27.png",
+     "caption": "T-3-restored：T-3-27.png",
+     "attempt": 7,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-25.png",
+     "caption": "T-3-restored：T-3-25.png",
+     "attempt": 7,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-baseline-capture.json",
+     "caption": "T-3-baseline-capture：实际执行样本",
+     "attempt": 8,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "444e1596-a6cd-4fd1-92fc-32da5c46add2",
+     "path": "T-3-baseline-capture-trace.json",
+     "caption": "T-3-baseline-capture：STAGE 项目脱敏完整 trace",
+     "attempt": 8,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-03.png",
+     "caption": "T-3-baseline-capture：T-3-03.png",
+     "attempt": 8,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-04.png",
+     "caption": "T-3-baseline-capture：T-3-04.png",
+     "attempt": 8,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-02.png",
+     "caption": "T-3-baseline-capture：T-3-02.png（基线旧灰点实际出现）",
+     "attempt": 8,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-01.png",
+     "caption": "T-3-baseline-capture：T-3-01.png",
+     "attempt": 8,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "build-identity.json",
+     "caption": "406个构建文件/快照及源码身份核对",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "verification.md",
+     "caption": "每次尝试、限制、FR-3与查询条件完整说明",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-known-click.json",
+     "caption": "PHI-474：基线上 click ok 后无变化的步骤输出",
+     "attempt": 5,
+     "outcome": "fail"
+    }
+   ]
+  },
+  {
+   "precondition": "代码头 26536358c；依赖已安装。真机为独立 e2e02 / Canary 2026.10.20.1010 / 普通 Sidecar 经 broker 连接托管服务；完成后已归还。",
+   "bugs": [],
+   "id": "T-4",
+   "title": "FR-3 六项既有能力各一次保护冒烟",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-3（FR-3回归保护）",
+   "uses_chat": true,
+   "steps": [
+    "运行既有choice-options-artifact、avatar-card-state、message-store套件。",
+    "真实Message辅助探针各渲染一次present_choices终态和generate_avatar运行态。",
+    "复用T-3的普通正文、工具后正文、头像状态、worker活动文案。"
+   ],
+   "expected": "六项均有实际显示/成功证据，选择项与头像卡片不会被普通工具删除过滤；不要求真实图片生成或真实外部业务提交。",
+   "actual": "既有18项通过；辅助探针最终2/2，QA option A/B按钮及QA blue circle+skeleton实际渲染。其余四项来自native/sidebar真实截图和trace。首次两次探针装配失败独立留证，修正仅限qa-scripts。",
+   "status": "pass",
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-4-card-attempt1.txt",
+     "caption": "QA探针首次：ESM配置错误，未执行产品断言",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-4-card-attempt2.txt",
+     "caption": "QA探针第二次：导入路径错误，未执行产品断言",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-4-card-smoke.txt",
+     "caption": "最终真实Message两卡2/2",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-tests.txt",
+     "caption": "三份既有保护共18项；与T-2共享一次执行",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-24.png",
+     "caption": "普通工具期间头像状态与合法活动提示",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-22.png",
+     "caption": "普通工具完成及后续正文",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-32.png",
+     "caption": "worker等待时带文字活动提示",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "c5eb4f39-c54c-4792-9029-99a1fe7d3592",
+     "path": "T-3-native-trace.json",
+     "caption": "T-3-native：STAGE 项目脱敏完整 trace",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "trace_id": "0e606a82-64b2-4b95-8107-19d2ae38ac38",
+     "path": "T-3-sidebar-trace.json",
+     "caption": "T-3-sidebar：STAGE 项目脱敏完整 trace",
+     "attempt": 4,
+     "outcome": "pass"
+    }
+   ]
+  }
+ ],
+ "bugs": [],
+ "known_issues": [
+  {
+   "id": "PHI-474",
+   "title": "完整Phi Chat中worker点击按钮返回成功但未触发页面交互",
+   "baseline_sha": "5786968ae9e5333520df4bd87c758febb31b71ff",
+   "case_ids": [
+    "T-3"
+   ],
+   "evidence": "T-3-known-click.json；trace 87a0cee5-2027-43c6-97db-83f515ceadea；T-3-06/12.png。分支2/2、基线1/1，任务主动停止，未声称完成。"
+  }
+ ]
+}

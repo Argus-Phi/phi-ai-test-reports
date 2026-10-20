@@ -1,0 +1,1743 @@
+{
+  "summary": {
+    "name": "T-3-baseline-dark",
+    "started": "2026-10-20T09:58:38.888Z",
+    "elapsedMs": 75289,
+    "sawTool": false,
+    "sawDots": false,
+    "sawWorker": false,
+    "waiting": false,
+    "settled": 21,
+    "final": {
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "false",
+          "text": "Test Finch\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    }
+  },
+  "samples": [
+    {
+      "at": "2026-10-20T09:58:38.906Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-aac7-75e9-acbe-cc10608150aa",
+          "streaming": "true",
+          "text": "Test Finch\n· 踩着浪花数贝壳\n正在仔细查看...",
+          "metadata": {
+            "streamType": "text",
+            "runId": "3476bd4e-49d6-4f92-b7f9-f52bbdee34f0",
+            "timelineTimestamp": 1792490318535,
+            "timelineSeq": 2,
+            "runPhase": "routing",
+            "activityLabel": "正在仔细查看..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 踩着浪花数贝壳",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在仔细查看...",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:41.276Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-aac7-75e9-acbe-cc10608150aa",
+          "streaming": "true",
+          "text": "Test Finch\n· 踩着浪花数贝壳\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "3476bd4e-49d6-4f92-b7f9-f52bbdee34f0",
+            "timelineTimestamp": 1792490318535,
+            "timelineSeq": 2,
+            "runPhase": "routing",
+            "activityLabel": "正在仔细查看..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 踩着浪花数贝壳",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:42.507Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n正在处理...",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在处理..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在处理...",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:44.254Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我\n\n正在处理...",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在处理..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在处理...",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:44.461Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在处理..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:44.563Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:44.769Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:44.874Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:44.976Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.080Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.183Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.286Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.389Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.492Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.595Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.699Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.804Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:45.909Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.012Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.116Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.220Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.324Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.426Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.531Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.633Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.737Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.840Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:46.943Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:47.046Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:47.251Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n正在等待三个检查点的结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在等待三个检查点的结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:52.871Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:55.042Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n打开指定页面，先查看第一个检查点的界面。\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [
+            {
+              "text": "打开指定页面，先查看第一个检查点的界面。",
+              "children": 1,
+              "rect": "{\"x\":376.5,\"y\":327,\"width\":736,\"height\":24,\"top\":327,\"right\":1112.5,\"bottom\":351,\"left\":376.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:58:59.560Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [
+            {
+              "text": "打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。",
+              "children": 1,
+              "rect": "{\"x\":376.5,\"y\":327,\"width\":736,\"height\":48,\"top\":327,\"right\":1112.5,\"bottom\":375,\"left\":376.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:22.556Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [
+            {
+              "text": "打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。",
+              "children": 1,
+              "rect": "{\"x\":376.5,\"y\":327,\"width\":736,\"height\":72,\"top\":327,\"right\":1112.5,\"bottom\":399,\"left\":376.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:26.380Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n第一个结果尚未出现，重新通过界面点击并等待页面更新。\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [
+            {
+              "text": "打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n第一个结果尚未出现，重新通过界面点击并等待页面更新。",
+              "children": 1,
+              "rect": "{\"x\":376.5,\"y\":327,\"width\":736,\"height\":96,\"top\":327,\"right\":1112.5,\"bottom\":423,\"left\":376.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:41.316Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n第一个结果尚未出现，重新通过界面点击并等待页面更新。\n再次按页面按钮，并耐心等到“尚无结果”提示消失或结果出现。\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [
+            {
+              "text": "打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n第一个结果尚未出现，重新通过界面点击并等待页面更新。\n再次按页面按钮，并耐心等到“尚无结果”提示消失或结果出现。",
+              "children": 1,
+              "rect": "{\"x\":376.5,\"y\":327,\"width\":736,\"height\":120,\"top\":327,\"right\":1112.5,\"bottom\":447,\"left\":376.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:51.792Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "true",
+          "text": "Test Finch\n· 鲤鱼准备跳龙门\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。\n\n打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n第一个结果尚未出现，重新通过界面点击并等待页面更新。\n再次按页面按钮，并耐心等到“尚无结果”提示消失或结果出现。\n正在逐个查看检查点结果并计算总和",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3,
+            "runPhase": "routing",
+            "activityLabel": "正在逐个查看检查点结果并计算总和"
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [
+            {
+              "text": "打开指定页面，先查看第一个检查点的界面。\n点击第一个检查点的 Reveal result，并等待页面真正显示结果。\n查看第一个检查点当前显示了什么，继续按页面步骤操作。\n第一个结果尚未出现，重新通过界面点击并等待页面更新。\n再次按页面按钮，并耐心等到“尚无结果”提示消失或结果出现。",
+              "children": 1,
+              "rect": "{\"x\":376.5,\"y\":327,\"width\":736,\"height\":120,\"top\":327,\"right\":1112.5,\"bottom\":447,\"left\":376.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 鲤鱼准备跳龙门",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在逐个查看检查点结果并计算总和",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:51.895Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat&conv_id=01a158bf-1cc7-759c-9e83-b8c7c82eab04",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158bf-ba07-74ea-9e9a-9609bd04ed1f",
+          "streaming": "false",
+          "text": "Test Finch\n\n我正在按顺序检查这三个结果，并等每个结果显示后再继续。",
+          "metadata": {
+            "streamType": "text",
+            "runId": "01a158bf-ba03-7599-992e-6b2f47becc1b",
+            "timelineTimestamp": 1792490322439,
+            "timelineSeq": 3
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490317884,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    }
+  ]
+}

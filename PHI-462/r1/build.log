@@ -1,0 +1,19 @@
+Related command output (tail; exit 0 verified in execution session)
+dist/assets/typescript-BPQ3VLAy.js                      181.08 kB │ gzip:  16.04 kB
+dist/assets/angular-ts-BwZT4LLn.js                      183.82 kB │ gzip:  16.63 kB
+dist/assets/vue-vine-CQOfvN7w.js                        190.05 kB │ gzip:  17.98 kB
+dist/assets/index.html-DWDvzUhd.js                      203.90 kB │ gzip:  68.94 kB
+dist/assets/chat-view-Dw5zesTd.js                       260.37 kB │ gzip:  87.06 kB
+dist/assets/wolfram-lXgVvXCa.js                         262.39 kB │ gzip:  77.14 kB
+dist/assets/wasm-CG6Dc4jp.js                            622.34 kB │ gzip: 230.29 kB
+dist/assets/cpp-CofmeUqb.js                             626.08 kB │ gzip:  44.82 kB
+dist/assets/emacs-lisp-C9XAeP06.js                      779.85 kB │ gzip: 196.03 kB
+dist/assets/mermaid-GHXKKRXX-DFSxDL_r.js              1,181.53 kB │ gzip: 368.72 kB
+dist/assets/App-IZ50Vajc.js                           2,055.93 kB │ gzip: 634.28 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 31.45s
+CRX file created at "/Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/phi-ai/ai-extension/sidecar/crx/sidebar-2026.10.20.1726.crx"

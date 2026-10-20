@@ -171,5 +171,22 @@
     "total": 9
    }
   }
+ ],
+ "PHI-462": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "修复 Sidecar 输出过程中重复出现的状态指示器",
+   "sha": "26536358c51e4690d5879ab01354e65e902746aa",
+   "generated_at": "2026-10-20T10:08:01.129877+00:00",
+   "counts": {
+    "pass": 4,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 4
+   }
+  }
  ]
 }

@@ -1,0 +1,82 @@
+TAP version 13
+# react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: 'NO_I18NEXT_INSTANCE' }
+# [NTP Perf] mark: newtab:token-fetch-start @ 5567.7ms
+# [NTP Perf] mark: newtab:token-fetch-end @ 5567.8ms
+# [NTP Perf] Token fetch: 0.1ms (5567.7 → 5567.8)
+# [choice-options] qa-choice → active (kind=quick-reply, options=2)
+# Choice buttons: QA option A, QA option B
+# An update to PhiAvatar inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# An update to AgentAvatarButton inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# An update to AgentName inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# [NTP Perf] mark: newtab:token-fetch-start @ 5681.2ms
+# [NTP Perf] mark: newtab:token-fetch-end @ 5681.4ms
+# [NTP Perf] Token fetch: 0.2ms (5681.2 → 5681.4)
+# [avatar-artifact] qa-avatar → drawing
+# Avatar appearance: QA blue circle; skeleton: visible
+# An update to PhiAvatar inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# An update to AgentAvatarButton inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# An update to AgentName inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# An update to AvatarArtifact inside a test was not wrapped in act(...).
+# When testing, code that causes React state updates should be wrapped into act(...):
+# act(() => {
+#   /* fire events that update state */
+# });
+# /* assert on the output */
+# This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+# Subtest: T-4 choice card is visible through real Message
+ok 1 - T-4 choice card is visible through real Message
+  ---
+  duration_ms: 146.338709
+  type: 'test'
+  ...
+# Subtest: T-4 avatar card is visible through real Message
+ok 2 - T-4 avatar card is visible through real Message
+  ---
+  duration_ms: 17.108625
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15728.430459

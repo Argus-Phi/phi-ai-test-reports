@@ -1,0 +1,466 @@
+diff --git a/ai-extension/shared-ui/src/message-parts/tool-running-dots.tsx b/ai-extension/shared-ui/src/message-parts/tool-running-dots.tsx
+deleted file mode 100644
+index 79a691e0d..000000000
+--- a/ai-extension/shared-ui/src/message-parts/tool-running-dots.tsx
++++ /dev/null
+@@ -1,28 +0,0 @@
+-import { motion } from "framer-motion";
+-import { useTranslation } from "react-i18next";
+-
+-/** Loading indicator shown while a tool part is in a running state (Sidecar). */
+-export function ToolRunningDots() {
+-  const { t } = useTranslation();
+-  return (
+-    <div
+-      className="flex items-center gap-1 py-2"
+-      role="status"
+-      aria-label={t("message.tool.loading", { defaultValue: "Loading" })}
+-    >
+-      {[0, 1, 2].map((i) => (
+-        <motion.span
+-          key={i}
+-          className="size-1.5 rounded-full bg-[rgba(0,0,0,0.36)] dark:bg-[rgba(255,255,255,0.5)]"
+-          animate={{ y: [0, -3, 0], opacity: [0.4, 1, 0.4] }}
+-          transition={{
+-            duration: 1,
+-            repeat: Number.POSITIVE_INFINITY,
+-            ease: "easeInOut",
+-            delay: i * 0.15,
+-          }}
+-        />
+-      ))}
+-    </div>
+-  );
+-}
+diff --git a/ai-extension/sidecar/src/components/message-parts/index.ts b/ai-extension/sidecar/src/components/message-parts/index.ts
+index 23f088979..9c7328a6d 100644
+--- a/ai-extension/sidecar/src/components/message-parts/index.ts
++++ b/ai-extension/sidecar/src/components/message-parts/index.ts
+@@ -11,7 +11,6 @@ export { default as SourceDocumentPart } from "./source-document-part";
+ export { default as SourceUrlPart } from "./source-url-part";
+ export { default as TextFilePart } from "./text-file-part";
+ export { default as TextPart } from "./text-part";
+-export { default as ToolPart, isToolPartVisible } from "./tool-part";
+ export {
+   default as UserActionArtifact,
+   isUserActionArtifactVisible,
+diff --git a/ai-extension/sidecar/src/components/message-parts/tool-part.tsx b/ai-extension/sidecar/src/components/message-parts/tool-part.tsx
+deleted file mode 100644
+index 35e2720a7..000000000
+--- a/ai-extension/sidecar/src/components/message-parts/tool-part.tsx
++++ /dev/null
+@@ -1,37 +0,0 @@
+-import { ToolRunningDots } from "@phi-ai/shared-ui/message-parts/tool-running-dots";
+-import {
+-  isRunningToolState,
+-  TOOL_PART_ABORTED_STATE,
+-} from "@sidecar/lib/tool-part-state";
+-import type {
+-  DynamicToolUIPart,
+-  UIDataTypes,
+-  UIMessagePart,
+-  UITools,
+-} from "ai";
+-
+-type AbortedToolPart = Omit<DynamicToolUIPart, "state"> & {
+-  state: typeof TOOL_PART_ABORTED_STATE;
+-  errorText?: string;
+-};
+-
+-type ToolPartType =
+-  | Extract<UIMessagePart<UIDataTypes, UITools>, { type: `tool-${string}` }>
+-  | DynamicToolUIPart
+-  | AbortedToolPart;
+-
+-export interface ToolPartProps {
+-  part: ToolPartType;
+-}
+-
+-// eslint-disable-next-line react-refresh/only-export-components
+-export function isToolPartVisible(part: ToolPartType): boolean {
+-  return isRunningToolState(part.state);
+-}
+-
+-export default function ToolPart({ part }: ToolPartProps) {
+-  if (isRunningToolState(part.state)) {
+-    return <ToolRunningDots />;
+-  }
+-  return null;
+-}
+diff --git a/ai-extension/sidecar/src/components/message.tsx b/ai-extension/sidecar/src/components/message.tsx
+index 9c4c4247a..d88296552 100644
+--- a/ai-extension/sidecar/src/components/message.tsx
++++ b/ai-extension/sidecar/src/components/message.tsx
+@@ -23,7 +23,6 @@ import type { MessageTimeStamp } from "@sidecar/lib/format-message-time";
+ import { readableSourceText } from "@sidecar/lib/message-source-references";
+ import type { PlanCardSnapshot } from "@sidecar/lib/plan-card-overrides";
+ import { readTaskReport } from "@sidecar/lib/task-report";
+-import { isRunningToolState } from "@sidecar/lib/tool-part-state";
+ import {
+   createSmoothStreamScope,
+   SMOOTH_STREAM_ON_MOUNT_METADATA_KEY,
+@@ -50,7 +49,6 @@ import {
+   AssistantMetaPart,
+   AssistantReasoningPart,
+   FilePart,
+-  isToolPartVisible,
+   isUserActionArtifactVisible,
+   MemoryAgentActivity,
+   PlanPart,
+@@ -59,7 +57,6 @@ import {
+   SourceUrlPart,
+   TextFilePart,
+   TextPart,
+-  ToolPart,
+   UserActionArtifact,
+   WorkerActivityIndicator,
+ } from "./message-parts";
+@@ -472,7 +469,7 @@ export default function Message({
+ 
+     if (isToolUIPart(part)) {
+       // Choice-options Artifact: `present_choices` tool parts render as
+-      // tappable option buttons instead of the generic tool indicator (see
++      // tappable option buttons (see
+       // docs/design/onboarding-choice-options-artifact.md).
+       if ((part as DynamicToolUIPart).toolName === CHOICE_OPTIONS_TOOL_NAME) {
+         acc.push({
+@@ -490,8 +487,7 @@ export default function Message({
+       }
+       // Avatar Artifact: `generate_avatar` renders as a card — skeleton while
+       // the image is being drawn, the face once the result lands. It must be
+-      // handled BEFORE the visibility guard below, which drops every finished
+-      // tool part (the card would vanish the moment the face arrived).
++      // handled before ordinary tools are excluded from the message body.
+       if ((part as DynamicToolUIPart).toolName === GENERATE_AVATAR_TOOL_NAME) {
+         acc.push({
+           part,
+@@ -500,20 +496,8 @@ export default function Message({
+         });
+         return acc;
+       }
+-      if (!isToolPartVisible(part)) {
+-        return acc;
+-      }
+-      if (isRunningToolState(part.state)) {
+-        const lastEntry = acc[acc.length - 1];
+-        const lastWasRunningTool =
+-          lastEntry !== undefined &&
+-          isToolUIPart(lastEntry.part) &&
+-          isRunningToolState(lastEntry.part.state);
+-        if (lastWasRunningTool) {
+-          return acc;
+-        }
+-      }
+-      node = <ToolPart key={key} part={part} />;
++      // Ordinary tools have no body slot, including while they are running.
++      return acc;
+     } else {
+       switch (part.type) {
+         case "text":
+@@ -744,6 +728,19 @@ export default function Message({
+     hasWebSearchSources ||
+     hasVisibleWebSourcesStrip ||
+     hasPlanCard;
++  const hasBodyContent =
++    renderedParts.length > 0 ||
++    Boolean(hasPlanCard && resolvedPlanCard) ||
++    Boolean(holdLine) ||
++    (hasVisibleWebSourcesStrip && !artifactsById) ||
++    Boolean(taskReport?.catchUp) ||
++    Boolean(
++      (message.metadata as MessageMetadata | undefined)?.liveNote?.offers
++        ?.length,
++    ) ||
++    Boolean(followUpOptions?.length && !isActiveStreaming) ||
++    Boolean(activityLabel) ||
++    memoryAgentSteps.length > 0;
+   const hasFeedbackButtons =
+     message.role === "assistant" &&
+     hasRenderableBody &&
+@@ -863,90 +860,92 @@ export default function Message({
+             >
+               <SmoothStreamScopeContext.Provider value={smoothStreamScope}>
+                 <MessageWebSourcesContext.Provider value={webSourcesLookup}>
+-                  <div className="flex min-w-0 flex-col gap-2">
+-                    {leadingMainResponseParts.map(({ key, node }) => (
+-                      <div key={key}>{node}</div>
+-                    ))}
+-                    {timelineParts.length > 0 && (
+-                      <div className="flex min-w-0 flex-col gap-2 border-l border-border pl-2">
+-                        {timelineParts.map(({ key, node }) => (
+-                          <div key={key}>{node}</div>
+-                        ))}
+-                      </div>
+-                    )}
+-                    {trailingMainResponseParts.map(({ key, node }) => (
+-                      <div key={key}>{node}</div>
+-                    ))}
+-                    {/* The turn's plan card: anchored on the bubble that
++                  {hasBodyContent && (
++                    <div className="flex min-w-0 flex-col gap-2">
++                      {leadingMainResponseParts.map(({ key, node }) => (
++                        <div key={key}>{node}</div>
++                      ))}
++                      {timelineParts.length > 0 && (
++                        <div className="flex min-w-0 flex-col gap-2 border-l border-border pl-2">
++                          {timelineParts.map(({ key, node }) => (
++                            <div key={key}>{node}</div>
++                          ))}
++                        </div>
++                      )}
++                      {trailingMainResponseParts.map(({ key, node }) => (
++                        <div key={key}>{node}</div>
++                      ))}
++                      {/* The turn's plan card: anchored on the bubble that
+                     recorded the plan, updating in place as later bubbles of
+                     the same turn settle its steps (see plan-part.tsx). */}
+-                    {hasPlanCard && resolvedPlanCard && (
+-                      <PlanPart
+-                        steps={resolvedPlanCard.steps}
+-                        cleared={resolvedPlanCard.cleared}
+-                      />
+-                    )}
+-                    {/* Where the answer is about to stream: typed in like reply
++                      {hasPlanCard && resolvedPlanCard && (
++                        <PlanPart
++                          steps={resolvedPlanCard.steps}
++                          cleared={resolvedPlanCard.cleared}
++                        />
++                      )}
++                      {/* Where the answer is about to stream: typed in like reply
+                     text, and gone the moment the answer's first text lands. */}
+-                    {holdLine && (
+-                      <TextPart
+-                        key="hold-line"
+-                        part={{
+-                          type: "text",
+-                          text: holdLine,
+-                          state: "streaming",
+-                          providerMetadata: {
+-                            segmentType: "main-response",
+-                            [SMOOTH_STREAM_ON_MOUNT_METADATA_KEY]: true,
+-                          } as Record<
+-                            string,
+-                            unknown
+-                          > as TextUIPart["providerMetadata"],
+-                        }}
+-                      />
+-                    )}
+-                    {/* Artifact turns render NO sources section anywhere — the
++                      {holdLine && (
++                        <TextPart
++                          key="hold-line"
++                          part={{
++                            type: "text",
++                            text: holdLine,
++                            state: "streaming",
++                            providerMetadata: {
++                              segmentType: "main-response",
++                              [SMOOTH_STREAM_ON_MOUNT_METADATA_KEY]: true,
++                            } as Record<
++                              string,
++                              unknown
++                            > as TextUIPart["providerMetadata"],
++                          }}
++                        />
++                      )}
++                      {/* Artifact turns render NO sources section anywhere — the
+                     model weaves needed sources into the card as inline
+                     links (see the artifacts guide), so the outer strip is
+                     suppressed rather than duplicated. */}
+-                    {hasVisibleWebSourcesStrip && !artifactsById && (
+-                      <MessageWebSourcesStrip
+-                        metadata={message.metadata}
+-                        suppressUrls={inlineSourceUrls}
+-                      />
+-                    )}
+-                    {/* A run Phi missed, or cut off, while it was not running:
++                      {hasVisibleWebSourcesStrip && !artifactsById && (
++                        <MessageWebSourcesStrip
++                          metadata={message.metadata}
++                          suppressUrls={inlineSourceUrls}
++                        />
++                      )}
++                      {/* A run Phi missed, or cut off, while it was not running:
+                     Run now / Ignore under the reply that asks about it. */}
+-                    {taskReport?.catchUp ? (
+-                      <TaskCatchUpBar runId={taskReport.runId} />
+-                    ) : null}
+-                    {/* A live-chat note's offers: what Phi could do next,
++                      {taskReport?.catchUp ? (
++                        <TaskCatchUpBar runId={taskReport.runId} />
++                      ) : null}
++                      {/* A live-chat note's offers: what Phi could do next,
+                     as a list right after the note (docs/chat-live-mode.md). */}
+-                    {(message.metadata as MessageMetadata | undefined)?.liveNote
+-                      ?.offers?.length ? (
+-                      <LiveNoteOffers
+-                        metadata={
+-                          message.metadata as MessageMetadata | undefined
+-                        }
+-                      />
+-                    ) : null}
+-                    {/* The latest turn's next moves, after its last reply
++                      {(message.metadata as MessageMetadata | undefined)
++                        ?.liveNote?.offers?.length ? (
++                        <LiveNoteOffers
++                          metadata={
++                            message.metadata as MessageMetadata | undefined
++                          }
++                        />
++                      ) : null}
++                      {/* The latest turn's next moves, after its last reply
+                     (docs/chat-follow-up-options.md). */}
+-                    {followUpOptions?.length && !isActiveStreaming ? (
+-                      <FollowUpOptions options={followUpOptions} />
+-                    ) : null}
+-                    {/* The activity row, and while the memory agent works,
++                      {followUpOptions?.length && !isActiveStreaming ? (
++                        <FollowUpOptions options={followUpOptions} />
++                      ) : null}
++                      {/* The activity row, and while the memory agent works,
+                     its calls as steps under it. One wrapper either way, so
+                     the row does not remount when the steps come and go. */}
+-                    {(activityLabel || memoryAgentSteps.length > 0) && (
+-                      <div className="flex min-w-0 flex-col gap-1.5">
+-                        {activityLabel && (
+-                          <WorkerActivityIndicator label={activityLabel} />
+-                        )}
+-                        <MemoryAgentActivity steps={memoryAgentSteps} />
+-                      </div>
+-                    )}
+-                  </div>
++                      {(activityLabel || memoryAgentSteps.length > 0) && (
++                        <div className="flex min-w-0 flex-col gap-1.5">
++                          {activityLabel && (
++                            <WorkerActivityIndicator label={activityLabel} />
++                          )}
++                          <MemoryAgentActivity steps={memoryAgentSteps} />
++                        </div>
++                      )}
++                    </div>
++                  )}
+                 </MessageWebSourcesContext.Provider>
+               </SmoothStreamScopeContext.Provider>
+             </SmoothStreamRunContext.Provider>
+reference_search_exit=1
+import { ToolRunningDots } from "@phi-ai/shared-ui/message-parts/tool-running-dots";
+import {
+  isRunningToolState,
+  TOOL_PART_ABORTED_STATE,
+} from "@sidecar/lib/tool-part-state";
+import type {
+  DynamicToolUIPart,
+  UIDataTypes,
+  UIMessagePart,
+  UITools,
+} from "ai";
+
+type AbortedToolPart = Omit<DynamicToolUIPart, "state"> & {
+  state: typeof TOOL_PART_ABORTED_STATE;
+  errorText?: string;
+};
+
+type ToolPartType =
+  | Extract<UIMessagePart<UIDataTypes, UITools>, { type: `tool-${string}` }>
+  | DynamicToolUIPart
+  | AbortedToolPart;
+
+export interface ToolPartProps {
+  part: ToolPartType;
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function isToolPartVisible(part: ToolPartType): boolean {
+  return isRunningToolState(part.state);
+}
+
+export default function ToolPart({ part }: ToolPartProps) {
+  if (isRunningToolState(part.state)) {
+    return <ToolRunningDots />;
+  }
+  return null;
+}
+import i18n from "i18next";
+
+export const TOOL_PART_ABORTED_STATE = "output-aborted";
+
+/** English fallback when i18n resolution yields nothing (pre-init). */
+export const DEFAULT_ABORTED_TOOL_ERROR_TEXT = "Interrupted by user";
+
+const ABORTED_TOOL_ERROR_KEY = "message.tool.interruptedByUser";
+
+/**
+ * Localized error text written onto a tool part when the user aborts the run.
+ * `translate` is injectable purely for testing; production callers omit it and
+ * get the bound `i18next.t`.
+ */
+export function getAbortedToolErrorText(
+  translate: (key: string) => string | undefined = (key) => i18n.t(key),
+): string {
+  const translated = translate(ABORTED_TOOL_ERROR_KEY);
+  if (
+    typeof translated === "string" &&
+    translated.trim().length > 0 &&
+    translated !== ABORTED_TOOL_ERROR_KEY
+  ) {
+    return translated;
+  }
+  return DEFAULT_ABORTED_TOOL_ERROR_TEXT;
+}
+
+const RUNNING_TOOL_STATES = new Set([
+  "input-streaming",
+  "input-available",
+  "approval-requested",
+  "approval-responded",
+]);
+
+export function isRunningToolState(state: unknown): boolean {
+  return typeof state === "string" && RUNNING_TOOL_STATES.has(state);
+}
+
+export function isAbortedToolState(state: unknown): boolean {
+  return state === TOOL_PART_ABORTED_STATE;
+}
+
+export function normalizeDynamicToolPartForAbort(
+  part: Record<string, unknown>,
+  errorText = getAbortedToolErrorText(),
+): Record<string, unknown> {
+  const nextPart: Record<string, unknown> = {
+    ...part,
+    state: TOOL_PART_ABORTED_STATE,
+    input:
+      Object.prototype.hasOwnProperty.call(part, "input") &&
+      part.input !== undefined
+        ? part.input
+        : null,
+    errorText,
+  };
+
+  delete nextPart.output;
+  return nextPart;
+}
+
+Reviewed original image: 3 grey dots immediately right of a vertical rail below avatar; activity text and blue moving dots are separate.
+Head:26536358c51e4690d5879ab01354e65e902746aa; merge-base:5786968ae9e5333520df4bd87c758febb31b71ff.
+Current message.tsx:474 present_choices;491 generate_avatar;499 all ordinary tools return acc;731 hasBodyContent;863 conditional body.
+Baseline agui-subscriber.ts:1938/1986/2030 -> input-streaming/input-available; tool-part-state.ts:29 four running states; tool-part.tsx visible -> ToolRunningDots independent of tool name.
+Docs chat-worker-progress-narration.md:73 and architecture.md:4972 agree. dev-notes distinguishes current static facts, live onboarding, worker progress-only, and unproven historical screenshot call.
+Result:pass.
+phi462-baseline/ai-extension/sidecar/src/lib/tool-part-state.ts:30:  "input-streaming",
+phi462-baseline/ai-extension/sidecar/src/lib/tool-part-state.ts:31:  "input-available",
+phi462-baseline/ai-extension/sidecar/src/lib/tool-part-state.ts:32:  "approval-requested",
+phi462-baseline/ai-extension/sidecar/src/lib/tool-part-state.ts:33:  "approval-responded",
+phi462-baseline/ai-extension/sidecar/src/components/message-parts/tool-part.tsx:1:import { ToolRunningDots } from "@phi-ai/shared-ui/message-parts/tool-running-dots";
+phi462-baseline/ai-extension/sidecar/src/components/message-parts/tool-part.tsx:28:export function isToolPartVisible(part: ToolPartType): boolean {
+phi462-baseline/ai-extension/sidecar/src/components/message-parts/tool-part.tsx:34:    return <ToolRunningDots />;
+phi462-baseline/ai-extension/sidecar/src/components/message.tsx:53:  isToolPartVisible,
+phi462-baseline/ai-extension/sidecar/src/components/message.tsx:436:  // streamed: the onboarding actor's tool loop may run `present_choices`
+phi462-baseline/ai-extension/sidecar/src/components/message.tsx:474:      // Choice-options Artifact: `present_choices` tool parts render as
+phi462-baseline/ai-extension/sidecar/src/components/message.tsx:491:      // Avatar Artifact: `generate_avatar` renders as a card — skeleton while
+phi462-baseline/ai-extension/sidecar/src/components/message.tsx:503:      if (!isToolPartVisible(part)) {
+phi462-baseline/ai-extension/sidecar/src/lib/agui-subscriber.ts:1945:          state: "input-streaming",
+phi462-baseline/ai-extension/sidecar/src/lib/agui-subscriber.ts:1993:          state: "input-streaming",
+phi462-baseline/ai-extension/sidecar/src/lib/agui-subscriber.ts:2037:          state: "input-available",

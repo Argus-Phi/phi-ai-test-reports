@@ -1,0 +1,19 @@
+Related command output (tail; exit 0 verified in execution session)
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/dsh-plugin-chat:type-check: > @phi-ai/dsh-plugin-chat@0.1.0 type-check /Users/phi/Documents/project/phi-ai/.claude/worktrees/widget-template-style-alignment/phi-agent-dsh/plugins/chat
+@phi-ai/dsh-plugin-chat:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh-plugin-chat:type-check: 
+@phi-ai/sidecar:type-check: 
+@phi-ai/sidecar:type-check: > @phi-ai/sidecar@ type-check /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-468-8a38aefbab67/workdir/phi-ai/ai-extension/sidecar
+@phi-ai/sidecar:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sidecar:type-check: 
+@phi-ai/dsh:type-check: cache hit, replaying logs 7d3b3220c7323be3
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh:type-check: > @phi-ai/dsh@0.5.0 type-check /Users/phi/Documents/project/phi-ai/.claude/worktrees/widget-template-style-alignment/phi-agent-dsh
+@phi-ai/dsh:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh:type-check: 
+
+ Tasks:    56 successful, 56 total
+Cached:    56 cached, 56 total
+  Time:    5.098s >>> FULL TURBO
+

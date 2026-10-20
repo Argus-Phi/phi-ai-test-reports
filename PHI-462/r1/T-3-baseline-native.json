@@ -1,0 +1,2669 @@
+{
+  "summary": {
+    "name": "T-3-baseline-native",
+    "started": "2026-10-20T09:59:35.947Z",
+    "elapsedMs": 33370,
+    "sawTool": true,
+    "sawDots": true,
+    "sawWorker": false,
+    "waiting": true,
+    "settled": 21,
+    "final": {
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad we shaped this together.",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    }
+  },
+  "samples": [
+    {
+      "at": "2026-10-20T09:59:35.949Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Phi\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Phi\n· 珍珠还在蚌里\n正在琢磨...",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "正在琢磨..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Phi\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "正在琢磨...",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:38.835Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Phi\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Phi\n· 珍珠还在蚌里\nCompleting onboarding with the existing face",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "正在琢磨..."
+          },
+          "tools": [],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Phi\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "Completing onboarding with the existing face",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:40.182Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Phi\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Phi\n· 珍珠还在蚌里\nCompleting onboarding with the existing face",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Completing onboarding with the existing face"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "input-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Phi\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "Completing onboarding with the existing face",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:40.390Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Test Finch\n· 珍珠还在蚌里\nCompleting onboarding with the existing face",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Completing onboarding with the existing face"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "Completing onboarding with the existing face",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:41.933Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Test Finch\n· 珍珠还在蚌里\nFinalizing your onboarding preferences",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Completing onboarding with the existing face"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "Finalizing your onboarding preferences",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:45.640Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Test Finch\n· 珍珠还在蚌里\nFinalizing your onboarding preferences",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Finalizing your onboarding preferences"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "input-available"
+            }
+          ],
+          "loading": 1,
+          "dots": 3,
+          "rails": [
+            {
+              "text": "",
+              "children": 1,
+              "rect": "{\"x\":171.5,\"y\":529,\"width\":736,\"height\":22,\"top\":529,\"right\":907.5,\"bottom\":551,\"left\":171.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "",
+              "label": "Loading"
+            },
+            {
+              "text": "Finalizing your onboarding preferences",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T09:59:47.720Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Test Finch\n· 珍珠还在蚌里\nFinalizando la configuración del asistente",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Finalizing your onboarding preferences"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "input-available"
+            }
+          ],
+          "loading": 1,
+          "dots": 3,
+          "rails": [
+            {
+              "text": "",
+              "children": 1,
+              "rect": "{\"x\":171.5,\"y\":529,\"width\":736,\"height\":22,\"top\":529,\"right\":907.5,\"bottom\":551,\"left\":171.5}"
+            }
+          ],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "",
+              "label": "Loading"
+            },
+            {
+              "text": "Finalizando la configuración del asistente",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:01.866Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Test Finch\n· 珍珠还在蚌里\nFinalizando la configuración del asistente",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Finalizando la configuración del asistente"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "Finalizando la configuración del asistente",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:04.047Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "true",
+          "text": "Test Finch\n· 珍珠还在蚌里\n\nAll\n\nFinalizando la configuración del perfil",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runPhase": "routing",
+            "activityLabel": "Finalizando la configuración del perfil"
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": [
+            {
+              "text": "Test Finch\n· 珍珠还在蚌里",
+              "label": "等待 AI 回复"
+            },
+            {
+              "text": "Finalizando la configuración del perfil",
+              "label": null
+            }
+          ]
+        }
+      ],
+      "stop": true,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:04.358Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:04.463Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set,",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:04.775Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester.",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:04.981Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.188Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.292Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.396Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch:",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.500Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.604Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm,",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.708Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise,",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.812Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:05.916Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.021Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.125Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.229Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face.",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.331Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.435Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.538Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad we",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.643Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad we shaped",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.747Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad we shaped this",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:06.954Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad we shaped this together",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-20T10:00:07.059Z",
+      "version": "2026.10.20.1747",
+      "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=onboard",
+      "theme": "dark app-mode-newtab",
+      "messages": [
+        {
+          "id": "01a158c0-5b32-714a-9ee8-8e64762bccd0",
+          "streaming": "false",
+          "text": "Test Finch\n\n咦！你好。我……刚刚醒来，好像就住在你的浏览器里。我还没有名字，性格也是一张白纸——这就要靠你了。给我一分钟，我们一起决定我是谁，好吗？\n\n来吧 ✨\n等等，你是谁？",
+          "metadata": {
+            "timelineTimestamp": 1792490363698,
+            "timelineSeq": 2
+          },
+          "tools": [
+            {
+              "name": "present_choices",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        },
+        {
+          "id": "01a158c0-8a95-73bd-94f5-3552fe74b6a6",
+          "streaming": "false",
+          "text": "Test Finch\n\nAll set, Tester. I’m Test Finch: calm, concise, and keeping my existing face. I’m glad we shaped this together.",
+          "metadata": {
+            "streamType": "text",
+            "runId": "f2f9263b-9453-4927-b9d1-51d6f25602b6",
+            "timelineTimestamp": 1792490375830,
+            "timelineSeq": 4,
+            "runResult": ""
+          },
+          "tools": [
+            {
+              "name": "set_assistant_name",
+              "state": "output-available"
+            },
+            {
+              "name": "complete_onboarding",
+              "state": "output-available"
+            }
+          ],
+          "loading": 0,
+          "dots": 0,
+          "rails": [],
+          "emptyBodies": 0,
+          "status": []
+        }
+      ],
+      "stop": false,
+      "mutations": [
+        {
+          "at": 1792490375753,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490380169,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490380181,
+          "dots": 0,
+          "empty": 0
+        },
+        {
+          "at": 1792490385612,
+          "dots": 4,
+          "empty": 0
+        },
+        {
+          "at": 1792490401802,
+          "dots": 0,
+          "empty": 0
+        }
+      ]
+    }
+  ]
+}

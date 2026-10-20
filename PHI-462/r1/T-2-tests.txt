@@ -1,0 +1,197 @@
+TAP version 13
+# react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: 'NO_I18NEXT_INSTANCE' }
+# Subtest: worker.execute in input-streaming has no legacy indicator or body slot through terminal states
+ok 1 - worker.execute in input-streaming has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 66.205375
+  type: 'test'
+  ...
+# Subtest: worker.execute in input-available has no legacy indicator or body slot through terminal states
+ok 2 - worker.execute in input-available has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 21.26425
+  type: 'test'
+  ...
+# Subtest: worker.execute in approval-requested has no legacy indicator or body slot through terminal states
+ok 3 - worker.execute in approval-requested has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 18.201417
+  type: 'test'
+  ...
+# Subtest: worker.execute in approval-responded has no legacy indicator or body slot through terminal states
+ok 4 - worker.execute in approval-responded has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 15.4065
+  type: 'test'
+  ...
+# Subtest: set_assistant_name in input-streaming has no legacy indicator or body slot through terminal states
+ok 5 - set_assistant_name in input-streaming has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 22.661667
+  type: 'test'
+  ...
+# Subtest: set_assistant_name in input-available has no legacy indicator or body slot through terminal states
+ok 6 - set_assistant_name in input-available has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 20.305291
+  type: 'test'
+  ...
+# Subtest: set_assistant_name in approval-requested has no legacy indicator or body slot through terminal states
+ok 7 - set_assistant_name in approval-requested has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 51.9195
+  type: 'test'
+  ...
+# Subtest: set_assistant_name in approval-responded has no legacy indicator or body slot through terminal states
+ok 8 - set_assistant_name in approval-responded has no legacy indicator or body slot through terminal states
+  ---
+  duration_ms: 29.86625
+  type: 'test'
+  ...
+# Subtest: interleaved tool events preserve reply order and existing text nodes
+ok 9 - interleaved tool events preserve reply order and existing text nodes
+  ---
+  duration_ms: 94.36025
+  type: 'test'
+  ...
+# Subtest: real reasoning keeps its timeline when ordinary tools are excluded
+ok 10 - real reasoning keeps its timeline when ordinary tools are excluded
+  ---
+  duration_ms: 22.907625
+  type: 'test'
+  ...
+# Subtest: submitted empty messages keep the header without an empty body
+ok 11 - submitted empty messages keep the header without an empty body
+  ---
+  duration_ms: 12.024667
+  type: 'test'
+  ...
+# Subtest: worker activity remains visible without ordinary tool slots
+ok 12 - worker activity remains visible without ordinary tool slots
+  ---
+  duration_ms: 8.270958
+  type: 'test'
+  ...
+# Subtest: the card shows a skeleton for the whole generation window
+ok 13 - the card shows a skeleton for the whole generation window
+  ---
+  duration_ms: 0.838042
+  type: 'test'
+  ...
+# Subtest: the result swaps the skeleton for the face
+ok 14 - the result swaps the skeleton for the face
+  ---
+  duration_ms: 1.397667
+  type: 'test'
+  ...
+# Subtest: a refusal and a pipeline error both read as failed, with no image
+ok 15 - a refusal and a pipeline error both read as failed, with no image
+  ---
+  duration_ms: 0.379959
+  type: 'test'
+  ...
+# Subtest: an interrupted run renders the aborted branch, not a stuck skeleton
+ok 16 - an interrupted run renders the aborted branch, not a stuck skeleton
+  ---
+  duration_ms: 0.077333
+  type: 'test'
+  ...
+# [choice-options] choice-call-1 → active (kind=confirm, options=2)
+# [choice-options] choice-call-1 option clicked: yes → sending "Draw it"
+# [choice-options] choice-call-1 → responded (kind=confirm, options=2)
+# [choice-options] choice-call-1 → active (kind=confirm, options=2)
+# [choice-options] choice-call-1 → aborted (kind=confirm, options=2)
+# [choice-options] choice-call-1 → aborted (kind=confirm, options=2)
+# Subtest: choice click sends stable tool-call and option identity with readable text
+ok 17 - choice click sends stable tool-call and option identity with readable text
+  ---
+  duration_ms: 154.753
+  type: 'test'
+  ...
+# Subtest: a terminal ritual (completed or skipped) freezes a pending choice group
+ok 18 - a terminal ritual (completed or skipped) freezes a pending choice group
+  ---
+  duration_ms: 15.501375
+  type: 'test'
+  ...
+# Subtest: errored and denied choice groups remain visible but disabled
+ok 19 - errored and denied choice groups remain visible but disabled
+  ---
+  duration_ms: 19.094959
+  type: 'test'
+  ...
+# Subtest: finishAssistantMessage marks running tool parts as aborted for aborted runs
+ok 20 - finishAssistantMessage marks running tool parts as aborted for aborted runs
+  ---
+  duration_ms: 4.217125
+  type: 'test'
+  ...
+# Subtest: a run with two wire messageIds renders two assistant bubbles with activity between
+ok 21 - a run with two wire messageIds renders two assistant bubbles with activity between
+  ---
+  duration_ms: 2.919042
+  type: 'test'
+  ...
+# Subtest: a run with a single wire messageId still renders exactly one bubble
+ok 22 - a run with a single wire messageId still renders exactly one bubble
+  ---
+  duration_ms: 0.427417
+  type: 'test'
+  ...
+# Subtest: absent wireMessageId falls back to one assistant bubble per run
+ok 23 - absent wireMessageId falls back to one assistant bubble per run
+  ---
+  duration_ms: 0.374625
+  type: 'test'
+  ...
+# Subtest: a single wire messageId spanning a real tool call stays one bubble
+ok 24 - a single wire messageId spanning a real tool call stays one bubble
+  ---
+  duration_ms: 0.540166
+  type: 'test'
+  ...
+# Subtest: interleaved deltas (A, B, A) append the late A to the existing bubble
+ok 25 - interleaved deltas (A, B, A) append the late A to the existing bubble
+  ---
+  duration_ms: 0.253209
+  type: 'test'
+  ...
+# Subtest: two-bubble run persists and reloads as two assistant messages
+ok 26 - two-bubble run persists and reloads as two assistant messages
+  ---
+  duration_ms: 0.807333
+  type: 'test'
+  ...
+# Subtest: replacing a sent user message keeps its place before the reply
+ok 27 - replacing a sent user message keeps its place before the reply
+  ---
+  duration_ms: 4.833417
+  type: 'test'
+  ...
+# Subtest: untimed history is not stamped later than the load
+ok 28 - untimed history is not stamped later than the load
+  ---
+  duration_ms: 1.02275
+  type: 'test'
+  ...
+# Subtest: dropMessagesBefore keeps the run's bubble: later deltas land in it, not in a new one
+ok 29 - dropMessagesBefore keeps the run's bubble: later deltas land in it, not in a new one
+  ---
+  duration_ms: 2.279667
+  type: 'test'
+  ...
+# Subtest: patchFinishedMessageMetadata merges into a finished reply by id, else by run, without touching status
+ok 30 - patchFinishedMessageMetadata merges into a finished reply by id, else by run, without touching status
+  ---
+  duration_ms: 0.905708
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10807.421084

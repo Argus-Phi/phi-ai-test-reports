@@ -1,0 +1,43 @@
+TAP version 13
+# node:internal/modules/run_main:123
+#     triggerUncaughtException(
+#     ^
+# Error: Transform failed with 4 errors:
+# /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx:9:0: ERROR: Top-level await is currently not supported with the "cjs" output format
+# /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx:10:0: ERROR: Top-level await is currently not supported with the "cjs" output format
+# /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx:15:20: ERROR: Top-level await is currently not supported with the "cjs" output format
+# /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx:16:24: ERROR: Top-level await is currently not supported with the "cjs" output format
+#     at failureErrorWithLog (/Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/phi-ai/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:1467:15)
+#     at /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/phi-ai/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:736:50
+#     at responseCallbacks.<computed> (/Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/phi-ai/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:603:9)
+#     at handleIncomingPacket (/Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/phi-ai/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:658:12)
+#     at Socket.readFromStdout (/Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/phi-ai/node_modules/.pnpm/esbuild@0.27.2/node_modules/esbuild/lib/main.js:581:7)
+#     at Socket.emit (node:events:519:28)
+#     at addChunk (node:internal/streams/readable:561:12)
+#     at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+#     at Readable.push (node:internal/streams/readable:392:5)
+#     at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {
+#   name: 'TransformError'
+# }
+# Node.js v22.23.3
+# Subtest: /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx
+not ok 1 - /Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx
+  ---
+  duration_ms: 176.795458
+  type: 'test'
+  location: '/Users/fydeos/multica_workspaces_mca/phi-7b4ee50429fe/phi-471-48426892f0ab/workdir/artifacts-wt/PHI-462/qa-scripts/card-smoke.test.tsx:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 182.042667
