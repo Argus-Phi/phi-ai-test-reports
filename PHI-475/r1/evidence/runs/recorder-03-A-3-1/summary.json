@@ -1,0 +1,1 @@
+{"prefix":"recorder-03-A-3-1","sample":"R-H","statusCode":200,"startedAt":1792603630773,"finishedAt":1792603647040,"durationMs":16267,"status":"completed","verdict":"passed","failedChecks":[],"traceId":"8da62a36-76ba-44e7-aaff-a1f9adf9a326","traceError":null,"annotatedByModel":"phi/agent/recorder","error":null,"reason":null,"attempts":null}

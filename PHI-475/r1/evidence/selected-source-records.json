@@ -1,0 +1,86 @@
+[
+  {
+    "task_id": "ade4c09ad3fdb1607209750924cd232f",
+    "confirmed_task": "Compare available plans for the AeroAPI on Flightaware.",
+    "website": "https://www.flightaware.com/",
+    "reference_length": 4,
+    "level": "easy"
+  },
+  {
+    "task_id": "005be9dd91c95669d6ddde9ae667125c",
+    "confirmed_task": "Find the weight of baggage allowance for economy class on Qatar Airways.",
+    "website": "https://www.qatarairways.com/",
+    "reference_length": 4,
+    "level": "easy"
+  },
+  {
+    "task_id": "4091bdd3fa64a5b0d912bc08eaf9c824",
+    "confirmed_task": "Find the list of neighborhood maps for Brooklyn on new.mta.info.",
+    "website": "https://new.mta.info/",
+    "reference_length": 5,
+    "level": "easy"
+  },
+  {
+    "task_id": "34ccd15a8ea8fd3895af83f5ccf62369",
+    "confirmed_task": "Find out what to do when I lose an item on a bus on us.megabus.",
+    "website": "https://us.megabus.com/",
+    "reference_length": 3,
+    "level": "easy"
+  },
+  {
+    "task_id": "fb7b4f784cfde003e2548fdf4e8d6b4f",
+    "confirmed_task": "Open the page with an overview of the submission of releases on Discogs.",
+    "website": "https://www.discogs.com/",
+    "reference_length": 6,
+    "level": "medium"
+  },
+  {
+    "task_id": "046138801a05ddf56ad94e8672942496_070826",
+    "confirmed_task": "Find discussions of the community and open the one with the most replies of all time on Flightaware.",
+    "website": "https://www.flightaware.com/",
+    "reference_length": 6,
+    "level": "medium"
+  },
+  {
+    "task_id": "92a3d4236f167af4afdc08876a902ba6",
+    "confirmed_task": "Find a 2022 Tesla Model 3 on CarMax.",
+    "website": "https://www.carmax.com/",
+    "reference_length": 10,
+    "level": "medium"
+  },
+  {
+    "task_id": "48c73f3f53e2611c4a1052457c1033db",
+    "confirmed_task": "Get the report from the final environmental impact statement for the Jamaica Bus Depot expansion on new.mta.info.",
+    "website": "https://new.mta.info/",
+    "reference_length": 10,
+    "level": "medium"
+  },
+  {
+    "task_id": "8f2611047de227a2ca8bda13f6e2e5fb_110325",
+    "confirmed_task": "Find the cheapest used Honda Civic that meets all the following criteria: under $25,000, fewer than 30,000 miles, includes Apple CarPlay, adaptive cruise control, and blind-spot sensors.",
+    "website": "https://www.carvana.com/",
+    "reference_length": 17,
+    "level": "hard"
+  },
+  {
+    "task_id": "b7a9a6b5d451164c09bbd27b670bc2ae",
+    "confirmed_task": "Show me the list of Men's Blazers, Black, Size M on Uniqlo.",
+    "website": "https://www.uniqlo.com/",
+    "reference_length": 11,
+    "level": "hard"
+  },
+  {
+    "task_id": "b64f938af842f6a1b4489d0e49a785a7_121125",
+    "confirmed_task": "Get the frozen vegetarian cheese pizza between 5 to 10 USD on Target.",
+    "website": "https://www.target.com/",
+    "reference_length": 17,
+    "level": "hard"
+  },
+  {
+    "task_id": "6ebde509dca8f15c0fa1bd74f071e8d6",
+    "confirmed_task": "Search for a job in Miami, Florida, in Human Resources on target.",
+    "website": "https://www.target.com/",
+    "reference_length": 14,
+    "level": "hard"
+  }
+]

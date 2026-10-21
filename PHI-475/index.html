@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Phi Agent 模型切换任务 - PHI-475</title><style>
+:root{--bg:#f4f2ec;--surface:#fbfaf7;--surface2:#f1efe8;--ink:#1f1e1b;--muted:#6e6a62;--line:#e6e2d8;--accent:#c9663d;--accent-ink:#9a4322;
+--pass-bg:#e4efe3;--pass-fg:#2f6a3a;--fail-bg:#f8e3dc;--fail-fg:#a33f28;--blocked-bg:#f6ecd2;--blocked-fg:#8a5a00;--skipped-bg:#e9e6df;--skipped-fg:#5f5b53;--info-bg:#e3ecf5;--info-fg:#2c5a86;
+--shadow:0 1px 2px rgba(31,30,27,.04),0 8px 24px -16px rgba(31,30,27,.25)}
+@media(prefers-color-scheme:dark){:root{--bg:#1b1916;--surface:#23201c;--surface2:#2a2722;--ink:#ece8df;--muted:#a39d90;--line:#36322b;--accent:#e08a64;--accent-ink:#f0b094;
+--pass-bg:#243326;--pass-fg:#9fd3a4;--fail-bg:#40261f;--fail-fg:#f0a38f;--blocked-bg:#3d3320;--blocked-fg:#e6c57a;--skipped-bg:#2e2b26;--skipped-fg:#b8b2a4;--info-bg:#223140;--info-fg:#95c0e6;--shadow:none}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "SF Pro Text","Helvetica Neue",-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:1120px;margin:0 auto;padding:36px 28px 96px}
+.crumbs{font-size:12.5px;color:var(--muted);margin-bottom:28px;letter-spacing:.01em}.crumbs a{color:var(--muted);text-decoration:none}.crumbs a:hover{color:var(--accent)}
+.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+h1{font:500 38px/1.15 "Iowan Old Style","Charter","Newsreader",Georgia,serif;letter-spacing:-.015em;margin:0 0 10px}
+h2{font:500 22px/1.3 "Iowan Old Style","Charter",Georgia,serif;letter-spacing:-.01em;margin:48px 0 14px;display:flex;align-items:baseline;gap:12px}
+h2 small{font:400 12px/1 "SF Pro Text",system-ui,sans-serif;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.sub{color:var(--muted);font-size:13.5px}.mono{font-family:"SF Mono","JetBrains Mono",Menlo,monospace;font-size:12.5px}
+.pill{display:inline-block;padding:2px 10px;border-radius:9999px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.pass{background:var(--pass-bg);color:var(--pass-fg)}.fail{background:var(--fail-bg);color:var(--fail-fg)}.blocked{background:var(--blocked-bg);color:var(--blocked-fg)}
+.skipped{background:var(--skipped-bg);color:var(--skipped-fg)}.info{background:var(--info-bg);color:var(--info-fg)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:var(--shadow)}
+.hero{display:grid;grid-template-columns:1fr 240px;gap:28px;margin-top:26px;align-items:center}.hero .pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.summary{font-size:17px;line-height:1.7;margin:0}.summary strong{font-weight:600}
+.ring{position:relative;width:200px;height:200px;margin:0 auto}.ring svg{transform:rotate(-90deg)}.ring .lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .lbl b{font:500 40px/1 "Iowan Old Style","Charter",Georgia,serif;letter-spacing:-.02em}.ring .lbl span{font-size:11.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:22px}.stat{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--surface2)}
+.stat b{display:block;font-size:26px;font-weight:500;letter-spacing:-.02em;font-family:"Iowan Old Style","Charter",Georgia,serif}.stat span{color:var(--muted);font-size:12px;letter-spacing:.04em}
+.stat.pass b{color:var(--pass-fg)}.stat.fail b{color:var(--fail-fg)}.stat.blocked b{color:var(--blocked-fg)}.stat.skipped b{color:var(--skipped-fg)}
+table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;color:var(--muted);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:12px 12px;border-bottom:1px solid var(--line)}
+td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border-bottom:0}tr.row{cursor:pointer;transition:background .15s}tr.row:hover td{background:var(--surface2)}
+tr.row td:first-child{border-left:3px solid transparent}tr.row.st-fail td:first-child{border-left-color:var(--fail-fg)}tr.row.st-pass td:first-child{border-left-color:var(--pass-fg)}
+tr.detail{display:none}tr.detail.open{display:table-row}tr.detail td{background:var(--surface2);padding:20px 28px 24px;border-bottom:1px solid var(--line)}
+dl{display:grid;grid-template-columns:88px 1fr;gap:10px 18px;margin:0}dt{color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding-top:3px}dd{margin:0}ol{margin:0;padding-left:20px}ol li{margin:2px 0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:6px}figure{margin:0}figure img{width:100%;border:1px solid var(--line);border-radius:8px;cursor:zoom-in;background:#fff;box-shadow:var(--shadow);transition:transform .15s}figure img:hover{transform:translateY(-2px)}
+figcaption{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.4}figure.fail img{border:2px solid var(--fail-fg)}figure.fail figcaption::before{content:"失败 · ";color:var(--fail-fg);font-weight:600}.att{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:10px 0}.att.fail{border-left-color:var(--fail-fg)}.att-h{font-size:12.5px;color:var(--muted);margin-bottom:6px;display:flex;gap:8px;align-items:center}.trace .mono{font-size:12px}pre{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow:auto;font-size:12.5px;white-space:pre-wrap;font-family:"SF Mono","JetBrains Mono",Menlo,monospace}
+ul.links{padding-left:0;list-style:none;margin:0;display:grid;gap:8px}ul.links li{padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface2)}ul.links a{color:var(--accent-ink);text-decoration:none;font-weight:500}ul.links a:hover{text-decoration:underline}
+a{color:var(--accent-ink)}.bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:18px;background:var(--line)}.bar i{display:block;height:100%}
+.bar .pass{background:var(--pass-fg)}.bar .fail{background:var(--fail-fg)}.bar .blocked{background:var(--blocked-fg)}.bar .skipped{background:var(--skipped-fg)}
+.lightbox{position:fixed;inset:0;background:rgba(20,18,15,.88);display:none;align-items:center;justify-content:center;z-index:9;cursor:zoom-out}.lightbox.open{display:flex}.lightbox img{max-width:94vw;max-height:94vh;border-radius:6px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 28px;font-size:14px}.meta div span{color:var(--muted);display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin:10px 2px 0}.toolbar a{color:var(--accent-ink);text-decoration:none;font-weight:500}
+.tight{padding:4px 10px}.verdict-line{display:flex;gap:10px;align-items:center;margin-top:6px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}h1{font-size:30px}main{padding:24px 16px 64px}}
+</style></head><body><main><div class="crumbs"><a href="../">所有任务</a> / PHI-475</div><div class="eyebrow">Phi AI · 测试报告 · PHI-475</div><h1>Phi Agent 模型切换任务 - PHI-475</h1><div class="sub">共 1 轮，最新 r1：<span class="pill pass">已通过</span> <a href="r1/">打开最新报告</a></div><h2>各轮 <small>rounds</small></h2><div class="card tight"><table><tr><th>轮次</th><th>类型</th><th>结论</th><th>通过/总数</th><th>SHA</th><th>生成时间</th></tr><tr><td><a href="r1/">r1</a></td><td>测试</td><td><span class="pill pass">已通过</span></td><td>20/20</td><td class="mono">e23cd392749d</td><td>2026-10-21T20:19:49.016265+00:00</td></tr></table></div></main><div class="lightbox" id="lb"><img alt=""></div><script>
+document.querySelectorAll('tr.row').forEach(function(r){r.addEventListener('click',function(){var d=r.nextElementSibling;d.classList.toggle('open');});});var ex=document.getElementById('expand-all');if(ex){ex.addEventListener('click',function(){var all=document.querySelectorAll('tr.detail');var open=Array.prototype.some.call(all,function(d){return !d.classList.contains('open');});all.forEach(function(d){d.classList.toggle('open',open);});ex.textContent=open?'收起全部':'展开全部';});}
+var lb=document.getElementById('lb');document.querySelectorAll('figure img').forEach(function(im){im.addEventListener('click',function(e){e.stopPropagation();lb.querySelector('img').src=im.src;lb.classList.add('open');});});
+if(lb){lb.addEventListener('click',function(){lb.classList.remove('open');});}
+</script></body></html>

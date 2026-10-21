@@ -1,0 +1,83 @@
+{
+  "qualityA": {
+    "planned": 6,
+    "started": 5,
+    "completed": 4,
+    "scored": 3,
+    "correct": 2,
+    "executionSuccessPercent": 66.66666666666667,
+    "accuracyPercent": 66.66666666666667,
+    "allPlannedCorrectPercent": 33.333333333333336,
+    "scoringCoveragePercent": 50.0,
+    "executionStatuses": {
+      "completed": 4,
+      "timeout": 1,
+      "not_started": 1
+    },
+    "judgeStatuses": {
+      "scored": 3,
+      "not_scored": 3
+    }
+  },
+  "qualityB": {
+    "planned": 6,
+    "started": 6,
+    "completed": 4,
+    "scored": 3,
+    "correct": 3,
+    "executionSuccessPercent": 66.66666666666667,
+    "accuracyPercent": 100.0,
+    "allPlannedCorrectPercent": 50.0,
+    "scoringCoveragePercent": 50.0,
+    "executionStatuses": {
+      "completed": 4,
+      "cancelled": 1,
+      "timeout": 1
+    },
+    "judgeStatuses": {
+      "scored": 3,
+      "judge_error": 1,
+      "not_scored": 2
+    }
+  },
+  "commonPairs": {
+    "tasks": [
+      {
+        "taskId": "fixed",
+        "repetitions": [
+          1,
+          3
+        ],
+        "pairs": 2,
+        "AmedianMs": 2000.0,
+        "BmedianMs": 1750.0,
+        "differenceMs": 250.0,
+        "speedupPercent": 12.5
+      }
+    ],
+    "effectiveTasks": 1,
+    "effectivePairs": 2,
+    "medianTaskSpeedupPercent": 12.5,
+    "sumOfTaskMediansSpeedupPercent": 12.5
+  },
+  "invalidFreshRun": {
+    "tasks": [
+      {
+        "taskId": "fixed",
+        "repetitions": [
+          1
+        ],
+        "pairs": 1,
+        "AmedianMs": 1000,
+        "BmedianMs": 800,
+        "differenceMs": 200,
+        "speedupPercent": 20.0
+      }
+    ],
+    "effectiveTasks": 1,
+    "effectivePairs": 1,
+    "medianTaskSpeedupPercent": 20.0,
+    "sumOfTaskMediansSpeedupPercent": 20.0
+  },
+  "emptyAndZero": "pass"
+}

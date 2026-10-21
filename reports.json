@@ -188,5 +188,22 @@
     "total": 4
    }
   }
+ ],
+ "PHI-475": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "Phi Agent 模型切换任务",
+   "sha": "e23cd392749dce1030aa7796e9e113a0b7c350f7",
+   "generated_at": "2026-10-21T20:19:49.016265+00:00",
+   "counts": {
+    "pass": 20,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 20
+   }
+  }
  ]
 }

@@ -1,0 +1,1764 @@
+[2026-10-22 01:17:44] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:17:44] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:17:44] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:17:44] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:17:44] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:17:44] [im-server-client] socket opened, authenticating
+[2026-10-22 01:17:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:17:44] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:17:44] [im-server-client] socket opened, authenticating
+[2026-10-22 01:17:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:17:44] [im-server-client] authenticated { sessionId: 'kjA7uWtxHqXddPqADJqMj' }
+[2026-10-22 01:17:44] [im-server-client] connected to IM-Server
+[2026-10-22 01:17:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:17:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:17:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:17:44] [im-server-client] authenticated { sessionId: 'kjA7uWtxHqXddPqADJqMj' }
+[2026-10-22 01:17:44] [im-server-client] connected to IM-Server
+[2026-10-22 01:17:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:17:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+[2026-10-22 01:17:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:17:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:18:15] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:18:15] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:18:15] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:18:15] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:18:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:18:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:18:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:18:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:18:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:18:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:18:15] [im-server-client] authenticated { sessionId: '7WUv6dxQ0gLZp19LzUZ7Y' }
+[2026-10-22 01:18:15] [im-server-client] connected to IM-Server
+[2026-10-22 01:18:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 01:18:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:18:15] [im-server-client] authenticated { sessionId: '7WUv6dxQ0gLZp19LzUZ7Y' }
+[2026-10-22 01:18:15] [im-server-client] connected to IM-Server
+[2026-10-22 01:18:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+[2026-10-22 01:18:15] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:18:15] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 01:18:15] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 01:18:17] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 01:18:20] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 01:18:30] [sonic/bridge] could not close leftover tab 1530841153: Target.closeTarget: No target with given id found
+[2026-10-22 01:18:30] [sonic] provenance window not delivered (no PHI_MEMORY_PROVENANCE_URL) {
+[2026-10-22 01:19:10] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:19:10] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:19:10] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:19:10] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:19:10] [phi-agent:public-base-url] RESOLVED publicBaseUrl="http://127.0.0.1:8788" source=sentinel
+[2026-10-22 01:19:10] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:19:10] [im-server-client] socket opened, authenticating
+[2026-10-22 01:19:10] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:19:10] [im-server-client] socket opened, authenticating
+[2026-10-22 01:19:10] [im-server-client] authenticated { sessionId: 'OIYnh3Ty5a2Z7eJmpbOX5' }
+[2026-10-22 01:19:10] [im-server-client] connected to IM-Server
+[2026-10-22 01:19:10] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:19:10] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 01:19:10] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:19:10] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:19:10] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:19:10] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 01:19:10] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 01:19:11] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 01:19:14] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 01:19:25] [phi-tasks] outage audited {
+  outageId: '01a15f79-9193-77ab-b131-8f4f884be60d',
+[2026-10-22 01:20:15] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:20:15] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:20:15] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:20:15] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:20:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:20:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:20:15] [im-server-client] authenticated { sessionId: '8x273UDZ9u0IgPZtkcchZ' }
+[2026-10-22 01:20:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:20:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:20:15] [im-server-client] authenticated { sessionId: '8x273UDZ9u0IgPZtkcchZ' }
+[2026-10-22 01:20:15] [im-server-client] connected to IM-Server
+[2026-10-22 01:20:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:20:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 01:20:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:20:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:20:15] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:20:15] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 01:20:15] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 01:20:30] [phi-tasks] outage audited {
+  outageId: '01a15f7a-8f71-77f9-9e5d-9435bf6a082b',
+  reason: 'phi_crashed',
+  requeuedRunIds: [],
+[2026-10-22 01:20:40] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:20:40] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:20:40] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:20:40] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:20:40] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:20:40] [im-server-client] socket opened, authenticating
+[2026-10-22 01:20:40] [im-server-client] authenticated { sessionId: '0hoCs8OlI6_oxcxwxta9h' }
+[2026-10-22 01:20:40] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:20:40] [im-server-client] socket opened, authenticating
+[2026-10-22 01:20:40] [im-server-client] authenticated { sessionId: '0hoCs8OlI6_oxcxwxta9h' }
+[2026-10-22 01:20:40] [im-server-client] connected to IM-Server
+[2026-10-22 01:20:40] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:20:40] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:20:40] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:20:40] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:20:40] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:20:40] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:20:40] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:20:40] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:21:26] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:21:26] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:21:26] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:21:26] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:21:26] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:21:26] [im-server-client] socket opened, authenticating
+[2026-10-22 01:21:26] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:21:26] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:21:26] [im-server-client] socket opened, authenticating
+[2026-10-22 01:21:26] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:21:26] [im-server-client] authenticated { sessionId: 'm7FE-LIgiIOnwYKc8RTAz' }
+[2026-10-22 01:21:26] [im-server-client] connected to IM-Server
+[2026-10-22 01:21:26] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:21:26] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:21:26] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:21:26] [im-server-client] authenticated { sessionId: 'm7FE-LIgiIOnwYKc8RTAz' }
+[2026-10-22 01:21:26] [im-server-client] connected to IM-Server
+[2026-10-22 01:21:26] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:21:26] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+[2026-10-22 01:21:26] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:21:26] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:22:11] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:22:11] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:22:11] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:22:11] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:22:11] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:22:11] [im-server-client] socket opened, authenticating
+[2026-10-22 01:22:11] [im-server-client] authenticated { sessionId: 'FQEP8uhKDO1gBNyNuWkJR' }
+[2026-10-22 01:22:11] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:22:11] [im-server-client] socket opened, authenticating
+[2026-10-22 01:22:11] [im-server-client] authenticated { sessionId: 'FQEP8uhKDO1gBNyNuWkJR' }
+[2026-10-22 01:22:11] [im-server-client] connected to IM-Server
+[2026-10-22 01:22:11] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:22:11] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:22:11] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:22:11] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:22:11] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:22:11] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:22:11] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:22:11] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:22:36] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:22:36] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:22:36] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:22:36] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:22:36] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:22:36] [im-server-client] socket opened, authenticating
+[2026-10-22 01:22:36] [im-server-client] authenticated { sessionId: '70NoYGNuBtHz3nu9xKAUE' }
+[2026-10-22 01:22:36] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:22:36] [im-server-client] socket opened, authenticating
+[2026-10-22 01:22:36] [im-server-client] authenticated { sessionId: '70NoYGNuBtHz3nu9xKAUE' }
+[2026-10-22 01:22:36] [im-server-client] connected to IM-Server
+[2026-10-22 01:22:36] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:22:36] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:22:36] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:22:36] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:22:36] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:22:36] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:22:36] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:22:36] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:23:00] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:23:00] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:23:00] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:23:00] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:23:00] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:23:00] [im-server-client] socket opened, authenticating
+[2026-10-22 01:23:00] [im-server-client] authenticated { sessionId: '7njNl3ivN__nM_J6zAy1O' }
+[2026-10-22 01:23:00] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:23:00] [im-server-client] socket opened, authenticating
+[2026-10-22 01:23:00] [im-server-client] authenticated { sessionId: '7njNl3ivN__nM_J6zAy1O' }
+[2026-10-22 01:23:00] [im-server-client] connected to IM-Server
+[2026-10-22 01:23:00] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:23:00] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:23:00] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:23:00] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:23:00] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:23:00] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:23:00] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:23:00] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:23:43] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:23:43] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:23:43] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:23:43] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:23:43] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:23:43] [im-server-client] socket opened, authenticating
+[2026-10-22 01:23:43] [im-server-client] authenticated { sessionId: 'Qt8tRL8KrSmpINe368dDj' }
+[2026-10-22 01:23:43] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:23:43] [im-server-client] socket opened, authenticating
+[2026-10-22 01:23:43] [im-server-client] authenticated { sessionId: 'Qt8tRL8KrSmpINe368dDj' }
+[2026-10-22 01:23:43] [im-server-client] connected to IM-Server
+[2026-10-22 01:23:43] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:23:43] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 01:23:43] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:23:43] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:23:43] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:23:43] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 01:23:43] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 01:23:43] [phi-agent:public-base-url] RESOLVED publicBaseUrl="http://127.0.0.1:8788" source=sentinel
+[2026-10-22 01:23:58] [phi-tasks] outage audited {
+  outageId: '01a15f7d-bcff-70c5-af68-7393fd688844',
+  reason: 'phi_crashed',
+[2026-10-22 01:24:37] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:24:37] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:24:37] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:24:37] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:24:37] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:24:37] [im-server-client] socket opened, authenticating
+[2026-10-22 01:24:37] [im-server-client] authenticated { sessionId: '9MPL9jfEOqj4V8cc2fXmM' }
+[2026-10-22 01:24:37] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:24:37] [im-server-client] socket opened, authenticating
+[2026-10-22 01:24:37] [im-server-client] authenticated { sessionId: '9MPL9jfEOqj4V8cc2fXmM' }
+[2026-10-22 01:24:37] [im-server-client] connected to IM-Server
+[2026-10-22 01:24:37] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:24:37] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:24:37] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:24:37] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:24:37] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:24:37] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:24:37] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:24:37] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:25:02] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:25:02] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:25:02] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:25:02] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:25:02] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:25:02] [im-server-client] socket opened, authenticating
+[2026-10-22 01:25:02] [im-server-client] authenticated { sessionId: 'quGEHjoRTw2vxYDtuQtpL' }
+[2026-10-22 01:25:02] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:25:02] [im-server-client] socket opened, authenticating
+[2026-10-22 01:25:02] [im-server-client] authenticated { sessionId: 'quGEHjoRTw2vxYDtuQtpL' }
+[2026-10-22 01:25:02] [im-server-client] connected to IM-Server
+[2026-10-22 01:25:02] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:25:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:25:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:25:02] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:25:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:25:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:25:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:25:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:25:45] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:25:45] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:25:45] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:25:45] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:25:45] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:25:45] [im-server-client] socket opened, authenticating
+[2026-10-22 01:25:45] [im-server-client] authenticated { sessionId: 'dlDVmyWUU6q_jRGMXiEOt' }
+[2026-10-22 01:25:45] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:25:45] [im-server-client] socket opened, authenticating
+[2026-10-22 01:25:45] [im-server-client] authenticated { sessionId: 'dlDVmyWUU6q_jRGMXiEOt' }
+[2026-10-22 01:25:45] [im-server-client] connected to IM-Server
+[2026-10-22 01:25:45] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:25:45] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:25:45] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:25:45] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:25:45] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:25:45] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:25:45] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:25:45] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:26:28] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:26:28] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:26:28] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:26:28] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:26:28] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:26:28] [im-server-client] socket opened, authenticating
+[2026-10-22 01:26:28] [im-server-client] authenticated { sessionId: 'hdAoyNnSoK69aGgIa_mI0' }
+[2026-10-22 01:26:28] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:26:28] [im-server-client] socket opened, authenticating
+[2026-10-22 01:26:28] [im-server-client] authenticated { sessionId: 'hdAoyNnSoK69aGgIa_mI0' }
+[2026-10-22 01:26:28] [im-server-client] connected to IM-Server
+[2026-10-22 01:26:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:26:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:26:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:26:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:26:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:26:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:26:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:26:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:27:49] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:27:49] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:27:49] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:27:49] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:27:49] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:27:49] [im-server-client] socket opened, authenticating
+[2026-10-22 01:27:49] [im-server-client] authenticated { sessionId: 'PkrglzUr_wAkOGlUEIpOO' }
+[2026-10-22 01:27:49] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:27:49] [im-server-client] socket opened, authenticating
+[2026-10-22 01:27:49] [im-server-client] authenticated { sessionId: 'PkrglzUr_wAkOGlUEIpOO' }
+[2026-10-22 01:27:49] [im-server-client] connected to IM-Server
+[2026-10-22 01:27:49] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:27:49] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:27:49] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:27:49] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:27:49] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:27:49] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:27:49] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:27:49] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:28:58] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:28:58] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:28:58] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:28:58] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:28:58] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:28:58] [im-server-client] socket opened, authenticating
+[2026-10-22 01:28:58] [im-server-client] authenticated { sessionId: 'UKigTaUZ1uvV4IzdloGvo' }
+[2026-10-22 01:28:58] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:28:58] [im-server-client] socket opened, authenticating
+[2026-10-22 01:28:58] [im-server-client] authenticated { sessionId: 'UKigTaUZ1uvV4IzdloGvo' }
+[2026-10-22 01:28:58] [im-server-client] connected to IM-Server
+[2026-10-22 01:28:58] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:28:58] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:28:58] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:28:58] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:28:58] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:28:58] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:28:58] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:28:58] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:31:28] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:31:28] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:31:28] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:31:28] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:31:28] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:31:28] [im-server-client] socket opened, authenticating
+[2026-10-22 01:31:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:31:28] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:31:28] [im-server-client] socket opened, authenticating
+[2026-10-22 01:31:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:31:28] [im-server-client] authenticated { sessionId: 'Mxwu8UslTOhIjKwT9aj9Y' }
+[2026-10-22 01:31:28] [im-server-client] connected to IM-Server
+[2026-10-22 01:31:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:31:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:31:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:31:28] [im-server-client] authenticated { sessionId: 'Mxwu8UslTOhIjKwT9aj9Y' }
+[2026-10-22 01:31:28] [im-server-client] connected to IM-Server
+[2026-10-22 01:31:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:31:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+[2026-10-22 01:31:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:31:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:34:42] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:34:42] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:34:42] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:34:42] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:34:42] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:34:42] [im-server-client] socket opened, authenticating
+[2026-10-22 01:34:42] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:34:42] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:34:42] [im-server-client] socket opened, authenticating
+[2026-10-22 01:34:42] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:34:42] [im-server-client] authenticated { sessionId: 'j-hVznFs7Q6sssq1kNRMd' }
+[2026-10-22 01:34:42] [im-server-client] connected to IM-Server
+[2026-10-22 01:34:42] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:34:42] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:34:42] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:34:42] [im-server-client] authenticated { sessionId: 'j-hVznFs7Q6sssq1kNRMd' }
+[2026-10-22 01:34:42] [im-server-client] connected to IM-Server
+[2026-10-22 01:34:42] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:34:42] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+[2026-10-22 01:34:42] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:34:42] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:40:15] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:40:15] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:40:15] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:40:15] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:40:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:40:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:40:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:40:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:40:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:40:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:40:15] [im-server-client] authenticated { sessionId: 'GkUHL58dvnqn-fYLu3BqP' }
+[2026-10-22 01:40:15] [im-server-client] connected to IM-Server
+[2026-10-22 01:40:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 01:40:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:40:15] [im-server-client] authenticated { sessionId: 'GkUHL58dvnqn-fYLu3BqP' }
+[2026-10-22 01:40:15] [im-server-client] connected to IM-Server
+[2026-10-22 01:40:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+[2026-10-22 01:40:15] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:40:15] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 01:40:15] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 01:40:17] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 01:40:20] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 01:40:30] [phi-tasks] outage audited {
+  outageId: '01a15f8c-e0a0-716d-b659-7a549dde7449',
+[2026-10-22 01:41:32] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:41:32] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:41:32] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:41:32] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:41:32] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:41:32] [im-server-client] socket opened, authenticating
+[2026-10-22 01:41:32] [im-server-client] authenticated { sessionId: 'QKhtnMUQPmWGH1JKifebW' }
+[2026-10-22 01:41:32] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:41:32] [im-server-client] socket opened, authenticating
+[2026-10-22 01:41:32] [im-server-client] authenticated { sessionId: 'QKhtnMUQPmWGH1JKifebW' }
+[2026-10-22 01:41:32] [im-server-client] connected to IM-Server
+[2026-10-22 01:41:32] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:41:32] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:41:32] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:41:32] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:41:32] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:41:32] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:41:32] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:41:32] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:43:53] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:43:53] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:43:53] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:43:53] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:43:53] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:43:53] [im-server-client] socket opened, authenticating
+[2026-10-22 01:43:53] [im-server-client] authenticated { sessionId: 'FdJp6oaU5xEyj6CIe_vgW' }
+[2026-10-22 01:43:53] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:43:53] [im-server-client] socket opened, authenticating
+[2026-10-22 01:43:53] [im-server-client] authenticated { sessionId: 'FdJp6oaU5xEyj6CIe_vgW' }
+[2026-10-22 01:43:53] [im-server-client] connected to IM-Server
+[2026-10-22 01:43:53] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:43:53] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:43:53] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:43:53] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:43:53] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:43:53] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:43:53] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:43:53] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:46:48] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:46:48] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:46:48] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:46:48] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:46:48] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:46:48] [im-server-client] socket opened, authenticating
+[2026-10-22 01:46:48] [im-server-client] authenticated { sessionId: 'TOIl2B1VX2bMGtvYiedG-' }
+[2026-10-22 01:46:48] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:46:48] [im-server-client] socket opened, authenticating
+[2026-10-22 01:46:48] [im-server-client] authenticated { sessionId: 'TOIl2B1VX2bMGtvYiedG-' }
+[2026-10-22 01:46:48] [im-server-client] connected to IM-Server
+[2026-10-22 01:46:48] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:46:48] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:46:48] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:46:48] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:46:48] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:46:48] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:46:48] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:46:48] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:51:15] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:51:15] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:51:15] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:51:15] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:51:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:51:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:51:15] [im-server-client] authenticated { sessionId: 'U3HymJ_RURA7n1eRm6xyW' }
+[2026-10-22 01:51:15] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:51:15] [im-server-client] socket opened, authenticating
+[2026-10-22 01:51:15] [im-server-client] authenticated { sessionId: 'U3HymJ_RURA7n1eRm6xyW' }
+[2026-10-22 01:51:15] [im-server-client] connected to IM-Server
+[2026-10-22 01:51:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:51:15] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:51:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:51:15] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:51:15] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:51:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:51:15] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:51:15] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:52:58] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:52:58] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:52:58] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:52:58] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:52:58] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:52:58] [im-server-client] socket opened, authenticating
+[2026-10-22 01:52:58] [im-server-client] authenticated { sessionId: 'wqljUgu_ZWccsMoC3zInE' }
+[2026-10-22 01:52:58] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:52:58] [im-server-client] socket opened, authenticating
+[2026-10-22 01:52:58] [im-server-client] authenticated { sessionId: 'wqljUgu_ZWccsMoC3zInE' }
+[2026-10-22 01:52:58] [im-server-client] connected to IM-Server
+[2026-10-22 01:52:58] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:52:58] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:52:58] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:52:58] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:52:58] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:52:58] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:52:58] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:52:58] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:55:53] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 01:55:53] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:55:53] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:55:53] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:55:53] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:55:53] [im-server-client] socket opened, authenticating
+[2026-10-22 01:55:53] [im-server-client] authenticated { sessionId: 'NlBcYqHk-17E4_FY8426G' }
+[2026-10-22 01:55:53] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:55:53] [im-server-client] socket opened, authenticating
+[2026-10-22 01:55:53] [im-server-client] authenticated { sessionId: 'NlBcYqHk-17E4_FY8426G' }
+[2026-10-22 01:55:53] [im-server-client] connected to IM-Server
+[2026-10-22 01:55:53] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:55:53] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 01:55:53] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:55:53] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 01:55:53] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:55:53] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 01:55:53] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 01:55:56] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 01:55:58] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 01:56:08] [phi-tasks] outage audited {
+  outageId: '01a15f9b-321e-736a-bca7-1c729207df24',
+[2026-10-22 01:58:30] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 01:58:30] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 01:58:30] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 01:58:30] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 01:58:30] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:58:30] [im-server-client] socket opened, authenticating
+[2026-10-22 01:58:30] [im-server-client] authenticated { sessionId: 'pe1yhZhUT5QiP_74DJNqy' }
+[2026-10-22 01:58:30] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 01:58:30] [im-server-client] socket opened, authenticating
+[2026-10-22 01:58:30] [im-server-client] authenticated { sessionId: 'pe1yhZhUT5QiP_74DJNqy' }
+[2026-10-22 01:58:30] [im-server-client] connected to IM-Server
+[2026-10-22 01:58:30] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:58:30] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:58:30] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 01:58:30] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 01:58:30] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:58:30] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 01:58:30] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 01:58:30] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:02:24] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:02:24] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:02:24] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:02:24] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:02:24] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:02:24] [im-server-client] socket opened, authenticating
+[2026-10-22 02:02:24] [im-server-client] authenticated { sessionId: 'ghvX32xXcp4_5-scWNqYn' }
+[2026-10-22 02:02:24] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:02:24] [im-server-client] socket opened, authenticating
+[2026-10-22 02:02:24] [im-server-client] authenticated { sessionId: 'ghvX32xXcp4_5-scWNqYn' }
+[2026-10-22 02:02:24] [im-server-client] connected to IM-Server
+[2026-10-22 02:02:24] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:02:24] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:02:24] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:02:24] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:02:24] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:02:24] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:02:24] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:02:24] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:03:59] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:03:59] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:03:59] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:03:59] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:03:59] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:03:59] [im-server-client] socket opened, authenticating
+[2026-10-22 02:03:59] [im-server-client] authenticated { sessionId: '3xgeir0GzU01hi0nWUxkY' }
+[2026-10-22 02:03:59] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:03:59] [im-server-client] socket opened, authenticating
+[2026-10-22 02:03:59] [im-server-client] authenticated { sessionId: '3xgeir0GzU01hi0nWUxkY' }
+[2026-10-22 02:03:59] [im-server-client] connected to IM-Server
+[2026-10-22 02:03:59] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:03:59] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:03:59] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:03:59] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:03:59] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:03:59] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:03:59] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:03:59] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:05:33] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:05:33] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:05:33] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:05:33] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:05:33] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:05:33] [im-server-client] socket opened, authenticating
+[2026-10-22 02:05:33] [im-server-client] authenticated { sessionId: '_JC3XTSUkpdvJmQnztPF0' }
+[2026-10-22 02:05:33] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:05:33] [im-server-client] socket opened, authenticating
+[2026-10-22 02:05:33] [im-server-client] authenticated { sessionId: '_JC3XTSUkpdvJmQnztPF0' }
+[2026-10-22 02:05:33] [im-server-client] connected to IM-Server
+[2026-10-22 02:05:33] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:05:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:05:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:05:33] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:05:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:05:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:05:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:05:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:10:54] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:10:54] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:10:54] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:10:54] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:10:54] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:10:54] [im-server-client] socket opened, authenticating
+[2026-10-22 02:10:54] [im-server-client] authenticated { sessionId: 'a5cFD-MZuyOVnILDw7ctY' }
+[2026-10-22 02:10:54] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:10:54] [im-server-client] socket opened, authenticating
+[2026-10-22 02:10:54] [im-server-client] authenticated { sessionId: 'a5cFD-MZuyOVnILDw7ctY' }
+[2026-10-22 02:10:54] [im-server-client] connected to IM-Server
+[2026-10-22 02:10:54] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:10:54] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:10:54] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:10:54] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:10:54] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:10:54] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:10:54] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:10:54] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:14:03] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:14:03] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:14:03] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:14:03] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:14:03] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:14:03] [im-server-client] socket opened, authenticating
+[2026-10-22 02:14:03] [im-server-client] authenticated { sessionId: 'l5mL4AaWsqjW4szPXAhQ8' }
+[2026-10-22 02:14:03] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:14:03] [im-server-client] socket opened, authenticating
+[2026-10-22 02:14:03] [im-server-client] authenticated { sessionId: 'l5mL4AaWsqjW4szPXAhQ8' }
+[2026-10-22 02:14:03] [im-server-client] connected to IM-Server
+[2026-10-22 02:14:04] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:14:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:14:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:14:04] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:14:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:14:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:14:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:14:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:17:28] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:17:28] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:17:28] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:17:28] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:17:28] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:17:28] [im-server-client] socket opened, authenticating
+[2026-10-22 02:17:28] [im-server-client] authenticated { sessionId: 'kQe89bjjhROWB2AicnZfD' }
+[2026-10-22 02:17:28] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:17:28] [im-server-client] socket opened, authenticating
+[2026-10-22 02:17:28] [im-server-client] authenticated { sessionId: 'kQe89bjjhROWB2AicnZfD' }
+[2026-10-22 02:17:28] [im-server-client] connected to IM-Server
+[2026-10-22 02:17:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:17:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:17:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:17:28] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:17:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:17:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:17:28] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:17:28] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:20:08] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:20:08] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:20:08] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:20:08] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:20:08] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:20:08] [im-server-client] socket opened, authenticating
+[2026-10-22 02:20:08] [im-server-client] authenticated { sessionId: 'fiZp0lKpyig2eBDm1MZh2' }
+[2026-10-22 02:20:08] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:20:08] [im-server-client] socket opened, authenticating
+[2026-10-22 02:20:08] [im-server-client] authenticated { sessionId: 'fiZp0lKpyig2eBDm1MZh2' }
+[2026-10-22 02:20:08] [im-server-client] connected to IM-Server
+[2026-10-22 02:20:08] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:20:08] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:20:08] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:20:08] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:20:08] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:20:08] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:20:08] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:20:08] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:24:02] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:24:02] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:24:02] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:24:02] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:24:02] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:24:02] [im-server-client] socket opened, authenticating
+[2026-10-22 02:24:02] [im-server-client] authenticated { sessionId: 'rGgPKFxF5HAdXzG0y56p8' }
+[2026-10-22 02:24:02] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:24:02] [im-server-client] socket opened, authenticating
+[2026-10-22 02:24:02] [im-server-client] authenticated { sessionId: 'rGgPKFxF5HAdXzG0y56p8' }
+[2026-10-22 02:24:02] [im-server-client] connected to IM-Server
+[2026-10-22 02:24:02] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:24:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:24:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:24:02] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:24:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:24:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:24:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:24:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:28:09] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:28:09] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:28:09] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:28:09] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:28:09] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:28:09] [im-server-client] socket opened, authenticating
+[2026-10-22 02:28:09] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:28:09] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:28:09] [im-server-client] socket opened, authenticating
+[2026-10-22 02:28:09] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:28:09] [im-server-client] authenticated { sessionId: '3BTJ4LbNCN63zIioyLuWf' }
+[2026-10-22 02:28:09] [im-server-client] connected to IM-Server
+[2026-10-22 02:28:09] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:28:09] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:28:09] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:28:09] [im-server-client] authenticated { sessionId: '3BTJ4LbNCN63zIioyLuWf' }
+[2026-10-22 02:28:09] [im-server-client] connected to IM-Server
+[2026-10-22 02:28:09] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:28:09] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+[2026-10-22 02:28:09] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:28:09] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:30:04] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:30:04] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:30:04] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:30:04] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:30:04] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:30:04] [im-server-client] socket opened, authenticating
+[2026-10-22 02:30:04] [im-server-client] authenticated { sessionId: 'DRuUYVlfHPkZ0flIfaURC' }
+[2026-10-22 02:30:04] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:30:04] [im-server-client] socket opened, authenticating
+[2026-10-22 02:30:04] [im-server-client] authenticated { sessionId: 'DRuUYVlfHPkZ0flIfaURC' }
+[2026-10-22 02:30:04] [im-server-client] connected to IM-Server
+[2026-10-22 02:30:04] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:30:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:30:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:30:04] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:30:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:30:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:30:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:30:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:32:35] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:32:35] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:32:35] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:32:35] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:32:35] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:32:35] [im-server-client] socket opened, authenticating
+[2026-10-22 02:32:35] [im-server-client] authenticated { sessionId: '5R4s-MEdUT-hiUCOu5dG_' }
+[2026-10-22 02:32:35] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:32:35] [im-server-client] socket opened, authenticating
+[2026-10-22 02:32:35] [im-server-client] authenticated { sessionId: '5R4s-MEdUT-hiUCOu5dG_' }
+[2026-10-22 02:32:35] [im-server-client] connected to IM-Server
+[2026-10-22 02:32:35] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:32:35] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:32:35] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:32:35] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:32:35] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:32:35] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:32:35] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:32:35] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:36:18] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:36:18] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:36:18] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:36:18] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:36:18] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:36:18] [im-server-client] socket opened, authenticating
+[2026-10-22 02:36:18] [im-server-client] authenticated { sessionId: 'n1iUHtkeLCPftvUXrlaXh' }
+[2026-10-22 02:36:18] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:36:18] [im-server-client] socket opened, authenticating
+[2026-10-22 02:36:18] [im-server-client] authenticated { sessionId: 'n1iUHtkeLCPftvUXrlaXh' }
+[2026-10-22 02:36:18] [im-server-client] connected to IM-Server
+[2026-10-22 02:36:18] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:36:18] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:36:18] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:36:18] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:36:18] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:36:18] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:36:18] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:36:18] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:41:20] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:41:20] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:41:20] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:41:20] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:41:20] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:41:20] [im-server-client] socket opened, authenticating
+[2026-10-22 02:41:20] [im-server-client] authenticated { sessionId: '1jimrgbm2uYITozybOaPl' }
+[2026-10-22 02:41:20] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:41:20] [im-server-client] socket opened, authenticating
+[2026-10-22 02:41:20] [im-server-client] authenticated { sessionId: '1jimrgbm2uYITozybOaPl' }
+[2026-10-22 02:41:20] [im-server-client] connected to IM-Server
+[2026-10-22 02:41:20] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:41:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:41:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:41:20] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:41:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:41:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:41:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:41:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:44:21] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:44:21] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:44:21] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:44:21] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:44:21] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:44:21] [im-server-client] socket opened, authenticating
+[2026-10-22 02:44:21] [im-server-client] authenticated { sessionId: 'R23g4JWiokXE3WwuLaPJp' }
+[2026-10-22 02:44:21] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:44:21] [im-server-client] socket opened, authenticating
+[2026-10-22 02:44:21] [im-server-client] authenticated { sessionId: 'R23g4JWiokXE3WwuLaPJp' }
+[2026-10-22 02:44:21] [im-server-client] connected to IM-Server
+[2026-10-22 02:44:21] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:44:21] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:44:21] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:44:21] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:44:21] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:44:21] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:44:21] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:44:21] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:46:20] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:46:20] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:46:20] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:46:20] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:46:20] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:46:20] [im-server-client] socket opened, authenticating
+[2026-10-22 02:46:20] [im-server-client] authenticated { sessionId: 'hE-9zSgVaHDSZZDrGKJDK' }
+[2026-10-22 02:46:20] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:46:20] [im-server-client] socket opened, authenticating
+[2026-10-22 02:46:20] [im-server-client] authenticated { sessionId: 'hE-9zSgVaHDSZZDrGKJDK' }
+[2026-10-22 02:46:20] [im-server-client] connected to IM-Server
+[2026-10-22 02:46:20] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:46:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:46:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:46:20] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:46:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:46:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:46:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:46:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:50:01] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:50:01] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:50:01] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:50:01] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:50:01] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:50:01] [im-server-client] socket opened, authenticating
+[2026-10-22 02:50:01] [im-server-client] authenticated { sessionId: 'C35MpWdUO_QDVfmb-cJb2' }
+[2026-10-22 02:50:01] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:50:01] [im-server-client] socket opened, authenticating
+[2026-10-22 02:50:01] [im-server-client] authenticated { sessionId: 'C35MpWdUO_QDVfmb-cJb2' }
+[2026-10-22 02:50:01] [im-server-client] connected to IM-Server
+[2026-10-22 02:50:01] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:50:01] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:50:01] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:50:01] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:50:01] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:50:01] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:50:01] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:50:01] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:53:34] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:53:34] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:53:34] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:53:34] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:53:34] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:53:34] [im-server-client] socket opened, authenticating
+[2026-10-22 02:53:34] [im-server-client] authenticated { sessionId: '1-Pq-hqOKanUCiYGQMMWg' }
+[2026-10-22 02:53:34] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:53:34] [im-server-client] socket opened, authenticating
+[2026-10-22 02:53:34] [im-server-client] authenticated { sessionId: '1-Pq-hqOKanUCiYGQMMWg' }
+[2026-10-22 02:53:34] [im-server-client] connected to IM-Server
+[2026-10-22 02:53:34] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:53:34] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:53:34] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:53:34] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:53:34] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:53:34] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:53:34] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:53:34] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:55:06] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 02:55:06] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:55:06] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:55:06] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:55:06] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:55:06] [im-server-client] socket opened, authenticating
+[2026-10-22 02:55:06] [im-server-client] authenticated { sessionId: 'Nr1x65VnCDJGAjk0OYa8F' }
+[2026-10-22 02:55:06] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:55:06] [im-server-client] socket opened, authenticating
+[2026-10-22 02:55:06] [im-server-client] authenticated { sessionId: 'Nr1x65VnCDJGAjk0OYa8F' }
+[2026-10-22 02:55:06] [im-server-client] connected to IM-Server
+[2026-10-22 02:55:06] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:55:06] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:55:06] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:55:06] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:55:06] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:55:06] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:55:06] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:55:06] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 02:58:44] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 02:58:44] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 02:58:44] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 02:58:44] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 02:58:44] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:58:44] [im-server-client] socket opened, authenticating
+[2026-10-22 02:58:44] [im-server-client] authenticated { sessionId: '34-Wo9bCdlVhVkNzHzHXP' }
+[2026-10-22 02:58:44] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 02:58:44] [im-server-client] socket opened, authenticating
+[2026-10-22 02:58:44] [im-server-client] authenticated { sessionId: '34-Wo9bCdlVhVkNzHzHXP' }
+[2026-10-22 02:58:44] [im-server-client] connected to IM-Server
+[2026-10-22 02:58:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:58:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:58:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 02:58:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 02:58:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:58:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 02:58:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 02:58:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:02:33] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:02:33] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:02:33] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:02:33] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:02:33] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:02:33] [im-server-client] socket opened, authenticating
+[2026-10-22 03:02:33] [im-server-client] authenticated { sessionId: 'IkzU1yKGHxc20zYV5_VtG' }
+[2026-10-22 03:02:33] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:02:33] [im-server-client] socket opened, authenticating
+[2026-10-22 03:02:33] [im-server-client] authenticated { sessionId: 'IkzU1yKGHxc20zYV5_VtG' }
+[2026-10-22 03:02:33] [im-server-client] connected to IM-Server
+[2026-10-22 03:02:33] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:02:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:02:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:02:33] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:02:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:02:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:02:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:02:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:07:35] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:07:35] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:07:35] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:07:35] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:07:35] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:07:35] [im-server-client] socket opened, authenticating
+[2026-10-22 03:07:35] [im-server-client] authenticated { sessionId: 'TPZjw4UIXTZBUARy2qwTx' }
+[2026-10-22 03:07:35] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:07:35] [im-server-client] socket opened, authenticating
+[2026-10-22 03:07:35] [im-server-client] authenticated { sessionId: 'TPZjw4UIXTZBUARy2qwTx' }
+[2026-10-22 03:07:35] [im-server-client] connected to IM-Server
+[2026-10-22 03:07:35] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:07:35] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:07:35] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:07:35] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:07:35] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:07:35] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:07:35] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:07:35] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:09:39] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:09:39] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:09:39] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:09:39] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:09:39] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:09:39] [im-server-client] socket opened, authenticating
+[2026-10-22 03:09:39] [im-server-client] authenticated { sessionId: 'cuuercVhwOPWPLA9xA4uP' }
+[2026-10-22 03:09:39] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:09:39] [im-server-client] socket opened, authenticating
+[2026-10-22 03:09:39] [im-server-client] authenticated { sessionId: 'cuuercVhwOPWPLA9xA4uP' }
+[2026-10-22 03:09:39] [im-server-client] connected to IM-Server
+[2026-10-22 03:09:39] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:09:39] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:09:39] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:09:39] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:09:39] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:09:39] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:09:39] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:09:39] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:12:09] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:12:09] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:12:09] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:12:09] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:12:09] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:12:09] [im-server-client] socket opened, authenticating
+[2026-10-22 03:12:09] [im-server-client] authenticated { sessionId: 'h7i3S1M_XiqOMFwx6gVhH' }
+[2026-10-22 03:12:09] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:12:09] [im-server-client] socket opened, authenticating
+[2026-10-22 03:12:09] [im-server-client] authenticated { sessionId: 'h7i3S1M_XiqOMFwx6gVhH' }
+[2026-10-22 03:12:09] [im-server-client] connected to IM-Server
+[2026-10-22 03:12:09] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:12:09] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:12:09] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:12:09] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:12:09] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:12:09] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:12:09] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:12:09] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:19:07] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:19:07] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:19:07] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:19:07] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:19:07] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:19:07] [im-server-client] socket opened, authenticating
+[2026-10-22 03:19:07] [im-server-client] authenticated { sessionId: '0_uBrXNKJsvkaMFmqfyXb' }
+[2026-10-22 03:19:07] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:19:07] [im-server-client] socket opened, authenticating
+[2026-10-22 03:19:07] [im-server-client] authenticated { sessionId: '0_uBrXNKJsvkaMFmqfyXb' }
+[2026-10-22 03:19:07] [im-server-client] connected to IM-Server
+[2026-10-22 03:19:07] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:19:07] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:19:07] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:19:07] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:19:07] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:19:07] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:19:07] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:19:07] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:25:44] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:25:44] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:25:44] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:25:44] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:25:44] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:25:44] [im-server-client] socket opened, authenticating
+[2026-10-22 03:25:44] [im-server-client] authenticated { sessionId: 'Co_xUi0GLMSg8i_QjqlW-' }
+[2026-10-22 03:25:44] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:25:44] [im-server-client] socket opened, authenticating
+[2026-10-22 03:25:44] [im-server-client] authenticated { sessionId: 'Co_xUi0GLMSg8i_QjqlW-' }
+[2026-10-22 03:25:44] [im-server-client] connected to IM-Server
+[2026-10-22 03:25:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:25:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:25:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:25:44] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:25:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:25:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:25:44] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:25:44] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:29:20] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:29:20] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:29:20] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:29:20] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:29:20] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:29:20] [im-server-client] socket opened, authenticating
+[2026-10-22 03:29:20] [im-server-client] authenticated { sessionId: 'OOg44DMqSVrf0W6zaVDLy' }
+[2026-10-22 03:29:20] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:29:20] [im-server-client] socket opened, authenticating
+[2026-10-22 03:29:20] [im-server-client] authenticated { sessionId: 'OOg44DMqSVrf0W6zaVDLy' }
+[2026-10-22 03:29:20] [im-server-client] connected to IM-Server
+[2026-10-22 03:29:20] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:29:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:29:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:29:20] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:29:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:29:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:29:20] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:29:20] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:32:05] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:32:05] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:32:05] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:32:05] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:32:05] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:32:05] [im-server-client] socket opened, authenticating
+[2026-10-22 03:32:05] [im-server-client] authenticated { sessionId: 'ngTchhILWX6mA3cuU_g0F' }
+[2026-10-22 03:32:05] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:32:05] [im-server-client] socket opened, authenticating
+[2026-10-22 03:32:05] [im-server-client] authenticated { sessionId: 'ngTchhILWX6mA3cuU_g0F' }
+[2026-10-22 03:32:05] [im-server-client] connected to IM-Server
+[2026-10-22 03:32:05] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:32:05] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:32:05] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:32:05] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:32:05] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:32:05] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:32:05] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:32:05] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:36:04] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:36:04] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:36:04] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:36:04] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:36:04] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:36:04] [im-server-client] socket opened, authenticating
+[2026-10-22 03:36:04] [im-server-client] authenticated { sessionId: 'pTMP-iBoUnYHki1tmuIi2' }
+[2026-10-22 03:36:04] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:36:04] [im-server-client] socket opened, authenticating
+[2026-10-22 03:36:04] [im-server-client] authenticated { sessionId: 'pTMP-iBoUnYHki1tmuIi2' }
+[2026-10-22 03:36:04] [im-server-client] connected to IM-Server
+[2026-10-22 03:36:04] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:36:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 03:36:04] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:36:04] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:36:04] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:36:04] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 03:36:04] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 03:36:06] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 03:36:10] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 03:36:19] [phi-tasks] outage audited {
+  outageId: '01a15ff6-e8f2-757c-95ad-846cf8bd78e7',
+[2026-10-22 03:40:33] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:40:33] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:40:33] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:40:33] [phi-agent:public-base-url] RESOLVED publicBaseUrl="http://127.0.0.1:8788" source=sentinel
+[2026-10-22 03:40:33] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:40:33] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:40:33] [im-server-client] socket opened, authenticating
+[2026-10-22 03:40:33] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:40:33] [im-server-client] socket opened, authenticating
+[2026-10-22 03:40:33] [im-server-client] authenticated { sessionId: '4sqinU9Kl_QO4r4U0j-lK' }
+[2026-10-22 03:40:33] [im-server-client] connected to IM-Server
+[2026-10-22 03:40:33] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:40:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:40:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:40:33] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:40:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:40:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:40:33] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:40:33] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:42:43] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:42:43] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:42:43] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:42:43] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:42:43] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:42:43] [im-server-client] socket opened, authenticating
+[2026-10-22 03:42:43] [im-server-client] authenticated { sessionId: 'FntCp88ZelUSHgRXjkhcW' }
+[2026-10-22 03:42:43] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:42:43] [im-server-client] socket opened, authenticating
+[2026-10-22 03:42:43] [im-server-client] authenticated { sessionId: 'FntCp88ZelUSHgRXjkhcW' }
+[2026-10-22 03:42:43] [im-server-client] connected to IM-Server
+[2026-10-22 03:42:43] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:42:43] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 03:42:43] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:42:43] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:42:43] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:42:43] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 03:42:43] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 03:42:46] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 03:42:49] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 03:42:58] [phi-tasks] outage audited {
+  outageId: '01a15ffd-0195-70b6-ab4a-6e6487e0f9a1',
+[2026-10-22 03:47:06] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:47:06] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:47:06] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:47:06] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:47:06] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:47:06] [im-server-client] socket opened, authenticating
+[2026-10-22 03:47:06] [im-server-client] authenticated { sessionId: 'czNgVhmVimwkwUdNistJg' }
+[2026-10-22 03:47:06] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:47:06] [im-server-client] socket opened, authenticating
+[2026-10-22 03:47:06] [im-server-client] authenticated { sessionId: 'czNgVhmVimwkwUdNistJg' }
+[2026-10-22 03:47:06] [im-server-client] connected to IM-Server
+[2026-10-22 03:47:06] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:47:06] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:47:06] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:47:06] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:47:06] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:47:06] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:47:06] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:47:06] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:52:02] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 03:52:02] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:52:02] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:52:02] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:52:02] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:52:02] [im-server-client] socket opened, authenticating
+[2026-10-22 03:52:02] [im-server-client] authenticated { sessionId: 'TnRkm_P2FIc7A58QnyDU2' }
+[2026-10-22 03:52:02] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:52:02] [im-server-client] socket opened, authenticating
+[2026-10-22 03:52:02] [im-server-client] authenticated { sessionId: 'TnRkm_P2FIc7A58QnyDU2' }
+[2026-10-22 03:52:02] [im-server-client] connected to IM-Server
+[2026-10-22 03:52:02] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:52:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:52:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:52:02] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:52:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:52:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:52:02] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:52:02] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 03:58:42] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 03:58:42] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 03:58:42] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 03:58:42] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 03:58:42] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:58:42] [im-server-client] socket opened, authenticating
+[2026-10-22 03:58:42] [im-server-client] authenticated { sessionId: '6a-lzboTht8_rRSu0CoBe' }
+[2026-10-22 03:58:42] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 03:58:42] [im-server-client] socket opened, authenticating
+[2026-10-22 03:58:42] [im-server-client] authenticated { sessionId: '6a-lzboTht8_rRSu0CoBe' }
+[2026-10-22 03:58:42] [im-server-client] connected to IM-Server
+[2026-10-22 03:58:42] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:58:42] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:58:42] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 03:58:42] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 03:58:42] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:58:42] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 03:58:42] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 03:58:42] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 04:01:26] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 04:01:26] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 04:01:26] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 04:01:26] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 04:01:26] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:01:26] [im-server-client] socket opened, authenticating
+[2026-10-22 04:01:26] [im-server-client] authenticated { sessionId: 'fEh_dLvRtFFd1Ve8L8ibm' }
+[2026-10-22 04:01:26] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:01:26] [im-server-client] socket opened, authenticating
+[2026-10-22 04:01:26] [im-server-client] authenticated { sessionId: 'fEh_dLvRtFFd1Ve8L8ibm' }
+[2026-10-22 04:01:26] [im-server-client] connected to IM-Server
+[2026-10-22 04:01:26] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:01:26] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 04:01:26] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:01:26] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 04:01:26] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:01:26] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 04:01:29] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 04:01:32] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 04:01:41] [phi-tasks] outage audited {
+  outageId: '01a1600e-241f-70a8-add1-9af0aca3970a',
+  reason: 'phi_crashed',
+[2026-10-22 04:04:31] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 04:04:31] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 04:04:31] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 04:04:31] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 04:04:31] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:04:31] [im-server-client] socket opened, authenticating
+[2026-10-22 04:04:31] [im-server-client] authenticated { sessionId: '7p54K7bHPbtxFSekkAD4j' }
+[2026-10-22 04:04:31] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:04:31] [im-server-client] socket opened, authenticating
+[2026-10-22 04:04:31] [im-server-client] authenticated { sessionId: '7p54K7bHPbtxFSekkAD4j' }
+[2026-10-22 04:04:31] [im-server-client] connected to IM-Server
+[2026-10-22 04:04:31] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:04:31] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:04:31] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 04:04:31] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:04:31] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:04:31] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 04:04:31] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:04:31] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 04:08:12] [recorder-skill] annotation model: phi/agent/recorder
+[2026-10-22 04:08:12] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 04:08:12] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 04:08:12] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 04:08:12] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:08:12] [im-server-client] socket opened, authenticating
+[2026-10-22 04:08:12] [im-server-client] authenticated { sessionId: 'cr2nUONlzybuTe6-SLaDy' }
+[2026-10-22 04:08:12] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:08:12] [im-server-client] socket opened, authenticating
+[2026-10-22 04:08:12] [im-server-client] authenticated { sessionId: 'cr2nUONlzybuTe6-SLaDy' }
+[2026-10-22 04:08:12] [im-server-client] connected to IM-Server
+[2026-10-22 04:08:12] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:08:12] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:08:12] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+[2026-10-22 04:08:12] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:08:12] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:08:12] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+[2026-10-22 04:08:12] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:08:12] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+    'im-server',
+    'local-llm',
+[2026-10-22 04:13:48] [recorder-skill] annotation model: deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast
+[2026-10-22 04:13:48] [phi-agent:public-base-url] resolving... { envValueRaw: '<unset>' }
+[2026-10-22 04:13:48] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '/tmp/phi-sentinel-8e66d87ac73f385c/runner.sock' }
+[2026-10-22 04:13:48] [phi-chat] diagnostic traceEvents is on, from CHAT_TRACE_EVENTS
+[2026-10-22 04:13:48] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:13:48] [im-server-client] socket opened, authenticating
+[2026-10-22 04:13:48] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:13:48] Starting phi-agent server on 127.0.0.1:18201
+[2026-10-22 04:13:48] [im-server-client] socket opened, authenticating
+[2026-10-22 04:13:48] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:13:48] [im-server-client] authenticated { sessionId: 'Scjb9U2FXEQtvbeRi32e9' }
+[2026-10-22 04:13:48] [im-server-client] connected to IM-Server
+[2026-10-22 04:13:48] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+[2026-10-22 04:13:48] Starting phi-agent server on UDS /tmp/phi-sentinel-8e66d87ac73f385c/sockets/phi-agent.sock
+[2026-10-22 04:13:48] [im-server-client] authenticated { sessionId: 'Scjb9U2FXEQtvbeRi32e9' }
+[2026-10-22 04:13:48] [im-server-client] connected to IM-Server
+[2026-10-22 04:13:48] [phi-agent:public-base-url] Sentinel getComponentExports returned {
+  componentKeys: [
+    'ai-gateway',
+    'go-index',
+[2026-10-22 04:13:48] [phi-agent] Sentinel AI Gateway available via uds: http://ai-gateway.sentinel/v1
+[2026-10-22 04:13:48] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-503.dfeb2038/agent.sock — Chrome/154.0.8037.54, protocol 1.3
+[2026-10-22 04:13:48] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-10-22 04:13:48] [phi-agent:public-base-url] RESOLVED publicBaseUrl="http://127.0.0.1:8788" source=sentinel
+[2026-10-22 04:13:50] [sonic] Space default-space <- ACTIVE Space fallback (chat window (none))
+[2026-10-22 04:13:53] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-10-22 04:14:03] [phi-tasks] outage audited {

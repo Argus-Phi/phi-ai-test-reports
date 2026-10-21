@@ -1,0 +1,8 @@
+{
+  "node": "v24.19.0",
+  "pnpm": "10.17.1",
+  "codeSha": "e23cd392749dce1030aa7796e9e113a0b7c350f7",
+  "workingTreeClean": true,
+  "stageSha256": "fd61cbd5ed16c2d9898fba9f873ab6c3dac774dc255e42326e911515a08dbcb2",
+  "evidence": "lane run --cwd phi-ai: node --version; pnpm --version; git rev-parse HEAD; git status --short; shasum -a 256 phi-agent-dsh/env/package.env.stage"
+}

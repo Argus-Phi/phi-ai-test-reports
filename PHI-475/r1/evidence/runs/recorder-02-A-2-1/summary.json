@@ -1,0 +1,1 @@
+{"prefix":"recorder-02-A-2-1","sample":"R-M","statusCode":200,"startedAt":1792603425432,"finishedAt":1792603431879,"durationMs":6447,"status":"completed","verdict":"passed","failedChecks":[],"traceId":"c47fe358-6dc4-4022-b758-73ecb2d0a2cb","traceError":null,"annotatedByModel":"phi/agent/recorder","error":null,"reason":null,"attempts":null}

@@ -1,0 +1,23 @@
+{
+  "selectedAttempts": 90,
+  "browserAttempts": 72,
+  "recorderAttempts": 18,
+  "modelCalls": 1582,
+  "selectedModelIdentitiesVerified": 90,
+  "allFourBusinessesHaveBothGroupsVerified": true,
+  "unterminatedCalls": 0,
+  "indexedFiles": 630,
+  "indexedBytes": 19439979,
+  "checkedTextFiles": 468,
+  "screenshots": 162,
+  "maxWidth": 1280,
+  "credentialsFound": 0,
+  "accountIdentifiersFound": 0,
+  "suspiciousWorkflowOutputs": 0,
+  "restorationVerified": true,
+  "indexExcludes": [
+    "index.json",
+    "delivery-check.json",
+    "T-7-recomputed-live.json"
+  ]
+}

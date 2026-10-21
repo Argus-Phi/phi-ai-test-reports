@@ -1,0 +1,23 @@
+{
+  "stageSha256": "fd61cbd5ed16c2d9898fba9f873ab6c3dac774dc255e42326e911515a08dbcb2",
+  "matchedKeys": {
+    "RECORDER_SKILL_MODEL": "phi/agent/recorder",
+    "BROWSER_TASK_TAB_GROUP_TITLE_MODEL": "phi/browser-agent/title",
+    "BROWSER_AGENT_SONIC_PLANNER_MODEL": "phi/browser-agent/planner",
+    "BROWSER_AGENT_SONIC_FINAL_ANSWER_MODEL": "phi/browser-agent/final-answer"
+  },
+  "targetModels": {
+    "RECORDER_SKILL_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast",
+    "BROWSER_TASK_TAB_GROUP_TITLE_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast",
+    "BROWSER_AGENT_SONIC_PLANNER_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast",
+    "BROWSER_AGENT_SONIC_FINAL_ANSWER_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash-1017-Fast"
+  },
+  "actualServiceSnapshots": 68,
+  "excludedLauncherSnapshots": 68,
+  "actualNonTargetHashCount": 1,
+  "nonTargetStageOverrides": [
+    "LANGFUSE_PUBLIC_KEY",
+    "LANGFUSE_SECRET_KEY"
+  ],
+  "reason": "DEV tracing credentials are identical between groups. Launcher preload snapshots without loaded stage variables are excluded."
+}

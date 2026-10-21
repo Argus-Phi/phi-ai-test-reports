@@ -1,0 +1,45 @@
+{
+  "verifiedFiles": 630,
+  "totalBytes": 19439979,
+  "results": {
+    "browser": {
+      "quality": {
+        "A": {
+          "completed": 23,
+          "scored": 36,
+          "correct": 30,
+          "planned": 36
+        },
+        "B": {
+          "completed": 20,
+          "scored": 36,
+          "correct": 33,
+          "planned": 36
+        }
+      },
+      "effectiveTasks": 7,
+      "effectivePairs": 15,
+      "speedupPercent": 31.99936416844645
+    },
+    "recorder": {
+      "quality": {
+        "A": {
+          "completed": 9,
+          "scored": 9,
+          "correct": 9,
+          "planned": 9
+        },
+        "B": {
+          "completed": 9,
+          "scored": 9,
+          "correct": 9,
+          "planned": 9
+        }
+      },
+      "effectiveTasks": 3,
+      "effectivePairs": 9,
+      "speedupPercent": 57.29423525491503
+    }
+  },
+  "scope": "Independent recomputation of delivered ledgers: artifacts-wt/PHI-475/qa-evidence/r1"
+}
