@@ -205,5 +205,22 @@
     "total": 20
    }
   }
+ ],
+ "PHI-492": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "chat 中生成的图片未发送给用户",
+   "sha": "1fca7f82fb430b57ba415eb9134bc2eacdd090d0",
+   "generated_at": "2026-10-23T12:44:34.915442+00:00",
+   "counts": {
+    "pass": 5,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 5
+   }
+  }
  ]
 }

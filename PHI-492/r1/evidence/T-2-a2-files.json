@@ -1,0 +1,38 @@
+{
+  "label": "T-2-a2",
+  "generatedCount": 1,
+  "filePartCount": 1,
+  "records": [
+    {
+      "url": "/api/v1/files/01a168c1-5654-72ee-a608-fc8177f5019f",
+      "generated": {
+        "url": "/api/v1/files/01a168c1-5654-72ee-a608-fc8177f5019f",
+        "mimeType": "image/png",
+        "filename": "image-generation-1.png",
+        "revisedPrompt": null,
+        "runId": "01a168c1-0885-73f9-a9fb-886a3a79639d",
+        "threadId": "01a168c0-2259-778f-8402-6dca61f8de56"
+      },
+      "filePart": {
+        "type": "file",
+        "url": "/api/v1/files/01a168c1-5654-72ee-a608-fc8177f5019f",
+        "filename": "image-generation-1.png",
+        "mediaType": "image/png"
+      },
+      "status": 200,
+      "contentType": "image/png",
+      "sizeBytes": 1708217,
+      "sha256": "ea7945329f9d7f88903bc46834e9c1463dc377de61f2b6610ba9ba2bd31d3272"
+    }
+  ],
+  "rendered": [
+    {
+      "src": "http://127.0.0.1:18101/api/v1/files/01a168c1-5654-72ee-a608-fc8177f5019f",
+      "complete": true,
+      "width": 1024,
+      "height": 1024,
+      "sizeBytes": 1708217,
+      "sha256": "ea7945329f9d7f88903bc46834e9c1463dc377de61f2b6610ba9ba2bd31d3272"
+    }
+  ]
+}

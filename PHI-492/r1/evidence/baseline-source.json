@@ -1,0 +1,16 @@
+{
+  "mode": "baseline",
+  "commit": "142a37f1e66463e32dd7f76866969abba66a6095",
+  "checks": [
+    {
+      "file": "phi-agent-dsh/plugins/worker/src/lib/image-generation/index.ts",
+      "sha256": "62dfd76a501952bc5d8558c68db138916be014b69fc3301030759556710a12bf",
+      "matches_commit": true
+    },
+    {
+      "file": "phi-agent-dsh/plugins/worker/src/lib/image-generation/capability.ts",
+      "sha256": "13138122c6f98e853d5d5a4afc35fac59fc36802bc7fcff833daad44d60795c8",
+      "matches_commit": true
+    }
+  ]
+}

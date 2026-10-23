@@ -1,0 +1,466 @@
+{
+ "key": "PHI-492",
+ "title": "chat 中生成的图片未发送给用户",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮 5 条计划用例均已执行，范围内验收和回归判定通过；worker 48/48、chat 90/90、全仓类型 56/56、受影响强制构建和启动检查成功，4 条 gui 用例均有本轮真机证据。真实生成图片在两个独立对话中均进入对应回复，图片来源和字节哈希一致，原生预览成功；历史文件、文字回复、非图片文件冒烟通过。图片下载子步骤实际失败：基线与修复版同图原生保存按钮均禁用，列入既存 PBL PHI-505，不计入本 PR 缺陷，也未记为下载通过。无本 PR 引入的 blocker/major；AI 测试和审查允许提交 PR，已有 draft #623 可进入后续 review。",
+ "sha": "1fca7f82fb430b57ba415eb9134bc2eacdd090d0",
+ "branch": "PHI-492-deliver-worker-artifacts",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/623",
+ "generated_at": "2026-10-23T12:44:34.915442+00:00",
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含本轮手测环境与评审 VERIFY）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-492/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/9649c76b0bd4c86e7512c2c26d625d9100e88ab7/PHI-492/runbook.md"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "生成图片交付链路的定向自动化保护",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1",
+   "precondition": "固定头 SHA，本机 pnpm frozen lockfile 安装完成。",
+   "steps": [
+    "pnpm --filter @phi-ai/dsh-plugin-worker exec tsx --test src/lib/image-generation/index.test.ts src/lib/image-generation/capability.test.ts src/lib/bridge.test.ts src/lib/capability-caller.test.ts src/lib/delegated-run/observe-run.test.ts",
+    "pnpm --filter @phi-ai/dsh-plugin-chat exec tsx --test src/lib/worker-task-executor.test.ts src/lib/ws-tests/sidecar-chat-persistence.test.ts",
+    "pnpm type-check；worker 和 chat 分别 tsc -b --force --emitDeclarationOnly",
+    "在 lane 构建 build:local Sidecar，启动被测 phi-agent 并核对源文件 SHA-256"
+   ],
+   "expected": "定向套件、类型、构建与启动检查成功，不用单元结果代替真机。",
+   "actual": "worker 48/48、chat 90/90，无失败和跳过；全仓类型 56/56（Turbo 缓存），受影响 worker/chat 强制构建均成功；Sidecar 构建与 phi-agent 实际端口启动成功。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "evidence/T-1-worker.txt",
+     "caption": "worker 48 项"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-chat.txt",
+     "caption": "chat 90 项"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-type-check.txt",
+     "caption": "全仓类型检查"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-force-build.txt",
+     "caption": "worker 强制类型构建"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-chat-force-build.txt",
+     "caption": "chat 强制类型构建"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-1-sidecar-build.txt",
+     "caption": "本轮 Sidecar build:local"
+    },
+    {
+     "type": "text",
+     "path": "evidence/environment-1fca7f82f.json",
+     "caption": "运行环境、SHA、启动 banner"
+    },
+    {
+     "type": "text",
+     "path": "evidence/fixed-source.json",
+     "caption": "两个运行时文件与被测 commit 的哈希一致"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-2",
+   "title": "真实图片生成、终态附件、预览；下载既存失败单列 PHI-505",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1",
+   "precondition": "固定头 SHA、真实 stag 模型、隔离数据库 e2e01_phi492；Phi Canary 2026.10.20.1010。",
+   "steps": [
+    "基线新对话发送“生成一张蓝色小鸟的图片。”，记录真实生成和终态；切到被测头，同库重启，核对服务和 Sidecar 来源。",
+    "修复版新对话发送相同原文一次；等待当前回合全部 RUN_FINISHED，读取生成结果、文件帧及 UI 图片。",
+    "核对存储与页面读取字节数、SHA-256、尺寸；打开图片原生预览，computer use 只观察实际图片。",
+    "原生预览点击“导出图片”一次；记录保存按钮不可用及下载文件不存在。停止服务切基线，对同一已存储图片重复相同步骤，记录同样失败；恢复被测头。",
+    "第二个独立新对话重复生成一次，关联各自生成 URL、文件帧和 UI 图片，观察是否重复显示。"
+   ],
+   "expected": "无需追问即有本次图片文件附件，图片和预览实际加载；既有下载入口尝试并校验文件；两次新对话观察重复显示。",
+   "actual": "AC-1 通过：两次有效生成均 1 张真实 PNG、1 个 file part、1 张加载完成的 1024×1024 页面图片，无 Markdown 图片重复显示。首次 1,708,217 bytes，SHA-256 ea7945329f9d7f88903bc46834e9c1463dc377de61f2b6610ba9ba2bd31d3272；第二次 1,926,617 bytes，SHA-256 b1f0231067cc1a2055138acf080cf10659e921c079c3c8945492413ae9e8ee19。两次存储/页面字节和哈希分别相同，URL 分别对应本次请求。原生预览确认已显示图片。下载子步骤实际失败：修复版与基线同一图片的原生保存按钮均禁用，未产生下载文件；引用已有 PBL PHI-505，未把下载记为成功。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "evidence/baseline/T-2-2.png",
+     "caption": "基线生成成功但终态只有文案，无图片"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-2-baseline-files.json",
+     "caption": "基线 generatedCount=1 / filePartCount=0 / HTTP 200"
+    },
+    {
+     "type": "trace",
+     "path": "evidence/T-2-baseline-trace-85a3415e-6ff1-4996-9804-2ec7b1ad7234.json",
+     "caption": "T-2-baseline：DEV 项目按 conversation/session 查询的脱敏 trace",
+     "trace_id": "85a3415e-6ff1-4996-9804-2ec7b1ad7234",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/85a3415e-6ff1-4996-9804-2ec7b1ad7234"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-1/T-2-1.png",
+     "caption": "attempt 1：切换服务时过早提交的起始状态",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-1/T-2-2.png",
+     "caption": "attempt 1：服务就绪前建会话失败，非产品判定",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-2-a1-ui.json",
+     "caption": "attempt 1：无服务端回合和生成请求",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-2/T-2-1.png",
+     "caption": "attempt 2：正式请求提交",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-2/T-2-2.png",
+     "caption": "attempt 2：终态真实图片附件",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-2-a2-files.json",
+     "caption": "attempt 2：生成、文件帧、页面来源及哈希",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-2/T-2-3.png",
+     "caption": "attempt 2：打开原生预览后的 CDP 页面；原生窗口见 RESULT",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-2-a2-native-preview.txt",
+     "caption": "attempt 2：原生预览观察到蓝色小鸟和花枝",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "evidence/T-2-a2-trace-be387478-cd79-4eb5-8c93-0f3e5778fa7c.json",
+     "caption": "T-2-a2：DEV 项目按 conversation/session 查询的脱敏 trace",
+     "trace_id": "be387478-cd79-4eb5-8c93-0f3e5778fa7c",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/be387478-cd79-4eb5-8c93-0f3e5778fa7c",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-2/T-2-4.png",
+     "caption": "attempt 2：原生导出失败时刻的底层 CDP 页面，CDP 不包含原生窗口",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-2-a2-native-export.txt",
+     "caption": "attempt 2：原生保存按钮禁用，下载失败",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-2-a2-download.json",
+     "caption": "attempt 2：目标文件不存在",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "evidence/baseline/T-2-4.png",
+     "caption": "基线同图导出失败时刻的底层 CDP 页面"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-2-baseline-native-export.txt",
+     "caption": "基线原生保存按钮同样不可用"
+    },
+    {
+     "type": "text",
+     "path": "evidence/baseline-source.json",
+     "caption": "基线运行时源码核对"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-3/T-2-1.png",
+     "caption": "attempt 3：第二个独立对话请求",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-3/T-2-2.png",
+     "caption": "attempt 3：终态图片附件，无重复图片",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-2-a3-files.json",
+     "caption": "attempt 3：独立真实结果与页面哈希",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-2-a3-duplicate-check.txt",
+     "caption": "attempt 3：UI 只有一个图片元素",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "evidence/T-2-a3-trace-dddd91f6-6e31-41c6-bc78-5ce579253713.json",
+     "caption": "T-2-a3：DEV 项目按 conversation/session 查询的脱敏 trace",
+     "trace_id": "dddd91f6-6e31-41c6-bc78-5ce579253713",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/dddd91f6-6e31-41c6-bc78-5ce579253713",
+     "attempt": 3,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本条 status=pass 仅表示范围内 AC-1 与本 PR 回归判定通过。FR-3 下载子步骤已执行但失败，单列 PHI-505；按共有规则，基线既存问题不影响本 PR verdict。未把下载失败标为成功。attempt 1 是探针在启动前提交导致的前置错误，保留失败证据；attempt 2 首次截图含该失败请求留下的两条用户气泡，但 WS 仅提交一次生成请求；attempt 3 全新对话再次独立验证。"
+  },
+  {
+   "id": "T-3",
+   "title": "基线已保存文件对话重开与下载冒烟",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-1 / FR-3 回归保护",
+   "precondition": "固定头 SHA、真实 stag 模型、隔离数据库 e2e01_phi492；Phi Canary 2026.10.20.1010。",
+   "steps": [
+    "基线上通过真实 chat 创建 phi-492-smoke.txt，内容 PHI-492 file smoke；记录真实附件、文件身份和 trace。",
+    "保留数据库与文件存储，恢复被测头；离开至新对话，再从历史列表点击基线对话。",
+    "等待原附件显示，点击既有下载入口一次；读取本次下载文件并与基线存储文件比较。"
+   ],
+   "expected": "重开同一历史对话后原附件仍显示并可打开，身份、内容保持一致，无重新生成。",
+   "actual": "通过。历史列表点击恢复了原始对话和附件；下载状态 complete，实际文件存在，18 bytes，内容 PHI-492 file smoke，SHA-256 5b5f6763204ec846bab871abf63b77ce36ed542fafc8e5f845a0e5996ef68a5e，与基线存储相同。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "evidence/baseline/T-3-1.png",
+     "caption": "基线夹具请求"
+    },
+    {
+     "type": "image",
+     "path": "evidence/baseline/T-3-2.png",
+     "caption": "基线真实文件附件已交付"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-3-baseline-files.json",
+     "caption": "基线文件 URL、内容及哈希"
+    },
+    {
+     "type": "trace",
+     "path": "evidence/T-3-baseline-trace-e2bcd95b-3900-4676-afe8-3f492514a50b.json",
+     "caption": "T-3-baseline：DEV 项目按 conversation/session 查询的脱敏 trace",
+     "trace_id": "e2bcd95b-3900-4676-afe8-3f492514a50b",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/e2bcd95b-3900-4676-afe8-3f492514a50b"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-1/T-3-1.png",
+     "caption": "attempt 1：历史列表尚未完成加载时探针未点击到对话",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-3-history-click.txt",
+     "caption": "attempt 1：等待不足的探针错误，非附件丢失",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-3-history-click-success.txt",
+     "caption": "attempt 2：实际点击历史项",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "evidence/T-3-history-loaded-success.txt",
+     "caption": "attempt 2：原始附件恢复",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-2/T-3-1.png",
+     "caption": "attempt 2：历史对话附件",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "evidence/attempt-2/T-3-2.png",
+     "caption": "attempt 2：下载完成后的页面",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-3-download-check.json",
+     "caption": "attempt 2：真实下载文件及基线哈希一致",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "首次探针在 reload 后未等待历史列表填充，未点击到对话；保留诊断失败组并补充显式等待。实际历史对话仅成功重开一次；无产品缺陷。"
+  },
+  {
+   "id": "T-4",
+   "title": "普通文字 chat 冒烟",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-1 / FR-3 回归保护",
+   "precondition": "固定头 SHA、真实 stag 模型、隔离数据库 e2e01_phi492；Phi Canary 2026.10.20.1010。",
+   "steps": [
+    "新建空白对话，发送“你好，请用一句话介绍你能做什么。”一次。",
+    "等待本次 RUN_FINISHED，读取页面正常回复。"
+   ],
+   "expected": "入口可发送，收到非空可读回复，无需精确措辞。",
+   "actual": "通过。收到“我是 Phi；我会结合你正在浏览的页面和我对你的了解，帮你查找、整理信息，也能代你完成一些浏览器和日常事务。”，当前回合正常结束。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "evidence/T-4-1.png",
+     "caption": "文字请求提交"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-4-2.png",
+     "caption": "终态正常回复"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-4-frames.json",
+     "caption": "本次请求、文本及终态事件"
+    },
+    {
+     "type": "trace",
+     "path": "evidence/T-4-trace-09ee6e35-bb42-47da-b90c-585f933f5ada.json",
+     "caption": "T-4：DEV 项目按 conversation/session 查询的脱敏 trace",
+     "trace_id": "09ee6e35-bb42-47da-b90c-585f933f5ada",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/09ee6e35-bb42-47da-b90c-585f933f5ada"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-5",
+   "title": "非图片文件交付冒烟",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-1 / FR-3 回归保护",
+   "precondition": "固定头 SHA、真实 stag 模型、隔离数据库 e2e01_phi492；Phi Canary 2026.10.20.1010。",
+   "steps": [
+    "新建空白对话，发送“请创建一个名为 phi-492-smoke.txt 的文本文件，内容为 PHI-492 file smoke，并把文件作为附件发给我。”一次。",
+    "等待终态，读取文件帧和实际存储文件。"
+   ],
+   "expected": "实际产物作为附件显示，名称和内容与本次请求一致。",
+   "actual": "通过。真实 file part 可见，文件名 phi-492-smoke.txt，HTTP 200，18 bytes，内容 PHI-492 file smoke；没有把代码块或文件名当成附件。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "evidence/T-5-1.png",
+     "caption": "文件请求提交"
+    },
+    {
+     "type": "image",
+     "path": "evidence/T-5-2.png",
+     "caption": "终态真实文件附件"
+    },
+    {
+     "type": "text",
+     "path": "evidence/T-5-files.json",
+     "caption": "本次文件帧、HTTP 200 和实际内容"
+    },
+    {
+     "type": "trace",
+     "path": "evidence/T-5-trace-dc4d56ed-d93f-4a0d-9dd3-6d1f59fe0fe4.json",
+     "caption": "T-5：DEV 项目按 conversation/session 查询的脱敏 trace",
+     "trace_id": "dc4d56ed-d93f-4a0d-9dd3-6d1f59fe0fe4",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/dc4d56ed-d93f-4a0d-9dd3-6d1f59fe0fe4"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  }
+ ],
+ "bugs": [],
+ "known_issues": [
+  {
+   "id": "PHI-505",
+   "title": "Canary 原生图片导出保存按钮在基线和修复版均禁用；下载实际失败",
+   "baseline_sha": "142a37f1e66463e32dd7f76866969abba66a6095",
+   "url": "https://mca.bj1.r.v2c.link:39000/issues/01a168b1-2c19-7e2b-be1f-576d64dccde4",
+   "case_ids": [
+    "T-2"
+   ],
+   "evidence": "T-2-baseline-native-export.txt / T-2-a2-native-export.txt / T-2-a2-download.json；同一真实图片、同库、同 Sidecar，仅切换服务 SHA。原生状态由 computer use RESULT 记录，CDP 截图仅覆盖底层网页。"
+  }
+ ],
+ "environment": {
+  "机器": "e2e-vm，租用 e2e01；真机结束后已归还",
+  "Phi Canary": "2026.10.20.1010",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "数据库": "e2e01_phi492（隔离）",
+  "模式": "selfhosted phi-agent，18101（LANE_AGENT_PORT）；Sidecar build:local；Unix socket CDP",
+  "模型与存储": "stag 真实模型、真实 PostgreSQL/文件存储；无 mock",
+  "Langfuse project": "Phi Agent - dev；按本次 conversation sessionId 查询并导出，已去用户标识和凭据",
+  "基线": "142a37f1e66463e32dd7f76866969abba66a6095",
+  "清理": "selfhosted 停止，记录进程残留 0、18101 空闲；lane 已 release"
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "label": "T-2-baseline",
+  "generatedCount": 1,
+  "filePartCount": 0,
+  "records": [
+    {
+      "url": "/api/v1/files/01a168bf-6eca-76ee-9ceb-2e7dc26e02ea",
+      "generated": {
+        "url": "/api/v1/files/01a168bf-6eca-76ee-9ceb-2e7dc26e02ea",
+        "mimeType": "image/png",
+        "filename": "image-generation-1.png",
+        "revisedPrompt": null,
+        "runId": "01a168bf-3052-77cf-a702-89391ae276a6",
+        "threadId": "01a168bf-219a-74e9-bc33-5aefef104539"
+      },
+      "status": 200,
+      "contentType": "image/png",
+      "sizeBytes": 1607104,
+      "sha256": "2c22c16066ff846fabf1ba587a71949cd71ff5a8d96895f1c92ea58ece3e4930"
+    }
+  ],
+  "rendered": []
+}

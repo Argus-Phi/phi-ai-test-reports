@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-23T12:41:57.043958+00:00",
+  "sha": "1fca7f82fb430b57ba415eb9134bc2eacdd090d0",
+  "status": "",
+  "node": "v22.23.3",
+  "pnpm": "10.17.1",
+  "canary": "2026.10.20.1010",
+  "port": "18101",
+  "db": "e2e01_phi492",
+  "start": "started pid 22397; log /Users/e2e01/.local/state/phi-debug/phi-agent-selfhosted/18101/phi-agent.log\n[2026-10-23 20:39:03] Starting phi-agent server on 127.0.0.1:18101\n"
+}

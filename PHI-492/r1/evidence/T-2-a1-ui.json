@@ -1,0 +1,137 @@
+{
+  "url": "chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/index.html?view=chat",
+  "text": "对话\n新建对话\n全部\n任务 0\n新建分类\n蓝色小鸟图片生成\n10月23日\n创建并发送 phi-492-smoke.txt 文件\n10月23日\n生成一张蓝色小鸟的图片。\n创建对话失败: 网络连接错误，请检查网络后重试。\n重试\n等待首字…\n·\n耗时 3.4s\n·\n0 字符\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中",
+  "buttons": [
+    {
+      "label": "搜索对话",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "新建对话",
+      "disabled": true
+    },
+    {
+      "label": null,
+      "text": "全部",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "任务 0",
+      "disabled": false
+    },
+    {
+      "label": "更多分类",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "新建分类",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": "更多分类",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "蓝色小鸟图片生成\n10月23日",
+      "disabled": false
+    },
+    {
+      "label": "对话菜单",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "创建并发送 phi-492-smoke.txt 文件\n10月23日",
+      "disabled": false
+    },
+    {
+      "label": "对话菜单",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": "菜单",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": "在侧边栏中打开",
+      "text": "",
+      "disabled": true
+    },
+    {
+      "label": "设置",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": null,
+      "text": "重试",
+      "disabled": false
+    },
+    {
+      "label": "Scroll to bottom",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": "添加附件",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": "打开 Skill",
+      "text": "",
+      "disabled": false
+    },
+    {
+      "label": "发送",
+      "text": "",
+      "disabled": true
+    },
+    {
+      "label": "Open chat traces",
+      "text": "",
+      "disabled": false
+    }
+  ],
+  "images": []
+}

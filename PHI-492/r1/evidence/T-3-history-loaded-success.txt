@@ -1,0 +1,1 @@
+{"result":{"type":"object","value":{"fileVisible":true,"text":"对话\n新建对话\n全部\n任务 0\n新建分类\n蓝色小鸟图片\n10月23日\n蓝色小鸟图片生成\n10月23日\n创建并发送 phi-492-smoke.txt 文件\n10月23日\n创建并发送 phi-492-smoke.txt 文件\n请创建一个名为 phi-492-smoke.txt 的文本文件，内容为 PHI-492 file smoke，并把文件作为附件发给我。\nPhi\nphi-492-smoke.txt\n\n已经创建并附上 phi-492-smoke.txt。\n\n\n\n\n拖放文件以上传\n松开即可将文件添加到消息中"}}}

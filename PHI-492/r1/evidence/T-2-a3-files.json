@@ -1,0 +1,38 @@
+{
+  "label": "T-2-a3",
+  "generatedCount": 1,
+  "filePartCount": 1,
+  "records": [
+    {
+      "url": "/api/v1/files/01a168c7-acb6-7309-84dc-0c6e1b6a6d03",
+      "generated": {
+        "url": "/api/v1/files/01a168c7-acb6-7309-84dc-0c6e1b6a6d03",
+        "mimeType": "image/png",
+        "filename": "image-generation-1.png",
+        "revisedPrompt": null,
+        "runId": "01a168c7-70d9-7355-8e20-6652f85ddfe5",
+        "threadId": "01a168c7-517c-74ce-b54d-9681ea1c062a"
+      },
+      "filePart": {
+        "type": "file",
+        "url": "/api/v1/files/01a168c7-acb6-7309-84dc-0c6e1b6a6d03",
+        "filename": "image-generation-1.png",
+        "mediaType": "image/png"
+      },
+      "status": 200,
+      "contentType": "image/png",
+      "sizeBytes": 1926617,
+      "sha256": "b1f0231067cc1a2055138acf080cf10659e921c079c3c8945492413ae9e8ee19"
+    }
+  ],
+  "rendered": [
+    {
+      "src": "http://127.0.0.1:18101/api/v1/files/01a168c7-acb6-7309-84dc-0c6e1b6a6d03",
+      "complete": true,
+      "width": 1024,
+      "height": 1024,
+      "sizeBytes": 1926617,
+      "sha256": "b1f0231067cc1a2055138acf080cf10659e921c079c3c8945492413ae9e8ee19"
+    }
+  ]
+}

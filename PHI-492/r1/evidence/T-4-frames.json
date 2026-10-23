@@ -1,0 +1,450 @@
+[
+  {
+    "direction": "sent",
+    "data": {
+      "type": "user_message",
+      "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+      "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+      "clientMsgId": "c961f43e-c3b9-4d8d-b553-bf751640a7aa",
+      "text": "你好，请用一句话介绍你能做什么。",
+      "userMessageId": "01a168c6-4f21-7198-8ded-221b6ec3295f",
+      "parts": [
+        {
+          "type": "text",
+          "text": "你好，请用一句话介绍你能做什么。"
+        }
+      ],
+      "metadata": {
+        "timelineTimestamp": 1792759189281,
+        "timelineSeq": 1
+      },
+      "agentName": "Phi"
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "RUN_STARTED",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759189375,
+        "input": {
+          "objective": "你好，请用一句话介绍你能做什么。"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759189378,
+        "name": "chat_state",
+        "value": {
+          "sessionId": "",
+          "type": "state_change",
+          "from": "idle",
+          "to": "perceiving",
+          "cause": "enqueued:user_message"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759189379,
+        "name": "chat_state",
+        "value": {
+          "sessionId": "",
+          "type": "state_change",
+          "from": "perceiving",
+          "to": "assessing",
+          "cause": "user_message"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759190579,
+        "name": "live_context_skipped",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "live_context_skipped",
+          "reason": "empty"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759190792,
+        "name": "task_route",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "task_route",
+          "isTask": false
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759190792,
+        "name": "chat_state",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "state_change",
+          "from": "assessing",
+          "to": "thinking",
+          "cause": "intent_recognized"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759190793,
+        "name": "intent",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "intent_updated",
+          "intent": {
+            "label": "conversation_turn",
+            "description": "你好，请用一句话介绍你能做什么。"
+          }
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759190793,
+        "name": "gate_hold",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "gate_hold",
+          "decision": "through",
+          "outstanding": []
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759192002,
+        "name": "activity_status",
+        "value": {
+          "type": "activity_status",
+          "kind": "set",
+          "label": "正在整理能力介绍",
+          "seq": 1,
+          "source": "llm"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759193853,
+        "name": "chat_state",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "state_change",
+          "from": "thinking",
+          "to": "responding",
+          "cause": "llm_text"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759193854,
+        "messageId": "reply-1",
+        "delta": "我是 Phi；我会结合"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759193916,
+        "messageId": "reply-1",
+        "delta": "你正在浏览"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759193966,
+        "messageId": "reply-1",
+        "delta": "的页面和我对"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194021,
+        "messageId": "reply-1",
+        "delta": "你的了解，帮你查"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194070,
+        "messageId": "reply-1",
+        "delta": "找、"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194119,
+        "messageId": "reply-1",
+        "delta": "整理信息，也能代你完成一些浏览"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194165,
+        "messageId": "reply-1",
+        "delta": "器和"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "TEXT_MESSAGE_CHUNK",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194215,
+        "messageId": "reply-1",
+        "delta": "日常事务。"
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194238,
+        "name": "activity_status",
+        "value": {
+          "type": "activity_status",
+          "kind": "set",
+          "label": "正在整理能力介绍",
+          "seq": 2,
+          "source": "llm"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "CUSTOM",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194553,
+        "name": "chat_state",
+        "value": {
+          "sessionId": "utt-1",
+          "type": "state_change",
+          "from": "responding",
+          "to": "reflecting",
+          "cause": "stream_done"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "RUN_FINISHED",
+        "runId": "139570ba-829d-43a5-8d4e-5438b849084d",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759194756,
+        "result": "",
+        "metadata": {
+          "code": "completed",
+          "terminal": true
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "RUN_STARTED",
+        "runId": "01a168c6-6988-719b-8f98-883f17ae1607",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759196040,
+        "input": {},
+        "metadata": {
+          "visibility": "trace_only"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "RUN_FINISHED",
+        "runId": "01a168c6-6988-719b-8f98-883f17ae1607",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759196041,
+        "result": "",
+        "metadata": {
+          "code": "completed",
+          "terminal": true
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "RUN_STARTED",
+        "runId": "01a168c6-6e9f-7698-8eb5-36a639a4239f",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759197343,
+        "input": {},
+        "metadata": {
+          "visibility": "trace_only"
+        }
+      }
+    }
+  },
+  {
+    "direction": "received",
+    "data": {
+      "type": "event",
+      "event": {
+        "type": "RUN_FINISHED",
+        "runId": "01a168c6-6e9f-7698-8eb5-36a639a4239f",
+        "threadId": "01a168c6-4e0e-753e-a24e-058a7b8d206a",
+        "timestamp": 1792759197343,
+        "result": "",
+        "metadata": {
+          "code": "completed",
+          "terminal": true
+        }
+      }
+    }
+  }
+]

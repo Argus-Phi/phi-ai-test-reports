@@ -1,0 +1,330 @@
+TAP version 13
+# [demo] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 3,
+#   error: 'Image is 4096x4096, over the 4194304-pixel limit.'
+# }
+# Subtest: the tool's JSON Schema goes through UNCHANGED
+ok 1 - the tool's JSON Schema goes through UNCHANGED
+  ---
+  duration_ms: 0.451625
+  type: 'test'
+  ...
+# Subtest: the handler's string is the canonical value and the rendered text
+ok 2 - the handler's string is the canonical value and the rendered text
+  ---
+  duration_ms: 0.407125
+  type: 'test'
+  ...
+# Subtest: a capability failure THROWS instead of returning as success
+ok 3 - a capability failure THROWS instead of returning as success
+  ---
+  duration_ms: 0.189291
+  type: 'test'
+  ...
+# Subtest: a capability's own failure text reaches the model verbatim
+ok 4 - a capability's own failure text reaches the model verbatim
+  ---
+  duration_ms: 0.123625
+  type: 'test'
+  ...
+# Subtest: a failure the bridge did not author keeps the harness's wording
+ok 5 - a failure the bridge did not author keeps the harness's wording
+  ---
+  duration_ms: 0.102667
+  type: 'test'
+  ...
+# Subtest: a successful call is passed through untouched
+ok 6 - a successful call is passed through untouched
+  ---
+  duration_ms: 0.07775
+  type: 'test'
+  ...
+# Subtest: the loop's abort reaches the capability, but its reason object does not
+ok 7 - the loop's abort reaches the capability, but its reason object does not
+  ---
+  duration_ms: 0.271541
+  type: 'test'
+  ...
+# Subtest: time answers with the payload shape the wire already carries
+ok 8 - time answers with the payload shape the wire already carries
+  ---
+  duration_ms: 10.386583
+  type: 'test'
+  ...
+# Subtest: the time payload is a pure function of the instant it is given
+ok 9 - the time payload is a pure function of the instant it is given
+  ---
+  duration_ms: 0.466333
+  type: 'test'
+  ...
+# Subtest: the row's dependencies reach the capability
+ok 10 - the row's dependencies reach the capability
+  ---
+  duration_ms: 0.279958
+  type: 'test'
+  ...
+# Subtest: a produced image reaches the attachment store and becomes deferred context
+ok 11 - a produced image reaches the attachment store and becomes deferred context
+  ---
+  duration_ms: 0.171542
+  type: 'test'
+  ...
+# Subtest: an image the store REFUSES is dropped; the text result survives
+ok 12 - an image the store REFUSES is dropped; the text result survives
+  ---
+  duration_ms: 0.476875
+  type: 'test'
+  ...
+# Subtest: no attachment store at all still fails loudly
+ok 13 - no attachment store at all still fails loudly
+  ---
+  duration_ms: 0.079917
+  type: 'test'
+  ...
+# [video-gist] run {
+#   url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+#   promptLength: 10,
+#   hasAudioFileId: false,
+#   hasFileStore: false
+# }
+# [video-gist] run {
+#   url: 'https://www.bilibili.com/video/BV1xx411c7mD',
+#   promptLength: 10,
+#   hasAudioFileId: true,
+#   hasFileStore: true
+# }
+# Subtest: runCaller takes the run's resolved bearer, then its connection's, and its owner
+ok 14 - runCaller takes the run's resolved bearer, then its connection's, and its owner
+  ---
+  duration_ms: 0.524084
+  type: 'test'
+  ...
+# Subtest: image_generation calls the model with the run's bearer
+[REDACTED] 15 - image_generation calls the model with the run's bearer
+  [REDACTED]
+  duration_ms: 0.245375
+  type: 'test'
+  ...
+# Subtest: websearch calls the model with the run's bearer
+[REDACTED] 16 - websearch calls the model with the run's bearer
+  [REDACTED]
+  duration_ms: 8.089417
+  type: 'test'
+  ...
+# Subtest: video_gist calls the model with the run's bearer
+[REDACTED] 17 - video_gist calls the model with the run's bearer
+  [REDACTED]
+  duration_ms: 0.7425
+  type: 'test'
+  ...
+# Subtest: websearch records its model call under the tool span, even when it fails
+ok 18 - websearch records its model call under the tool span, even when it fails
+  ---
+  duration_ms: 0.304
+  type: 'test'
+  ...
+# Subtest: image_generation works with no static key: generated on the run's bearer, stored for the run's owner
+ok 19 - image_generation works with no static key: generated on the run's bearer, stored for the run's owner
+  ---
+  duration_ms: 1.974083
+  type: 'test'
+  ...
+# Subtest: video_gist reads a bilibili audio track back for the run's owner, through the port's file store
+ok 20 - video_gist reads a bilibili audio track back for the run's owner, through the port's file store
+  ---
+  duration_ms: 0.570875
+  type: 'test'
+  ...
+# Subtest: video_gist refuses rather than run without the port bundle
+ok 21 - video_gist refuses rather than run without the port bundle
+  ---
+  duration_ms: 0.095584
+  type: 'test'
+  ...
+# Subtest: a run stopped at a ceiling is an error naming that ceiling, not a success
+ok 22 - a run stopped at a ceiling is an error naming that ceiling, not a success
+  ---
+  duration_ms: 0.630041
+  type: 'test'
+  ...
+# Subtest: a wrap-up is still the ceiling, carrying the model's report as its summary
+ok 23 - a wrap-up is still the ceiling, carrying the model's report as its summary
+  ---
+  duration_ms: 0.721459
+  type: 'test'
+  ...
+# Subtest: a wrap-up that wrote nothing is the bare ceiling
+ok 24 - a wrap-up that wrote nothing is the bare ceiling
+  ---
+  duration_ms: 0.16575
+  type: 'test'
+  ...
+# Subtest: another run's wrap-up is not this run's
+ok 25 - another run's wrap-up is not this run's
+  ---
+  duration_ms: 0.097458
+  type: 'test'
+  ...
+# Subtest: the tool budget keeps its own name
+ok 26 - the tool budget keeps its own name
+  ---
+  duration_ms: 0.092417
+  type: 'test'
+  ...
+# Subtest: the deadline keeps the retryable shape phi's own halt gives it
+ok 27 - the deadline keeps the retryable shape phi's own halt gives it
+  ---
+  duration_ms: 0.04425
+  type: 'test'
+  ...
+# Subtest: another run's refusal is not this run's
+ok 28 - another run's refusal is not this run's
+  ---
+  duration_ms: 0.07275
+  type: 'test'
+  ...
+# Subtest: a ceiling keeps the artifacts and the tool output the run already produced
+ok 29 - a ceiling keeps the artifacts and the tool output the run already produced
+  ---
+  duration_ms: 0.065709
+  type: 'test'
+  ...
+# Subtest: a turn cut off at the output cap is an error, keeping what the run produced
+ok 30 - a turn cut off at the output cap is an error, keeping what the run produced
+  ---
+  duration_ms: 0.286542
+  type: 'test'
+  ...
+# Subtest: a model failure after a successful tool keeps that tool's output
+ok 31 - a model failure after a successful tool keeps that tool's output
+  ---
+  duration_ms: 0.297375
+  type: 'test'
+  ...
+# Subtest: a browser task's step ledger rides the run's progress under its tool call
+ok 32 - a browser task's step ledger rides the run's progress under its tool call
+  ---
+  duration_ms: 0.132292
+  type: 'test'
+  ...
+# Subtest: the memory agent's own tool calls ride the run's progress under its memory_agent call
+ok 33 - the memory agent's own tool calls ride the run's progress under its memory_agent call
+  ---
+  duration_ms: 0.108416
+  type: 'test'
+  ...
+# Subtest: a run that asks for its model calls gets one llm_call per call of its own session
+ok 34 - a run that asks for its model calls gets one llm_call per call of its own session
+  ---
+  duration_ms: 0.270625
+  type: 'test'
+  ...
+# Subtest: a run that does not ask for its model calls gets none
+ok 35 - a run that does not ask for its model calls gets none
+  ---
+  duration_ms: 0.049125
+  type: 'test'
+  ...
+# Subtest: a tool's own model calls ride the run's llm_call under its tool call, only when the run asks
+ok 36 - a tool's own model calls ride the run's llm_call under its tool call, only when the run asks
+  ---
+  duration_ms: 0.133417
+  type: 'test'
+  ...
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/png',
+#   bytes: 68,
+#   error: 'image exceeds pixel budget'
+# }
+# [image_generation] supplemental image dropped; the attachment store refused it {
+#   mediaType: 'image/jpeg',
+#   bytes: 4,
+#   error: 'image exceeds pixel budget'
+# }
+# Subtest: generated files carry exact stored metadata while the model keeps the original image bytes
+ok 37 - generated files carry exact stored metadata while the model keeps the original image bytes
+  ---
+  duration_ms: 2.567417
+  type: 'test'
+  ...
+# Subtest: upload failure produces no successful artifacts
+ok 38 - upload failure produces no successful artifacts
+  ---
+  duration_ms: 0.460167
+  type: 'test'
+  ...
+# Subtest: generated artifacts reach the worker result when supplemental storage accepts images
+ok 39 - generated artifacts reach the worker result when supplemental storage accepts images
+  ---
+  duration_ms: 0.460292
+  type: 'test'
+  ...
+# Subtest: generated artifacts reach the worker result when supplemental storage refuses images
+ok 40 - generated artifacts reach the worker result when supplemental storage refuses images
+  ---
+  duration_ms: 0.803125
+  type: 'test'
+  ...
+# Subtest: consecutive calls only return their own generated files despite repeated filenames
+ok 41 - consecutive calls only return their own generated files despite repeated filenames
+  ---
+  duration_ms: 0.720417
+  type: 'test'
+  ...
+# [sentinel-ai-gateway] no route; using direct fetch {
+#   url: 'https://ai-service.stag.phibrowser.com/v1/chat/completions',
+#   purpose: 'image_generation',
+#   fallbackModel: 'gpt-image-1.5'
+# }
+# Subtest: runImageGeneration rejects missing model configuration
+ok 42 - runImageGeneration rejects missing model configuration
+  ---
+  duration_ms: 0.564292
+  type: 'test'
+  ...
+# Subtest: runImageGeneration uses env-backed image_config defaults when tool params are omitted
+ok 43 - runImageGeneration uses env-backed image_config defaults when tool params are omitted
+  ---
+  duration_ms: 1.675125
+  type: 'test'
+  ...
+# Subtest: runImageGeneration keeps its phibrowser URL and request auth when fixed LLM credentials are configured
+ok 44 - runImageGeneration keeps its phibrowser URL and request auth when fixed LLM credentials are configured
+  ---
+  duration_ms: 1.710417
+  type: 'test'
+  ...
+# Subtest: runImageGeneration sends a non-Phi fixed upstream its own key and User-Agent, never the user's bearer [REDACTED] the gateway header
+ok 45 - runImageGeneration sends a non-Phi fixed upstream its own key and User-Agent, never the user's bearer [REDACTED] the gateway header
+  ---
+  duration_ms: 0.409375
+  type: 'test'
+  ...
+# Subtest: runImageGeneration hands the generated bytes to onGeneratedImage, and keeps them out of the result
+ok 46 - runImageGeneration hands the generated bytes to onGeneratedImage, and keeps them out of the result
+  ---
+  duration_ms: 0.271
+  type: 'test'
+  ...
+# Subtest: runImageGeneration forwards the run's userId to the image upload port
+ok 47 - runImageGeneration forwards the run's userId to the image upload port
+  ---
+  duration_ms: 0.205833
+  type: 'test'
+  ...
+# Subtest: onGeneratedImage fires only after the upload the user's copy depends on
+ok 48 - onGeneratedImage fires only after the upload the user's copy depends on
+  ---
+  duration_ms: 0.578125
+  type: 'test'
+  ...
+1..48
+# tests 48
+# suites 0
+# pass 48
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 926.186541

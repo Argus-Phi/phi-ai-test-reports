@@ -1,0 +1,1 @@
+{"result":{"type":"object","value":{"clicked":true,"label":"创建并发送 phi-492-smoke.txt 文件\n10月23日"}}}

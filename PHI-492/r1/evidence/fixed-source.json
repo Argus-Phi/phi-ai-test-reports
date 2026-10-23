@@ -1,0 +1,16 @@
+{
+  "mode": "fixed",
+  "commit": "1fca7f82fb430b57ba415eb9134bc2eacdd090d0",
+  "checks": [
+    {
+      "file": "phi-agent-dsh/plugins/worker/src/lib/image-generation/index.ts",
+      "sha256": "85ebe1819cd76c15378db56ddec8f6720350518773277464642b07caa61e726a",
+      "matches_commit": true
+    },
+    {
+      "file": "phi-agent-dsh/plugins/worker/src/lib/image-generation/capability.ts",
+      "sha256": "a573deb6921e022d61b383ec6a663bef3fb9ad436ddf08730c9a6ec0ac44d6c2",
+      "matches_commit": true
+    }
+  ]
+}

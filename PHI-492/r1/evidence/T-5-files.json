@@ -1,0 +1,22 @@
+{
+  "label": "T-5",
+  "generatedCount": 0,
+  "filePartCount": 1,
+  "records": [
+    {
+      "url": "/api/v1/files/01a168c6-b424-753f-b4c4-67ede4076257",
+      "filePart": {
+        "type": "file",
+        "url": "/api/v1/files/01a168c6-b424-753f-b4c4-67ede4076257",
+        "filename": "phi-492-smoke.txt",
+        "mediaType": "text/plain"
+      },
+      "status": 200,
+      "contentType": "text/plain",
+      "sizeBytes": 18,
+      "sha256": "5b5f6763204ec846bab871abf63b77ce36ed542fafc8e5f845a0e5996ef68a5e",
+      "text": "PHI-492 file smoke"
+    }
+  ],
+  "rendered": []
+}
