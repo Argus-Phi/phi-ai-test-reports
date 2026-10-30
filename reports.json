@@ -222,5 +222,22 @@
     "total": 5
    }
   }
+ ],
+ "PHI-507": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "blocked",
+   "title": "Phi TabClose 独立安装包完整手册测试",
+   "sha": "205e51fd09427beeb9a24d813888f780efb1f5d16d4a8c63f280e34386575470",
+   "generated_at": "2026-10-30T08:20:38.814108+00:00",
+   "counts": {
+    "pass": 4,
+    "fail": 1,
+    "blocked": 23,
+    "skipped": 485,
+    "total": 513
+   }
+  }
  ]
 }
