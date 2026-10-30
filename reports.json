@@ -238,6 +238,21 @@
     "skipped": 485,
     "total": 513
    }
+  },
+  {
+   "round": 2,
+   "kind": "test",
+   "verdict": "blocked",
+   "title": "Phi TabClose 独立安装包完整手册测试",
+   "sha": "b30ef8b3acbc832ee3f1aaa8ce682ebb28289654ff3fdb84fbdf04151bb59d0b",
+   "generated_at": "2026-10-30T15:29:35.276918+00:00",
+   "counts": {
+    "pass": 46,
+    "fail": 0,
+    "blocked": 34,
+    "skipped": 432,
+    "total": 512
+   }
   }
  ]
 }
