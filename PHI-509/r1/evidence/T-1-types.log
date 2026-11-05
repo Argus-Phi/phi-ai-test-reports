@@ -1,0 +1,27 @@
+
+> @phi-ai/root@ type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai
+> turbo run type-check
+
+• turbo 2.9.4
+
+   • Packages in scope: @phi-ai/agent-loop-eval, @phi-ai/agent-protocol, @phi-ai/ai-extension, @phi-ai/api-base, @phi-ai/auth, @phi-ai/browser-use-eval, @phi-ai/browser-use-sonic, @phi-ai/chat, @phi-ai/current-page-qr-code-skill, @phi-ai/download-twitter-video-skill, @phi-ai/dsh, @phi-ai/dsh-bundle, @phi-ai/dsh-lib-shared, @phi-ai/dsh-lib-storage, @phi-ai/dsh-plugin-ask-user, @phi-ai/dsh-plugin-attachment, @phi-ai/dsh-plugin-browser, @phi-ai/dsh-plugin-chat, @phi-ai/dsh-plugin-feedback, @phi-ai/dsh-plugin-guard, @phi-ai/dsh-plugin-im, @phi-ai/dsh-plugin-llm, @phi-ai/dsh-plugin-mail, @phi-ai/dsh-plugin-phi-cdp, @phi-ai/dsh-plugin-session-pg, @phi-ai/dsh-plugin-skills, @phi-ai/dsh-plugin-storage-pg, @phi-ai/dsh-plugin-tasks, @phi-ai/dsh-plugin-telemetry, @phi-ai/dsh-plugin-transport, @phi-ai/dsh-plugin-worker, @phi-ai/eval, @phi-ai/export-chatgpt-conversation-skill, @phi-ai/extension-updater, @phi-ai/extract-current-page-content-skill, @phi-ai/games, @phi-ai/kensington, @phi-ai/lexington, @phi-ai/live-mode-agent, @phi-ai/memory, @phi-ai/mirage, @phi-ai/observability, @phi-ai/onboarding, @phi-ai/phi-agent-devtools, @phi-ai/phi-browser-help-skill, @phi-ai/phi-memory, @phi-ai/save-current-page-pdf-skill, @phi-ai/save-current-page-screenshot-skill, @phi-ai/sentinel-sdk, @phi-ai/shared-types, @phi-ai/shared-ui, @phi-ai/show-current-page-as-markdown-skill, @phi-ai/show-page-reader-mode-skill, @phi-ai/show-page-tech-stack-skill, @phi-ai/sidecar, @phi-ai/video-gist-skill, @phi-ai/widget, @phi-ai/window-theme, @types/phi-chromium, eval-dashboard
+   • Running type-check in 60 packages
+[routine passing output omitted]
+@phi-ai/sidecar:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/sidecar:type-check: 
+@phi-ai/dsh-bundle:type-check: cache hit, replaying logs c8591022ba79971c
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: > @phi-ai/dsh-bundle@0.1.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-525-d3e11a7683d4/workdir/phi-ai/phi-agent-dsh/bundle
+@phi-ai/dsh-bundle:type-check: > node ../scripts/generate-rows.mjs && tsc -b --emitDeclarationOnly
+@phi-ai/dsh-bundle:type-check: 
+@phi-ai/dsh-bundle:type-check: [generate-rows] wrote 54 rows to src/rows.generated.ts
+@phi-ai/dsh:type-check: cache hit, replaying logs 63f8a299af12cab2
+@phi-ai/dsh:type-check: 
+@phi-ai/dsh:type-check: > @phi-ai/dsh@0.5.0 type-check /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-525-d3e11a7683d4/workdir/phi-ai/phi-agent-dsh
+@phi-ai/dsh:type-check: > tsc -b --emitDeclarationOnly
+@phi-ai/dsh:type-check: 
+
+ Tasks:    59 successful, 59 total
+Cached:    59 cached, 59 total
+  Time:    515ms >>> FULL TURBO
+

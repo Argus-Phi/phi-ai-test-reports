@@ -1,0 +1,24 @@
+[
+  {
+    "enable": {
+      "debuggerId": "5439014398678976243.8963512914310430308"
+    }
+  },
+  {
+    "breakpoints": {}
+  },
+  {
+    "skip": {}
+  },
+  {
+    "pause": {}
+  },
+  {
+    "event": "paused",
+    "session": "EEB3C3DD03AB160EF9CE13C94096F979",
+    "reason": "other"
+  },
+  {
+    "error": "Runtime.evaluate: timed out after 5000ms"
+  }
+]

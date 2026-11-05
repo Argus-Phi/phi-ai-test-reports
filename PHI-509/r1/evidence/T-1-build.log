@@ -1,0 +1,27 @@
+
+> @phi-ai/sidecar@ build /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/ai-extension/sidecar
+> tsx scripts/build.ts
+
+[dotenv@17.2.3] injecting env (7) from ../../deployment/env/dev/ai-sidebar.env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (14) from ../../deployment/env/dev/ai-extension.env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Loaded environment from: /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/deployment/env/dev/ai-sidebar.env, /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/deployment/env/dev/ai-extension.env
+[dotenv@17.2.3] injecting env (0) from ../../deployment/env/dev/ai-sidebar.env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[routine passing output omitted]
+dist/assets/client-CFhBu4lq.js                          180.80 kB │ gzip:  56.87 kB
+dist/assets/typescript-BPQ3VLAy.js                      181.08 kB │ gzip:  16.04 kB
+dist/assets/angular-ts-BwZT4LLn.js                      183.82 kB │ gzip:  16.63 kB
+dist/assets/vue-vine-CQOfvN7w.js                        190.05 kB │ gzip:  17.98 kB
+dist/assets/wolfram-lXgVvXCa.js                         262.39 kB │ gzip:  77.14 kB
+dist/assets/index.html-NCVyioM8.js                      303.76 kB │ gzip:  97.08 kB
+dist/assets/wasm-CG6Dc4jp.js                            622.34 kB │ gzip: 230.29 kB
+dist/assets/cpp-CofmeUqb.js                             626.08 kB │ gzip:  44.82 kB
+dist/assets/emacs-lisp-C9XAeP06.js                      779.85 kB │ gzip: 196.03 kB
+dist/assets/mermaid-GHXKKRXX-BendJoW1.js              1,351.25 kB │ gzip: 425.74 kB
+dist/assets/router-Cry4p7Ot.js                        1,991.81 kB │ gzip: 617.64 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 15.51s
+CRX file created at "/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/ai-extension/sidecar/crx/sidebar-2026.11.5.1553.crx"

@@ -1,0 +1,202 @@
+{
+  "label": "T-3-timeout",
+  "startedAt": "2026-11-05T08:31:54.245Z",
+  "logs": [
+    {
+      "at": 1793867514645,
+      "type": "debug",
+      "args": [
+        "[Features] ========== Starting feature prompts retrieval =========="
+      ]
+    },
+    {
+      "at": 1793867514645,
+      "type": "debug",
+      "args": [
+        "[Features] Features to process:",
+        [
+          "chat-with-tabs"
+        ]
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] User message: \"@group1 这些 tab 内容有什么共同点，总结一下\""
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] Timeout: 60000ms"
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] Queueing Chat with Tabs processing..."
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] Using 0 individual tab(s), 1 group(s), and 0 split view(s) for processing"
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] === Starting Chat with Tabs prompt generation ==="
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Singles: 0, Groups: 1, Split views: 0"
+      ]
+    },
+    {
+      "at": 1793867514646,
+      "type": "debug",
+      "args": [
+        "[Features] Waiting for 1 feature(s) to complete..."
+      ]
+    },
+    {
+      "at": 1793867514652,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576731: http://127.0.0.1:18310/page/1?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867514653,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576732: http://127.0.0.1:18310/page/2?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867514653,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576733: http://127.0.0.1:18310/page/3?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867514653,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576734: http://127.0.0.1:18310/page/4?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867514656,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576731..."
+      ]
+    },
+    {
+      "at": 1793867514657,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576732..."
+      ]
+    },
+    {
+      "at": 1793867514657,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576733..."
+      ]
+    },
+    {
+      "at": 1793867514657,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576734..."
+      ]
+    },
+    {
+      "at": 1793867574646,
+      "type": "error",
+      "args": [
+        "[Features] Timeout reached after 60000ms",
+        {
+          "pagesTotal": 11,
+          "pagesDone": 0,
+          "pagesWoken": 0,
+          "pagesActive": 4,
+          "activeReads": [
+            {
+              "phase": "article",
+              "pageMs": 60000,
+              "phaseMs": 59992
+            },
+            {
+              "phase": "article",
+              "pageMs": 60000,
+              "phaseMs": 59992
+            },
+            {
+              "phase": "article",
+              "pageMs": 60000,
+              "phaseMs": 59991
+            },
+            {
+              "phase": "article",
+              "pageMs": 60000,
+              "phaseMs": 59991
+            }
+          ],
+          "currentPhase": "article",
+          "currentPageMs": 60000,
+          "currentPhaseMs": 59992,
+          "slowestDoneMs": null,
+          "elapsedMs": 60000
+        }
+      ]
+    },
+    {
+      "at": 1793867574647,
+      "type": "debug",
+      "args": [
+        "[Features] [CurrentTab] Getting current browser tab..."
+      ]
+    }
+  ],
+  "requests": [],
+  "composer": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "tabGroupMention",
+            "attrs": {
+              "groupId": 1852780501,
+              "title": "IT 科技资讯",
+              "color": "blue",
+              "memberCount": 11
+            }
+          },
+          {
+            "type": "text",
+            "text": " 这些 tab 内容有什么共同点，总结一下"
+          }
+        ]
+      }
+    ]
+  },
+  "before": "Conversations\nNew Chat\nAll\nNew category\nIT Technology Research Pages Summary\nNov 5\nResearch Page Overview\nNov 5\nIT Technology Research Page Summary\nNov 5\nHi, I’m Phi\n\nWhat can I help you with?\n\nIT 科技资讯\n11 tab(s)\n\nIT 科技资讯\n 这些 tab 内容有什么共同点，总结一下\n\nDrop files to upload\nRelease to add files to your message",
+  "elapsedMs": 60197,
+  "ui": "Conversations\nNew Chat\nAll\nNew category\nIT Technology Research Pages Summary\nNov 5\nResearch Page Overview\nNov 5\nIT Technology Research Page Summary\nNov 5\nIT 科技资讯\n11 tab(s)\nIT 科技资讯\n 这些 tab 内容有什么共同点，总结一下\nFailed to load context: Feature prompt fetching timed out\nRetry\n\n\n\n\nDrop files to upload\nRelease to add files to your message"
+}

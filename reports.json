@@ -314,5 +314,22 @@
     "total": 512
    }
   }
+ ],
+ "PHI-509": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "Sidecar 引用多 tab 的 tab group 时上下文加载超时（PHI-1905）",
+   "sha": "49b8b179fd734d10fe8a9d05cbf8d0aa4e7af41a",
+   "generated_at": "2026-11-05T08:43:43.760707+00:00",
+   "counts": {
+    "pass": 5,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 5
+   }
+  }
  ]
 }

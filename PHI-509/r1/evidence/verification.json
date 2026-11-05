@@ -1,0 +1,209 @@
+{
+  "T-2-fixed": {
+    "messages": 1,
+    "pages": 11,
+    "ordered": true,
+    "metadata_matches": true,
+    "visible_response": true,
+    "threadId": "01a1aad0-8a12-77c0-8fae-9a4501b76cc7",
+    "clientRunId": "8871bf35-cc4d-42cb-a0d9-fac213ab5e50",
+    "context_ms": [
+      "[Features] Feature prompts retrieval complete in 8021ms"
+    ]
+  },
+  "T-3-single": {
+    "messages": 1,
+    "pages": 1,
+    "ordered": true,
+    "metadata_matches": true,
+    "visible_response": true,
+    "threadId": "01a1aad1-da05-764d-b928-eef0645884dd",
+    "clientRunId": "23939d2b-a85b-44da-8423-ac72c8081a8f",
+    "context_ms": [
+      "[Features] Feature prompts retrieval complete in 2677ms"
+    ]
+  },
+  "T-3-few": {
+    "messages": 1,
+    "pages": 3,
+    "ordered": true,
+    "metadata_matches": true,
+    "visible_response": true,
+    "threadId": "01a1aad2-32df-737c-aeb3-3035c9264d81",
+    "clientRunId": "84785b7b-1df9-4aba-923b-ce7fe2e42442",
+    "context_ms": [
+      "[Features] Feature prompts retrieval complete in 2690ms"
+    ]
+  },
+  "T-3-retry": {
+    "messages": 1,
+    "pages": 11,
+    "ordered": true,
+    "metadata_matches": true,
+    "visible_response": true,
+    "threadId": "01a1aad2-e4df-71f7-ac20-a1782dbbc70a",
+    "clientRunId": "87ad58be-7f47-4bff-8780-e173358f8d84",
+    "context_ms": [
+      "[Features] Feature prompts retrieval complete in 44ms"
+    ]
+  },
+  "T-4-new": {
+    "messages": 1,
+    "pages": 1,
+    "ordered": true,
+    "metadata_matches": true,
+    "visible_response": true,
+    "threadId": "01a1aad9-c995-76cf-b304-47e7ef2e723e",
+    "clientRunId": "3b5c046c-6997-4b2d-9651-20111778ecd6",
+    "context_ms": [
+      "[Features] Feature prompts retrieval complete in 12ms"
+    ]
+  },
+  "T-5-global": {
+    "messages": 1,
+    "pages": 11,
+    "ordered": true,
+    "metadata_matches": true,
+    "visible_response": true,
+    "threadId": "01a1aad0-89a9-73bf-965a-07ebeb0551aa",
+    "clientRunId": "0c50da9e-a12e-4535-8846-2a94f861c64f",
+    "context_ms": [
+      "[Features] Feature prompts retrieval complete in 7984ms"
+    ],
+    "agent_extracts": [
+      {
+        "at": 1793867843400,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576833,
+          "url": "http://127.0.0.1:18310/page/1?delay=2500"
+        }
+      },
+      {
+        "at": 1793867843400,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576834,
+          "url": "http://127.0.0.1:18310/page/2?delay=2500"
+        }
+      },
+      {
+        "at": 1793867843400,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576835,
+          "url": "http://127.0.0.1:18310/page/3?delay=2500"
+        }
+      },
+      {
+        "at": 1793867843400,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576836,
+          "url": "http://127.0.0.1:18310/page/4?delay=2500"
+        }
+      },
+      {
+        "at": 1793867846066,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576837,
+          "url": "http://127.0.0.1:18310/page/5?delay=2500"
+        }
+      },
+      {
+        "at": 1793867846067,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576838,
+          "url": "http://127.0.0.1:18310/page/6?delay=2500"
+        }
+      },
+      {
+        "at": 1793867846072,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576839,
+          "url": "http://127.0.0.1:18310/page/7?delay=2500"
+        }
+      },
+      {
+        "at": 1793867846174,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576840,
+          "url": "http://127.0.0.1:18310/page/8?delay=2500"
+        }
+      },
+      {
+        "at": 1793867848671,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576841,
+          "url": "http://127.0.0.1:18310/page/9?delay=2500"
+        }
+      },
+      {
+        "at": 1793867848672,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576842,
+          "url": "http://127.0.0.1:18310/page/10?delay=2500"
+        }
+      },
+      {
+        "at": 1793867848672,
+        "url": "http://127.0.0.1:18301/api/v1/browser/extract",
+        "data": {
+          "tabId": 71576843,
+          "url": "http://127.0.0.1:18310/page/11?delay=2500"
+        }
+      }
+    ]
+  },
+  "T-2-baseline": {
+    "messages": 0,
+    "timeout": true,
+    "elapsedMs": 20267
+  },
+  "T-3-timeout": {
+    "messages": 0,
+    "timeout": true,
+    "elapsedMs": 60197
+  },
+  "T-4-stop": {
+    "messages": 0,
+    "initial_reads": 4,
+    "after_stop_queued_reads": 0,
+    "stop_ms_after_start": 561,
+    "late_messages": 0,
+    "ui_unchanged_after_10s": true,
+    "timeline": [
+      {
+        "page": "1",
+        "startedAt": 1793867768583,
+        "delay": 2500,
+        "elapsed": 2501
+      },
+      {
+        "page": "2",
+        "startedAt": 1793867768583,
+        "delay": 2500,
+        "elapsed": 2502
+      },
+      {
+        "page": "3",
+        "startedAt": 1793867768583,
+        "delay": 2500,
+        "elapsed": 2503
+      },
+      {
+        "page": "4",
+        "startedAt": 1793867768583,
+        "delay": 2500,
+        "elapsed": 2504
+      }
+    ]
+  },
+  "baseline_fixed_same_fixture": true
+}

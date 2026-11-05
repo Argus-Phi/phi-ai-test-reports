@@ -1,0 +1,84 @@
+{
+  "targetId": "C61DEED04F35CA16151FC17DB4D29077",
+  "mode": "group",
+  "groupId": 1912321229,
+  "pages": [
+    {
+      "id": 71576538,
+      "url": "http://127.0.0.1:18310/page/1?delay=2500",
+      "title": "Research page 1",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576539,
+      "url": "http://127.0.0.1:18310/page/2?delay=2500",
+      "title": "Research page 2",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576540,
+      "url": "http://127.0.0.1:18310/page/3?delay=2500",
+      "title": "Research page 3",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576541,
+      "url": "http://127.0.0.1:18310/page/4?delay=2500",
+      "title": "Research page 4",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576542,
+      "url": "http://127.0.0.1:18310/page/5?delay=2500",
+      "title": "Research page 5",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576543,
+      "url": "http://127.0.0.1:18310/page/6?delay=2500",
+      "title": "Research page 6",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576544,
+      "url": "http://127.0.0.1:18310/page/7?delay=2500",
+      "title": "Research page 7",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576545,
+      "url": "http://127.0.0.1:18310/page/8?delay=2500",
+      "title": "Research page 8",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576546,
+      "url": "http://127.0.0.1:18310/page/9?delay=2500",
+      "title": "Research page 9",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576547,
+      "url": "http://127.0.0.1:18310/page/10?delay=2500",
+      "title": "Research page 10",
+      "status": "unloaded",
+      "discarded": true
+    },
+    {
+      "id": 71576548,
+      "url": "http://127.0.0.1:18310/page/11?delay=2500",
+      "title": "Research page 11",
+      "status": "unloaded",
+      "discarded": true
+    }
+  ]
+}

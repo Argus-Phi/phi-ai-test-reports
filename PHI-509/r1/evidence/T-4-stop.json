@@ -1,0 +1,275 @@
+{
+  "label": "T-4-stop",
+  "startedAt": "2026-11-05T08:36:08.163Z",
+  "logs": [
+    {
+      "at": 1793867768554,
+      "type": "debug",
+      "args": [
+        "[Features] ========== Starting feature prompts retrieval =========="
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] Features to process:",
+        [
+          "chat-with-tabs"
+        ]
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] User message: \"@group1 这些 tab 内容有什么共同点，总结一下\""
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] Timeout: 60000ms"
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] Queueing Chat with Tabs processing..."
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] Using 0 individual tab(s), 1 group(s), and 0 split view(s) for processing"
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] === Starting Chat with Tabs prompt generation ==="
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Singles: 0, Groups: 1, Split views: 0"
+      ]
+    },
+    {
+      "at": 1793867768555,
+      "type": "debug",
+      "args": [
+        "[Features] Waiting for 1 feature(s) to complete..."
+      ]
+    },
+    {
+      "at": 1793867768559,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576809: http://127.0.0.1:18310/page/1?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867768559,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576810: http://127.0.0.1:18310/page/2?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867768559,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576811: http://127.0.0.1:18310/page/3?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867768559,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracting content from tab 71576812: http://127.0.0.1:18310/page/4?delay=2500"
+      ]
+    },
+    {
+      "at": 1793867768560,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Tab 71576809 is unloaded; reloading it in the background"
+      ]
+    },
+    {
+      "at": 1793867768565,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Tab 71576810 is unloaded; reloading it in the background"
+      ]
+    },
+    {
+      "at": 1793867768569,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Tab 71576811 is unloaded; reloading it in the background"
+      ]
+    },
+    {
+      "at": 1793867768579,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Tab 71576812 is unloaded; reloading it in the background"
+      ]
+    },
+    {
+      "at": 1793867769135,
+      "type": "debug",
+      "args": [
+        "[Features] Operation aborted by user"
+      ]
+    },
+    {
+      "at": 1793867771223,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576809..."
+      ]
+    },
+    {
+      "at": 1793867771224,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576810..."
+      ]
+    },
+    {
+      "at": 1793867771224,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576811..."
+      ]
+    },
+    {
+      "at": 1793867771225,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Executing Readability in tab 71576812..."
+      ]
+    },
+    {
+      "at": 1793867771232,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracted content:",
+        {
+          "title": "Research page 1",
+          "url": "http://127.0.0.1:18310/page/1?delay=2500",
+          "textContentLength": 410,
+          "contentLength": 502,
+          "structuredBlocks": 3
+        }
+      ]
+    },
+    {
+      "at": 1793867771232,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Operation aborted by user"
+      ]
+    },
+    {
+      "at": 1793867771232,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracted content:",
+        {
+          "title": "Research page 3",
+          "url": "http://127.0.0.1:18310/page/3?delay=2500",
+          "textContentLength": 410,
+          "contentLength": 502,
+          "structuredBlocks": 3
+        }
+      ]
+    },
+    {
+      "at": 1793867771233,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Operation aborted by user"
+      ]
+    },
+    {
+      "at": 1793867771233,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracted content:",
+        {
+          "title": "Research page 4",
+          "url": "http://127.0.0.1:18310/page/4?delay=2500",
+          "textContentLength": 410,
+          "contentLength": 502,
+          "structuredBlocks": 3
+        }
+      ]
+    },
+    {
+      "at": 1793867771233,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Operation aborted by user"
+      ]
+    },
+    {
+      "at": 1793867771233,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Extracted content:",
+        {
+          "title": "Research page 2",
+          "url": "http://127.0.0.1:18310/page/2?delay=2500",
+          "textContentLength": 410,
+          "contentLength": 502,
+          "structuredBlocks": 3
+        }
+      ]
+    },
+    {
+      "at": 1793867771233,
+      "type": "debug",
+      "args": [
+        "[Features] [ChatWithTabs] Operation aborted by user"
+      ]
+    }
+  ],
+  "requests": [],
+  "composer": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "tabGroupMention",
+            "attrs": {
+              "groupId": 20028980,
+              "title": "IT 科技资讯",
+              "color": "blue",
+              "memberCount": 11
+            }
+          },
+          {
+            "type": "text",
+            "text": " 这些 tab 内容有什么共同点，总结一下"
+          }
+        ]
+      }
+    ]
+  },
+  "before": "Conversations\nNew Chat\nAll\nNew category\nIT Technology Research Pages Summary\nNov 5\nIT Technology Research Page Summaries\nNov 5\nIT Technology Research Pages Summary\nNov 5\nResearch Page Overview\nNov 5\nIT Technology Research Page Summary\nNov 5\nHi, I’m Phi\n\nWhat can I help you with?\n\nIT 科技资讯\n11 tab(s)\n\nIT 科技资讯\n 这些 tab 内容有什么共同点，总结一下\n\nDrop files to upload\nRelease to add files to your message",
+  "stopAt": 1793867769144,
+  "elapsedMs": 3627,
+  "ui": "Conversations\nNew Chat\nAll\nNew category\nIT Technology Research Pages Summary\nNov 5\nIT Technology Research Page Summaries\nNov 5\nIT Technology Research Pages Summary\nNov 5\nResearch Page Overview\nNov 5\nIT Technology Research Page Summary\nNov 5\nHi, I’m Phi\n\nWhat can I help you with?\n\nIT 科技资讯\n11 tab(s)\n\nIT 科技资讯\n 这些 tab 内容有什么共同点，总结一下\n\nDrop files to upload\nRelease to add files to your message"
+}

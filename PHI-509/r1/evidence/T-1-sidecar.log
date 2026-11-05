@@ -1,0 +1,27 @@
+
+> @phi-ai/sidecar@ test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/ai-extension/sidecar
+> tsx --test "src/**/*.test.ts" "src/**/*.test.tsx"
+
+TAP version 13
+# [TaskReportCard] previous card not revoked Error: no such card
+#     at Object.deps.send (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/ai-extension/sidecar/src/background/task-report-card.test.ts:170:13)
+#     at revokeCard (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-528-55a7a9872c16/workdir/phi-ai/ai-extension/sidecar/src/background/task-report-card.ts:140:28)
+[routine passing output omitted]
+  duration_ms: 0.078959
+  type: 'test'
+  ...
+# Subtest: dark cards keep their translucent lift rather than following the light card
+ok 1805 - dark cards keep their translucent lift rather than following the light card
+  ---
+  duration_ms: 0.076917
+  type: 'test'
+  ...
+1..1805
+# tests 1814
+# suites 2
+# pass 1814
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 92153.761959

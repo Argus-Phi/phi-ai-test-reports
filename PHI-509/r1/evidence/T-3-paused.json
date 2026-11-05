@@ -1,0 +1,117 @@
+{
+  "startedAt": "2026-11-05T08:31:53.380Z",
+  "paused": [
+    {
+      "targetId": "DF302C746AFC76530D3CAA8CE246D1B9",
+      "url": "http://127.0.0.1:18310/page/9?delay=2500",
+      "reason": "other",
+      "at": 1793867513597
+    },
+    {
+      "targetId": "C58607C29922DC7AB0B0A0C72AF109A9",
+      "url": "http://127.0.0.1:18310/page/10?delay=2500",
+      "reason": "other",
+      "at": 1793867513650
+    },
+    {
+      "targetId": "FEDBC5B6BC8A560623E7D154B1A8C087",
+      "url": "http://127.0.0.1:18310/page/2?delay=2500",
+      "reason": "other",
+      "at": 1793867513714
+    },
+    {
+      "targetId": "3D723392FDE3FDD90987BCC2AF4C13F5",
+      "url": "http://127.0.0.1:18310/page/8?delay=2500",
+      "reason": "other",
+      "at": 1793867513762
+    },
+    {
+      "targetId": "246C02AF72EED2DC5F68934CB21B0085",
+      "url": "http://127.0.0.1:18310/page/3?delay=2500",
+      "reason": "other",
+      "at": 1793867513830
+    },
+    {
+      "targetId": "895DCB2E8230D59441669184DCAAE537",
+      "url": "http://127.0.0.1:18310/page/7?delay=2500",
+      "reason": "other",
+      "at": 1793867513896
+    },
+    {
+      "targetId": "AE205C4A6A1BD1411562F46FFCA39764",
+      "url": "http://127.0.0.1:18310/page/5?delay=2500",
+      "reason": "other",
+      "at": 1793867513946
+    },
+    {
+      "targetId": "B8D55895D28821AFCAD146AD272EAEBD",
+      "url": "http://127.0.0.1:18310/page/6?delay=2500",
+      "reason": "other",
+      "at": 1793867514018
+    },
+    {
+      "targetId": "EA0D245EE39900C8A3C3FAB7DF3301D3",
+      "url": "http://127.0.0.1:18310/page/11?delay=2500",
+      "reason": "other",
+      "at": 1793867514069
+    },
+    {
+      "targetId": "B81BB786865359BFEEBA3CDEFD748146",
+      "url": "http://127.0.0.1:18310/page/1?delay=2500",
+      "reason": "other",
+      "at": 1793867514116
+    },
+    {
+      "targetId": "33B57E4F347D4E8C110D942D923DBB8B",
+      "url": "http://127.0.0.1:18310/page/4?delay=2500",
+      "reason": "other",
+      "at": 1793867514163
+    }
+  ],
+  "resumed": [
+    {
+      "sessionId": "06A0039D4484420DCD97AFBC8FF571BD",
+      "at": 1793867574901
+    },
+    {
+      "sessionId": "7B98BCF15C602DF22D7BF6408072EA0A",
+      "at": 1793867574903
+    },
+    {
+      "sessionId": "53CE08CAC998BBBAF6A0E947613355E0",
+      "at": 1793867574911
+    },
+    {
+      "sessionId": "C01405AC2A454A52F683E0234D62E4DC",
+      "at": 1793867574913
+    },
+    {
+      "sessionId": "402F3E8241C9B346BB5FEC1052E5D3AF",
+      "at": 1793867574920
+    },
+    {
+      "sessionId": "E586DDCE3B0ACB289B795D9299025FAD",
+      "at": 1793867574922
+    },
+    {
+      "sessionId": "43F773135556603E5991E557859BC931",
+      "at": 1793867574925
+    },
+    {
+      "sessionId": "9CFC1022F9168E2BB568015F3DFBD10F",
+      "at": 1793867574928
+    },
+    {
+      "sessionId": "BC2D7736ADF56195DEB68925F5388BE0",
+      "at": 1793867574930
+    },
+    {
+      "sessionId": "FFE8B7A7E346539E1F85F54664335DBF",
+      "at": 1793867574936
+    },
+    {
+      "sessionId": "574B0D83D2A60FC983550FC1E89A3956",
+      "at": 1793867574943
+    }
+  ]
+}
