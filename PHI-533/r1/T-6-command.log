@@ -1,0 +1,5 @@
+[im-server-client] connecting { socketPath: '<home>/lane/t6-im.sock' }
+[im-server-client] socket opened, authenticating
+[im-server-client] authenticated { sessionId: 'qa-t6' }
+[im-server-client] connected to IM-Server
+{"status":"pass","inboundCount":1,"typingAfterEmpty":2,"end":{"streamId":"01a1afce-a158-7447-8fa2-3a9760095f10","text":"PHI-533 non-worker late reply"}}

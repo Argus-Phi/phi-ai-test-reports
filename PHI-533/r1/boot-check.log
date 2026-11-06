@@ -1,0 +1,107 @@
+
+> @phi-ai/dsh@0.5.0 dev:self-hosted <home>/lane/phi-ai/phi-agent-dsh
+> pnpm run build:skills && node scripts/generate-rows.mjs && ENABLE_LOOPBACK=true tsx --tsconfig bundle/tsconfig.json bundle/src/boot.ts
+
+
+> @phi-ai/dsh@0.5.0 build:skills <home>/lane/phi-ai/phi-agent-dsh
+> pnpm exec turbo run build --filter=@phi-ai/current-page-qr-code-skill --filter=@phi-ai/download-twitter-video-skill --filter=@phi-ai/export-chatgpt-conversation-skill --filter=@phi-ai/extract-current-page-content-skill --filter=@phi-ai/save-current-page-pdf-skill --filter=@phi-ai/save-current-page-screenshot-skill --filter=@phi-ai/show-current-page-as-markdown-skill --filter=@phi-ai/show-page-reader-mode-skill --filter=@phi-ai/show-page-tech-stack-skill --filter=@phi-ai/video-gist-skill
+
+• turbo 2.9.4
+
+   • Packages in scope: @phi-ai/current-page-qr-code-skill, @phi-ai/download-twitter-video-skill, @phi-ai/export-chatgpt-conversation-skill, @phi-ai/extract-current-page-content-skill, @phi-ai/save-current-page-pdf-skill, @phi-ai/save-current-page-screenshot-skill, @phi-ai/show-current-page-as-markdown-skill, @phi-ai/show-page-reader-mode-skill, @phi-ai/show-page-tech-stack-skill, @phi-ai/video-gist-skill
+   • Running build in 10 packages
+   • Remote caching enabled
+
+@phi-ai/extract-current-page-content-skill:build: cache hit, replaying logs 0e6bca27c5d54016
+@phi-ai/show-current-page-as-markdown-skill:build: cache hit, replaying logs 11651dd072a5998c
+@phi-ai/save-current-page-screenshot-skill:build: cache hit, replaying logs c27793a5b8da373d
+@phi-ai/export-chatgpt-conversation-skill:build: cache hit, replaying logs 154ecb25eb7e82f3
+@phi-ai/current-page-qr-code-skill:build: cache hit, replaying logs 793ab8b3a7b2e5f5
+@phi-ai/extract-current-page-content-skill:build: 
+@phi-ai/extract-current-page-content-skill:build: > @phi-ai/extract-current-page-content-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/extract-current-page-content
+@phi-ai/current-page-qr-code-skill:build: 
+@phi-ai/current-page-qr-code-skill:build: > @phi-ai/current-page-qr-code-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/current-page-qr-code
+@phi-ai/current-page-qr-code-skill:build: > node build.mjs
+@phi-ai/current-page-qr-code-skill:build: 
+@phi-ai/current-page-qr-code-skill:build: built scripts/fetch.js (13560 bytes)
+@phi-ai/download-twitter-video-skill:build: cache hit, replaying logs 4504aa5829f0fa76
+@phi-ai/save-current-page-pdf-skill:build: cache hit, replaying logs ec4a33108107a6f4
+@phi-ai/extract-current-page-content-skill:build: > node build.mjs
+@phi-ai/extract-current-page-content-skill:build: 
+@phi-ai/extract-current-page-content-skill:build: Built scripts/fetch.js (2865 bytes)
+@phi-ai/video-gist-skill:build: cache hit, replaying logs 5291651baf7856e7
+@phi-ai/show-current-page-as-markdown-skill:build: 
+@phi-ai/show-current-page-as-markdown-skill:build: > @phi-ai/show-current-page-as-markdown-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-current-page-as-markdown
+@phi-ai/show-current-page-as-markdown-skill:build: > node build.mjs
+@phi-ai/show-page-tech-stack-skill:build: cache hit, replaying logs 68c9c952fe6ce2bf
+@phi-ai/save-current-page-pdf-skill:build: 
+@phi-ai/save-current-page-pdf-skill:build: > @phi-ai/save-current-page-pdf-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/save-current-page-pdf
+@phi-ai/download-twitter-video-skill:build: 
+@phi-ai/show-page-reader-mode-skill:build: cache hit, replaying logs 41813453cb632020
+@phi-ai/show-page-tech-stack-skill:build: 
+@phi-ai/show-page-tech-stack-skill:build: > @phi-ai/show-page-tech-stack-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-page-tech-stack
+@phi-ai/show-page-tech-stack-skill:build: > node build.mjs
+@phi-ai/export-chatgpt-conversation-skill:build: 
+@phi-ai/export-chatgpt-conversation-skill:build: > @phi-ai/export-chatgpt-conversation-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/export-chatgpt-conversation
+@phi-ai/export-chatgpt-conversation-skill:build: > node build.mjs
+@phi-ai/export-chatgpt-conversation-skill:build: 
+@phi-ai/video-gist-skill:build: 
+@phi-ai/video-gist-skill:build: > @phi-ai/video-gist-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/video-gist
+@phi-ai/video-gist-skill:build: > node build.mjs
+@phi-ai/video-gist-skill:build: 
+@phi-ai/video-gist-skill:build: built scripts/fetch.js (12151 bytes)
+@phi-ai/video-gist-skill:build: built scripts/bilibili-fetch.js (5231 bytes)
+@phi-ai/video-gist-skill:build: built scripts/bilibili-audio.js (4446 bytes)
+@phi-ai/video-gist-skill:build: built scripts/youtube-audio.js (4235 bytes)
+@phi-ai/save-current-page-pdf-skill:build: > node build.mjs
+@phi-ai/save-current-page-pdf-skill:build: 
+@phi-ai/save-current-page-pdf-skill:build: built scripts/prepare.js (1818 bytes)
+@phi-ai/show-page-reader-mode-skill:build: 
+@phi-ai/show-page-reader-mode-skill:build: > @phi-ai/show-page-reader-mode-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/show-page-reader-mode
+@phi-ai/show-page-reader-mode-skill:build: > node build.mjs
+@phi-ai/show-page-reader-mode-skill:build: 
+@phi-ai/show-page-reader-mode-skill:build: built scripts/fetch.js (45669 bytes, 44.6 KB)
+@phi-ai/show-page-tech-stack-skill:build: 
+@phi-ai/show-page-tech-stack-skill:build: built scripts/fetch.js (17529 bytes, 17.1 KB)
+@phi-ai/save-current-page-screenshot-skill:build: 
+@phi-ai/save-current-page-screenshot-skill:build: > @phi-ai/save-current-page-screenshot-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/save-current-page-screenshot
+@phi-ai/save-current-page-screenshot-skill:build: > node build.mjs
+@phi-ai/save-current-page-screenshot-skill:build: 
+@phi-ai/save-current-page-screenshot-skill:build: built scripts/prepare.js (2216 bytes)
+@phi-ai/download-twitter-video-skill:build: > @phi-ai/download-twitter-video-skill@ build <home>/actions-runner-phi-ai/_work/phi-ai/phi-ai/phi-agent-dsh/plugins/skills/built-in/download-twitter-video
+@phi-ai/download-twitter-video-skill:build: > node build.mjs
+@phi-ai/download-twitter-video-skill:build: 
+@phi-ai/download-twitter-video-skill:build: Built scripts/fetch.js (5129 bytes)
+@phi-ai/show-current-page-as-markdown-skill:build: 
+@phi-ai/show-current-page-as-markdown-skill:build: built scripts/fetch.js (47522 bytes, 46.4 KB)
+@phi-ai/export-chatgpt-conversation-skill:build: built scripts/fetch.js (5503 bytes)
+@phi-ai/export-chatgpt-conversation-skill:build: built scripts/clean.js (7384 bytes)
+@phi-ai/export-chatgpt-conversation-skill:build: built scripts/import.js (5431 bytes)
+@phi-ai/export-chatgpt-conversation-skill:build: done — v1-2026-10-27
+
+ Tasks:    10 successful, 10 total
+Cached:    10 cached, 10 total
+  Time:    66ms >>> FULL TURBO
+
+[generate-rows] wrote 54 rows to bundle/src/rows.generated.ts
+[2026-11-06 15:44:02] [phi-agent] version 0.5.0
+[2026-11-06 15:44:02] [dsh-session-pg] connected over tcp
+[2026-11-06 15:44:02] [posthog] POSTHOG_KEY unset; analytics disabled
+[2026-11-06 15:44:02] Langfuse tracing: off (no keys)
+[2026-11-06 15:44:02] [storage:postgres] connected over tcp
+[2026-11-06 15:44:02] [storage:postgres] ensuring schema (schema.update)
+[2026-11-06 15:44:02] [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+[2026-11-06 15:44:02] [sonic-sandbox] no sibling wasm asset found; falling back to node_modules resolution
+[2026-11-06 15:44:02] [phi:cors] extra origins set { origins: [ 'http://192.168.66.104:18082' ] }
+[2026-11-06 15:44:02] [im-server-client] connecting { socketPath: '<home>/lane/im-test.sock' }
+[2026-11-06 15:44:02] [recorder-skill] annotation model: openai/gpt-5.4-mini
+[2026-11-06 15:44:02] [phi-agent:public-base-url] resolving... { envValueRaw: '' }
+[2026-11-06 15:44:02] [phi-agent:public-base-url] env unset; trying Sentinel { runnerSocket: '<not found>' }
+[2026-11-06 15:44:02] [phi-agent:public-base-url] no env value and no Sentinel runner socket; base URL empty {}
+[2026-11-06 15:44:02] [phi-agent:public-base-url] RESOLVED publicBaseUrl="" source=none
+[2026-11-06 15:44:02] [phi-agent:phi-mcp-urls] no Sentinel runner socket; will fall back to defaults
+[2026-11-06 15:44:02] [live-task-follower] watch idle: no signed-in account from the Sentinel runner
+[2026-11-06 15:44:02] Starting phi-agent server on 127.0.0.1:0
+[2026-11-06 15:44:02] [im-server-client] im-server socket unavailable, retrying { socketPath: '<home>/lane/im-test.sock', code: 'ENOENT' }
+[2026-11-06 15:44:02] [phi:cors] allowed origins set { origins: [ 'https://www.bilibili.com', 'https://www.youtube.com' ] }
+[2026-11-06 15:44:02] [phi-cdp] connected to Phi (canary) via /tmp/phi-cdp-504.dfeb2038/agent.sock — Chrome/156.0.8078.52, protocol 1.3

@@ -1,0 +1,311 @@
+{
+  "sha": "19637b723371960f9785bcb202e2d98e3e7d9c32",
+  "scope": "Real hub, adapter, IM bridge/client, UDS WebSocket; controlled non-model actor event source. This does not claim production idle/deeper-recall model triggering.",
+  "inboundCount": 1,
+  "payload": {
+    "chatId": "qa-t6-external",
+    "runId": "qa-t6-inbound",
+    "userId": "qa-test-account",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Non-delegated late-session wire probe."
+      }
+    ],
+    "conversationSource": {
+      "type": "im",
+      "channel": "telegram",
+      "platformUserId": "qa-recipient"
+    },
+    "deliveryTarget": {
+      "channelDocId": "qa-channel",
+      "to": "qa-recipient",
+      "threadId": "qa-thread"
+    },
+    "title": "QA T6",
+    "createChatIfNeeded": false
+  },
+  "typingAfterEmpty": 2,
+  "timeline": [
+    {
+      "name": "initial empty closed",
+      "at": "2026-11-06T07:41:56.900Z",
+      "frames": [
+        {
+          "type": "connect",
+          "agentId": "qa-t6",
+          "at": "2026-11-06T07:41:56.837Z"
+        },
+        {
+          "type": "request",
+          "requestId": "OW171hLwQugmmXFZGRfKu",
+          "method": "pairingState.upsert",
+          "params": {
+            "userId": "qa-test-account",
+            "channel": "telegram",
+            "patch": {
+              "currentChatId": "cf577af3-33f4-7264-8064-8a1b957c2238",
+              "channelDocId": "qa-channel",
+              "platformUserId": "qa-recipient"
+            }
+          },
+          "at": "2026-11-06T07:41:56.862Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.863Z"
+        }
+      ]
+    },
+    {
+      "name": "late empty active",
+      "at": "2026-11-06T07:41:56.926Z",
+      "frames": [
+        {
+          "type": "connect",
+          "agentId": "qa-t6",
+          "at": "2026-11-06T07:41:56.837Z"
+        },
+        {
+          "type": "request",
+          "requestId": "OW171hLwQugmmXFZGRfKu",
+          "method": "pairingState.upsert",
+          "params": {
+            "userId": "qa-test-account",
+            "channel": "telegram",
+            "patch": {
+              "currentChatId": "cf577af3-33f4-7264-8064-8a1b957c2238",
+              "channelDocId": "qa-channel",
+              "platformUserId": "qa-recipient"
+            }
+          },
+          "at": "2026-11-06T07:41:56.862Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.863Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.900Z"
+        }
+      ]
+    },
+    {
+      "name": "late empty closed",
+      "at": "2026-11-06T07:41:56.952Z",
+      "frames": [
+        {
+          "type": "connect",
+          "agentId": "qa-t6",
+          "at": "2026-11-06T07:41:56.837Z"
+        },
+        {
+          "type": "request",
+          "requestId": "OW171hLwQugmmXFZGRfKu",
+          "method": "pairingState.upsert",
+          "params": {
+            "userId": "qa-test-account",
+            "channel": "telegram",
+            "patch": {
+              "currentChatId": "cf577af3-33f4-7264-8064-8a1b957c2238",
+              "channelDocId": "qa-channel",
+              "platformUserId": "qa-recipient"
+            }
+          },
+          "at": "2026-11-06T07:41:56.862Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.863Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.900Z"
+        }
+      ]
+    },
+    {
+      "name": "late text closed",
+      "at": "2026-11-06T07:41:57.354Z",
+      "frames": [
+        {
+          "type": "connect",
+          "agentId": "qa-t6",
+          "at": "2026-11-06T07:41:56.837Z"
+        },
+        {
+          "type": "request",
+          "requestId": "OW171hLwQugmmXFZGRfKu",
+          "method": "pairingState.upsert",
+          "params": {
+            "userId": "qa-test-account",
+            "channel": "telegram",
+            "patch": {
+              "currentChatId": "cf577af3-33f4-7264-8064-8a1b957c2238",
+              "channelDocId": "qa-channel",
+              "platformUserId": "qa-recipient"
+            }
+          },
+          "at": "2026-11-06T07:41:56.862Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.863Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.900Z"
+        },
+        {
+          "type": "typing.indicator",
+          "payload": {
+            "channelDocId": "qa-channel",
+            "chatId": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.953Z"
+        },
+        {
+          "type": "message.stream.start",
+          "payload": {
+            "streamId": "01a1afce-a158-7447-8fa2-3a9760095f10",
+            "channelDocId": "qa-channel",
+            "channel": "telegram",
+            "to": "qa-recipient",
+            "threadId": "qa-thread"
+          },
+          "at": "2026-11-06T07:41:56.953Z"
+        },
+        {
+          "type": "message.stream.delta",
+          "payload": {
+            "streamId": "01a1afce-a158-7447-8fa2-3a9760095f10",
+            "text": "PHI-533 non-worker late reply"
+          },
+          "at": "2026-11-06T07:41:56.953Z"
+        },
+        {
+          "type": "message.stream.end",
+          "payload": {
+            "streamId": "01a1afce-a158-7447-8fa2-3a9760095f10",
+            "text": "PHI-533 non-worker late reply"
+          },
+          "at": "2026-11-06T07:41:56.953Z"
+        }
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "type": "connect",
+      "agentId": "qa-t6",
+      "at": "2026-11-06T07:41:56.837Z"
+    },
+    {
+      "type": "request",
+      "requestId": "OW171hLwQugmmXFZGRfKu",
+      "method": "pairingState.upsert",
+      "params": {
+        "userId": "qa-test-account",
+        "channel": "telegram",
+        "patch": {
+          "currentChatId": "cf577af3-33f4-7264-8064-8a1b957c2238",
+          "channelDocId": "qa-channel",
+          "platformUserId": "qa-recipient"
+        }
+      },
+      "at": "2026-11-06T07:41:56.862Z"
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "qa-channel",
+        "chatId": "qa-recipient",
+        "threadId": "qa-thread"
+      },
+      "at": "2026-11-06T07:41:56.863Z"
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "qa-channel",
+        "chatId": "qa-recipient",
+        "threadId": "qa-thread"
+      },
+      "at": "2026-11-06T07:41:56.900Z"
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "qa-channel",
+        "chatId": "qa-recipient",
+        "threadId": "qa-thread"
+      },
+      "at": "2026-11-06T07:41:56.953Z"
+    },
+    {
+      "type": "message.stream.start",
+      "payload": {
+        "streamId": "01a1afce-a158-7447-8fa2-3a9760095f10",
+        "channelDocId": "qa-channel",
+        "channel": "telegram",
+        "to": "qa-recipient",
+        "threadId": "qa-thread"
+      },
+      "at": "2026-11-06T07:41:56.953Z"
+    },
+    {
+      "type": "message.stream.delta",
+      "payload": {
+        "streamId": "01a1afce-a158-7447-8fa2-3a9760095f10",
+        "text": "PHI-533 non-worker late reply"
+      },
+      "at": "2026-11-06T07:41:56.953Z"
+    },
+    {
+      "type": "message.stream.end",
+      "payload": {
+        "streamId": "01a1afce-a158-7447-8fa2-3a9760095f10",
+        "text": "PHI-533 non-worker late reply"
+      },
+      "at": "2026-11-06T07:41:56.953Z"
+    }
+  ],
+  "status": "pass"
+}

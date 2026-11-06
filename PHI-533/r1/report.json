@@ -1,0 +1,452 @@
+{
+ "issue": "PHI-533",
+ "based_on": "PHI-533/test-plan.md@1ffac5f9216d66ea19389691c91c3c8d058b32d3, PHI-533/runbook.md@220a16fac8f89303f8972af7d5f06454af800423, PHI-533/reviews/code-r1-spock.md@69776a0a81dedda202204092c9c0a838321e63af",
+ "key": "PHI-533",
+ "title": "IM 消息触发委派后回复无法送回，只收到正在输入（PHI-1912）",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮执行 6 条计划用例，6 条通过，0 失败/阻塞/未执行，无新增 blocker/major。真实 Canary/Runner/worker/time 在基线复现无回复，在候选收到 16:36 且与引擎一致；纯聊天与后续 synthetic 段取消通过。45/45 定向生命周期检查、143/143 bundle 及静态/构建检查通过。完整 chat 仍有基线已知 1 fail / 5 cancelled；首轮额外 heartbeat 计时失败已保留且未再现。T-6 为真实协议配合受控事件源的转发检查，不外推模型 idle/deeper-recall 自然触发。结论已通过，AI 测试和审查允许提交 PR。",
+ "sha": "19637b723371960f9785bcb202e2d98e3e7d9c32",
+ "branch": "PHI-533-im-worker-replies",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/698",
+ "generated_at": "2026-11-06T07:47:25.086761+00:00",
+ "environment": {
+  "机器": "mini / macOS 26.6.2；租赁会话 e2e03，证据拉回后已归还",
+  "Phi Canary": "2026.11.4.0205",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "服务 / 数据库": "agent 18301；PG 18310 / e2e03_phi533；测试网关 UDS，无真实 IM 通知",
+  "测试站": "http://127.0.0.1:18311/（仅租约内，已关闭）",
+  "Langfuse": "Phi Agent - dev；CLI 1.3.1，API 3.225.3；3 份关联脱敏 trace",
+  "基线": "02e7140800dd3cd02d2213d392f058b1660c34ea",
+  "模式切换": "同一租约停止服务、checkout SHA、按同一 selfhosted 脚本重启；无产品开关",
+  "验证限制": "AC-2 / T-6 事件源受控；不覆盖同 chat 多请求交错、真实第三方 IM 账户、模型自然触发 idle/deeper-recall"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（本轮补 VERIFY / 手测细节）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-533/test-plan.md"
+  },
+  {
+   "title": "runbook.md@220a16f",
+   "url": "https://github.com/phibrowser/phi-ai/blob/220a16fac8f89303f8972af7d5f06454af800423/PHI-533/runbook.md"
+  },
+  {
+   "title": "test-report-r1.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-533/test-report-r1.md"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "真实 worker/time 的后续回复送达 IM",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1 / FR-1 / FR-2",
+   "precondition": "被测 SHA 19637b723371960f9785bcb202e2d98e3e7d9c32；本地 frozen-lockfile 依赖；真实服务用租赁 e2e03、stag 测试账号、隔离库与测试网关。",
+   "steps": [
+    "在 merge-base 基线起真实服务，Canary 打开 http://127.0.0.1:18311/，发送原文一次；保存 180 秒观察窗。",
+    "停止基线，在同一租约检出被测 SHA，加载 DEV tracing 环境并重启；新 chat 经 CDP 点击 Send once，发送相同原文。",
+    "核对唯一入站、worker descriptor/time/completed、东京 HH:MM、独立 synthetic stream、start/delta/end、引擎与网关正文及 target/thread；截图并按内部 chat/time 导出 trace。"
+   ],
+   "expected": "基线可复现原缺陷；候选实际委派并把完整东京时间回复送达原目标/thread，无第二请求或 Sidecar 干预。",
+   "actual": "基线真实 worker/time 完成并得到 16:32，但没有任何消息流。候选首个样本一次入站；time UTC 07:36:13.960Z → 东京 16:36；synthetic stream 01a1afc9-5273-759d-9690-8a32c04ea9da 收到 start/delta/end，end=16:36，逐字等于持久化正文，target/thread 正确。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-1-baseline.json",
+     "caption": "attempt 1 是基线负对照：真实 worker 结果已生成，只有 pairing/typing",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-1-baseline-02.png",
+     "caption": "基线最终无回复；早期页面 target 显示的是输入镜像，仅用原始帧判收件",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-1-attempt-1-01.png",
+     "caption": "attempt 2 为候选首个样本：Canary 已发送",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-attempt-1-02.png",
+     "caption": "候选最终收到 16:36 及实际 start 目标",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-attempt-1.json",
+     "caption": "候选原始协议、worker 工具、引擎正文和时间窗",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-comparison.json",
+     "caption": "独立断言：网关正文/引擎/目标/真实委派/东京时间一致",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-1-attempt-1-trace-24da9dff-17f5-4d03-b651-268692f208b6.sanitized.json",
+     "trace_id": "24da9dff-17f5-4d03-b651-268692f208b6",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/24da9dff-17f5-4d03-b651-268692f208b6",
+     "caption": "DEV project；CLI 1.3.1 / API 3.225.3 导出，已删凭据、用户标识、个人路径和无关提示上下文",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "attempt 维度明确区分基线负对照和候选；候选无需重试。未修改原文、提示词或委派策略。"
+  },
+  {
+   "id": "T-2",
+   "title": "初始空段后不同 session 的正文仍投原 thread",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2 / FR-1 / FR-2",
+   "precondition": "被测 SHA 19637b723371960f9785bcb202e2d98e3e7d9c32；本地 frozen-lockfile 依赖；真实服务用租赁 e2e03、stag 测试账号、隔离库与测试网关。",
+   "steps": [
+    "执行 pnpm --filter @phi-ai/dsh-plugin-chat exec tsx --test src/lib/im-chat-execution-adapter.integration.test.ts。",
+    "核对 idle gap、consecutive、buffered 三种时序的实际输出断言及诊断网关帧；在 Canary 留存日志页截图。"
+   ],
+   "expected": "真实 hub/adapter/channel/sink 下，空初始段不造空消息；后续每段独立完整流，唯一入站与原目标/thread 保持。",
+   "actual": "3/3 pass。每个样本唯一入站，后续两条独立 synthetic 流输出 Tokyo: 17:42. 与 That is today's local time.；实际断言包含流顺序、不同 streamId、完整 end 正文和原 thread-42。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-2-command.log",
+     "caption": "完整相关集成断言及实际 outbox 诊断"
+    },
+    {
+     "type": "image",
+     "path": "T-2-01.png",
+     "caption": "Canary 中实际命令日志关键步骤"
+    },
+    {
+     "type": "image",
+     "path": "T-2-02.png",
+     "caption": "Canary 中网关帧与结果"
+    }
+   ],
+   "bugs": [],
+   "notes": "仅 actor 事件源/外部 transport 受控；真实 hub 与 sink。固定文本按已有套件回填计划，不声称这项调用了模型。"
+  },
+  {
+   "id": "T-3",
+   "title": "纯聊天短句真实服务冒烟",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-3",
+   "precondition": "被测 SHA 19637b723371960f9785bcb202e2d98e3e7d9c32；本地 frozen-lockfile 依赖；真实服务用租赁 e2e03、stag 测试账号、隔离库与测试网关。",
+   "steps": [
+    "新 chat，通过页面同源 POST /qa/execute 发送 Say hello in one short sentence.，不复用委派窗口。",
+    "Canary 点击 Observe existing request，仅 GET 观察该请求；核对流序列、引擎正文、原 target/thread，并导出 trace。"
+   ],
+   "expected": "一次纯聊天请求返回非空、正常结束、正确目标的完整问候，无需委派。",
+   "actual": "一次入站，无 worker descriptor。网关 start/delta/end 的正文 Hey—what’s up? 与持久化引擎正文一致，原目标/thread 正确。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-3-attempt-1-01.png",
+     "caption": "API 发送后只观察同一请求",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-attempt-1-02.png",
+     "caption": "问候最终收件",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-3-attempt-1.json",
+     "caption": "协议与引擎证据",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-3-comparison.json",
+     "caption": "纯聊天/正文/目标独立校验",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-attempt-1-trace-87341e7b-78b0-462a-80ca-a4b46367db5e.sanitized.json",
+     "trace_id": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/87341e7b-78b0-462a-80ca-a4b46367db5e",
+     "caption": "DEV project；CLI 1.3.1 / API 3.225.3 导出，已删凭据、用户标识、个人路径和无关提示上下文",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-4",
+   "title": "受影响生命周期、装配与静态检查",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1 / AC-2 回归保护",
+   "precondition": "被测 SHA 19637b723371960f9785bcb202e2d98e3e7d9c32；本地 frozen-lockfile 依赖；真实服务用租赁 e2e03、stag 测试账号、隔离库与测试网关。",
+   "steps": [
+    "运行完整 chat、adapter、late-session/trace-gate、bundle 套件，保存结果并对照 merge-base 基线。",
+    "执行 pnpm type-check、tsc -b phi-agent-dsh/plugins/chat --force --emitDeclarationOnly、4 个改动 TS 的 ESLint、6 个文件的 Prettier check、pnpm --dir phi-agent-dsh build。",
+    "在会话检出相同 SHA，真实 selfhosted 启动；结束服务后额外运行有界 PORT=0 启动检查并清理。",
+    "首轮 heartbeat 失败后，候选定向重试、全量重跑及基线定向 3 次，保留首轮失败。"
+   ],
+   "expected": "受影响生命周期无新增 blocker/major；记录并排除实际基线已知失败，不以缓存替代 linked 包类型检查。",
+   "actual": "adapter 25/25、late-session/trace-gate 17/17、T-2 3/3，共 45/45 定向检查通过；bundle 143/143。完整 chat 首轮 1387 pass / 2 fail / 5 cancelled；重跑 1388 pass / 1 fail / 5 cancelled，基线 1373 pass / 1 fail / 5 cancelled。基线/候选均为 PHI-415 词条失败及 PHI-416 取消。首轮另有 expected heartbeats, got 1，候选定向及重跑均通过，基线定向 3/3 运行通过；来源未证实，不记为本 PR 产品 bug。类型 59/59（缓存）及强制 tsc、build、ESLint、Prettier、真实启动均退出 0。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-4-chat.log",
+     "caption": "首轮失败原样保留：含一次 heartbeat 计时断言失败",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-4-01.png",
+     "caption": "首轮全量结果",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-4-chat-retry.log",
+     "caption": "重跑仍退出 1：仅基线已知 1 fail / 5 cancelled；scope 判定通过",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-02.png",
+     "caption": "重跑与装配汇总",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "baseline-chat.log",
+     "caption": "merge-base 全量对照"
+    },
+    {
+     "type": "log",
+     "path": "heartbeat-candidate-retry.log",
+     "caption": "候选 heartbeat 定向重试通过"
+    },
+    {
+     "type": "log",
+     "path": "heartbeat-baseline-1.log",
+     "caption": "基线 heartbeat 定向第 1 次通过"
+    },
+    {
+     "type": "log",
+     "path": "heartbeat-baseline-2.log",
+     "caption": "基线 heartbeat 定向第 2 次通过"
+    },
+    {
+     "type": "log",
+     "path": "heartbeat-baseline-3.log",
+     "caption": "基线 heartbeat 定向第 3 次通过"
+    },
+    {
+     "type": "log",
+     "path": "T-4-adapter.log",
+     "caption": "适配器 25/25"
+    },
+    {
+     "type": "log",
+     "path": "T-4-late-session.log",
+     "caption": "late-session / trace-gate 17/17"
+    },
+    {
+     "type": "log",
+     "path": "T-4-bundle.log",
+     "caption": "bundle 143/143"
+    },
+    {
+     "type": "log",
+     "path": "type-check.log",
+     "caption": "根类型检查 59/59"
+    },
+    {
+     "type": "log",
+     "path": "type-check-force.log",
+     "caption": "强制 tsc，退出 0 无诊断"
+    },
+    {
+     "type": "log",
+     "path": "build.log",
+     "caption": "运行时 build 退出 0"
+    },
+    {
+     "type": "log",
+     "path": "prettier.log",
+     "caption": "Prettier 全部通过"
+    },
+    {
+     "type": "log",
+     "path": "boot-check.log",
+     "caption": "PORT=0 真机启动 banner"
+    },
+    {
+     "type": "log",
+     "path": "environment.log",
+     "caption": "SHA / 环境 / 正常启动 banner"
+    },
+    {
+     "type": "text",
+     "content": "4 个改动 TS 文件 ESLint 退出 0，无输出；产品代码目录 git status -sb 为空改动。",
+     "caption": "静态检查与只读边界"
+    }
+   ],
+   "bugs": [],
+   "notes": "T-4 pass 表示本次 affected scope/基线对照没有新增确定性失败，不表示完整 chat 命令全部绿色。首轮计时观察保留且未隐去。"
+  },
+  {
+   "id": "T-5",
+   "title": "后续 synthetic 段的 IM abort 到达真实引擎",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1 / AC-2 回归保护；Anton VERIFY",
+   "precondition": "被测 SHA 19637b723371960f9785bcb202e2d98e3e7d9c32；本地 frozen-lockfile 依赖；真实服务用租赁 e2e03、stag 测试账号、隔离库与测试网关。",
+   "steps": [
+    "新 chat 向真实服务发送 worker 查询东京时间并在报告时解释 2000 词时区的原文，全文见证据。",
+    "网关收到不同于入站 runId 的 stream.start 后立即发送 agent.abort，payload.runId 使用原入站 ID。",
+    "比对协议、partial end 与 Langfuse 取消时间，确认后续 chat.reply 被中止；保留关键与结束截图。"
+   ],
+   "expected": "取消经当前内部 synthetic run 到达真实引擎；允许已生成的部分正文正常收尾，结束后不再追加 delta。",
+   "actual": "唯一 execute 加一个 abort。original run 8dcd3cb6… 映射 synthetic 01a1afcb…；abort 07:38:52.689Z，后续 chat.reply 在 07:38:52.722Z 记录 This operation was aborted。部分正文 2026-11-06 16:38:46 (Tokyo 正常 end；采集窗口内 end 后无 delta。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-5-attempt-1-01.png",
+     "caption": "委派请求关键步骤",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-attempt-1-02.png",
+     "caption": "取消后部分正文结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-5-attempt-1.json",
+     "caption": "execute / abort、synthetic 流与引擎记录",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-5-comparison.json",
+     "caption": "按 trace 时间核对真实模型调用取消",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-5-attempt-1-trace-1a025c48-19ba-4414-953f-60087e659d01.sanitized.json",
+     "trace_id": "1a025c48-19ba-4414-953f-60087e659d01",
+     "url": "https://ariadne.phibrowser.com/project/cmoicirky002jsq07vrduoi5s/traces/1a025c48-19ba-4414-953f-60087e659d01",
+     "caption": "DEV project；CLI 1.3.1 / API 3.225.3 导出，已删凭据、用户标识、个人路径和无关提示上下文",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "取消样本不用于 AC-1/AC-2 主验收；没有把可控单元测试当真实引擎取消证据。"
+  },
+  {
+   "id": "T-6",
+   "title": "非委派 late session 的空消息保护与原 thread 投递",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "AC-1 / AC-2 回归保护；Anton VERIFY",
+   "precondition": "被测 SHA 19637b723371960f9785bcb202e2d98e3e7d9c32；本地 frozen-lockfile 依赖；真实服务用租赁 e2e03、stag 测试账号、隔离库与测试网关。",
+   "steps": [
+    "在 e2e03 的被测 SHA 用 pnpm --dir phi-agent-dsh exec tsx ../../qa-scripts/late-session-wire.mts 启动真实 hub/adapter/IM bridge/client 和 UDS 网关。",
+    "经实际 agent.execute 进入一次；受控 actor 依次发初始空 open/close、另一空 late open/close、不同 session 的正文/close。",
+    "断言网关空段只有 typing，无 message；非空段只有一条独立 start/delta/end，正文与原 target/thread 正确；截图日志页。"
+   ],
+   "expected": "非委派 late 空段不造空消息，有正文段完整独立流投原 thread。",
+   "actual": "真实 WebSocket 收件：inboundCount=1，空段累计 typing=2、message=0；非空段 synthetic 流正文 PHI-533 non-worker late reply，to=qa-recipient、thread=qa-thread，start/delta/end 顺序正确。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-6-command.log",
+     "caption": "实际执行命令结果"
+    },
+    {
+     "type": "log",
+     "path": "T-6-wire.json",
+     "caption": "各阶段事件与真实 UDS 收件快照"
+    },
+    {
+     "type": "image",
+     "path": "T-6-01.png",
+     "caption": "空 late 段网关状态"
+    },
+    {
+     "type": "image",
+     "path": "T-6-02.png",
+     "caption": "非空 late 段独立完整流"
+    }
+   ],
+   "bugs": [],
+   "notes": "事件源受控，未调用模型；本项验证 host/IM 转发，不声称生产模型会自然触发 idle/deeper-recall。真实模型链路与取消由 T-1/T-5 独立验证。"
+  }
+ ],
+ "bugs": [],
+ "known_issues": [
+  {
+   "id": "PHI-415",
+   "title": "Sidecar 英文 tabInSpace 词条不一致；基线/候选均 1 fail",
+   "baseline_sha": "02e7140800dd3cd02d2213d392f058b1660c34ea",
+   "case_ids": [
+    "T-4"
+   ],
+   "evidence": "baseline-chat.log / T-4-chat-retry.log；已核对既有 PBL。"
+  },
+  {
+   "id": "PHI-416",
+   "title": "task-report deadline 的无 ref timer 导致基线/候选均 5 cancelled",
+   "baseline_sha": "02e7140800dd3cd02d2213d392f058b1660c34ea",
+   "case_ids": [
+    "T-4"
+   ],
+   "evidence": "baseline-chat.log / T-4-chat-retry.log；已核对既有 PBL。"
+  }
+ ]
+}

@@ -331,5 +331,22 @@
     "total": 5
    }
   }
+ ],
+ "PHI-533": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "IM 消息触发委派后回复无法送回，只收到正在输入（PHI-1912）",
+   "sha": "19637b723371960f9785bcb202e2d98e3e7d9c32",
+   "generated_at": "2026-11-06T07:47:25.086761+00:00",
+   "counts": {
+    "pass": 6,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 6
+   }
+  }
  ]
 }

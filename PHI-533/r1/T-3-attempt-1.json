@@ -1,0 +1,175 @@
+{
+  "sha": "19637b723371960f9785bcb202e2d98e3e7d9c32",
+  "files": {
+    "plugins/chat/src/chat.ts": "0446b0b42eb3824f411ccae66d3fa4dc5365bdcc106cf0f75ffd5a15d39e1817",
+    "plugins/chat/src/lib/im-chat-execution-adapter.ts": "152fb72f17d4eefa7d0c8a79f9ee9aaf01d43f0981f4b5ac96d68c932a1ca1ed"
+  },
+  "workerEvents": [],
+  "ingress": [
+    {
+      "type": "agent.execute",
+      "payload": {
+        "chatId": "phi533-T-3-attempt-1-e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+        "runId": "e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+        "userId": "<test-account>",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Say hello in one short sentence."
+          }
+        ],
+        "deliveryTarget": {
+          "channelDocId": "phi533-test-channel",
+          "to": "phi533-test-recipient",
+          "platformUserId": "phi533-test-recipient",
+          "threadId": "phi533-test-thread"
+        },
+        "conversationSource": {
+          "type": "im",
+          "channel": "telegram",
+          "platformUserId": "phi533-test-recipient"
+        },
+        "title": "PHI-533 T-3-attempt-1",
+        "createChatIfNeeded": true
+      },
+      "at": "2026-11-06T07:37:25.508Z"
+    }
+  ],
+  "label": "T-3-attempt-1",
+  "started": "2026-11-06T07:37:25.508Z",
+  "ended": "2026-11-06T07:37:32.694Z",
+  "chatId": "7bf1e519-1de4-745d-b43f-c36fdfe3a8b7",
+  "inboundCount": 1,
+  "payload": {
+    "chatId": "phi533-T-3-attempt-1-e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+    "runId": "e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+    "userId": "<test-account>",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Say hello in one short sentence."
+      }
+    ],
+    "deliveryTarget": {
+      "channelDocId": "phi533-test-channel",
+      "to": "phi533-test-recipient",
+      "platformUserId": "phi533-test-recipient",
+      "threadId": "phi533-test-thread"
+    },
+    "conversationSource": {
+      "type": "im",
+      "channel": "telegram",
+      "platformUserId": "phi533-test-recipient"
+    },
+    "title": "PHI-533 T-3-attempt-1",
+    "createChatIfNeeded": true
+  },
+  "receivedAt": [
+    "2026-11-06T07:37:15.380Z",
+    "2026-11-06T07:37:25.517Z",
+    "2026-11-06T07:37:25.519Z",
+    "2026-11-06T07:37:29.476Z",
+    "2026-11-06T07:37:29.476Z",
+    "2026-11-06T07:37:29.708Z"
+  ],
+  "frames": [
+    {
+      "type": "connect",
+      "agentId": "phi-agent"
+    },
+    {
+      "type": "request",
+      "requestId": "6yYKvNwa5PAxi2abDILX6",
+      "method": "pairingState.upsert",
+      "params": {
+        "userId": "<test-account>",
+        "channel": "telegram",
+        "patch": {
+          "currentChatId": "7bf1e519-1de4-745d-b43f-c36fdfe3a8b7",
+          "channelDocId": "phi533-test-channel",
+          "platformUserId": "phi533-test-recipient"
+        }
+      }
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "phi533-test-channel",
+        "chatId": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "message.stream.start",
+      "payload": {
+        "streamId": "e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+        "channelDocId": "phi533-test-channel",
+        "channel": "telegram",
+        "to": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "message.stream.delta",
+      "payload": {
+        "streamId": "e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+        "text": "Hey—what’s up?"
+      }
+    },
+    {
+      "type": "message.stream.end",
+      "payload": {
+        "streamId": "e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+        "text": "Hey—what’s up?"
+      }
+    }
+  ],
+  "rows": [
+    {
+      "id": "01a1afca-7d0e-75bc-8318-4bc844d1c481",
+      "role": "user",
+      "parts": [
+        {
+          "text": "Say hello in one short sentence.",
+          "type": "text"
+        }
+      ],
+      "metadata": {
+        "im": {
+          "type": "im",
+          "channel": "telegram",
+          "direction": "inbound",
+          "sourceChatId": "phi533-T-3-attempt-1-e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+          "platformUserId": "phi533-test-recipient"
+        }
+      },
+      "created_at": "2026-11-06T07:37:25.553Z"
+    },
+    {
+      "id": "01a1afca-7d30-709b-a6ee-2fe5e5e85725",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "Hey—what’s up?",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ],
+      "metadata": {
+        "runId": "e22f61f0-73e8-4776-b2b8-e4d7f9ccc7ef",
+        "runMetrics": {
+          "chars": 14,
+          "startedAt": 1793950645553,
+          "finishedAt": 1793950649707,
+          "firstTextAt": 1793950649370
+        }
+      },
+      "created_at": "2026-11-06T07:37:25.552Z"
+    }
+  ]
+}

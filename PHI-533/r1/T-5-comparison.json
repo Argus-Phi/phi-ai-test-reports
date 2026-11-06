@@ -1,0 +1,20 @@
+{
+  "sha": "19637b723371960f9785bcb202e2d98e3e7d9c32",
+  "status": "pass",
+  "ingressCount": 2,
+  "executeCount": 1,
+  "originalRunId": "8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+  "syntheticRunId": "01a1afcb-a684-705a-8f51-3bd26decf741",
+  "abortAt": "2026-11-06T07:38:52.689Z",
+  "cancelledModelCalls": [
+    {
+      "id": "979e5ea9-138a-4680-8218-bc3f0092ebea",
+      "name": "chat.reply",
+      "endTime": "2026-11-06T07:38:52.722Z",
+      "statusMessage": "This operation was aborted"
+    }
+  ],
+  "partialEndText": "2026-11-06 16:38:46 (Tokyo",
+  "noDeltaAfterEnd": true,
+  "observationEnded": "2026-11-06T07:38:55.406Z"
+}

@@ -1,0 +1,1856 @@
+{
+  "status": 200,
+  "headers": {
+    "cf-cache-status": "DYNAMIC",
+    "cf-ray": "a56270c88bd41691-LAX",
+    "connection": "keep-alive",
+    "content-encoding": "gzip",
+    "content-type": "application/json; charset=utf-8",
+    "date": "Fri, 06 Nov 2026 07:38:46 GMT",
+    "document-policy": "js-profiling",
+    "etag": "\"2yyc9esvih2ffe\"",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "permissions-policy": "autoplay=*, fullscreen=*, microphone=*",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=HWlPB0zVdwrnX2R2iX%2B2l4TOCfsCs4nrFkIXTEdjq6fs70igx2XgERxAGjtIFN%2FoJK4zRttpkSAQWXHkS2YdRaBOiQdQLiyMzxDKVMdHXmm7vXoigunrf%2FvPDISia2QW2wHSfJr6%2Bc8%3D\"}]}",
+    "server": "cloudflare",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "transfer-encoding": "chunked",
+    "vary": "Origin, Accept-Encoding",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "SAMEORIGIN",
+    "x-robots-tag": "noindex"
+  },
+  "body": {
+    "id": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+    "projectId": "cmoicirky002jsq07vrduoi5s",
+    "name": "phi-agent.chat",
+    "timestamp": "2026-11-06T07:37:25.581Z",
+    "environment": "default",
+    "tags": [
+      "subject:phi"
+    ],
+    "bookmarked": false,
+    "release": null,
+    "version": null,
+    "userId": "<redacted>",
+    "sessionId": "7bf1e519-1de4-745d-b43f-c36fdfe3a8b7",
+    "public": false,
+    "input": "Say hello in one short sentence.",
+    "output": "Hey—what’s up?",
+    "metadata": {},
+    "createdAt": "2026-11-06T07:37:26.824Z",
+    "updatedAt": "2026-11-06T07:37:45.209Z",
+    "externalId": null,
+    "scores": [],
+    "latency": 4.991,
+    "observations": [
+      {
+        "id": "fac4979d-88be-437a-aea7-3afc74c62e90",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:27.906Z",
+        "endTime": "2026-11-06T07:37:29.724Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.respond",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:28.881Z",
+        "updatedAt": "2026-11-06T07:37:45.326Z",
+        "input": {
+          "intent": {
+            "label": "conversation_turn",
+            "description": "Say hello in one short sentence."
+          },
+          "turnVerdict": {
+            "trigger": "",
+            "personalContext": false,
+            "selfActivity": false,
+            "webSearch": false
+          }
+        },
+        "output": {
+          "segments": [
+            "Hey—what’s up?"
+          ]
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.818,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.581Z",
+        "endTime": "2026-11-06T07:37:29.724Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": null,
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.turn",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.862Z",
+        "updatedAt": "2026-11-06T07:37:45.318Z",
+        "input": "Say hello in one short sentence.",
+        "output": "Hey—what’s up?",
+        "metadata": {
+          "kind": "user",
+          "conversationId": "7bf1e519-1de4-745d-b43f-c36fdfe3a8b7",
+          "states": "thinking → responding → reflecting → idle"
+        },
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 4.143,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "f1e755d3-8868-4fef-b625-6b5e0a2fa9b2",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:27.908Z",
+        "endTime": "2026-11-06T07:37:29.517Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "fac4979d-88be-437a-aea7-3afc74c62e90",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.reply",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:28.973Z",
+        "updatedAt": "2026-11-06T07:37:45.303Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+          "payload": {
+            "model": "openai/gpt-5.4-nano",
+            "instructions": "<omitted system/personal context; test request retained in gateway evidence>",
+            "input": "<omitted system/personal context; test request retained in gateway evidence>",
+            "tools": "<omitted system/personal context; test request retained in gateway evidence>",
+            "stream": true,
+            "parallel_tool_calls": true,
+            "reasoning": {
+              "effort": "low"
+            }
+          }
+        },
+        "output": {
+          "id": "gen-1793950648-0i6ERogPzXRMKY1Jzezw",
+          "object": "response",
+          "created_at": 1793950648,
+          "model": "openai/gpt-5.4-nano",
+          "status": "completed",
+          "completed_at": 1793950649,
+          "output": [
+            {
+              "id": "msg_tmp_6llv2ry1emx",
+              "type": "message",
+              "role": "assistant",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Hey—what’s up?",
+                  "annotations": [],
+                  "logprobs": []
+                }
+              ],
+              "phase": "final_answer"
+            }
+          ],
+          "error": null,
+          "incomplete_details": null,
+          "access_programs": {
+            "cyber": "standard"
+          },
+          "tool_choice": "auto",
+          "parallel_tool_calls": true,
+          "max_output_tokens": null,
+          "temperature": 1,
+          "top_p": 1,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "top_logprobs": 0,
+          "max_tool_calls": null,
+          "metadata": {},
+          "background": false,
+          "previous_response_id": null,
+          "service_tier": "default",
+          "truncation": "disabled",
+          "store": false,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "reasoning": {
+            "effort": "low",
+            "context": "current_turn",
+            "mode": "standard",
+            "summary": null
+          },
+          "safety_identifier": null,
+          "prompt_cache_key": null,
+          "prompt_cache_options": null,
+          "usage": {
+            "input_tokens": 9976,
+            "input_tokens_details": {
+              "cached_tokens": 6656
+            },
+            "output_tokens": 10,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 9986,
+            "cost": 0.00080962,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 0.00080962,
+              "upstream_inference_input_cost": 0.00079712,
+              "upstream_inference_output_cost": 1.25e-05
+            }
+          }
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "openai/gpt-5.4-nano",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.609,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 3320,
+          "output": 10,
+          "total": 9986,
+          "cache_read_input_tokens": 6656
+        },
+        "costDetails": {
+          "input": 0.000664,
+          "output": 1.25e-05,
+          "total": 0.0006765
+        },
+        "usagePricingTierId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444_tier_default",
+        "usagePricingTierName": "Standard",
+        "inputPrice": 2e-07,
+        "outputPrice": 1.25e-06,
+        "totalPrice": 0,
+        "calculatedInputCost": 0.000664,
+        "calculatedOutputCost": 1.25e-05,
+        "calculatedTotalCost": 0.0006765,
+        "unit": "TOKENS",
+        "promptTokens": 3320,
+        "completionTokens": 10,
+        "totalTokens": 9986,
+        "modelId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444",
+        "usage": {
+          "unit": "TOKENS",
+          "input": 3320,
+          "output": 10,
+          "total": 9986
+        }
+      },
+      {
+        "id": "875b3cb9-897e-417c-be02-23dfc47a5714",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:29.725Z",
+        "endTime": "2026-11-06T07:37:30.572Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "4e9ed3b0-6837-42b5-841d-a46ac12fd69a",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.self_review",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:39.040Z",
+        "updatedAt": "2026-11-06T07:37:45.245Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+          "payload": {
+            "model": "openai/gpt-5.4-nano",
+            "instructions": "<omitted system/personal context; test request retained in gateway evidence>",
+            "temperature": 0,
+            "input": "<omitted system/personal context; test request retained in gateway evidence>",
+            "tools": "<omitted system/personal context; test request retained in gateway evidence>",
+            "stream": true,
+            "parallel_tool_calls": true,
+            "reasoning": {
+              "effort": "low"
+            }
+          }
+        },
+        "output": {
+          "id": "gen-1793950650-vp5rNR5Y2IcfKWVnqOm9",
+          "object": "response",
+          "created_at": 1793950650,
+          "model": "openai/gpt-5.4-nano",
+          "status": "completed",
+          "completed_at": 1793950650,
+          "output": [
+            {
+              "id": "fc_tmp_rw466y4vzo",
+              "type": "function_call",
+              "status": "completed",
+              "call_id": "call_jNi40nCTTNLTLsC4a8arN942",
+              "name": "control_done",
+              "arguments": "{}"
+            }
+          ],
+          "error": null,
+          "incomplete_details": null,
+          "access_programs": {
+            "cyber": "standard"
+          },
+          "tool_choice": "auto",
+          "parallel_tool_calls": true,
+          "max_output_tokens": null,
+          "temperature": 1,
+          "top_p": 1,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "top_logprobs": 0,
+          "max_tool_calls": null,
+          "metadata": {},
+          "background": false,
+          "previous_response_id": null,
+          "service_tier": "default",
+          "truncation": "disabled",
+          "store": false,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "reasoning": {
+            "effort": "low",
+            "context": "current_turn",
+            "mode": "standard",
+            "summary": null
+          },
+          "safety_identifier": null,
+          "prompt_cache_key": null,
+          "prompt_cache_options": null,
+          "usage": {
+            "input_tokens": 623,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 14,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 637,
+            "cost": 0.0001421,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 0.0001421,
+              "upstream_inference_input_cost": 0.0001246,
+              "upstream_inference_output_cost": 1.75e-05
+            }
+          }
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "openai/gpt-5.4-nano",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.847,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 623,
+          "output": 14,
+          "total": 637,
+          "cache_read_input_tokens": 0
+        },
+        "costDetails": {
+          "input": 0.0001246,
+          "output": 1.75e-05,
+          "total": 0.000142099999
+        },
+        "usagePricingTierId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444_tier_default",
+        "usagePricingTierName": "Standard",
+        "inputPrice": 2e-07,
+        "outputPrice": 1.25e-06,
+        "totalPrice": 0,
+        "calculatedInputCost": 0.0001246,
+        "calculatedOutputCost": 1.75e-05,
+        "calculatedTotalCost": 0.000142099999,
+        "unit": "TOKENS",
+        "promptTokens": 623,
+        "completionTokens": 14,
+        "totalTokens": 637,
+        "modelId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444",
+        "usage": {
+          "unit": "TOKENS",
+          "input": 623,
+          "output": 14,
+          "total": 637
+        }
+      },
+      {
+        "id": "4e9ed3b0-6837-42b5-841d-a46ac12fd69a",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:29.725Z",
+        "endTime": "2026-11-06T07:37:30.572Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": null,
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.self_review",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:39.036Z",
+        "updatedAt": "2026-11-06T07:37:45.232Z",
+        "input": {
+          "userMessage": "Say hello in one short sentence.",
+          "reply": "Hey—what’s up?"
+        },
+        "output": {
+          "verdict": {
+            "action": "control_done"
+          }
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.847,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "07471487-856b-49a3-8d8c-6933c0b8f6ce",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:28.791Z",
+        "endTime": "2026-11-06T07:37:29.991Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:39.030Z",
+        "updatedAt": "2026-11-06T07:37:45.187Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+          "payload": {
+            "model": "openai/gpt-5.4-nano",
+            "instructions": "<omitted system/personal context; test request retained in gateway evidence>",
+            "temperature": 0.2,
+            "input": "<omitted system/personal context; test request retained in gateway evidence>",
+            "tools": "<omitted system/personal context; test request retained in gateway evidence>",
+            "stream": true,
+            "parallel_tool_calls": true,
+            "reasoning": {
+              "effort": "none"
+            }
+          }
+        },
+        "output": {
+          "id": "gen-1793950649-tysg39DvWt0JvibPafxx",
+          "object": "response",
+          "created_at": 1793950649,
+          "model": "openai/gpt-5.4-nano",
+          "status": "completed",
+          "completed_at": 1793950649,
+          "output": [
+            {
+              "id": "msg_tmp_um6alipc7gb",
+              "type": "message",
+              "role": "assistant",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Thinking and preparing a response",
+                  "annotations": [],
+                  "logprobs": []
+                }
+              ],
+              "phase": "final_answer"
+            }
+          ],
+          "error": null,
+          "incomplete_details": null,
+          "access_programs": {
+            "cyber": "standard"
+          },
+          "tool_choice": "auto",
+          "parallel_tool_calls": true,
+          "max_output_tokens": null,
+          "temperature": 1,
+          "top_p": 1,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "top_logprobs": 0,
+          "max_tool_calls": null,
+          "metadata": {},
+          "background": false,
+          "previous_response_id": null,
+          "service_tier": "default",
+          "truncation": "disabled",
+          "store": false,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "reasoning": {
+            "effort": "none",
+            "context": "current_turn",
+            "mode": "standard",
+            "summary": null
+          },
+          "safety_identifier": null,
+          "prompt_cache_key": null,
+          "prompt_cache_options": null,
+          "usage": {
+            "input_tokens": 225,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 9,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 234,
+            "cost": 5.625e-05,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 5.625e-05,
+              "upstream_inference_input_cost": 4.5e-05,
+              "upstream_inference_output_cost": 1.125e-05
+            }
+          }
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "openai/gpt-5.4-nano",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.2,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 225,
+          "output": 9,
+          "total": 234,
+          "cache_read_input_tokens": 0
+        },
+        "costDetails": {
+          "input": 4.5e-05,
+          "output": 1.125e-05,
+          "total": 5.625e-05
+        },
+        "usagePricingTierId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444_tier_default",
+        "usagePricingTierName": "Standard",
+        "inputPrice": 2e-07,
+        "outputPrice": 1.25e-06,
+        "totalPrice": 0,
+        "calculatedInputCost": 4.5e-05,
+        "calculatedOutputCost": 1.125e-05,
+        "calculatedTotalCost": 5.625e-05,
+        "unit": "TOKENS",
+        "promptTokens": 225,
+        "completionTokens": 9,
+        "totalTokens": 234,
+        "modelId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444",
+        "usage": {
+          "unit": "TOKENS",
+          "input": 225,
+          "output": 9,
+          "total": 234
+        }
+      },
+      {
+        "id": "180aea4e-8e38-402a-b9fa-5b0ac92c63ec",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:27.906Z",
+        "endTime": null,
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "fac4979d-88be-437a-aea7-3afc74c62e90",
+        "type": "EVENT",
+        "environment": "default",
+        "name": "chat.gate_hold",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:28.894Z",
+        "updatedAt": "2026-11-06T07:37:35.403Z",
+        "input": null,
+        "output": {
+          "decision": "through",
+          "outstanding": []
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": null,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "517b4e02-becf-4c92-9c2e-66d6d8aad307",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:27.880Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.assess",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.887Z",
+        "updatedAt": "2026-11-06T07:37:35.240Z",
+        "input": {
+          "text": "Say hello in one short sentence."
+        },
+        "output": {
+          "taskRoute": {
+            "isTask": false
+          },
+          "intent": {
+            "label": "conversation_turn",
+            "description": "Say hello in one short sentence."
+          }
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 2.298,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "a50d3c95-fbaa-45fd-8ae2-f87b3c561b12",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:25.583Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "4eb2370b-dd17-41f9-ad95-3a30ad4d1cd5",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.recall.search",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.914Z",
+        "updatedAt": "2026-11-06T07:37:35.221Z",
+        "input": {
+          "text": "Say hello in one short sentence.",
+          "query": "Say hello in one short sentence.",
+          "excludeConversationId": "7bf1e519-1de4-745d-b43f-c36fdfe3a8b7"
+        },
+        "output": {
+          "hits": [],
+          "emptyReason": "error"
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.001,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "0ce1febd-3285-4e9c-9292-84ff9a4d8d41",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:27.905Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.decision.turn_verdict",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.838Z",
+        "updatedAt": "2026-11-06T07:37:35.212Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+          "payload": {
+            "model": "phi/chat/jev",
+            "state": "<omitted system/personal context; test request retained in gateway evidence>",
+            "questions": "<omitted system/personal context; test request retained in gateway evidence>"
+          }
+        },
+        "output": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "memoryTrigger": {
+              "type": "choice",
+              "choice": "none",
+              "probabilities": {
+                "entity": 0,
+                "activity": 0,
+                "recommendation": 0,
+                "none": 1
+              },
+              "confidence": 1
+            },
+            "personalContext": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "selfActivity": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "webSearch": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 924,
+            "output_tokens": 143,
+            "cost": 3.8808e-05,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 3.8808e-05,
+              "upstream_inference_prompt_cost": 3.8808e-05,
+              "upstream_inference_completions_cost": 0
+            }
+          },
+          "id": "gen-dec-1793950647-N4M3aBdDYXSndYaYZ7qP",
+          "provider": "TypeSafe"
+        },
+        "metadata": {
+          "latencyMs": 2327
+        },
+        "model": "typesafe/jev-1.13-20260917",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 2.323,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 924,
+          "output": 143,
+          "total": 1067
+        },
+        "costDetails": {
+          "total": 3.8808e-05
+        },
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 3.8808e-05,
+        "unit": "TOKENS",
+        "promptTokens": 924,
+        "completionTokens": 143,
+        "totalTokens": 1067,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 924,
+          "output": 143,
+          "total": 1067
+        }
+      },
+      {
+        "id": "5a28f7f9-1d3c-43dd-92ac-33407600b6a3",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:26.783Z",
+        "endTime": "2026-11-06T07:37:27.623Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.activity_status",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:28.879Z",
+        "updatedAt": "2026-11-06T07:37:35.207Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/responses",
+          "payload": {
+            "model": "openai/gpt-5.4-nano",
+            "instructions": "<omitted system/personal context; test request retained in gateway evidence>",
+            "temperature": 0.2,
+            "input": "<omitted system/personal context; test request retained in gateway evidence>",
+            "tools": "<omitted system/personal context; test request retained in gateway evidence>",
+            "stream": true,
+            "parallel_tool_calls": true,
+            "reasoning": {
+              "effort": "none"
+            }
+          }
+        },
+        "output": {
+          "id": "gen-1793950647-6OktcpZBNnl16sOBEkfK",
+          "object": "response",
+          "created_at": 1793950647,
+          "model": "openai/gpt-5.4-nano",
+          "status": "completed",
+          "completed_at": 1793950647,
+          "output": [
+            {
+              "id": "msg_tmp_oofy70bl3am",
+              "type": "message",
+              "role": "assistant",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Thinking and preparing a reply",
+                  "annotations": [],
+                  "logprobs": []
+                }
+              ],
+              "phase": "final_answer"
+            }
+          ],
+          "error": null,
+          "incomplete_details": null,
+          "access_programs": {
+            "cyber": "standard"
+          },
+          "tool_choice": "auto",
+          "parallel_tool_calls": true,
+          "max_output_tokens": null,
+          "temperature": 1,
+          "top_p": 1,
+          "presence_penalty": 0,
+          "frequency_penalty": 0,
+          "top_logprobs": 0,
+          "max_tool_calls": null,
+          "metadata": {},
+          "background": false,
+          "previous_response_id": null,
+          "service_tier": "default",
+          "truncation": "disabled",
+          "store": false,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "reasoning": {
+            "effort": "none",
+            "context": "current_turn",
+            "mode": "standard",
+            "summary": null
+          },
+          "safety_identifier": null,
+          "prompt_cache_key": null,
+          "prompt_cache_options": null,
+          "usage": {
+            "input_tokens": 221,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 9,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 230,
+            "cost": 5.545e-05,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 5.545e-05,
+              "upstream_inference_input_cost": 4.42e-05,
+              "upstream_inference_output_cost": 1.125e-05
+            }
+          }
+        },
+        "metadata": {
+          "round": 0
+        },
+        "model": "openai/gpt-5.4-nano",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.84,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 221,
+          "output": 9,
+          "total": 230,
+          "cache_read_input_tokens": 0
+        },
+        "costDetails": {
+          "input": 4.42e-05,
+          "output": 1.125e-05,
+          "total": 5.545e-05
+        },
+        "usagePricingTierId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444_tier_default",
+        "usagePricingTierName": "Standard",
+        "inputPrice": 2e-07,
+        "outputPrice": 1.25e-06,
+        "totalPrice": 0,
+        "calculatedInputCost": 4.42e-05,
+        "calculatedOutputCost": 1.125e-05,
+        "calculatedTotalCost": 5.545e-05,
+        "unit": "TOKENS",
+        "promptTokens": 221,
+        "completionTokens": 9,
+        "totalTokens": 230,
+        "modelId": "2d83d130-d0f1-4b5d-be1c-7caf70b8e444",
+        "usage": {
+          "unit": "TOKENS",
+          "input": 221,
+          "output": 9,
+          "total": 230
+        }
+      },
+      {
+        "id": "4eb2370b-dd17-41f9-ad95-3a30ad4d1cd5",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:27.907Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.recall",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.828Z",
+        "updatedAt": "2026-11-06T07:37:35.205Z",
+        "input": {
+          "source": "user_message",
+          "paramsSource": "planner",
+          "text": "Say hello in one short sentence."
+        },
+        "output": {
+          "skipped": {
+            "source": "user_message",
+            "reason": "retriever_declined"
+          },
+          "result": {
+            "source": "user_message",
+            "hits": [],
+            "emptyReason": "error"
+          },
+          "hits": []
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 2.325,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "dd3e0c1a-21ad-42fd-8f7e-7ebd6994d957",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.614Z",
+        "endTime": "2026-11-06T07:37:26.818Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "517b4e02-becf-4c92-9c2e-66d6d8aad307",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.decision.route_skills",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:28.870Z",
+        "updatedAt": "2026-11-06T07:37:35.203Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+          "payload": {
+            "model": "phi/chat/jev",
+            "state": "<omitted system/personal context; test request retained in gateway evidence>",
+            "questions": "<omitted system/personal context; test request retained in gateway evidence>"
+          }
+        },
+        "output": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "alpha": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "bravo": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "charlie": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "delta": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "echo": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "foxtrot": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "golf": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "hotel": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "india": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "juliet": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "kilo": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "lima": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "mike": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "november": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            },
+            "oscar": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 3738,
+            "output_tokens": 436,
+            "cost": 0.000156996,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 0.000156996,
+              "upstream_inference_prompt_cost": 0.000156996,
+              "upstream_inference_completions_cost": 0
+            }
+          },
+          "id": "gen-dec-1793950646-U1XEAZakbplRAGoSG3IA",
+          "provider": "TypeSafe"
+        },
+        "metadata": {
+          "latencyMs": 1208
+        },
+        "model": "typesafe/jev-1.13-20260917",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.204,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 3738,
+          "output": 436,
+          "total": 4174
+        },
+        "costDetails": {
+          "total": 0.000156996
+        },
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0.000156996,
+        "unit": "TOKENS",
+        "promptTokens": 3738,
+        "completionTokens": 436,
+        "totalTokens": 4174,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 3738,
+          "output": 436,
+          "total": 4174
+        }
+      },
+      {
+        "id": "9e171664-e5ce-4827-bc82-adc7c209d74b",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.613Z",
+        "endTime": "2026-11-06T07:37:27.880Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "517b4e02-becf-4c92-9c2e-66d6d8aad307",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.decision.route_lane",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:28.888Z",
+        "updatedAt": "2026-11-06T07:37:35.194Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+          "payload": {
+            "model": "phi/chat/jev",
+            "state": "<omitted system/personal context; test request retained in gateway evidence>",
+            "questions": "<omitted system/personal context; test request retained in gateway evidence>"
+          }
+        },
+        "output": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "lane": {
+              "type": "choice",
+              "choice": "answer",
+              "probabilities": {
+                "answer": 0.99,
+                "action": 0.01,
+                "video": 0,
+                "persona": 0,
+                "memory": 0,
+                "skill_library": 0,
+                "unclear": 0
+              },
+              "confidence": 0.99
+            },
+            "userChoice": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0.01,
+                "no": 0.99
+              },
+              "confidence": 0.98
+            },
+            "libraryAction": {
+              "type": "choice",
+              "choice": "none",
+              "probabilities": {
+                "list": 0,
+                "install": 0,
+                "uninstall": 0,
+                "record": 0,
+                "none": 1
+              },
+              "confidence": 1
+            },
+            "reusable": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0.02,
+                "no": 0.98
+              },
+              "confidence": 0.96
+            },
+            "artifact": {
+              "type": "choice",
+              "choice": "no",
+              "probabilities": {
+                "yes": 0,
+                "no": 1
+              },
+              "confidence": 1
+            }
+          },
+          "usage": {
+            "input_tokens": 1704,
+            "output_tokens": 211,
+            "cost": 7.1568e-05,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 7.1568e-05,
+              "upstream_inference_prompt_cost": 7.1568e-05,
+              "upstream_inference_completions_cost": 0
+            }
+          },
+          "id": "gen-dec-1793950647-DlE14idS9POkmg9gLKoL",
+          "provider": "TypeSafe"
+        },
+        "metadata": {
+          "latencyMs": 2267
+        },
+        "model": "typesafe/jev-1.13-20260917",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 2.267,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 1704,
+          "output": 211,
+          "total": 1915
+        },
+        "costDetails": {
+          "total": 7.1568e-05
+        },
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 7.1568e-05,
+        "unit": "TOKENS",
+        "promptTokens": 1704,
+        "completionTokens": 211,
+        "totalTokens": 1915,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 1704,
+          "output": 211,
+          "total": 1915
+        }
+      },
+      {
+        "id": "1a0e09b1-1a1d-41db-94f2-861f0959a781",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:26.783Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "517b4e02-becf-4c92-9c2e-66d6d8aad307",
+        "type": "GENERATION",
+        "environment": "default",
+        "name": "chat.decision.reply_language",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.842Z",
+        "updatedAt": "2026-11-06T07:37:35.183Z",
+        "input": {
+          "endpoint": "https://ai-service.stag.phibrowser.com/v1/decisions",
+          "payload": {
+            "model": "phi/chat/jev",
+            "state": "<omitted system/personal context; test request retained in gateway evidence>",
+            "questions": "<omitted system/personal context; test request retained in gateway evidence>"
+          }
+        },
+        "output": {
+          "model": "typesafe/jev-1.13-20260917",
+          "answers": {
+            "replyLanguage": {
+              "type": "choice",
+              "choice": "english",
+              "probabilities": {
+                "english": 1,
+                "chinese": 0,
+                "japanese": 0,
+                "korean": 0,
+                "spanish": 0,
+                "french": 0,
+                "german": 0,
+                "dutch": 0,
+                "portuguese": 0,
+                "italian": 0,
+                "russian": 0,
+                "arabic": 0,
+                "hindi": 0,
+                "vietnamese": 0,
+                "thai": 0,
+                "indonesian": 0,
+                "turkish": 0,
+                "polish": 0,
+                "other": 0,
+                "none": 0
+              },
+              "confidence": 1
+            },
+            "languageRequest": {
+              "type": "choice",
+              "choice": "none",
+              "probabilities": {
+                "none": 0.92,
+                "this_reply": 0.08,
+                "from_now_on": 0,
+                "follow_me": 0
+              },
+              "confidence": 0.89
+            },
+            "requestedLanguage": {
+              "type": "choice",
+              "choice": "none",
+              "probabilities": {
+                "english": 0.03,
+                "chinese": 0,
+                "japanese": 0,
+                "korean": 0,
+                "spanish": 0,
+                "french": 0,
+                "german": 0,
+                "dutch": 0,
+                "portuguese": 0,
+                "italian": 0,
+                "russian": 0,
+                "arabic": 0,
+                "hindi": 0,
+                "vietnamese": 0,
+                "thai": 0,
+                "indonesian": 0,
+                "turkish": 0,
+                "polish": 0,
+                "other": 0,
+                "none": 0.97
+              },
+              "confidence": 0.97
+            }
+          },
+          "usage": {
+            "input_tokens": 1363,
+            "output_tokens": 412,
+            "cost": 5.7246e-05,
+            "is_byok": false,
+            "cost_details": {
+              "upstream_inference_cost": 5.7246e-05,
+              "upstream_inference_prompt_cost": 5.7246e-05,
+              "upstream_inference_completions_cost": 0
+            }
+          },
+          "id": "gen-dec-1793950646-P36JNFfBmdC1kejKzoEw",
+          "provider": "TypeSafe"
+        },
+        "metadata": {
+          "latencyMs": 1210
+        },
+        "model": "typesafe/jev-1.13-20260917",
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 1.201,
+        "timeToFirstToken": null,
+        "usageDetails": {
+          "input": 1363,
+          "output": 412,
+          "total": 1775
+        },
+        "costDetails": {
+          "total": 5.7246e-05
+        },
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 5.7246e-05,
+        "unit": "TOKENS",
+        "promptTokens": 1363,
+        "completionTokens": 412,
+        "totalTokens": 1775,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 1363,
+          "output": 412,
+          "total": 1775
+        }
+      },
+      {
+        "id": "0c3f18bf-9eaa-4538-ba46-e6cf24cd4105",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:25.583Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "4eb2370b-dd17-41f9-ad95-3a30ad4d1cd5",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.episodic_memory.fetch",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.851Z",
+        "updatedAt": "2026-11-06T07:37:32.585Z",
+        "input": {
+          "query": "Say hello in one short sentence."
+        },
+        "output": {
+          "candidates": []
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.001,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "c550a184-9b2f-4baf-8ccf-a0e63f197a4c",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:25.582Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "2dd1db73-37f3-4819-82ad-6b5d2bbed68d",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.live_context.fetch",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.943Z",
+        "updatedAt": "2026-11-06T07:37:32.564Z",
+        "input": {
+          "provider": "live_context"
+        },
+        "output": {
+          "applied": false,
+          "block": ""
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "2dd1db73-37f3-4819-82ad-6b5d2bbed68d",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:25.582Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "ed65ea3c-1734-455f-98f1-d73ec42963df",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.live_context",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.912Z",
+        "updatedAt": "2026-11-06T07:37:32.536Z",
+        "input": {
+          "source": "conversation_live_context"
+        },
+        "output": {
+          "skipped": "empty",
+          "applied": false
+        },
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      },
+      {
+        "id": "edf45e48-3a53-4eb5-b56e-fdc50dfd7009",
+        "traceId": "87341e7b-78b0-462a-80ca-a4b46367db5e",
+        "startTime": "2026-11-06T07:37:25.582Z",
+        "endTime": "2026-11-06T07:37:25.583Z",
+        "projectId": "cmoicirky002jsq07vrduoi5s",
+        "parentObservationId": "517b4e02-becf-4c92-9c2e-66d6d8aad307",
+        "type": "SPAN",
+        "environment": "default",
+        "name": "chat.profile",
+        "level": "DEFAULT",
+        "statusMessage": null,
+        "version": null,
+        "createdAt": "2026-11-06T07:37:26.901Z",
+        "updatedAt": "2026-11-06T07:37:32.534Z",
+        "input": {
+          "provider": "user_profile"
+        },
+        "output": {},
+        "metadata": {},
+        "model": null,
+        "modelParameters": null,
+        "completionStartTime": null,
+        "promptId": null,
+        "promptName": null,
+        "promptVersion": null,
+        "latency": 0.001,
+        "timeToFirstToken": null,
+        "usageDetails": {},
+        "costDetails": {},
+        "usagePricingTierId": null,
+        "usagePricingTierName": null,
+        "inputPrice": 0,
+        "outputPrice": 0,
+        "totalPrice": 0,
+        "calculatedInputCost": null,
+        "calculatedOutputCost": null,
+        "calculatedTotalCost": 0,
+        "unit": "TOKENS",
+        "promptTokens": 0,
+        "completionTokens": 0,
+        "totalTokens": 0,
+        "modelId": null,
+        "usage": {
+          "unit": "TOKENS",
+          "input": 0,
+          "output": 0,
+          "total": 0
+        }
+      }
+    ],
+    "htmlPath": "/project/cmoicirky002jsq07vrduoi5s/traces/87341e7b-78b0-462a-80ca-a4b46367db5e",
+    "totalCost": 0.001254917999
+  }
+}

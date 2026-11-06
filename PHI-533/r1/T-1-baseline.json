@@ -1,0 +1,207 @@
+{
+  "sha": "02e7140800dd3cd02d2213d392f058b1660c34ea",
+  "files": {
+    "plugins/chat/src/chat.ts": "b0f524282cf18ca1da87cc132c568ae95b71fc36680cbb0782784cc9a65ab3b7",
+    "plugins/chat/src/lib/im-chat-execution-adapter.ts": "ae402e8d8286848b2148a10369afb64eb0ff6059749369c244b9ce2d0fd59cf0"
+  },
+  "workerEvents": [
+    {
+      "sessionId": "94451c65-a8cd-4ba0-a37e-d579c2f5f78d",
+      "type": "subagent/descriptor",
+      "seq": 3,
+      "time": 1793950324333,
+      "data": {
+        "version": 3,
+        "mode": "one-shot",
+        "provider": "spawn",
+        "label": "chat delegation "
+      }
+    },
+    {
+      "sessionId": "94451c65-a8cd-4ba0-a37e-d579c2f5f78d",
+      "type": "assistant/message",
+      "time": 1793950329146,
+      "text": "I’ll check the current time and convert it to Tokyo time."
+    },
+    {
+      "sessionId": "94451c65-a8cd-4ba0-a37e-d579c2f5f78d",
+      "type": "tool/call",
+      "seq": 21,
+      "time": 1793950329147,
+      "data": {
+        "turn": 1,
+        "step": 1,
+        "callId": "call_Z1BkZgH0HAS4AZup6pDEQFdk",
+        "name": "time",
+        "arguments": "{\"action\":\"now\"}"
+      }
+    },
+    {
+      "sessionId": "94451c65-a8cd-4ba0-a37e-d579c2f5f78d",
+      "type": "tool/result",
+      "seq": 22,
+      "time": 1793950329153,
+      "data": {
+        "turn": 1,
+        "step": 1,
+        "message": {
+          "source": {
+            "kind": "tool",
+            "callId": "call_Z1BkZgH0HAS4AZup6pDEQFdk"
+          },
+          "content": [
+            {
+              "type": "tool-result",
+              "toolCallId": "call_Z1BkZgH0HAS4AZup6pDEQFdk",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"utcTimestampMs\":1793950329149,\"localTime\":\"2026-11-06 15:32:09 GMT+08:00\",\"timezone\":\"Asia/Shanghai\",\"utcTime\":\"2026-11-06T07:32:09.149Z\"}"
+                }
+              ],
+              "isError": false
+            }
+          ],
+          "role": "user",
+          "id": "448ec302-745e-4833-9142-0f7764be79c5"
+        }
+      },
+      "sourceEventSeqs": [
+        21
+      ],
+      "surfaceOp": "append"
+    },
+    {
+      "sessionId": "94451c65-a8cd-4ba0-a37e-d579c2f5f78d",
+      "type": "assistant/message",
+      "time": 1793950334329,
+      "text": "16:32"
+    },
+    {
+      "sessionId": "94451c65-a8cd-4ba0-a37e-d579c2f5f78d",
+      "type": "turn/end",
+      "seq": 35,
+      "time": 1793950334329,
+      "data": {
+        "turn": 1,
+        "reason": {
+          "kind": "completed"
+        }
+      }
+    }
+  ],
+  "ingress": [
+    {
+      "type": "agent.execute",
+      "payload": {
+        "chatId": "phi533-T-1-baseline-8ddc3168-4e2c-46b3-ae08-4e8677c16093",
+        "runId": "8ddc3168-4e2c-46b3-ae08-4e8677c16093",
+        "userId": "<test-account>",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Please run this as a background worker step: use the time tool to get the current time in Tokyo and tell me it as HH:MM."
+          }
+        ],
+        "deliveryTarget": {
+          "channelDocId": "phi533-test-channel",
+          "to": "phi533-test-recipient",
+          "platformUserId": "phi533-test-recipient",
+          "threadId": "phi533-test-thread"
+        },
+        "conversationSource": {
+          "type": "im",
+          "channel": "telegram",
+          "platformUserId": "phi533-test-recipient"
+        },
+        "title": "PHI-533 T-1-baseline",
+        "createChatIfNeeded": true
+      },
+      "at": "2026-11-06T07:32:00.757Z"
+    }
+  ],
+  "label": "T-1-baseline",
+  "started": "2026-11-06T07:32:00.757Z",
+  "ended": "2026-11-06T07:35:01.277Z",
+  "chatId": "5a93e042-8927-7177-b9b4-7148d3d01840",
+  "inboundCount": 1,
+  "payload": {
+    "chatId": "phi533-T-1-baseline-8ddc3168-4e2c-46b3-ae08-4e8677c16093",
+    "runId": "8ddc3168-4e2c-46b3-ae08-4e8677c16093",
+    "userId": "<test-account>",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Please run this as a background worker step: use the time tool to get the current time in Tokyo and tell me it as HH:MM."
+      }
+    ],
+    "deliveryTarget": {
+      "channelDocId": "phi533-test-channel",
+      "to": "phi533-test-recipient",
+      "platformUserId": "phi533-test-recipient",
+      "threadId": "phi533-test-thread"
+    },
+    "conversationSource": {
+      "type": "im",
+      "channel": "telegram",
+      "platformUserId": "phi533-test-recipient"
+    },
+    "title": "PHI-533 T-1-baseline",
+    "createChatIfNeeded": true
+  },
+  "receivedAt": [
+    "2026-11-06T07:31:51.535Z",
+    "2026-11-06T07:32:00.770Z",
+    "2026-11-06T07:32:00.773Z"
+  ],
+  "frames": [
+    {
+      "type": "connect",
+      "agentId": "phi-agent"
+    },
+    {
+      "type": "request",
+      "requestId": "cMdcoU7YOyJRW-GCI6nRt",
+      "method": "pairingState.upsert",
+      "params": {
+        "userId": "<test-account>",
+        "channel": "telegram",
+        "patch": {
+          "currentChatId": "5a93e042-8927-7177-b9b4-7148d3d01840",
+          "channelDocId": "phi533-test-channel",
+          "platformUserId": "phi533-test-recipient"
+        }
+      }
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "phi533-test-channel",
+        "chatId": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    }
+  ],
+  "rows": [
+    {
+      "id": "01a1afc5-8883-7015-a01f-3940b4ebda5b",
+      "role": "user",
+      "parts": [
+        {
+          "text": "Please run this as a background worker step: use the time tool to get the current time in Tokyo and tell me it as HH:MM.",
+          "type": "text"
+        }
+      ],
+      "metadata": {
+        "im": {
+          "type": "im",
+          "channel": "telegram",
+          "direction": "inbound",
+          "sourceChatId": "phi533-T-1-baseline-8ddc3168-4e2c-46b3-ae08-4e8677c16093",
+          "platformUserId": "phi533-test-recipient"
+        }
+      },
+      "created_at": "2026-11-06T07:32:00.809Z"
+    }
+  ]
+}

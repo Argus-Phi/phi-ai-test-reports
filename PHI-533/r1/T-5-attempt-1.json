@@ -1,0 +1,295 @@
+{
+  "sha": "19637b723371960f9785bcb202e2d98e3e7d9c32",
+  "files": {
+    "plugins/chat/src/chat.ts": "0446b0b42eb3824f411ccae66d3fa4dc5365bdcc106cf0f75ffd5a15d39e1817",
+    "plugins/chat/src/lib/im-chat-execution-adapter.ts": "152fb72f17d4eefa7d0c8a79f9ee9aaf01d43f0981f4b5ac96d68c932a1ca1ed"
+  },
+  "workerEvents": [
+    {
+      "sessionId": "7a3feaac-0fb8-488f-b6c7-870b202e63de",
+      "type": "subagent/descriptor",
+      "seq": 3,
+      "time": 1793950721791,
+      "data": {
+        "version": 3,
+        "mode": "one-shot",
+        "provider": "spawn",
+        "label": "chat delegation 01a1afcb-a684-705a-8f51-3bd26decf741"
+      }
+    },
+    {
+      "sessionId": "7a3feaac-0fb8-488f-b6c7-870b202e63de",
+      "type": "assistant/message",
+      "time": 1793950726794,
+      "text": "I’ll check the current time and convert it to Tokyo time."
+    },
+    {
+      "sessionId": "7a3feaac-0fb8-488f-b6c7-870b202e63de",
+      "type": "tool/call",
+      "seq": 21,
+      "time": 1793950726795,
+      "data": {
+        "turn": 1,
+        "step": 1,
+        "callId": "call_apgKjK2IqtL5FIz4LjtNEuBn",
+        "name": "time",
+        "arguments": "{\"action\":\"now\"}"
+      }
+    },
+    {
+      "sessionId": "7a3feaac-0fb8-488f-b6c7-870b202e63de",
+      "type": "tool/result",
+      "seq": 22,
+      "time": 1793950726798,
+      "data": {
+        "turn": 1,
+        "step": 1,
+        "message": {
+          "source": {
+            "kind": "tool",
+            "callId": "call_apgKjK2IqtL5FIz4LjtNEuBn"
+          },
+          "content": [
+            {
+              "type": "tool-result",
+              "toolCallId": "call_apgKjK2IqtL5FIz4LjtNEuBn",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{\"utcTimestampMs\":1793950726796,\"localTime\":\"2026-11-06 15:38:46 GMT+08:00\",\"timezone\":\"Asia/Shanghai\",\"utcTime\":\"2026-11-06T07:38:46.796Z\"}"
+                }
+              ],
+              "isError": false
+            }
+          ],
+          "role": "user",
+          "id": "317b0e51-8a17-464b-9685-e5a6704e0126"
+        }
+      },
+      "sourceEventSeqs": [
+        21
+      ],
+      "surfaceOp": "append"
+    },
+    {
+      "sessionId": "7a3feaac-0fb8-488f-b6c7-870b202e63de",
+      "type": "assistant/message",
+      "time": 1793950731969,
+      "text": "The current time in Tokyo is **2026-11-06 16:38:46**."
+    },
+    {
+      "sessionId": "7a3feaac-0fb8-488f-b6c7-870b202e63de",
+      "type": "turn/end",
+      "seq": 35,
+      "time": 1793950731970,
+      "data": {
+        "turn": 1,
+        "reason": {
+          "kind": "completed"
+        }
+      }
+    }
+  ],
+  "ingress": [
+    {
+      "type": "agent.execute",
+      "payload": {
+        "chatId": "phi533-T-5-attempt-1-8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+        "runId": "8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+        "userId": "<test-account>",
+        "parts": [
+          {
+            "type": "text",
+            "text": "Please run this as a background worker step: use the time tool to get the current time in Tokyo. When reporting the worker result, give the time followed by a detailed 2000-word explanation of time zones."
+          }
+        ],
+        "deliveryTarget": {
+          "channelDocId": "phi533-test-channel",
+          "to": "phi533-test-recipient",
+          "platformUserId": "phi533-test-recipient",
+          "threadId": "phi533-test-thread"
+        },
+        "conversationSource": {
+          "type": "im",
+          "channel": "telegram",
+          "platformUserId": "phi533-test-recipient"
+        },
+        "title": "PHI-533 T-5-attempt-1",
+        "createChatIfNeeded": true
+      },
+      "at": "2026-11-06T07:38:37.694Z"
+    },
+    {
+      "type": "agent.abort",
+      "payload": {
+        "chatId": "phi533-T-5-attempt-1-8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+        "runId": "8dcd3cb6-79d8-49bc-9063-a95965deb23e"
+      },
+      "at": "2026-11-06T07:38:52.689Z"
+    }
+  ],
+  "label": "T-5-attempt-1",
+  "started": "2026-11-06T07:38:37.694Z",
+  "ended": "2026-11-06T07:38:55.406Z",
+  "chatId": "f20cc0ed-24a5-7bdd-a2aa-3eb1f1704b2d",
+  "inboundCount": 1,
+  "payload": {
+    "chatId": "phi533-T-5-attempt-1-8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+    "runId": "8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+    "userId": "<test-account>",
+    "parts": [
+      {
+        "type": "text",
+        "text": "Please run this as a background worker step: use the time tool to get the current time in Tokyo. When reporting the worker result, give the time followed by a detailed 2000-word explanation of time zones."
+      }
+    ],
+    "deliveryTarget": {
+      "channelDocId": "phi533-test-channel",
+      "to": "phi533-test-recipient",
+      "platformUserId": "phi533-test-recipient",
+      "threadId": "phi533-test-thread"
+    },
+    "conversationSource": {
+      "type": "im",
+      "channel": "telegram",
+      "platformUserId": "phi533-test-recipient"
+    },
+    "title": "PHI-533 T-5-attempt-1",
+    "createChatIfNeeded": true
+  },
+  "receivedAt": [
+    "2026-11-06T07:38:25.717Z",
+    "2026-11-06T07:38:37.700Z",
+    "2026-11-06T07:38:37.701Z",
+    "2026-11-06T07:38:41.668Z",
+    "2026-11-06T07:38:45.670Z",
+    "2026-11-06T07:38:49.671Z",
+    "2026-11-06T07:38:52.689Z",
+    "2026-11-06T07:38:52.689Z",
+    "2026-11-06T07:38:52.709Z"
+  ],
+  "frames": [
+    {
+      "type": "connect",
+      "agentId": "phi-agent"
+    },
+    {
+      "type": "request",
+      "requestId": "Qr6ogkzN9R3X2IEIlsPdq",
+      "method": "pairingState.upsert",
+      "params": {
+        "userId": "<test-account>",
+        "channel": "telegram",
+        "patch": {
+          "currentChatId": "f20cc0ed-24a5-7bdd-a2aa-3eb1f1704b2d",
+          "channelDocId": "phi533-test-channel",
+          "platformUserId": "phi533-test-recipient"
+        }
+      }
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "phi533-test-channel",
+        "chatId": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "phi533-test-channel",
+        "chatId": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "phi533-test-channel",
+        "chatId": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "typing.indicator",
+      "payload": {
+        "channelDocId": "phi533-test-channel",
+        "chatId": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "message.stream.start",
+      "payload": {
+        "streamId": "01a1afcb-a684-705a-8f51-3bd26decf741",
+        "channelDocId": "phi533-test-channel",
+        "channel": "telegram",
+        "to": "phi533-test-recipient",
+        "threadId": "phi533-test-thread"
+      }
+    },
+    {
+      "type": "message.stream.delta",
+      "payload": {
+        "streamId": "01a1afcb-a684-705a-8f51-3bd26decf741",
+        "text": "2026-11-06 16:38:46 (Tokyo"
+      }
+    },
+    {
+      "type": "message.stream.end",
+      "payload": {
+        "streamId": "01a1afcb-a684-705a-8f51-3bd26decf741",
+        "text": "2026-11-06 16:38:46 (Tokyo"
+      }
+    }
+  ],
+  "rows": [
+    {
+      "id": "01a1afcb-9704-7178-9092-5583cc87f5d8",
+      "role": "user",
+      "parts": [
+        {
+          "text": "Please run this as a background worker step: use the time tool to get the current time in Tokyo. When reporting the worker result, give the time followed by a detailed 2000-word explanation of time zones.",
+          "type": "text"
+        }
+      ],
+      "metadata": {
+        "im": {
+          "type": "im",
+          "channel": "telegram",
+          "direction": "inbound",
+          "sourceChatId": "phi533-T-5-attempt-1-8dcd3cb6-79d8-49bc-9063-a95965deb23e",
+          "platformUserId": "phi533-test-recipient"
+        }
+      },
+      "created_at": "2026-11-06T07:38:37.722Z"
+    },
+    {
+      "id": "01a1afcb-a684-705a-8f51-417c4a8a85cc",
+      "role": "assistant",
+      "parts": [
+        {
+          "text": "2026-11-06 16:38:46 (Tokyo",
+          "type": "text",
+          "state": "done",
+          "providerMetadata": {
+            "partKey": "main-response:0",
+            "partSeq": 1,
+            "segmentType": "main-response"
+          }
+        }
+      ],
+      "metadata": {
+        "runId": "01a1afcb-a684-705a-8f51-3bd26decf741",
+        "runMetrics": {
+          "chars": 26,
+          "startedAt": 1793950721668,
+          "finishedAt": 1793950732708,
+          "firstTextAt": 1793950732648
+        }
+      },
+      "created_at": "2026-11-06T07:38:41.668Z"
+    }
+  ]
+}

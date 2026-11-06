@@ -1,0 +1,174 @@
+TAP version 13
+# [im-chat] delivery failed { runId: 'run-1', error: 'transport failed' }
+# [channel-delivery] queue task failed, continuing Error: transport failed
+#     at Object.fx.bridge.endStream (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.test.ts:823:36)
+#     at Object.endStream (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.ts:322:22)
+#     at <anonymous> (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/im/src/lib/channel-delivery.ts:142:48)
+#     at async ChannelDeliverySink.finish (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/im/src/lib/channel-delivery.ts:103:5)
+#     at async <anonymous> (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.ts:465:13)
+#     at async <anonymous> (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.ts:337:13)
+#     at async EventTarget.send (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.ts:479:22)
+#     at async emit (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.test.ts:134:3)
+#     at async TestContext.<anonymous> (<home>/multica_workspaces_mca/phi-7b4ee50429fe/phi-542-32d084969b81/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/im-chat-execution-adapter.test.ts:828:3)
+#     at async Test.run (node:internal/test_runner/test:1054:7)
+# (node:56757) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: execute maps an external IM chat and attachments into a Chat Hub user_message
+ok 1 - execute maps an external IM chat and attachments into a Chat Hub user_message
+  ---
+  duration_ms: 16.0955
+  type: 'test'
+  ...
+# Subtest: text chunks and RUN_FINISHED flow through ChannelDeliverySink
+ok 2 - text chunks and RUN_FINISHED flow through ChannelDeliverySink
+  ---
+  duration_ms: 0.812333
+  type: 'test'
+  ...
+# Subtest: RUN_ERROR delivers the terminal error text when no stream started
+ok 3 - RUN_ERROR delivers the terminal error text when no stream started
+  ---
+  duration_ms: 0.318959
+  type: 'test'
+  ...
+# Subtest: dispatch failures close the virtual connection and release the run
+ok 4 - dispatch failures close the virtual connection and release the run
+  ---
+  duration_ms: 0.487125
+  type: 'test'
+  ...
+# Subtest: execute reserves the run id before asynchronous preparation completes
+ok 5 - execute reserves the run id before asynchronous preparation completes
+  ---
+  duration_ms: 0.218791
+  type: 'test'
+  ...
+# Subtest: IM user actions are delivered as buttons and responses return through the Hub
+ok 6 - IM user actions are delivered as buttons and responses return through the Hub
+  ---
+  duration_ms: 0.319917
+  type: 'test'
+  ...
+# Subtest: abort dispatches a cancel uplink for the active IM run
+ok 7 - abort dispatches a cancel uplink for the active IM run
+  ---
+  duration_ms: 0.309334
+  type: 'test'
+  ...
+# Subtest: execute records the IM origin namespace from the conversation source
+ok 8 - execute records the IM origin namespace from the conversation source
+  ---
+  duration_ms: 0.658542
+  type: 'test'
+  ...
+# Subtest: execute refuses a channel outside the shared enum
+ok 9 - execute refuses a channel outside the shared enum
+  ---
+  duration_ms: 0.6635
+  type: 'test'
+  ...
+# Subtest: a voice message reaches the chat as its transcript, never as audio
+ok 10 - a voice message reaches the chat as its transcript, never as audio
+  ---
+  duration_ms: 1.479125
+  type: 'test'
+  ...
+# Subtest: an audio part is never turned into an engine file attachment
+ok 11 - an audio part is never turned into an engine file attachment
+  ---
+  duration_ms: 0.528458
+  type: 'test'
+  ...
+# Subtest: a turn that errored with nothing said tells the person instead of going silent
+ok 12 - a turn that errored with nothing said tells the person instead of going silent
+  ---
+  duration_ms: 0.558917
+  type: 'test'
+  ...
+# Subtest: a chat_error after a delivered reply does not add an apology
+ok 13 - a chat_error after a delivered reply does not add an apology
+  ---
+  duration_ms: 0.593791
+  type: 'test'
+  ...
+# Subtest: a later run delivers an independent reply after an empty initial run
+ok 14 - a later run delivers an independent reply after an empty initial run
+  ---
+  duration_ms: 0.499666
+  type: 'test'
+  ...
+# Subtest: a later run delivers an independent reply after an acknowledgment
+ok 15 - a later run delivers an independent reply after an acknowledgment
+  ---
+  duration_ms: 0.5185
+  type: 'test'
+  ...
+# Subtest: slow finish cannot reorder consecutive streams or remove the next active run
+ok 16 - slow finish cannot reorder consecutive streams or remove the next active run
+  ---
+  duration_ms: 0.546
+  type: 'test'
+  ...
+# Subtest: only a started run accepts text, actions and terminal events
+ok 17 - only a started run accepts text, actions and terminal events
+  ---
+  duration_ms: 0.362166
+  type: 'test'
+  ...
+# Subtest: a {"type":"RUN_ERROR","message":"Failed."} permanently closes delivery
+ok 18 - a {"type":"RUN_ERROR","message":"Failed."} permanently closes delivery
+  ---
+  duration_ms: 0.195958
+  type: 'test'
+  ...
+# Subtest: a {"type":"RUN_FINISHED","metadata":{"code":"client_aborted"}} permanently closes delivery
+ok 19 - a {"type":"RUN_FINISHED","metadata":{"code":"client_aborted"}} permanently closes delivery
+  ---
+  duration_ms: 0.187208
+  type: 'test'
+  ...
+# Subtest: a {"type":"RUN_FINISHED","chatError":true} permanently closes delivery
+ok 20 - a {"type":"RUN_FINISHED","chatError":true} permanently closes delivery
+  ---
+  duration_ms: 0.134333
+  type: 'test'
+  ...
+# Subtest: an old connection cannot release a new execute's reservation
+ok 21 - an old connection cannot release a new execute's reservation
+  ---
+  duration_ms: 0.19525
+  type: 'test'
+  ...
+# Subtest: trace-only runs are silent and typing belongs only to active reply segments
+ok 22 - trace-only runs are silent and typing belongs only to active reply segments
+  ---
+  duration_ms: 0.830625
+  type: 'test'
+  ...
+# Subtest: dispose is idempotent, clears active timers and rejects idle connections
+ok 23 - dispose is idempotent, clears active timers and rejects idle connections
+  ---
+  duration_ms: 0.338
+  type: 'test'
+  ...
+# Subtest: dispose during preparation prevents dispatch and queued delivery
+ok 24 - dispose during preparation prevents dispatch and queued delivery
+  ---
+  duration_ms: 0.101459
+  type: 'test'
+  ...
+# Subtest: a rejected transport operation does not poison the following segment
+ok 25 - a rejected transport operation does not poison the following segment
+  ---
+  duration_ms: 2.99175
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 759.542084
