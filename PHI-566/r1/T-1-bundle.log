@@ -1,0 +1,1266 @@
+
+> @phi-ai/dsh-bundle@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle
+> node ../scripts/generate-rows.mjs && tsx --test "src/**/*.test.ts" "tests/*.test.ts" "tests/support/**/*.test.ts"
+
+[generate-rows] wrote 54 rows to src/rows.generated.ts
+TAP version 13
+# Subtest: assembly row resolution
+    # Subtest: yields the bundle layer's rows by default
+    ok 1 - yields the bundle layer's rows by default
+      ---
+      duration_ms: 12.945583
+      type: 'test'
+      ...
+    # Subtest: honours PORT — AGENTS.md's build check runs PORT=0
+    ok 2 - honours PORT — AGENTS.md's build check runs PORT=0
+      ---
+      duration_ms: 2.146875
+      type: 'test'
+      ...
+    # Subtest: rejects a non-integer PORT instead of binding something surprising
+    ok 3 - rejects a non-integer PORT instead of binding something surprising
+      ---
+      duration_ms: 5.754333
+      type: 'test'
+      ...
+    # Subtest: drops the tcp row when the loopback face is disabled
+    ok 4 - drops the tcp row when the loopback face is disabled
+      ---
+      duration_ms: 2.247875
+      type: 'test'
+      ...
+    # Subtest: a socket path asks for the uds face, which refuses to run without its capability
+    ok 5 - a socket path asks for the uds face, which refuses to run without its capability
+      ---
+      duration_ms: 2.235667
+      type: 'test'
+      ...
+    # Subtest: a capability without a socket path mounts no uds face
+    ok 6 - a capability without a socket path mounts no uds face
+      ---
+      duration_ms: 1.300375
+      type: 'test'
+      ...
+    # Subtest: a socket path alone is UDS-only: the tcp face stays off
+    ok 7 - a socket path alone is UDS-only: the tcp face stays off
+      ---
+      duration_ms: 0.422334
+      type: 'test'
+      ...
+    # Subtest: ENABLE_LOOPBACK=true keeps the tcp face beside the socket
+    ok 8 - ENABLE_LOOPBACK=true keeps the tcp face beside the socket
+      ---
+      duration_ms: 0.447833
+      type: 'test'
+      ...
+    # Subtest: any ENABLE_LOOPBACK other than true switches the tcp face off
+    ok 9 - any ENABLE_LOOPBACK other than true switches the tcp face off
+      ---
+      duration_ms: 0.919875
+      type: 'test'
+      ...
+    # Subtest: refuses to boot with no listener left
+    ok 10 - refuses to boot with no listener left
+      ---
+      duration_ms: 0.717583
+      type: 'test'
+      ...
+    # Subtest: lets the machine layer change the port — zero code, per spec §4.3
+    ok 11 - lets the machine layer change the port — zero code, per spec §4.3
+      ---
+      duration_ms: 129.934125
+      type: 'test'
+      ...
+    # Subtest: lets the machine layer disable a row outright
+    ok 12 - lets the machine layer disable a row outright
+      ---
+      duration_ms: 2.559584
+      type: 'test'
+      ...
+# [dsh-bundle] machine patch unreadable; ignored {
+#   file: '/nonexistent/machine.yml',
+#   error: Error: ENOENT: no such file or directory, open '/nonexistent/machine.yml'
+#       at readFileSync (node:fs:440:20)
+#       at machineLayers (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.ts:250:23)
+#       at resolveAllRows (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.ts:419:8)
+#       at resolveRows (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.ts:430:10)
+#       at TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/src/assembly.test.ts:357:7)
+#       at Test.runInAsyncScope (node:async_hooks:214:14)
+#       at Test.run (node:internal/test_runner/test:1047:25)
+#       at Suite.processPendingSubtests (node:internal/test_runner/test:744:18)
+#       at Test.postRun (node:internal/test_runner/test:1173:19)
+#       at Test.run (node:internal/test_runner/test:1101:12) {
+#     errno: -2,
+#     code: 'ENOENT',
+#     syscall: 'open',
+#     path: '/nonexistent/machine.yml'
+#   }
+# }
+    # Subtest: the machine layer wins over the env layer — later layers sit on top
+    ok 13 - the machine layer wins over the env layer — later layers sit on top
+      ---
+      duration_ms: 2.200834
+      type: 'test'
+      ...
+    # Subtest: ignores an unreadable machine patch rather than refusing to boot
+    ok 14 - ignores an unreadable machine patch rather than refusing to boot
+      ---
+      duration_ms: 4.246334
+      type: 'test'
+      ...
+    # Subtest: the kernel rows are the base the layers apply to
+        # Subtest: the bundle layer points the default model at phi's router
+        ok 1 - the bundle layer points the default model at phi's router
+          ---
+          duration_ms: 0.493
+          type: 'test'
+          ...
+        # Subtest: OPENAI_RESPONSE_MODEL restates the default model, provider included
+        ok 2 - OPENAI_RESPONSE_MODEL restates the default model, provider included
+          ---
+          duration_ms: 0.305708
+          type: 'test'
+          ...
+        # Subtest: the machine layer wins over the env layer for a kernel row too
+        ok 3 - the machine layer wins over the env layer for a kernel row too
+          ---
+          duration_ms: 1.753417
+          type: 'test'
+          ...
+        # Subtest: a kernel row a layer disables is not mounted
+        ok 4 - a kernel row a layer disables is not mounted
+          ---
+          duration_ms: 1.895875
+          type: 'test'
+          ...
+        # Subtest: a wrong name assertion leaves the kernel row as it was
+        ok 5 - a wrong name assertion leaves the kernel row as it was
+          ---
+          duration_ms: 1.4975
+          type: 'test'
+          ...
+        # Subtest: resolving with the env layer in play warns about nothing
+        ok 6 - resolving with the env layer in play warns about nothing
+          ---
+          duration_ms: 0.627
+          type: 'test'
+          ...
+        # Subtest: phi-telemetry is told the shipped version
+        ok 7 - phi-telemetry is told the shipped version
+          ---
+          duration_ms: 0.275542
+          type: 'test'
+          ...
+        # Subtest: the layered rows never include a kernel row
+        ok 8 - the layered rows never include a kernel row
+          ---
+          duration_ms: 0.497375
+          type: 'test'
+          ...
+        1..8
+    ok 15 - the kernel rows are the base the layers apply to
+      ---
+      duration_ms: 7.559042
+      type: 'suite'
+      ...
+    1..15
+ok 1 - assembly row resolution
+  ---
+  duration_ms: 176.61825
+  type: 'suite'
+  ...
+# Subtest: the boot check on patch rows
+    # Subtest: a row whose inject is unmet mounts silently, and the check names it
+    ok 1 - a row whose inject is unmet mounts silently, and the check names it
+      ---
+      duration_ms: 8.3385
+      type: 'test'
+      ...
+    # Subtest: names a child fiber a row opened, and the service it waits for
+    ok 2 - names a child fiber a row opened, and the service it waits for
+      ---
+      duration_ms: 26.311125
+      type: 'test'
+      ...
+    # Subtest: names a child fiber that failed to start
+    ok 3 - names a child fiber that failed to start
+      ---
+      duration_ms: 7.654583
+      type: 'test'
+      ...
+    # Subtest: passes when a service arrives from a later row, and ignores fibers no patch row owns
+    ok 4 - passes when a service arrives from a later row, and ignores fibers no patch row owns
+      ---
+      duration_ms: 7.194833
+      type: 'test'
+      ...
+    1..4
+ok 2 - the boot check on patch rows
+  ---
+  duration_ms: 49.685541
+  type: 'suite'
+  ...
+# Subtest: upstream log lines
+    # Subtest: a warning an upstream plugin logs reaches the console, named by the plugin
+    ok 1 - a warning an upstream plugin logs reaches the console, named by the plugin
+      ---
+      duration_ms: 0.78
+      type: 'test'
+      ...
+    # Subtest: errors carry their stack, and debug stays out
+    ok 2 - errors carry their stack, and debug stays out
+      ---
+      duration_ms: 0.450167
+      type: 'test'
+      ...
+    # Subtest: stops printing once disposed
+    ok 3 - stops printing once disposed
+      ---
+      duration_ms: 0.3315
+      type: 'test'
+      ...
+    1..3
+ok 3 - upstream log lines
+  ---
+  duration_ms: 1.606209
+  type: 'suite'
+  ...
+# Subtest: config layering
+    # Subtest: inserts a new row at the end
+    ok 1 - inserts a new row at the end
+      ---
+      duration_ms: 0.704167
+      type: 'test'
+      ...
+    # Subtest: disables an existing row by id
+    ok 2 - disables an existing row by id
+      ---
+      duration_ms: 0.060833
+      type: 'test'
+      ...
+    # Subtest: replaces config wholesale — there is no deep merge
+    ok 3 - replaces config wholesale — there is no deep merge
+      ---
+      duration_ms: 0.050791
+      type: 'test'
+      ...
+    # Subtest: skips and warns when the name assertion does not match
+    ok 4 - skips and warns when the name assertion does not match
+      ---
+      duration_ms: 0.148334
+      type: 'test'
+      ...
+    # Subtest: warns when the targeted id does not exist
+    ok 5 - warns when the targeted id does not exist
+      ---
+      duration_ms: 0.0505
+      type: 'test'
+      ...
+    # Subtest: applies later layers on top of earlier ones
+    ok 6 - applies later layers on top of earlier ones
+      ---
+      duration_ms: 0.050458
+      type: 'test'
+      ...
+    # Subtest: a later layer can re-insert a row an earlier layer disabled
+    ok 7 - a later layer can re-insert a row an earlier layer disabled
+      ---
+      duration_ms: 0.089959
+      type: 'test'
+      ...
+    # Subtest: throws on a duplicate row id — ids are identities
+    ok 8 - throws on a duplicate row id — ids are identities
+      ---
+      duration_ms: 0.190166
+      type: 'test'
+      ...
+    # Subtest: does not mutate the base rows
+    ok 9 - does not mutate the base rows
+      ---
+      duration_ms: 0.157042
+      type: 'test'
+      ...
+    1..9
+ok 4 - config layering
+  ---
+  duration_ms: 2.109167
+  type: 'suite'
+  ...
+# Subtest: two delegations from one thread's anchor each get their own child, and leave nothing behind
+ok 5 - two delegations from one thread's anchor each get their own child, and leave nothing behind
+  ---
+  duration_ms: 406.405291
+  type: 'test'
+  ...
+# Subtest: a run whose answer hit the output cap is reported as cut off, not completed
+ok 6 - a run whose answer hit the output cap is reported as cut off, not completed
+  ---
+  duration_ms: 312.454458
+  type: 'test'
+  ...
+# Subtest: any other incomplete carries the provider's own reason into the failure
+ok 7 - any other incomplete carries the provider's own reason into the failure
+  ---
+  duration_ms: 146.451792
+  type: 'test'
+  ...
+# Subtest: every kernel row applies and provides its service
+ok 8 - every kernel row applies and provides its service
+  ---
+  duration_ms: 30.80475
+  type: 'test'
+  ...
+# Subtest: the agent loop really applied — it installed the agent factory
+ok 9 - the agent loop really applied — it installed the agent factory
+  ---
+  duration_ms: 30.316708
+  type: 'test'
+  ...
+# Subtest: an unmet inject is SILENT — which is why the assertion above exists
+ok 10 - an unmet inject is SILENT — which is why the assertion above exists
+  ---
+  duration_ms: 0.568583
+  type: 'test'
+  ...
+# Subtest: the mount order satisfies every plugin's declared inject
+ok 11 - the mount order satisfies every plugin's declared inject
+  ---
+  duration_ms: 1.085541
+  type: 'test'
+  ...
+# Subtest: Chat and the agent loop resolve distinct UDS purposes and observe changed default/override settings
+ok 12 - Chat and the agent loop resolve distinct UDS purposes and observe changed default/override settings
+  ---
+  duration_ms: 225.199834
+  type: 'test'
+  ...
+# Subtest: phi-agent dependency
+    # Subtest: finds the dsh packages
+    ok 1 - finds the dsh packages
+      ---
+      duration_ms: 0.4595
+      type: 'test'
+      ...
+    # Subtest: no package declares a dependency on phi-agent
+    ok 2 - no package declares a dependency on phi-agent
+      ---
+      duration_ms: 1.064917
+      type: 'test'
+      ...
+    # Subtest: the retired phi-agent and agent-worker trees hold no source files
+    ok 3 - the retired phi-agent and agent-worker trees hold no source files
+      ---
+      duration_ms: 0.088167
+      type: 'test'
+      ...
+    # Subtest: no source file imports phi-agent
+    ok 4 - no source file imports phi-agent
+      ---
+      duration_ms: 170.415833
+      type: 'test'
+      ...
+    1..4
+ok 13 - phi-agent dependency
+  ---
+  duration_ms: 172.574459
+  type: 'suite'
+  ...
+# [agent-worker] skill.run_script returning outcome {
+#   toolId: 'skill',
+#   script: 'fetch.js',
+#   ok: true,
+#   isError: false,
+#   artifactCount: 0
+# }
+# Subtest: the real worker loop continues from skill instructions to script execution with strict Responses input
+ok 14 - the real worker loop continues from skill instructions to script execution with strict Responses input
+  ---
+  duration_ms: 297.116042
+  type: 'test'
+  ...
+# Subtest: catch-all carve-out
+    # Subtest: a domain prefix beside the legacy catch-all does NOT throw
+    ok 1 - a domain prefix beside the legacy catch-all does NOT throw
+      ---
+      duration_ms: 31.008792
+      type: 'test'
+      ...
+    # Subtest: the SAME path twice still throws — the conflict rule is intact
+    ok 2 - the SAME path twice still throws — the conflict rule is intact
+      ---
+      duration_ms: 0.565916
+      type: 'test'
+      ...
+    # Subtest: every path the task row claims wins over the catch-all
+    ok 3 - every path the task row claims wins over the catch-all
+      ---
+      duration_ms: 2.399708
+      type: 'test'
+      ...
+    # Subtest: `/api/task-runs` is claimed separately — it is NOT under `/api/tasks`
+    ok 4 - `/api/task-runs` is claimed separately — it is NOT under `/api/tasks`
+      ---
+      duration_ms: 1.103125
+      type: 'test'
+      ...
+    # Subtest: every path the chat and llm rows claim wins over the catch-all
+    ok 5 - every path the chat and llm rows claim wins over the catch-all
+      ---
+      duration_ms: 1.347917
+      type: 'test'
+      ...
+    # Subtest: the chats prefix carries its three sub-path handlers with it
+    ok 6 - the chats prefix carries its three sub-path handlers with it
+      ---
+      duration_ms: 0.923667
+      type: 'test'
+      ...
+    # Subtest: the self-model paths are exact, so a deeper path stays with legacy
+    ok 7 - the self-model paths are exact, so a deeper path stays with legacy
+      ---
+      duration_ms: 5.93125
+      type: 'test'
+      ...
+    # Subtest: the feedback path is exact, so a deeper path stays with legacy
+    ok 8 - the feedback path is exact, so a deeper path stays with legacy
+      ---
+      duration_ms: 0.550125
+      type: 'test'
+      ...
+    # Subtest: the three IM prefixes win, and their sub-paths with them
+    ok 9 - the three IM prefixes win, and their sub-paths with them
+      ---
+      duration_ms: 0.980667
+      type: 'test'
+      ...
+    # Subtest: the browser-eval prefix wins, and every one of its eleven paths with it
+    ok 10 - the browser-eval prefix wins, and every one of its eleven paths with it
+      ---
+      duration_ms: 0.981583
+      type: 'test'
+      ...
+    # Subtest: the browser row's driven-tabs question is an exact path of its own
+    ok 11 - the browser row's driven-tabs question is an exact path of its own
+      ---
+      duration_ms: 19.551125
+      type: 'test'
+      ...
+    # Subtest: the fast browser agent's runs are an exact path beside the eval group
+    ok 12 - the fast browser agent's runs are an exact path beside the eval group
+      ---
+      duration_ms: 6.895292
+      type: 'test'
+      ...
+    # Subtest: the skills row now claims learned-skills and recorder too
+    ok 13 - the skills row now claims learned-skills and recorder too
+      ---
+      duration_ms: 7.113792
+      type: 'test'
+      ...
+    # Subtest: the mail guard's three exact paths win, and nothing below them
+    ok 14 - the mail guard's three exact paths win, and nothing below them
+      ---
+      duration_ms: 4.065375
+      type: 'test'
+      ...
+    # Subtest: a path no row claims falls through to whoever registered `/`
+    ok 15 - a path no row claims falls through to whoever registered `/`
+      ---
+      duration_ms: 8.418625
+      type: 'test'
+      ...
+    # Subtest: `/health` is the routes row's own, not the catch-all's
+    ok 16 - `/health` is the routes row's own, not the catch-all's
+      ---
+      duration_ms: 0.713917
+      type: 'test'
+      ...
+    1..16
+ok 15 - catch-all carve-out
+  ---
+  duration_ms: 93.386958
+  type: 'suite'
+  ...
+# Subtest: generated row table
+    # Subtest: contains exactly the rows this phase mounts
+    ok 1 - contains exactly the rows this phase mounts
+      ---
+      duration_ms: 0.554083
+      type: 'test'
+      ...
+    # Subtest: never exposes a file under src/lib as a row
+    ok 2 - never exposes a file under src/lib as a row
+      ---
+      duration_ms: 0.139417
+      type: 'test'
+      ...
+    # Subtest: every entry really is a cordis plugin module
+    ok 3 - every entry really is a cordis plugin module
+      ---
+      duration_ms: 0.132084
+      type: 'test'
+      ...
+    # Subtest: the table key matches the package export subpath
+    ok 4 - the table key matches the package export subpath
+      ---
+      duration_ms: 0.324084
+      type: 'test'
+      ...
+    1..4
+ok 16 - generated row table
+  ---
+  duration_ms: 1.676209
+  type: 'suite'
+  ...
+# Subtest: a web page: the prompt states it and the briefing names it
+ok 17 - a web page: the prompt states it and the briefing names it
+  ---
+  duration_ms: 523.612959
+  type: 'test'
+  ...
+# Subtest: the new-tab page: no page to act on, and the briefing says so
+ok 18 - the new-tab page: no page to act on, and the briefing says so
+  ---
+  duration_ms: 188.675167
+  type: 'test'
+  ...
+# Subtest: a URL with braces: the run still goes out, the briefing keeps it verbatim
+ok 19 - a URL with braces: the run still goes out, the briefing keeps it verbatim
+  ---
+  duration_ms: 197.290375
+  type: 'test'
+  ...
+# Subtest: the chat's context and constraints reach the worker, as the legacy briefing had them
+ok 20 - the chat's context and constraints reach the worker, as the legacy briefing had them
+  ---
+  duration_ms: 135.624792
+  type: 'test'
+  ...
+# Subtest: no tab: the default prompt and the bare objective, byte for byte
+ok 21 - no tab: the default prompt and the bare objective, byte for byte
+  ---
+  duration_ms: 131.020667
+  type: 'test'
+  ...
+# Subtest: a task run from a conversation: the briefing lists that conversation's pages
+ok 22 - a task run from a conversation: the briefing lists that conversation's pages
+  ---
+  duration_ms: 116.109208
+  type: 'test'
+  ...
+# Subtest: task run: the prompt lists exactly the tools on the wire, in their order
+ok 23 - task run: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 373.67725
+  type: 'test'
+  ...
+# Subtest: chat delegation: the prompt lists exactly the tools on the wire, in their order
+ok 24 - chat delegation: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 103.308667
+  type: 'test'
+  ...
+# Subtest: two capabilities: the prompt lists exactly the tools on the wire, in their order
+ok 25 - two capabilities: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 78.137291
+  type: 'test'
+  ...
+# Subtest: no surface named: the prompt lists exactly the tools on the wire, in their order
+ok 26 - no surface named: the prompt lists exactly the tools on the wire, in their order
+  ---
+  duration_ms: 73.1845
+  type: 'test'
+  ...
+# Subtest: a task run is told it is one, and is not offered the fork to the user
+ok 27 - a task run is told it is one, and is not offered the fork to the user
+  ---
+  duration_ms: 62.404625
+  type: 'test'
+  ...
+# Subtest: a narrowed run lists only what it may reach
+ok 28 - a narrowed run lists only what it may reach
+  ---
+  duration_ms: 70.206042
+  type: 'test'
+  ...
+# Subtest: a run that names no surface keeps the default prompt, byte for byte
+ok 29 - a run that names no surface keeps the default prompt, byte for byte
+  ---
+  duration_ms: 122.595333
+  type: 'test'
+  ...
+# [phi-agent-tools] skill dependencies unresolved {
+#   runId: 'skills-2',
+#   message: 'skill_dependency_cycle:built_in:read-page'
+# }
+# Subtest: a run's first request carries its catalog, expanded, and the picked skill's body verbatim
+ok 30 - a run's first request carries its catalog, expanded, and the picked skill's body verbatim
+  ---
+  duration_ms: 259.372875
+  type: 'test'
+  ...
+# Subtest: a run whose internal dependencies cannot be resolved ends before the model is called
+ok 31 - a run whose internal dependencies cannot be resolved ends before the model is called
+  ---
+  duration_ms: 38.321708
+  type: 'test'
+  ...
+# Subtest: a run with no skills keeps the default prompt, byte for byte
+ok 32 - a run with no skills keeps the default prompt, byte for byte
+  ---
+  duration_ms: 144.399166
+  type: 'test'
+  ...
+# Subtest: a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+ok 33 - a task run that reports into its conversation is told so, how its answer is judged, and the goal marker
+  ---
+  duration_ms: 296.921042
+  type: 'test'
+  ...
+# Subtest: a stop condition with {{…}} groups reaches the run verbatim and does not break the prompt
+ok 34 - a stop condition with {{…}} groups reaches the run verbatim and does not break the prompt
+  ---
+  duration_ms: 206.130334
+  type: 'test'
+  ...
+# Subtest: a task run without them keeps the task-page answer line and no markers
+ok 35 - a task run without them keeps the task-page answer line and no markers
+  ---
+  duration_ms: 129.568542
+  type: 'test'
+  ...
+# Subtest: the run is told the user's language, and told again when it changes
+ok 36 - the run is told the user's language, and told again when it changes
+  ---
+  duration_ms: 544.186666
+  type: 'test'
+  ...
+# Subtest: an unchanged language adds no snapshot
+ok 37 - an unchanged language adds no snapshot
+  ---
+  duration_ms: 135.737416
+  type: 'test'
+  ...
+# Subtest: a run with no language is told none
+ok 38 - a run with no language is told none
+  ---
+  duration_ms: 100.368625
+  type: 'test'
+  ...
+# Subtest: a task run with no language writes in its objective's language
+ok 39 - a task run with no language writes in its objective's language
+  ---
+  duration_ms: 70.724834
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=answer p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=33 toolCalls=[]
+# [chat] turn planner replan failed Error: chatTurnReplan must NOT be called on the in-band delegation path
+#     at forTask (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/sidecar-chat-action-e2e.test.ts:223:13)
+#     at Object.generateForTask (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/sidecar-chat-action-e2e.test.ts:288:27)
+#     at Object.replan (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-planner.ts:460:25)
+#     at ChatAssistant.reflectLoop (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:7795:40)
+#     at ChatAssistant.runReflecting (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:7397:16)
+#     at async ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:3394:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# Subtest: e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+ok 40 - e2e (production path, in-band delegation): worker await blocks the report until settled without wrapper TOOL_CALL frames
+  ---
+  duration_ms: 1419.951709
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=查黄金价并写中英文两段报道)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=查黄金价并写中英文两段报道)
+# [chat] blocking taskExecutor INVOKED → 查黄金价并写中英文两段报道
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] interjection folded into report context (no new turn): 再加一个西班牙文版本 / also add a Spanish version
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=43 toolCalls=[]
+# Subtest: e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+ok 41 - e2e (production path): a worker-mid-flight interjection reaches both the worker and chat report context
+  ---
+  duration_ms: 1404.439292
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=action p=1.00 skill=memory-agent model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=run the memory-agent skill on this: Open producthunt.com)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=run the memory-agent skill on this: Open producthunt.com)
+# [chat] blocking taskExecutor INVOKED → run the memory-agent skill on this: Open producthunt.com
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=Check the current time.)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=Check the current time.)
+# [chat] blocking taskExecutor INVOKED → Check the current time.
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=21 toolCalls=[]
+# Subtest: a worker run the memory continuation delegates streams its progress
+ok 42 - a worker run the memory continuation delegates streams its progress
+  ---
+  duration_ms: 566.372708
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: no worker ports in this test
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2279:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:20)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] recall path planner's plan has requests that cannot run, asking again: request 1 has no "path"
+# [chat] recall path planner's corrected plan still has requests that cannot run, dropped: request 1 has no "path"
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=24 toolCalls=[]
+# Subtest: e2e (production path, memory route B): MCP recall grounds a substantive reply over the WS hub
+ok 43 - e2e (production path, memory route B): MCP recall grounds a substantive reply over the WS hub
+  ---
+  duration_ms: 670.897917
+  type: 'test'
+  ...
+# Subtest: Stop closes the assembled pipeline while model is stalled
+ok 44 - Stop closes the assembled pipeline while model is stalled
+  ---
+  duration_ms: 35.007458
+  type: 'test'
+  ...
+# Subtest: Stop closes the assembled pipeline while profile is stalled
+ok 45 - Stop closes the assembled pipeline while profile is stalled
+  ---
+  duration_ms: 55.789084
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=answer p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=43 toolCalls=[]
+# Subtest: TASK turn: one trace — a user turn that records its routing decision, a delegation turn that rejoins it, worker.run under the delegation's chat.respond with its model rounds and tool under it
+ok 46 - TASK turn: one trace — a user turn that records its routing decision, a delegation turn that rejoins it, worker.run under the delegation's chat.respond with its model rounds and tool under it
+  ---
+  duration_ms: 611.201083
+  type: 'test'
+  ...
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# Subtest: ANSWER turn (no worker): one user turn, the reply under chat.respond, NO worker.run — one trace
+ok 47 - ANSWER turn (no worker): one user turn, the reply under chat.respond, NO worker.run — one trace
+  ---
+  duration_ms: 594.215083
+  type: 'test'
+  ...
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# [LiveConnectorProvider] greeting context unavailable: fake externalContext.get called but not stubbed in this test
+# [chat] reply language "English" request=none model=scripted latencyMs=0
+# [chat] turn verdict failed Error: no scripted decision for chatTurnVerdict
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/support/route-decisions.ts:74:13)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] task route lane=action p=1.00 skill=none model=scripted latencyMs=0
+# [chat] reply segment parsed (kind=reply role=substantive): control=control_delegate_task textLen=0 toolCalls=[control_delegate_task]
+# [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=get the current time)
+# [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=get the current time)
+# Subtest: a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+ok 48 - a disabled tracer (Langfuse unconfigured): the chat opens nothing and the TASK turn completes unchanged (ack + report + one terminal per run)
+  ---
+  duration_ms: 396.486667
+  type: 'test'
+  ...
+# [chat] blocking taskExecutor INVOKED → get the current time
+# [chat-host] could not list the conversation's attached files no storage in this composition
+# [chat] blocking taskExecutor SETTLED → ok=true
+# [chat] reply segment parsed (kind=reply role=report): control=none textLen=35 toolCalls=[]
+# Subtest: no telemetry row: without phi-chat-telemetry the chat records no chat.turn and worker.run is untraced — TASK turn completes unchanged
+ok 49 - no telemetry row: without phi-chat-telemetry the chat records no chat.turn and worker.run is untraced — TASK turn completes unchanged
+  ---
+  duration_ms: 372.302292
+  type: 'test'
+  ...
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2279:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:20)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+# [LiveConnectorProvider] no auth token — skipping fetch
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] recall path planner's plan has requests that cannot run, asking again: request 1 has no "path"
+# [chat] recall path planner's corrected plan still has requests that cannot run, dropped: request 1 has no "path"
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=6 toolCalls=[]
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2279:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:20)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+# [LiveConnectorProvider] no auth token — skipping fetch
+# Subtest: turn 1: the full recall pipeline surfaces its diagnostics on the wire (recall_context_request/result, gate_hold) through the real owner-fence
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+ok 50 - turn 1: the full recall pipeline surfaces its diagnostics on the wire (recall_context_request/result, gate_hold) through the real owner-fence
+  ---
+  duration_ms: 697.128291
+  type: 'test'
+  ...
+# [chat] recall path planner's plan has requests that cannot run, asking again: request 1 has no "path"
+# [chat] recall path planner's corrected plan still has requests that cannot run, dropped: request 1 has no "path"
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=6 toolCalls=[]
+# [chat] reply-language decision failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at ReplyLanguageGate.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:385:37)
+#     at ReplyLanguageGate.detectVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/reply-language-gate.ts:351:19)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2279:31)
+#     at ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:18)
+#     at ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:20)
+# [LiveConnectorProvider] no auth token — skipping fetch
+# [chat] turn verdict failed TypeError: Cannot read properties of undefined (reading 'evaluate')
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/chat-memory.ts:290:24)
+#     at Object.decide (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/decision-provider.ts:157:36)
+#     at decideTurnVerdict (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/turn-verdict.ts:172:35)
+#     at ChatAssistant.handleInitialTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2396:12)
+#     at async ChatAssistant.handleResponseTurn (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:2035:7)
+#     at async ChatAssistant.run (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/chat/src/engine/assistant.ts:1877:9)
+# [chat] recall path planner's plan has requests that cannot run, asking again: request 1 has no "path"
+# [chat] recall path planner's corrected plan still has requests that cannot run, dropped: request 1 has no "path"
+# [chat] reply segment parsed (kind=reply role=substantive): control=none textLen=6 toolCalls=[]
+# Subtest: turn 2: the SECOND recall turn on the same actor STILL surfaces every diagnostic on r2 (owner-fence does NOT drop the run's own session)
+ok 51 - turn 2: the SECOND recall turn on the same actor STILL surfaces every diagnostic on r2 (owner-fence does NOT drop the run's own session)
+  ---
+  duration_ms: 766.702042
+  type: 'test'
+  ...
+# Subtest: stopped during the model request, the turn still records its end
+ok 52 - stopped during the model request, the turn still records its end
+  ---
+  duration_ms: 356.66025
+  type: 'test'
+  ...
+# Subtest: stopped during a tool's own request, the turn still records its end
+ok 53 - stopped during a tool's own request, the turn still records its end
+  ---
+  duration_ms: 541.320375
+  type: 'test'
+  ...
+# Subtest: structure: rows (design section 9)
+    # Subtest: the target is 50 named rows, 2 diagnostic rows and 1 override
+    ok 1 - the target is 50 named rows, 2 diagnostic rows and 1 override
+      ---
+      duration_ms: 0.466833
+      type: 'test'
+      ...
+    # Subtest: the bundle mounts every design row
+    ok 2 - the bundle mounts every design row
+      ---
+      duration_ms: 0.338333
+      type: 'test'
+      ...
+    # Subtest: the bundle mounts no row the design does not list
+    ok 3 - the bundle mounts no row the design does not list
+      ---
+      duration_ms: 0.057959
+      type: 'test'
+      ...
+    # Subtest: the bundle mounts both diagnostic rows
+    ok 4 - the bundle mounts both diagnostic rows
+      ---
+      duration_ms: 0.039833
+      type: 'test'
+      ...
+    # Subtest: the bundle layer carries the design's override, and no other
+    ok 5 - the bundle layer carries the design's override, and no other
+      ---
+      duration_ms: 3.613292
+      type: 'test'
+      ...
+    1..5
+ok 54 - structure: rows (design section 9)
+  ---
+  duration_ms: 5.016292
+  type: 'suite'
+  ...
+# Subtest: structure: packages (design section 9)
+    # Subtest: every design package exists
+    ok 1 - every design package exists
+      ---
+      duration_ms: 0.074542
+      type: 'test'
+      ...
+    # Subtest: every package outside the design is a recorded deviation
+    ok 2 - every package outside the design is a recorded deviation
+      ---
+      duration_ms: 0.132583
+      type: 'test'
+      ...
+    # Subtest: every recorded deviation still exists
+    ok 3 - every recorded deviation still exists
+      ---
+      duration_ms: 0.18275
+      type: 'test'
+      ...
+    1..3
+ok 55 - structure: packages (design section 9)
+  ---
+  duration_ms: 0.558292
+  type: 'suite'
+  ...
+# Subtest: structure: bundle/src holds configuration, not services
+    # Subtest: holds exactly scheme A's files
+    ok 1 - holds exactly scheme A's files
+      ---
+      duration_ms: 0.218833
+      type: 'test'
+      ...
+    1..1
+ok 56 - structure: bundle/src holds configuration, not services
+  ---
+  duration_ms: 0.352416
+  type: 'suite'
+  ...
+# Subtest: structure: every top-level plugin source file is a row (10.2)
+    # Subtest: no top-level file in plugins/<pkg>/src lacks a plugin surface
+    ok 1 - no top-level file in plugins/<pkg>/src lacks a plugin surface
+      ---
+      duration_ms: 6.272
+      type: 'test'
+      ...
+    1..1
+ok 57 - structure: every top-level plugin source file is a row (10.2)
+  ---
+  duration_ms: 6.318
+  type: 'suite'
+  ...
+# Subtest: structure: no plugin value-imports another plugin (section 8)
+    # Subtest: every cross-plugin import in plugin source is type-only
+    ok 1 - every cross-plugin import in plugin source is type-only
+      ---
+      duration_ms: 1132.412584
+      type: 'test'
+      ...
+    1..1
+ok 58 - structure: no plugin value-imports another plugin (section 8)
+  ---
+  duration_ms: 1132.47075
+  type: 'suite'
+  ...
+# Subtest: structure: the default bundle suite
+    # Subtest: never reaches tests/pg
+    ok 1 - never reaches tests/pg
+      ---
+      duration_ms: 0.764292
+      type: 'test'
+      ...
+    # Subtest: drops no other test file
+    ok 2 - drops no other test file
+      ---
+      duration_ms: 0.6045
+      type: 'test'
+      ...
+    1..2
+ok 59 - structure: the default bundle suite
+  ---
+  duration_ms: 1.4215
+  type: 'suite'
+  ...
+# Subtest: a scripted round drives the upstream loop and its text becomes the summary
+ok 60 - a scripted round drives the upstream loop and its text becomes the summary
+  ---
+  duration_ms: 232.643583
+  type: 'test'
+  ...
+# [agent-worker] artifact.create stored {
+#   toolId: 'artifact',
+#   capabilityId: 'artifact.create',
+#   filename: 'note.txt',
+#   sizeBytes: 4
+# }
+# Subtest: a turn that ENDS IN ERROR is reported as an error, not an empty success
+ok 61 - a turn that ENDS IN ERROR is reported as an error, not an empty success
+  ---
+  duration_ms: 90.058833
+  type: 'test'
+  ...
+# [agent-worker] chat_category.list ok {"userId":"u1","totalCount":1,"filteredCount":1,"filteredIds":[{"id":"c1","name":"Work"}]}
+# Subtest: a capability's produced files reach WorkerRunResult.artifacts
+ok 62 - a capability's produced files reach WorkerRunResult.artifacts
+  ---
+  duration_ms: 82.713542
+  type: 'test'
+  ...
+# Subtest: tool_call_result carries every field the Sidecar renders from
+ok 63 - tool_call_result carries every field the Sidecar renders from
+  ---
+  duration_ms: 77.886584
+  type: 'test'
+  ...
+# Subtest: two runs at once never narrate each other
+ok 64 - two runs at once never narrate each other
+  ---
+  duration_ms: 130.22225
+  type: 'test'
+  ...
+# [sidecar-chat] stored user id read failed TypeError: store.getMessages is not a function
+#     at loadStoredUserMessageIds (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:4748:32)
+#     at createEntry (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:4835:17)
+#     at async enqueueReport (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/sidecar-chat.ts:5748:15)
+#     at async deliverOne (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/task-report-delivery.ts:440:29)
+#     at async pass (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/task-report-delivery.ts:514:19)
+#     at async <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/chat/src/lib/task-report-delivery.ts:536:11)
+#     at async TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/bundle/tests/task-report-e2e.test.ts:167:5)
+#     at async Test.run (node:internal/test_runner/test:1054:7)
+#     at async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+# [chat] reply segment parsed (kind=follow_up role=report): control=none textLen=46 toolCalls=[]
+# [task-report] writing the run's log failed {
+#   runId: 'run-2',
+#   error: 'store.appendTaskRunLogEntries is not a function'
+# }
+# Subtest: a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+ok 65 - a settled run's report is voiced by the conversation's engine and saved before it is recorded as posted
+  ---
+  duration_ms: 75.569167
+  type: 'test'
+  ...
+# Subtest: a correction during the only round runs before success
+ok 66 - a correction during the only round runs before success
+  ---
+  duration_ms: 302.186666
+  type: 'test'
+  ...
+# Subtest: a correction during the final round after a tool runs before success
+ok 67 - a correction during the final round after a tool runs before success
+  ---
+  duration_ms: 110.387292
+  type: 'test'
+  ...
+# [phi-guard-max-rounds] granted the wrap-up step { turn: 1, step: 13, maxRounds: 12 }
+# [phi-guard-max-rounds] refused a step past the ceiling { turn: 1, step: 14, maxRounds: 12 }
+# Subtest: an empty finish-boundary inbox does not add a model request
+ok 68 - an empty finish-boundary inbox does not add a model request
+  ---
+  duration_ms: 56.651708
+  type: 'test'
+  ...
+# Subtest: persistent late corrections stop at the existing round limit
+ok 69 - persistent late corrections stop at the existing round limit
+  ---
+  duration_ms: 183.183959
+  type: 'test'
+  ...
+# Subtest: a late correction cannot continue past the run deadline
+ok 70 - a late correction cannot continue past the run deadline
+  ---
+  duration_ms: 62.377
+  type: 'test'
+  ...
+# Subtest: a late correction cannot continue a cancelled run
+ok 71 - a late correction cannot continue a cancelled run
+  ---
+  duration_ms: 96.558125
+  type: 'test'
+  ...
+# Subtest: an interjection still being read is handed over when the turn ends
+ok 72 - an interjection still being read is handed over when the turn ends
+  ---
+  duration_ms: 85.303875
+  type: 'test'
+  ...
+# Subtest: a step waits for an interjection still being read
+ok 73 - a step waits for an interjection still being read
+  ---
+  duration_ms: 91.170291
+  type: 'test'
+  ...
+# Subtest: each model call of a traced run is reported with its prompt, output and round
+ok 74 - each model call of a traced run is reported with its prompt, output and round
+  ---
+  duration_ms: 277.842583
+  type: 'test'
+  ...
+# Subtest: a run that does not ask reports no model calls
+ok 75 - a run that does not ask reports no model calls
+  ---
+  duration_ms: 103.466583
+  type: 'test'
+  ...
+# Subtest: a two-round run records worker.run with a raw generation per round and the tool between
+ok 76 - a two-round run records worker.run with a raw generation per round and the tool between
+  ---
+  duration_ms: 223.475666
+  type: 'test'
+  ...
+# [phi-guard-max-rounds] granted the wrap-up step { turn: 1, step: 3, maxRounds: 2 }
+# [phi-guard-max-rounds] dropped tool calls from the wrap-up step {
+#   sessionId: '38e29356-97b3-465e-9504-35496ae4e363',
+#   droppedToolCalls: 1
+# }
+# [phi-guard-max-rounds] granted the wrap-up step { turn: 1, step: 3, maxRounds: 2 }
+# [phi-guard-max-rounds] dropped tool calls from the wrap-up step {
+#   sessionId: '0b9a9571-e792-4e35-8417-e7b3cd3f0207',
+#   droppedToolCalls: 1
+# }
+# Subtest: a run at its round ceiling reports what it did, still as the ceiling
+ok 77 - a run at its round ceiling reports what it did, still as the ceiling
+  ---
+  duration_ms: 197.248542
+  type: 'test'
+  ...
+# Subtest: a wrap-up that only reaches for a tool is still the round ceiling
+ok 78 - a wrap-up that only reaches for a tool is still the round ceiling
+  ---
+  duration_ms: 78.397958
+  type: 'test'
+  ...
+# [phi-agent-tools] selected skill bodies unavailable {
+#   runId: 'run-1',
+#   message: 'fake skills.getSelectedSkills called but not stubbed in this test'
+# }
+# Subtest: a run that finishes inside its ceiling never sees the wrap-up
+ok 79 - a run that finishes inside its ceiling never sees the wrap-up
+  ---
+  duration_ms: 62.040875
+  type: 'test'
+  ...
+# Subtest: a run carrying import-from-site gets its skill's round budget past the process cap
+ok 80 - a run carrying import-from-site gets its skill's round budget past the process cap
+  ---
+  duration_ms: 81.908833
+  type: 'test'
+  ...
+# [phi-guard-run-deadline] refused a step past the deadline {
+#   agent: 'b99c3a72-096b-406f-9c6e-e10e023e0004',
+#   turn: 1,
+#   step: 2,
+#   elapsedMs: 5002,
+#   maxRunTimeoutMs: 1000
+# }
+# Subtest: a run the computer slept through keeps its budget
+ok 81 - a run the computer slept through keeps its budget
+  ---
+  duration_ms: 189.097166
+  type: 'test'
+  ...
+# Subtest: a run that ran past its budget awake loses its budget
+ok 82 - a run that ran past its budget awake loses its budget
+  ---
+  duration_ms: 72.971791
+  type: 'test'
+  ...
+1..82
+# tests 144
+# suites 14
+# pass 144
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18651.619542

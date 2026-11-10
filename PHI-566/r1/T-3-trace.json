@@ -1,0 +1,494 @@
+{
+  "id": "ef0e2f0e-c4be-4bc0-be09-49b0d503d305",
+  "name": "phi-agent.chat",
+  "timestamp": "2026-11-10T14:47:59.955Z",
+  "sessionId": "01a1c5ed-cc36-717c-a2f7-2dac2a8d6d0d",
+  "version": null,
+  "release": null,
+  "tags": [
+    "subject:phi"
+  ],
+  "project": "STAGE",
+  "observations": [
+    {
+      "id": "6582be6e-5d6d-4656-a5be-60f6d6fcc456",
+      "name": "chat.turn",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:04.266Z",
+      "endTime": "2026-11-10T14:48:43.131Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": null
+    },
+    {
+      "id": "73a81de1-d9b4-4630-924d-a9760c173590",
+      "name": "chat.reply",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:40.192Z",
+      "endTime": "2026-11-10T14:48:43.131Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": "ba1b78de-38ec-4412-b9f7-30eac4f1383e"
+    },
+    {
+      "id": "de7223bc-27d7-44c6-8e8b-233b05986724",
+      "name": "chat.follow_up_options",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:43.181Z",
+      "endTime": "2026-11-10T14:48:46.758Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": null
+    },
+    {
+      "id": "ba1b78de-38ec-4412-b9f7-30eac4f1383e",
+      "name": "chat.respond",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:04.283Z",
+      "endTime": "2026-11-10T14:48:43.131Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "b3e1d24b-0591-4c23-9027-4ff5a0bf9666",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:41.093Z",
+      "endTime": "2026-11-10T14:48:42.389Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "72db62e9-0c57-462a-9346-024949e1f35c",
+      "name": "worker.run",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:04.317Z",
+      "endTime": "2026-11-10T14:48:40.191Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "ba1b78de-38ec-4412-b9f7-30eac4f1383e",
+      "output": {
+        "status": "ok",
+        "toolTrace": [
+          {
+            "tool": "skill.read_file",
+            "ok": true
+          },
+          {
+            "tool": "skill.run_script",
+            "ok": true
+          },
+          {
+            "tool": "browser_cdp.send",
+            "ok": true
+          },
+          {
+            "tool": "browser_cdp.send",
+            "ok": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "b8af59a6-0d45-4d70-b13e-391974fec962",
+      "name": "tool.browser_cdp",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:20.780Z",
+      "endTime": "2026-11-10T14:48:35.812Z",
+      "level": "WARNING",
+      "statusMessage": "the tool returned an error",
+      "model": null,
+      "parentObservationId": "72db62e9-0c57-462a-9346-024949e1f35c",
+      "input": {
+        "method": "Network.loadNetworkResource"
+      },
+      "output": {
+        "ok": false,
+        "error": {
+          "code": "cdp_timeout",
+          "message": "Network.loadNetworkResource: no reply within 15000ms",
+          "retryable": true
+        }
+      }
+    },
+    {
+      "id": "4219cebb-57f9-46ad-9282-aeb7c624ec4e",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:36.704Z",
+      "endTime": "2026-11-10T14:48:37.927Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "eb398664-af13-44bb-963b-e3f93fa3b09e",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:21.697Z",
+      "endTime": "2026-11-10T14:48:23.855Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "0f95bfd3-61d0-485a-9364-ac64f25155be",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:16.880Z",
+      "endTime": "2026-11-10T14:48:18.298Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "bb580156-7586-4252-aac8-8d65f5a7014a",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:12.413Z",
+      "endTime": "2026-11-10T14:48:14.193Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "ef3a3528-7240-4ad4-a644-b77c294a18e0",
+      "name": "tool.browser_cdp",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:15.983Z",
+      "endTime": "2026-11-10T14:48:15.983Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "72db62e9-0c57-462a-9346-024949e1f35c",
+      "input": {
+        "method": "Page.getFrameTree"
+      },
+      "output": {
+        "ok": true
+      }
+    },
+    {
+      "id": "b1a2d100-0f08-4e27-bef5-54e191a2ba03",
+      "name": "tool.skill",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:11.280Z",
+      "endTime": "2026-11-10T14:48:11.315Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "72db62e9-0c57-462a-9346-024949e1f35c",
+      "input": {
+        "action": "run_script",
+        "input": {
+          "skill": "built_in:download-twitter-video",
+          "script": "fetch.js"
+        }
+      },
+      "output": {
+        "ok": true,
+        "skipped": 0,
+        "videoCount": 1
+      }
+    },
+    {
+      "id": "95eb75b0-e625-4c09-81f1-68d6619d1ea2",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:10.040Z",
+      "endTime": "2026-11-10T14:48:11.503Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "6cbcfb50-6596-42cc-8bf5-c820c33003ef",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:07.553Z",
+      "endTime": "2026-11-10T14:48:09.133Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "0411090e-57a5-4458-af5f-baf26676befb",
+      "name": "tool.skill",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:07.951Z",
+      "endTime": "2026-11-10T14:48:07.976Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "72db62e9-0c57-462a-9346-024949e1f35c",
+      "input": {
+        "action": "read_file",
+        "input": {
+          "skill": "built_in:download-twitter-video",
+          "path": "SKILL.md"
+        }
+      },
+      "output": {
+        "ok": true,
+        "path": "SKILL.md"
+      }
+    },
+    {
+      "id": "cca68d1e-d77f-4fb5-8306-1c77cac3ea57",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:03.713Z",
+      "endTime": "2026-11-10T14:48:04.855Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "f094f4ff-d4ed-4c7f-9d25-311cffeb1283",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:05.191Z",
+      "endTime": "2026-11-10T14:48:06.646Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "a4f67ad1-1697-41a6-8fbf-7fe627887234",
+      "name": "chat.reply",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:04.285Z",
+      "endTime": "2026-11-10T14:48:05.520Z",
+      "level": "ERROR",
+      "statusMessage": "phi_fallback_exhausted: stream ended; no provider switch",
+      "model": "phi/chat/response",
+      "parentObservationId": "ba1b78de-38ec-4412-b9f7-30eac4f1383e"
+    },
+    {
+      "id": "3849b818-3771-4ab6-a8f5-f76f50ba3a34",
+      "name": "chat.profile",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:04.267Z",
+      "endTime": "2026-11-10T14:48:04.283Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "904c27ad-d9ec-445b-8004-4468897eeb6e"
+    },
+    {
+      "id": "904c27ad-d9ec-445b-8004-4468897eeb6e",
+      "name": "chat.assess",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:04.266Z",
+      "endTime": "2026-11-10T14:48:04.283Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "6582be6e-5d6d-4656-a5be-60f6d6fcc456"
+    },
+    {
+      "id": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250",
+      "name": "chat.turn",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.955Z",
+      "endTime": "2026-11-10T14:48:04.266Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": null
+    },
+    {
+      "id": "8c4289bf-9a3c-4f07-a173-4363aaad5636",
+      "name": "chat.recall_plan",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:47:59.981Z",
+      "endTime": "2026-11-10T14:48:03.560Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "85cc52f4-3ab9-460e-a39d-2ddc5dbde93a"
+    },
+    {
+      "id": "39a08e43-be12-4324-8460-11af4be406f6",
+      "name": "chat.activity_status",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:00.850Z",
+      "endTime": "2026-11-10T14:48:02.802Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/reasoning",
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "dbf45159-09c9-4d33-97b8-34ff66e38093",
+      "name": "chat.respond",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:48:01.150Z",
+      "endTime": "2026-11-10T14:48:04.266Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "d3312135-2ad2-41e5-9612-6ed2baf81e32",
+      "name": "chat.reply",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:01.152Z",
+      "endTime": "2026-11-10T14:48:04.265Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": "dbf45159-09c9-4d33-97b8-34ff66e38093"
+    },
+    {
+      "id": "85cc52f4-3ab9-460e-a39d-2ddc5dbde93a",
+      "name": "chat.recall",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.956Z",
+      "endTime": "2026-11-10T14:48:04.266Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "b72a973f-d96c-4b3b-82f3-61611fa394a3",
+      "name": "chat.recall.search",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.957Z",
+      "endTime": "2026-11-10T14:48:01.649Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "85cc52f4-3ab9-460e-a39d-2ddc5dbde93a"
+    },
+    {
+      "id": "d6111b6c-b6e7-4468-9097-f52e5e368d5a",
+      "name": "chat.decision.route_skills",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:47:59.982Z",
+      "endTime": "2026-11-10T14:48:00.474Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "typesafe/jev-1.13-20260917",
+      "parentObservationId": "a5278107-7511-47b8-a00d-9f4c036f8d1f"
+    },
+    {
+      "id": "42520f73-ff4a-4ec3-aafa-f7459e3a54ef",
+      "name": "chat.live_context.fetch",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.956Z",
+      "endTime": "2026-11-10T14:48:01.149Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "a4d7a111-ba2a-4cbe-ae47-7075843f36df"
+    },
+    {
+      "id": "a4d7a111-ba2a-4cbe-ae47-7075843f36df",
+      "name": "chat.live_context",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.956Z",
+      "endTime": "2026-11-10T14:48:01.149Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "046e1761-beaf-4964-b0ba-07858c851068",
+      "name": "chat.thought",
+      "type": "EVENT",
+      "startTime": "2026-11-10T14:47:59.983Z",
+      "endTime": null,
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "a5278107-7511-47b8-a00d-9f4c036f8d1f",
+      "name": "chat.assess",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.955Z",
+      "endTime": "2026-11-10T14:48:01.150Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "26f70ba4-e01a-4a2a-811c-ada158901a08",
+      "name": "chat.decision.route_lane",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:47:59.981Z",
+      "endTime": "2026-11-10T14:48:00.374Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "typesafe/jev-1.13-20260917",
+      "parentObservationId": "a5278107-7511-47b8-a00d-9f4c036f8d1f"
+    },
+    {
+      "id": "5dc539de-8ac2-42a1-b3dd-85caea9c4bfd",
+      "name": "chat.decision.turn_verdict",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:47:59.957Z",
+      "endTime": "2026-11-10T14:48:00.299Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "typesafe/jev-1.13-20260917",
+      "parentObservationId": "22a5c192-7efc-4b8e-bbc1-a193cbaa9250"
+    },
+    {
+      "id": "77a20742-b8b2-4b1c-892e-b93445ecf0a3",
+      "name": "chat.profile",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.957Z",
+      "endTime": "2026-11-10T14:47:59.983Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "a5278107-7511-47b8-a00d-9f4c036f8d1f"
+    },
+    {
+      "id": "08bab491-e0e9-473e-a80e-e2ffa833b58f",
+      "name": "chat.decision.reply_language",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:47:59.956Z",
+      "endTime": "2026-11-10T14:48:00.299Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "typesafe/jev-1.13-20260917",
+      "parentObservationId": "a5278107-7511-47b8-a00d-9f4c036f8d1f"
+    },
+    {
+      "id": "073881aa-a9ae-4135-89f0-60fc30ea8548",
+      "name": "chat.episodic_memory.fetch",
+      "type": "SPAN",
+      "startTime": "2026-11-10T14:47:59.957Z",
+      "endTime": "2026-11-10T14:47:59.982Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": null,
+      "parentObservationId": "85cc52f4-3ab9-460e-a39d-2ddc5dbde93a"
+    }
+  ],
+  "redaction": "删除用户标识、凭据、自由文本及密文；仅保留观测元数据、QA 字段断言和工具执行结果白名单。"
+}

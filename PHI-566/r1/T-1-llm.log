@@ -1,0 +1,1905 @@
+
+> @phi-ai/dsh-plugin-llm@0.1.0 test /Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm
+> tsx --test "src/**/*.test.ts"
+
+TAP version 13
+# Subtest: transcriptionAudioFormat
+    # Subtest: maps each readable MIME type to its input_audio format
+    ok 1 - maps each readable MIME type to its input_audio format
+      ---
+      duration_ms: 0.8155
+      type: 'test'
+      ...
+    # Subtest: has no format for an audio type the model cannot read
+    ok 2 - has no format for an audio type the model cannot read
+      ---
+      duration_ms: 0.123209
+      type: 'test'
+      ...
+    1..2
+ok 1 - transcriptionAudioFormat
+  ---
+  duration_ms: 1.457041
+  type: 'suite'
+  ...
+# Subtest: transcribeAudio
+    # Subtest: posts the clip as input_audio with the prompt and low reasoning
+    ok 1 - posts the clip as input_audio with the prompt and low reasoning
+      ---
+      duration_ms: 16.813125
+      type: 'test'
+      ...
+    # Subtest: sends the configured reasoning effort
+    ok 2 - sends the configured reasoning effort
+      ---
+      duration_ms: 0.267875
+      type: 'test'
+      ...
+    # Subtest: reads content parts and an empty transcript
+    ok 3 - reads content parts and an empty transcript
+      ---
+      duration_ms: 0.361917
+      type: 'test'
+      ...
+    # Subtest: is off without a model and sends nothing
+    ok 4 - is off without a model and sends nothing
+      ---
+      duration_ms: 0.056167
+      type: 'test'
+      ...
+    # Subtest: refuses an unreadable format and an oversized clip before sending
+    ok 5 - refuses an unreadable format and an oversized clip before sending
+      ---
+      duration_ms: 0.112875
+      type: 'test'
+      ...
+    # Subtest: reports an upstream refusal with its status and body
+    ok 6 - reports an upstream refusal with its status and body
+      ---
+      duration_ms: 0.506125
+      type: 'test'
+      ...
+    # Subtest: treats a gateway without the route as an upstream error
+    ok 7 - treats a gateway without the route as an upstream error
+      ---
+      duration_ms: 0.251
+      type: 'test'
+      ...
+    # Subtest: reports a missing credential, a transport failure and a bad body
+    ok 8 - reports a missing credential, a transport failure and a bad body
+      ---
+      duration_ms: 0.547625
+      type: 'test'
+      ...
+    # Subtest: retries a transcript the safety filter cut short
+    ok 9 - retries a transcript the safety filter cut short
+      ---
+      duration_ms: 7.737625
+      type: 'test'
+      ...
+    # Subtest: fails instead of passing on a half transcript cut twice
+    ok 10 - fails instead of passing on a half transcript cut twice
+      ---
+      duration_ms: 2.599083
+      type: 'test'
+      ...
+    # Subtest: times out a call that never answers
+    ok 11 - times out a call that never answers
+      ---
+      duration_ms: 53.91225
+      type: 'test'
+      ...
+    1..11
+ok 2 - transcribeAudio
+  ---
+  duration_ms: 83.54175
+  type: 'suite'
+  ...
+# Subtest: fixed OpenAI URL and key override the request authorization for LLM calls
+ok 3 - fixed OpenAI URL and key override the request authorization for LLM calls
+  ---
+  duration_ms: 0.547667
+  type: 'test'
+  ...
+# Subtest: an incomplete fixed upstream keeps the legacy request authorization precedence
+ok 4 - an incomplete fixed upstream keeps the legacy request authorization precedence
+  ---
+  duration_ms: 0.148416
+  type: 'test'
+  ...
+# Subtest: external fixed upstream headers omit Phi gateway authorization
+ok 5 - external fixed upstream headers omit Phi gateway authorization
+  ---
+  duration_ms: 0.886375
+  type: 'test'
+  ...
+# Subtest: phibrowser fixed upstream headers retain the Phi gateway authorization
+ok 6 - phibrowser fixed upstream headers retain the Phi gateway authorization
+  ---
+  duration_ms: 0.27225
+  type: 'test'
+  ...
+# Subtest: mixed native decisions retain structured input, typed answers and reported usage
+ok 7 - mixed native decisions retain structured input, typed answers and reported usage
+  ---
+  duration_ms: 2.353041
+  type: 'test'
+  ...
+# Subtest: partial and malformed answers stay unanswered; no probability or cost is fabricated
+ok 8 - partial and malformed answers stay unanswered; no probability or cost is fabricated
+  ---
+  duration_ms: 0.532458
+  type: 'test'
+  ...
+# Subtest: bad distributions and mismatched answer types cannot become actionable answers
+ok 9 - bad distributions and mismatched answer types cannot become actionable answers
+  ---
+  duration_ms: 0.806625
+  type: 'test'
+  ...
+# Subtest: single-question helpers return their native result and reject missing answers
+ok 10 - single-question helpers return their native result and reject missing answers
+  ---
+  duration_ms: 1.149167
+  type: 'test'
+  ...
+# Subtest: invalid requests and missing authorization fail before transport
+ok 11 - invalid requests and missing authorization fail before transport
+  ---
+  duration_ms: 0.254958
+  type: 'test'
+  ...
+# Subtest: an image travels as an asset its placeholder names, with TypeSafe's image header; a text request carries neither
+ok 12 - an image travels as an asset its placeholder names, with TypeSafe's image header; a text request carries neither
+  ---
+  duration_ms: 0.377584
+  type: 'test'
+  ...
+# Subtest: an asset that is not a plain base64 png or jpeg, or that nothing names, fails before transport
+ok 13 - an asset that is not a plain base64 png or jpeg, or that nothing names, fails before transport
+  ---
+  duration_ms: 0.294834
+  type: 'test'
+  ...
+# Subtest: a box question travels with its image and the image header, and its edges come back as fractions
+ok 14 - a box question travels with its image and the image header, and its edges come back as fractions
+  ---
+  duration_ms: 0.71925
+  type: 'test'
+  ...
+# Subtest: a box without an image, or with criteria, fails before transport
+ok 15 - a box without an image, or with criteria, fails before transport
+  ---
+  duration_ms: 0.260459
+  type: 'test'
+  ...
+# Subtest: authorization is per call and HTTP failures are not automatically retried
+ok 16 - authorization is per call and HTTP failures are not automatically retried
+  ---
+  duration_ms: 0.535833
+  type: 'test'
+  ...
+# Subtest: real HTTP transport cancels both pending requests and stalled response bodies
+ok 17 - real HTTP transport cancels both pending requests and stalled response bodies
+  ---
+  duration_ms: 96.937875
+  type: 'test'
+  ...
+# Subtest: a traced decision is one generation under the caller: the exact body in, the raw response out, the served model, usage and cost
+ok 18 - a traced decision is one generation under the caller: the exact body in, the raw response out, the served model, usage and cost
+  ---
+  duration_ms: 0.910333
+  type: 'test'
+  ...
+# Subtest: a traced decision with unanswered questions ends at WARNING and names them
+ok 19 - a traced decision with unanswered questions ends at WARNING and names them
+  ---
+  duration_ms: 0.651334
+  type: 'test'
+  ...
+# Subtest: a traced HTTP failure ends at ERROR with the upstream's body in the trace, never in the exception
+ok 20 - a traced HTTP failure ends at ERROR with the upstream's body in the trace, never in the exception
+  ---
+  duration_ms: 0.703875
+  type: 'test'
+  ...
+# Subtest: a traced response that is not JSON ends at ERROR with the text it was
+ok 21 - a traced response that is not JSON ends at ERROR with the text it was
+  ---
+  duration_ms: 0.464292
+  type: 'test'
+  ...
+# Subtest: a traced call without a bearer is still recorded: ERROR, with the request it would have sent
+ok 22 - a traced call without a bearer is still recorded: ERROR, with the request it would have sent
+  ---
+  duration_ms: 0.244166
+  type: 'test'
+  ...
+# Subtest: a traced call its caller aborted ends at WARNING, a timed-out one at ERROR
+not ok 23 - a traced call its caller aborted ends at WARNING, a timed-out one at ERROR
+  ---
+  duration_ms: 15.002458
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/decisions-client.test.ts:1:15381'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: without a tracer the client records nothing and reads the same way
+not ok 24 - without a tracer the client records nothing and reads the same way
+  ---
+  duration_ms: 0
+  type: 'test'
+  location: '/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/decisions-client.test.ts:1:16211'
+  failureType: 'cancelledByParent'
+  error: 'Promise resolution is still pending but the event loop has already resolved'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    process.emit (node:events:519:28)
+    process.emit (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/suppress-warnings.cjs:1:472)
+  ...
+# Subtest: Node fallback policy phi allow=false
+ok 25 - Node fallback policy phi allow=false
+  ---
+  duration_ms: 11.684417
+  type: 'test'
+  ...
+# Subtest: Node fallback policy phi allow=true
+ok 26 - Node fallback policy phi allow=true
+  ---
+  duration_ms: 16.598625
+  type: 'test'
+  ...
+# Subtest: Node fallback policy codex allow=false
+ok 27 - Node fallback policy codex allow=false
+  ---
+  duration_ms: 14.803208
+  type: 'test'
+  ...
+# Subtest: Node fallback policy codex allow=true
+ok 28 - Node fallback policy codex allow=true
+  ---
+  duration_ms: 1.071833
+  type: 'test'
+  ...
+# Subtest: Node fallback policy local-llm allow=false
+ok 29 - Node fallback policy local-llm allow=false
+  ---
+  duration_ms: 0.588875
+  type: 'test'
+  ...
+# Subtest: Node fallback policy local-llm allow=true
+ok 30 - Node fallback policy local-llm allow=true
+  ---
+  duration_ms: 0.482625
+  type: 'test'
+  ...
+# Subtest: Node fallback policy openrouter allow=false
+ok 31 - Node fallback policy openrouter allow=false
+  ---
+  duration_ms: 0.308792
+  type: 'test'
+  ...
+# Subtest: Node fallback policy openrouter allow=true
+ok 32 - Node fallback policy openrouter allow=true
+  ---
+  duration_ms: 0.529459
+  type: 'test'
+  ...
+# Subtest: Node can directly reach Phi when the Gateway has no usable route
+ok 33 - Node can directly reach Phi when the Gateway has no usable route
+  ---
+  duration_ms: 0.761916
+  type: 'test'
+  ...
+# Subtest: Node direct fallback preserves an explicit Phi request model
+ok 34 - Node direct fallback preserves an explicit Phi request model
+  ---
+  duration_ms: 0.691292
+  type: 'test'
+  ...
+# Subtest: resolveFeatureUpstream
+    # Subtest: goes to the channel's base URL with the request's bearer
+    ok 1 - goes to the channel's base URL with the request's bearer
+      ---
+      duration_ms: 0.844208
+      type: 'test'
+      ...
+    # Subtest: takes each feature's own base URL and key overrides
+    ok 2 - takes each feature's own base URL and key overrides
+      ---
+      duration_ms: 0.2185
+      type: 'test'
+      ...
+    # Subtest: keeps the request's bearer on a Phi endpoint, fixed upstream or not
+    ok 3 - keeps the request's bearer on a Phi endpoint, fixed upstream or not
+      ---
+      duration_ms: 0.155667
+      type: 'test'
+      ...
+    # Subtest: follows the channel's rule on a non-Phi endpoint: fixed key, no gateway header, the upstream's User-Agent
+    ok 4 - follows the channel's rule on a non-Phi endpoint: fixed key, no gateway header, the upstream's User-Agent
+      ---
+      duration_ms: 0.200417
+      type: 'test'
+      ...
+    # Subtest: uses the request's bearer on a non-Phi endpoint without a fixed upstream, as the channel does
+    ok 5 - uses the request's bearer on a non-Phi endpoint without a fixed upstream, as the channel does
+      ---
+      duration_ms: 0.123916
+      type: 'test'
+      ...
+    # Subtest: has no fixed upstream to prefer in a Sentinel-managed process
+    ok 6 - has no fixed upstream to prefer in a Sentinel-managed process
+      ---
+      duration_ms: 0.068583
+      type: 'test'
+      ...
+    # Subtest: falls back to OPENAI_API_KEY, and refuses when there is no credential
+    ok 7 - falls back to OPENAI_API_KEY, and refuses when there is no credential
+      ---
+      duration_ms: 0.186
+      type: 'test'
+      ...
+    1..7
+ok 35 - resolveFeatureUpstream
+  ---
+  duration_ms: 2.30675
+  type: 'suite'
+  ...
+# Subtest: WIRE phi chat stream=false: model, selectors, content and headers
+ok 36 - WIRE phi chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 46.869917
+  type: 'test'
+  ...
+# Subtest: WIRE phi chat stream=true: model, selectors, content and headers
+ok 37 - WIRE phi chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 2.974958
+  type: 'test'
+  ...
+# Subtest: WIRE phi agent stream=false: model, selectors, content and headers
+ok 38 - WIRE phi agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 26.530083
+  type: 'test'
+  ...
+# Subtest: WIRE phi agent stream=true: model, selectors, content and headers
+ok 39 - WIRE phi agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 3.028833
+  type: 'test'
+  ...
+# Subtest: WIRE phi memory stream=false: model, selectors, content and headers
+ok 40 - WIRE phi memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 10.519875
+  type: 'test'
+  ...
+# Subtest: WIRE phi memory stream=true: model, selectors, content and headers
+ok 41 - WIRE phi memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.504875
+  type: 'test'
+  ...
+# Subtest: WIRE phi embedding stream=false: model, selectors, content and headers
+ok 42 - WIRE phi embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.493625
+  type: 'test'
+  ...
+# Subtest: WIRE phi embedding stream=true: model, selectors, content and headers
+ok 43 - WIRE phi embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.39825
+  type: 'test'
+  ...
+# Subtest: WIRE codex chat stream=false: model, selectors, content and headers
+ok 44 - WIRE codex chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 5.532209
+  type: 'test'
+  ...
+# Subtest: WIRE codex chat stream=true: model, selectors, content and headers
+ok 45 - WIRE codex chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 3.560875
+  type: 'test'
+  ...
+# Subtest: WIRE codex agent stream=false: model, selectors, content and headers
+ok 46 - WIRE codex agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 1.206125
+  type: 'test'
+  ...
+# Subtest: WIRE codex agent stream=true: model, selectors, content and headers
+ok 47 - WIRE codex agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.469542
+  type: 'test'
+  ...
+# Subtest: WIRE codex memory stream=false: model, selectors, content and headers
+ok 48 - WIRE codex memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.298375
+  type: 'test'
+  ...
+# Subtest: WIRE codex memory stream=true: model, selectors, content and headers
+ok 49 - WIRE codex memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.310542
+  type: 'test'
+  ...
+# Subtest: WIRE codex embedding stream=false: model, selectors, content and headers
+ok 50 - WIRE codex embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.2815
+  type: 'test'
+  ...
+# Subtest: WIRE codex embedding stream=true: model, selectors, content and headers
+ok 51 - WIRE codex embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.272541
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter chat stream=false: model, selectors, content and headers
+ok 52 - WIRE openrouter chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 4.44275
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter chat stream=true: model, selectors, content and headers
+ok 53 - WIRE openrouter chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.357541
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter agent stream=false: model, selectors, content and headers
+ok 54 - WIRE openrouter agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.27575
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter agent stream=true: model, selectors, content and headers
+ok 55 - WIRE openrouter agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.277125
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter memory stream=false: model, selectors, content and headers
+ok 56 - WIRE openrouter memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.274792
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter memory stream=true: model, selectors, content and headers
+ok 57 - WIRE openrouter memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.246125
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter embedding stream=false: model, selectors, content and headers
+ok 58 - WIRE openrouter embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.267292
+  type: 'test'
+  ...
+# Subtest: WIRE openrouter embedding stream=true: model, selectors, content and headers
+ok 59 - WIRE openrouter embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.254875
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm chat stream=false: model, selectors, content and headers
+ok 60 - WIRE local-llm chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.404625
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm chat stream=true: model, selectors, content and headers
+ok 61 - WIRE local-llm chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.230833
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm agent stream=false: model, selectors, content and headers
+ok 62 - WIRE local-llm agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.230458
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm agent stream=true: model, selectors, content and headers
+ok 63 - WIRE local-llm agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.254959
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm memory stream=false: model, selectors, content and headers
+ok 64 - WIRE local-llm memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.239833
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm memory stream=true: model, selectors, content and headers
+ok 65 - WIRE local-llm memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 2.808583
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm embedding stream=false: model, selectors, content and headers
+ok 66 - WIRE local-llm embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.422458
+  type: 'test'
+  ...
+# Subtest: WIRE local-llm embedding stream=true: model, selectors, content and headers
+ok 67 - WIRE local-llm embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.3385
+  type: 'test'
+  ...
+# Subtest: WIRE ollama chat stream=false: model, selectors, content and headers
+ok 68 - WIRE ollama chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.30025
+  type: 'test'
+  ...
+# Subtest: WIRE ollama chat stream=true: model, selectors, content and headers
+ok 69 - WIRE ollama chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 24.788458
+  type: 'test'
+  ...
+# Subtest: WIRE ollama agent stream=false: model, selectors, content and headers
+ok 70 - WIRE ollama agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 6.18675
+  type: 'test'
+  ...
+# Subtest: WIRE ollama agent stream=true: model, selectors, content and headers
+ok 71 - WIRE ollama agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 8.488875
+  type: 'test'
+  ...
+# Subtest: WIRE ollama memory stream=false: model, selectors, content and headers
+ok 72 - WIRE ollama memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.300083
+  type: 'test'
+  ...
+# Subtest: WIRE ollama memory stream=true: model, selectors, content and headers
+ok 73 - WIRE ollama memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.240667
+  type: 'test'
+  ...
+# Subtest: WIRE ollama embedding stream=false: model, selectors, content and headers
+ok 74 - WIRE ollama embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.231208
+  type: 'test'
+  ...
+# Subtest: WIRE ollama embedding stream=true: model, selectors, content and headers
+ok 75 - WIRE ollama embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.213958
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio chat stream=false: model, selectors, content and headers
+ok 76 - WIRE lm-studio chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 1.020334
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio chat stream=true: model, selectors, content and headers
+ok 77 - WIRE lm-studio chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 3.543125
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio agent stream=false: model, selectors, content and headers
+ok 78 - WIRE lm-studio agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 2.064792
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio agent stream=true: model, selectors, content and headers
+ok 79 - WIRE lm-studio agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.503542
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio memory stream=false: model, selectors, content and headers
+ok 80 - WIRE lm-studio memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.288625
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio memory stream=true: model, selectors, content and headers
+ok 81 - WIRE lm-studio memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 33.971708
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio embedding stream=false: model, selectors, content and headers
+ok 82 - WIRE lm-studio embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 7.65675
+  type: 'test'
+  ...
+# Subtest: WIRE lm-studio embedding stream=true: model, selectors, content and headers
+ok 83 - WIRE lm-studio embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.421
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible chat stream=false: model, selectors, content and headers
+ok 84 - WIRE openai-compatible chat stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.264792
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible chat stream=true: model, selectors, content and headers
+ok 85 - WIRE openai-compatible chat stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.331708
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible agent stream=false: model, selectors, content and headers
+ok 86 - WIRE openai-compatible agent stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.21225
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible agent stream=true: model, selectors, content and headers
+ok 87 - WIRE openai-compatible agent stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.203625
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible memory stream=false: model, selectors, content and headers
+ok 88 - WIRE openai-compatible memory stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 0.198209
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible memory stream=true: model, selectors, content and headers
+ok 89 - WIRE openai-compatible memory stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.191916
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible embedding stream=false: model, selectors, content and headers
+ok 90 - WIRE openai-compatible embedding stream=false: model, selectors, content and headers
+  ---
+  duration_ms: 1.213
+  type: 'test'
+  ...
+# Subtest: WIRE openai-compatible embedding stream=true: model, selectors, content and headers
+ok 91 - WIRE openai-compatible embedding stream=true: model, selectors, content and headers
+  ---
+  duration_ms: 0.2485
+  type: 'test'
+  ...
+# Subtest: WIRE Phi registered alias including @ suffix must remain opaque
+ok 92 - WIRE Phi registered alias including @ suffix must remain opaque
+  ---
+  duration_ms: 0.301916
+  type: 'test'
+  ...
+# Subtest: WIRE Phi explicit selection overrides the original model and fallback selectors
+ok 93 - WIRE Phi explicit selection overrides the original model and fallback selectors
+  ---
+  duration_ms: 0.194334
+  type: 'test'
+  ...
+# Subtest: managed OpenAI clients use the host authorization and Phi endpoint, not fixed upstream credentials
+ok 94 - managed OpenAI clients use the host authorization and Phi endpoint, not fixed upstream credentials
+  ---
+  duration_ms: 0.959667
+  type: 'test'
+  ...
+# Subtest: OpenAI SDK clients use the external fixed URL, key, and user agent directly
+ok 95 - OpenAI SDK clients use the external fixed URL, key, and user agent directly
+  ---
+  duration_ms: 14.588417
+  type: 'test'
+  ...
+# [responses-stream] dropped a repeated message item { chars: 12 }
+# [responses-stream] dropped a repeated message item { chars: 5 }
+# [responses-stream] dropped a repeated message item { chars: 12 }
+# [responses-stream] dropped a repeated message item { chars: 15 }
+# Subtest: the first message streams as it arrives
+ok 96 - the first message streams as it arrives
+  ---
+  duration_ms: 2.727125
+  type: 'test'
+  ...
+# Subtest: an exact repeat is held while it matches, then dropped
+ok 97 - an exact repeat is held while it matches, then dropped
+  ---
+  duration_ms: 0.573375
+  type: 'test'
+  ...
+# Subtest: surrounding whitespace does not make a repeat new
+ok 98 - surrounding whitespace does not make a repeat new
+  ---
+  duration_ms: 0.474708
+  type: 'test'
+  ...
+# Subtest: a second message is released the moment it diverges
+ok 99 - a second message is released the moment it diverges
+  ---
+  duration_ms: 0.166083
+  type: 'test'
+  ...
+# Subtest: a shorter message that is only a prefix of the first is still shown
+ok 100 - a shorter message that is only a prefix of the first is still shown
+  ---
+  duration_ms: 0.153875
+  type: 'test'
+  ...
+# Subtest: a completed response keeps each distinct text once, in order
+ok 101 - a completed response keeps each distinct text once, in order
+  ---
+  duration_ms: 0.074167
+  type: 'test'
+  ...
+# Subtest: a second message starts a new paragraph
+ok 102 - a second message starts a new paragraph
+  ---
+  duration_ms: 0.1455
+  type: 'test'
+  ...
+# Subtest: the paragraph break counts the newlines already shown
+ok 103 - the paragraph break counts the newlines already shown
+  ---
+  duration_ms: 0.080667
+  type: 'test'
+  ...
+# Subtest: a dropped repeat adds no break, and a held message gets one on release
+ok 104 - a dropped repeat adds no break, and a held message gets one on release
+  ---
+  duration_ms: 0.269917
+  type: 'test'
+  ...
+# Subtest: a completed response joins its messages the way the stream shows them
+ok 105 - a completed response joins its messages the way the stream shows them
+  ---
+  duration_ms: 0.395792
+  type: 'test'
+  ...
+# [phi-responses-adapter] observe threw Error: observer bug
+#     at Object.observe (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.test.ts:483:13)
+#     at <anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.ts:477:10)
+#     at contained (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.ts:546:12)
+#     at streamOnceWith (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.ts:476:23)
+#     at async streamOnce (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.ts:458:5)
+#     at async streamResponsesCall (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.ts:445:3)
+#     at async collect (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.test.ts:94:20)
+#     at async TestContext.<anonymous> (/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm/src/lib/responses-adapter/adapter.test.ts:480:18)
+#     at async Test.run (node:internal/test_runner/test:1054:7)
+#     at async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+# Subtest: the request asks for encrypted reasoning and serial tool calls
+ok 106 - the request asks for encrypted reasoning and serial tool calls
+  ---
+  duration_ms: 0.75375
+  type: 'test'
+  ...
+# Subtest: a recorded response becomes blocks plus an envelope
+ok 107 - a recorded response becomes blocks plus an envelope
+  ---
+  duration_ms: 40.105083
+  type: 'test'
+  ...
+# Subtest: usage reaches the harness in ITS counting convention, not the provider's
+ok 108 - usage reaches the harness in ITS counting convention, not the provider's
+  ---
+  duration_ms: 0.357208
+  type: 'test'
+  ...
+# Subtest: the reasoning payload rides the envelope, never a neutral block
+ok 109 - the reasoning payload rides the envelope, never a neutral block
+  ---
+  duration_ms: 1.059625
+  type: 'test'
+  ...
+# Subtest: TWO TURNS: serialized input strips only item status (reasoning=false)
+ok 110 - TWO TURNS: serialized input strips only item status (reasoning=false)
+  ---
+  duration_ms: 1.445917
+  type: 'test'
+  ...
+# Subtest: TWO TURNS: serialized input strips only item status (reasoning=true)
+ok 111 - TWO TURNS: serialized input strips only item status (reasoning=true)
+  ---
+  duration_ms: 0.570125
+  type: 'test'
+  ...
+# Subtest: an incomplete response surfaces NO replayable output
+ok 112 - an incomplete response surfaces NO replayable output
+  ---
+  duration_ms: 1.9575
+  type: 'test'
+  ...
+# Subtest: an incomplete for any other reason finishes as a failure that names it
+ok 113 - an incomplete for any other reason finishes as a failure that names it
+  ---
+  duration_ms: 1.202417
+  type: 'test'
+  ...
+# Subtest: a stream that ends with no terminal event THROWS
+ok 114 - a stream that ends with no terminal event THROWS
+  ---
+  duration_ms: 0.552625
+  type: 'test'
+  ...
+# Subtest: an upstream error is reported with its status and body
+ok 115 - an upstream error is reported with its status and body
+  ---
+  duration_ms: 1.916834
+  type: 'test'
+  ...
+# Subtest: a tool call in the output makes the finish reason tool-calls
+ok 116 - a tool call in the output makes the finish reason tool-calls
+  ---
+  duration_ms: 0.615125
+  type: 'test'
+  ...
+# Subtest: a truncated stream is sent ONCE, coded for the retry plugin to repeat
+ok 117 - a truncated stream is sent ONCE, coded for the retry plugin to repeat
+  ---
+  duration_ms: 0.3225
+  type: 'test'
+  ...
+# Subtest: an observer sees the exact body sent and the raw terminal payload
+ok 118 - an observer sees the exact body sent and the raw terminal payload
+  ---
+  duration_ms: 0.341209
+  type: 'test'
+  ...
+# Subtest: an observer hears about a failed call, and a throwing observer changes nothing
+ok 119 - an observer hears about a failed call, and a throwing observer changes nothing
+  ---
+  duration_ms: 1.8795
+  type: 'test'
+  ...
+# Subtest: a 429 is RATE_LIMIT and keeps its status
+ok 120 - a 429 is RATE_LIMIT and keeps its status
+  ---
+  duration_ms: 16.543875
+  type: 'test'
+  ...
+# Subtest: a 5xx is SERVER
+ok 121 - a 5xx is SERVER
+  ---
+  duration_ms: 0.316417
+  type: 'test'
+  ...
+# Subtest: Retry-After rides along, as seconds and as a date
+ok 122 - Retry-After rides along, as seconds and as a date
+  ---
+  duration_ms: 1.453
+  type: 'test'
+  ...
+# Subtest: an unreadable or past Retry-After is left out, so the policy's own backoff applies
+ok 123 - an unreadable or past Retry-After is left out, so the policy's own backoff applies
+  ---
+  duration_ms: 0.244208
+  type: 'test'
+  ...
+# Subtest: a quota verdict is QUOTA, not RATE_LIMIT — a repeat only spends budget
+ok 124 - a quota verdict is QUOTA, not RATE_LIMIT — a repeat only spends budget
+  ---
+  duration_ms: 0.382125
+  type: 'test'
+  ...
+# Subtest: a 5xx the shared rules refuse is NOT coded SERVER
+ok 125 - a 5xx the shared rules refuse is NOT coded SERVER
+  ---
+  duration_ms: 0.4415
+  type: 'test'
+  ...
+# Subtest: a rejected credential is INVALID_CREDENTIAL
+ok 126 - a rejected credential is INVALID_CREDENTIAL
+  ---
+  duration_ms: 0.202
+  type: 'test'
+  ...
+# Subtest: a plain 4xx is a verdict: coded, but not one the policy repeats
+ok 127 - a plain 4xx is a verdict: coded, but not one the policy repeats
+  ---
+  duration_ms: 0.483583
+  type: 'test'
+  ...
+# Subtest: a dropped connection is TRANSPORT
+ok 128 - a dropped connection is TRANSPORT
+  ---
+  duration_ms: 1.599458
+  type: 'test'
+  ...
+# Subtest: an abort is not classified at all, so the caller rethrows the original
+ok 129 - an abort is not classified at all, so the caller rethrows the original
+  ---
+  duration_ms: 0.580708
+  type: 'test'
+  ...
+# Subtest: a truncated stream is EMPTY_RESPONSE, which every default policy repeats
+ok 130 - a truncated stream is EMPTY_RESPONSE, which every default policy repeats
+  ---
+  duration_ms: 0.174625
+  type: 'test'
+  ...
+# Subtest: the recorded shapes actually contain what is under test
+ok 131 - the recorded shapes actually contain what is under test
+  ---
+  duration_ms: 0.442709
+  type: 'test'
+  ...
+# Subtest: round trip is byte-identical: aborted \#0 (2 item(s))
+ok 132 - round trip is byte-identical: aborted \#0 (2 item(s))
+  ---
+  duration_ms: 0.374583
+  type: 'test'
+  ...
+# Subtest: round trip is byte-identical: interjection \#1 (3 item(s))
+ok 133 - round trip is byte-identical: interjection \#1 (3 item(s))
+  ---
+  duration_ms: 4.007833
+  type: 'test'
+  ...
+# Subtest: round trip is byte-identical: interjection \#2 (2 item(s))
+ok 134 - round trip is byte-identical: interjection \#2 (2 item(s))
+  ---
+  duration_ms: 0.227625
+  type: 'test'
+  ...
+# Subtest: round trip is byte-identical: multi-round \#3 (3 item(s))
+ok 135 - round trip is byte-identical: multi-round \#3 (3 item(s))
+  ---
+  duration_ms: 0.401083
+  type: 'test'
+  ...
+# Subtest: round trip is byte-identical: multi-round \#4 (1 item(s))
+ok 136 - round trip is byte-identical: multi-round \#4 (1 item(s))
+  ---
+  duration_ms: 0.254792
+  type: 'test'
+  ...
+# Subtest: a reasoning block's neutral text never leaks the encrypted payload
+ok 137 - a reasoning block's neutral text never leaks the encrypted payload
+  ---
+  duration_ms: 0.253291
+  type: 'test'
+  ...
+# Subtest: an item type this adapter does not model survives at its original index
+ok 138 - an item type this adapter does not model survives at its original index
+  ---
+  duration_ms: 0.216334
+  type: 'test'
+  ...
+# Subtest: one entry per emitted block, in first-seen order
+ok 139 - one entry per emitted block, in first-seen order
+  ---
+  duration_ms: 0.307667
+  type: 'test'
+  ...
+# Subtest: a harness-dropped block drops its item too, and nothing else shifts
+ok 140 - a harness-dropped block drops its item too, and nothing else shifts
+  ---
+  duration_ms: 0.27475
+  type: 'test'
+  ...
+# Subtest: a recorded turn reaches the wire without item status: aborted \#0
+ok 141 - a recorded turn reaches the wire without item status: aborted \#0
+  ---
+  duration_ms: 0.636417
+  type: 'test'
+  ...
+# Subtest: a recorded turn reaches the wire without item status: interjection \#1
+ok 142 - a recorded turn reaches the wire without item status: interjection \#1
+  ---
+  duration_ms: 0.068625
+  type: 'test'
+  ...
+# Subtest: a recorded turn reaches the wire without item status: interjection \#2
+ok 143 - a recorded turn reaches the wire without item status: interjection \#2
+  ---
+  duration_ms: 0.047
+  type: 'test'
+  ...
+# Subtest: a recorded turn reaches the wire without item status: multi-round \#3
+ok 144 - a recorded turn reaches the wire without item status: multi-round \#3
+  ---
+  duration_ms: 0.085708
+  type: 'test'
+  ...
+# Subtest: a recorded turn reaches the wire without item status: multi-round \#4
+ok 145 - a recorded turn reaches the wire without item status: multi-round \#4
+  ---
+  duration_ms: 0.077917
+  type: 'test'
+  ...
+# Subtest: a user message becomes an input_text message item
+ok 146 - a user message becomes an input_text message item
+  ---
+  duration_ms: 0.30275
+  type: 'test'
+  ...
+# Subtest: a tool result becomes a function_call_output paired by call_id
+ok 147 - a tool result becomes a function_call_output paired by call_id
+  ---
+  duration_ms: 0.092875
+  type: 'test'
+  ...
+# Subtest: an assistant turn with NO envelope falls back — and says so
+ok 148 - an assistant turn with NO envelope falls back — and says so
+  ---
+  duration_ms: 0.144083
+  type: 'test'
+  ...
+# Subtest: an envelope from another adapter is refused, not misread
+ok 149 - an envelope from another adapter is refused, not misread
+  ---
+  duration_ms: 0.164333
+  type: 'test'
+  ...
+# Subtest: a multi-turn conversation keeps ledger order
+ok 150 - a multi-turn conversation keeps ledger order
+  ---
+  duration_ms: 0.281959
+  type: 'test'
+  ...
+# Subtest: only item status is removed from frozen replay and unknown trailing items
+ok 151 - only item status is removed from frozen replay and unknown trailing items
+  ---
+  duration_ms: 0.128417
+  type: 'test'
+  ...
+# Subtest: multiple tool results keep order, pairing and failure bodies
+ok 152 - multiple tool results keep order, pairing and failure bodies
+  ---
+  duration_ms: 3.771459
+  type: 'test'
+  ...
+# Subtest: events split across reads are reassembled
+ok 153 - events split across reads are reassembled
+  ---
+  duration_ms: 2.811833
+  type: 'test'
+  ...
+# Subtest: the [DONE] sentinel ends the stream
+ok 154 - the [DONE] sentinel ends the stream
+  ---
+  duration_ms: 0.209459
+  type: 'test'
+  ...
+# Subtest: a malformed payload is skipped, not thrown on
+ok 155 - a malformed payload is skipped, not thrown on
+  ---
+  duration_ms: 0.208625
+  type: 'test'
+  ...
+# Subtest: a final event with no trailing blank line is still yielded
+ok 156 - a final event with no trailing blank line is still yielded
+  ---
+  duration_ms: 0.157792
+  type: 'test'
+  ...
+# Subtest: a null body yields nothing
+ok 157 - a null body yields nothing
+  ---
+  duration_ms: 0.0495
+  type: 'test'
+  ...
+# Subtest: ResponsesClient upstream resolution
+    # Subtest: returns the configured upstream
+    ok 1 - returns the configured upstream
+      ---
+      duration_ms: 0.395
+      type: 'test'
+      ...
+    # Subtest: refuses to invent an upstream when OPENAI_BASE_URL is unset
+    ok 2 - refuses to invent an upstream when OPENAI_BASE_URL is unset
+      ---
+      duration_ms: 0.156291
+      type: 'test'
+      ...
+    # Subtest: treats a blank OPENAI_BASE_URL as unset rather than as an empty base
+    ok 3 - treats a blank OPENAI_BASE_URL as unset rather than as an empty base
+      ---
+      duration_ms: 0.048
+      type: 'test'
+      ...
+    # Subtest: still allows public OpenAI when it is written down explicitly
+    ok 4 - still allows public OpenAI when it is written down explicitly
+      ---
+      duration_ms: 0.038334
+      type: 'test'
+      ...
+    # Subtest: rejects a provider it cannot serve
+    ok 5 - rejects a provider it cannot serve
+      ---
+      duration_ms: 0.044791
+      type: 'test'
+      ...
+    # Subtest: does not throw at construction - only where an upstream is chosen
+    ok 6 - does not throw at construction - only where an upstream is chosen
+      ---
+      duration_ms: 0.055667
+      type: 'test'
+      ...
+    # Subtest: carries the api key and cf auth header through
+    ok 7 - carries the api key and cf auth header through
+      ---
+      duration_ms: 0.052334
+      type: 'test'
+      ...
+    # Subtest: does not double-prefix an already-Bearer cf auth value
+    ok 8 - does not double-prefix an already-Bearer cf auth value
+      ---
+      duration_ms: 0.077541
+      type: 'test'
+      ...
+    1..8
+ok 158 - ResponsesClient upstream resolution
+  ---
+  duration_ms: 1.391625
+  type: 'suite'
+  ...
+# [main/llm] model rejected max_output_tokens; retrying without it { model: 'phi/test/rejects-cap' }
+# [main/llm] model rejected temperature; retrying without it { model: 'phi/test/rejects-temperature' }
+# [main/llm] model rejected temperature; retrying without it { model: 'phi/test/rejects-both-in-turn' }
+# [main/llm] model rejected max_output_tokens; retrying without it { model: 'phi/test/rejects-both-in-turn' }
+# [main/llm] model rejected max_output_tokens; retrying without it { model: 'phi/test/param-attribution' }
+# [main/llm] model rejected max_output_tokens; retrying without it { model: 'phi/test/first-named' }
+# [main/llm] model rejected max_output_tokens; retrying without it { model: 'phi/test/unknown-wording' }
+# [main/llm] model rejected temperature; retrying without it { model: 'phi/test/qualified-param' }
+# [responses-stream] dropped a repeated message item { chars: 75 }
+# [responses-stream] dropped a repeated message item { chars: 75 }
+# Subtest: streamResponses can stream only final_answer output text
+ok 159 - streamResponses can stream only final_answer output text
+  ---
+  duration_ms: 2.7595
+  type: 'test'
+  ...
+# Subtest: streamResponses filters completed-output fallback by final_answer phase
+ok 160 - streamResponses filters completed-output fallback by final_answer phase
+  ---
+  duration_ms: 0.345542
+  type: 'test'
+  ...
+# Subtest: streamResponses recovers non-final_answer output when no final_answer phase exists
+ok 161 - streamResponses recovers non-final_answer output when no final_answer phase exists
+  ---
+  duration_ms: 8.447708
+  type: 'test'
+  ...
+# Subtest: streamResponses sends maxOutputTokens as max_output_tokens on the wire, and omits it when unset
+ok 162 - streamResponses sends maxOutputTokens as max_output_tokens on the wire, and omits it when unset
+  ---
+  duration_ms: 2.966125
+  type: 'test'
+  ...
+# Subtest: streamResponses retries without max_output_tokens when the model rejects it, keeping temperature
+ok 163 - streamResponses retries without max_output_tokens when the model rejects it, keeping temperature
+  ---
+  duration_ms: 6.480917
+  type: 'test'
+  ...
+# Subtest: streamResponses retries without temperature when the model rejects it, keeping max_output_tokens
+ok 164 - streamResponses retries without temperature when the model rejects it, keeping max_output_tokens
+  ---
+  duration_ms: 0.882208
+  type: 'test'
+  ...
+# Subtest: streamResponses drops each rejected parameter in turn, at most once per parameter
+ok 165 - streamResponses drops each rejected parameter in turn, at most once per parameter
+  ---
+  duration_ms: 0.589334
+  type: 'test'
+  ...
+# Subtest: streamResponses does not retry a 4xx that names no optional parameter
+ok 166 - streamResponses does not retry a 4xx that names no optional parameter
+  ---
+  duration_ms: 0.397292
+  type: 'test'
+  ...
+# Subtest: streamResponses books usage, output, and the cut-off reason from response.incomplete
+ok 167 - streamResponses books usage, output, and the cut-off reason from response.incomplete
+  ---
+  duration_ms: 0.502334
+  type: 'test'
+  ...
+# Subtest: streamResponses drops a function call whose arguments were cut off by the cap
+ok 168 - streamResponses drops a function call whose arguments were cut off by the cap
+  ---
+  duration_ms: 0.400333
+  type: 'test'
+  ...
+# Subtest: streamResponses clamps max_output_tokens up to the Responses API minimum of 16
+ok 169 - streamResponses clamps max_output_tokens up to the Responses API minimum of 16
+  ---
+  duration_ms: 0.190875
+  type: 'test'
+  ...
+# Subtest: streamResponses does not drop temperature when a 4xx complains about its value
+ok 170 - streamResponses does not drop temperature when a 4xx complains about its value
+  ---
+  duration_ms: 0.194791
+  type: 'test'
+  ...
+# Subtest: streamResponses attributes the rejection to error.param when the body names both parameters
+ok 171 - streamResponses attributes the rejection to error.param when the body names both parameters
+  ---
+  duration_ms: 0.257333
+  type: 'test'
+  ...
+# Subtest: streamResponses picks the first-named parameter when a plain-text body names both
+ok 172 - streamResponses picks the first-named parameter when a plain-text body names both
+  ---
+  duration_ms: 3.077417
+  type: 'test'
+  ...
+# Subtest: streamResponses surfaces no function call from a cut-off response, even one that completed
+ok 173 - streamResponses surfaces no function call from a cut-off response, even one that completed
+  ---
+  duration_ms: 0.639625
+  type: 'test'
+  ...
+# Subtest: streamResponses does not retry when error.param names a field that is not one of ours
+ok 174 - streamResponses does not retry when error.param names a field that is not one of ours
+  ---
+  duration_ms: 1.78625
+  type: 'test'
+  ...
+# Subtest: streamResponses drops the cap and retries once on a 400 it cannot attribute, keeping temperature
+ok 175 - streamResponses drops the cap and retries once on a 400 it cannot attribute, keeping temperature
+  ---
+  duration_ms: 0.4195
+  type: 'test'
+  ...
+# Subtest: streamResponses spends no retry once Sentinel reports the retry budget exhausted
+ok 176 - streamResponses spends no retry once Sentinel reports the retry budget exhausted
+  ---
+  duration_ms: 0.519792
+  type: 'test'
+  ...
+# Subtest: streamResponses does not spend the cap retry on a 4xx that is not a bad-request status
+ok 177 - streamResponses does not spend the cap retry on a 4xx that is not a bad-request status
+  ---
+  duration_ms: 0.141666
+  type: 'test'
+  ...
+# Subtest: streamResponses matches a path-qualified error.param such as body.temperature
+ok 178 - streamResponses matches a path-qualified error.param such as body.temperature
+  ---
+  duration_ms: 0.380333
+  type: 'test'
+  ...
+# Subtest: splitModelProviderPin strips the suffix into a provider pin
+ok 179 - splitModelProviderPin strips the suffix into a provider pin
+  ---
+  duration_ms: 0.117459
+  type: 'test'
+  ...
+# Subtest: splitModelProviderPin passes unpinned / degenerate ids through
+ok 180 - splitModelProviderPin passes unpinned / degenerate ids through
+  ---
+  duration_ms: 0.034541
+  type: 'test'
+  ...
+# Subtest: streamResponses sends the stripped model and provider pin on the wire
+ok 181 - streamResponses sends the stripped model and provider pin on the wire
+  ---
+  duration_ms: 0.14675
+  type: 'test'
+  ...
+# Subtest: a message item repeating the one before it is shown once
+ok 182 - a message item repeating the one before it is shown once
+  ---
+  duration_ms: 1.084458
+  type: 'test'
+  ...
+# Subtest: a repeat is dropped even when the gateway never closes the items
+ok 183 - a repeat is dropped even when the gateway never closes the items
+  ---
+  duration_ms: 2.39175
+  type: 'test'
+  ...
+# Subtest: a second message that says something else is still shown
+ok 184 - a second message that says something else is still shown
+  ---
+  duration_ms: 0.532792
+  type: 'test'
+  ...
+# Subtest: first_message shows the line written as a working note, not the claim after it
+ok 185 - first_message shows the line written as a working note, not the claim after it
+  ---
+  duration_ms: 1.704417
+  type: 'test'
+  ...
+# Subtest: first_message passes over a message with no text, and shows a repeat once
+ok 186 - first_message passes over a message with no text, and shows a repeat once
+  ---
+  duration_ms: 3.02225
+  type: 'test'
+  ...
+# Subtest: with a tracer, streamResponses records one generation: wire request in, shaped response out
+ok 187 - with a tracer, streamResponses records one generation: wire request in, shaped response out
+  ---
+  duration_ms: 0.586667
+  type: 'test'
+  ...
+# Subtest: streamResponses takes a function call's arguments from the final output when nothing streamed them
+ok 188 - streamResponses takes a function call's arguments from the final output when nothing streamed them
+  ---
+  duration_ms: 0.214334
+  type: 'test'
+  ...
+# Subtest: an aborted stream says why it was aborted, and its generation ends at ERROR with that reason
+ok 189 - an aborted stream says why it was aborted, and its generation ends at ERROR with that reason
+  ---
+  duration_ms: 0.220541
+  type: 'test'
+  ...
+# [AIAdapter] operation failed (attempt 1/3), retrying in 0ms
+# Subtest: answered statuses: 429 and 5xx retry, other 4xx do not
+ok 190 - answered statuses: 429 and 5xx retry, other 4xx do not
+  ---
+  duration_ms: 1.837083
+  type: 'test'
+  ...
+# Subtest: stream and connection failures retry despite carrying no status
+ok 191 - stream and connection failures retry despite carrying no status
+  ---
+  duration_ms: 1.841958
+  type: 'test'
+  ...
+# Subtest: an error that classified itself as retryable is taken at its word
+ok 192 - an error that classified itself as retryable is taken at its word
+  ---
+  duration_ms: 0.092959
+  type: 'test'
+  ...
+# Subtest: an abort is never retried, however it is spelled
+ok 193 - an abort is never retried, however it is spelled
+  ---
+  duration_ms: 0.045916
+  type: 'test'
+  ...
+# Subtest: a Sentinel fallback verdict is final, whatever status it carries
+ok 194 - a Sentinel fallback verdict is final, whatever status it carries
+  ---
+  duration_ms: 15.2205
+  type: 'test'
+  ...
+# [AIAdapter] operation failed (attempt 2/3), retrying in 0ms
+# [AIAdapter] operation failed (attempt 3/3), retrying in 0ms
+# [AIAdapter] operation failed (attempt 1/3), retrying in 0ms
+# Subtest: a transport failure is retried up to the limit, then rethrown
+ok 195 - a transport failure is retried up to the limit, then rethrown
+  ---
+  duration_ms: 7.704375
+  type: 'test'
+  ...
+# Subtest: it stops the moment the caller's deadline fires
+ok 196 - it stops the moment the caller's deadline fires
+  ---
+  duration_ms: 0.434667
+  type: 'test'
+  ...
+# [AIAdapter] operation failed (attempt 2/3), retrying in 0ms
+# Subtest: a recovered call returns its value
+ok 197 - a recovered call returns its value
+  ---
+  duration_ms: 1.838375
+  type: 'test'
+  ...
+# Subtest: the default retry predicate never retries a quota verdict
+ok 198 - the default retry predicate never retries a quota verdict
+  ---
+  duration_ms: 0.498
+  type: 'test'
+  ...
+# Subtest: a proxied streaming call is its own trace, with the user and the shaped response
+ok 199 - a proxied streaming call is its own trace, with the user and the shaped response
+  ---
+  duration_ms: 10.08875
+  type: 'test'
+  ...
+# Subtest: a proxied call with a forwarded trace id joins that trace and leaves it as it is
+ok 200 - a proxied call with a forwarded trace id joins that trace and leaves it as it is
+  ---
+  duration_ms: 10.685417
+  type: 'test'
+  ...
+# Subtest: the forwarded trace id is this route's envelope: it never reaches the upstream body
+ok 201 - the forwarded trace id is this route's envelope: it never reaches the upstream body
+  ---
+  duration_ms: 8.125208
+  type: 'test'
+  ...
+# Subtest: POST /api/llm/responses asks a managed gateway for the Chat route, whatever the disable flag says
+ok 202 - POST /api/llm/responses asks a managed gateway for the Chat route, whatever the disable flag says
+  ---
+  duration_ms: 21.337
+  type: 'test'
+  ...
+# [sentinel-ai-gateway] no route; using direct fetch {
+#   url: 'https://ai-service.phibrowser.com/v1/responses',
+#   purpose: 'chat',
+#   fallbackModel: 'original'
+# }
+# [sentinel-ai-gateway] unrecognized endpoint; using direct fetch { url: 'https://ai-service.phibrowser.com/custom', purpose: 'chat' }
+# Subtest: a purpose override removes task fallback models even for an already-semantic request
+ok 203 - a purpose override removes task fallback models even for an already-semantic request
+  ---
+  duration_ms: 2.402542
+  type: 'test'
+  ...
+# Subtest: default Phi mode retains the task alias, provider pin and fallback list
+ok 204 - default Phi mode retains the task alias, provider pin and fallback list
+  ---
+  duration_ms: 0.3525
+  type: 'test'
+  ...
+# Subtest: Gateway errors reach the caller without a second provider request
+ok 205 - Gateway errors reach the caller without a second provider request
+  ---
+  duration_ms: 1.506875
+  type: 'test'
+  ...
+# Subtest: Request inputs preserve payload and headers while applying the purpose
+ok 206 - Request inputs preserve payload and headers while applying the purpose
+  ---
+  duration_ms: 3.736459
+  type: 'test'
+  ...
+# Subtest: managed clients cannot bypass an override through a fixed external URL
+ok 207 - managed clients cannot bypass an override through a fixed external URL
+  ---
+  duration_ms: 0.578292
+  type: 'test'
+  ...
+# Subtest: managed missing routes fail closed without sending the original cloud request
+ok 208 - managed missing routes fail closed without sending the original cloud request
+  ---
+  duration_ms: 11.862417
+  type: 'test'
+  ...
+# Subtest: transport failure does not escape the selected provider
+ok 209 - transport failure does not escape the selected provider
+  ---
+  duration_ms: 0.273042
+  type: 'test'
+  ...
+# Subtest: unmanaged direct fallback replays streamed request bodies after discovery
+ok 210 - unmanaged direct fallback replays streamed request bodies after discovery
+  ---
+  duration_ms: 0.787292
+  type: 'test'
+  ...
+# Subtest: managed model discovery never forwards Phi credentials to a configured external URL
+ok 211 - managed model discovery never forwards Phi credentials to a configured external URL
+  ---
+  duration_ms: 0.357583
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport prefixes concrete model for Phi default
+ok 212 - resolveRouteFromAiGatewayExport prefixes concrete model for Phi default
+  ---
+  duration_ms: 0.824417
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport resolves over UDS without a base_url export
+ok 213 - resolveRouteFromAiGatewayExport resolves over UDS without a base_url export
+  ---
+  duration_ms: 0.077209
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport yields null without any transport
+ok 214 - resolveRouteFromAiGatewayExport yields null without any transport
+  ---
+  duration_ms: 0.0425
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport splits an OpenRouter provider pin into bare id + providerPin
+ok 215 - resolveRouteFromAiGatewayExport splits an OpenRouter provider pin into bare id + providerPin
+  ---
+  duration_ms: 0.077708
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport does not double-prefix Phi concrete models
+ok 216 - resolveRouteFromAiGatewayExport does not double-prefix Phi concrete models
+  ---
+  duration_ms: 0.094917
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport uses semantic alias for non-Phi routes
+ok 217 - resolveRouteFromAiGatewayExport uses semantic alias for non-Phi routes
+  ---
+  duration_ms: 0.044541
+  type: 'test'
+  ...
+# Subtest: resolveRouteFromAiGatewayExport ignores legacy non-Phi request_model
+ok 218 - resolveRouteFromAiGatewayExport ignores legacy non-Phi request_model
+  ---
+  duration_ms: 0.077041
+  type: 'test'
+  ...
+# Subtest: only Phi may supply a concrete assignment instead of the purpose alias
+ok 219 - only Phi may supply a concrete assignment instead of the purpose alias
+  ---
+  duration_ms: 0.18825
+  type: 'test'
+  ...
+# Subtest: resolveBaseRouteFromAiGatewayExport resolves ai-gateway base URL without a model purpose
+ok 220 - resolveBaseRouteFromAiGatewayExport resolves ai-gateway base URL without a model purpose
+  ---
+  duration_ms: 0.214375
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway returns the Gateway failure without cloud fallback
+ok 221 - fetchThroughSentinelAiGateway returns the Gateway failure without cloud fallback
+  ---
+  duration_ms: 2.019875
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway forwards the OpenRouter provider pin in the gateway body
+ok 222 - fetchThroughSentinelAiGateway forwards the OpenRouter provider pin in the gateway body
+  ---
+  duration_ms: 0.356333
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway drops a stale provider field when the route has no pin
+ok 223 - fetchThroughSentinelAiGateway drops a stale provider field when the route has no pin
+  ---
+  duration_ms: 1.711875
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+ok 224 - fetchThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+  ---
+  duration_ms: 0.348125
+  type: 'test'
+  ...
+# Subtest: fetchModelsThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+ok 225 - fetchModelsThroughSentinelAiGateway is inert when PHI_DISABLE_SENTINEL_AI_GATEWAY=1
+  ---
+  duration_ms: 0.1945
+  type: 'test'
+  ...
+# Subtest: fetchModelsThroughSentinelAiGateway routes models through Sentinel base URL
+ok 226 - fetchModelsThroughSentinelAiGateway routes models through Sentinel base URL
+  ---
+  duration_ms: 0.291292
+  type: 'test'
+  ...
+# Subtest: fetchVerbatimThroughSentinelAiGateway posts a decision with its alias body untouched
+ok 227 - fetchVerbatimThroughSentinelAiGateway posts a decision with its alias body untouched
+  ---
+  duration_ms: 0.606
+  type: 'test'
+  ...
+# Subtest: fetchModelsThroughSentinelAiGateway falls back to original models request when Sentinel route fails
+ok 228 - fetchModelsThroughSentinelAiGateway falls back to original models request when Sentinel route fails
+  ---
+  duration_ms: 0.176708
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway only intercepts Phi ai-service URLs
+ok 229 - fetchThroughSentinelAiGateway only intercepts Phi ai-service URLs
+  ---
+  duration_ms: 0.111417
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway does not intercept lookalike phibrowser hostnames
+ok 230 - fetchThroughSentinelAiGateway does not intercept lookalike phibrowser hostnames
+  ---
+  duration_ms: 0.061084
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway preserves endpoint suffix and query string
+ok 231 - fetchThroughSentinelAiGateway preserves endpoint suffix and query string
+  ---
+  duration_ms: 0.285667
+  type: 'test'
+  ...
+# Subtest: fetchThroughSentinelAiGateway completes over a live inference UDS
+ok 232 - fetchThroughSentinelAiGateway completes over a live inference UDS
+  ---
+  duration_ms: 28.32775
+  type: 'test'
+  ...
+# Subtest: a Sentinel-managed process with no gateway is not told it falls back
+ok 233 - a Sentinel-managed process with no gateway is not told it falls back
+  ---
+  duration_ms: 1.437417
+  type: 'test'
+  ...
+# Subtest: an unmanaged process with no gateway still reports the ai-service fallback
+ok 234 - an unmanaged process with no gateway still reports the ai-service fallback
+  ---
+  duration_ms: 0.2095
+  type: 'test'
+  ...
+# Subtest: isSentinelUnmanagedByFlag reads only PHI_SENTINEL_UNMANAGED=1
+ok 235 - isSentinelUnmanagedByFlag reads only PHI_SENTINEL_UNMANAGED=1
+  ---
+  duration_ms: 0.333833
+  type: 'test'
+  ...
+# [sentinel-ai-gateway] no route; using direct fetch {
+#   url: 'https://ai-service.phibrowser.com/v1/chat/completions',
+#   purpose: 'chat',
+#   fallbackModel: 'phi/chat/helper'
+# }
+# Subtest: PHI_SENTINEL_UNMANAGED=1 turns a RUNNER_SOCKET-only process into an unmanaged direct-fetch client
+ok 236 - PHI_SENTINEL_UNMANAGED=1 turns a RUNNER_SOCKET-only process into an unmanaged direct-fetch client
+  ---
+  duration_ms: 33.656125
+  type: 'test'
+  ...
+# Subtest: resolveFixedOpenAIUpstream requires both URL and key
+ok 237 - resolveFixedOpenAIUpstream requires both URL and key
+  ---
+  duration_ms: 0.653083
+  type: 'test'
+  ...
+# Subtest: isPhibrowserUrl checks hostname boundaries
+ok 238 - isPhibrowserUrl checks hostname boundaries
+  ---
+  duration_ms: 0.0925
+  type: 'test'
+  ...
+# Subtest: Jina uses its dedicated service URL instead of an external OpenAI URL
+ok 239 - Jina uses its dedicated service URL instead of an external OpenAI URL
+  ---
+  duration_ms: 0.048042
+  type: 'test'
+  ...
+# Subtest: Jina does not fall back to a non-phibrowser OpenAI URL
+ok 240 - Jina does not fall back to a non-phibrowser OpenAI URL
+  ---
+  duration_ms: 0.045875
+  type: 'test'
+  ...
+# Subtest: the row declares the services it needs
+ok 241 - the row declares the services it needs
+  ---
+  duration_ms: 0.607167
+  type: 'test'
+  ...
+# Subtest: apply registers the phi provider on ctx.llm
+ok 242 - apply registers the phi provider on ctx.llm
+  ---
+  duration_ms: 0.187208
+  type: 'test'
+  ...
+# Subtest: with no test config the row still registers, on the process config
+ok 243 - with no test config the row still registers, on the process config
+  ---
+  duration_ms: 0.124875
+  type: 'test'
+  ...
+# Subtest: the adapter refuses to send a request it cannot authorize
+ok 244 - the adapter refuses to send a request it cannot authorize
+  ---
+  duration_ms: 0.705125
+  type: 'test'
+  ...
+# Subtest: the tool policy is whoever installed it last, read per request
+ok 245 - the tool policy is whoever installed it last, read per request
+  ---
+  duration_ms: 0.262833
+  type: 'test'
+  ...
+# Subtest: a request goes out on its run's bearer, found by its session
+ok 246 - a request goes out on its run's bearer, found by its session
+  ---
+  duration_ms: 0.352542
+  type: 'test'
+  ...
+# Subtest: a fixed upstream keeps its own key over the run's bearer
+ok 247 - a fixed upstream keeps its own key over the run's bearer
+  ---
+  duration_ms: 1.188917
+  type: 'test'
+  ...
+# Subtest: the request observer is whoever installed it last, and its undo removes it
+ok 248 - the request observer is whoever installed it last, and its undo removes it
+  ---
+  duration_ms: 0.184958
+  type: 'test'
+  ...
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+# Subtest: phi-llm routes
+    # Subtest: claims every path once the transport arrives after the row
+    ok 1 - claims every path once the transport arrives after the row
+      ---
+      duration_ms: 8.60275
+      type: 'test'
+      ...
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+    # Subtest: claims /v1/models as a prefix, matching the legacy pair
+    ok 2 - claims /v1/models as a prefix, matching the legacy pair
+      ---
+      duration_ms: 1.290459
+      type: 'test'
+      ...
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+    # Subtest: does NOT claim anything else under /api/llm
+    ok 3 - does NOT claim anything else under /api/llm
+      ---
+      duration_ms: 0.934708
+      type: 'test'
+      ...
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+    # Subtest: does NOT resolve its services while mounting
+    ok 4 - does NOT resolve its services while mounting
+      ---
+      duration_ms: 0.8985
+      type: 'test'
+      ...
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+# [phi-agent] Sentinel AI Gateway unavailable; falling back to ai-service
+    # Subtest: registers again when the transport is replaced
+    ok 5 - registers again when the transport is replaced
+      ---
+      duration_ms: 1.559
+      type: 'test'
+      ...
+    # Subtest: provides the channel with no transport at all
+    ok 6 - provides the channel with no transport at all
+      ---
+      duration_ms: 0.426209
+      type: 'test'
+      ...
+    # Subtest: with no test substitute the routes still register, and build nothing until asked
+    ok 7 - with no test substitute the routes still register, and build nothing until asked
+      ---
+      duration_ms: 0.804791
+      type: 'test'
+      ...
+    1..7
+ok 249 - phi-llm routes
+  ---
+  duration_ms: 14.965792
+  type: 'suite'
+  ...
+# Subtest: phi-llm service
+    # Subtest: answers the endpoint question from configuration
+    ok 1 - answers the endpoint question from configuration
+      ---
+      duration_ms: 0.315292
+      type: 'test'
+      ...
+    # Subtest: inherits the refusal to invent a public upstream
+    ok 2 - inherits the refusal to invent a public upstream
+      ---
+      duration_ms: 0.213958
+      type: 'test'
+      ...
+    # Subtest: carries credentials through
+    ok 3 - carries credentials through
+      ---
+      duration_ms: 0.064167
+      type: 'test'
+      ...
+    # Subtest: satisfies AIAdapter so existing call sites take it unchanged
+    ok 4 - satisfies AIAdapter so existing call sites take it unchanged
+      ---
+      duration_ms: 0.052958
+      type: 'test'
+      ...
+    # Subtest: retries through the shared policy
+    ok 5 - retries through the shared policy
+      ---
+      duration_ms: 0.098667
+      type: 'test'
+      ...
+    1..5
+ok 250 - phi-llm service
+  ---
+  duration_ms: 1.16
+  type: 'suite'
+  ...
+# Subtest: phi-llm calls other plugins make through it
+    # Subtest: builds an OpenAI client on the channel's endpoint and credentials
+    ok 1 - builds an OpenAI client on the channel's endpoint and credentials
+      ---
+      duration_ms: 0.694625
+      type: 'test'
+      ...
+    # Subtest: gives an OpenAI client the caller's bearer, and refuses one with no credential at all
+    ok 2 - gives an OpenAI client the caller's bearer, and refuses one with no credential at all
+      ---
+      duration_ms: 0.191541
+      type: 'test'
+      ...
+    # Subtest: answers the web-reader proxy from the channel's endpoint
+    ok 3 - answers the web-reader proxy from the channel's endpoint
+      ---
+      duration_ms: 0.212917
+      type: 'test'
+      ...
+    # Subtest: resolves a feature's upstream on the channel's own base URL
+    ok 4 - resolves a feature's upstream on the channel's own base URL
+      ---
+      duration_ms: 0.16
+      type: 'test'
+      ...
+    # Subtest: keeps a feature's user bearer on the Phi gateway, and a fixed upstream's key off it
+    ok 5 - keeps a feature's user bearer on the Phi gateway, and a fixed upstream's key off it
+      ---
+      duration_ms: 0.256292
+      type: 'test'
+      ...
+    # Subtest: streams through the parser this package owns
+    ok 6 - streams through the parser this package owns
+      ---
+      duration_ms: 0.032208
+      type: 'test'
+      ...
+    # Subtest: exposes all three native decision primitives and mixed-question evaluation
+    ok 7 - exposes all three native decision primitives and mixed-question evaluation
+      ---
+      duration_ms: 0.030167
+      type: 'test'
+      ...
+    1..7
+ok 251 - phi-llm calls other plugins make through it
+  ---
+  duration_ms: 1.714
+  type: 'suite'
+  ...
+# Subtest: phi-llm outbound auth
+    # Subtest: puts the given bearer on the upstream request
+    ok 1 - puts the given bearer on the upstream request
+      ---
+      duration_ms: 0.109375
+      type: 'test'
+      ...
+    # Subtest: has no headers to offer when there is no authorization at all
+    ok 2 - has no headers to offer when there is no authorization at all
+      ---
+      duration_ms: 0.042541
+      type: 'test'
+      ...
+    # Subtest: reads the Sentinel runner's token through one shared source
+    ok 3 - reads the Sentinel runner's token through one shared source
+      ---
+      duration_ms: 0.043667
+      type: 'test'
+      ...
+    # Subtest: names the account the runner's token belongs to through the same source
+    ok 4 - names the account the runner's token belongs to through the same source
+      ---
+      duration_ms: 0.052084
+      type: 'test'
+      ...
+    1..4
+ok 252 - phi-llm outbound auth
+  ---
+  duration_ms: 0.296
+  type: 'suite'
+  ...
+1..252
+# tests 295
+# suites 8
+# pass 293
+# fail 0
+# cancelled 2
+# skipped 0
+# todo 0
+# duration_ms 1472.239125
+/Users/phi/multica_workspaces_mca/phi-7b4ee50429fe/phi-575-7324774ac13d/workdir/phi-ai/phi-agent-dsh/plugins/llm:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @phi-ai/dsh-plugin-llm@0.1.0 test: `tsx --test "src/**/*.test.ts"`
+Exit status 1

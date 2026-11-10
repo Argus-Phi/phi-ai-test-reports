@@ -1,0 +1,107 @@
+{
+  "id": "07523fe1-6e2f-4cb7-9a01-5937362dd051",
+  "name": "qa.PHI-566.T-4",
+  "timestamp": "2026-11-10T14:51:01.670Z",
+  "sessionId": null,
+  "version": null,
+  "release": null,
+  "tags": [
+    "PHI-566",
+    "S9",
+    "T-4"
+  ],
+  "project": "STAGE",
+  "observations": [
+    {
+      "id": "17d6af6e-a9ec-4a53-905e-1795a2fa345d",
+      "name": "qa.adapter.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:51:07.191Z",
+      "endTime": "2026-11-10T14:51:10.761Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "label": "T-4-replay",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "reasoning",
+            "id": "rs_09b0436029c39a33006af32f596e1c87d1a8fd23764fc04e8c",
+            "hasStatus": false,
+            "hasEncryptedContent": true
+          },
+          {
+            "index": 3,
+            "type": "message",
+            "id": "msg_09b0436029c39a33006af32f59b62c87d1942974af90b3a74c",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 4,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message"
+        ]
+      }
+    },
+    {
+      "id": "036e8678-527a-4e74-9347-ce26f0869afe",
+      "name": "qa.adapter.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:51:01.670Z",
+      "endTime": "2026-11-10T14:51:05.931Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "label": "T-4-plain",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message"
+        ]
+      }
+    }
+  ],
+  "redaction": "删除用户标识、凭据、自由文本及密文；仅保留观测元数据、QA 字段断言和工具执行结果白名单。"
+}

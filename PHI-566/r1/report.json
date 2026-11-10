@@ -1,0 +1,353 @@
+{
+ "issue": "PHI-566",
+ "based_on": "PHI-566/test-plan.md; PHI-566/runbook.md@2ab1cdb85d30350bf184d04b2c24eb83fd772cd4",
+ "key": "PHI-566",
+ "title": "下载 Twitter/X 视频失败：Responses adapter 返回 400（反馈 #320）",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮执行 4 条用例，4 通过、0 失败、0 阻塞、0 未执行。单元/类型/构建、真实 API 两组字段及上游接受性、Canary 原文聊天和独立 replay 冒烟均完成。基线 reasoning status 变体得到真实 400，修复版 completed；GUI 实际到达 fetch.js 并成功提取。结论已通过，AI 测试和审查允许提交 PR；视频附件后续超时仍由 PHI-577 跟踪，未声称完整下载已修复。",
+ "sha": "e1061e1f571c8621c6464b520a14d510cca36b2d",
+ "branch": "PHI-566-responses-input-sanitization",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/708",
+ "generated_at": "2026-11-10T14:57:11.488347+00:00",
+ "environment": {
+  "机器": "mini / macOS；真机仅 e2e01 租赁会话（已归还）",
+  "Canary / Sidecar": "2026.11.4.0205 / Stag 2026.10.27.1626",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "服务": "Runner managed source + Gateway UDS，未使用管理员 8788；LANE_AGENT_PORT=18101 未监听",
+  "数据库": "Runner 注入会话测试库，未另建 TCP 数据库",
+  "模型": "phi/chat/response → chat/response；未推断供应商",
+  "Langfuse": "STAGE pair → Phi Agent - staging；source 按 runbook 加载 stage env，DEV 相同条件为空",
+  "基线": "4945275b8172fec78f12c10b88445a5cd65d7865",
+  "证据": "截图白底合成/宽度<=1280；原始 fixture/密文只在会话，已随归还销毁"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含 S9 环境和手测方案）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-566/test-plan.md"
+  },
+  {
+   "title": "runbook.md@2ab1cdb",
+   "url": "https://github.com/phibrowser/phi-ai/blob/2ab1cdb85d30350bf184d04b2c24eb83fd772cd4/PHI-566/runbook.md"
+  },
+  {
+   "title": "代码评审：Anton",
+   "url": "https://github.com/phibrowser/phi-ai/blob/69f48528b1f744be02c136a78b723747401534b3/PHI-566/reviews/code-r1-anton.md"
+  },
+  {
+   "title": "代码评审：Spock",
+   "url": "https://github.com/phibrowser/phi-ai/blob/69f48528b1f744be02c136a78b723747401534b3/PHI-566/reviews/code-r1-spock.md"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "输入投影、worker loop 与静态检查",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1",
+   "precondition": "指定 SHA，依赖安装完成；真机使用 e2e01 测试账号和 staging 通道。",
+   "steps": [
+    "运行 llm 默认套件，保留取消记录；按 runbook 加 keepalive preload 独立重跑完整 llm。",
+    "运行 bundle 全套，确认包含 Responses compatibility loop。",
+    "运行全仓 pnpm type-check、llm 强制 tsc 和 dsh build；核对 request/adapter/replay 的风险覆盖。"
+   ],
+   "expected": "所涉套件和类型检查通过；原始 replay、嵌套业务 status、trailing 项及多工具结果配对保留。",
+   "actual": "llm 默认 293 pass / 2 cancelled（既有 PHI-580）；keepalive 重跑 295 pass / 0 fail / 0 cancelled，bundle 144/144。全仓 59/59 task（缓存），llm --force 和 dsh build exit 0。覆盖包含冻结 envelope、未知 trailing、reasoning、序列化等值、多结果顺序/失败正文及无 envelope 降级。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-1-llm.log",
+     "caption": "默认命令：293 通过、2 取消，保留独立失败尝试",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-1-llm-keepalive.log",
+     "caption": "runbook keepalive：295/295",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-bundle.log",
+     "caption": "bundle 144/144（包含 strict Responses loop）",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-typecheck.log",
+     "caption": "59/59 task，另有 llm 强制 tsc",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-build.log",
+     "caption": "dsh build exit 0",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-01.png",
+     "caption": "执行后汇总：命令和覆盖",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-02.png",
+     "caption": "执行后汇总：结果",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "模拟模型的套件仅证明转换和 loop 接线；未当作 API 或 GUI 验收。"
+  },
+  {
+   "id": "T-2",
+   "title": "真实回放、工具结果及 reasoning 上游接受性",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-1",
+   "precondition": "指定 SHA，依赖安装完成；真机使用 e2e01 测试账号和 staging 通道。",
+   "steps": [
+    "实际 adapter 生成 message/function_call；真实 skillReadFileHandler 经真实技能端口读取 SKILL.md。",
+    "发送 message+tool 后续请求；从其真实响应取得 reasoning，保持连续会话追加 status 变体。",
+    "对完整 input 手写预期逐项比较；核对 observer/实际发送 JSON 相等、原输入快照不变、完整终态。",
+    "在 merge-base 独立 worktree 启动 baseline assembly/adapter，对同一私有 fixture 比较；服务退出后恢复发布版。"
+   ],
+   "expected": "所有项无自身 status，其余字段与顺序完整保留；真实模型正常终止；基线结果如实记录。",
+   "actual": "修正 QA 夹具后，6 项 message/工具回放及 9 项 reasoning 变体均 fullInputEqualsExpected=true、observerEqualsSerialized=true、originalInputUnchanged=true，并 completed/stop。真实技能返回 ok=true（4434 字节）。基线 message/工具变体 completed；同一 reasoning/密文在基线被 400 input[6].status 拒绝，修复版完成。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-2-api-attempt1.json",
+     "caption": "attempt 1：QA envelope/expected 错误，断言 false；非产品失败",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "T-2-attempt1-trace.json",
+     "trace_id": "307c0158-4dbd-4eb4-819d-72c1475336b9",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/307c0158-4dbd-4eb4-819d-72c1475336b9",
+     "caption": "首次夹具尝试对应真实观测",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-2-api.json",
+     "caption": "attempt 2：真实技能读取与两组完整字段/终态断言",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-baseline.json",
+     "caption": "基线 assembly/adapter，同一 fixture；reasoning 400 为对照预期",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-2-trace.json",
+     "trace_id": "058d062f-21c5-408a-bb39-50518856d22b",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/058d062f-21c5-408a-bb39-50518856d22b",
+     "caption": "修复版实际 API trace",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-2-baseline-trace.json",
+     "trace_id": "e7c14fc0-4b71-4e45-ac8d-e2f620952bee",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/e7c14fc0-4b71-4e45-ac8d-e2f620952bee",
+     "caption": "基线实际 API trace，受控 400",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-01.png",
+     "caption": "执行后汇总：真实出站字段",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-02.png",
+     "caption": "执行后汇总：模型终态和基线",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "reasoning 来自首次工具结果后的真实回答，新增连续回合验证；仅在 QA 副本补项级 status，密文和 id 未改。未声称复现事故的确切 input[3]。首次 QA 夹具错误不掩盖、不作为产品 bug。"
+  },
+  {
+   "id": "T-3",
+   "title": "Canary 原文下载聊天在说明读取后续行",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-2",
+   "precondition": "指定 SHA，依赖安装完成；真机使用 e2e01 测试账号和 staging 通道。",
+   "steps": [
+    "打开原报告 URL，页面 complete 且存在一个 video；打开实际侧栏，点击 New Chat。",
+    "用 Input.insertText 输入“帮我下载这个视频”，点击 Send。",
+    "关联 trace/observer 验证 read_file → 模型 completed → fetch.js handler 的实际结果；保存关键状态和终态截图。"
+   ],
+   "expected": "技能说明成功后下一次模型调用完成，真实执行 fetch.js；无 input[n].status 拒绝。后续附件超时单列。",
+   "actual": "14:48:07.951 UTC read_file 成功；14:48:11.280 UTC run_script(fetch.js) 实际执行，ok=true、videoCount=1。worker 共 5 次真实模型请求 completed，所有出站项无 status，已有 provider 项其余字段相等。终态明确告知已提取但附件生成超时；Network.loadNetworkResource 15 秒超时与 PHI-577 相同，本单不以附件交付为验收终点。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-3-00.png",
+     "caption": "原报告帖子：公开可访问且有视频",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-01.png",
+     "caption": "新聊天，原文发送前",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-02.png",
+     "caption": "fetch.js 续行后的执行中状态；透明背景按白底合成",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-03.png",
+     "caption": "聊天终态：提取完成但生成附件超时",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-3-tools.log",
+     "caption": "真实 fetch.js handler 成功日志，已脱敏",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-3-wire.json",
+     "caption": "5 次 worker 调用的完整字段摘要/终态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-trace.json",
+     "trace_id": "ef0e2f0e-c4be-4bc0-be09-49b0d503d305",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/ef0e2f0e-c4be-4bc0-be09-49b0d503d305",
+     "caption": "原文聊天实际 trace：read_file/run_script/browser_cdp/worker 结果",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-wire-trace.json",
+     "trace_id": "1f142755-5dec-476c-b76a-1261237b6be6",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/1f142755-5dec-476c-b76a-1261237b6be6",
+     "caption": "QA observer 的实际 worker 模型 generation",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "未替换 URL，无 X 登录。读说明后瞬间未单独截图，执行中图采于 fetch.js 成功后；read_file 的时间/返回和后续模型顺序由 trace 逐项证明。截图不用于替代工具执行证据。"
+  },
+  {
+   "id": "T-4",
+   "title": "普通文本和真实 assistant replay 独立冒烟",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-3",
+   "precondition": "指定 SHA，依赖安装完成；真机使用 e2e01 测试账号和 staging 通道。",
+   "steps": [
+    "通过实际 adapter 请求“请只回复 QA-566-ONE”，消费完整流和原始 replay envelope。",
+    "沿用该 envelope 追加“请只回复 QA-566-TWO”，再次消费完整流；核对真实出站。"
+   ],
+   "expected": "两个入口各完成一次调用，返回非空文本；replay 存在且其项级 status 不出站。",
+   "actual": "独立于 T-2 的两次调用分别输出 QA-566-ONE / QA-566-TWO，均 completed/stop；T4ReplayPresent=true；所有 input 无 status，observer 与实际发送 JSON 相等。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-2-api.json",
+     "caption": "T-4-plain / T-4-replay 两条独立记录",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-4-trace.json",
+     "trace_id": "07523fe1-6e2f-4cb7-9a01-5937362dd051",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/07523fe1-6e2f-4cb7-9a01-5937362dd051",
+     "caption": "两次独立冒烟 generation",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-01.png",
+     "caption": "执行后汇总：请求和 replay",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-02.png",
+     "caption": "执行后汇总：真实文本和终态",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "没有复用 T-2 的调用充当本例。首次 QA 执行的 T-4 也成功；本表引用修正脚本后独立重复的两次。"
+  }
+ ],
+ "bugs": [],
+ "known_issues": [
+  {
+   "id": "PHI-577",
+   "title": "提取 MP4 成功后 Network.loadNetworkResource 超时；本轮原文 GUI 再现，spec 明确范围外",
+   "baseline_sha": "历史 stable 2.16.1/rev965，Git SHA 未知；staging 4945275 尚未独立 GUI 对照",
+   "case_ids": [
+    "T-3"
+   ],
+   "evidence": "T-3-trace.json / T-3-03.png；PBL 已含原始 stable 证据"
+  },
+  {
+   "id": "PHI-580",
+   "title": "llm 默认超时测试在无 ref 句柄时取消；测试 keepalive 后完整通过",
+   "baseline_sha": "4945275b8172fec78f12c10b88445a5cd65d7865",
+   "case_ids": [
+    "T-1"
+   ],
+   "evidence": "T-1-llm.log / T-1-llm-keepalive.log；基线取消证据见 Q unit-checks.txt@2ab1cdb"
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+[exp-cgpt][phi:skill-script] run_script enter {
+  userId: [REDACTED]
+  runId: '01a1c5ee-31b4-70e2-aa66-26b94fea7fca',
+  skill: 'built_in:download-twitter-video',
+  script: 'fetch.js',
+  activeSkillIds: [
+    'built_in:download-twitter-video',
+    'built_in:memory-agent',
+[exp-cgpt][phi:skill-script] resolved script {
+  storageRef: '/Users/e2e01/lane/phi-ai/phi-agent-dsh/plugins/skills/built-in/download-twitter-video/scripts/fetch.js'
+}
+[exp-cgpt][phi:skill-script] latch set {
+  skillId: 'built_in:download-twitter-video',
+  trustedRunId: '01a1c5ee-4d13-7000-a0b6-fce492902bd9'
+[exp-cgpt][phi:skill-script] read script bytes {
+  storageRef: '/Users/e2e01/lane/phi-ai/phi-agent-dsh/plugins/skills/built-in/download-twitter-video/scripts/fetch.js',
+  codeLength: 5129
+[phi:skill-script] running bundle in page {
+  messageId: '01a1c5ee-4d15-7000-a59c-8877e20d4896',
+  trustedRunId: '01a1c5ee-4d13-7000-a0b6-fce492902bd9',
+  tabId: 563420411,
+  codeLength: 5129,
+  phiBaseUrl: '<withheld: manifest declares no corsOrigins>',
+  hostCalls: '<none>',
+  timeoutMs: 300000
+[phi:skill-script] page script returned {
+  valuePreview: '{"ok":true,"tweetId":"2119586846657454152","videos":[{"url":"https://video.twimg.com/amplify_video/2119584955290595328/vid/avc1/2560x1440/EwmqnwcpEXyYb2Oc.mp4?tag=29","bitrate":10368000,"filename":"twitter-2119586846657454152-2119584955290595328.mp4","mediaId":"2119584955290595328"}],"skipped":0}'
+[exp-cgpt][phi:skill-script] latch cleared on final script success {
+  script: 'fetch.js'
+[exp-cgpt][phi:skill-script] returning outcome { script: 'fetch.js', ok: true, reason: undefined, payloadSize: 297 }
+[agent-worker] skill.run_script returning outcome {
+  toolId: 'skill',
+  ok: true,
+  isError: false,
+  artifactCount: 0
+[chat] blocking taskExecutor SETTLED → ok=true

@@ -1,0 +1,551 @@
+{
+  "id": "1f142755-5dec-476c-b76a-1261237b6be6",
+  "name": "qa.PHI-566.T-3",
+  "timestamp": "2026-11-10T14:46:20.887Z",
+  "sessionId": null,
+  "version": null,
+  "release": null,
+  "tags": [
+    "PHI-566",
+    "S9",
+    "T-3"
+  ],
+  "project": "STAGE",
+  "observations": [
+    {
+      "id": "ccebdbcb-0f75-48fe-9820-a0593f7a0890",
+      "name": "qa.worker.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:35.813Z",
+      "endTime": "2026-11-10T14:48:40.191Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "at": "2026-11-10T14:48:35.800Z",
+        "model": "phi/chat/response",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 3,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32ea6bae887d18cb1882638090ba5",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 4,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32ea76b8487d18315b1f17829c936",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 5,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32ea77adc87d1a97c3fa9044d6a1c",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 6,
+            "type": "function_call_output",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 7,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32eaa56ac87d192d7e94601a6f265",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 8,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32eaaa3a087d1b200c25478123a5a",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 9,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32eaaced087d1961cba9384533786",
+            "call_id": "call_Ft8Q5XIT2yjpIqrPIobYnX4K",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 10,
+            "type": "function_call_output",
+            "call_id": "call_Ft8Q5XIT2yjpIqrPIobYnX4K",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 11,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32eaed14887d1b4987a39cc68e18f",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 12,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32eaf281c87d191b1f5ef12c185b6",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 13,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32eaf4ba887d1b158a67dacdd05c9",
+            "call_id": "call_RkQf0po2RqnVzxdCSPeP2a9U",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 14,
+            "type": "function_call_output",
+            "call_id": "call_RkQf0po2RqnVzxdCSPeP2a9U",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 15,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32eb2c65c87d19b0e8be3b0d754d7",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 16,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32eb3330487d1848911fb3913324d",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 17,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32eb36e4c87d1b41d960bd8fb89ad",
+            "call_id": "call_rqG2EqF9z4LnIy2PPRn8YdMw",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 18,
+            "type": "function_call_output",
+            "call_id": "call_rqG2EqF9z4LnIy2PPRn8YdMw",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message"
+        ]
+      }
+    },
+    {
+      "id": "bd8ef7db-7463-4806-ae29-d3b51403befe",
+      "name": "qa.worker.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:15.983Z",
+      "endTime": "2026-11-10T14:48:20.780Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "at": "2026-11-10T14:48:15.980Z",
+        "model": "phi/chat/response",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 3,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32ea6bae887d18cb1882638090ba5",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 4,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32ea76b8487d18315b1f17829c936",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 5,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32ea77adc87d1a97c3fa9044d6a1c",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 6,
+            "type": "function_call_output",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 7,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32eaa56ac87d192d7e94601a6f265",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 8,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32eaaa3a087d1b200c25478123a5a",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 9,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32eaaced087d1961cba9384533786",
+            "call_id": "call_Ft8Q5XIT2yjpIqrPIobYnX4K",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 10,
+            "type": "function_call_output",
+            "call_id": "call_Ft8Q5XIT2yjpIqrPIobYnX4K",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 11,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32eaed14887d1b4987a39cc68e18f",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 12,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32eaf281c87d191b1f5ef12c185b6",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 13,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32eaf4ba887d1b158a67dacdd05c9",
+            "call_id": "call_RkQf0po2RqnVzxdCSPeP2a9U",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 14,
+            "type": "function_call_output",
+            "call_id": "call_RkQf0po2RqnVzxdCSPeP2a9U",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message",
+          "function_call"
+        ]
+      }
+    },
+    {
+      "id": "2a1c0ffe-5fbe-42c0-802a-73e48c9b7374",
+      "name": "qa.worker.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:11.316Z",
+      "endTime": "2026-11-10T14:48:15.983Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "at": "2026-11-10T14:48:11.305Z",
+        "model": "phi/chat/response",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 3,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32ea6bae887d18cb1882638090ba5",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 4,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32ea76b8487d18315b1f17829c936",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 5,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32ea77adc87d1a97c3fa9044d6a1c",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 6,
+            "type": "function_call_output",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 7,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32eaa56ac87d192d7e94601a6f265",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 8,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32eaaa3a087d1b200c25478123a5a",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 9,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32eaaced087d1961cba9384533786",
+            "call_id": "call_Ft8Q5XIT2yjpIqrPIobYnX4K",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 10,
+            "type": "function_call_output",
+            "call_id": "call_Ft8Q5XIT2yjpIqrPIobYnX4K",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message",
+          "function_call"
+        ]
+      }
+    },
+    {
+      "id": "0d2cac5a-6b20-4d9a-b158-7bebacda3f0c",
+      "name": "qa.worker.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:07.977Z",
+      "endTime": "2026-11-10T14:48:11.280Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "at": "2026-11-10T14:48:07.962Z",
+        "model": "phi/chat/response",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 3,
+            "type": "reasoning",
+            "id": "rs_078adefec916be30006af32ea6bae887d18cb1882638090ba5",
+            "hasStatus": false,
+            "hasEncryptedContent": true,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 4,
+            "type": "message",
+            "id": "msg_078adefec916be30006af32ea76b8487d18315b1f17829c936",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 5,
+            "type": "function_call",
+            "id": "fc_078adefec916be30006af32ea77adc87d1a97c3fa9044d6a1c",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false,
+            "otherFieldsEqual": true
+          },
+          {
+            "index": 6,
+            "type": "function_call_output",
+            "call_id": "call_G8azv9aMLJZikFF0NRURk7ht",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message",
+          "function_call"
+        ]
+      }
+    },
+    {
+      "id": "6ffc2c96-6112-41bd-b75b-c458c0409e8a",
+      "name": "qa.worker.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:48:04.377Z",
+      "endTime": "2026-11-10T14:48:07.951Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "at": "2026-11-10T14:48:04.364Z",
+        "model": "phi/chat/response",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message",
+          "function_call"
+        ]
+      }
+    }
+  ],
+  "redaction": "删除用户标识、凭据、自由文本及密文；仅保留观测元数据、QA 字段断言和工具执行结果白名单。"
+}

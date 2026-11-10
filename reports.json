@@ -348,5 +348,22 @@
     "total": 6
    }
   }
+ ],
+ "PHI-566": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "下载 Twitter/X 视频失败：Responses adapter 返回 400（反馈 #320）",
+   "sha": "e1061e1f571c8621c6464b520a14d510cca36b2d",
+   "generated_at": "2026-11-10T14:57:11.488347+00:00",
+   "counts": {
+    "pass": 4,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 4
+   }
+  }
  ]
 }

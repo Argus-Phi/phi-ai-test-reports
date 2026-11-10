@@ -1,0 +1,203 @@
+{
+  "id": "058d062f-21c5-408a-bb39-50518856d22b",
+  "name": "qa.PHI-566.T-2",
+  "timestamp": "2026-11-10T14:51:11.520Z",
+  "sessionId": null,
+  "version": null,
+  "release": null,
+  "tags": [
+    "PHI-566",
+    "S9",
+    "T-2"
+  ],
+  "project": "STAGE",
+  "observations": [
+    {
+      "id": "7fbce64d-d6ec-4c30-9e6e-4c8838947d0f",
+      "name": "qa.adapter.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:51:16.845Z",
+      "endTime": "2026-11-10T14:51:18.168Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "label": "T-2-reasoning",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 3,
+            "type": "message",
+            "id": "msg_06ff526471e8d9cd006af32f60d05487d180080f107f7ee130",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 4,
+            "type": "function_call",
+            "id": "fc_06ff526471e8d9cd006af32f611d9887d1a53670795fd0b0f0",
+            "call_id": "call_Bw0V4gRIKxivOSGmcWIVq9h4",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 5,
+            "type": "function_call_output",
+            "call_id": "call_Bw0V4gRIKxivOSGmcWIVq9h4",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 6,
+            "type": "reasoning",
+            "id": "rs_06ff526471e8d9cd006af32f632d9087d1aa8f4aa699f20182",
+            "hasStatus": false,
+            "hasEncryptedContent": true
+          },
+          {
+            "index": 7,
+            "type": "message",
+            "id": "msg_06ff526471e8d9cd006af32f63b76887d18b86ec467b63e53a",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 8,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "message"
+        ]
+      }
+    },
+    {
+      "id": "78cf3a78-85ec-4ec4-8993-0288bbc69d6b",
+      "name": "qa.adapter.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:51:14.134Z",
+      "endTime": "2026-11-10T14:51:15.825Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "label": "T-2-message-and-tool",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 3,
+            "type": "message",
+            "id": "msg_06ff526471e8d9cd006af32f60d05487d180080f107f7ee130",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 4,
+            "type": "function_call",
+            "id": "fc_06ff526471e8d9cd006af32f611d9887d1a53670795fd0b0f0",
+            "call_id": "call_Bw0V4gRIKxivOSGmcWIVq9h4",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 5,
+            "type": "function_call_output",
+            "call_id": "call_Bw0V4gRIKxivOSGmcWIVq9h4",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "reasoning",
+          "message"
+        ]
+      }
+    },
+    {
+      "id": "62629e06-acec-44e2-8485-acb5627ceb6a",
+      "name": "qa.adapter.llm",
+      "type": "GENERATION",
+      "startTime": "2026-11-10T14:51:11.520Z",
+      "endTime": "2026-11-10T14:51:13.352Z",
+      "level": "DEFAULT",
+      "statusMessage": null,
+      "model": "phi/chat/response",
+      "parentObservationId": null,
+      "input": {
+        "label": "T-2-create-fresh-replay",
+        "input": [
+          {
+            "index": 0,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 1,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          },
+          {
+            "index": 2,
+            "type": "message",
+            "hasStatus": false,
+            "hasEncryptedContent": false
+          }
+        ]
+      },
+      "output": {
+        "status": "completed",
+        "types": [
+          "message",
+          "function_call"
+        ]
+      }
+    }
+  ],
+  "redaction": "删除用户标识、凭据、自由文本及密文；仅保留观测元数据、QA 字段断言和工具执行结果白名单。"
+}

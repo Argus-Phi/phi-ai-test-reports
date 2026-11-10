@@ -1,0 +1,200 @@
+{
+  "case": "T-2-and-T-4",
+  "sha": "e1061e1f571c8621c6464b520a14d510cca36b2d",
+  "calls": [
+    {
+      "label": "T-4-plain",
+      "at": "2026-11-10T14:50:09.653Z",
+      "traceId": "phi566-s9-T-4-1794322209653",
+      "route": "phi/chat/response",
+      "gateway": true,
+      "input": [
+        {
+          "index": 0,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        }
+      ],
+      "observerEqualsSerialized": true,
+      "terminalStatus": "completed",
+      "responseModel": "chat/response",
+      "outputTypes": [
+        "message"
+      ],
+      "finish": {
+        "kind": "stop"
+      },
+      "text": "QA-566-ONE"
+    },
+    {
+      "label": "T-4-replay",
+      "at": "2026-11-10T14:50:13.216Z",
+      "traceId": "phi566-s9-T-4-1794322209653",
+      "route": "phi/chat/response",
+      "gateway": true,
+      "input": [
+        {
+          "index": 0,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "id": "msg_0b6acdac658bf554006af32f23ba9887d1a2849211e1559af2",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        }
+      ],
+      "observerEqualsSerialized": true,
+      "terminalStatus": "completed",
+      "responseModel": "chat/response",
+      "outputTypes": [
+        "reasoning",
+        "message"
+      ],
+      "finish": {
+        "kind": "stop"
+      },
+      "text": "QA-566-TWO"
+    },
+    {
+      "label": "T-2-create-fresh-replay",
+      "at": "2026-11-10T14:50:16.129Z",
+      "traceId": "phi566-s9-T-2-1794322216128",
+      "route": "phi/chat/response",
+      "gateway": true,
+      "input": [
+        {
+          "index": 0,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        }
+      ],
+      "observerEqualsSerialized": true,
+      "terminalStatus": "completed",
+      "responseModel": "chat/response",
+      "outputTypes": [
+        "message",
+        "function_call"
+      ],
+      "finish": {
+        "kind": "tool-calls"
+      },
+      "text": "我将先读取 `download-twitter-video` 技能说明，不执行下载脚本。"
+    },
+    {
+      "label": "T-2-message-and-tool",
+      "at": "2026-11-10T14:50:18.918Z",
+      "traceId": "phi566-s9-T-2-1794322216128",
+      "route": "phi/chat/response",
+      "gateway": true,
+      "input": [
+        {
+          "index": 0,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "id": "msg_09e39d202ab8edd6006af32f294c1c87d1b99fe4f9e83d51d7",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 4,
+          "type": "function_call",
+          "id": "fc_09e39d202ab8edd6006af32f2998e087d1bfe1b33c0386d05e",
+          "call_id": "call_uzwPCNxU6QIzgQs42MeBM4hL",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        },
+        {
+          "index": 5,
+          "type": "function_call_output",
+          "call_id": "call_uzwPCNxU6QIzgQs42MeBM4hL",
+          "hasStatus": false,
+          "hasEncryptedContent": false
+        }
+      ],
+      "fullInputEqualsExpected": false,
+      "count": 6,
+      "sourceCount": 6,
+      "observerEqualsSerialized": true,
+      "terminalStatus": "completed",
+      "responseModel": "chat/response",
+      "outputTypes": [
+        "reasoning",
+        "message"
+      ],
+      "finish": {
+        "kind": "stop"
+      },
+      "text": "READ-COMPLETE",
+      "originalInputUnchanged": true,
+      "sourceTypes": [
+        "message",
+        "function_call"
+      ],
+      "reasoningStatusAdded": false
+    }
+  ],
+  "T-4TraceId": "phi566-s9-T-4-1794322209653",
+  "T4ReplayPresent": true,
+  "T-2TraceId": "phi566-s9-T-2-1794322216128",
+  "realSkillRead": {
+    "isError": false,
+    "ok": true,
+    "path": "SKILL.md",
+    "bytes": 4434,
+    "call_id": "call_uzwPCNxU6QIzgQs42MeBM4hL"
+  },
+  "reasoningFixtureMissing": true
+}
