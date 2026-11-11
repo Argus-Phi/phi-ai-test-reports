@@ -1,0 +1,125 @@
+phi-agent-dsh/plugins/chat/src/lib/routes-files.ts
+44:         const form = await req.formData();
+45:         const file = form.get("file");
+46:         if (!file || typeof file === "string") {
+47:           return jsonResponse({ error: "file is required" }, { status: 400 });
+48:         }
+49:         const uploadResult = await store.uploadFile({
+50:           userId: effectiveUserId,
+51:           file: file as unknown as {
+52:             size: number;
+53:             type: string;
+54:             name: string;
+55:             arrayBuffer: () => Promise<ArrayBuffer>;
+56:           },
+57:         });
+58:         return jsonResponse(uploadResult);
+59:       }
+60: 
+61:       if (isFileReadRequest) {
+
+phi-agent-dsh/plugins/storage-pg/src/lib/postgres-store.ts
+967:   uploadFile: StorageAdapter["uploadFile"] = async (...a) =>
+968:     this.requireBlobs().uploadFile(...a);
+969:   getFile: StorageAdapter["getFile"] = async (...a) =>
+970:     this.requireBlobs().getFile(...a);
+971:   getFileById: StorageAdapter["getFileById"] = async (...a) =>
+972:     this.requireBlobs().getFileById(...a);
+973:   getFileDataUrl: StorageAdapter["getFileDataUrl"] = async (...a) =>
+974:     this.requireBlobs().getFileDataUrl(...a);
+
+phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.ts
+62:     const userId = sanitizeUserId(params.userId);
+63:     const { file } = params;
+64:     if (!file) {
+65:       throw new Error("missing_file");
+66:     }
+67:     const maxBytes =
+68:       params.maxBytes === undefined ? MAX_FILE_SIZE_BYTES : params.maxBytes;
+69:     if (maxBytes !== null) {
+70:       if (
+71:         !Number.isSafeInteger(maxBytes) ||
+72:         maxBytes <= 0 ||
+73:         maxBytes > MAX_ARTIFACT_SIZE_BYTES
+74:       ) {
+75:         throw new Error("invalid_file_size_limit");
+76:       }
+77:       if (file.size > maxBytes) {
+78:         throw new Error("file_too_large");
+79:       }
+80:     }
+81:     const mimeType = file.type || "application/octet-stream";
+82:     if (!isAllowedFileMimeType(mimeType)) {
+83:       throw new Error("unsupported_type");
+84:     }
+85: 
+86:     const fileBuffer = Buffer.from(await file.arrayBuffer());
+87:     if (maxBytes !== null && fileBuffer.byteLength > maxBytes) {
+88:       throw new Error("file_too_large");
+89:     }
+90:     const tenantId = await this.ctx.tenants.ensureForWrite(userId);
+91:     const fileId = createUuidV7();
+92:     const storageRef = blobStorageRef(tenantId, fileId);
+93:     const sha256 = sha256Hex(fileBuffer);
+94:     const now = new Date();
+95: 
+96:     // §9 write protocol: temp+fsync -> commit staging -> rename+fsync dir ->
+97:     // commit live.
+98:     const finalPath = this.absPath(storageRef);
+99:     const tempPath = await this.writeTemp(finalPath, fileBuffer);
+100: 
+101:     const stagingEm = this.ctx.em();
+102:     stagingEm.create(UploadedFileEntity, {
+103:       id: fileId,
+104:       tenantId,
+105:       filename: file.name,
+106:       mimeType,
+107:       size: String(file.size),
+108:       sha256,
+109:       storageRef,
+110:       blobState: "staging",
+111:       deleted: false,
+112:       createdAt: now,
+113:       updatedAt: now,
+114:     });
+115:     await stagingEm.flush();
+116: 
+117:     await this.promoteFile(tempPath, finalPath);
+118: 
+119:     const liveEm = this.ctx.em();
+120:     const row = await liveEm.findOne(UploadedFileEntity, { id: fileId });
+121:     if (row) {
+122:       row.blobState = "live";
+123:       row.updatedAt = new Date();
+124:       await liveEm.flush();
+125:     }
+126: 
+127:     const pathname = `/api/v1/files/${fileId}`;
+128:     return {
+129:       id: fileId,
+130:       url: pathname,
+131:       pathname,
+132:       contentType: mimeType,
+133:     };
+134:   }
+135: 
+136:   async getFile(params: { userId: string; fileId: string }): Promise<{
+137:     filename: string;
+
+phi-agent-dsh/lib/storage/src/adapter.ts
+1077:   }): Promise<number>;
+1078:   uploadFile(params: {
+1079:     userId: string;
+1080:     file: UploadFile;
+1081:     /**
+1082:      * Internal size policy: undefined defaults to 10 MiB; null has no total
+1083:      * size limit; numbers must be positive safe integers up to 100 MiB.
+1084:      * Never accepted from HTTP upload parameters.
+1085:      */
+1086:     maxBytes?: number | null;
+1087:   }): Promise<UploadResult>;
+1088:   getFile(params: { userId: string; fileId: string }): Promise<{
+1089:     filename: string;
+1090:     mimeType: string;
+
+Read-only comparison: BlobStore after the size/MIME checks is byte-for-byte unchanged from merge-base; routes-files.ts and postgres-store.ts have no diff.

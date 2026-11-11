@@ -365,5 +365,22 @@
     "total": 4
    }
   }
+ ],
+ "PHI-602": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "附件存储支持显式不限大小三态，保留普通上传策略",
+   "sha": "f4ef4314835ec6b5e85d4ceaf9d8728632f6f1f9",
+   "generated_at": "2026-11-11T09:53:07.309097+00:00",
+   "counts": {
+    "pass": 3,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 3
+   }
+  }
  ]
 }

@@ -1,0 +1,131 @@
+TAP version 13
+# Subtest: uploadFile -> getFile round-trips bytes, filename, and mime
+ok 1 - uploadFile -> getFile round-trips bytes, filename, and mime
+  ---
+  duration_ms: 172.347625
+  type: 'test'
+  ...
+# Subtest: getFileDataUrl returns the legacy data: URL format
+ok 2 - getFileDataUrl returns the legacy data: URL format
+  ---
+  duration_ms: 26.101917
+  type: 'test'
+  ...
+# Subtest: undefined and null policies round-trip an allowed non-video MIME
+ok 3 - undefined and null policies round-trip an allowed non-video MIME
+  ---
+  duration_ms: 46.49775
+  type: 'test'
+  ...
+# Subtest: the default 10 MiB boundary and a custom finite boundary are inclusive
+ok 4 - the default 10 MiB boundary and a custom finite boundary are inclusive
+  ---
+  duration_ms: 73.728625
+  type: 'test'
+  ...
+# Subtest: uploadFile rejects oversize files
+ok 5 - uploadFile rejects oversize files
+  ---
+  duration_ms: 44.848792
+  type: 'test'
+  ...
+# Subtest: an explicit 100 MiB artifact limit round-trips through storage
+ok 6 - an explicit 100 MiB artifact limit round-trips through storage
+  ---
+  duration_ms: 236.321833
+  type: 'test'
+  ...
+# Subtest: an explicit null limit round-trips a real MP4 larger than 100 MiB through PostgresStore
+ok 7 - an explicit null limit round-trips a real MP4 larger than 100 MiB through PostgresStore
+  ---
+  duration_ms: 1379.012
+  type: 'test'
+  ...
+# source/readback/disk/database: bytes=104857601 sha256=19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171 state=live
+# Subtest: explicit limits are enforced without changing the default upload limit
+ok 8 - explicit limits are enforced without changing the default upload limit
+  ---
+  duration_ms: 34.693583
+  type: 'test'
+  ...
+# Subtest: actual upload bytes cannot evade the ordinary size cap
+ok 9 - actual upload bytes cannot evade the ordinary size cap
+  ---
+  duration_ms: 10.466541
+  type: 'test'
+  ...
+# Subtest: actual upload bytes cannot evade a custom finite size cap
+ok 10 - actual upload bytes cannot evade a custom finite size cap
+  ---
+  duration_ms: 12.569708
+  type: 'test'
+  ...
+# Subtest: invalid internal size limits are rejected
+ok 11 - invalid internal size limits are rejected
+  ---
+  duration_ms: 11.15025
+  type: 'test'
+  ...
+# Subtest: uploadFile rejects unsupported mime types
+ok 12 - uploadFile rejects unsupported mime types
+  ---
+  duration_ms: 11.222833
+  type: 'test'
+  ...
+# Subtest: getFile is tenant-scoped (another user cannot read it)
+ok 13 - getFile is tenant-scoped (another user cannot read it)
+  ---
+  duration_ms: 27.246958
+  type: 'test'
+  ...
+# Subtest: getFile rejects not_found for missing file / unknown tenant
+ok 14 - getFile rejects not_found for missing file / unknown tenant
+  ---
+  duration_ms: 11.952583
+  type: 'test'
+  ...
+# Subtest: getFileById uses preferredUserId fast path then cross-tenant fallback
+ok 15 - getFileById uses preferredUserId fast path then cross-tenant fallback
+  ---
+  duration_ms: 25.257791
+  type: 'test'
+  ...
+# Subtest: getFileById rejects for empty / unknown id
+ok 16 - getFileById rejects for empty / unknown id
+  ---
+  duration_ms: 11.636666
+  type: 'test'
+  ...
+# Subtest: createSkillFile requires an existing skill
+ok 17 - createSkillFile requires an existing skill
+  ---
+  duration_ms: 11.069083
+  type: 'test'
+  ...
+# Subtest: skill file create -> list -> getContent -> delete tombstone
+ok 18 - skill file create -> list -> getContent -> delete tombstone
+  ---
+  duration_ms: 41.432375
+  type: 'test'
+  ...
+# Subtest: skill files are tenant-isolated
+ok 19 - skill files are tenant-isolated
+  ---
+  duration_ms: 30.363167
+  type: 'test'
+  ...
+# Subtest: blob methods reject when files_root is not configured
+ok 20 - blob methods reject when files_root is not configured
+  ---
+  duration_ms: 15.575542
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2668.28525

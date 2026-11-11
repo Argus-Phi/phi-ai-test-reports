@@ -1,0 +1,13 @@
+
+> @phi-ai/dsh@0.5.0 build ${QA_WORKDIR}/phi-ai/phi-agent-dsh
+> pnpm run generate:rows && pnpm run build:runtime
+
+
+> @phi-ai/dsh@0.5.0 generate:rows ${QA_WORKDIR}/phi-ai/phi-agent-dsh
+> node scripts/generate-rows.mjs
+
+[generate-rows] wrote 54 rows to bundle/src/rows.generated.ts
+
+> @phi-ai/dsh@0.5.0 build:runtime ${QA_WORKDIR}/phi-ai/phi-agent-dsh
+> tsc -p tsconfig.build.json
+

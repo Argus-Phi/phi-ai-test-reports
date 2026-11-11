@@ -1,0 +1,30 @@
+{
+  "expectation": "unlimited round-trip",
+  "source": {
+    "bytes": 104857601,
+    "sha256": "19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171"
+  },
+  "readback": {
+    "bytes": 104857601,
+    "sha256": "19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171"
+  },
+  "disk": {
+    "bytes": 104857601,
+    "sha256": "19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171"
+  },
+  "database": {
+    "bytes": 104857601,
+    "sha256": "19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171",
+    "state": "live",
+    "deleted": false,
+    "filename": "large.mp4",
+    "mime": "video/mp4"
+  },
+  "upload_result": {
+    "id": "01a1ca02-f68f-717c-bb99-090b9f4a653e",
+    "url": "/api/v1/files/01a1ca02-f68f-717c-bb99-090b9f4a653e",
+    "pathname": "/api/v1/files/01a1ca02-f68f-717c-bb99-090b9f4a653e",
+    "contentType": "video/mp4"
+  },
+  "passed": true
+}

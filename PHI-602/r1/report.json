@@ -1,0 +1,352 @@
+{
+ "key": "PHI-602",
+ "title": "附件存储支持显式不限大小三态，保留普通上传策略",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮按测试计划执行 3 条用例，3 通过、0 失败、0 阻塞、0 未执行。有效 104857601 字节 MP4 经真实 PostgresStore 往返，四方长度/hash 一致；基线按预期拒绝，默认与有限策略回归保持。显式启用的 storage-pg 454/454、真实 Canary 认证 HTTP 上传/读取均通过。未发现 blocker 或 major，AI 测试和审查允许提交 PR。本结论只覆盖存储前置，不代表 PHI-577 聊天/点击交付或 PHI-599 Range 已验收。",
+ "sha": "f4ef4314835ec6b5e85d4ceaf9d8728632f6f1f9",
+ "branch": "PHI-602-storage-unlimited",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/714",
+ "generated_at": "2026-11-11T09:53:07.309097+00:00",
+ "environment": {
+  "机器": "mini / e2e01；macOS 26.6.2 (25G83)",
+  "Phi Canary": "2026.11.4.0205",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "PostgreSQL": "17.8.2（任务私有 PG + 会话私有 PG）",
+  "服务 / PG 端口": "LANE_AGENT_PORT=18101 / 18110",
+  "数据库": "本地 phi602_tests；会话 e2e01_phi602 / e2e01_phi602_tests",
+  "基线 SHA": "9bc46f8ac04f36594d01c88d6d2cdd7279e9fda1",
+  "模式切换": "媒体变量 unset→skip；有效路径→实际执行；错路径/空/小→预期失败",
+  "环境自救": "启动会话 Sentinel/Canary；独立 QA helper 补足缺少的 socket discovery；未改产品代码",
+  "清理": "自启服务/PG 已停止，e2e01 已 release"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含本轮环境与手测豁免）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-602/test-plan.md"
+  },
+  {
+   "title": "runbook.md@d7448accbb27ee9da89b926ebc3d561619a095f5",
+   "url": "https://github.com/phibrowser/phi-ai/blob/d7448accbb27ee9da89b926ebc3d561619a095f5/PHI-602/runbook.md"
+  },
+  {
+   "title": "S8 code-r1-spock.md@fb756cb7d",
+   "url": "https://github.com/phibrowser/phi-ai/blob/fb756cb7d/PHI-602/reviews/code-r1-spock.md"
+  },
+  {
+   "title": "Q 精确撤改失败/恢复证据",
+   "url": "https://github.com/phibrowser/phi-ai/tree/d7448accbb27ee9da89b926ebc3d561619a095f5/PHI-602/qa-evidence/dev"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "内部 unlimited 大 MP4 真实往返与基线对照",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-1",
+   "uses_chat": false,
+   "precondition": "真实 PostgreSQL 17.8.2、临时目录、ffprobe/ffmpeg 验证过的 104857601 字节 MP4；被测和基线检出各自隔离。",
+   "steps": [
+    "生成有效 MP4 并追加合法 free box，ffprobe 解析及 ffmpeg 完整解码。",
+    "显式设置 PHI_STORAGE_TEST_MP4_PATH 执行 blob-store.test.ts；核对具名用例未跳过。",
+    "同一外部 storage-roundtrip.ts 与同一夹具先运行 merge-base 基线，再运行被测 SHA；核对源、原 getFileById 回读、落盘、live 数据库记录。",
+    "核对 Q 的仅撤改 BlobStore 判定的失败/恢复记录；在 e2e01 再独立运行具名大文件及全部 blob 套件。"
+   ],
+   "expected": "基线报 file_too_large；被测成功，原 UploadResult、文件名/MIME 保持一致；源/回读/落盘/数据库的长度和 hash 一致，live 且 deleted=false。",
+   "actual": "通过。基线按预期拒绝；被测本地及 e2e01 均 20/20、0 skip。源/回读/落盘/数据库均 104857601 字节，SHA-256=19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171，live、deleted=false。",
+   "status": "pass",
+   "bugs": [],
+   "notes": "截图为 Canary 经 CDP 展示的真实去敏测试输出。基线拒绝是因果对照的预期失败，不是未关闭缺陷。Q 的精确撤改原始证据见 qa-evidence/dev/revert-red.log 和 restored-green.log@d7448accbb27ee9da89b926ebc3d561619a095f5；Ripley 未修改产品代码。",
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-1-01.png",
+     "caption": "基线预期失败：同一有效大夹具被 file_too_large 拒绝",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-1-baseline.log",
+     "caption": "同一外部探针的基线预期拒绝",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-1-media.json",
+     "caption": "ffprobe 的真实字节数及视频流",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "fixture-commands.log",
+     "caption": "夹具生成和完整解码命令",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-02.png",
+     "caption": "被测源/回读/落盘/数据库一致",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-roundtrip.log",
+     "caption": "四方长度/hash、live 状态、原返回结构",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-blob-enabled.log",
+     "caption": "本地具名用例与全部 blob 20/20",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-1-lane-blob.log",
+     "caption": "e2e01 独立真实 PG 执行 20/20、0 skip",
+     "attempt": 3,
+     "outcome": "pass"
+    }
+   ]
+  },
+  {
+   "id": "T-2",
+   "title": "有限策略、MIME 与夹具启用方式定向回归",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "AC-1 执行可信度；FR-3/FR-4 回归保护",
+   "uses_chat": false,
+   "precondition": "同一被测 SHA、真实 PG；沿用仓库 storage-pg/storage 套件，串行执行大字节用例。",
+   "steps": [
+    "未设置媒体变量执行 storage-pg 整套。",
+    "显式有效大 MP4 执行 blob 和整套，核对 default/undefined/null/number、10/100 MiB 边界、声明及实际超限、非法数字、MIME 等既有断言。",
+    "分别设置不存在路径、空路径、小 MP4，确认具名用例实际失败而非 skip，再恢复有效大夹具。",
+    "执行 storage 单元、强制 linked 类型、全仓 type-check、ESLint、Prettier、服务 build；只读比较 README、PostgresStore 转发和原写入协议。"
+   ],
+   "expected": "普通/有限策略、错误和读取时机不变；null 不绕过 MIME。仅未设变量可 skip，错输入必失败，恢复及显式整套均成功。",
+   "actual": "通过。默认整套 453 pass/1 skip；有效大夹具整套 454 pass/0 skip；missing/empty/small 各预期 fail 1、skip 0，恢复 20/20。storage 6/6；强制类型、59 个类型任务、ESLint、Prettier、服务 build 通过。HTTP/转发路径未改，写入与读取实现未改。",
+   "status": "pass",
+   "bugs": [],
+   "notes": "三个预期负向运行分别分组标 fail，不计为产品 bug。全仓类型为 59 个缓存命中；storage/storage-pg 已另用 --force 独立重建。无产品 GUI 验收项。",
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-2-01.png",
+     "caption": "未设变量：恰好一个明确 opt-in skip",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-default-suite.log",
+     "caption": "默认套件相关断言及全套计数",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-02.png",
+     "caption": "预期失败 attempt 2：不存在路径",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-2-fixture-missing.log",
+     "caption": "不存在路径实际失败、未跳过",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-2-03.png",
+     "caption": "预期失败 attempt 3：空路径",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-2-fixture-empty.log",
+     "caption": "空路径实际失败、未跳过",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-2-04.png",
+     "caption": "预期失败 attempt 4：小 MP4",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-2-fixture-small.log",
+     "caption": "小 MP4 实际大小断言失败、未跳过",
+     "attempt": 4,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-2-restored.log",
+     "caption": "恢复有效夹具后 20/20",
+     "attempt": 5,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-05.png",
+     "caption": "最终启用与工程检查结果",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-enabled-suite.log",
+     "caption": "有效大夹具：454/454、0 skip",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-summary.json",
+     "caption": "回归及工程结果汇总",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-execution.json",
+     "caption": "基线/被测与夹具切换精确命令、实际退出码",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "engineering-summary.log",
+     "caption": "工程命令与实际结果",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "engineering-build.log",
+     "caption": "服务构建输出",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "engineering-prettier.log",
+     "caption": "Prettier 输出",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "engineering-type-check.log",
+     "caption": "全仓类型检查计数",
+     "attempt": 6,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-T-3-contract-review.log",
+     "caption": "转发、HTTP 边界及写入协议只读核对",
+     "attempt": 6,
+     "outcome": "pass"
+    }
+   ]
+  },
+  {
+   "id": "T-3",
+   "title": "Canary 认证的普通 HTTP 上传与原读取冒烟",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-3 回归保护",
+   "uses_chat": false,
+   "precondition": "e2e01 内目标 SHA 的真实 selfhosted 服务；stag 配置、隔离数据库 e2e01_phi602、Canary 测试身份。",
+   "steps": [
+    "客户端从本会话 Canary Runner 取 Bearer，仅保存在内存。",
+    "向 LANE_AGENT_PORT=18101 的原 files/upload 上传 smoke.txt（text/plain，内容 PHI-602 upload smoke\\n），同时带表单和查询 maxBytes=null。",
+    "核对 UploadResult，按原返回 URL GET，逐字节和 SHA-256 比较。",
+    "只读核对 routes-files.ts:49–58 仍只向存储传 userId/file，PostgresStore 原样透传；保存关键与结束截图。"
+   ],
+   "expected": "upload/read 均成功，id/url/pathname/contentType 保持原契约，字节和 MIME 一致；内部大小策略不从 HTTP 表单或查询转发。",
+   "actual": "通过。upload/read 均 200，text/plain、21 字节逐字节一致；SHA-256=cb166a140798afa33a97bf337a7e1d38913fe929799a0c94bb162aab297e4e08。原返回四字段正确。路由只传 userId/file；与基线无差异。",
+   "status": "pass",
+   "bugs": [],
+   "notes": "小文件 API 成功与路由只读核对共同证明边界；没有把小文件成功单独当作忽略大小参数的证据。未调用 chat，不需要 trace。",
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-3-01.png",
+     "caption": "关键步骤：已认证上传响应",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-3-upload.json",
+     "caption": "实际上传字段与响应（凭据不保存）",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-02.png",
+     "caption": "结束状态：原读取与 SHA-256 一致",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-3-http.json",
+     "caption": "真实 HTTP 状态及长度/hash",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-T-3-contract-review.log",
+     "caption": "HTTP 不转发策略及 PostgresStore 原样转发",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "environment.log",
+     "caption": "SHA、工具版本与实际服务 ready 日志",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "cleanup-lane.log",
+     "caption": "本次服务与隔离 PG 已停止",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "lane-release.log",
+     "caption": "会话已归还",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ]
+  }
+ ],
+ "bugs": [],
+ "known_issues": []
+}

@@ -1,0 +1,25 @@
+{
+  "upload": {
+    "status": 200,
+    "response": {
+      "id": "01a1ca03-821d-70ed-a59c-ff073d29d543",
+      "url": "/api/v1/files/01a1ca03-821d-70ed-a59c-ff073d29d543",
+      "pathname": "/api/v1/files/01a1ca03-821d-70ed-a59c-ff073d29d543",
+      "contentType": "text/plain"
+    },
+    "request": {
+      "filename": "smoke.txt",
+      "mime": "text/plain",
+      "query_maxBytes": "null",
+      "form_maxBytes": "null"
+    },
+    "bytes": 21,
+    "sha256": "cb166a140798afa33a97bf337a7e1d38913fe929799a0c94bb162aab297e4e08"
+  },
+  "read": {
+    "status": 200,
+    "bytes": 21,
+    "sha256": "cb166a140798afa33a97bf337a7e1d38913fe929799a0c94bb162aab297e4e08",
+    "mime": "text/plain"
+  }
+}

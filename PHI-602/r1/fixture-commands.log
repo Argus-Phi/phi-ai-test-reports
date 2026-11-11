@@ -1,0 +1,6 @@
+ffmpeg -v error -f lavfi -i color=c=blue:s=64x64:r=1 -t 1 -an -c:v mpeg4 qa-local/fixtures/small.mp4
+python3 artifacts-wt/PHI-602/qa-scripts/prepare-fixture.py qa-local/fixtures/small.mp4 qa-local/fixtures/large.mp4
+ffprobe -v error -show_entries format=format_name,size,duration -show_entries stream=codec_type,codec_name -of json qa-local/fixtures/large.mp4
+ffmpeg -v error -xerror -i qa-local/fixtures/large.mp4 -f null -
+Observed: ffprobe and full decode exit 0; bytes=104857601; SHA-256=19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171
+Tool binaries: eugeneware/ffmpeg-static release b6.1.1, ffmpeg-darwin-arm64 and ffprobe-darwin-arm64.

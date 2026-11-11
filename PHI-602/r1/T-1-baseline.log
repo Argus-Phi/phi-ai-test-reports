@@ -1,0 +1,9 @@
+{
+  "expectation": "baseline rejection",
+  "source": {
+    "bytes": 104857601,
+    "sha256": "19401e63b19d4ae9c28765fc404d9a8cafaa6d2ac84f575f8667459ec5ee4171"
+  },
+  "error": "file_too_large",
+  "passed": true
+}

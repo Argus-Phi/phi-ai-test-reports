@@ -1,0 +1,37 @@
+Expected invalid-fixture failure; excerpt from actual TAP output
+# Subtest: an explicit null limit round-trips a real MP4 larger than 100 MiB through PostgresStore
+not ok 7 - an explicit null limit round-trips a real MP4 larger than 100 MiB through PostgresStore
+  ---
+  duration_ms: 189.458958
+  type: 'test'
+  location: '${QA_WORKDIR}/phi-ai/phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.test.ts:1:4502'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(bytes.byteLength > 100 * 1024 * 1024)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    <anonymous> (${QA_WORKDIR}/phi-ai/phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.test.ts:201:14)
+    async TestContext.<anonymous> (${QA_WORKDIR}/phi-ai/phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.test.ts:199:38)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+
+1..20
+# tests 20
+# suites 0
+# pass 19
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1186.904
+undefined
+${QA_WORKDIR}/phi-ai/phi-agent-dsh/plugins/storage-pg:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: tsx --test --test-concurrency=1 src/lib/blob-store.test.ts

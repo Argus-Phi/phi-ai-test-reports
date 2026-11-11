@@ -1,0 +1,36 @@
+{
+  "default_suite": {
+    "tests": 454,
+    "pass": 453,
+    "fail": 0,
+    "skip": 1,
+    "skipped_test": "explicit null >100 MiB MP4; environment variable absent"
+  },
+  "enabled_suite": {
+    "tests": 454,
+    "pass": 454,
+    "fail": 0,
+    "skip": 0
+  },
+  "negative_fixtures": {
+    "missing": "ffprobe nonexistent file; exit 1 / skip 0",
+    "empty": "ffprobe empty filename; exit 1 / skip 0",
+    "small": "real size assertion; exit 1 / skip 0"
+  },
+  "restored_valid_fixture": {
+    "pass": 20,
+    "fail": 0,
+    "skip": 0
+  },
+  "storage_unit": {
+    "pass": 6,
+    "fail": 0,
+    "skip": 0
+  },
+  "force_types": "tsc -b storage storage-pg --force --emitDeclarationOnly: exit 0",
+  "type_check": "59/59 successful (59 cache hits); linked storage and storage-pg independently force rebuilt",
+  "eslint": "exit 0",
+  "prettier": "exit 0",
+  "service_build": "exit 0",
+  "contract": "HTTP forwards only userId/file; PostgresStore preserves all arguments; byte write/read implementation unchanged after size gates"
+}

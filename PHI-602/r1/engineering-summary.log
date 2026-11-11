@@ -1,0 +1,8 @@
+All commands ran from the pinned code checkout f4ef4314835ec6b5e85d4ceaf9d8728632f6f1f9; each exited 0.
+pnpm --filter @phi-ai/dsh-lib-storage test: 6 pass, 0 fail, 0 skip
+pnpm exec tsc -b phi-agent-dsh/lib/storage phi-agent-dsh/plugins/storage-pg --force --emitDeclarationOnly
+pnpm type-check: 59/59 successful; 59 cache hits. Linked storage and storage-pg were independently force rebuilt first.
+pnpm exec eslint --no-warn-ignored phi-agent-dsh/lib/storage/src/adapter.ts phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.ts phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.test.ts
+pnpm exec prettier --check --ignore-unknown phi-agent-dsh/lib/storage/src/adapter.ts phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.ts phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.test.ts phi-agent-dsh/README.md
+pnpm --dir phi-agent-dsh build
+git diff --check: exit 0; git status --porcelain: empty after validation.
