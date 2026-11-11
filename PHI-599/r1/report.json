@@ -60,7 +60,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "attempt1/T-1-ui.json",
      "caption": "首次驱动未启用Page域，初始化观测缺失；不是产品卡片缺失",
      "attempt": 1,
@@ -74,35 +74,35 @@
      "outcome": "fail"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-1-ui.json",
      "caption": "T-1-ui.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-1-playback.json",
      "caption": "T-1-playback.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "video-extraction.json",
      "caption": "video-extraction.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "video-source.json",
      "caption": "video-source.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "storage-verification.json",
      "caption": "storage-verification.json",
      "attempt": 2,
@@ -150,7 +150,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-2.json",
      "caption": "T-2.json",
      "attempt": 2,
@@ -191,14 +191,14 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-3.json",
      "caption": "T-3.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-3-ui.json",
      "caption": "T-3-ui.json",
      "attempt": 2,
@@ -303,21 +303,21 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-5-baseline.json",
      "caption": "T-5-baseline.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-5-fixed.json",
      "caption": "T-5-fixed.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-5-storage.json",
      "caption": "T-5-storage.json",
      "attempt": 2,
@@ -338,21 +338,21 @@
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "version-manifest.json",
      "caption": "version-manifest.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "loaded-artifacts.json",
      "caption": "loaded-artifacts.json",
      "attempt": 2,
      "outcome": "pass"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "storage-verification.json",
      "caption": "storage-verification.json",
      "attempt": 2,
@@ -463,7 +463,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-7.json",
      "caption": "T-7.json",
      "attempt": 2,
@@ -504,7 +504,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-8.json",
      "caption": "T-8.json",
      "attempt": 2,
@@ -545,7 +545,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-9-ui.json",
      "caption": "T-9-ui.json",
      "attempt": 2,
@@ -586,7 +586,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-10-ui.json",
      "caption": "T-10-ui.json",
      "attempt": 2,
@@ -627,7 +627,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-11-ui.json",
      "caption": "T-11-ui.json",
      "attempt": 2,
@@ -668,7 +668,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "attempt1/T-12-ui.json",
      "caption": "首次QA只改history未触发应用切换，release断言失败",
      "attempt": 1,
@@ -689,7 +689,7 @@
      "outcome": "fail"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-12-ui.json",
      "caption": "T-12-ui.json",
      "attempt": 2,
@@ -771,14 +771,14 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "attempt1/T-14-setup.json",
      "caption": "首次环境准备未附bearer，401；按合法前置补测试bearer后复跑",
      "attempt": 1,
      "outcome": "fail"
     },
     {
-     "type": "text",
+     "type": "log",
      "path": "T-14.json",
      "caption": "T-14.json",
      "attempt": 2,
@@ -819,7 +819,7 @@
    "uses_chat": false,
    "evidence": [
     {
-     "type": "text",
+     "type": "log",
      "path": "T-15.json",
      "caption": "T-15.json",
      "attempt": 2,
