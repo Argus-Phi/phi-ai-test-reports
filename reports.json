@@ -399,5 +399,22 @@
     "total": 15
    }
   }
+ ],
+ "PHI-577": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "X 视频提取成功后读取 MP4 超时，未生成聊天附件",
+   "sha": "6b934fa14fe54cee68ec5ed9dd033ef797531785",
+   "generated_at": "2026-11-11T14:02:05.871163+00:00",
+   "counts": {
+    "pass": 6,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 6
+   }
+  }
  ]
 }

@@ -1,0 +1,4 @@
+[2026-11-11 21:54:52] Starting phi-agent server on UDS /tmp/phi-sentinel-feee4448955a3efe/sockets/phi-agent.sock
+[2026-11-11 21:54:55] Starting phi-agent server on UDS /tmp/phi-sentinel-feee4448955a3efe/sockets/phi-agent.sock
+[2026-11-11 21:57:59] [phi-cdp/diag] {"at":"2026-11-11T13:57:59.848Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":18253,"ok":true}
+[2026-11-11 21:57:59] [phi-cdp/diag] {"at":"2026-11-11T13:57:59.895Z","event":"resource.read","method":"Network.loadNetworkResource","timeoutMs":15000,"ms":46,"ok":true}

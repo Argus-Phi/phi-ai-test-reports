@@ -1,0 +1,721 @@
+{
+ "issue": "PHI-577",
+ "based_on": "PHI-577/spec.md@94b32bde3dda4c0c5427f54525320abce8282f05, PHI-577/design.md@d6575fbd7979a570b0d8b92f585d70e2022ea8dd, PHI-577/dev-notes.md@3d8f1e24fd0d87b72c1acade315a961b3901dde0, PHI-577/runbook.md@3d8f1e24fd0d87b72c1acade315a961b3901dde0, code@6b934fa14fe54cee68ec5ed9dd033ef797531785",
+ "key": "PHI-577",
+ "title": "X 视频提取成功后读取 MP4 超时，未生成聊天附件",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮完整执行6条计划用例，6通过、0失败、0阻塞、0未执行；全部5条gui用例在租用的Phi Canary完成。原帖317065125字节完整交付，384 MiB+1真实native回读通过；基线15002ms超时→修复18253ms方法成功并完成读取/入库。876项受影响自动化测试全部通过、0skip，强制类型59/59、构建/打包/启动通过。未发现本PR引入的blocker或major，AI测试和审查允许提交PR。",
+ "sha": "6b934fa14fe54cee68ec5ed9dd033ef797531785",
+ "branch": "PHI-577-resource-stream-timeout",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/711",
+ "generated_at": "2026-11-11T14:02:05.871163+00:00",
+ "environment": {
+  "机器": "mini / e2e01 / macOS26.6.2 arm64",
+  "Canary": "2026.11.4.0205 build957 / Chrome156.0.8078.52",
+  "Sidecar": "2026.11.11.2058（463文件与构建一致）",
+  "agent": "0.5.0 / package.env.stage / native broker+UDS",
+  "Node / pnpm": "22.23.3 / 10.17.1",
+  "数据库": "e2e01_phi577 / 独立PG18119",
+  "资源站": "http://127.0.0.1:18110/（仅租约内，已关闭）",
+  "基线SHA": "0e0154d06c6d03e1049fe1faee984c31985f48fc",
+  "Langfuse": "Phi Agent - staging，按本轮conversation id查询",
+  "清理": "自有服务已停止，证据已拉回，e2e01租约已归还"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含手测方案）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/agent-artifacts/PHI-577/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/3d8f1e24fd0d87b72c1acade315a961b3901dde0/PHI-577/runbook.md"
+  },
+  {
+   "title": "spec.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/94b32bde3dda4c0c5427f54525320abce8282f05/PHI-577/spec.md"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "原帖最高码率大文件：自然语言、附件、点击下载与播放",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1 / FR-2",
+   "precondition": "e2e01 独立会话、stage 环境、指定 SHA；代码工作区干净；全部证据已拉回且会话已归还。",
+   "steps": [
+    "标准 Sidecar + stage 打包服务打开原帖，选择内置 Download Twitter Video，发送“帮我下载这个视频”。",
+    "核对提取、根 frame、fileStream unlimited、元数据和 MP4 卡片；观察点击前没有文件请求或下载。",
+    "点击既有 Download 按钮；核对串行 Range、存储/落盘哈希及 Canary 播放。"
+   ],
+   "expected": "原帖最高码率且实际 >100 MiB 的 MP4 完整交付；不自动保存；点击后完整、可播放。",
+   "actual": "最高码率 10368000 bit/s，317065125 字节；resource.load=88295ms/read=3883ms。点击前 0 请求/0 下载，点击后1210个串行206，尾块133029字节，下载complete。存储/落盘SHA-256均为fe9922522be8bed76ba5991a8c02cc6108771b38032fbd51b33cf707cd0ec085；2560×1440播放时间0.018576→2.01075、帧8→105，error=null。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-1-attempt1-fail.png",
+     "caption": "尝试1：干净打包未先构建技能脚本，真实聊天失败",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "T-1-attempt1/trace-a8882976-a5e6-4c41-ba01-116fb19f9d1b.json",
+     "trace_id": "a8882976-a5e6-4c41-ba01-116fb19f9d1b",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/a8882976-a5e6-4c41-ba01-116fb19f9d1b",
+     "caption": "尝试1：script_not_found，补齐 build:skills 后重新打包",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-1-01.png",
+     "caption": "尝试2：实际请求",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-02.png",
+     "caption": "当前聊天的MP4卡片",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-03.png",
+     "caption": "点击前",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-04.png",
+     "caption": "点击下载后",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-05.png",
+     "caption": "Canary播放",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "full-request.json",
+     "caption": "实际输入及页面",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "full-chat-state.json",
+     "caption": "真实卡片状态",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "full-download.json",
+     "caption": "完整1210块与下载记录",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "full-storage.json",
+     "caption": "真实入库/存储/下载哈希",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "full-playback.json",
+     "caption": "播放时间与解码帧",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "full-versions.json",
+     "caption": "配套包和463个加载文件一致",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-1-source-http.json",
+     "caption": "独立HTTP响应的大小和哈希",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-1-media-comparison.json",
+     "caption": "两次响应媒体数据一致",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-1-time-fields.json",
+     "caption": "6个差异字节均落在MP4时间字段",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "full-stages.log",
+     "caption": "资源阶段耗时",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-1-attempt2/trace-2df42ad5-b367-447b-9c24-ba830f0404e1.json",
+     "trace_id": "2df42ad5-b367-447b-9c24-ba830f0404e1",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/2df42ad5-b367-447b-9c24-ba830f0404e1",
+     "caption": "尝试2：完整自然语言请求、技能、工具与附件结果",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "初次失败来自本轮产物未包含生成的fetch.js，按仓库build:skills补齐并重新标准打包。独立HTTP响应与浏览器响应仅6个时间字段字节不同，mdat哈希相同；没有把两次响应的整包hash误写成相同。"
+  },
+  {
+   "id": "T-2",
+   "title": "相同慢资源条件下的基线超时与修复成功对照",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-2",
+   "precondition": "e2e01 独立会话、stage 环境、指定 SHA；代码工作区干净；全部证据已拉回且会话已归还。",
+   "steps": [
+    "同一Canary、同一测试站slow.mp4（1128375字节、18秒body、no-store），两个版本发送完全相同请求，明确正确的CDP options，不指定模型timeoutMs。",
+    "先运行merge-base基线0e0154d06c6d03e1049fe1faee984c31985f48fc，再切换被测SHA；均通过真实Sidecar、worker、CDP及存储。",
+    "对齐HTTP body与方法/读取日志；下载修复附件并比较源/存储/落盘。"
+   ],
+   "expected": "基线在方法回复前超时；修复等待完整body后进入IO和存储，交付完整附件。",
+   "actual": "基线Network.loadNetworkResource在15002ms返回cdp_timeout/no reply within15000ms，无file_id或附件；HTTP在15.913秒断开。修复方法18253ms成功，HTTP body18.248秒完成，随后IO读取46ms成功；1128375字节入库和下载，SHA-256与源均为0cd83d944a6ca7822b4a8306cecc60a36e859b041f6702c6a1ad9ead78924451。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-2-baseline-01.png",
+     "caption": "基线请求关键步骤",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-2-baseline-02.png",
+     "caption": "基线预期失败终态",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "T-2-baseline-stages.log",
+     "caption": "基线方法等待15002ms超时",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "T-2-baseline/trace-6f7e8e42-6e69-4efb-a251-73d84d1f415d.json",
+     "trace_id": "6f7e8e42-6e69-4efb-a251-73d84d1f415d",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/6f7e8e42-6e69-4efb-a251-73d84d1f415d",
+     "caption": "未修改基线的真实方法超时（预期对照）",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-2-fixed-startup-fail.png",
+     "caption": "切换服务初期native未就绪，尚未创建会话",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-2-fixed-a2-01.png",
+     "caption": "服务就绪后同一原文请求",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-fixed-a2-02.png",
+     "caption": "修复版本真实附件",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-2-fixed-download.json",
+     "caption": "点击保存和完整性",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-2-fixed-storage.json",
+     "caption": "实际入库/落盘hash",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-2-fixed-stages.log",
+     "caption": "修复方法/读取分段",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "site.log",
+     "caption": "HTTP body开始/结束/断开",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-2-baseline-state.json",
+     "caption": "基线完整原文",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-2-fixed-a2-state.json",
+     "caption": "修复完整原文，已断言与基线一致",
+     "attempt": 3,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-2-fixed/trace-288ede10-8b64-47b7-9359-2122ab3602a4.json",
+     "trace_id": "288ede10-8b64-47b7-9359-2122ab3602a4",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/288ede10-8b64-47b7-9359-2122ab3602a4",
+     "caption": "修复版本真实worker/工具/附件结果",
+     "attempt": 3,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "这是与原事故同阶段机制的可控复现，不冒称重放事故现场。基线预期失败不列产品bug。切换后的首次请求早于native服务就绪、未创建conversation；只在getChats真实成功后重新执行验收。"
+  },
+  {
+   "id": "T-3",
+   "title": "显式数字maxBytes保留100 MiB边界",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-1 影响面",
+   "precondition": "e2e01 独立会话、stage 环境、指定 SHA；代码工作区干净；全部证据已拉回且会话已归还。",
+   "steps": [
+    "对limit.mp4用fileStream/maxBytes104857600读取一次，点击卡片下载并核对hash/播放。",
+    "对over-limit.mp4以相同数字策略读取一次；核对result_too_large、没有成功附件或自动保存。"
+   ],
+   "expected": "显式数字策略下104857600成功、104857601拒绝；目标技能unlimited仍按T-1成功，不把旧上限作为FR-2。",
+   "actual": "100 MiB通过400个Range下载，源/真实存储/落盘hash均为bbac76791c141d656cccedb18b2f142db9ede048a1baa879fe85b768091eb3fb，播放推进且error=null。超1字节返回result_too_large，worker未产生成功附件；不重试。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-3-limit-events.json",
+     "caption": "独立WS驱动未携带Profile，未进入chat",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-limit-a2-02.png",
+     "caption": "请求未明确必需options时的失败状态",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-attempt2/trace-edf88038-9e69-48e5-894d-91d6a8f6f328.json",
+     "trace_id": "edf88038-9e69-48e5-894d-91d6a8f6f328",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/edf88038-9e69-48e5-894d-91d6a8f6f328",
+     "caption": "CDP options={}导致Invalid parameters，细化测试原文后重跑",
+     "attempt": 2,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-limit-a3-02.png",
+     "caption": "独立WS驱动未复用UI持久化与委派收束",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-attempt3/trace-e5df1567-96cc-4e09-9b51-b3863fa87fc4.json",
+     "trace_id": "e5df1567-96cc-4e09-9b51-b3863fa87fc4",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/e5df1567-96cc-4e09-9b51-b3863fa87fc4",
+     "caption": "独立API尝试，未以其结果判UI通过",
+     "attempt": 3,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "T-3-limit-a4-01.png",
+     "caption": "真实Sidecar请求",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-limit-a4-02.png",
+     "caption": "100 MiB卡片",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-limit-04.png",
+     "caption": "完整点击下载",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-limit-05.png",
+     "caption": "Canary播放",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-limit-download.json",
+     "caption": "400个Range与hash",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-limit-storage.json",
+     "caption": "真实存储核对",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-limit-playback.json",
+     "caption": "播放数据",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-over-01.png",
+     "caption": "超1字节请求",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-over-02.png",
+     "caption": "超限无附件终态",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-over-state.json",
+     "caption": "无成功附件/无自动保存",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "source-http-manifest.json",
+     "caption": "独立HTTP实读的源大小和hash",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-attempt4/trace-1d04b447-d7f5-4652-bf3d-9b53f36980fa.json",
+     "trace_id": "1d04b447-d7f5-4652-bf3d-9b53f36980fa",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/1d04b447-d7f5-4652-bf3d-9b53f36980fa",
+     "caption": "CDP驱动真实Sidecar的边界成功",
+     "attempt": 4,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-3-over/trace-8f56b645-16fe-438d-a45f-d67307ac89f4.json",
+     "trace_id": "8f56b645-16fe-438d-a45f-d67307ac89f4",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/8f56b645-16fe-438d-a45f-d67307ac89f4",
+     "caption": "显式数字超限的预期拒绝",
+     "attempt": 4,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "前3次为驱动/用例输入探索，单独保留失败组；未据此归因为本PR代码缺陷。最终用例明确有效CDP options并通过真实UI重跑；不伪造附件或手工更换源URL。"
+  },
+  {
+   "id": "T-4",
+   "title": "非MP4与存储失败的既有回归冒烟",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "FR-2",
+   "precondition": "e2e01 独立会话、stage 环境、指定 SHA；代码工作区干净；全部证据已拉回且会话已归还。",
+   "steps": [
+    "运行worker registry/handler/file-store-port定向套件。",
+    "复用bundle真实loop/manage/raw/store集成套件，定位not-mp4和store-failure断言。"
+   ],
+   "expected": "非MP4和存储失败保留原错误终态，不返回成功附件，不泄露原始payload。",
+   "actual": "worker33/33、bundle159/159通过，非MP4以及普通/unlimited两条store-failure均通过；这是自动化替身/集成层面的证据。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-4-01.png",
+     "caption": "实际自动化日志关键状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-02.png",
+     "caption": "实际自动化日志结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "worker.log",
+     "caption": "worker33项",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "bundle.log",
+     "caption": "bundle159项，含not-mp4/store-failure",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-5",
+   "title": "取消/预算/清理回归与真实PDF默认路径",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-2 影响面 / S8 VERIFY",
+   "precondition": "e2e01 独立会话、stage 环境、指定 SHA；代码工作区干净；全部证据已拉回且会话已归还。",
+   "steps": [
+    "运行phi-cdp、worker、bundle既有套件，核对abort-load/abort-read/timeout/disconnect和IO.close/session释放。",
+    "真实Sidecar请求Page.printToPDF/ReturnAsStream，不选择unlimited或数字maxBytes；检查附件和原下载入口。"
+   ],
+   "expected": "自动化中的中止与失败不继续上传、清理结束；PDF默认路径可用。",
+   "actual": "phi-cdp578/578、worker33/33、bundle159/159通过。真实PDF结果maxBytes=null/sizePolicy=null占位，沿默认策略产生1147892字节application/pdf附件；5个Range点击下载，存储/落盘hash相同。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-5-01.png",
+     "caption": "中止/清理自动化关键日志",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-02.png",
+     "caption": "自动化结束状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "phi-cdp.log",
+     "caption": "phi-cdp578项",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "worker.log",
+     "caption": "worker取消/超时处理",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "bundle.log",
+     "caption": "loop到存储的中止回归",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-pdf-01.png",
+     "caption": "真实PDF请求",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-pdf-02.png",
+     "caption": "真实PDF卡片",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-pdf-04.png",
+     "caption": "实际点击下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-5-pdf-storage.json",
+     "caption": "PDF存储/落盘hash",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-5-pdf-download.json",
+     "caption": "PDF下载完整记录",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-5-pdf/trace-d62a5d65-36ce-44b6-a3f1-4c674ac5e399.json",
+     "trace_id": "d62a5d65-36ce-44b6-a3f1-4c674ac5e399",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/d62a5d65-36ce-44b6-a3f1-4c674ac5e399",
+     "caption": "默认PDF真实工具参数和附件结果",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "取消/断连断言来自自动化套件，不外推为本轮逐项真机故障注入。PDF成功为独立真实服务和UI证据。"
+  },
+  {
+   "id": "T-6",
+   "title": "384 MiB+1真实入库及native分块回读",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "AC-1 / design T6 / S8 VERIFY",
+   "precondition": "e2e01 独立会话、stage 环境、指定 SHA；代码工作区干净；全部证据已拉回且会话已归还。",
+   "steps": [
+    "测试站用有效MP4加合法free box提供402653185字节资源，先独立HTTP实读并计算hash。",
+    "真实Sidecar使用fileStream/sizePolicy=unlimited生成聊天附件，点击原Download入口。",
+    "核对1537个串行206、尾块1字节、完整拼装后才保存及源/存储/落盘hash，播放。"
+   ],
+   "expected": "跨过384 MiB整段字符串边界后仍可真实存储和native下载；不以单元替身代替。",
+   "actual": "402653185字节、1537个串行206，最后1字节；下载complete，源/存储/落盘SHA-256均为0e0f38bc440aaf2876ed1d8c0a85ca6a1a551f2ab8a0312c924ed985387ea4da。Canary时间0.162288→2.165317、帧10→70，error=null。",
+   "status": "pass",
+   "uses_chat": true,
+   "evidence": [
+    {
+     "type": "image",
+     "path": "T-6-01.png",
+     "caption": "真实unlimited请求",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-02.png",
+     "caption": "大文件附件",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-03.png",
+     "caption": "点击前",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-04.png",
+     "caption": "完整点击下载",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-05.png",
+     "caption": "播放",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-6-download.json",
+     "caption": "1537块及尾块/完成状态",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-6-storage.json",
+     "caption": "真实存储/下载hash",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-6-playback.json",
+     "caption": "播放数据",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "source-http-manifest.json",
+     "caption": "真实HTTP源文件大小/hash",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "blob-store.log",
+     "caption": "真实PG23项且0skip",
+     "attempt": 1,
+     "outcome": "pass"
+    },
+    {
+     "type": "trace",
+     "path": "T-6/trace-a65ab46f-10b6-4e0f-b616-3ab739e1f21f.json",
+     "trace_id": "a65ab46f-10b6-4e0f-b616-3ab739e1f21f",
+     "url": "https://ariadne.phibrowser.com/project/cmo2ekqz8000npf074vfs9nuj/traces/a65ab46f-10b6-4e0f-b616-3ab739e1f21f",
+     "caption": "大字节读取到真实附件的工具结果",
+     "attempt": 1,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "本地夹具只补充规模验证，不替代T-1原帖最高码率验收。"
+  }
+ ],
+ "bugs": [],
+ "known_issues": []
+}

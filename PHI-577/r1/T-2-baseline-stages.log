@@ -1,0 +1,4 @@
+[2026-11-11 21:53:44] [chat] control_delegate_task ROUTED → self_prompt(delegate) enqueued (leaked=false, step=none, objective=在当前浏览器标签页中，先调用 Page.getFrameTree 获取根 frameId；然后仅一次调用 browser_cdp.send 的 Network.loadNetworkResource 读取 http://127.0.0.1:…)
+[2026-11-11 21:53:44] [chat] delegate re-entry dequeued → runTaskDelegationTurn (blocking=true, hasExecutor=true, objective=在当前浏览器标签页中，先调用 Page.getFrameTree 获取根 frameId；然后仅一次调用 browser_cdp.send 的 Network.loadNetworkResource 读取 http://127.0.0.1:…)
+[2026-11-11 21:53:44] [chat] blocking taskExecutor INVOKED → 在当前浏览器标签页中，先调用 Page.getFrameTree 获取根 frameId；然后仅一次调用 browser_cdp.send 的 Network.loadNetworkResource 读取 http://127.0.0.1:…
+[2026-11-11 21:54:07] [phi-cdp/diag] {"at":"2026-11-11T13:54:07.637Z","event":"cdp.call","gen":1,"upMs":43024,"channel":"cdp","label":"Network.loadNetworkResource","ms":15002,"outcome":"timeout","pending":1,"timeoutMs":15000,"socketOpen":true,"connectedSaysHealthy":true}

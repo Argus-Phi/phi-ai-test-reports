@@ -1,0 +1,149 @@
+TAP version 13
+# Subtest: uploadFile -> getFile round-trips bytes, filename, and mime
+ok 1 - uploadFile -> getFile round-trips bytes, filename, and mime
+  ---
+  duration_ms: 134.900417
+  type: 'test'
+  ...
+# Subtest: getFileDataUrl returns the legacy data: URL format
+ok 2 - getFileDataUrl returns the legacy data: URL format
+  ---
+  duration_ms: 51.433083
+  type: 'test'
+  ...
+# Subtest: undefined and null policies round-trip an allowed non-video MIME
+ok 3 - undefined and null policies round-trip an allowed non-video MIME
+  ---
+  duration_ms: 66.158625
+  type: 'test'
+  ...
+# Subtest: the default 10 MiB boundary and a custom finite boundary are inclusive
+ok 4 - the default 10 MiB boundary and a custom finite boundary are inclusive
+  ---
+  duration_ms: 105.831041
+  type: 'test'
+  ...
+# Subtest: uploadFile rejects oversize files
+ok 5 - uploadFile rejects oversize files
+  ---
+  duration_ms: 43.299291
+  type: 'test'
+  ...
+# Subtest: an explicit 100 MiB artifact limit round-trips through storage
+ok 6 - an explicit 100 MiB artifact limit round-trips through storage
+  ---
+  duration_ms: 208.283875
+  type: 'test'
+  ...
+# Subtest: an explicit null limit round-trips a real MP4 larger than 100 MiB through PostgresStore
+ok 7 - an explicit null limit round-trips a real MP4 larger than 100 MiB through PostgresStore
+  ---
+  duration_ms: 1173.521708
+  type: 'test'
+  ...
+# source/readback/disk/database: bytes=317065125 sha256=2b2703f52733986f2916cd93d50b4353ec4a86f0f5a290d4363bddd945535ac8 state=live
+# Subtest: explicit limits are enforced without changing the default upload limit
+ok 8 - explicit limits are enforced without changing the default upload limit
+  ---
+  duration_ms: 71.359416
+  type: 'test'
+  ...
+# Subtest: actual upload bytes cannot evade the ordinary size cap
+ok 9 - actual upload bytes cannot evade the ordinary size cap
+  ---
+  duration_ms: 28.030459
+  type: 'test'
+  ...
+# Subtest: actual upload bytes cannot evade a custom finite size cap
+ok 10 - actual upload bytes cannot evade a custom finite size cap
+  ---
+  duration_ms: 22.048125
+  type: 'test'
+  ...
+# Subtest: invalid internal size limits are rejected
+ok 11 - invalid internal size limits are rejected
+  ---
+  duration_ms: 18.259417
+  type: 'test'
+  ...
+# Subtest: uploadFile rejects unsupported mime types
+ok 12 - uploadFile rejects unsupported mime types
+  ---
+  duration_ms: 15.683833
+  type: 'test'
+  ...
+# Subtest: getFile is tenant-scoped (another user cannot read it)
+ok 13 - getFile is tenant-scoped (another user cannot read it)
+  ---
+  duration_ms: 27.896542
+  type: 'test'
+  ...
+# Subtest: getFile rejects not_found for missing file / unknown tenant
+ok 14 - getFile rejects not_found for missing file / unknown tenant
+  ---
+  duration_ms: 15.106042
+  type: 'test'
+  ...
+# Subtest: getFileById uses preferredUserId fast path then cross-tenant fallback
+ok 15 - getFileById uses preferredUserId fast path then cross-tenant fallback
+  ---
+  duration_ms: 37.381083
+  type: 'test'
+  ...
+# Subtest: getFileById rejects for empty / unknown id
+ok 16 - getFileById rejects for empty / unknown id
+  ---
+  duration_ms: 19.085584
+  type: 'test'
+  ...
+# Subtest: range reads forward through PostgresStore and use actual disk length
+ok 17 - range reads forward through PostgresStore and use actual disk length
+  ---
+  duration_ms: 85.122834
+  type: 'test'
+  ...
+# Subtest: range errors distinguish invalid bounds, empty files and missing ids
+ok 18 - range errors distinguish invalid bounds, empty files and missing ids
+  ---
+  duration_ms: 72.86625
+  type: 'test'
+  ...
+# Subtest: range reads fill short reads, reject early EOF and always close without readFile
+ok 19 - range reads fill short reads, reject early EOF and always close without readFile
+  ---
+  duration_ms: 74.137833
+  type: 'test'
+  ...
+# Subtest: createSkillFile requires an existing skill
+ok 20 - createSkillFile requires an existing skill
+  ---
+  duration_ms: 56.813375
+  type: 'test'
+  ...
+# Subtest: skill file create -> list -> getContent -> delete tombstone
+ok 21 - skill file create -> list -> getContent -> delete tombstone
+  ---
+  duration_ms: 111.976625
+  type: 'test'
+  ...
+# Subtest: skill files are tenant-isolated
+ok 22 - skill files are tenant-isolated
+  ---
+  duration_ms: 97.823917
+  type: 'test'
+  ...
+# Subtest: blob methods reject when files_root is not configured
+ok 23 - blob methods reject when files_root is not configured
+  ---
+  duration_ms: 52.57225
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2979.197916

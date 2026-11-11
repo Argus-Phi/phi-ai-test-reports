@@ -1,0 +1,12 @@
+[2026-11-11 21:39:47] Starting phi-agent server on UDS /tmp/phi-sentinel-feee4448955a3efe/sockets/phi-agent.sock
+[2026-11-11 21:41:40] [phi-cdp/diag] {"at":"2026-11-11T13:41:40.373Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":88295,"ok":true}
+[2026-11-11 21:41:44] [phi-cdp/diag] {"at":"2026-11-11T13:41:44.256Z","event":"resource.read","method":"Network.loadNetworkResource","timeoutMs":15000,"ms":3883,"ok":true}
+[2026-11-11 21:44:38] [phi-cdp/diag] {"at":"2026-11-11T13:44:38.528Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":0,"ok":false,"code":"browser_error"}
+[2026-11-11 21:46:14] [phi-cdp/diag] {"at":"2026-11-11T13:46:14.931Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":50,"ok":true}
+[2026-11-11 21:46:15] [phi-cdp/diag] {"at":"2026-11-11T13:46:15.903Z","event":"resource.read","method":"Network.loadNetworkResource","timeoutMs":15000,"ms":972,"ok":true}
+[2026-11-11 21:48:46] [phi-cdp/diag] {"at":"2026-11-11T13:48:46.471Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":63,"ok":true}
+[2026-11-11 21:48:47] [phi-cdp/diag] {"at":"2026-11-11T13:48:47.538Z","event":"resource.read","method":"Network.loadNetworkResource","timeoutMs":15000,"ms":1067,"ok":true}
+[2026-11-11 21:49:43] [phi-cdp/diag] {"at":"2026-11-11T13:49:43.806Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":63,"ok":true}
+[2026-11-11 21:49:44] [phi-cdp/diag] {"at":"2026-11-11T13:49:44.689Z","event":"resource.read","method":"Network.loadNetworkResource","timeoutMs":15000,"ms":882,"ok":false,"code":"result_too_large"}
+[2026-11-11 21:50:28] [phi-cdp/diag] {"at":"2026-11-11T13:50:28.631Z","event":"resource.load","method":"Network.loadNetworkResource","timeoutMs":300000,"ms":157,"ok":true}
+[2026-11-11 21:50:32] [phi-cdp/diag] {"at":"2026-11-11T13:50:32.737Z","event":"resource.read","method":"Network.loadNetworkResource","timeoutMs":15000,"ms":4106,"ok":true}

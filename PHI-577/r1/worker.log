@@ -1,0 +1,208 @@
+TAP version 13
+# Subtest: a read goes to raw.send with the method, its params and the tab in front
+ok 1 - a read goes to raw.send with the method, its params and the tab in front
+  ---
+  duration_ms: 2.171459
+  type: 'test'
+  ...
+# Subtest: an explicit tab and expectedUrl travel with the call, and a task run is passed on as one
+ok 2 - an explicit tab and expectedUrl travel with the call, and a task run is passed on as one
+  ---
+  duration_ms: 0.281458
+  type: 'test'
+  ...
+# Subtest: a page-level method with no tab is refused before anything is sent
+ok 3 - a page-level method with no tab is refused before anything is sent
+  ---
+  duration_ms: 0.163875
+  type: 'test'
+  ...
+# Subtest: a browser-level method needs no tab
+ok 4 - a browser-level method needs no tab
+  ---
+  duration_ms: 0.132125
+  type: 'test'
+  ...
+# Subtest: params that are not a JSON object are refused as the model's mistake
+ok 5 - params that are not a JSON object are refused as the model's mistake
+  ---
+  duration_ms: 0.092208
+  type: 'test'
+  ...
+# Subtest: the service's refusal is reported with its own code and whether retrying is worth it
+ok 6 - the service's refusal is reported with its own code and whether retrying is worth it
+  ---
+  duration_ms: 0.108917
+  type: 'test'
+  ...
+# Subtest: a json result over its budget is refused rather than spent on context
+ok 7 - a json result over its budget is refused rather than spent on context
+  ---
+  duration_ms: 0.124208
+  type: 'test'
+  ...
+# Subtest: a base64 field becomes a chat file, and only its metadata is reported
+ok 8 - a base64 field becomes a chat file, and only its metadata is reported
+  ---
+  duration_ms: 0.268292
+  type: 'test'
+  ...
+# Subtest: a stream sink asks for the stream and stores what came back
+ok 9 - a stream sink asks for the stream and stores what came back
+  ---
+  duration_ms: 0.247417
+  type: 'test'
+  ...
+# Subtest: a stream over its size limit is refused rather than stored
+ok 10 - a stream over its size limit is refused rather than stored
+  ---
+  duration_ms: 0.512459
+  type: 'test'
+  ...
+# Subtest: a file sink with nothing to store says so instead of attaching an empty file
+ok 11 - a file sink with nothing to store says so instead of attaching an empty file
+  ---
+  duration_ms: 0.104083
+  type: 'test'
+  ...
+# Subtest: the run's scope goes with a raw call, so it cannot reach past what the other tools may
+ok 12 - the run's scope goes with a raw call, so it cannot reach past what the other tools may
+  ---
+  duration_ms: 0.070458
+  type: 'test'
+  ...
+# Subtest: a run with no scope of its own sends none, as before
+ok 13 - a run with no scope of its own sends none, as before
+  ---
+  duration_ms: 0.074166
+  type: 'test'
+  ...
+# Subtest: a stream sink's byte budget reaches both the read and the upload
+ok 14 - a stream sink's byte budget reaches both the read and the upload
+  ---
+  duration_ms: 0.181667
+  type: 'test'
+  ...
+# Subtest: a read of the run's own tab refuses one that navigated since the user asked
+ok 15 - a read of the run's own tab refuses one that navigated since the user asked
+  ---
+  duration_ms: 0.049709
+  type: 'test'
+  ...
+# Subtest: a tab the model named itself is not held to the run's page
+ok 16 - a tab the model named itself is not held to the run's page
+  ---
+  duration_ms: 0.042291
+  type: 'test'
+  ...
+# Subtest: a json result is bounded even when nobody asked for a bound
+ok 17 - a json result is bounded even when nobody asked for a bound
+  ---
+  duration_ms: 0.154333
+  type: 'test'
+  ...
+# Subtest: asking for more than the ceiling does not raise it, and bytes are UTF-8
+ok 18 - asking for more than the ceiling does not raise it, and bytes are UTF-8
+  ---
+  duration_ms: 0.114125
+  type: 'test'
+  ...
+# Subtest: an ordinary reply still comes back whole
+ok 19 - an ordinary reply still comes back whole
+  ---
+  duration_ms: 0.046083
+  type: 'test'
+  ...
+# Subtest: a fetch that answered with a page is not attached as a video
+ok 20 - a fetch that answered with a page is not attached as a video
+  ---
+  duration_ms: 0.093958
+  type: 'test'
+  ...
+# Subtest: a real MP4 still goes through
+ok 21 - a real MP4 still goes through
+  ---
+  duration_ms: 0.076833
+  type: 'test'
+  ...
+# Subtest: resource streams receive the resolved host budget and a child signal
+ok 22 - resource streams receive the resolved host budget and a child signal
+  ---
+  duration_ms: 0.090958
+  type: 'test'
+  ...
+# Subtest: unrelated methods and resource JSON keep their original signal and options
+ok 23 - unrelated methods and resource JSON keep their original signal and options
+  ---
+  duration_ms: 0.07575
+  type: 'test'
+  ...
+# Subtest: resource timeout waits for cancellation cleanup and never uploads
+ok 24 - resource timeout waits for cancellation cleanup and never uploads
+  ---
+  duration_ms: 46.703125
+  type: 'test'
+  ...
+# Subtest: resource parent-abort waits for cancellation cleanup and never uploads
+ok 25 - resource parent-abort waits for cancellation cleanup and never uploads
+  ---
+  duration_ms: 11.226042
+  type: 'test'
+  ...
+# Subtest: a resource operation cancelled before dispatch makes no browser or store call
+ok 26 - a resource operation cancelled before dispatch makes no browser or store call
+  ---
+  duration_ms: 0.123334
+  type: 'test'
+  ...
+# Subtest: resource cancellation as the read finishes prevents upload
+ok 27 - resource cancellation as the read finishes prevents upload
+  ---
+  duration_ms: 0.100208
+  type: 'test'
+  ...
+# Subtest: resource failures keep the manage error and never upload
+ok 28 - resource failures keep the manage error and never upload
+  ---
+  duration_ms: 0.092041
+  type: 'test'
+  ...
+# Subtest: size policy survives real resolution and reaches storage (union=false)
+ok 29 - size policy survives real resolution and reaches storage (union=false)
+  ---
+  duration_ms: 3.429708
+  type: 'test'
+  ...
+# Subtest: size policy validation rejects invalid choices before side effects (union=false)
+ok 30 - size policy validation rejects invalid choices before side effects (union=false)
+  ---
+  duration_ms: 1.925542
+  type: 'test'
+  ...
+# Subtest: size policy survives real resolution and reaches storage (union=true)
+ok 31 - size policy survives real resolution and reaches storage (union=true)
+  ---
+  duration_ms: 0.833125
+  type: 'test'
+  ...
+# Subtest: size policy validation rejects invalid choices before side effects (union=true)
+ok 32 - size policy validation rejects invalid choices before side effects (union=true)
+  ---
+  duration_ms: 0.68325
+  type: 'test'
+  ...
+# Subtest: unlimited bytes reject missing streams and non-MP4 content without uploading
+ok 33 - unlimited bytes reject missing streams and non-MP4 content without uploading
+  ---
+  duration_ms: 0.087625
+  type: 'test'
+  ...
+1..33
+# tests 33
+# suites 0
+# pass 33
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1670.682208
