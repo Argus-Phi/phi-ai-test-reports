@@ -1,0 +1,63 @@
+{
+  "caseId": "T-3",
+  "requests": [
+    {
+      "path": "/phi-agent/api/v1/files/01a1ca83-a0a6-70df-ad26-4b6f668ae3e3",
+      "range": "bytes=0-262143",
+      "started": 2597.2999999523163,
+      "status": 416,
+      "length": 0,
+      "headers": {
+        "content-disposition": "inline; filename=\"phi599-empty.bin\"; filename*=UTF-8''phi599-empty.bin",
+        "content-length": "0",
+        "content-range": "bytes */0",
+        "content-type": "application/octet-stream"
+      },
+      "finished": 2625.399999976158
+    }
+  ],
+  "download": {
+    "state": "complete",
+    "filename": "phi599-empty (1).bin",
+    "fileSize": 0,
+    "bytesReceived": 0,
+    "source": {
+      "protocol": "blob:",
+      "host": "",
+      "pathname": "blob"
+    }
+  },
+  "beforeClick": {
+    "fileRequests": 0,
+    "downloads": 0
+  },
+  "click": 2594.2999999523163,
+  "urls": [
+    {
+      "url": "blob:chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/9bd7e26b-3de7-4d9b-9cc5-2d3fbf653cbf",
+      "size": 0,
+      "type": "application/octet-stream",
+      "time": 2626
+    }
+  ],
+  "revokes": [
+    {
+      "url": "blob:chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/9bd7e26b-3de7-4d9b-9cc5-2d3fbf653cbf",
+      "time": 2630.600000023842
+    }
+  ],
+  "downloads": [
+    {
+      "id": 6,
+      "time": 2626.7000000476837,
+      "urlType": "blob"
+    }
+  ],
+  "active": 0,
+  "maxActive": 1,
+  "disk": {
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "result": "pass"
+}

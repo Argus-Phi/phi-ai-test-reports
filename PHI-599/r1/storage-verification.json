@@ -1,0 +1,47 @@
+[
+  {
+    "id": "01a1ca83-a0a6-70df-ad26-4b6f668ae3e3",
+    "kind": "phi599-empty.bin",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mime": "application/octet-stream",
+    "filename": "phi599-empty.bin",
+    "verified": true
+  },
+  {
+    "id": "01a1ca83-a0be-768b-a550-aa3468dc82a3",
+    "kind": "phi599-range.bin",
+    "size": 600000,
+    "sha256": "3eec6f2df36b88a1a97c03224253e9d0c59f2696ff7b145203a5d43c736bc7e0",
+    "mime": "application/octet-stream",
+    "filename": "phi599-range.bin",
+    "verified": true
+  },
+  {
+    "id": "01a1ca83-a216-72a3-8230-06a9f564c87a",
+    "kind": "phi599-over384.bin",
+    "size": 402915329,
+    "sha256": "f1680a724e8655ddf2a7f2400d537d2bf29262c69d913c30662e25bc65d5950c",
+    "mime": "application/octet-stream",
+    "filename": "phi599-over384.bin",
+    "verified": true
+  },
+  {
+    "id": "01a1ca87-8f8c-7206-addd-2d1f56fcc010",
+    "kind": "video",
+    "size": 317065125,
+    "sha256": "2b2703f52733986f2916cd93d50b4353ec4a86f0f5a290d4363bddd945535ac8",
+    "mime": "video/mp4",
+    "filename": "twitter-2119586846657454152-2119584955290595328.mp4",
+    "verified": true
+  },
+  {
+    "id": "01a1ca87-910e-7762-ba8e-f708219c5459",
+    "kind": "image",
+    "size": 81,
+    "sha256": "abd35a9f2b22eea156e14cf47a08bbc59e0b647c1906dd50c50102580b768d29",
+    "mime": "image/png",
+    "filename": "phi599-image.png",
+    "verified": true
+  }
+]

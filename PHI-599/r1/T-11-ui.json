@@ -1,0 +1,43 @@
+{
+  "caseId": "T-11",
+  "requests": [],
+  "download": {
+    "state": "complete",
+    "filename": "phi599-text.txt",
+    "fileSize": 19,
+    "bytesReceived": 19
+  },
+  "beforeClick": {
+    "fileRequests": 0,
+    "downloads": 0
+  },
+  "click": 2584.399999976158,
+  "urls": [
+    {
+      "url": "blob:chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/bb56e120-8c0d-4a9d-8a53-6cde37679d51",
+      "size": 19,
+      "type": "text/plain",
+      "time": 2588
+    }
+  ],
+  "revokes": [
+    {
+      "url": "blob:chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/bb56e120-8c0d-4a9d-8a53-6cde37679d51",
+      "time": 2590.100000023842
+    }
+  ],
+  "downloads": [
+    {
+      "id": 3,
+      "time": 2588.7000000476837,
+      "urlType": "blob"
+    }
+  ],
+  "active": 0,
+  "maxActive": 0,
+  "disk": {
+    "size": 19,
+    "sha256": "e36d48e35a0d44d7cb45fc8c9cd169929d73b98163573e5ae972471a451065e6"
+  },
+  "result": "pass"
+}

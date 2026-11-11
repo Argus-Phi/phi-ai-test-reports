@@ -1,0 +1,17 @@
+{
+  "caseId": "T-15",
+  "result": "pass",
+  "rows": [
+    {
+      "calls": [
+        {
+          "path": "/phi-agent/api/v1/chats",
+          "range": null
+        }
+      ],
+      "chatCount": 7,
+      "hasMore": false,
+      "jsonParsed": true
+    }
+  ]
+}

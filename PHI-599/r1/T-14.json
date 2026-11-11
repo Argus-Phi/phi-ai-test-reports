@@ -1,0 +1,13 @@
+{
+  "caseId": "T-14",
+  "uploadStatus": 200,
+  "fields": [
+    "file"
+  ],
+  "policyOverride": false,
+  "readbackSize": 30,
+  "sha256": "b89b4bc94efab33de0d2f0df9b25c6b4d1b22ef891aec5703ecb646e7962def5",
+  "mime": "text/plain",
+  "disposition": "inline; filename=\"phi599-upload.txt\"; filename*=UTF-8''phi599-upload.txt",
+  "context": "isolated test database; Canary staging test bearer"
+}

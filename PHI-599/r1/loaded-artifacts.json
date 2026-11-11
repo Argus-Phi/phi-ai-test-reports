@@ -1,0 +1,7 @@
+{
+  "targetBundleSha256": "1c16e8c1c2469446c2376e8a2775b1da8e63ea0d8bd39ff64f5f8712bb9a7975",
+  "baselineBundleSha256": "0dc1bec429b1753c2757648bff71da91d63f62d5f415ca431adf10b9e186e295",
+  "snapshotFilesCompared": 520,
+  "snapshotMismatches": [],
+  "targetSnapshot": "load.ko92gU/extension"
+}

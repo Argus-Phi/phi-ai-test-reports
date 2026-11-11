@@ -1,0 +1,404 @@
+TAP version 13
+# react-i18next:: useTranslation: You will need to pass in an i18next instance by using initReactI18next { code: 'NO_I18NEXT_INSTANCE' }
+# Subtest: user file card downloads only on click, blocks duplicate requests and releases broker data
+ok 1 - user file card downloads only on click, blocks duplicate requests and releases broker data
+  ---
+  duration_ms: 56.826417
+  type: 'test'
+  ...
+# Subtest: assistant file card downloads only on click, blocks duplicate requests and releases broker data
+ok 2 - assistant file card downloads only on click, blocks duplicate requests and releases broker data
+  ---
+  duration_ms: 14.9665
+  type: 'test'
+  ...
+# Subtest: download failure displays a toast, never opens a tab, and permits retry
+ok 3 - download failure displays a toast, never opens a tab, and permits retry
+  ---
+  duration_ms: 9.435958
+  type: 'test'
+  ...
+# [api-base] service exports loaded (bootstrap) {
+#   elapsedMs: 0,
+#   exports: {
+#     'phi-agent': { api_base: 'http://127.0.0.1:8788' },
+#     'go-index': { app_socket_path: '' },
+#     'im-server': { gateway_socket_path: '' },
+#     'third_party.postgres': { port: 0, root_user: '', dsn: '', data_dir: '' }
+#   }
+# }
+# Subtest: createAPIClientResolver reuses the same APIClient when only refreshToken changes
+ok 4 - createAPIClientResolver reuses the same APIClient when only refreshToken changes
+  ---
+  duration_ms: 0.81
+  type: 'test'
+  ...
+# Subtest: a successful 401 refresh retry returns the mutation response exactly once
+ok 5 - a successful 401 refresh retry returns the mutation response exactly once
+  ---
+  duration_ms: 15.951167
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver reuses the same APIClient across calls (base is resolved per request, not captured)
+ok 6 - createAPIClientResolver reuses the same APIClient across calls (base is resolved per request, not captured)
+  ---
+  duration_ms: 0.086125
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver replaces and invalidates the client when the account changes
+ok 7 - createAPIClientResolver replaces and invalidates the client when the account changes
+  ---
+  duration_ms: 0.146375
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver keeps the client and the auth scope when the same account rotates its token
+ok 8 - createAPIClientResolver keeps the client and the auth scope when the same account rotates its token
+  ---
+  duration_ms: 0.518
+  type: 'test'
+  ...
+# Subtest: an in-flight request survives a same-account token rotation
+ok 9 - an in-flight request survives a same-account token rotation
+  ---
+  duration_ms: 1.330916
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver invalidates the current scope when the token disappears
+ok 10 - createAPIClientResolver invalidates the current scope when the token disappears
+  ---
+  duration_ms: 0.082417
+  type: 'test'
+  ...
+# Subtest: a late account-A request cannot restore its token after account B becomes current
+ok 11 - a late account-A request cannot restore its token after account B becomes current
+  ---
+  duration_ms: 0.70775
+  type: 'test'
+  ...
+# Subtest: account-A JSON parsing cannot complete after account B becomes current
+ok 12 - account-A JSON parsing cannot complete after account B becomes current
+  ---
+  duration_ms: 0.697375
+  type: 'test'
+  ...
+# Subtest: account-A error text parsing cannot complete after account B becomes current
+ok 13 - account-A error text parsing cannot complete after account B becomes current
+  ---
+  duration_ms: 0.499625
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver creates a new client when the static base override changes
+ok 14 - createAPIClientResolver creates a new client when the static base override changes
+  ---
+  duration_ms: 0.057625
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver routes packaged APIClient requests through the native broker without resolving service exports
+ok 15 - createAPIClientResolver routes packaged APIClient requests through the native broker without resolving service exports
+  ---
+  duration_ms: 0.345583
+  type: 'test'
+  ...
+# Subtest: packaged APIClient requests use direct loopback networking in legacy mode
+ok 16 - packaged APIClient requests use direct loopback networking in legacy mode
+  ---
+  duration_ms: 1.158
+  type: 'test'
+  ...
+# Subtest: packaged APIClient requests still fail closed in uds mode
+ok 17 - packaged APIClient requests still fail closed in uds mode
+  ---
+  duration_ms: 0.152208
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver fails closed without runtime identity or direct override
+ok 18 - createAPIClientResolver fails closed without runtime identity or direct override
+  ---
+  duration_ms: 0.088875
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver preserves explicit standalone relative browser fetch
+ok 19 - createAPIClientResolver preserves explicit standalone relative browser fetch
+  ---
+  duration_ms: 0.283625
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver preserves static base URL browser fetch
+ok 20 - createAPIClientResolver preserves static base URL browser fetch
+  ---
+  duration_ms: 0.228416
+  type: 'test'
+  ...
+# Subtest: createAPIClientResolver preserves build-time base URL browser fetch
+ok 21 - createAPIClientResolver preserves build-time base URL browser fetch
+  ---
+  duration_ms: 0.177167
+  type: 'test'
+  ...
+# Subtest: APIClient fetchFileAsDataUrl uses native transport for relative phi-agent file paths
+ok 22 - APIClient fetchFileAsDataUrl uses native transport for relative phi-agent file paths
+  ---
+  duration_ms: 0.627458
+  type: 'test'
+  ...
+# Subtest: APIClient loadRenderableFileUrl creates and idempotently releases a broker-backed object URL
+ok 23 - APIClient loadRenderableFileUrl creates and idempotently releases a broker-backed object URL
+  ---
+  duration_ms: 0.58375
+  type: 'test'
+  ...
+# Subtest: APIClient loadRenderableFileUrl passes an absolutized loopback file URL through in legacy mode
+ok 24 - APIClient loadRenderableFileUrl passes an absolutized loopback file URL through in legacy mode
+  ---
+  duration_ms: 0.433959
+  type: 'test'
+  ...
+# Subtest: APIClient fetchFileAsDataUrl normalizes historical absolute phi-agent file URLs through native transport
+ok 25 - APIClient fetchFileAsDataUrl normalizes historical absolute phi-agent file URLs through native transport
+  ---
+  duration_ms: 0.298542
+  type: 'test'
+  ...
+# Subtest: APIClient fetchFileAsDataUrl leaves absolute internet URLs on unauthenticated browser fetch
+ok 26 - APIClient fetchFileAsDataUrl leaves absolute internet URLs on unauthenticated browser fetch
+  ---
+  duration_ms: 0.141916
+  type: 'test'
+  ...
+# Subtest: APIClient treats an unrelated origin with a phi-agent-shaped pathname as unauthenticated internet
+ok 27 - APIClient treats an unrelated origin with a phi-agent-shaped pathname as unauthenticated internet
+  ---
+  duration_ms: 0.220417
+  type: 'test'
+  ...
+# Subtest: loads broker-backed object URLs for history, avatar, upload, and message file paths
+ok 28 - loads broker-backed object URLs for history, avatar, upload, and message file paths
+  ---
+  duration_ms: 223.821166
+  type: 'test'
+  ...
+# Subtest: never publishes or leaks a stale object URL when the source changes during loading
+ok 29 - never publishes or leaks a stale object URL when the source changes during loading
+  ---
+  duration_ms: 55.655042
+  type: 'test'
+  ...
+# Subtest: same source and loader identity are reloaded and revoked when auth scope changes
+ok 30 - same source and loader identity are reloaded and revoked when auth scope changes
+  ---
+  duration_ms: 107.851292
+  type: 'test'
+  ...
+# Subtest: status tells a load in flight from one that failed
+ok 31 - status tells a load in flight from one that failed
+  ---
+  duration_ms: 1.666041
+  type: 'test'
+  ...
+# Subtest: fetchWithAuthRetry uses the injected transport and preserves 401 refresh retry
+ok 32 - fetchWithAuthRetry uses the injected transport and preserves 401 refresh retry
+  ---
+  duration_ms: 17.146834
+  type: 'test'
+  ...
+# Subtest: broker PDF requests a named Chrome download and retains its Blob until accepted
+ok 33 - broker PDF requests a named Chrome download and retains its Blob until accepted
+  ---
+  duration_ms: 1.784458
+  type: 'test'
+  ...
+# Subtest: legacy service URLs also use the download API without asAttachment or navigation
+ok 34 - legacy service URLs also use the download API without asAttachment or navigation
+  ---
+  duration_ms: 0.181208
+  type: 'test'
+  ...
+# Subtest: external, data and borrowed Blob URLs need no file service and are not revoked
+ok 35 - external, data and borrowed Blob URLs need no file service and are not revoked
+  ---
+  duration_ms: 0.236541
+  type: 'test'
+  ...
+# Subtest: text attachments use the same API and release their owned Blob on failure
+ok 36 - text attachments use the same API and release their owned Blob on failure
+  ---
+  duration_ms: 0.44175
+  type: 'test'
+  ...
+# Subtest: download rejection releases broker data without a navigation fallback
+ok 37 - download rejection releases broker data without a navigation fallback
+  ---
+  duration_ms: 1.142
+  type: 'test'
+  ...
+# Subtest: missing API, missing service, load failure and stale auth cannot start a download
+ok 38 - missing API, missing service, load failure and stale auth cannot start a download
+  ---
+  duration_ms: 0.685708
+  type: 'test'
+  ...
+# Subtest: filenames cannot become paths and unnamed files let Chrome infer a name
+ok 39 - filenames cannot become paths and unnamed files let Chrome infer a name
+  ---
+  duration_ms: 0.477209
+  type: 'test'
+  ...
+# Subtest: a broker transport sends phi-agent paths instead of renderer blob URLs
+ok 40 - a broker transport sends phi-agent paths instead of renderer blob URLs
+  ---
+  duration_ms: 0.529167
+  type: 'test'
+  ...
+# Subtest: legacy mode keeps the renderable address because there is no broker route
+ok 41 - legacy mode keeps the renderable address because there is no broker route
+  ---
+  duration_ms: 0.130333
+  type: 'test'
+  ...
+# Subtest: nativeImagePreviewAddress preserves non-phi preview sources in both modes
+ok 42 - nativeImagePreviewAddress preserves non-phi preview sources in both modes
+  ---
+  duration_ms: 0.121541
+  type: 'test'
+  ...
+# Subtest: resolveNativeImagePreviewTransport reports an authorized broker transport
+ok 43 - resolveNativeImagePreviewTransport reports an authorized broker transport
+  ---
+  duration_ms: 0.124125
+  type: 'test'
+  ...
+# Subtest: resolveNativeImagePreviewTransport reports a declined broker transport
+ok 44 - resolveNativeImagePreviewTransport reports a declined broker transport
+  ---
+  duration_ms: 0.095667
+  type: 'test'
+  ...
+# Subtest: a failed transport resolve defaults the preview to the renderable address
+ok 45 - a failed transport resolve defaults the preview to the renderable address
+  ---
+  duration_ms: 0.145416
+  type: 'test'
+  ...
+# Subtest: requestImagePreviewDestination uses sidecar preview when window id is unavailable
+ok 46 - requestImagePreviewDestination uses sidecar preview when window id is unavailable
+  ---
+  duration_ms: 0.241917
+  type: 'test'
+  ...
+# Subtest: requestImagePreviewDestination prefers native preview when native call succeeds
+ok 47 - requestImagePreviewDestination prefers native preview when native call succeeds
+  ---
+  duration_ms: 0.110958
+  type: 'test'
+  ...
+# Subtest: requestImagePreviewDestination does not fall back to sidecar when native call fails
+ok 48 - requestImagePreviewDestination does not fall back to sidecar when native call fails
+  ---
+  duration_ms: 0.485375
+  type: 'test'
+  ...
+# Subtest: native download assembles validated binary Blobs before submitting downloads
+ok 49 - native download assembles validated binary Blobs before submitting downloads
+  ---
+  duration_ms: 15.804375
+  type: 'test'
+  ...
+# Subtest: 401 retries the same range once and adopts the refreshed token
+ok 50 - 401 retries the same range once and adopts the refreshed token
+  ---
+  duration_ms: 4.997417
+  type: 'test'
+  ...
+# Subtest: empty files and inline images retain their MIME and release contract
+ok 51 - empty files and inline images retain their MIME and release contract
+  ---
+  duration_ms: 1.192083
+  type: 'test'
+  ...
+# Subtest: rejects whole response without a partial download or further requests
+ok 52 - rejects whole response without a partial download or further requests
+  ---
+  duration_ms: 6.44125
+  type: 'test'
+  ...
+# Subtest: rejects duplicate range without a partial download or further requests
+ok 53 - rejects duplicate range without a partial download or further requests
+  ---
+  duration_ms: 5.341709
+  type: 'test'
+  ...
+# Subtest: rejects shifted range without a partial download or further requests
+ok 54 - rejects shifted range without a partial download or further requests
+  ---
+  duration_ms: 9.745208
+  type: 'test'
+  ...
+# Subtest: rejects changed total without a partial download or further requests
+ok 55 - rejects changed total without a partial download or further requests
+  ---
+  duration_ms: 2.932042
+  type: 'test'
+  ...
+# Subtest: rejects truncated body without a partial download or further requests
+ok 56 - rejects truncated body without a partial download or further requests
+  ---
+  duration_ms: 1.885583
+  type: 'test'
+  ...
+# Subtest: rejects wrong length without a partial download or further requests
+ok 57 - rejects wrong length without a partial download or further requests
+  ---
+  duration_ms: 2.834208
+  type: 'test'
+  ...
+# Subtest: rejects changed MIME without a partial download or further requests
+ok 58 - rejects changed MIME without a partial download or further requests
+  ---
+  duration_ms: 2.794792
+  type: 'test'
+  ...
+# Subtest: rejects unsatisfiable range without a partial download or further requests
+ok 59 - rejects unsatisfiable range without a partial download or further requests
+  ---
+  duration_ms: 3.063041
+  type: 'test'
+  ...
+# Subtest: rejects transport error without a partial download or further requests
+ok 60 - rejects transport error without a partial download or further requests
+  ---
+  duration_ms: 1.735667
+  type: 'test'
+  ...
+# Subtest: invalidating auth at response prevents partial download
+ok 61 - invalidating auth at response prevents partial download
+  ---
+  duration_ms: 3.618458
+  type: 'test'
+  ...
+# Subtest: invalidating auth at body prevents partial download
+ok 62 - invalidating auth at body prevents partial download
+  ---
+  duration_ms: 1.418167
+  type: 'test'
+  ...
+# Subtest: invalidating auth at url prevents partial download
+ok 63 - invalidating auth at url prevents partial download
+  ---
+  duration_ms: 3.185083
+  type: 'test'
+  ...
+# Subtest: ordinary JSON still crosses the native message boundary
+ok 64 - ordinary JSON still crosses the native message boundary
+  ---
+  duration_ms: 0.531208
+  type: 'test'
+  ...
+1..64
+# tests 64
+# suites 0
+# pass 64
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1974.441791

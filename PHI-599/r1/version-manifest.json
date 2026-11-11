@@ -1,0 +1,16 @@
+{
+  "sha": "915ee3f3fd2bc1311a3bde40adae91dc19421fa9",
+  "baseline": "42867d02bd87e7175bf20245e94bc65122cdf8f0",
+  "product_sources": {
+    "phi-agent-dsh/lib/storage/src/adapter.ts": "a7ed5db718a76d077be5b4929b5260a334305c3d590ba69174bdb346489c78df",
+    "phi-agent-dsh/plugins/storage-pg/src/lib/blob-store.ts": "6c4434db799f914f36ef2178cc44aad8991de4c90cc0951f36730a746ee1b6e9",
+    "phi-agent-dsh/plugins/chat/src/lib/routes-files.ts": "7f6352a74992572170350026ba048fc6b2afaa4a58964269010eaf5e860e9cbc",
+    "ai-extension/sidecar/src/services/api.ts": "66c0004522eec4a841ff2de27f919a92395bf37d056ec8325e74bff4f0958f62"
+  },
+  "target_bundle": "1c16e8c1c2469446c2376e8a2775b1da8e63ea0d8bd39ff64f5f8712bb9a7975",
+  "baseline_bundle": "0dc1bec429b1753c2757648bff71da91d63f62d5f415ca431adf10b9e186e295",
+  "target_sidecar_version": "2026.11.11.1955",
+  "baseline_sidecar_version": "2026.11.11.1807",
+  "packaging": "pnpm --filter @phi-ai/dsh package:bundle-js-stage; pnpm --filter @phi-ai/sidecar build; local artifacts, not a published release",
+  "native": "UDS; runnerctl dev manages node packaged-boot.mjs importing packaged JS; no tsx/source in tested server process"
+}

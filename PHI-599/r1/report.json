@@ -1,0 +1,849 @@
+{
+ "issue": "PHI-599",
+ "based_on": "PHI-599/test-plan.md@4a73c1738ab056a0166b22bc623013ac6fe30336, PHI-599/runbook.md@638a095fb, code@915ee3f3fd2bc1311a3bde40adae91dc19421fa9",
+ "key": "PHI-599",
+ "title": "原生附件按字节区间分块下载，避开 broker 整包响应限制",
+ "work_type": "bugfix",
+ "round": 1,
+ "kind": "test",
+ "verdict": "pass",
+ "pr_allowed": true,
+ "summary": "本轮完成T-1～T-15共15条用例，15通过、0失败、0阻塞、0未执行；106项affected scope自动化结果通过。原帖317065125字节MP4在打包uds下经卡片保存后hash一致且实际播放；402915329字节同文件对照复现基线broker限制，修复1538块完整Blob/hash通过。未发现本轮新增blocker/major，AI测试允许进入PR review。首轮QA驱动/工具/鉴权准备失败已分组保留，修正后复跑；未修改产品代码。",
+ "sha": "915ee3f3fd2bc1311a3bde40adae91dc19421fa9",
+ "branch": "PHI-599-file-range-download",
+ "pr_url": "https://github.com/phibrowser/phi-ai/pull/716",
+ "generated_at": "2026-11-11T12:32:16.942075+00:00",
+ "environment": {
+  "机器/会话": "mini / e2e01，独占租约；执行完毕已归还并进入reset",
+  "Phi Canary / Runner": "2026.11.4.0205 / 2026.11.02.9213469f",
+  "Node / pnpm": "v22.23.3 / 10.17.1",
+  "数据库/存储": "租约e2e01_phi599 + LANE_WORKDIR/files；本机独立phi599_test，已停止自启PG",
+  "native": "标准Sidecar构建 + 标准stage JS bundle，通过UDS；未使用pinned loopback替代native",
+  "direct": "T-8/T-9/T-14使用LANE_AGENT_PORT=18101；T-9 build:local独立冻结快照",
+  "外部URL夹具": "租约静态站127.0.0.1:18110，随租约归还终止",
+  "基线": "42867d02bd87e7175bf20245e94bc65122cdf8f0",
+  "构建/类型": "Sidecar build、stage bundle构建通过；storage/Sidecar/chat/storage-pg强制tsc通过，根59项type-check均缓存命中，单独记录",
+  "模型调用": "所有用例uses_chat=false；仅createChat/saveMessages准备测试记录，无Langfuse模型trace",
+  "代码工作区": "目标SHA tracked diff为空，未修产品代码",
+  "范围": "仅PHI-599已有附件点击下载；不代替PHI-577自然语言全链路验收"
+ },
+ "plan_docs": [
+  {
+   "title": "test-plan.md（含手测方案及实际环境/命令）",
+   "url": "https://github.com/phibrowser/phi-ai/blob/4a73c1738ab056a0166b22bc623013ac6fe30336/PHI-599/test-plan.md"
+  },
+  {
+   "title": "runbook.md",
+   "url": "https://github.com/phibrowser/phi-ai/blob/638a095fb/PHI-599/runbook.md"
+  },
+  {
+   "title": "QA驱动与补充测试",
+   "url": "https://github.com/phibrowser/phi-ai/tree/4a73c1738ab056a0166b22bc623013ac6fe30336/PHI-599/qa-scripts"
+  }
+ ],
+ "cases": [
+  {
+   "id": "T-1",
+   "title": "原帖 MP4 卡片经打包 uds 完整保存与播放",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-1",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "用仓库提取器取得原帖最高码率 MP4，计算源长度/hash，写入真实测试存储并建立既有附件卡片。",
+    "卡片出现后等 2 秒确认未自动加载/下载；用 CDP 鼠标点击，记录分块/Blob/download/release 时序；等待 downloads complete 并核对落盘。",
+    "打开已保存 MP4，play 后相隔 2 秒采样 currentTime、解码帧数及错误状态。"
+   ],
+   "expected": "仅顺序 256 KiB native 区间，全部收齐后才交付下载；源、存储、落盘长度/hash 相同，文件可解码且播放前进。",
+   "actual": "1210 个串行 206；源/存储/落盘均 317065125 字节，SHA-256 2b2703f52733986f2916cd93d50b4353ec4a86f0f5a290d4363bddd945535ac8。完整组装后才创建 URL/下载，downloads complete。2560×1440，readyState=4、error=null；currentTime 0.02322→1.989545，解码帧 6→104。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "attempt1/T-1-ui.json",
+     "caption": "首次驱动未启用Page域，初始化观测缺失；不是产品卡片缺失",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "attempt1/T-1-1.png",
+     "caption": "首次驱动中止时实际卡片已渲染",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-1-ui.json",
+     "caption": "T-1-ui.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-1-playback.json",
+     "caption": "T-1-playback.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "video-extraction.json",
+     "caption": "video-extraction.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "video-source.json",
+     "caption": "video-source.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "storage-verification.json",
+     "caption": "storage-verification.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-1.png",
+     "caption": "T-1-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-2.png",
+     "caption": "T-1-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-1-3.png",
+     "caption": "T-1-3.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "修正QA驱动的Page.enable与初始化后复跑通过。原帖未替换；未调用模型，测试记录由现有存储/API准备。"
+  },
+  {
+   "id": "T-2",
+   "title": "真实服务首、中、裁尾闭区间",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-2",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "对 F600 原 URL 经真实 native serviceFetch 依次请求 0-262143、262144-524287、524288-786431。",
+    "逐字节与 i % 251 源切片比较，并核对状态/范围/长度/MIME/Disposition/Accept-Ranges；结合 T-6 定位读/关闭测试。"
+   ],
+   "expected": "三块均 206，长度 262144/262144/75712，正确裁尾且元信息保留。",
+   "actual": "三块 206、Content-Range/Content-Length/Accept-Ranges 与预期一致；所有响应字节等于源对应切片。T-6 验证实际 stat、定位读取及关闭。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-2.json",
+     "caption": "T-2.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-1.png",
+     "caption": "T-2-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-2-2.png",
+     "caption": "T-2-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-3",
+   "title": "非法区间、空文件及不存在文件",
+   "priority": "P0",
+   "mode": "api",
+   "ac": "AC-3",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "对 F600 分别请求越界、倒序、多区间、开放区间、后缀、非数字、不安全整数；另请求未知 fileId。",
+    "对零字节真实存储文件请求首块，再通过真实 native 原卡片点击下载，等待保存完成并核对零字节。"
+   ],
+   "expected": "非法区间 416，越界携带实际总长；未知文件 404；空文件 416 bytes */0、原 MIME、Content-Length 0，仅此场景生成空结果。",
+   "actual": "7 类非法区间均 416；越界 bytes */600000，未知 fileId 404。空文件 bytes */0、Content-Length=0、MIME application/octet-stream；原卡片一次 native 请求后 complete，落盘 0 字节。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-3.json",
+     "caption": "T-3.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-3-ui.json",
+     "caption": "T-3-ui.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "api/T-3-1.png",
+     "caption": "api/T-3-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "api/T-3-2.png",
+     "caption": "api/T-3-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-1.png",
+     "caption": "T-3-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-3-2.png",
+     "caption": "T-3-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-4",
+   "title": "坏块与 authScope 失效不交付部分文件",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-4",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "运行 APIClient/native-envelope、downloadAttachment、auth-fetch 的既有套件。",
+    "运行 extra-client.test.ts，逐项注入缺头/非法数字/端点/MIME/首个非空416及补充 auth 时点；仅替换系统消息边界，不替换 fetchFile。",
+    "检查异常后无后续块/部分 URL/download/回退，观察 cancel/revoke；成功控制组核对 Blob/hash/release。"
+   ],
+   "expected": "全部计划故障与失效时点拒绝残缺交付，成功组完整校验后一次下载，无新增自动重试。",
+   "actual": "相关 24 项加 QA 补充 11 项，共 35 pass / 0 fail / 0 skip；坏块、请求错误、auth 失效、无部分下载和 cancel/revoke 断言通过。额外相关 Sidecar 7 文件合跑 64/64 通过。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-4-T-13.log",
+     "caption": "T-4-T-13.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "sidecar-affected.log",
+     "caption": "sidecar-affected.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-1.png",
+     "caption": "T-4-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-4-2.png",
+     "caption": "T-4-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-5",
+   "title": "大于384 MiB真实 native 与整包基线对照",
+   "priority": "P0",
+   "mode": "gui",
+   "ac": "AC-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "使用同一 402915329 字节真实存储文件与 URL；先加载 merge-base 的配套 Sidecar/stage JS bundle，调用其整包 APIClient。",
+    "完整切回目标配套 Sidecar/stage bundle，复用同库/同URL/同测试认证上下文，执行真实 native APIClient 读取。",
+    "观察全部区间、存储 read/close；收齐 Blob 后增量计算 SHA-256，检查尾块、大小、MIME及串行性。"
+   ],
+   "expected": "基线因 broker 整包限制失败；修复 1538 块、尾块 1 字节、Blob/hash 相同，无分块整读或回退。",
+   "actual": "基线单个无 Range 请求 502 / E_BROKER_RESPONSE_TOO_LARGE。修复 1538 个串行 206，末块 bytes 402915328-402915328/402915329、1字节；Blob=402915329，SHA-256 f1680a724e8655ddf2a7f2400d537d2bf29262c69d913c30662e25bc65d5950c 与源/存储一致，实测21584ms。观察到1538次定位read、1538次close、0次整读。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-5-baseline.json",
+     "caption": "T-5-baseline.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-5-fixed.json",
+     "caption": "T-5-fixed.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "T-5-storage.json",
+     "caption": "T-5-storage.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-5-storage.log",
+     "caption": "T-5-storage.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "T-5-baseline-storage.log",
+     "caption": "T-5-baseline-storage.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "version-manifest.json",
+     "caption": "version-manifest.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "loaded-artifacts.json",
+     "caption": "loaded-artifacts.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "text",
+     "path": "storage-verification.json",
+     "caption": "storage-verification.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-1.png",
+     "caption": "T-5-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-2.png",
+     "caption": "T-5-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-5-3.png",
+     "caption": "T-5-3.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "基线失败是预期对照，修复结果为pass。两端均标准本地stage打包产物，由Runner托管Node进程；未冒充已发布release，未以源码dev服务替代打包服务。"
+  },
+  {
+   "id": "T-6",
+   "title": "真实 PG/磁盘与路由边界套件",
+   "priority": "P0",
+   "mode": "auto",
+   "ac": "AC-2, AC-3",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "在任务目录启动独立 PostgreSQL，设置 PG_TEST_URL，运行 blob-store.test.ts；提供原帖MP4及可执行ffprobe，完成原可选大MP4用例。",
+    "运行 routes-files.test.ts 与 extra-storage.test.ts 的1/262144/262145字节边界。",
+    "确认定位读、短读补齐、提前EOF、成功/错误close、preferred/fallback、实际stat、404/416与HEAD映射。"
+   ],
+   "expected": "各套件无失败/数据库跳过，真实字节正确；区间不整读、短读补齐、提前EOF失败、句柄关闭。",
+   "actual": "blob-store 23 pass、routes-files 4 pass、额外边界 Node汇总4 pass，全部0 fail/0 skip。真实MP4源/回读/磁盘/数据库hash一致；单字节、恰整块、多1字节及读/关闭断言通过。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "attempt1/T-6-storage-runtime.log",
+     "caption": "首次可选MP4用例因新下载ffprobe缺可执行位而EACCES；修正工具权限后完整复跑",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "log",
+     "path": "storage-tests.log",
+     "caption": "storage-tests.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "routes-tests.log",
+     "caption": "routes-tests.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "log",
+     "path": "extra-storage.log",
+     "caption": "extra-storage.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-1.png",
+     "caption": "T-6-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-6-2.png",
+     "caption": "T-6-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "最终MP4用例也已执行通过，无跳过；最初未提供MP4的22 pass/1 skip不作为最终结论。"
+  },
+  {
+   "id": "T-7",
+   "title": "无 Range GET 保持整包语义",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "对真实 F600 原URL经native发一次不带Range的GET。",
+    "核对200、完整长度、原MIME/Disposition及全部源字节。"
+   ],
+   "expected": "原200，完整600000字节，元信息和内容一致。",
+   "actual": "200，600000字节，所有字节等于i % 251，MIME/Disposition保留，未附Range。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-7.json",
+     "caption": "T-7.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-7-1.png",
+     "caption": "T-7-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-7-2.png",
+     "caption": "T-7-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-8",
+   "title": "HEAD 保持原成功与空 body",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "按runbook在租约端口18101启动同SHA的selfhost。",
+    "对F600 URL发HEAD（带Range用于确认忽略），核对状态、body和元信息。"
+   ],
+   "expected": "原200、空body、原文件元信息，不进入分块下载。",
+   "actual": "200、bodyLength=0、application/octet-stream、原filename，Content-Range为空。broker不支持HEAD，按计划使用真实HTTP入口单列。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-8.json",
+     "caption": "T-8.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-8-1.png",
+     "caption": "T-8-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-8-2.png",
+     "caption": "T-8-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-9",
+   "title": "直连服务文件卡片冒烟",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "用LANE_AGENT_PORT构建并加载Sidecar build:local，启动隔离selfhost。",
+    "F600卡片显示后2秒确认无自动下载，再鼠标点击一次；等待complete，核对源URL和落盘。"
+   ],
+   "expected": "原直连服务URL成功，长度/hash/文件名相同，未强制native。",
+   "actual": "一次点击、一个完成下载；来源 http://127.0.0.1:18101/api/v1/files/<fixtureId>，0次native文件请求。落盘600000字节，SHA-256 3eec6f2df36b88a1a97c03224253e9d0c59f2696ff7b145203a5d43c736bc7e0，与源相同。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-9-ui.json",
+     "caption": "T-9-ui.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-9-1.png",
+     "caption": "T-9-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-9-2.png",
+     "caption": "T-9-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-10",
+   "title": "外部 URL 卡片冒烟",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "租约静态站在LANE_SITE_PORT_RANGE首端口18110提供external.bin，作为非服务文件URL卡片。",
+    "卡片出现后实际点击一次，等待complete并与站点源文件逐字节比较。"
+   ],
+   "expected": "保留URL passthrough与既有下载入口，单次成功、内容相同，无native分块改写。",
+   "actual": "一个完成下载，8193字节，SHA-256 7e3691790cd64b19d4edb1a80e988214515abeb53aa0f34ffbfe4b4bf405d120；与静态站源逐字节一致，0次native文件请求。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-10-ui.json",
+     "caption": "T-10-ui.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-10-1.png",
+     "caption": "T-10-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-10-2.png",
+     "caption": "T-10-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-11",
+   "title": "非文件文本附件卡片冒烟",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "以既有data-text-file格式建立内容为PHI-599 text smoke加换行的测试附件。",
+    "实际点击卡片下载，等待complete并读取保存内容。"
+   ],
+   "expected": "原文本、文件名与MIME保持，不请求服务文件Range。",
+   "actual": "complete，19字节，内容逐字节等于PHI-599 text smoke\\n，hash e36d48e35a0d44d7cb45fc8c9cd169929d73b98163573e5ae972471a451065e6；0次文件请求。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-11-ui.json",
+     "caption": "T-11-ui.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-1.png",
+     "caption": "T-11-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-11-2.png",
+     "caption": "T-11-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-12",
+   "title": "native 图片自动渲染与 URL release",
+   "priority": "P1",
+   "mode": "gui",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "在配套native模式打开已存PNG聊天，不点击图片，等待img.complete并读取自然尺寸/可见性。",
+    "实际点击New Chat离开当前聊天，观察已生成URL的revoke和downloads。"
+   ],
+   "expected": "图片可见、17×13、native读取保留MIME，无主动下载；离开后按原语义释放已完成URL。",
+   "actual": "1次native请求，图片complete、17×13且可见；0 downloads，离开后观察同一Blob URL revoke，released=true。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "attempt1/T-12-ui.json",
+     "caption": "首次QA只改history未触发应用切换，release断言失败",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "attempt1/T-12-1.png",
+     "caption": "首次图片渲染状态",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "image",
+     "path": "attempt1/T-12-2.png",
+     "caption": "首次驱动未实际离开聊天的状态",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-12-ui.json",
+     "caption": "T-12-ui.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-12-1.png",
+     "caption": "T-12-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-12-2.png",
+     "caption": "T-12-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": "改为实际鼠标点击New Chat后重新执行完整用例并通过；未修改产品。"
+  },
+  {
+   "id": "T-13",
+   "title": "401 一次刷新保留同一区间",
+   "priority": "P1",
+   "mode": "auto",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "运行T-4命令与extra-client.test.ts的首块401用例。",
+    "首次首块回401、刷新成功，校验重试Range相同、后续使用刷新token、完整hash和一次下载；日志仅含虚构认证代号。"
+   ],
+   "expected": "仅既有一次刷新重试，Range不丢，后续采用刷新后的token，文件完整。",
+   "actual": "首块401后请求序列为0-262143、0-262143、262144-524287、524288-599999；测试断言后3次使用刷新token，hash与源相同且一次下载。合跑35/35。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "log",
+     "path": "T-4-T-13.log",
+     "caption": "T-4-T-13.log",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-1.png",
+     "caption": "T-13-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-13-2.png",
+     "caption": "T-13-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-14",
+   "title": "普通上传默认策略冒烟",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "使用内存中的Canary stag测试bearer对租约selfhost的/api/v1/files/upload发送合法小text/plain multipart，仅file字段，不带大小策略覆盖。",
+    "读取返回的原文件URL，比较内容、文件名、MIME及hash。"
+   ],
+   "expected": "普通默认策略成功，元信息和内容正确，无真实通知。",
+   "actual": "上传200；仅file字段、无policy覆盖；回读30字节，text/plain和phi599-upload.txt保留，SHA-256 b89b4bc94efab33de0d2f0df9b25c6b4d1b22ef891aec5703ecb646e7962def5与源一致。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "attempt1/T-14-setup.json",
+     "caption": "首次环境准备未附bearer，401；按合法前置补测试bearer后复跑",
+     "attempt": 1,
+     "outcome": "fail"
+    },
+    {
+     "type": "text",
+     "path": "T-14.json",
+     "caption": "T-14.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-1.png",
+     "caption": "T-14-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-14-2.png",
+     "caption": "T-14-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  },
+  {
+   "id": "T-15",
+   "title": "普通 JSON native 请求冒烟",
+   "priority": "P1",
+   "mode": "api",
+   "ac": "FR-5",
+   "precondition": "目标SHA、隔离测试存储及配套模式已核对；完整前置与环境命令见test-plan.md的S9 r1补全。",
+   "steps": [
+    "通过真实APIClient.getChats→serviceFetch→native broker调用只读/api/v1/chats。",
+    "核对成功JSON的chats数组、hasMore布尔字段及请求无Range。"
+   ],
+   "expected": "原JSON成功可解析，不被文件分块器处理或附Range。",
+   "actual": "一次/phi-agent/api/v1/chats请求，Range=null；JSON可解析、chats为数组、hasMore为布尔值。",
+   "status": "pass",
+   "uses_chat": false,
+   "evidence": [
+    {
+     "type": "text",
+     "path": "T-15.json",
+     "caption": "T-15.json",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-1.png",
+     "caption": "T-15-1.png",
+     "attempt": 2,
+     "outcome": "pass"
+    },
+    {
+     "type": "image",
+     "path": "T-15-2.png",
+     "caption": "T-15-2.png",
+     "attempt": 2,
+     "outcome": "pass"
+    }
+   ],
+   "bugs": [],
+   "notes": ""
+  }
+ ],
+ "bugs": [],
+ "known_issues": []
+}

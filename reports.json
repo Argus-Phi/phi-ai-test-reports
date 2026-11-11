@@ -382,5 +382,22 @@
     "total": 3
    }
   }
+ ],
+ "PHI-599": [
+  {
+   "round": 1,
+   "kind": "test",
+   "verdict": "pass",
+   "title": "原生附件按字节区间分块下载，避开 broker 整包响应限制",
+   "sha": "915ee3f3fd2bc1311a3bde40adae91dc19421fa9",
+   "generated_at": "2026-11-11T12:32:16.942075+00:00",
+   "counts": {
+    "pass": 15,
+    "fail": 0,
+    "blocked": 0,
+    "skipped": 0,
+    "total": 15
+   }
+  }
  ]
 }

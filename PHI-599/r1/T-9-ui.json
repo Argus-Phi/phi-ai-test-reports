@@ -1,0 +1,36 @@
+{
+  "caseId": "T-9",
+  "requests": [],
+  "download": {
+    "state": "complete",
+    "filename": "phi599-range.bin",
+    "fileSize": 600000,
+    "bytesReceived": 600000,
+    "source": {
+      "protocol": "http:",
+      "host": "127.0.0.1:18101",
+      "pathname": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3"
+    }
+  },
+  "beforeClick": {
+    "fileRequests": 0,
+    "downloads": 0
+  },
+  "click": 2593.600000023842,
+  "urls": [],
+  "revokes": [],
+  "downloads": [
+    {
+      "id": 5,
+      "time": 2604.5,
+      "urlType": "http"
+    }
+  ],
+  "active": 0,
+  "maxActive": 0,
+  "disk": {
+    "size": 600000,
+    "sha256": "3eec6f2df36b88a1a97c03224253e9d0c59f2696ff7b145203a5d43c736bc7e0"
+  },
+  "result": "pass"
+}

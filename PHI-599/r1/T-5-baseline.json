@@ -1,0 +1,19 @@
+{
+  "caseId": "T-5",
+  "mode": "baseline",
+  "size": 402915329,
+  "expectedSha256": "f1680a724e8655ddf2a7f2400d537d2bf29262c69d913c30662e25bc65d5950c",
+  "ranges": [
+    {
+      "range": null,
+      "status": 502,
+      "length": 89,
+      "contentLength": "89",
+      "mime": "application/json"
+    }
+  ],
+  "maxActive": 1,
+  "brokerError": "{\"code\":\"E_BROKER_RESPONSE_TOO_LARGE\",\"message\":\"response exceeds the configured limit\"}\n",
+  "error": "APIError: Failed to fetch file: HTTP 502",
+  "result": "expected failure"
+}

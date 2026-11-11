@@ -1,0 +1,16 @@
+{
+  "reads": 1538,
+  "closes": 1538,
+  "wholeFileReads": 0,
+  "totalBytes": 402915329,
+  "first": {
+    "position": 0,
+    "requested": 262144,
+    "bytesRead": 262144
+  },
+  "last": {
+    "position": 402915328,
+    "requested": 1,
+    "bytesRead": 1
+  }
+}

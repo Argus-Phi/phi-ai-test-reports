@@ -1,0 +1,8 @@
+{
+  "caseId": "T-14",
+  "stage": "precondition setup",
+  "status": 401,
+  "error": "HTTP Error 401: Unauthorized",
+  "cause": "Initial QA request omitted bearer; corrected request used Canary staging test token in memory.",
+  "product_bug": false
+}

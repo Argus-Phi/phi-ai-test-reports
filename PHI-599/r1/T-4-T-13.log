@@ -1,0 +1,220 @@
+TAP version 13
+# Subtest: missing Content-Range
+ok 1 - missing Content-Range
+  ---
+  duration_ms: 11.642416
+  type: 'test'
+  ...
+# Subtest: nonnumeric Content-Range
+ok 2 - nonnumeric Content-Range
+  ---
+  duration_ms: 2.684416
+  type: 'test'
+  ...
+# Subtest: unsafe Content-Range
+ok 3 - unsafe Content-Range
+  ---
+  duration_ms: 3.74975
+  type: 'test'
+  ...
+# Subtest: missing Content-Length
+ok 4 - missing Content-Length
+  ---
+  duration_ms: 2.583625
+  type: 'test'
+  ...
+# Subtest: empty MIME
+ok 5 - empty MIME
+  ---
+  duration_ms: 3.112791
+  type: 'test'
+  ...
+# Subtest: shifted endpoint
+ok 6 - shifted endpoint
+  ---
+  duration_ms: 2.478542
+  type: 'test'
+  ...
+# Subtest: first 416 with nonzero total is not empty success
+ok 7 - first 416 with nonzero total is not empty success
+  ---
+  duration_ms: 0.246875
+  type: 'test'
+  ...
+# Subtest: auth invalidated before first request stops all requests
+ok 8 - auth invalidated before first request stops all requests
+  ---
+  duration_ms: 0.090792
+  type: 'test'
+  ...
+# Subtest: auth invalidated after validated final body and before URL prevents URL
+ok 9 - auth invalidated after validated final body and before URL prevents URL
+  ---
+  duration_ms: 3.173417
+  type: 'test'
+  ...
+# Subtest: first chunk 401 refresh retains original Range and completes hash
+ok 10 - first chunk 401 refresh retains original Range and completes hash
+  ---
+  duration_ms: 3.896875
+  type: 'test'
+  ...
+# Subtest: auth invalidated after first chunk validation stops next request
+ok 11 - auth invalidated after first chunk validation stops next request
+  ---
+  duration_ms: 1.304958
+  type: 'test'
+  ...
+# Subtest: fetchWithAuthRetry uses the injected transport and preserves 401 refresh retry
+ok 12 - fetchWithAuthRetry uses the injected transport and preserves 401 refresh retry
+  ---
+  duration_ms: 9.162
+  type: 'test'
+  ...
+# Subtest: broker PDF requests a named Chrome download and retains its Blob until accepted
+ok 13 - broker PDF requests a named Chrome download and retains its Blob until accepted
+  ---
+  duration_ms: 0.909666
+  type: 'test'
+  ...
+# Subtest: legacy service URLs also use the download API without asAttachment or navigation
+ok 14 - legacy service URLs also use the download API without asAttachment or navigation
+  ---
+  duration_ms: 0.146666
+  type: 'test'
+  ...
+# Subtest: external, data and borrowed Blob URLs need no file service and are not revoked
+ok 15 - external, data and borrowed Blob URLs need no file service and are not revoked
+  ---
+  duration_ms: 0.246125
+  type: 'test'
+  ...
+# Subtest: text attachments use the same API and release their owned Blob on failure
+ok 16 - text attachments use the same API and release their owned Blob on failure
+  ---
+  duration_ms: 0.38875
+  type: 'test'
+  ...
+# Subtest: download rejection releases broker data without a navigation fallback
+ok 17 - download rejection releases broker data without a navigation fallback
+  ---
+  duration_ms: 0.330375
+  type: 'test'
+  ...
+# Subtest: missing API, missing service, load failure and stale auth cannot start a download
+ok 18 - missing API, missing service, load failure and stale auth cannot start a download
+  ---
+  duration_ms: 0.226417
+  type: 'test'
+  ...
+# Subtest: filenames cannot become paths and unnamed files let Chrome infer a name
+ok 19 - filenames cannot become paths and unnamed files let Chrome infer a name
+  ---
+  duration_ms: 0.134125
+  type: 'test'
+  ...
+# Subtest: native download assembles validated binary Blobs before submitting downloads
+ok 20 - native download assembles validated binary Blobs before submitting downloads
+  ---
+  duration_ms: 13.249959
+  type: 'test'
+  ...
+# Subtest: 401 retries the same range once and adopts the refreshed token
+ok 21 - 401 retries the same range once and adopts the refreshed token
+  ---
+  duration_ms: 3.808292
+  type: 'test'
+  ...
+# Subtest: empty files and inline images retain their MIME and release contract
+ok 22 - empty files and inline images retain their MIME and release contract
+  ---
+  duration_ms: 1.167167
+  type: 'test'
+  ...
+# Subtest: rejects whole response without a partial download or further requests
+ok 23 - rejects whole response without a partial download or further requests
+  ---
+  duration_ms: 4.161958
+  type: 'test'
+  ...
+# Subtest: rejects duplicate range without a partial download or further requests
+ok 24 - rejects duplicate range without a partial download or further requests
+  ---
+  duration_ms: 2.786375
+  type: 'test'
+  ...
+# Subtest: rejects shifted range without a partial download or further requests
+ok 25 - rejects shifted range without a partial download or further requests
+  ---
+  duration_ms: 2.456083
+  type: 'test'
+  ...
+# Subtest: rejects changed total without a partial download or further requests
+ok 26 - rejects changed total without a partial download or further requests
+  ---
+  duration_ms: 2.462166
+  type: 'test'
+  ...
+# Subtest: rejects truncated body without a partial download or further requests
+ok 27 - rejects truncated body without a partial download or further requests
+  ---
+  duration_ms: 1.589917
+  type: 'test'
+  ...
+# Subtest: rejects wrong length without a partial download or further requests
+ok 28 - rejects wrong length without a partial download or further requests
+  ---
+  duration_ms: 2.696875
+  type: 'test'
+  ...
+# Subtest: rejects changed MIME without a partial download or further requests
+ok 29 - rejects changed MIME without a partial download or further requests
+  ---
+  duration_ms: 2.815708
+  type: 'test'
+  ...
+# Subtest: rejects unsatisfiable range without a partial download or further requests
+ok 30 - rejects unsatisfiable range without a partial download or further requests
+  ---
+  duration_ms: 3.699125
+  type: 'test'
+  ...
+# Subtest: rejects transport error without a partial download or further requests
+ok 31 - rejects transport error without a partial download or further requests
+  ---
+  duration_ms: 1.470625
+  type: 'test'
+  ...
+# Subtest: invalidating auth at response prevents partial download
+ok 32 - invalidating auth at response prevents partial download
+  ---
+  duration_ms: 2.548208
+  type: 'test'
+  ...
+# Subtest: invalidating auth at body prevents partial download
+ok 33 - invalidating auth at body prevents partial download
+  ---
+  duration_ms: 1.243
+  type: 'test'
+  ...
+# Subtest: invalidating auth at url prevents partial download
+ok 34 - invalidating auth at url prevents partial download
+  ---
+  duration_ms: 2.897917
+  type: 'test'
+  ...
+# Subtest: ordinary JSON still crosses the native message boundary
+ok 35 - ordinary JSON still crosses the native message boundary
+  ---
+  duration_ms: 0.450083
+  type: 'test'
+  ...
+1..35
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 637.386542

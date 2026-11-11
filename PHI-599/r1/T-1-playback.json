@@ -1,0 +1,22 @@
+{
+  "filename": "twitter-2119586846657454152-2119584955290595328.mp4",
+  "start": {
+    "readyState": 4,
+    "error": null,
+    "width": 2560,
+    "height": 1440,
+    "currentTime": 0.02322,
+    "frames": 6,
+    "paused": false
+  },
+  "end": {
+    "readyState": 4,
+    "error": null,
+    "width": 2560,
+    "height": 1440,
+    "currentTime": 1.989545,
+    "frames": 104,
+    "paused": false
+  },
+  "result": "pass"
+}

@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "tweetId": "2119586846657454152",
+  "videos": [
+    {
+      "url": "https://video.twimg.com/amplify_video/2119584955290595328/vid/avc1/2560x1440/EwmqnwcpEXyYb2Oc.mp4?tag=29",
+      "bitrate": 10368000,
+      "filename": "twitter-2119586846657454152-2119584955290595328.mp4",
+      "mediaId": "2119584955290595328"
+    }
+  ],
+  "skipped": 0
+}

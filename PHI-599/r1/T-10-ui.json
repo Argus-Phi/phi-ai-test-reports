@@ -1,0 +1,31 @@
+{
+  "caseId": "T-10",
+  "requests": [],
+  "download": {
+    "state": "complete",
+    "filename": "phi599-external.bin",
+    "fileSize": 8193,
+    "bytesReceived": 8193
+  },
+  "beforeClick": {
+    "fileRequests": 0,
+    "downloads": 0
+  },
+  "click": 2575.899999976158,
+  "urls": [],
+  "revokes": [],
+  "downloads": [
+    {
+      "id": 4,
+      "time": 2589.100000023842,
+      "urlType": "http"
+    }
+  ],
+  "active": 0,
+  "maxActive": 0,
+  "disk": {
+    "size": 8193,
+    "sha256": "7e3691790cd64b19d4edb1a80e988214515abeb53aa0f34ffbfe4b4bf405d120"
+  },
+  "result": "pass"
+}

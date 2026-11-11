@@ -1,0 +1,110 @@
+{
+  "caseId": "T-3",
+  "result": "pass",
+  "rows": [
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=600000-600001",
+      "status": 416,
+      "contentRange": "bytes */600000",
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": "application/octet-stream",
+      "disposition": "inline; filename=\"phi599-range.bin\"; filename*=UTF-8''phi599-range.bin",
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=10-9",
+      "status": 416,
+      "contentRange": null,
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": null,
+      "disposition": null,
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=0-1,4-5",
+      "status": 416,
+      "contentRange": null,
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": null,
+      "disposition": null,
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=0-",
+      "status": 416,
+      "contentRange": null,
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": null,
+      "disposition": null,
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=-1",
+      "status": 416,
+      "contentRange": null,
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": null,
+      "disposition": null,
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=a-b",
+      "status": 416,
+      "contentRange": null,
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": null,
+      "disposition": null,
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0be-768b-a550-aa3468dc82a3",
+      "range": "bytes=9007199254740992-9007199254740993",
+      "status": 416,
+      "contentRange": null,
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": null,
+      "disposition": null,
+      "bodyLength": 0
+    },
+    {
+      "url": "/api/v1/files/00000000-0000-7000-8000-000000000000",
+      "range": "bytes=0-262143",
+      "status": 404,
+      "contentRange": null,
+      "contentLength": "21",
+      "acceptRanges": null,
+      "mime": "application/json",
+      "disposition": null,
+      "bodyLength": 21
+    },
+    {
+      "url": "/api/v1/files/01a1ca83-a0a6-70df-ad26-4b6f668ae3e3",
+      "range": "bytes=0-262143",
+      "status": 416,
+      "contentRange": "bytes */0",
+      "contentLength": "0",
+      "acceptRanges": "bytes",
+      "mime": "application/octet-stream",
+      "disposition": "inline; filename=\"phi599-empty.bin\"; filename*=UTF-8''phi599-empty.bin",
+      "bodyLength": 0
+    },
+    {
+      "emptyBlobSize": 0,
+      "mime": "application/octet-stream",
+      "cardDownload": "pending dedicated card step"
+    }
+  ]
+}

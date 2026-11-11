@@ -1,0 +1,44 @@
+{
+  "caseId": "T-12",
+  "requests": [
+    {
+      "path": "/phi-agent/api/v1/files/01a1ca87-910e-7762-ba8e-f708219c5459",
+      "range": "bytes=0-262143",
+      "started": 446.39999997615814,
+      "status": 206,
+      "length": 81,
+      "headers": {
+        "content-disposition": "inline; filename=\"phi599-image.png\"; filename*=UTF-8''phi599-image.png",
+        "content-length": "81",
+        "content-range": "bytes 0-80/81",
+        "content-type": "image/png"
+      },
+      "finished": 454.2000000476837
+    }
+  ],
+  "download": null,
+  "imageState": [
+    {
+      "src": "blob:chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/0e979b85-80d7-4d53-a347-ff648c48990d",
+      "complete": true,
+      "width": 17,
+      "height": 13,
+      "visible": true
+    }
+  ],
+  "urls": [
+    {
+      "url": "blob:chrome-extension://fenmfiepnpdlhplemgijlimpbebebljo/0e979b85-80d7-4d53-a347-ff648c48990d",
+      "size": 81,
+      "type": "image/png",
+      "time": 454.60000002384186
+    }
+  ],
+  "revokes": [],
+  "downloads": [],
+  "active": 0,
+  "maxActive": 1,
+  "released": false,
+  "result": "fail",
+  "error": "Error: Completed image URL was not released after leaving chat"
+}
